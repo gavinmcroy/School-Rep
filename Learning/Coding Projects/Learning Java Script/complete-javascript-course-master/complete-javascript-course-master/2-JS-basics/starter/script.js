@@ -12,7 +12,6 @@ if (fullAge = true) {
 }
 var job = "Teacher ";
 console.log(job)
-*/
 
 //---Variable Mutation and Coercion
 /*var firstName = "john";
@@ -60,7 +59,6 @@ var fullAge = 18;
 
 var isfullAge = now - yearJohn >= fullAge
 
-
 //---Coding Challenge 1
 var markHeight = prompt("Mark Enter your Hieght");
 var markWeight = prompt("Mark now Enter your Weight ");
@@ -103,7 +101,7 @@ if (bmiMark > bmiJohn) {
 } else {
   console.log("john's bmi is higher ");
 }
-*/
+
 /**************Boolean Logic**************
 var firstName = "John"
 var age = 16;
@@ -190,26 +188,21 @@ if (hieght == '23') {
   console.log("the == operator does type coercion")
 }
 */
-var maryTeam = 97 + 134 + 105;
-var johnsTeam = 89 + 120 + 103;
-var mikeTeam = 116 + 94 + 123;
-var maryTeamAverage = maryTeam / 3;
-var johnTeamAverage = johnsTeam / 3;
-var mikeTeamAverage = mikeTeam / 3;
-console.log("Mary Score: " + maryTeamAverage);
-console.log("Mikes Score: " + mikeTeamAverage);
-console.log("Johns Score: " + johnTeamAverage);
+var maryTeam = 97 + 134 + 105
+var johnsTeam = 89 + 120 + 103
+var mikeTeam = 116 + 94 + 123
+var maryTeamAverage = maryTeam / 3
+var johnTeamAverage = johnsTeam / 3
+var mikeTeamAverage = mikeTeam / 3
+console.log('Mary Score: ' + maryTeamAverage)
+console.log('Mikes Score: ' + mikeTeamAverage)
+console.log('Johns Score: ' + johnTeamAverage)
 if (johnTeamAverage > mikeTeamAverage && johnTeamAverage > maryTeamAverage) {
-  console.log("Johns Team Wins with " + johnTeamAverage + " points!")
-} else if (johnTeamAverage === mikeTeamAverage || johnTeamAverage == maryTeamAverage || mikeTeamAverage == maryTeamAverage) {
-  console.log("The Game is a Tie! ");
+  console.log('Johns Team Wins with ' + johnTeamAverage + ' points!')
+} else if (johnTeamAverage === mikeTeamAverage || johnTeamAverage === maryTeamAverage || mikeTeamAverage === maryTeamAverage) {
+  console.log('The Game is a Tie! ')
 } else if (johnTeamAverage < mikeTeamAverage && maryTeamAverage < mikeTeamAverage) {
-  console.log("Mikes Team Wins with " + mikeTeamAverage + " points!");
+  console.log('Mikes Team Wins with ' + mikeTeamAverage + ' points!')
 } else if (maryTeamAverage > mikeTeamAverage && maryTeamAverage > johnTeamAverage) {
-  console.log("Mary Wins with " + maryTeamAverage + " points!");
+  console.log('Mary Wins with ' + maryTeamAverage + ' points!')
 }
-
-
-
-
-//-----
