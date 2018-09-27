@@ -1,6 +1,7 @@
 /**************************
  *Variables and Data Types
-
+ */
+/*
 var firstName = "Gavin ";
 console.log(firstName);
 var lastName = "Mcroy";
@@ -187,7 +188,7 @@ if (hieght || hieght == 0) {
 if (hieght == '23') {
   console.log("the == operator does type coercion")
 }
-*/
+
 var maryTeam = 97 + 134 + 105
 var johnsTeam = 89 + 120 + 103
 var mikeTeam = 116 + 94 + 123
@@ -206,3 +207,12 @@ if (johnTeamAverage > mikeTeamAverage && johnTeamAverage > maryTeamAverage) {
 } else if (maryTeamAverage > mikeTeamAverage && maryTeamAverage > johnTeamAverage) {
   console.log('Mary Wins with ' + maryTeamAverage + ' points!')
 }
+*/
+
+function calculateAge(birthYear) {
+  birthYear = prompt("Enter your Birth Year");
+  return 2018 - birthYear;
+}
+
+ageJohn = calculateAge();
+console.log(ageJohn);
