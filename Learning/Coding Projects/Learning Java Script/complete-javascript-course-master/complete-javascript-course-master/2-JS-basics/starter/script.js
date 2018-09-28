@@ -208,38 +208,156 @@ if (johnTeamAverage > mikeTeamAverage && johnTeamAverage > maryTeamAverage) {
   console.log('Mary Wins with ' + maryTeamAverage + ' points!')
 }
 
-*/
+
 function calculateAge(birthYear) {
   return 2018 - birthYear;
 }
 
 ageJohn = calculateAge();
 
-function yearsUntilRetirement(year,firstName){
-    var age = calculateAge(year);
-    var retirement = 65 - age;
-    if (retirement>0){
-      console.log(firstName+' retires in '+retirement+' years');
-    }
-    else if(retirement<0){
-      console.log(firstName+' is already retired ');
-    }
+function yearsUntilRetirement(year, firstName) {
+  var age = calculateAge(year);
+  var retirement = 65 - age;
+  if (retirement > 0) {
+    console.log(firstName + ' retires in ' + retirement + ' years');
+  } else if (retirement < 0) {
+    console.log(firstName + ' is already retired ');
+  }
 }
 
-yearsUntilRetirement(1990,'John');
-yearsUntilRetirement(1970,'Rick');
-yearsUntilRetirement(1930,'Mike');
-function test(add1,add2){
-  return add1+add2;
+yearsUntilRetirement(1990, 'John');
+yearsUntilRetirement(1970, 'Rick');
+yearsUntilRetirement(1930, 'Mike');
+
+function test(add1, add2) {
+  return add1 + add2;
 }
 
-var addValue = test(543343,3434);
+var addValue = test(543343, 3434);
 console.log(addValue);
 
-function addition(){
+function addition() {
   var add = prompt("enter a number ");
   var add1 = prompt("enter a nunber ");
-  return add+add1;
+  return add + add1;
 }
 var final = addition();
-console.log (final);
+console.log(final);
+
+function subtraction(subValue1, subValue2) {
+  return subValue1 - subValue2;
+}
+var subStore = subtraction(20, 5);
+console.log(subStore);
+var year = 2018
+
+function retirement(name, birthDate) {
+  name = prompt("Enter your name ")
+  birthDate = prompt("When were you born ");
+  var retireDay = year - birthDate;
+  if (retireDay < 70) {
+    retireDay = 70 - retireDay;
+    console.log(name + " has " + retireDay + " years left until retirement")
+  } else {
+    console.log(name + " is already Retired ");
+  }
+}
+retirement();
+var yearPresent = 2018;
+
+function familyInfo() {
+  var fatherName = prompt("Enter your Dads Name ");
+  var fatherBirth = prompt("Enter your Dads birthYear ");
+  var ageNow = yearPresent - fatherBirth;
+  if (ageNow >= 30 && ageNow < 50) {
+    console.log("Bruh your dad is young");
+  } else if (ageNow >= 50 && ageNow < 70) {
+    console.log("Bruh your dad is old");
+  } else if (ageNow >= 70 && ageNow < 90) {
+    console.log("Bruh your dads dead");
+  }
+}
+familyInfo();
+
+
+function multiply(mult1, mult2) {
+  return mult1 * mult2;
+}
+var display = multiply(15, 5.69);
+console.log(display);
+
+//---Function Statements and Expressions
+var whatDoYouDo = function(job, firstname) {
+  return firstname;
+}
+console.log(whatDoYouDo(12, "Gavin"));
+
+var jobList = function(firstName, job) {
+  switch (job) {
+    case 'teacher':
+      return firstName + ' teaches kids how to program! ';
+    case 'driver':
+      return firstName + ' drives kids around! ';
+    case 'hoe':
+      return firstName + ' no reply ';
+  }
+}
+console.log(jobList('Dave', 'teacher'));
+
+var names = ['John', 'Mark', 'Jane', 'Josh'];
+names[names.length] = 'Mary'
+var years = new Array(1990, 1960, 1948);
+console.log(names);
+console.log(names.length);
+names[1] = 'ben';
+console.log(names[1]);
+
+var johnInfo = ['John', 'Smith', 1990, 'designer', false];
+//---Adds a value at the end of the Array
+johnInfo.push('blue');
+//---Adds a value at the start of the Array
+johnInfo.unshift('Mr. ');
+//---Removes a value from the end of the Array
+johnInfo.pop();
+//---Removes a value from the begginning of a Array
+johnInfo.shift();
+
+console.log(johnInfo);
+//---Gives position of data point in array
+console.log(johnInfo.indexOf(1990));
+
+var isDesigner = johnInfo.indexOf('designer') === -1 ? 'John is not a designer ' : 'John is a designer';
+console.log(isDesigner);
+*/
+var billFinal = [0, 0, 0];
+var billValue = [169, 48, 248];
+var tipValue = [0, 0, 0];
+var i = 0;
+var determineTip = function() {
+  while (i < 3) {
+    if (billValue[i] <= 50) {
+      tipValue[i] = billValue[i] * .2;
+      billFinal[i] = tipValue[i] + billValue[i];
+      i++;
+    } else if (billValue[i] > 50 && billValue[i] <= 200) {
+      tipValue[i] = billValue[i] * .15;
+      billFinal[i] = tipValue[i] + billValue[i];
+      i++;
+    } else if (billValue[i] > 200) {
+      tipValue[i] = billValue[i] * .1;
+      billFinal[i] = tipValue[i] + billValue[i];
+      i++;
+    } else {
+      i++;
+    }
+  }
+}
+determineTip();
+console.log(billValue);
+console.log(tipValue);
+console.log(billFinal);
+
+
+
+
+///----
