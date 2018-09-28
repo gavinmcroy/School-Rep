@@ -6,13 +6,13 @@
 #include <random>
 using namespace std;
 //---Determines what party members are Alive and if all family members will survive a attack
-bool momAlive {true};
-bool dadAlive {true};
-bool sisterAlive {true};
-bool brotherAlive {true};
-bool familySurvive {true};
+bool momAlive = true;
+bool dadAlive = true;
+bool sisterAlive = true;
+bool brotherAlive = true;
+bool familySurvive = true;
 //---Determines what game state the game will be
-int gamestate {0};
+int gamestate = 0;
 //---Stores the Chance of a Animal Attack
 int animalChanceStorage;
 //---Stores the Chance of a Ambush while traveling forward
@@ -20,15 +20,15 @@ int travelForwardChanceStorage;
 //---Tmp
 int p1;
 //---Runs the Timer for all events
-long int timer {0};
+long int timer = 0;
 //---is a returning value for TrailSwitch to determine if the switch was defaulted
 bool cont = true;
 //---Total Distance To be traveled
-int startDistance {2000};
+int startDistance = 2000;
 //---Starting Day for trail
-int day {1};
+int day = 1;
 //---Starting Currency of the Game
-int currencyStart {1000};
+int currencyStart = 1000;
 //---Stores Event Choices
 int eventChoice;
 //---stores the choice from menu (1,2,3,4)
@@ -38,9 +38,9 @@ string pmChoiceDad,pmChoiceMom,pmChoiceBrother,pmChoiceSister;
 //---Determines if game moves onto second part
 char continueTrail;
 //---Set Start Amount of Party Members
-int partyMembersStart {4};
+int partyMembersStart = 4;
 //---Start Set Amount of All Items
-int spareTire,food,bullets,gun,oxen {0};
+int spareTire,food,bullets,gun,oxen =0;
 //---Function that displays Menu
 void menuStart(); //---Line 93
 //---Runs a timer to keep text displayed then runs the random event Generator
@@ -209,7 +209,7 @@ void trailEvents(){
         cout<<"3. Hunt and Gather Food"<<endl;
 }
 int trailSwitch(){
-        int distanceTraveled {25};
+        int distanceTraveled = 25;
         int startSpeed = 25;
         int tmpOxen=oxen;
         switch(eventChoice) {

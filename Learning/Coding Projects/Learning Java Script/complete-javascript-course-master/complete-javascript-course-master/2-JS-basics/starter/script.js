@@ -207,12 +207,39 @@ if (johnTeamAverage > mikeTeamAverage && johnTeamAverage > maryTeamAverage) {
 } else if (maryTeamAverage > mikeTeamAverage && maryTeamAverage > johnTeamAverage) {
   console.log('Mary Wins with ' + maryTeamAverage + ' points!')
 }
-*/
 
+*/
 function calculateAge(birthYear) {
-  birthYear = prompt("Enter your Birth Year");
   return 2018 - birthYear;
 }
 
 ageJohn = calculateAge();
-console.log(ageJohn);
+
+function yearsUntilRetirement(year,firstName){
+    var age = calculateAge(year);
+    var retirement = 65 - age;
+    if (retirement>0){
+      console.log(firstName+' retires in '+retirement+' years');
+    }
+    else if(retirement<0){
+      console.log(firstName+' is already retired ');
+    }
+}
+
+yearsUntilRetirement(1990,'John');
+yearsUntilRetirement(1970,'Rick');
+yearsUntilRetirement(1930,'Mike');
+function test(add1,add2){
+  return add1+add2;
+}
+
+var addValue = test(543343,3434);
+console.log(addValue);
+
+function addition(){
+  var add = prompt("enter a number ");
+  var add1 = prompt("enter a nunber ");
+  return add+add1;
+}
+var final = addition();
+console.log (final);
