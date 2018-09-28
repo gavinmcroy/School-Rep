@@ -66,7 +66,7 @@ enum diseaseQuote {A,A2,A3,A4,A5,A6,A7};
 //---Function that grabs which disease the player will catch;
 string getDiseaseQuote(diseaseQuote);
 //---Stores the possible items lost from a thief attack
-enum thiefRansackConsequence {T,T1,T2,T3,T4,T5};
+enum thiefRansackConsequence {T,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10};
 //---Function that grabs what item will be lost
 string thiefRansack(thiefRansackConsequence);
 //---Stores the possible fear quotes from something approaching
