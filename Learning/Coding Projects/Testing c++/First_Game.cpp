@@ -69,6 +69,10 @@ string getDiseaseQuote(diseaseQuote);
 enum thiefRansackConsequence {T,T1,T2,T3,T4,T5};
 //---Function that grabs what item will be lost
 string thiefRansack(thiefRansackConsequence);
+//---Stores the possible fear quotes from something approaching
+enum travelForwardFearApproachingQuote {X,X1,X2,X3,X4,X5,X6,X7,X8};
+//---Function that calls the possible fear quotes from something approaching and uses them
+string travelForwardFearApproaching(travelForwardFearApproachingQuote);
 //---Function that displays Party Member names Menu
 void partyMembersName(); //---Line 149
 //---Controls Trails Options (ex Campout vs Push forward)
@@ -100,9 +104,11 @@ int main(){
         if(continueTrail=='y' || continueTrail=='Y') {
                 system("cls");
                 cout<<"Creating Trail..."<<endl;
+                universalTimer();
                 //---Checks input for trailevents and makes sure its a valid answer
                 do {
                         do {
+                                cont = true;
                                 trailEvents();
                                 while(!(cin>>eventChoice)) {
                                         cin.clear();
@@ -112,7 +118,6 @@ int main(){
                                 }
                         } while(cont==false);
                         trailSwitch();
-                        // consequenceCampOut();
                 } while(startDistance>0 && partyMembersStart>0);
                 if(partyMembersStart==0) {
                         cout<<"All Party Members Dead You Lost ! "<<endl;
@@ -224,7 +229,7 @@ int trailSwitch(){
                 break;
         case 2:
                 system("cls");
-                cout<<"Traveling Forward..."<<endl;
+                cout<<"The Wagon is Traveling Forward..."<<endl;
                 universalTimer();
                 cont = true;
                 randomEventControllerTravelForward();
@@ -247,6 +252,7 @@ int trailSwitch(){
                 break;
         default:
                 cont=false;
+                system("cls");
                 break;
         }
         return true;
@@ -433,29 +439,56 @@ void consequenceTravelForward(){
                 int p4 = rand()%7;
                 //---Determines the 5 possible thief outcomes
                 int p5 = rand()%5;
+                //---Determines the 8 possible quotes for bandits approaching
+                int p6 = rand()%8;
                 if(distributionInteger(generator)==0 && dadAlive==true) {
+                        cout<<"The Wagon has been stopped!.. "<<endl;
+                        universalTimer();
+                        cout<<"You see a group approaching rapidly..."<<travelForwardFearApproaching(travelForwardFearApproachingQuote(p6))<<endl;
+                        universalTimer();
+                        universalTimer();
                         cout<<pmChoiceDad<<getDeathQuoteCampOut(deathQuoteCampOut(p3))<< endl;
+                        universalTimer();
                         dadAlive=false;
                         partyMembersStart--;
-
                 }
                 else if(distributionInteger(generator)==1 && momAlive==true ) {
+                        cout<<"The Wagon has been stopped!.. "<<endl;
+                        universalTimer();
+                        cout<<"You see something approaching rapidly..."<<travelForwardFearApproaching(travelForwardFearApproachingQuote(p6))<<endl;
+                        universalTimer();
+                        universalTimer();
                         cout<<pmChoiceMom<<getDeathQuoteCampOut(deathQuoteCampOut(p3))<<endl;
+                        universalTimer();
                         momAlive=false;
                         partyMembersStart--;
                 }
                 else if(distributionInteger(generator)==2 && sisterAlive==true ) {
+                        cout<<"The Wagon has been stopped!.. "<<endl;
+                        universalTimer();
+                        cout<<"You see something approaching rapidly..."<<travelForwardFearApproaching(travelForwardFearApproachingQuote(p6))<<endl;
+                        universalTimer();
+                        universalTimer();
                         cout<<pmChoiceSister<<getDeathQuoteCampOut(deathQuoteCampOut(p3))<<endl;
+                        universalTimer();
                         sisterAlive=false;
                         partyMembersStart--;
                 }
                 else if(distributionInteger(generator)==3 && brotherAlive==true ) {
+                        cout<<"The Wagon has been stopped!.. "<<endl;
+                        universalTimer();
+                        cout<<"You something approaching rapidly..."<<travelForwardFearApproaching(travelForwardFearApproachingQuote(p6))<<endl;
+                        universalTimer();
+                        universalTimer();
                         cout<<pmChoiceBrother<<getDeathQuoteCampOut(deathQuoteCampOut(p3))<<endl;
+                        universalTimer();
                         brotherAlive=false;
                         partyMembersStart--;
                 }
                 else if(distributionInteger(generator)==4) {
-                        cout<<"A thief ransacked you during the night! " <<endl;
+                        cout<<"you hear rustling in the wagon... "<<endl;
+                        universalTimer();
+                        cout<<"A thief ransacked the wagon! " <<endl;
                         cout<<thiefRansack(thiefRansackConsequence(p5))<<endl;
                 }
                 else if(distributionInteger(generator)==5) {
@@ -463,6 +496,8 @@ void consequenceTravelForward(){
                         cout<<thiefRansack(thiefRansackConsequence(p5))<<endl;
                 }
                 else if(distributionInteger(generator)==6) {
+                        cout<<"A cracking sound startles everyone... "<<endl;
+                        universalTimer();
                         cout<<"A wheel broke! "  <<endl;
                         //---FunctionChoiceWheel();
                 }
@@ -470,10 +505,14 @@ void consequenceTravelForward(){
                         cout<<pmChoiceDad<<getDiseaseQuote(diseaseQuote(p4))<<endl;
                 }
                 else if(distributionInteger(generator)==8) {
+                        cout<<"You see something up ahead... "<<endl;
+                        universalTimer();
                         cout<< "a Fallen tree blocks your way! " <<endl;
                         //---FunctionChoiceTree();
                 }
                 else if(distributionInteger(generator)==9) {
+                        cout<<"You see something up ahead... "<<endl;
+                        universalTimer();
                         cout<<"a river blocks the path! "  <<endl;
                         //---FunctionChoiceRiver();
                 }
@@ -490,19 +529,19 @@ string getDeathQuoteCampOut(deathQuoteCampOut(p3)){
         case C:
                 return " was brutally murdered by the appache tribe!";
         case C2:
-                return " was kidnapped ";
+                return " was kidnapped and executed by bandits!  ";
         case C3:
-                return " was ruthlessly cut to shreds";
+                return " was ruthlessly cut to shreds by wild dogs! ";
         case C4:
-                return " was visciously beaten to death ";
+                return " was visciously beaten to death by a raging animal! ";
         case C5:
-                return " was brutally stabbed while defending the family ";
+                return " was brutally stabbed while defending the Wagon from thiefs ";
         case C6:
-                return " was brutally stomped to death ";
+                return " was brutally stomped to death by a rogue Indian! ";
         case C7:
-                return " was savagely cut to shreds";
+                return " was savagely cut to shreds by a barbaric tribe! ";
         case C8:
-                return " was barbarically executed ";
+                return " was barbarically executed in front of the family by a group of bandits ";
         default:
                 return "Error_msg no number generated campout";
         }
@@ -529,7 +568,6 @@ string getDiseaseQuote(diseaseQuote(p4)){
 }
 //---Potential Overhaul
 string thiefRansack(thiefRansackConsequence(p5)){
-        string r =  "hello friend! ";
         switch(p5) {
         case T:
                 if(food>=3) {
@@ -562,13 +600,53 @@ string thiefRansack(thiefRansackConsequence(p5)){
                         food=food-2;
                         return "you lost 2 days of food! ";
                 }
+        case T6:
+                if(food>=1) {
+                        food--;
+                }
+        case T7:
+                if(bullets>=1) {
+                        bullets--;
+                }
+        case T8:
+                if(bullets>=2) {
+                        bullets=bullets-2;
+                }
+        case T9:
+                if(bullets>=2) {
+                        bullets=bullets-3;
+                }
 
         default:
-                thiefRansack(thiefRansackConsequence(p5));
+                cout<<" but got nothing! "<<endl;
         }
         return 0;
 }
-
+string travelForwardFearApproaching(travelForwardFearApproachingQuote(p6)){
+        switch (p6) {
+        case X:
+                return "you begin to shake in fear... ";
+        case X1:
+                return "you feel the burning surge of adrenaline begin to course withen...";
+        case X2:
+                return "you sense danger is approaching... ";
+        case X3:
+                return "you begin to shake violently as you sense the end is near... ";
+        case X4:
+                return "your fear locks your ability to move... ";
+        case X5:
+                return "you feel scared and vulnerable... ";
+        case X6:
+                return "you suddenly feel cold and afraid... ";
+        case X7:
+                return "you begin to tremble in fear... ";
+        case X8:
+                return "the light is drained slowly out of you... ";
+        default:
+                cout<<"default triggered "<<endl;
+        }
+        return 0;
+}
 /*---WORK LOG
    1. Completed! Add a Successful Night and Day Counter
    2. Completed! Add a distance calculator that knows if you traveled forward or camped out
