@@ -315,27 +315,32 @@ void consequenceCampOut(){
                 int p2 = rand()%8;
                 if(distributionInteger(generator)==0 && dadAlive==true) {
                         cout<<pmChoiceDad<<getDeathBear(deathQuoteBear(p2))<<endl;
+                        universalTimer();
                         partyMembersStart--;
                         dadAlive=false;
                 }
                 else if(distributionInteger(generator)==1 && momAlive==true) {
                         cout<<pmChoiceMom<<getDeathBear(deathQuoteBear(p2))<<endl;
+                        universalTimer();
                         partyMembersStart--;
                         momAlive=false;
                 }
                 else if(distributionInteger(generator)==2 && brotherAlive==true) {
                         cout<<pmChoiceBrother<<getDeathBear(deathQuoteBear(p2))<<endl;
+                        universalTimer();
                         partyMembersStart--;
                         brotherAlive=false;
                 }
                 else if(distributionInteger(generator)==3 && sisterAlive==true) {
                         cout<<pmChoiceSister<<getDeathBear(deathQuoteBear(p2))<<endl;
+                        universalTimer();
                         partyMembersStart--;
                         sisterAlive=false;
                 }
                 //---Family lives but food a days worth of food is lost
                 else if(distributionInteger(generator)==4 && familySurvive==true) {
                         cout<<"The family survives but looses a days worth of food to the bear! "<<endl;
+                        universalTimer();
                         familySurvive=false;
                         food--;
                 }
@@ -426,19 +431,19 @@ void consequenceTravelForward(){
         if(gamestate==4) {
                 srand((unsigned)time(0));
                 //---Determines if someone is killed , something is stolen , exc
+
                 unsigned seed = chrono::system_clock::now().time_since_epoch().count();
                 default_random_engine generator(seed);
                 uniform_int_distribution<int> distributionInteger(0, 9);         // Set the numbers for int.
                 for (int i = 0; i < 5; ++i)
                 {
                 }
-                // int determine = rand()%4;
                 //---Determines the 8 possible death quotes
                 int p3 = rand()%8;
                 //---Determines the 7 possible diseases
                 int p4 = rand()%7;
-                //---Determines the 5 possible thief outcomes
-                int p5 = rand()%5;
+                //---Determines the 10 possible thief outcomes
+                int p5 = rand()%10;
                 //---Determines the 8 possible quotes for bandits approaching
                 int p6 = rand()%8;
                 if(distributionInteger(generator)==0 && dadAlive==true) {
@@ -489,11 +494,14 @@ void consequenceTravelForward(){
                         cout<<"you hear rustling in the wagon... "<<endl;
                         universalTimer();
                         cout<<"A thief ransacked the wagon! " <<endl;
+                        cout<<p5<<endl;
                         cout<<thiefRansack(thiefRansackConsequence(p5))<<endl;
                 }
                 else if(distributionInteger(generator)==5) {
-                        cout<< "You where robbed! " <<endl;
-                        cout<<thiefRansack(thiefRansackConsequence(p5))<<endl;
+                        cout<<"The clouds begin to cover the sky and darkness takes over "<<endl;
+                        universalTimer();
+                        cout<< "A severe thunderstorm rains the roads out!  " <<endl;
+                        //---FunctionChoiceStorm
                 }
                 else if(distributionInteger(generator)==6) {
                         cout<<"A cracking sound startles everyone... "<<endl;
@@ -502,6 +510,7 @@ void consequenceTravelForward(){
                         //---FunctionChoiceWheel();
                 }
                 else if(distributionInteger(generator)==7) {
+
                         cout<<pmChoiceDad<<getDiseaseQuote(diseaseQuote(p4))<<endl;
                 }
                 else if(distributionInteger(generator)==8) {
@@ -572,53 +581,98 @@ string thiefRansack(thiefRansackConsequence(p5)){
         case T:
                 if(food>=3) {
                         food=food-3;
-                        return "3 days of food! ";
+                        return "You lost 3 days of food! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T1:
                 if(spareTire>=1) {
                         spareTire--;
-                        return "you lost a spare tire! ";
+                        return "You lost a spare tire! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T2:
                 if(bullets>=4) {
                         bullets=bullets-4;
-                        return "you lost 4 packs of bullets! ";
+                        return "You lost 4 packs of bullets! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T3:
                 if(oxen>=1) {
                         oxen--;
-                        return "you lost a oxen! ";
+                        return "You lost a oxen! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T4:
                 if(gun>=1) {
                         gun--;
-                        return "you lost a gun! ";
+                        return "You lost a gun! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
 
         case T5:
                 if(food>=2) {
                         food=food-2;
-                        return "you lost 2 days of food! ";
+                        return "You lost 2 days of food! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T6:
                 if(food>=1) {
                         food--;
+                        return "You lost a days worth of food! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T7:
                 if(bullets>=1) {
                         bullets--;
+                        return "You lost a pack of bullets! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T8:
                 if(bullets>=2) {
                         bullets=bullets-2;
+                        return "You lost 2 packs of bullets! ";
+                }
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
                 }
         case T9:
-                if(bullets>=2) {
+                if(bullets>=3) {
                         bullets=bullets-3;
+                        return "You lost 3 packs of bullets!  ";
                 }
-
+                else{
+                        cout<<"Failed"<<endl;
+                        thiefRansack(thiefRansackConsequence(p5));
+                }
+        case T10:
+                return "but got nothing! ";
         default:
-                cout<<" but got nothing! "<<endl;
+                return "but got n0thing! ";
         }
         return 0;
 }
