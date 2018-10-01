@@ -11,12 +11,17 @@ bool dadAlive = true;
 bool sisterAlive = true;
 bool brotherAlive = true;
 bool familySurvive = true;
+bool wheelBreak =  true;
 //---Determines what game state the game will be
 int gamestate = 0;
+//---Stores the value if the player will continue or repair a broken wheel
+int choiceWheel = 0;
 //---Stores the Chance of a Animal Attack
 int animalChanceStorage;
 //---Stores the Chance of a Ambush while traveling forward
 int travelForwardChanceStorage;
+//---Start speed of the wagon
+int startSpeed = 25;
 //---Tmp
 int p1;
 //---Runs the Timer for all events
@@ -40,7 +45,7 @@ char continueTrail;
 //---Set Start Amount of Party Members
 int partyMembersStart = 4;
 //---Start Set Amount of All Items
-int spareTire,food,bullets,gun,oxen =0;
+int spareTire,food,bullets,gun,oxen = 0;
 //---Function that displays Menu
 void menuStart(); //---Line 93
 //---Runs a timer to keep text displayed then runs the random event Generator
@@ -77,6 +82,8 @@ string travelForwardFearApproaching(travelForwardFearApproachingQuote);
 void partyMembersName(); //---Line 149
 //---Controls Trails Options (ex Campout vs Push forward)
 void trailEvents(); //---Line 163
+//---Function that allows a spare part to be used
+void functionChoiceWheel();
 //---Opens introduction text with rules on how to to play the game
 void introduction();//---Line 292
 //---Runs a Random Number Generator to determine what events will occur
@@ -214,8 +221,8 @@ void trailEvents(){
         cout<<"3. Hunt and Gather Food"<<endl;
 }
 int trailSwitch(){
+        startSpeed=25;
         int distanceTraveled = 25;
-        int startSpeed = 25;
         int tmpOxen=oxen;
         switch(eventChoice) {
         case 1:
@@ -425,6 +432,8 @@ void randomEventControllerTravelForward(){
                 else{
                         gamestate = 4;
                 }
+        }else{
+                cout<<"Successfully traveled forward! "<<endl;
         }
 }
 void consequenceTravelForward(){
@@ -501,13 +510,16 @@ void consequenceTravelForward(){
                         cout<<"The clouds begin to cover the sky and darkness takes over "<<endl;
                         universalTimer();
                         cout<< "A severe thunderstorm rains the roads out!  " <<endl;
-                        //---FunctionChoiceStorm
+                        cout<<" You lose a day! "<<endl;
+                        //---Bug of distance  traveled still counting
+                        day++;
                 }
-                else if(distributionInteger(generator)==6) {
+                else if(distributionInteger(generator)==6 && wheelBreak==true) {
                         cout<<"A cracking sound startles everyone... "<<endl;
                         universalTimer();
                         cout<<"A wheel broke! "  <<endl;
-                        //---FunctionChoiceWheel();
+                        wheelBreak = false;
+                        functionChoiceWheel();
                 }
                 else if(distributionInteger(generator)==7) {
 
@@ -517,7 +529,8 @@ void consequenceTravelForward(){
                         cout<<"You see something up ahead... "<<endl;
                         universalTimer();
                         cout<< "a Fallen tree blocks your way! " <<endl;
-                        //---FunctionChoiceTree();
+                        cout<<" You lose a day! "<<endl;
+                        day++;
                 }
                 else if(distributionInteger(generator)==9) {
                         cout<<"You see something up ahead... "<<endl;
@@ -584,91 +597,90 @@ string thiefRansack(thiefRansackConsequence(p5)){
                         return "You lost 3 days of food! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T1:
                 if(spareTire>=1) {
                         spareTire--;
                         return "You lost a spare tire! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T2:
                 if(bullets>=4) {
                         bullets=bullets-4;
                         return "You lost 4 packs of bullets! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T3:
                 if(oxen>=1) {
                         oxen--;
                         return "You lost a oxen! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T4:
                 if(gun>=1) {
                         gun--;
                         return "You lost a gun! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
-
+                break;
         case T5:
                 if(food>=2) {
                         food=food-2;
                         return "You lost 2 days of food! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T6:
                 if(food>=1) {
                         food--;
                         return "You lost a days worth of food! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T7:
                 if(bullets>=1) {
                         bullets--;
                         return "You lost a pack of bullets! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T8:
                 if(bullets>=2) {
                         bullets=bullets-2;
                         return "You lost 2 packs of bullets! ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T9:
                 if(bullets>=3) {
                         bullets=bullets-3;
                         return "You lost 3 packs of bullets!  ";
                 }
                 else{
-                        cout<<"Failed"<<endl;
-                        thiefRansack(thiefRansackConsequence(p5));
+                        return " The thief came away empty handed! ";
                 }
+                break;
         case T10:
                 return "but got nothing! ";
         default:
@@ -700,6 +712,31 @@ string travelForwardFearApproaching(travelForwardFearApproachingQuote(p6)){
                 cout<<"default triggered "<<endl;
         }
         return 0;
+}
+void functionChoiceWheel(){
+        cout<<"What will you like to do? "<<endl;
+        cout<<"1. Repair Wheel "<<endl;
+        cout<<"2. Travel with broken wheel (50% Slower)"<<endl;
+        cin>>choiceWheel;
+        switch(choiceWheel) {
+        case 1:
+                if(spareTire>=1) {
+                        system("cls");
+                        cout<<"Repairing wheel..."<<endl;
+                        universalTimer();
+                        cout<<"Successfully repaired wheel! "<<endl;
+                        spareTire--;
+                }else if (spareTire==0) {
+                        cout<<"You do not have a spare wheel! "<<endl;
+                        functionChoiceWheel();
+                }
+                break;
+        case 2:
+                startSpeed=startSpeed/2;
+                cout<<"move speed: "<<startSpeed<<endl;
+                break;
+        }
+
 }
 /*---WORK LOG
    1. Completed! Add a Successful Night and Day Counter

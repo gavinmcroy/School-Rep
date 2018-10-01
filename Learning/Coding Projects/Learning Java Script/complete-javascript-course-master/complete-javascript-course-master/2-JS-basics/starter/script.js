@@ -328,7 +328,7 @@ console.log(johnInfo.indexOf(1990));
 
 var isDesigner = johnInfo.indexOf('designer') === -1 ? 'John is not a designer ' : 'John is a designer';
 console.log(isDesigner);
-*/
+//---Bill calculator
 var billFinal = [0, 0, 0];
 var billValue = [169, 48, 248];
 var tipValue = [0, 0, 0];
@@ -357,7 +357,39 @@ console.log(billValue);
 console.log(tipValue);
 console.log(billFinal);
 
-
-
-
+//---Objects and properties
+//---Object literal
+var john = {
+  firstname: 'John',
+  lastName: 'Smith',
+  birthYear: 1999,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher ',
+  marriageState: false,
+};
+console.log(john['lastName']);
+console.log(john.lastName);
+john.job = 'designer'
+console.log(john.job)
+john.marriageState = true;
+console.log(john.marriageState)
+//---Object syntax
+var Jane = new Object();
+Jane.lastname = 'smith '
+Jane.year = 1990;
+console.log(Jane);
+*/
+var john = {
+  firstname: 'John',
+  lastName: 'Smith',
+  birthYear: 1999,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher ',
+  marriageState: false,
+  calcAge: function(birthYear) {
+    this.age = 2018 - this.birthYear;
+  }
+};
+console.log(john.calcAge());
+console.log(john);
 ///----
