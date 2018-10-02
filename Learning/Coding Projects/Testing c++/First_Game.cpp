@@ -12,6 +12,16 @@ bool sisterAlive = true;
 bool brotherAlive = true;
 bool familySurvive = true;
 bool wheelBreak =  true;
+//---Determines what party members have a disease
+bool diseaseDad = false;
+bool diseaseMom = false;
+bool diseaseBrother = false;
+bool diseaseSister = false;
+//---Stores the disease of each family member
+string dadDiseaseStore;
+string momDiseaseStore;
+string brotherDiseaseStore;
+string sisterDiseaseStore;
 //---Determines what game state the game will be
 int gamestate = 0;
 //---Stores the value if the player will continue or repair a broken wheel
@@ -76,6 +86,8 @@ enum thiefRansackConsequence {T,T1,T2,T3,T4,T5,T6,T7,T8,T9,T10};
 string thiefRansack(thiefRansackConsequence);
 //---Stores the possible fear quotes from something approaching
 enum travelForwardFearApproachingQuote {X,X1,X2,X3,X4,X5,X6,X7,X8};
+//---Checks if someone has a disease
+void diseaseCheck();
 //---Function that calls the possible fear quotes from something approaching and uses them
 string travelForwardFearApproaching(travelForwardFearApproachingQuote);
 //---Function that displays Party Member names Menu
@@ -232,6 +244,7 @@ int trailSwitch(){
                 cont = true;
                 randomEventControllerCampOut();
                 consequenceCampOut();
+                diseaseCheck();
                 day++;
                 break;
         case 2:
@@ -241,6 +254,7 @@ int trailSwitch(){
                 cont = true;
                 randomEventControllerTravelForward();
                 consequenceTravelForward();
+                diseaseCheck();
                 while(tmpOxen>=1) {
                         distanceTraveled=distanceTraveled+25;
                         startSpeed=startSpeed+25;
@@ -440,14 +454,14 @@ void consequenceTravelForward(){
         if(gamestate==4) {
                 srand((unsigned)time(0));
                 //---Determines if someone is killed , something is stolen , exc
-
                 unsigned seed = chrono::system_clock::now().time_since_epoch().count();
                 default_random_engine generator(seed);
                 uniform_int_distribution<int> distributionInteger(0, 9);         // Set the numbers for int.
                 for (int i = 0; i < 5; ++i)
                 {
                 }
-                //---Determines the 8 possible death quotes
+                cout<<distributionInteger(generator)<<endl;
+                // ---Determines the 8 possible death quotes
                 int p3 = rand()%8;
                 //---Determines the 7 possible diseases
                 int p4 = rand()%7;
@@ -522,8 +536,34 @@ void consequenceTravelForward(){
                         functionChoiceWheel();
                 }
                 else if(distributionInteger(generator)==7) {
-
-                        cout<<pmChoiceDad<<getDiseaseQuote(diseaseQuote(p4))<<endl;
+                        cout<<"running disease "<<endl;
+                        srand((unsigned)time(0));
+                        unsigned seed = chrono::system_clock::now().time_since_epoch().count();
+                        default_random_engine generator(seed);
+                        uniform_int_distribution<int> distributionInteger(0, 4);                                     // Set the numbers for int.
+                        for (int i = 0; i < 2; ++i)
+                        {
+                        }
+                        if(distributionInteger(generator)==0 && dadAlive==true) {
+                                cout<<pmChoiceDad<<getDiseaseQuote(diseaseQuote(p4))<<endl;
+                                dadDiseaseStore = getDiseaseQuote(diseaseQuote(p4));
+                                cout<<dadDiseaseStore<<endl;
+                        }
+                        else if(distributionInteger(generator)==1 && momAlive==true) {
+                                cout<<pmChoiceMom<<getDiseaseQuote(diseaseQuote(p4))<<endl;
+                                momDiseaseStore = getDiseaseQuote(diseaseQuote(p4));
+                                cout<<momDiseaseStore<<endl;
+                        }
+                        else if(distributionInteger(generator)==2 && brotherAlive==true) {
+                                cout<<brotherAlive<<getDiseaseQuote(diseaseQuote(p4))<<endl;
+                                brotherDiseaseStore = getDiseaseQuote(diseaseQuote(p4));
+                                cout<<brotherDiseaseStore<<endl;
+                        }
+                        else if(distributionInteger(generator)==3 && sisterAlive==true) {
+                                cout<<pmChoiceSister<<getDiseaseQuote(diseaseQuote(p4))<<endl;
+                                sisterDiseaseStore = getDiseaseQuote(diseaseQuote(p4));
+                                cout<<sisterDiseaseStore<<endl;
+                        }
                 }
                 else if(distributionInteger(generator)==8) {
                         cout<<"You see something up ahead... "<<endl;
@@ -737,6 +777,45 @@ void functionChoiceWheel(){
                 break;
         }
 
+}
+void diseaseCheck(){
+        int a= 0;
+        int b= 0;
+        int c =0;
+        int d =0;
+        srand((unsigned)time(0));
+        p1=rand() % 100;
+        if(diseaseDad==true && dadAlive==true) {
+
+                if(a>=p1) {
+                        cout<<pmChoiceDad<<"died from "<<dadDiseaseStore<<endl;
+                }
+                a=a+20;
+        }
+        if(diseaseMom==true && momAlive==true) {
+
+                if(a>=p1) {
+                        cout<<pmChoiceMom<<"died from "<<momDiseaseStore<<endl;
+                }
+                b=b+20;
+        }
+        if(diseaseBrother==true && brotherAlive==true) {
+
+                if(a>=p1) {
+                        cout<<pmChoiceBrother<<"died from "<<brotherDiseaseStore<<endl;
+                }
+                c=c+20;
+        }
+        if(diseaseMom==true && momAlive==true) {
+
+                if(a>=p1) {
+                        cout<<pmChoiceMom<<"died from "<<momDiseaseStore<<endl;
+                }
+                d=d+20;
+        }
+        else {
+                cout<<"else triggered"<<endl;
+        }
 }
 /*---WORK LOG
    1. Completed! Add a Successful Night and Day Counter
