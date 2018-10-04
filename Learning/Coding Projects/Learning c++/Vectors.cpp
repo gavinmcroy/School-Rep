@@ -9,5 +9,6 @@ int main(){
         cout<<testScores[2]<<endl;
         cout<<testScores[3]<<endl;
         cout<<testScores[4]<<endl;
+        cout<<testScores.at(2)<<endl;
         return 0;
 }
