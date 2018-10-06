@@ -20,6 +20,7 @@ int main(){
          */
         cout<<numbers.at(59)<<endl;
         cout<<testNumbers.at(1)<<endl;
+        cout<<"There are "<<testScores.size()<<" Test scores in the vector"<<endl;
         return 0;
 
 }
