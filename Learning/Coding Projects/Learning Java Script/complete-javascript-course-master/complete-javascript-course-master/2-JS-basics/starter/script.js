@@ -388,8 +388,30 @@ var john = {
   marriageState: false,
   calcAge: function(birthYear) {
     this.age = 2018 - this.birthYear;
+    return this.age;
   }
 };
 console.log(john.calcAge());
 console.log(john);
+
+var gav = {
+  firstName: 'gav',
+  lastName: 'McRoy',
+  birthYear: 2000,
+  gender: 'male',
+  gavAge: function(birthYear) {
+    this.age = 2018 - this.birthYear;
+    return this.age;
+  }
+};
+console.log(gav);
+console.log(gav.gavAge());
+
+
+
+
+
+
+
+
 ///----
