@@ -380,17 +380,17 @@ Jane.year = 1990;
 console.log(Jane);
 */
 var john = {
-  firstname: 'John',
-  lastName: 'Smith',
-  birthYear: 1999,
-  family: ['Jane', 'Mark', 'Bob', 'Emily'],
-  job: 'teacher ',
-  marriageState: false,
-  calcAge: function(birthYear) {
-    this.age = 2018 - this.birthYear;
-    return this.age;
-  }
-};
+    firstname: 'John',
+    lastName: 'Smith',
+    birthYear: 1999,
+    family: ['Jane', 'Mark', 'Bob', 'Emily'],
+    job: 'teacher ',
+    marriageState: false,
+    calcAge: function (birthYear) {
+        this.age = 2018 - this.birthYear;
+        return this.age;
+    }
+} 
 console.log(john.calcAge());
 console.log(john);
 
@@ -408,7 +408,7 @@ console.log(gav);
 console.log(gav.gavAge());
 
 
-
+adsadasdshawidwajk 
 
 
 
