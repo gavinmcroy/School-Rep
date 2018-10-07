@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 using namespace std;
-vector <int> numbers (60);
+vector <int> numbers ();
 vector <int> testScores {90,91,95,95,100};
 vector <int> testNumbers (4,50);
 int main(){
@@ -18,9 +18,13 @@ int main(){
            testScores.push_back(80);
            cout<<testScores.at(5)<<endl;
          */
-        cout<<numbers.at(59)<<endl;
-        cout<<testNumbers.at(1)<<endl;
-        cout<<"There are "<<testScores.size()<<" Test scores in the vector"<<endl;
-        return 0;
+        cout<<"Enter a number"<<endl;
+        // cin>>numbers;
+        // cin>>numbers;
+        // cin>>numbers;
+        // cout<<numbers.at(1)<<endl;
+        // cout<<numbers.size()<<endl;
+        // return 0;
+
 
 }
