@@ -378,19 +378,19 @@ var Jane = new Object();
 Jane.lastname = 'smith '
 Jane.year = 1990;
 console.log(Jane);
-*/
+
 var john = {
-    firstname: 'John',
-    lastName: 'Smith',
-    birthYear: 1999,
-    family: ['Jane', 'Mark', 'Bob', 'Emily'],
-    job: 'teacher ',
-    marriageState: false,
-    calcAge: function (birthYear) {
-        this.age = 2018 - this.birthYear;
-        return this.age;
-    }
-} 
+  firstname: 'John',
+  lastName: 'Smith',
+  birthYear: 1999,
+  family: ['Jane', 'Mark', 'Bob', 'Emily'],
+  job: 'teacher ',
+  marriageState: false,
+  calcAge: function(birthYear) {
+    this.age = 2018 - this.birthYear;
+    return this.age;
+  }
+}
 console.log(john.calcAge());
 console.log(john);
 
@@ -408,7 +408,69 @@ console.log(gav);
 console.log(gav.gavAge());
 
 
-adsadasdshawidwajk 
+var mark = {
+  mass: 55,
+  height: 6,
+  firstName: 'Mark',
+  birthYear: 1984,
+  job: 'teacher',
+  markCalc: function(mass, height) {
+    this.mbmi = this.mass / (this.height * this.height)
+    return this.mbmi;
+  }
+};
+var john = {
+  mass: 55,
+  height: 6,
+  firstName: 'John',
+  johnCalc: function(mass, height) {
+    this.jbmi = this.mass / (this.height * this.height);
+    return this.jbmi;
+  }
+}
+
+console.log(mark.markCalc());
+console.log(john.johnCalc());
+
+if (john.jbmi > mark.mbmi) {
+  console.log("John has a higher index of " + john.jbmi + " While mark has " + mark.mbmi);
+} else if (john.jbmi === mark.mbmi) {
+  console.log("Both john and mark have the same body index of " + mark.mbmi);
+} else if (mark.mbmi > john.jbmi) {
+  console.log("Mark has a higher index of " + mark.mbmi + " while john has " + john.jbmi);
+}
+//--------Loops---------------
+
+*/
+for (var i = 1; i <= 20; i++) {
+  console.log(i);
+}
+var johnInfo = ['John', 'Smith', 1990, 'designer', false];
+//---Loops all the information in array with for loop
+for (var i = 0; i < johnInfo.length; i++) {
+  console.log(johnInfo[i]);
+}
+//---Loops all the information in array with while loop
+var i = 0;
+while (i < johnInfo.length) {
+  console.log(johnInfo[i])
+  i++
+}
+//---Only displays string data types in the array with a for loop with continue
+for (var i = 0; i < johnInfo.length; i++) {
+  if (typeof johnInfo[i] != 'string') continue;
+  console.log(johnInfo[i]);
+}
+//---Only displays string data types in the array with a for loop with break;
+for (var i = 0; i < johnInfo.length; i++) {
+  if (typeof johnInfo[i] != 'string') break;
+  console.log(johnInfo[i]);
+}
+//---Looping backwards
+for (var i = johnInfo.length - 1; i >= 0; i--) {
+  console.log(johnInfo[i]);
+}
+
 
 
 
