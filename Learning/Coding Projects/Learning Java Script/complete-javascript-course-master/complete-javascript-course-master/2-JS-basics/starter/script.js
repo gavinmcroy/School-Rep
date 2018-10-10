@@ -532,12 +532,21 @@ tip = {
 };   
 tip.calcTip()
 tip.tipAdder();
+for(var i = 0; i<tip.tipRestuarants.length;i++){
+  console.log("Tip amount: $"+tip.tipAmount[i])
+}
 var i = 0
 while(i < tip.tipRestuarants.length){
   console.log("Final Price: $"+tip.finalPrice[i])
   i++; 
 }
-
+var test = [1,2,3,4]
+var weird = test[0]+test[1]
+console.log(weird); 
+for(var i = 0; i<test.length;i++){
+  var test1 = test[i]+test[i+1]
+  console.log(test1);
+}
 //---Work Log 
 /*
 merge test into object tip 
