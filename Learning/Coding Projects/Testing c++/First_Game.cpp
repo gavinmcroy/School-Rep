@@ -4,6 +4,7 @@
 #include <ctime>
 #include <chrono>
 #include <random>
+#include <string> 
 using namespace std;
 //---Determines what party members are Alive and if all family members will survive a attack
 bool momAlive = true;
@@ -296,7 +297,7 @@ void randomEventControllerCampOut(){
         if(p1<animalChanceStorage) {
                 system("cls");
                 cout<<"You were attacked by a bear and ";
-                if(gun>0 and bullets>0) {
+                if(gun>0 && bullets>0) {
                         //---50% chance to win if a gun is present with ammo
                         srand((unsigned)time(0));
                         ChanceWin=rand()%2;
@@ -430,7 +431,7 @@ void randomEventControllerTravelForward(){
         srand((unsigned)time(0));
         p1=rand() % 100;
         if(p1<=travelForwardChance) {
-                if(gun>0 and bullets>0) {
+                if(gun>0 && bullets>0) {
                         //---50% chance to win if a gun is present with ammo
                         srand((unsigned)time(0));
                         chanceWin=rand()%2;

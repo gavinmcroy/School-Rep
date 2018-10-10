@@ -12,7 +12,7 @@ int main(){
               cout<<"Test score 4: "<<testScores[4]<<endl;
          */
         cout<<"Vowels: "<<vowels[0]<<endl;
-        cout<<"Vowels: "<<vowels[1]<<endl;
+        cout<<"Vowels: "<<vowels[1]<<endl; 
         cout<<"Vowels: "<<vowels[2]<<endl;
         cout<<"Vowels: "<<vowels[3]<<endl;
         cout<<"Vowels: "<<vowels[4]<<endl;
