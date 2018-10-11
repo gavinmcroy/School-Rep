@@ -540,18 +540,20 @@ while(i < tip.tipRestuarants.length){
   console.log("Final Price: $"+tip.finalPrice[i])
   i++; 
 }
-var test = [1,2,3,4]
-var weird = test[0]+test[1]
-console.log(weird); 
-for(var i = 0; i<test.length;i++){
-  var test1 = test[i]+test[i+1]
-  console.log(test1);
-}
+//---Calculates Average 
+ var testArray = [1,2,3,4,5,6,6]
+ testFunction = function(sum){
+   var sum = 0
+   for(var i =0; i<testArray.length;i++){
+     sum = sum + testArray[i]
+   }
+   return sum / testArray.length 
+ }
 //---Work Log 
 /*
 merge test into object tip 
 */
-
+console.log(testFunction())
 
 
 
