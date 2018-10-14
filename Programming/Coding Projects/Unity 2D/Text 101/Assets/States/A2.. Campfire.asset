@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c7f646b4435bd9458a72f555b961b53, type: 3}
+  m_Name: A2.. Campfire
+  m_EditorClassIdentifier: 
+  storyText: "Im sitting here by the campfire when suddenly I hear a distinct crack.\r
+    The sound of trees snapping and breaking by the 100s. The ground begins to \rshake.
+    In the far distance I spot hundreds of tanks coming directly towards me\r There
+    here to finish off survivors. Theres a tree that looks climable. \rCould get a
+    quick escape but ill be visible. There is alot of debri around\r me I could cover
+    up and ride it out. What should I do?\r\n\r\n1. Climb a tree and hide\r\n2. Bury
+    myself with surrounding debris "
+  nextStates:
+  - {fileID: 11400000, guid: ff3c3b72ececb4d4f849a2d2a77326cc, type: 2}
+  - {fileID: 11400000, guid: 0789d92b4004ddd4987347f268d42fb9, type: 2}
