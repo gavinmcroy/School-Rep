@@ -118,16 +118,16 @@
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
     <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Learning/Unity 2D Course/Text 101/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Programming/Unity Projects/Unity 2D/Text 101/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Learning/Unity 2D Course/Text 101/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Programming/Unity Projects/Unity 2D/Text 101/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Learning/Unity 2D Course/Text 101/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Programming/Unity Projects/Unity 2D/Text 101/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Learning/Unity 2D Course/Text 101/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Programming/Unity Projects/Unity 2D/Text 101/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2018.2.4f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
