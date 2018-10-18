@@ -1,11 +1,12 @@
 #include <iostream>
 #include <vector>
+#include<string>
 using namespace std;
 vector <int> numbers (20);
 vector <int> testScores {90,91,95,95,100};
 vector <int> testNumbers (4,50);
 int main(){
-        /*  cout<<testScores[0]<<endl;
+          cout<<testScores[0]<<endl;
            cout<<testScores[1]<<endl;
            cout<<testScores[2]<<endl;
            cout<<testScores[3]<<endl;
@@ -45,7 +46,7 @@ int main(){
            cout<<testScores.at(5)<<endl;
            cout<<testScores.at(6)<<endl;
            cout<<"Test scores size is now "<<testScores.size()<<endl;
-         */
+         
         //---2D VECTOR
         vector <vector<int> > movieRatings {
 /*reviewer 1 */ {1,2,3,4},
