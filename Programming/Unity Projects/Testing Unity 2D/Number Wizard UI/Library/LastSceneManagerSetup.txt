@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Play Again.unity
+- path: Assets/Scenes/againScreen.unity
   isLoaded: 1
   isActive: 1
