@@ -3,6 +3,7 @@
 #include <cstdlib>
 #include <limits>
 #include <ctime>
+#include<string>
 using namespace std;
 string name;
 int i;
