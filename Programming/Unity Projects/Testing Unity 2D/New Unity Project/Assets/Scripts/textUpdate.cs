@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement; 
+using UnityEngine.SceneManagement;
 
 public class textUpdate : MonoBehaviour {
     [SerializeField] TextMeshProUGUI Gtext;
     [SerializeField] int x; 
     void Start()
     {
-        Gtext.text = x.ToString(); 
+        Gtext.text = x.ToString();
+        Debug.Log(SceneManager.GetActiveScene().name);
+        
     }
-    
     public void buttonPress()
     {
         string hi = "Hello world! ";
@@ -30,6 +31,4 @@ public class textUpdate : MonoBehaviour {
     {
         SceneManager.LoadScene(0);
     }
-	
-
 }
