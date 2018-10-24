@@ -8,24 +8,39 @@ GAME RULES:
 - The first player to reach 100 points on GLOBAL score wins the game
 
 */
-var scores , roundScore , activePlayer , dice ;
-
+var scores , roundScore , activePlayer;
 scores = [0,0]; 
 roundScore = 0; 
 activePlayer = 0; 
-dice = Math.floor(Math.random()*6)+1 ; 
+
 //---Determines Active Player 
 //---Only selects text does not read html code
-//document.querySelector('#current-'+activePlayer).textContent = dice; 
-//---Inputs text changed by html into the active player box 
-document.querySelector('#current-'+activePlayer).innerHTML = '<em>'+dice+'</em>';
-//---gets value from id #score-0; 
-var x = document.querySelector('#score-0').textContent;
-console.log(x); 
+//---document.querySelector('#current-'+activePlayer).textContent = dice; 
+//---document.querySelector('#name-0').textContent = 'Hello!';
+//---document.querySelector('#name-1').innerHTML = '<em>'+'Hello!!!'+'</em>';
+//---gets value from id #score-0 and puts it in x;
+//---var x = document.querySelector('#score-0').textContent;
+//---console.log(x); 
+//---document.querySelector('#name-0').textContent = 'Hello!';
+//---document.querySelector('#name-1').innerHTML = '<em>'+'Hello!!!'+'</em>';
+//---Unloads Dice
+
+
 
 document.querySelector('.dice').style.display = 'none'; 
 
+document.getElementById('score-0').textContent = '0';
+document.getElementById('score-1').textContent = '0';
+document.getElementById('current-0').textContent = '0';
+document.getElementById('current-1').textContent = '0';
 
+document.querySelector('.btn-roll').addEventListener('click',function(){
+    var dice = Math.floor((Math.random() *6)+1); 
+    var diceDOM = document.querySelector('.dice')
+    document.querySelector('.dice').style.display ='block';
+    document.getElementById('current-0').textContent = dice; 
+    diceDOM.src = 'dice-'+dice +'.png';
+});
 
 
 
