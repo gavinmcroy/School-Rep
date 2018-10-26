@@ -61,8 +61,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\moveScript.cs" />
-    <Compile Include="Assets\onCollision.cs" />
+    <Compile Include="Assets\Scripts\moveScript.cs" />
+    <Compile Include="Assets\Scripts\onCollision.cs" />
     <Compile Include="Assets\Scripts\textUpdate.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01_UGUI.cs" />
