@@ -61,6 +61,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\moveScript.cs" />
     <Compile Include="Assets\Scripts\Player1.cs" />
     <Reference Include="UnityEditor.StandardEvents">
       <HintPath>C:/Users/Gavin McRoy/Desktop/GitHubProjects/Work-Projects/Programming/Unity Projects/Testing Unity 2D/Movement Test/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>

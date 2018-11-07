@@ -500,7 +500,7 @@ each iteration store the current sum in a variable (starting from 0). After you 
 8. Log to the console which family paid the highest tips on average
 
 GOOD LUCK 😀
-*/
+
 
 tip = { 
  finalPrice: [],
@@ -550,16 +550,13 @@ while(i < tip.tipRestuarants.length){
    return sum / testArray.length 
  }
 //---Work Log 
-/*
+
 merge test into object tip 
+
+
+
+
+
 */
-console.log(testFunction())
-
-
-
-
-
-
-
 
 ///----

@@ -2,6 +2,7 @@
 //Written by Gavin T Mcroy
 #include <iostream>
 #include <stdlib.h>
+#include<string>
 //Start Functions
 double exponent(double,int);
 int tmpb,tmpe;
