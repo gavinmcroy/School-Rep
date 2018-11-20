@@ -1,4 +1,6 @@
-//Function Constructor
+//---Function Constructor
+
+//---Object John 
 var john = {
     name: 'John',
     birthYear: 1990,
@@ -28,3 +30,4 @@ mark.calcAge();
 console.log(john1.lastName)
 console.log(jane.lastName)
 console.log(mark.lastName)
+console.log(john.name); 

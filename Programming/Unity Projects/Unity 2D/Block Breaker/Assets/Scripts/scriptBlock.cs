@@ -4,25 +4,57 @@ using UnityEngine;
 
 public class scriptBlock : MonoBehaviour {
     [SerializeField] AudioClip breakSound;
-
+    [SerializeField] GameObject blockParticleEffectVFX;
+    [SerializeField] float particleAffectsDelayAfterDestroy = 2f; 
     //---Cached Reference
     Level level;
+    GameStatus points; 
 
     private void Start()
     {
+        CountBreakableBlocks();
+    }
+
+    private void CountBreakableBlocks()
+    {
+        points = FindObjectOfType<GameStatus>();
         level = FindObjectOfType<Level>();
-        level.CountBreakableBlocks();
+        if (tag == "Breakable")
+        {
+            level.CountBlocks();
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        DestroyBlock();
+        if(tag == "Breakable")
+        {
+            DestroyBlock();
+        }        
     }
 
     private void DestroyBlock()
     {
-        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+        BlockBreakingSoundSFX();
+        RemoveBlock();
+        TriggerSparklesVFX();
+    }
+
+    private void RemoveBlock()
+    {
         level.BlockDestroyed();
         Destroy(gameObject, 0f);
+        points.AddToScore();
+    }
+
+    private void BlockBreakingSoundSFX()
+    {
+        AudioSource.PlayClipAtPoint(breakSound, Camera.main.transform.position);
+    }
+
+    private void TriggerSparklesVFX()
+    {
+        GameObject sparkles = Instantiate(blockParticleEffectVFX,transform.position,transform.rotation);
+        Destroy(sparkles,particleAffectsDelayAfterDestroy); 
     }
 }

@@ -3,7 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class SceneController : MonoBehaviour {
+    GameStatus resetScore;
+
+
+
+    private void Start()
+    {
+        resetScore = FindObjectOfType<GameStatus>(); 
+    }
+
     public void nextScene()
     {
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -15,6 +25,7 @@ public class SceneController : MonoBehaviour {
     }
     public void RestartScene()
     {
+        resetScore.ResetScore(); 
         SceneManager.LoadScene(0); 
     }
 }
