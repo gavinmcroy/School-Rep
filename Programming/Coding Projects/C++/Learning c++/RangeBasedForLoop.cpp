@@ -25,6 +25,9 @@ int main(){
     //---IO MANIP Rounds it to 1 decimal 
     cout<<fixed<<setprecision(1); 
     cout<<averageTemp<<endl;
+    
+    int number = 1'000'000;
+    cout<<number<<endl;
 
     cout<<__cplusplus<<endl;
 
