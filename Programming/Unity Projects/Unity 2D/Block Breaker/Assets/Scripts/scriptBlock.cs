@@ -1,14 +1,23 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class scriptBlock : MonoBehaviour {
+    //---Configuration Paramaters
     [SerializeField] AudioClip breakSound;
     [SerializeField] GameObject blockParticleEffectVFX;
-    [SerializeField] float particleAffectsDelayAfterDestroy = 2f; 
+    [SerializeField] float particleAffectsDelayAfterDestroy = 2f;
+    [SerializeField] int maxHits;
+    [SerializeField] Sprite[] hitSprites;
+    
     //---Cached Reference
     Level level;
-    GameStatus points; 
+    GameStatus points;
+
+
+    //---State Variables
+    [SerializeField] int timesHit; //---Debug purposes only
 
     private void Start()
     {
@@ -29,8 +38,34 @@ public class scriptBlock : MonoBehaviour {
     {
         if(tag == "Breakable")
         {
+            HandleHit();
+        }
+    }
+
+    private void ShowNextHitSprite()
+    {
+        int spriteIndex = timesHit-1;
+        if(hitSprites[spriteIndex] != null)
+        {
+            GetComponent<SpriteRenderer>().sprite = hitSprites[spriteIndex];
+        }
+        else
+        {
+            Debug.LogError("Block Sprite is missing from array "+gameObject.name);
+        }
+    }
+
+    private void HandleHit()
+    {
+        timesHit++;
+        if (timesHit >= maxHits)
+        {
             DestroyBlock();
-        }        
+        }
+        else
+        {
+            ShowNextHitSprite();
+        }
     }
 
     private void DestroyBlock()
