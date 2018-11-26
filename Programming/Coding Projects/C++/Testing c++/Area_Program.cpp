@@ -1,5 +1,6 @@
 #include <iostream>
 #include <limits>
+#include<string>
 //---Use std everywhere you can
 using namespace std;
 //---Functions

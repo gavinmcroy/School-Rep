@@ -1,5 +1,5 @@
 //---Function Constructor
-
+/*
 //---Object John 
 var john = {
     name: 'John',
@@ -63,10 +63,23 @@ house.prototype.calcHouseAge = function(){
 }
 var redHouse = new house ("large","Pink",6000,1990); 
 redHouse.calcHouseAge(); 
+*/
 
+var personProto = {
+    calulateAge1: function(){
+        console.log(2018-this.yearOfBirth)
+    }
+}
+var john = Object.create(personProto)
+john.name = "John"
+john.yearOfBirth = 1999
+john.job = 'Teacher'
 
-
-
+var jane = Object.create(personProto,{
+    name: {value: 'Jane'},
+    yearOfBirth: {value: 1969},
+    job: {value: 'Designer'}
+});
 
 
 

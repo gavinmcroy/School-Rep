@@ -25,6 +25,7 @@ public class SceneController : MonoBehaviour {
     }
     public void RestartScene()
     {
+        Debug.Log("RestartScene Scene was called");
         resetScore.ResetScore(); 
         SceneManager.LoadScene(0); 
     }
