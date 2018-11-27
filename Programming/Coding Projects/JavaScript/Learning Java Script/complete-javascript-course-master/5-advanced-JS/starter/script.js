@@ -1,5 +1,5 @@
 //---Function Constructor
-/*
+
 //---Object John 
 var john = {
     name: 'John',
@@ -63,7 +63,7 @@ house.prototype.calcHouseAge = function(){
 }
 var redHouse = new house ("large","Pink",6000,1990); 
 redHouse.calcHouseAge(); 
-*/
+
 
 var personProto = {
     calulateAge1: function(){
