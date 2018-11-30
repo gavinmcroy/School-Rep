@@ -24,7 +24,7 @@ public class GameStatus : MonoBehaviour {
         }
         else
         {
-            Debug.Log("Object is not being destroyed! ");
+           //--- Debug.Log("Object is not being destroyed! ");
             DontDestroyOnLoad(gameObject); 
         }
     }
@@ -47,7 +47,7 @@ public class GameStatus : MonoBehaviour {
     }
     public void ResetScore()
     {
-        Debug.Log("reset Score was called");
+       //--- Debug.Log("reset Score was called");
         Destroy(gameObject);
         currentScores = 0;
     }

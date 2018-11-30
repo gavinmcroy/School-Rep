@@ -7,8 +7,6 @@ using UnityEngine.SceneManagement;
 public class SceneController : MonoBehaviour {
     GameStatus resetScore;
 
-
-
     private void Start()
     {
         resetScore = FindObjectOfType<GameStatus>(); 
@@ -25,7 +23,7 @@ public class SceneController : MonoBehaviour {
     }
     public void RestartScene()
     {
-        Debug.Log("RestartScene Scene was called");
+        //---Debug.Log("RestartScene Scene was called");
         resetScore.ResetScore(); 
         SceneManager.LoadScene(0); 
     }
