@@ -4,7 +4,7 @@ using namespace std;
 
 int main(){
     char userInput {}; 
-    vector <int> userStorage {10,3,4,5,6,7,2,9,9,9}; 
+    vector <double> userStorage {10,3,4,5,6,7,2,9,9,9}; 
     do{
     cout<<"P - Print Numbers"<<endl;
     cout<<"A - Add a Number"<<endl;
@@ -42,11 +42,11 @@ int main(){
         }
     //---Display Mean of Numbers
     }else if(userInput=='M'|| userInput=='m'){
-        int mean {0};
+        double mean {0};
         if(userStorage.size()==0){
             cout<<"Error cannot Calculate Mean. No data "<<endl;
         }else {
-            for(auto m : userStorage){
+            for(double m : userStorage){
                 mean+=m; 
             }
             mean = mean/userStorage.size();
