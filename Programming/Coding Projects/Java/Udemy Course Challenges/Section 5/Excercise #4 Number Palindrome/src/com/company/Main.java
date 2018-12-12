@@ -3,14 +3,21 @@ package com.company;
 public class Main {
     //1221 1001 707
     public static void main(String[] args) {
-	// write your code here
+        System.out.println(isPalindrome(-1101));
     }
     public static boolean isPalindrome(int number){
-        int firstDigit = 0;
-        int lastDigit = 0;
-        while(number>=1){
-            
+        int reverse = 0;
+        int num = number;
+        while(num!=0){
+            int lastDigit = num%10;
+            reverse=reverse*10 +lastDigit;
+            num/=10;
+            System.out.println(lastDigit);
         }
-        return true;
+        if(reverse==number){
+            return true;
+        }else {
+            return false;
+        }
     }
 }
