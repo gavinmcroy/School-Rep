@@ -2,10 +2,26 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d974cea8-cab2-477e-aa61-8f54bad89164" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Excercise #2 Number of days in a month/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #2 Number of days in a month/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Excercise #2 Number of days in a month/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #2 Number of days in a month/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #10 All Factors/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #10 All Factors/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #11 Perfect Number/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #11 Perfect Number/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #12 Number To Words/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #12 Number To Words/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #7 Shared Digit/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #7 Shared Digit/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #7 Shared Digit/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #7 Shared Digit/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #7 Shared Digit/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #7 Shared Digit/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #7 Shared Digit/out/production/Excercise #7 Shared Digit/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #7 Shared Digit/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #7 Shared Digit/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,7 +44,7 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -52,6 +68,9 @@
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -98,17 +117,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21588486" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21801706" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
@@ -116,14 +131,18 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">

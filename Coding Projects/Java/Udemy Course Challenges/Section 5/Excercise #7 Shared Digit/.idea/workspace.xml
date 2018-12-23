@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4fa347a-7c24-4656-9173-3c06ed1bb83e" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Excercise #6 Even Digit Sum/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #6 Even Digit Sum/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="46c58a18-4828-4593-87ad-f2f276142b08" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #10 All Factors/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #10 All Factors/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #10 All Factors/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #11 Perfect Number/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #11 Perfect Number/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #11 Perfect Number/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #12 Number To Words/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #12 Number To Words/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #12 Number To Words/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Excercise #7 Shared Digit/com/company/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #8 Last Digit Checker/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Excercise #9 Greatest Common Divosor/src/com/company/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,10 +33,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/src/com/company/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+            <state relative-caret-position="154">
+              <caret line="7" selection-start-line="7" selection-end-line="25" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -29,19 +44,17 @@
     </leaf>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../../.." />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/src/com/company/Main.java" />
-        <option value="$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/src/com/company/Main.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="728" />
-    <option name="y" value="177" />
+    <option name="y" value="23" />
     <option name="width" value="1680" />
     <option name="height" value="947" />
   </component>
@@ -52,12 +65,13 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Excercise #6 Even Digit Sum" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1545436832633" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Excercise #8 Last Digit Checker" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -93,18 +107,18 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f4fa347a-7c24-4656-9173-3c06ed1bb83e" name="Default Changelist" comment="" />
-      <created>1544735856076</created>
+      <changelist id="46c58a18-4828-4593-87ad-f2f276142b08" name="Default Changelist" comment="" />
+      <created>1545435653857</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1544735856076</updated>
+      <updated>1545435653857</updated>
     </task>
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.22441365" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -113,8 +127,8 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.29035753" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3992629" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -133,20 +147,10 @@
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../Excercise #6 Even Digit Sum/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="18" column="9" lean-forward="true" selection-start-line="18" selection-start-column="9" selection-end-line="18" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Excercise #5 First and Last Digit Sum/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="5" column="5" selection-start-line="5" selection-start-column="5" selection-end-line="5" selection-end-column="5" />
+        <state relative-caret-position="154">
+          <caret line="7" selection-start-line="7" selection-end-line="25" selection-end-column="5" />
         </state>
       </provider>
     </entry>
