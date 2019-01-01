@@ -1,312 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf10dcab-1fe9-410c-af3c-cc91e6bd5edc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/src/com/company/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/Challenge #1 Methods.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/out/production/Challenge #1 Methods/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #1 Methods/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/Challenge #2 Seconds and Minutes.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/out/production/Challenge #2 Seconds and Minutes/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Challenge #2 Seconds and Minutes/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/Excercise #1 Megabytes Converter.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/out/production/Excercise #1 Megabytes Converter/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #1 Megabytes Converter/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/Excercise #10 Playing Cat.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/out/production/Excercise #10 Playing Cat/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #10 Playing Cat/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/Excercise #2 Barking Dog.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/out/production/Excercise #2 Barking Dog/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #2 Barking Dog/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/Excercise #3 Leap Year.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/out/production/Excercise #3 Leap Year/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #3 Leap Year/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/Excercise #4 Decimal Comparitor.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #4 Decimal Comparitor/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/Excercise #5 Equal Sum Checker.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/out/production/Excercise #5 Equal Sum Checker/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #5 Equal Sum Checker/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/Excercise #6 Teen Number Checker.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/out/production/Excercise #6 Teen Number Checker/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #6 Teen Number Checker/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/Excercise #7 Area Calculator.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/out/production/Excercise #7 Area Calculator/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #7 Area Calculator/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/Excercise #8 Minuts to Years and Days.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/out/production/Excercise #8 Minuts to Years and Days/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #8 Minuts to Years and Days/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/Excercise #9 Equality Printer.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/out/production/Excercise #9 Equality Printer/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 4/Excercise #9 Equality Printer/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/Challenge #1 Day of the Week.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/out/production/Challenge #1 Day of the Week/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #1 Day of the Week/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/Challenge #2 Sum 3 and 5.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/out/production/Challenge #2 Sum 3 and 5/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #2 Sum 3 and 5/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/Challenge #3 Digit Sum.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/out/production/Challenge #3 Digit Sum/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #3 Digit Sum/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/Challenge #4 User Input.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/out/production/Challenge #4 User Input/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Challenge #4 User Input/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/Excercise #1 Number in Word.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/out/production/Excercise #1 Number in Word/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #1 Number in Word/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/Excercise #10 All Factors.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/out/production/Excercise #10 All Factors/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #10 All Factors/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/Excercise #11 Perfect Number.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/out/production/Excercise #11 Perfect Number/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #11 Perfect Number/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/Excercise #12 Number To Words.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/out/production/Excercise #12 Number To Words/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #12 Number To Words/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/Excercise #13 Flour Pack Problem.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/out/production/Excercise #13 Flour Pack Problem/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #13 Flour Pack Problem/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/Excercise #14 Largest Prime.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #14 Largest Prime/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/Excercise #2 Number of days in a month.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/out/production/Excercise #2 Number of days in a month/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #2 Number of days in a month/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/Excercise #3 Sum Odd.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/out/production/Excercise #3 Sum Odd/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #3 Sum Odd/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/Excercise #4 Number Palindrome.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/out/production/Excercise #4 Number Palindrome/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #4 Number Palindrome/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/Excercise #5 First and Last Digit Sum.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/out/production/Excercise #5 First and Last Digit Sum/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #5 First and Last Digit Sum/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/Excercise #6 Even Digit Sum.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/out/production/Excercise #6 Even Digit Sum/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #6 Even Digit Sum/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/Excercise #7 Shared Digit.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/out/production/untitled104/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #7 Shared Digit/untitled104.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/Excercise #8 Last Digit Checker.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/out/production/Excercise #8 Last Digit Checker/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #8 Last Digit Checker/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/Excercise #9 Greatest Common Divosor.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/out/production/Excercise #9 Greatest Common Divosor/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 5/Excercise #9 Greatest Common Divosor/src/com/company/Main.java" beforeDir="false" />
-    </list>
+    <list default="true" id="cf10dcab-1fe9-410c-af3c-cc91e6bd5edc" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -319,8 +14,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="484">
-              <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+            <state relative-caret-position="550">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -328,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="660">
-              <caret line="30" selection-start-line="30" selection-end-line="30" />
+            <state relative-caret-position="352">
+              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -365,6 +60,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -388,7 +84,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -440,17 +135,13 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
@@ -458,28 +149,32 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="484">
-          <caret line="22" column="51" selection-start-line="22" selection-start-column="51" selection-end-line="22" selection-end-column="51" />
+        <state relative-caret-position="550">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="30" selection-start-line="30" selection-end-line="30" />
+        <state relative-caret-position="352">
+          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
         </state>
       </provider>
     </entry>
