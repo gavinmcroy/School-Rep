@@ -1,7 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf10dcab-1fe9-410c-af3c-cc91e6bd5edc" name="Default Changelist" comment="" />
+    <list default="true" id="cf10dcab-1fe9-410c-af3c-cc91e6bd5edc" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/ByteShortIntLong.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/out/production/ByteShortIntLong/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/ByteShortIntLong/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/FloatandDouble.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/out/production/FloatandDouble/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/FloatandDouble/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/Operators.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/out/production/Operators/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Operators/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/String.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/out/production/String/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/String/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/Hello_World.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/out/production/Hello_World/Hello.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/Variables/src/Hello.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/char and bool.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/out/production/char and bool/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 3 Variables Datatypes and Operators/char and bool/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/IfKeywordAndCodeBlocks.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/out/production/IfKeywordAndCodeBlocks/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/IfKeywordAndCodeBlocks/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/KeywordsAndExpressions.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/KeywordsAndExpressions/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/Method Overloading.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/out/production/Method Overloading/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Method Overloading/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/Methods.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/out/production/Methods/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/Methods/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/StatementsIndentingAndWhitespace.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/out/production/StatementsIndentingAndWhitespace/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 4 Methods Statements Code Blocks/StatementsIndentingAndWhitespace/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/For Loop.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/out/production/For Loop/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/For Loop/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/Parsing Values From String.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/out/production/Parsing Values From String/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Parsing Values From String/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/Switch Statement.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/out/production/Switch Statement/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/Switch Statement/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/User Input.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/out/production/User Input/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/User Input/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/While and Do While Loop.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/out/production/While and Do While Loop/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 5 Control Flow Statements/While and Do While Loop/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/Classes.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/out/production/Classes/com/company/Car.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/out/production/Classes/com/company/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/src/com/company/Car.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Classes/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/description.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/project-template.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/Contructors.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Learning Java/Section 6 OOP Part 1 - Classes Constructors Inheritance/Contructors/src/com/company/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,7 +192,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="550">
-              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -23,8 +200,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/Account.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+            <state relative-caret-position="242">
+              <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -61,7 +238,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -84,6 +260,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -133,9 +310,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -167,14 +343,14 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
-          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Account.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="5" lean-forward="true" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
+        <state relative-caret-position="242">
+          <caret line="11" column="20" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
         </state>
       </provider>
     </entry>
