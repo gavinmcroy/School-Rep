@@ -13,6 +13,10 @@ public class Main {
         summerville.setTemperature(1000);
         System.out.println(summerville.getTemperature());
         System.out.println(ford.getBrand());
+        SubClass test1  = new SubClass();
+        SuperClass test2 = new SuperClass();
+        test1.printMethod();
+        test2.printMethod();
     }
 }
 
