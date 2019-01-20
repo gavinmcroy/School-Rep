@@ -1,41 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fbb2d651-acc5-4eb9-b9a8-d6f068e9b994" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/SubClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/SuperClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 6 Classes,Constructors,Inheritance/Challenge #3 Vehicle/Challenge #3 Vehicle.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 6 Classes,Constructors,Inheritance/Challenge #3 Vehicle/src/com/company/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 6 Classes,Constructors,Inheritance/Challenge #3 Vehicle/src/com/company/F150.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 6 Classes,Constructors,Inheritance/Challenge #3 Vehicle/src/com/company/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 7 OOP Part 2 - Composition Encapsulation and Polymorphism/Challenge #2 Printer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 7 OOP Part 2 - Composition Encapsulation and Polymorphism/Challenge #2 Printer/src/com/company/Printer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/Car.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/Case.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/Dimensions.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/Monitor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/MotherBoard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/PC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/Resolution.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Composition/src/com/company/Vehicle.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Encapsulation/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Encapsulation/src/com/company/EnhancedPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Encapsulation/src/com/company/Player.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ForgettableMovie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Independance.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Jaws.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/MazeRunner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Movie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/StarWars.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/Car.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/Car.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 6 Classes,Constructors,Inheritance/Challenge #2 VIP Customer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 6 Classes,Constructors,Inheritance/Challenge #2 VIP Customer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Section 6 OOP Part 1 - Classes Constructors Inheritance/Inheritance/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Section 6 OOP Part 1 - Classes Constructors Inheritance/Inheritance/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="fbb2d651-acc5-4eb9-b9a8-d6f068e9b994" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -103,7 +69,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/ForgettableMovie.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -144,6 +110,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,7 +134,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -221,17 +187,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32936078" />
@@ -239,17 +201,28 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Messages" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Movie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="286">
@@ -288,14 +261,7 @@
     <entry file="file://$PROJECT_DIR$/src/com/company/ForgettableMovie.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="572">
-          <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
