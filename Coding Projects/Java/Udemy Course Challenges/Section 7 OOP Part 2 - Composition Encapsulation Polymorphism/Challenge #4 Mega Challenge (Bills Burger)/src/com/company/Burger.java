@@ -18,35 +18,39 @@ public class Burger {
         this.ketchup = ketchup;
     }
 
-    //---Takes  price from burger main and checks for accessories
-    public double burgerAccesories(double currentBurgerPrice) {
-        if (lettuce) {
-            currentBurgerPrice += .25;
-        }
-        if (pickles) {
-            currentBurgerPrice += .05;
-        }
-        if (tomato) {
-            currentBurgerPrice += .25;
-        }
-        if (ketchup) {
-            currentBurgerPrice += .05;
-        }
-        return currentBurgerPrice;
-    }
-
-    public double burgerMain() {
-        double burgerPrice = 0;
-        this.rollType=rollType.toLowerCase();
+    public double totalBurgerPrice() {
+        double burgerPrice = 0d;
+        this.rollType = rollType.toLowerCase();
         this.meat = meat.toLowerCase();
-        if (rollType.equals("white")) {
+        if (rollType.equals("white") || rollType.equals("brown")) {
+            System.out.println("Roll $1.00 ");
             burgerPrice += 1.00;
         }
         if (meat.equals("meat")) {
+            System.out.println("Meat Paddie $.50");
             burgerPrice += .50;
         } else {
-            return -1;
+            System.out.println("Invalid Option");
         }
+        if (lettuce) {
+            System.out.println("Lettuce .$25");
+            burgerPrice += .25;
+        }
+        if (pickles) {
+            System.out.println("Pickles $.05");
+            burgerPrice += .05;
+        }
+        if (tomato) {
+            System.out.println("Tomato $.25");
+            burgerPrice += .25;
+        }
+        if (ketchup) {
+            System.out.println("Ketchup $.05");
+            burgerPrice += .05;
+        }
+        System.out.printf("Base Total --> $ %.2f %n", burgerPrice);
         return burgerPrice;
     }
+
+
 }
