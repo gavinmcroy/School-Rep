@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="94b40207-7443-4612-86d5-ec1e67cf4df4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #2 Minimum Element Challenge/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #3 Reverse Array/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #4 Phone Contacts/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #4 Phone Contacts/src/com/company/Contacts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #4 Phone Contacts/src/com/company/MobilePhone.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Section 8 Arrays Lists Autoboxing and Unboxing/List and Arrayss Part 1/src/com/company/GroceryList.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../Section 8 Arrays Lists Autoboxing and Unboxing/Reference Types vs  Value  Types/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #1 Descending Order/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Udemy Course Challenges/Section 8 Arrays Lists Autoboxing and Unboxing/Challenge #1 Descending Order/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="94b40207-7443-4612-86d5-ec1e67cf4df4" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +10,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -57,32 +47,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Composition" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Composition" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Composition" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Composition" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Composition" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Composition" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548992574765" />
