@@ -19,7 +19,8 @@ public class Main {
         System.out.println("Option #3: Add Customer to Branch");
         System.out.println("Option #4: Add a transaction to a customer");
         System.out.println("Option #5: Show current customer in a branch");
-        System.out.println("Option #6: Quit Application");
+        System.out.println("Option #6: Show transactions for customer in a branch");
+        System.out.println("Option #7: Quit Application");
     }
 
     private static void bankApp() {
@@ -46,6 +47,9 @@ public class Main {
                         bank.showCustomersInBranch();
                         break;
                     case 6:
+                        bank.showTransactionsForCustomer();
+                        break;
+                    case 7:
                         quit = true;
                     default:
                         System.out.println("Enter a valid choice");

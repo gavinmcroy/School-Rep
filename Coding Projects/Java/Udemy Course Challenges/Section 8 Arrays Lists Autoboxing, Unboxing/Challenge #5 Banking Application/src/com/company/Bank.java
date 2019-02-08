@@ -52,6 +52,7 @@ public class Bank {
                 boolean hasNextDouble = scanner.hasNextDouble();
                 if (hasNextDouble) {
                     double transactionAmount = scanner.nextDouble();
+                    scanner.nextLine();
                     branches.get(customerLocation).getCustomers().get(customerLocation).getTransactions().add(transactionAmount);
                     System.out.println("Successfully added " + transactionAmount);
                 }
@@ -67,15 +68,23 @@ public class Bank {
         int branchLocation = findBranch();
         if (branchLocation != -1) {
             for (int i = 0; i < branches.get(branchLocation).getCustomers().size(); i++) {
-                System.out.println("Customer #" + i + " " + branches.get(branchLocation).getCustomers().get(branchLocation).getName());
+                System.out.println("Customer #" + (i + 1) + " " + branches.get(branchLocation).getCustomers().get(i).getName());
             }
         } else {
             System.out.println("Enter valid branch name");
         }
     }
 
-    public void showTransactionsForCustomer() {
-
+    public int showTransactionsForCustomer() {
+        int x = findBranch();
+        if (x == -1) {
+            return -1;
+        }
+        for (int i = 0; i < branches.get(x).getCustomers().size(); i++) {
+            System.out.println("Customer name: " + branches.get(x).getCustomers().get(i).getName());
+            System.out.println("Transactions: " + branches.get(x).getCustomers().get(i).getTransactions());
+        }
+        return 1;
     }
 
     private int findBranch() {

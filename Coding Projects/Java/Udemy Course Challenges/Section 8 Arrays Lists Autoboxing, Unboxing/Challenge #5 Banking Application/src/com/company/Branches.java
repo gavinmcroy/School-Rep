@@ -20,6 +20,7 @@ public class Branches {
         boolean isDouble = scanner.hasNextDouble();
         if (isDouble) {
             double amount = scanner.nextDouble();
+            scanner.nextLine();
             customers.add(new Customers(name, amount));
             System.out.println("New Customer Successfully Added! ");
         } else {
