@@ -10,20 +10,18 @@ public class Demo {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-//        LinkedList<String> placesToVisit = new LinkedList<>();
-//        placesToVisit.add("Sydney");
-//        placesToVisit.add("Melbourne");
-//        placesToVisit.add("Brisbane");
-//        placesToVisit.add("Perth");
-//        placesToVisit.add("Canberra");
-//        placesToVisit.add("Adelaide");
-//        placesToVisit.add("Darwin");
-//
-//        printList(placesToVisit);
-//
-//        placesToVisit.add(1, "Alice Springs");
-//
-//        printList(placesToVisit);
+        LinkedList<String> placesToVisit = new LinkedList<>();
+
+        addInOrder("Sydney",placesToVisit);
+        addInOrder("Melbourne",placesToVisit);
+        addInOrder("Brisbane",placesToVisit);
+        addInOrder("Perth",placesToVisit);
+        addInOrder("Canberra",placesToVisit);
+        addInOrder("Adelaide",placesToVisit);
+        addInOrder("Darwin",placesToVisit);
+        addInOrder("Alice Springs",placesToVisit);
+
+        printList(placesToVisit);
 
     }
 
