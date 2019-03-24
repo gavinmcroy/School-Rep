@@ -9,9 +9,9 @@ public class Main {
 
     public static void main(String[] args) {
 //        GearBox mclaren = new GearBox(6);
-////        mclaren.addGear(1,5.3);
-////        mclaren.addGear(2,10.6);
-////        mclaren.addGear(3,15.9);
+//        mclaren.addGear(1,5.3);
+//        mclaren.addGear(2,10.6);
+//        mclaren.addGear(3,15.9);
 //        mclaren.operateClutch(true);
 //        mclaren.changeGear(1);
 //        mclaren.operateClutch(false);
@@ -23,17 +23,28 @@ public class Main {
 //        mclaren.operateClutch(false);
 //        System.out.println(mclaren.wheelSpeed(6000));
 
-        class ClickListener implements Button.OnClickListener {
-            public ClickListener() {
-                System.out.println("Ive been attached");
-            }
+        //---Local Class
+//        class ClickListener implements Button.OnClickListener {
+//            public ClickListener() {
+//                System.out.println("Ive been attached");
+//            }
+//
+//            @Override
+//            public void onClick(String title) {
+//                System.out.println(title + " was clicked");
+//            }
+//        }
+//        buttonPrint.setOnClickListener(new ClickListener());
 
+        //---Anonymous Class
+        buttonPrint.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(String title) {
-                System.out.println(title + " was clicked");
+                System.out.println("Title was clicked");
             }
-        }
-        buttonPrint.setOnClickListener(new ClickListener());
+        });
+
+
         listen();
     }
 

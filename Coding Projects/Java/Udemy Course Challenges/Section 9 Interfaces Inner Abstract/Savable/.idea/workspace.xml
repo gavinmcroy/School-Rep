@@ -2,45 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b6788cd2-cc12-4a53-be94-047dd43310e9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Contact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/ISavable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/Savable.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract Classes/Interfaces.LinkedList/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/Structs and Class.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/Car.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/SubClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/SuperClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/out/production/Structs and Class/com/company/weather.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/Car.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/SubClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/SuperClass.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Testing Java/Structs and Class/src/com/company/weather.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/description.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/project-template.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/Interfaces.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/out/production/Interfaces/com/company/DeskPhone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/out/production/Interfaces/com/company/ITelephone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/out/production/Interfaces/com/company/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/out/production/Interfaces/com/company/MobilePhone.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/src/com/company/DeskPhone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/src/com/company/ITelephone.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/src/com/company/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract/Interfaces/src/com/company/MobilePhone.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Juicy Java/Learning/Strings/11.10-11.12  Reversing and Space/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Juicy Java/Learning/Strings/11.10-11.12  Reversing and Space/src/com/company/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../Juicy Java/Learning/Strings/11.8-11.9 Substring/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract Classes/Interfaces/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Udemy Learning Java/Section 9 Interfaces Inner Abstract Classes/Interfaces/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -73,7 +38,7 @@
         <entry file="file://$PROJECT_DIR$/src/com/company/ISavable.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -147,6 +112,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550836955312" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -188,16 +154,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info id="Image Layers" />
-      <window_info id="Designer" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" />
@@ -205,24 +168,20 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Palette" />
-      <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Maven" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Capture Analysis" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
     </layout>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/com/company/Contact.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="19" selection-start-line="19" selection-end-line="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -230,10 +189,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/company/Contact.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/ISavable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
         </state>
       </provider>
     </entry>
