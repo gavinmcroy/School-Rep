@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scipts\BackgroundScroller.cs" />
     <Compile Include="Assets\Scipts\DamageDealer.cs" />
     <Compile Include="Assets\Scipts\Enemy.cs" />
     <Compile Include="Assets\Scipts\EnemyPathing.cs" />
