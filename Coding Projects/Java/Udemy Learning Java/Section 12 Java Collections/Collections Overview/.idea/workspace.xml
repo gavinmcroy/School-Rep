@@ -1,30 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a1c63d2-c694-4f9b-bbe0-c311f913e682" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../../Juicy Java/Apps/Smart Home/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../Juicy Java/Apps/Smart Home/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/Server/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/Server/sqlite3/storage.ide" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/Server/sqlite3/storage.ide-wal" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/.vs/Home/v15/Server/sqlite3/storage.ide-wal" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Assembly-CSharp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Assembly-CSharp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/CurrentLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/InspectorExpandedItems.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/StateCache/SceneView/de1e93-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/StateCache/SceneView/de1e93-mainStage.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/assetDatabase3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Home/obj/Debug/Assembly-CSharp.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/.vs/Laser Defender 2.0/v15/.suo" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/.vs/Laser Defender 2.0/v15/.suo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/.vs/Laser Defender 2.0/v15/Server/sqlite3/storage.ide-shm" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/.vs/Laser Defender 2.0/v15/Server/sqlite3/storage.ide-shm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/CurrentLayout.dwlt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/InspectorExpandedItems.asset" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/InspectorExpandedItems.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/StateCache/Hierarchy/7b1783-8a828ab2400ffba449.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/StateCache/Hierarchy/7b1783-8a828ab2400ffba449.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/shadercompiler-UnityShaderCompiler.exe0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity C#/Unity 2D/Laser Defender 2.0/Library/shadercompiler-UnityShaderCompiler.exe0.log" afterDir="false" />
-    </list>
+    <list default="true" id="1a1c63d2-c694-4f9b-bbe0-c311f913e682" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +23,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Theatre.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="347">
+            <state relative-caret-position="1276">
               <caret line="58" column="60" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
             </state>
           </provider>
@@ -86,7 +63,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -109,6 +85,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -161,7 +138,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.27132195" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2739872" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -200,7 +177,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Theatre.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="347">
+        <state relative-caret-position="1276">
           <caret line="58" column="60" selection-start-line="58" selection-start-column="60" selection-end-line="58" selection-end-column="60" />
         </state>
       </provider>
