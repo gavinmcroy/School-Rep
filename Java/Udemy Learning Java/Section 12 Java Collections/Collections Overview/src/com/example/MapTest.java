@@ -26,5 +26,20 @@ public class MapTest {
         for (String key : languages.keySet()) {
             System.out.println(key + " : " + languages.get(key));
         }
+        System.out.println("==========================================");
+
+//        languages.remove("LISP");
+
+        if(languages.remove("Algol","Algorithmic language")){
+            System.out.println("Algo removed");
+        }else{
+            System.out.println("Algo not removed");
+        }
+
+        System.out.println(languages.replace("LISP","functional programming language"));
+        System.out.println(languages.replace("1234","this wont work !"));
+        for(String key: languages.keySet()){
+            System.out.println(key+" : "+languages.get(key));
+        }
     }
 }
