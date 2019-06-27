@@ -44,5 +44,5 @@
         <CheckBox text="Subscribe to Skinny G Music " GridPane.RowIndex="1" selected="true"/>
         <CheckBox text="Subscribe to Skinny G Music " GridPane.RowIndex="1" selected="true"/>
     </VBox>
-    <ToggleButton text="Hello Gav!" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+    <ToggleButton GridPane.rowIndex="1" GridPane.columnIndex="0" text="Hello Gav!"/>
 </GridPane>
