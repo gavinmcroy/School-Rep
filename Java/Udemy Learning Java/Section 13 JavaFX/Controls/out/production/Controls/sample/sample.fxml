@@ -1,6 +1,4 @@
 <?import javafx.scene.layout.GridPane?>
-
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
@@ -11,6 +9,18 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.Accordion?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
     <Button GridPane.rowIndex="0" GridPane.columnIndex="0" text="Hello Skinny G" underline="true">
@@ -34,15 +44,60 @@
     <fx:define>
         <ToggleGroup fx:id="colorToggleGroup"/>
     </fx:define>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="2" text="Red" toggleGroup="$colorToggleGroup"/>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="3" text="Green" toggleGroup="$colorToggleGroup"
-                 selected="true"/>
-    <RadioButton GridPane.rowIndex="0" GridPane.columnIndex="4" text="Blue" toggleGroup="$colorToggleGroup"/>
-
-    <VBox GridPane.rowIndex="0" GridPane.columnIndex="5">
-        <CheckBox text="Subscribe to Skinny G Music " GridPane.RowIndex="1" selected="true"/>
-        <CheckBox text="Subscribe to Skinny G Music " GridPane.RowIndex="1" selected="true"/>
-        <CheckBox text="Subscribe to Skinny G Music " GridPane.RowIndex="1" selected="true"/>
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="2">
+        <RadioButton text="Red" toggleGroup="$colorToggleGroup"/>
+        <RadioButton text="Green" toggleGroup="$colorToggleGroup" selected="true"/>
+        <RadioButton text="Blue" toggleGroup="$colorToggleGroup"/>
     </VBox>
-    <ToggleButton GridPane.rowIndex="1" GridPane.columnIndex="0" text="Hello Gav!"/>
+
+    <VBox GridPane.rowIndex="0" GridPane.columnIndex="3">
+        <CheckBox text="Subscribe to Skinny G Music " selected="true"/>
+        <CheckBox text="Subscribe to Skinny G Music " selected="true"/>
+        <CheckBox text="Subscribe to Skinny G Music " selected="true"/>
+    </VBox>
+    <ToggleButton text="Hello Gav!" GridPane.rowIndex="1" GridPane.columnIndex="0" />
+
+    <TextField GridPane.rowIndex="1" GridPane.columnIndex="1" />
+    <PasswordField GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+    <ComboBox GridPane.rowIndex="3" GridPane.columnIndex="0" editable="true">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="GG"/>
+                <String fx:value="You are trash"/>
+                <String fx:value="You are garbo"/>
+            </FXCollections>
+        </items>
+        <value>
+            <String fx:value="You are trash"/>
+        </value>
+    </ComboBox>
+    <ChoiceBox GridPane.rowIndex="3" GridPane.columnIndex="3">
+        <items>
+            <FXCollections fx:factory="observableArrayList">
+                <String fx:value="Why"/>
+                <String fx:value="Why Yes"/>
+                <String fx:value="uh"/>
+            </FXCollections>
+        </items>
+    </ChoiceBox>
+    <Slider GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.columnSpan="4" min="0" max="100"
+    showTickLabels="true" showTickMarks="true" minorTickCount="4" snapToTicks="true"/>
+
+    <Spinner GridPane.rowIndex="5" GridPane.columnIndex="0" min="0" max="100" editable="true"
+    initialValue="50"/>
+    <ColorPicker GridPane.rowIndex="5" GridPane.columnIndex="2"/>
+    <DatePicker GridPane.rowIndex="5" GridPane.columnIndex="3"/>
+    <Accordion GridPane.rowIndex="6" GridPane.columnIndex="0" expandedPane="$tb3">
+        <panes>
+            <TitledPane text="Gav is the man!">
+                <Label text="This is a label"/>
+            </TitledPane>
+            <TitledPane text="Gav is the man ">
+                <Label text="This is a that sucks"/>
+            </TitledPane>
+            <TitledPane text="Gav is the lad" fx:id="tb3">
+                <Label text="This is a that's good"/>
+            </TitledPane>
+        </panes>
+    </Accordion>
 </GridPane>
