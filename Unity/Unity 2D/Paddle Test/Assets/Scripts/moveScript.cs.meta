@@ -1,11 +1,24 @@
-fileFormatVersion: 2
-guid: cc888e6c850fcaf4aadfa7e3ee7c1723
-MonoImporter:
-  externalObjects: {}
-  serializedVersion: 2
-  defaultReferences: []
-  executionOrder: 0
-  icon: {instanceID: 0}
-  userData: 
-  assetBundleName: 
-  assetBundleVariant: 
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveScript : MonoBehaviour {
+    [SerializeField] float screenSize = 16f;
+    [SerializeField] float minX = 1f;
+    [SerializeField] float maxX = 15f;
+	// Use this for initialization
+	void Start () {
+		
+	}
+	
+	// Update is called once per frame
+	void Update () {
+        float mousePos = (Input.mousePosition.x / Screen.width) * screenSize;
+        Vector2 paddlePos = new Vector2(transform.position.x, transform.position.y)
+        {
+            x = Mathf.Clamp(mousePos, minX, maxX)
+        };
+        transform.position = paddlePos;
+
+	}
+}
