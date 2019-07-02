@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
-    int damageFromZone=-1;
+    private readonly int damageFromZone = -1;
 
     private void OnTriggerStay2D(Collider2D collision)
     {

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private float speed = 3.0f;
-    private float timeToSwitch = 3.0f;
+    private readonly float speed = 3.0f;
+    private readonly float timeToSwitch = 3.0f;
     private float timer;
     private int direction = 1;
 
-    private bool vertical;
+    private readonly bool vertical = true;
 
     Animator animator;
     Rigidbody2D rigidBody2D;
