@@ -62,6 +62,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\DamageZone.cs" />
+    <Compile Include="Assets\Scripts\EnemyController.cs" />
+    <Compile Include="Assets\Scripts\HeathCollectible.cs" />
     <Compile Include="Assets\Scripts\RubyController.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/gavintaylormcroy/Desktop/Work-Projects/Unity/Unity 2D/Ruby's Adventure/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
