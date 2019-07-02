@@ -1,0 +1,14 @@
+﻿<Properties StartupConfiguration="{39377005-7B8D-AE88-AEFA-9962DAE0B4EA}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/RubyController.cs">
+    <Files>
+      <File FileName="Assets/Scripts/RubyController.cs" Line="16" Column="9" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="066ab2ce-32bc-41a0-b7ee-8b60842cd617" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
