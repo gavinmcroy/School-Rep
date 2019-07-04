@@ -12,6 +12,9 @@ public class RubyController : MonoBehaviour
     private bool isInvicible;
 
     [SerializeField] GameObject projectilePrefab;
+    [SerializeField] AudioClip projectileLaunch;
+    [SerializeField] AudioClip damageTaken;
+    AudioSource audioSource;
     Vector2 lookDirection = new Vector2(1, 0);
     Animator animator;
     Rigidbody2D rigidBody2D;
@@ -27,6 +30,7 @@ public class RubyController : MonoBehaviour
         {
             LaunchProjectile();
         }
+        RayCastTest();
     }
 
     void FixedUpdate()
@@ -34,9 +38,8 @@ public class RubyController : MonoBehaviour
         MovementController();
         UpdateHealthBar();
         InvicibilityController();
-
     }
-
+    //---Damage taken is in negative (-1)
     public void ChangeHealth(int amount)
     {
         if (amount < 0)
@@ -45,8 +48,30 @@ public class RubyController : MonoBehaviour
                 return;
             isInvicible = true;
             invicibleTimer = timeInvicible;
+            PlaySound(damageTaken);
         }
         GetCurrentHealth = Mathf.Clamp(GetCurrentHealth + amount, 0, GetMaxHealth);
+    }
+
+    public void PlaySound(AudioClip audioClip)
+    {
+        audioSource.PlayOneShot(audioClip);
+    }
+
+    private void RayCastTest()
+    {
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position + Vector2.up * .2f, lookDirection, 1.5f, LayerMask.GetMask("NPC"));
+            if (rayCast.collider != null)
+            {
+                NonPlayerCharacter NPC = rayCast.collider.GetComponent<NonPlayerCharacter>();
+                if (NPC != null)
+                {
+                    NPC.DisplayBox();
+                }
+            }
+        }
     }
 
     private void UpdateHealthBar()
@@ -58,6 +83,7 @@ public class RubyController : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
 
         GetCurrentHealth = GetMaxHealth;
 
@@ -77,7 +103,13 @@ public class RubyController : MonoBehaviour
         {
             lookDirection.Set(move.x, move.y);
             lookDirection.Normalize();
+            audioSource.UnPause();
         }
+        else
+        {
+            audioSource.Pause();
+        }
+
         animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
         animator.SetFloat("Speed", move.magnitude);
@@ -105,10 +137,9 @@ public class RubyController : MonoBehaviour
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rigidBody2D.position + Vector2.up * .5f, Quaternion.identity);
         Projectile projectile = projectileObject.GetComponent<Projectile>();
-        Debug.Log(projectile);
         projectile.Launch(lookDirection, 300);
-
         animator.SetTrigger("Launch");
+        PlaySound(projectileLaunch);
     }
 
 

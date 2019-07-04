@@ -5,6 +5,7 @@ using UnityEngine;
 public class HeathCollectible : MonoBehaviour
 {
     [SerializeField] int healthFromPack=1;
+    public AudioClip healthCollected;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class HeathCollectible : MonoBehaviour
             {
                 rubyController.ChangeHealth(healthFromPack);
                 Destroy(gameObject);
+                rubyController.PlaySound(audioClip:healthCollected);
             }
         }
     }

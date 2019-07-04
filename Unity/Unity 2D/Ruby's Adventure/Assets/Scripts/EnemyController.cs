@@ -12,6 +12,8 @@ public class EnemyController : MonoBehaviour
     private float timer;    
 
     [SerializeField] private ParticleSystem smokeParticles;
+    [SerializeField] AudioClip fixedSound;
+    AudioSource audioSource;
     Animator animator;
     Rigidbody2D rigidBody2D;
 
@@ -19,6 +21,7 @@ public class EnemyController : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
         timer = timeToSwitch;
     }
 
@@ -48,6 +51,8 @@ public class EnemyController : MonoBehaviour
         rigidBody2D.simulated = false;
         animator.SetTrigger("Fixed");
         smokeParticles.Stop();
+        audioSource.Stop();
+        audioSource.PlayOneShot(fixedSound);
     }
 
     private void MovementController()
