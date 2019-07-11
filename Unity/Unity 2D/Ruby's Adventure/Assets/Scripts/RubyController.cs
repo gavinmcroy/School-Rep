@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//---Attached to Ruby
 public class RubyController : MonoBehaviour
 {
     public int GetMaxHealth { get; } = 5;
@@ -88,7 +88,7 @@ public class RubyController : MonoBehaviour
         GetCurrentHealth = GetMaxHealth;
 
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 144;
+        Application.targetFrameRate = 10;
     }
 
     private void MovementController()
@@ -110,8 +110,9 @@ public class RubyController : MonoBehaviour
             audioSource.Pause();
         }
 
-        animator.SetFloat("Look X", lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
+        animator.SetFloat("Look X", lookDirection.x);
+        
         animator.SetFloat("Speed", move.magnitude);
 
         Vector2 position = rigidBody2D.position;
