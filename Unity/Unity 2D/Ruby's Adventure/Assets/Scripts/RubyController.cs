@@ -88,7 +88,7 @@ public class RubyController : MonoBehaviour
         GetCurrentHealth = GetMaxHealth;
 
         QualitySettings.vSyncCount = 0;
-        Application.targetFrameRate = 10;
+        Application.targetFrameRate = 144;
     }
 
     private void MovementController()
@@ -97,6 +97,11 @@ public class RubyController : MonoBehaviour
         float vertical = Input.GetAxisRaw("Vertical");
 
         Vector2 move = new Vector2(horizontal, vertical);
+
+        if(Mathf.Pow(horizontal,2) + Mathf.Pow(vertical, 2) > 1)
+        {
+            move.Normalize();
+        }
 
         //---Checks if not Idle
         if (!Mathf.Approximately(move.x, 0.0f) || !Mathf.Approximately(move.y, 0.0f))
