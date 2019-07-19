@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Adventure_Sword_Sheath
+  m_Name: Idle_Peaceful
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -20,18 +20,18 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: 51e6c2dd1dd024689a27a5bfb2ed04ee, type: 3}
-    - time: 0.125
-      value: {fileID: 21300000, guid: 2a6f19249706c49d1b9235e5fc3d1b55, type: 3}
+      value: {fileID: 21300000, guid: 4f17c2db9e95544df8fdbb9ccc9819a2, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 678e42a5532b546858c59021ab28b792, type: 3}
-    - time: 0.375
-      value: {fileID: 21300000, guid: cf99285e4f06e4bfcbc1255a685fd13f, type: 3}
+      value: {fileID: 21300000, guid: 03b3495f7c8a145b7b298ac5a95cc179, type: 3}
+    - time: 0.5
+      value: {fileID: 21300000, guid: a0419bdce6c514fe08b06c217b39451a, type: 3}
+    - time: 0.75
+      value: {fileID: 21300000, guid: 92005d64e8a854816ae5bfe536b6231c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
     script: {fileID: 0}
-  m_SampleRate: 8
+  m_SampleRate: 4
   m_WrapMode: 0
   m_Bounds:
     m_Center: {x: 0, y: 0, z: 0}
@@ -46,16 +46,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 51e6c2dd1dd024689a27a5bfb2ed04ee, type: 3}
-    - {fileID: 21300000, guid: 2a6f19249706c49d1b9235e5fc3d1b55, type: 3}
-    - {fileID: 21300000, guid: 678e42a5532b546858c59021ab28b792, type: 3}
-    - {fileID: 21300000, guid: cf99285e4f06e4bfcbc1255a685fd13f, type: 3}
+    - {fileID: 21300000, guid: 4f17c2db9e95544df8fdbb9ccc9819a2, type: 3}
+    - {fileID: 21300000, guid: 03b3495f7c8a145b7b298ac5a95cc179, type: 3}
+    - {fileID: 21300000, guid: a0419bdce6c514fe08b06c217b39451a, type: 3}
+    - {fileID: 21300000, guid: 92005d64e8a854816ae5bfe536b6231c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.5
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
