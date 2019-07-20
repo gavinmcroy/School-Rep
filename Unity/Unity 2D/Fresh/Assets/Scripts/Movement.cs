@@ -6,6 +6,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private int health = 2;
     [SerializeField] private float moveSpeed = 3;
+    private float lastPosition;
+    private float speed;
+    private float direction = 1;
     Rigidbody2D rigidBody2D;
     Animator animator;
     Vector2 movement;
@@ -24,42 +27,61 @@ public class Movement : MonoBehaviour
         }
         else
         {
-            PlayerMovement();
+            Move();
             AnimationController();
         }
     }
-    /*Where I left Off
-     *Idle animation may need direction based on players looking direction
-     */
     
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        health--;
-        Debug.Log(health);
         Debug.Log("Collision with " + collision.gameObject);
     }
 
-    private void PlayerMovement()
+    private void Move()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        float vertical = Input.GetAxisRaw("Vertical");
-        movement = new Vector2(horizontal, vertical);
+        movement = new Vector2(horizontal, transform.position.y);
 
-        if (Mathf.Pow(movement.x, 2) + Mathf.Pow(movement.y, 2) > 1)
-        {
-            movement.Normalize();
-        }
+        GetSpeed();
+        GetDirection();
 
         Vector2 position = rigidBody2D.position;
-
-        position += movement * moveSpeed * Time.deltaTime;
+        position.x += movement.x * moveSpeed * Time.deltaTime;
         rigidBody2D.MovePosition(position);
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+
+        }
     }
 
     private void AnimationController()
     {
         animator.SetFloat("MoveX", movement.x);
-        animator.SetFloat("Speed", movement.magnitude);
+        animator.SetFloat("Speed", Mathf.Abs(speed));
         animator.SetInteger("Health", health);
+        animator.SetFloat("Direction", direction);
+    }
+
+    private void GetSpeed()
+    {
+        speed = transform.position.x - lastPosition;
+        lastPosition = transform.position.x;
+    }
+
+    private void GetDirection()
+    {
+        //---Padding for innacuracies
+        if (speed > .045)
+        {
+            direction = 1;
+        }
+        if (speed < -.045)
+        {
+            direction = -1;
+        }
     }
 }
