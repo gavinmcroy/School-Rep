@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Movement.cs" />
-    <None Include="Assets\RPG Sprites\release.txt" />
+    <None Include="Assets\RPG Sprites\RPG Pack\release.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>/Users/gavintaylormcroy/Desktop/Work-Projects/Unity/Unity 2D/Fresh/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

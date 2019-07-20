@@ -28,10 +28,15 @@ public class Movement : MonoBehaviour
             AnimationController();
         }
     }
-
+    /*Where I left Off
+     *Idle animation may need direction based on players looking direction
+     */
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         health--;
+        Debug.Log(health);
+        Debug.Log("Collision with " + collision.gameObject);
     }
 
     private void PlayerMovement()
