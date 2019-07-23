@@ -19,11 +19,16 @@ public class Movement : MonoBehaviour
         animator = GetComponent<Animator>();
     }
 
+    void Update()
+    {
+        Attack();
+    }
+
     void FixedUpdate()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
-
+            
         }
         else
         {
@@ -31,10 +36,25 @@ public class Movement : MonoBehaviour
             AnimationController();
         }
     }
-    
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log("Collision with " + collision.gameObject);
+    }
+
+    //---Called in Attack Anim (Change to random val 50-100 and display attack val)
+    public void Damage(int val)
+    {
+        RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), 1f, LayerMask.GetMask("Hostile"));
+        if (rayCast.collider != null)
+        {
+            Enemy enemy = rayCast.collider.gameObject.GetComponent<Enemy>();
+            enemy.DealDamage(val);
+        }
+        else
+        {
+            Debug.Log("Attack RayCast Collision Fail");
+        }
     }
 
     private void Move()
@@ -54,7 +74,9 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-
+            float randomVal = Mathf.Clamp(Random.value,0f,.75f);
+            animator.SetFloat("Random", randomVal);
+            animator.SetTrigger("Attack");
         }
     }
 

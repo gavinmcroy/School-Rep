@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5328551522744832372}
   - component: {fileID: 5328551522744832373}
   - component: {fileID: 6731244553240292369}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Wolf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.044726133, y: -0.31308258}
+  m_Offset: {x: -0.044726133, y: -0.24879313}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -125,5 +125,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.2843833, y: 0.19493079}
+  m_Size: {x: 0.2843833, y: 0.41535234}
   m_EdgeRadius: 0
