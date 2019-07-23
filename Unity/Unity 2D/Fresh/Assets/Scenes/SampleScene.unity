@@ -3251,6 +3251,33 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 636720739}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!1 &1635594513 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7170539410555443549, guid: d342cf3d7a2504a75a1a83b535285197,
+    type: 3}
+  m_PrefabInstance: {fileID: 7170539410675445561}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &1635594514
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635594513}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!4 &1677579262 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7753928587390961569, guid: 9bc281e9218944c06a624d865f7e6c31,
@@ -3415,7 +3442,7 @@ PrefabInstance:
     - target: {fileID: 7170539410555443550, guid: d342cf3d7a2504a75a1a83b535285197,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.394
+      value: -0.102
       objectReference: {fileID: 0}
     - target: {fileID: 7170539410555443550, guid: d342cf3d7a2504a75a1a83b535285197,
         type: 3}
@@ -3465,12 +3492,22 @@ PrefabInstance:
     - target: {fileID: 2320129340893915490, guid: d342cf3d7a2504a75a1a83b535285197,
         type: 3}
       propertyPath: m_Offset.y
-      value: -0.11133239
+      value: 0.34377563
       objectReference: {fileID: 0}
     - target: {fileID: 2320129340893915490, guid: d342cf3d7a2504a75a1a83b535285197,
         type: 3}
       propertyPath: m_Size.y
-      value: 0.4894572
+      value: 0.53547597
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320129340893915490, guid: d342cf3d7a2504a75a1a83b535285197,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.31473207
+      objectReference: {fileID: 0}
+    - target: {fileID: 2320129340893915490, guid: d342cf3d7a2504a75a1a83b535285197,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 0.21974516
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d342cf3d7a2504a75a1a83b535285197, type: 3}

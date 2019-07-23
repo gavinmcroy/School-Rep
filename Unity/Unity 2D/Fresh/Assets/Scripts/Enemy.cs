@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
-        playerController = GetComponent<Movement>();
+        playerController = FindObjectOfType<Movement>();
         animator.SetInteger("Health", health);
     }
 
@@ -43,7 +43,21 @@ public class Enemy : MonoBehaviour
 
     public void SetMovement()
     {
+        Vector2 follow = playerController.transform.position - transform.position;
         animator.SetFloat("Direction",direction);
-        transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
+        if (follow.x < -.5)
+        {
+            transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
+            direction = -1;
+        }
+        else if (follow.x > .5)
+        {
+            transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
+            direction = 1;
+        }
+        else
+        {
+            animator.SetTrigger("Attack");
+        }
     }
 }
