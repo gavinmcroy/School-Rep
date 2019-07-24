@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
     [SerializeField] private int health = 2;
     [SerializeField] private float moveSpeed = 3;
+    [SerializeField] TextMeshProUGUI text;
     private float lastPosition;
     private float speed;
     private float direction = 1;
@@ -17,6 +19,7 @@ public class Movement : MonoBehaviour
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        text.text = health.ToString();
     }
 
     void Update()
@@ -26,15 +29,8 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-        {
-            
-        }
-        else
-        {
-            Move();
-            AnimationController();
-        }
+        Move();
+        AnimationController();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
@@ -42,25 +38,47 @@ public class Movement : MonoBehaviour
         Debug.Log("Collision with " + collision.gameObject);
     }
 
-    //---Called in Attack Anim (Change to random val 50-100 and display attack val)
-    public void Damage(int val)
+    public void DealDamage(int val)
     {
-        RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), 1f, LayerMask.GetMask("Hostile"));
+        RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), 1.25f, LayerMask.GetMask("Hostile"));
         if (rayCast.collider != null)
         {
             Enemy enemy = rayCast.collider.gameObject.GetComponent<Enemy>();
-            enemy.DealDamage(val);
+            enemy.TakeDamage(val);
         }
         else
         {
-            Debug.Log("Attack RayCast Collision Fail");
+            Debug.Log("Player Attack RayCast Collision Fail");
         }
+
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (health > 0)
+        {
+            health -= damage;
+            if (health < 0)
+            {
+                text.text = "0";
+            }
+            else
+            {
+                text.text = health.ToString();
+                animator.SetInteger("Health", health);
+            }
+        }
+    }
+
+    public void SetMoveSpeed(int speed)
+    {
+        moveSpeed = speed;
     }
 
     private void Move()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
-        movement = new Vector2(horizontal, transform.position.y);
+        movement = new Vector2(horizontal, rigidBody2D.position.y);
 
         GetSpeed();
         GetDirection();
@@ -72,9 +90,9 @@ public class Movement : MonoBehaviour
 
     private void Attack()
     {
-        if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
-            float randomVal = Mathf.Clamp(Random.value,0f,.75f);
+            float randomVal = Mathf.Clamp(Random.value, 0f, .75f);
             animator.SetFloat("Random", randomVal);
             animator.SetTrigger("Attack");
         }
@@ -90,8 +108,10 @@ public class Movement : MonoBehaviour
 
     private void GetSpeed()
     {
-        speed = transform.position.x - lastPosition;
-        lastPosition = transform.position.x;
+        //speed = transform.position.x - lastPosition;
+        //lastPosition = transform.position.x;
+        speed = rigidBody2D.position.x - lastPosition;
+        lastPosition = rigidBody2D.position.x;
     }
 
     private void GetDirection()

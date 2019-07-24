@@ -1,13 +1,21 @@
 ﻿<Properties StartupConfiguration="{0AB5C353-1AAE-C112-25EE-379D5803F822}|">
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Movement.cs">
     <Files>
-      <File FileName="Assets/Scripts/Movement.cs" Line="40" Column="30" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="61" Column="10" />
+      <File FileName="Assets/Scripts/Movement.cs" Line="103" Column="30" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="35" Column="31" />
+      <File FileName="Assets/Scripts/EnemySpawner.cs" Line="10" Column="46" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Fresh" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="4982d4b4-3802-4415-8dd2-6fa5c31306f4" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="b1016475-074d-4668-bda5-4060ff302d22" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
