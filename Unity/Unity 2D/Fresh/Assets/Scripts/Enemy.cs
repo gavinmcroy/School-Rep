@@ -5,11 +5,13 @@ using TMPro;
 
 public class Enemy : MonoBehaviour
 {
+    [SerializeField] private int scoreForKill=10;
     [SerializeField] private int health = 100;
     [SerializeField] private int moveSpeed = 1;
     [SerializeField] TextMeshProUGUI text;
     Animator animator;
     Movement playerController;
+    GameController gameController;
     Rigidbody2D rigidBody2D;
     Rigidbody2D playerPosition;
     private int direction = -1;
@@ -21,6 +23,7 @@ public class Enemy : MonoBehaviour
         playerController = FindObjectOfType<Movement>();
         playerPosition = playerController.GetComponent<Rigidbody2D>();
         rigidBody2D = GetComponent<Rigidbody2D>();
+        gameController = FindObjectOfType<GameController>();
         animator.SetInteger("Health", health);
         text.text = health.ToString();
     }
@@ -32,7 +35,7 @@ public class Enemy : MonoBehaviour
 
     public void DestroyObject()
     {
-        Destroy(gameObject,3);
+        Destroy(gameObject);
     }
 
     public void DestroyCollision()
@@ -57,6 +60,11 @@ public class Enemy : MonoBehaviour
             health -= damage;
             text.text = health.ToString();
             animator.SetInteger("Health", health);
+        }if (health <= 0)
+        {
+            transform.gameObject.tag = "Dead";
+            Debug.Log("Kill");
+            gameController.AddScore(scoreForKill);
         }
     }
 
