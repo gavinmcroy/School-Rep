@@ -4,18 +4,22 @@ using UnityEngine;
 
 public class Friendly : MonoBehaviour
 {
+    [SerializeField] private int moveSpeed = 1;
+    [SerializeField] private int health = 20;
+    [SerializeField] private float attackRange = .75f;
+    [SerializeField] float attackSpeed = 1f;
     private float direction = -1;
-    private int moveSpeed = 1;
-    private int health = 20;
     Rigidbody2D rigidBody2D;
     Rigidbody2D enemyPos;
     Enemy enemy;
     Animator animator;
+    Animator enemyAnimator;
 
     private void Awake()
     {
         enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
         animator = GetComponent<Animator>();
+        enemyAnimator = enemy.GetComponent<Animator>();
         enemyPos = enemy.GetComponent<Rigidbody2D>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator.SetInteger("Health", health);
@@ -23,7 +27,7 @@ public class Friendly : MonoBehaviour
 
     void FixedUpdate()
     {
-        FollowEnemy();
+        FollowAndAttackEnemy();
     }
 
     public void SetMovementSpeed(int speed)
@@ -31,9 +35,19 @@ public class Friendly : MonoBehaviour
         moveSpeed = speed;
     }
 
+    public void SetAttackSpeed()
+    {
+        animator.speed = attackSpeed;
+    }
+
+    public void ResetAttackSpeed()
+    {
+        animator.speed = 1;
+    }
+
     public void DealDamage(int damage)
     {
-        RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), .75f, LayerMask.GetMask("Hostile"));
+        RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), attackRange, LayerMask.GetMask("Hostile"));
         if (rayCast.collider != null)
         {
             enemy.TakeDamage(damage);
@@ -61,15 +75,16 @@ public class Friendly : MonoBehaviour
 
     public void DestroyCollision()
     {
-        //rigidBody2D.gravityScale = 0;
+        rigidBody2D.gravityScale = 0;
         Destroy(GetComponent<BoxCollider2D>());
     }
 
-    private void FollowEnemy()
+    private void FollowAndAttackEnemy()
     {
-        if (enemy == null)
+        if (enemyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
         {
             enemy = GameObject.FindGameObjectWithTag("Enemy").GetComponent<Enemy>();
+            enemyAnimator = enemy.GetComponent<Animator>();
             enemyPos = enemy.GetComponent<Rigidbody2D>();
         }
         Vector2 follow = enemyPos.position - rigidBody2D.position;
@@ -88,29 +103,4 @@ public class Friendly : MonoBehaviour
             animator.SetTrigger("Attack");
         }
     }
-
-    //private void Follow()
-    //{
-    //    //Vector2 follow = playerController.transform.position - transform.position;
-    //    Vector2 follow = playerPosition.position - rigidBody2D.position;
-    //    animator.SetFloat("Direction", direction);
-    //    if (follow.x < -.5)
-    //    {
-    //        //transform.Translate(Vector2.left * Time.deltaTime * moveSpeed);
-    //        //rigidBody2D.MovePosition(Vector2.left * Time.deltaTime * moveSpeed);
-    //        rigidBody2D.position += Vector2.left * Time.deltaTime * moveSpeed;
-    //        direction = -1;
-    //    }
-    //    else if (follow.x > .5)
-    //    {
-    //        //transform.Translate(Vector2.right * Time.deltaTime * moveSpeed);
-    //        //rigidBody2D.MovePosition(Vector2.right * Time.deltaTime * moveSpeed);
-    //        rigidBody2D.position -= Vector2.left * Time.deltaTime * moveSpeed;
-    //        direction = 1;
-    //    }
-    //    else if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-    //    {
-    //        animator.SetTrigger("Attack");
-    //    }
-    //}
 }
