@@ -40,6 +40,11 @@ public class Friendly : MonoBehaviour
         animator.speed = attackSpeed;
     }
 
+    public Vector2 GetPosition()
+    {
+        return rigidBody2D.position;
+    }
+
     public void ResetAttackSpeed()
     {
         animator.speed = 1;
@@ -68,11 +73,13 @@ public class Friendly : MonoBehaviour
         }
     }
 
+    //---Missing From Rewrite
     public void DestroyObject()
     {
         Destroy(gameObject, 3);
     }
 
+    //---Missing From Rewrite
     public void DestroyCollision()
     {
         rigidBody2D.gravityScale = 0;

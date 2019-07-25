@@ -11,7 +11,7 @@ public class Movement : MonoBehaviour
     private float lastPosition;
     private float speed;
     private float direction = 1;
-    Rigidbody2D rigidBody2D;
+    static Rigidbody2D rigidBody2D;
     Animator animator;
     Vector2 movement;
 
@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
         RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), 1.25f, LayerMask.GetMask("Hostile"));
         if (rayCast.collider != null)
         {
-            Enemy enemy = rayCast.collider.gameObject.GetComponent<Enemy>();
+            Rewrite enemy = rayCast.collider.gameObject.GetComponent<Rewrite>();
             enemy.TakeDamage(val);
         }
         else
@@ -73,6 +73,11 @@ public class Movement : MonoBehaviour
     public void SetMoveSpeed(int speed)
     {
         moveSpeed = speed;
+    }
+
+    public static Vector2 GetPosition()
+    {
+        return rigidBody2D.position;
     }
 
     private void Move()
@@ -108,8 +113,6 @@ public class Movement : MonoBehaviour
 
     private void GetSpeed()
     {
-        //speed = transform.position.x - lastPosition;
-        //lastPosition = transform.position.x;
         speed = rigidBody2D.position.x - lastPosition;
         lastPosition = rigidBody2D.position.x;
     }

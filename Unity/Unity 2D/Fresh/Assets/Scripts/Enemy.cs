@@ -14,9 +14,9 @@ public class Enemy : MonoBehaviour
     Movement playerController;
     GameController gameController;
     Rigidbody2D rigidBody2D;
-    Rigidbody2D friendlyPosition;
+    //Rigidbody2D friendlyPosition;
     Animator friendlyAnimator;
-    Rigidbody2D playerPosition;
+    //Rigidbody2D playerPosition;
     private int direction = -1;
 
 
@@ -26,11 +26,11 @@ public class Enemy : MonoBehaviour
         if (GameObject.FindGameObjectWithTag("Friendly") != null)
         {
             friendly = GameObject.FindGameObjectWithTag("Friendly").GetComponent<Friendly>();
-            friendlyPosition = friendly.GetComponent<Rigidbody2D>();
+            //friendlyPosition = friendly.GetComponent<Rigidbody2D>();
             friendlyAnimator = friendly.GetComponent<Animator>();
         }
         playerController = FindObjectOfType<Movement>();
-        playerPosition = playerController.GetComponent<Rigidbody2D>();
+        //playerPosition = playerController.GetComponent<Rigidbody2D>();
         rigidBody2D = GetComponent<Rigidbody2D>();
         gameController = FindObjectOfType<GameController>();
 
@@ -103,14 +103,14 @@ public class Enemy : MonoBehaviour
 
     private void Follow()
     {
-        Vector2 follow = playerPosition.position - rigidBody2D.position;
-        if (friendlyPosition != null)
-        {
-            if (follow.magnitude > friendlyPosition.position.magnitude && !friendlyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+        Vector2 follow = Movement.GetPosition() - rigidBody2D.position;
+        //if (friendly.GetPosition() != null)
+       // {
+            if (follow.magnitude > friendly.GetPosition().magnitude && !friendlyAnimator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
             {
-                follow = friendlyPosition.position - rigidBody2D.position;
+                follow = friendly.GetPosition() - rigidBody2D.position;
             }
-        }
+       // }
         animator.SetFloat("Direction", direction);
         if (follow.x < -.5)
         {
