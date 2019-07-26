@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] Enemy enemy;
+    [SerializeField] Attack enemy;
     [SerializeField] bool spawning = true;
     [SerializeField] float minSpawnDelay = 1;
     [SerializeField] float maxSpawnDelay = 5;

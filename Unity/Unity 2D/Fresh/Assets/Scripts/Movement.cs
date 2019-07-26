@@ -43,7 +43,7 @@ public class Movement : MonoBehaviour
         RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), 1.25f, LayerMask.GetMask("Hostile"));
         if (rayCast.collider != null)
         {
-            Rewrite enemy = rayCast.collider.gameObject.GetComponent<Rewrite>();
+            Attack enemy = rayCast.collider.gameObject.GetComponent<Attack>();
             enemy.TakeDamage(val);
         }
         else

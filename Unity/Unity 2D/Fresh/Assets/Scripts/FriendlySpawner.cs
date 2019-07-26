@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FriendlySpawner : MonoBehaviour
 {
-    [SerializeField] Friendly friendly;
+    [SerializeField] Attack friendly;
     [SerializeField] int spawnHeight = 10;
 
     private void OnTriggerStay2D(Collider2D collision)

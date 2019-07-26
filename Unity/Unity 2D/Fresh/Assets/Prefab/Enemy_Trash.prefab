@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 413259481296094053}
   - component: {fileID: 5868065745529924049}
   m_Layer: 11
-  m_Name: Skeleton
+  m_Name: Enemy_Trash
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -389,9 +389,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   layerMaskName: Player
-  health: 20
+  health: 5
   attackRange: 0.75
-  lookRange: 10
+  lookRange: 100
   attackSpeed: 1
 --- !u!1 &8608911919539948952
 GameObject:

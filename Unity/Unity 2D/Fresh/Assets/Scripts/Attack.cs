@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Rewrite : MonoBehaviour,AIAttack
+public class Attack : MonoBehaviour,AIAttack
 {
     [SerializeField] private int moveSpeed = 1;
     [SerializeField] string layerMaskName = "Hostile";
@@ -25,7 +25,7 @@ public class Rewrite : MonoBehaviour,AIAttack
     void FixedUpdate()
     {
         Follow();
-        Attack();
+        AttackTarget();
     }
 
     public void SetMovementSpeed(int speed)
@@ -49,7 +49,7 @@ public class Rewrite : MonoBehaviour,AIAttack
         if (rayCast.collider != null)
         {       
             Movement player = rayCast.collider.GetComponent<Movement>();
-            Rewrite enemy = rayCast.collider.GetComponent<Rewrite>();
+            Attack enemy = rayCast.collider.GetComponent<Attack>();
             if (enemy != null)
             {
                 enemy.TakeDamage(damage);
@@ -120,7 +120,7 @@ public class Rewrite : MonoBehaviour,AIAttack
         }
     }
 
-    private void Attack()
+    private void AttackTarget()
     {
         if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
