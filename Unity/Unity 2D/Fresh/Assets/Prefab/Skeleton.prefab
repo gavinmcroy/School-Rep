@@ -234,9 +234,9 @@ GameObject:
   - component: {fileID: 7170539410555443550}
   - component: {fileID: 7170539410555443551}
   - component: {fileID: 7170539410555443548}
-  - component: {fileID: 3260029927129753515}
   - component: {fileID: 2320129340893915490}
   - component: {fileID: 413259481296094053}
+  - component: {fileID: 5868065745529924049}
   m_Layer: 11
   m_Name: Skeleton
   m_TagString: Enemy
@@ -328,23 +328,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3260029927129753515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7170539410555443549}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb7729ee02614dcab97b530dd55f815, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreForKill: 10
-  health: 5
-  moveSpeed: 1
-  text: {fileID: 670616684}
-  friendly: {fileID: 0}
 --- !u!61 &2320129340893915490
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -392,6 +375,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &5868065745529924049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7170539410555443549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d36265ca838594db6a8e57ebe36dc3f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  layerMaskName: Player
+  health: 20
+  attackRange: 0.75
+  lookRange: 10
+  attackSpeed: 1
 --- !u!1 &8608911919539948952
 GameObject:
   m_ObjectHideFlags: 0
