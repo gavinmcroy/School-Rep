@@ -19,6 +19,7 @@ public class Rewrite : MonoBehaviour,AIAttack
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         animator.SetInteger("Health", health);
+        animator.SetFloat("Direction", direction);
     }
 
     void FixedUpdate()
@@ -83,17 +84,39 @@ public class Rewrite : MonoBehaviour,AIAttack
         animator.SetFloat("Direction", direction);
         RaycastHit2D rayCastInfront = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction,0), lookRange, LayerMask.GetMask(layerMaskName));
         RaycastHit2D rayCastBehind = Physics2D.Raycast(rigidBody2D.position, new Vector2(-direction,0), lookRange, LayerMask.GetMask(layerMaskName));
-        Debug.Log(gameObject+"Infront Distance :" + rayCastInfront.distance + " Current Direction "+direction);
-        Debug.Log(gameObject+"Behind Distance: " + rayCastBehind.distance+ " Current Direction "+direction);
+        //Debug.Log(gameObject+"Infront Distance :" + rayCastInfront.distance /*+ " Current Direction "+direction*/);
+        //Debug.Log(gameObject+"Behind Distance: " + rayCastBehind.distance /*+ " Current Direction "+direction*/);
 
-        if (rayCastInfront.distance > -rayCastBehind.distance && !Mathf.Approximately(rayCastInfront.distance,0))
+        //if (-rayCastInfront.distance > -rayCastBehind.distance && !Mathf.Approximately(rayCastInfront.distance, 0))
+        //{
+        //    rigidBody2D.position += Vector2.right * Time.deltaTime * moveSpeed;
+        //    //direction = -1;
+        //}else if (-rayCastInfront.distance < -rayCastBehind.distance && !Mathf.Approximately(rayCastBehind.distance,0))
+        //{
+        //    rigidBody2D.position += Vector2.left * Time.deltaTime * moveSpeed;
+        //    //direction = 1;
+        //}
+        if (-rayCastInfront.distance > -rayCastBehind.distance && Mathf.Approximately(rayCastInfront.distance, 0))
         {
-            rigidBody2D.position += Vector2.right * Time.deltaTime * moveSpeed;
-            direction = 1;
-        }else if (-rayCastInfront.distance < rayCastBehind.distance && !Mathf.Approximately(rayCastBehind.distance,0))
+            rigidBody2D.position += new Vector2(-direction,0) * Time.deltaTime * moveSpeed;
+            direction = -direction;
+        }
+        else if (-rayCastInfront.distance < -rayCastBehind.distance && Mathf.Approximately(rayCastBehind.distance, 0))
         {
-            rigidBody2D.position += Vector2.left * Time.deltaTime * moveSpeed;
-            direction = -1;
+            rigidBody2D.position += new Vector2(direction,0) * Time.deltaTime * moveSpeed;
+            
+        }
+
+        if (-rayCastInfront.distance > -rayCastBehind.distance && !Mathf.Approximately(rayCastInfront.distance, 0))
+        {
+            rigidBody2D.position += new Vector2(direction,0) * Time.deltaTime * moveSpeed;            
+        }
+        else if (-rayCastInfront.distance < -rayCastBehind.distance && !Mathf.Approximately(rayCastBehind.distance, 0))
+        {
+            //rigidBody2D.position += Vector2.left * Time.deltaTime * moveSpeed;
+            rigidBody2D.position += new Vector2(-direction,0) * Time.deltaTime * moveSpeed;
+            direction = -direction;
+
         }
     }
 
