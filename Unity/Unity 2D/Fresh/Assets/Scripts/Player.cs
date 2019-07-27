@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Movement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [SerializeField] private int health = 2;
     [SerializeField] private float moveSpeed = 3;
     [SerializeField] TextMeshProUGUI text;
+    [SerializeField] AudioClip attackSound;
     private float lastPosition;
     private float speed;
     private float direction = 1;
-    static Rigidbody2D rigidBody2D;
+    Rigidbody2D rigidBody2D;
     Animator animator;
     Vector2 movement;
+
 
     void Start()
     {
@@ -75,11 +77,6 @@ public class Movement : MonoBehaviour
         moveSpeed = speed;
     }
 
-    public static Vector2 GetPosition()
-    {
-        return rigidBody2D.position;
-    }
-
     private void Move()
     {
         float horizontal = Input.GetAxisRaw("Horizontal");
@@ -97,6 +94,7 @@ public class Movement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
+            AudioController.instance.RandomSFX(attackSound);
             float randomVal = Mathf.Clamp(Random.value, 0f, .75f);
             animator.SetFloat("Random", randomVal);
             animator.SetTrigger("Attack");

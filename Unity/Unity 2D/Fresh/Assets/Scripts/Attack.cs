@@ -48,7 +48,7 @@ public class Attack : MonoBehaviour,AIAttack
         RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), attackRange, LayerMask.GetMask(layerMaskName));
         if (rayCast.collider != null)
         {       
-            Movement player = rayCast.collider.GetComponent<Movement>();
+            Player player = rayCast.collider.GetComponent<Player>();
             Attack enemy = rayCast.collider.GetComponent<Attack>();
             if (enemy != null)
             {
@@ -84,18 +84,7 @@ public class Attack : MonoBehaviour,AIAttack
         animator.SetFloat("Direction", direction);
         RaycastHit2D rayCastInfront = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction,0), lookRange, LayerMask.GetMask(layerMaskName));
         RaycastHit2D rayCastBehind = Physics2D.Raycast(rigidBody2D.position, new Vector2(-direction,0), lookRange, LayerMask.GetMask(layerMaskName));
-        //Debug.Log(gameObject+"Infront Distance :" + rayCastInfront.distance /*+ " Current Direction "+direction*/);
-        //Debug.Log(gameObject+"Behind Distance: " + rayCastBehind.distance /*+ " Current Direction "+direction*/);
 
-        //if (-rayCastInfront.distance > -rayCastBehind.distance && !Mathf.Approximately(rayCastInfront.distance, 0))
-        //{
-        //    rigidBody2D.position += Vector2.right * Time.deltaTime * moveSpeed;
-        //    //direction = -1;
-        //}else if (-rayCastInfront.distance < -rayCastBehind.distance && !Mathf.Approximately(rayCastBehind.distance,0))
-        //{
-        //    rigidBody2D.position += Vector2.left * Time.deltaTime * moveSpeed;
-        //    //direction = 1;
-        //}
         if (-rayCastInfront.distance > -rayCastBehind.distance && Mathf.Approximately(rayCastInfront.distance, 0))
         {
             rigidBody2D.position += new Vector2(-direction,0) * Time.deltaTime * moveSpeed;
@@ -113,7 +102,6 @@ public class Attack : MonoBehaviour,AIAttack
         }
         else if (-rayCastInfront.distance < -rayCastBehind.distance && !Mathf.Approximately(rayCastBehind.distance, 0))
         {
-            //rigidBody2D.position += Vector2.left * Time.deltaTime * moveSpeed;
             rigidBody2D.position += new Vector2(-direction,0) * Time.deltaTime * moveSpeed;
             direction = -direction;
 

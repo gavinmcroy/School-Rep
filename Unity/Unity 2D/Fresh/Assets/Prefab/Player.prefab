@@ -355,6 +355,7 @@ MonoBehaviour:
   health: 10000
   moveSpeed: 3
   text: {fileID: 1578295149}
+  attackSound: {fileID: 8300000, guid: 659e88d34989b4bf5a366fe1cfa181e6, type: 3}
 --- !u!50 &9152422520620982890
 Rigidbody2D:
   serializedVersion: 4
