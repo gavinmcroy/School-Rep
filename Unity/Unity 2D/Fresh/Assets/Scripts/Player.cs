@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float moveSpeed = 3;
     [SerializeField] TextMeshProUGUI text;
     [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] AudioClip hitSound;
     private float lastPosition;
     private float speed;
     private float direction = 1;
@@ -60,12 +62,14 @@ public class Player : MonoBehaviour
         if (health > 0)
         {
             health -= damage;
-            if (health < 0)
+            if (health <= 0)
             {
+                AudioController.instance.RandomSFX(deathSound);
                 text.text = "0";
             }
             else
             {
+                AudioController.instance.RandomSFX(hitSound);
                 text.text = health.ToString();
                 animator.SetInteger("Health", health);
             }
@@ -95,7 +99,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C) && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
         {
             AudioController.instance.RandomSFX(attackSound);
-            float randomVal = Mathf.Clamp(Random.value, 0f, .75f);
+            float randomVal = Random.Range(0, 4);
             animator.SetFloat("Random", randomVal);
             animator.SetTrigger("Attack");
         }

@@ -67,15 +67,16 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 4
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 2a5bffce4100e45f19a98aa726df2f9e, type: 2}
+  m_sharedMaterial: {fileID: -6287639275564478607, guid: 2a5bffce4100e45f19a98aa726df2f9e,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4285295724
+  m_fontColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -393,6 +394,10 @@ MonoBehaviour:
   attackRange: 0.75
   lookRange: 100
   attackSpeed: 1
+  pointsForKill: 5
+  attackSound: {fileID: 8300000, guid: e6d104ee8f3e6408c8edbc5392b98b67, type: 3}
+  deathSound: {fileID: 8300000, guid: eaf6f247d8c6d4ba7903a8443f068b04, type: 3}
+  text: {fileID: 670616684}
 --- !u!1 &8608911919539948952
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,17 +1,26 @@
 ﻿<Properties StartupConfiguration="{0AB5C353-1AAE-C112-25EE-379D5803F822}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/EnemySpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player.cs">
     <Files>
-      <File FileName="Assets/Scripts/FriendlySpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Attack.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/FriendlySpawner.cs" Line="18" Column="69" />
+      <File FileName="Assets/Scripts/Attack.cs" Line="32" Column="6" />
       <File FileName="Assets/Scripts/EnemySpawner.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/AudioController.cs" />
-      <File FileName="Assets/Scripts/Player.cs" />
-      <File FileName="Assets/Scripts/AIAttack.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/AudioController.cs" Line="22" Column="18" />
+      <File FileName="Assets/Scripts/Player.cs" Line="67" Column="64" />
+      <File FileName="Assets/Scripts/AIAttack.cs" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="8" Column="29" />
+      <File FileName="Assets/Scripts/ButtonController.cs" Line="21" Column="1" />
     </Files>
+    <Pads>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="Fresh" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e49abd1e-3de9-467e-80b2-5373345ad60f" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ef42f150-4951-41bc-b3fe-9e65ca118ebc" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

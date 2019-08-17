@@ -33,4 +33,9 @@ public class AudioController : MonoBehaviour
         fxSounds.clip = clip[random];
         fxSounds.Play();
     }
+
+    public void MuteSound()
+    {
+        fxSounds.volume = 0;
+    }
 }

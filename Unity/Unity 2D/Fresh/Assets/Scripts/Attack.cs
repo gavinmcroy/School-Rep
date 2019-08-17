@@ -1,25 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Attack : MonoBehaviour,AIAttack
 {
     [SerializeField] private int moveSpeed = 1;
-    [SerializeField] string layerMaskName = "Hostile";
+    [SerializeField] private string layerMaskName = "Hostile";
     [SerializeField] private int health = 20;
     [SerializeField] private float attackRange = .75f;
     [SerializeField] private float lookRange = 10f;
-    [SerializeField] float attackSpeed = 1f;
+    [SerializeField] private float attackSpeed = 1f;
+    [SerializeField] private int pointsForKill = 5;
+    [SerializeField] AudioClip attackSound;
+    [SerializeField] AudioClip deathSound;
+    [SerializeField] TextMeshProUGUI text;
     private float direction = 1;
     Rigidbody2D rigidBody2D;
     Animator animator;
+    public static int total;
 
     private void Awake()
     {
+        text.text = health.ToString();
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         animator.SetInteger("Health", health);
         animator.SetFloat("Direction", direction);
+        total++;
+        Debug.Log(total);
     }
 
     void FixedUpdate()
@@ -46,6 +55,7 @@ public class Attack : MonoBehaviour,AIAttack
     public void DealDamage(int damage)
     {
         RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), attackRange, LayerMask.GetMask(layerMaskName));
+        AudioController.instance.RandomSFX(attackSound);
         if (rayCast.collider != null)
         {       
             Player player = rayCast.collider.GetComponent<Player>();
@@ -66,11 +76,19 @@ public class Attack : MonoBehaviour,AIAttack
         if (health > 0)
         {
             health -= damage;
+            text.text = health.ToString();
             animator.SetInteger("Health", health);
         }
         if (health <= 0)
         {
-            Debug.Log("Killed");
+            if (gameObject.tag == "Enemy")
+            {
+                GameController.instance.AddScore(pointsForKill);
+            }
+            text.text = "0";
+            //---Layer 13 is for dead objects
+            gameObject.layer = 13;
+            AudioController.instance.RandomSFX(deathSound);
         }
     }
 
