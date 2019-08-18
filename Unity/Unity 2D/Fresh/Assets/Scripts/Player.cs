@@ -66,6 +66,10 @@ public class Player : MonoBehaviour
             {
                 AudioController.instance.RandomSFX(deathSound);
                 text.text = "0";
+                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
+                {
+                    ButtonController.instance.ChangeScene(2);
+                }
             }
             else
             {

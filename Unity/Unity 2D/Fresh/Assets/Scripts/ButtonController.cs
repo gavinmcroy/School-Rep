@@ -6,10 +6,26 @@ using UnityEngine;
 public class ButtonController : MonoBehaviour
 {
     [SerializeField] private GameObject loadingImage;
+    public static ButtonController instance;
 
-    public void OnApplicationStart(int sceneIndex)
+    private void Awake()
     {
-        loadingImage.SetActive(true);
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    public void ChangeScene(int sceneIndex)
+    {
+        if (loadingImage != null)
+        {
+            loadingImage.SetActive(true);
+        }
         SceneManager.LoadScene(sceneIndex);
     }
 
