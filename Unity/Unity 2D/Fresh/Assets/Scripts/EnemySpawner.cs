@@ -20,6 +20,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void SpawnAttacker()
     {
-        Instantiate(enemy,transform.position,Quaternion.identity);
+        Vector2 randomSpawn = new Vector2(Random.Range(-10, 10), transform.position.y);
+        Instantiate(enemy,randomSpawn,Quaternion.identity);
     }
 }

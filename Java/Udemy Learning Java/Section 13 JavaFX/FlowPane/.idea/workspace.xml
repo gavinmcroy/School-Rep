@@ -2,8 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../HBox Layout/src/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/.vs/Fresh/xs/UserPrefs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/.vs/Fresh/xs/UserPrefs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/.vs/Fresh/xs/sqlite3/storage.ide" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/.vs/Fresh/xs/sqlite3/storage.ide" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Animation/Adventurer/Adventurer.controller" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Animation/Adventurer/Adventurer.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Prefab/Friendly_Alright.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Prefab/Friendly_Alright.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Prefab/Friendly_Powerful.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Prefab/Friendly_Powerful.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Prefab/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Prefab/Player.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scenes/MainLevel.unity" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scenes/MainLevel.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scripts/Attack.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scripts/Attack.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scripts/EnemySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scripts/EnemySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scripts/Player.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Assets/Scripts/Player.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/CurrentLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/CurrentLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/CurrentMaximizeLayout.dwlt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/LastSceneManagerSetup.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/LastSceneManagerSetup.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/ScriptAssemblies/Assembly-CSharp.dll" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/ScriptAssemblies/Assembly-CSharp.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/ScriptAssemblies/Assembly-CSharp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/ScriptAssemblies/Assembly-CSharp.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/StateCache/SceneView/41710d-mainStage.json" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/StateCache/SceneView/41710d-mainStage.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/assetDatabase3" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/assetDatabase3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/42/423f14b7d41664554934bf7e5a18364a" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/42/423f14b7d41664554934bf7e5a18364a" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/9b/9bc281e9218944c06a624d865f7e6c31" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/9b/9bc281e9218944c06a624d865f7e6c31" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/c4/c42d0dd0b826542cbaee8863f83b8e9b" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/c4/c42d0dd0b826542cbaee8863f83b8e9b" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/d3/d36265ca838594db6a8e57ebe36dc3f6" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/d3/d36265ca838594db6a8e57ebe36dc3f6" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/e2/e25191ce2540647f6beeacdcaa484d77" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/e2/e25191ce2540647f6beeacdcaa484d77" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/ea/ea5d5d439e19848f08dbf8b2bda1c5d1" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/ea/ea5d5d439e19848f08dbf8b2bda1c5d1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/fb/fb93fcf0fb5574726b792418d56625f9" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/metadata/fb/fb93fcf0fb5574726b792418d56625f9" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/shadercompiler-UnityShaderCompiler0.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Unity/Unity 2D/Fresh/Library/shadercompiler-UnityShaderCompiler0.log" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -60,16 +84,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" selection-start-line="8" selection-end-line="8" />
+            <state>
+              <caret selection-end-line="22" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/module-info.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="38">
@@ -90,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="321">
+            <state relative-caret-position="342">
               <caret line="18" selection-start-line="18" selection-end-line="18" />
             </state>
           </provider>
@@ -124,7 +148,6 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
     <option name="y" value="22" />
     <option name="width" value="1612" />
     <option name="height" value="876" />
@@ -138,7 +161,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -160,6 +182,7 @@
         </subPane>
       </pane>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -171,7 +194,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561661063134" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566186823137" />
     <property name="dynamic.classpath" value="false" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.0" />
@@ -279,16 +302,16 @@
     <option name="totallyTimeSpent" value="1302000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="22" width="1612" height="876" extended-state="0" />
+    <frame x="0" y="22" width="1612" height="876" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info id="Designer" />
-      <window_info id="Image Layers" />
-      <window_info id="UI Designer" />
-      <window_info id="Capture Tool" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25286624" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.25923568" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info id="Designer" order="3" />
+      <window_info id="Image Layers" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Capture Tool" order="6" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32908162" />
@@ -303,10 +326,7 @@
       <window_info anchor="bottom" id="Profiler" order="11" />
       <window_info anchor="bottom" id="Event Log" order="12" />
       <window_info anchor="bottom" id="Messages" order="13" />
-      <window_info anchor="right" id="Maven" />
-      <window_info anchor="right" id="Capture Analysis" />
-      <window_info anchor="right" id="Palette&#9;" />
-      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="bottom" id="Terminal" order="14" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -314,6 +334,10 @@
       <window_info anchor="right" id="Database" order="4" />
       <window_info anchor="right" id="Palette" order="5" />
       <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven" order="7" />
+      <window_info anchor="right" id="Capture Analysis" order="8" />
+      <window_info anchor="right" id="Palette&#9;" order="9" />
+      <window_info anchor="right" id="Theme Preview" order="10" />
     </layout>
   </component>
   <component name="VcsManagerConfiguration">
@@ -327,23 +351,8 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/sample/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="321">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="9" selection-start-column="9" selection-end-column="9" />
+          <caret selection-end-line="22" selection-end-column="1" />
         </state>
       </provider>
     </entry>
@@ -353,6 +362,21 @@
           <caret line="2" selection-start-line="2" selection-end-line="5" selection-end-column="17" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="9" selection-start-column="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/sample.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
   </component>
   <component name="masterDetails">

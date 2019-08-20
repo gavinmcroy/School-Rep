@@ -424,11 +424,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 1
   layerMaskName: Hostile
-  health: 20
+  health: 40
   attackRange: 0.75
   lookRange: 100
-  attackSpeed: 2
+  attackSpeed: 3
   pointsForKill: 5
   attackSound: {fileID: 8300000, guid: e6d104ee8f3e6408c8edbc5392b98b67, type: 3}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: eaf6f247d8c6d4ba7903a8443f068b04, type: 3}
   text: {fileID: 2060971643906915548}

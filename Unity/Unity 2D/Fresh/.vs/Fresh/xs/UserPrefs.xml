@@ -1,15 +1,8 @@
 ﻿<Properties StartupConfiguration="{0AB5C353-1AAE-C112-25EE-379D5803F822}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/ScrollingBackground.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameController.cs">
     <Files>
-      <File FileName="Assets/Scripts/FriendlySpawner.cs" Line="18" Column="69" />
-      <File FileName="Assets/Scripts/Attack.cs" />
-      <File FileName="Assets/Scripts/EnemySpawner.cs" />
-      <File FileName="Assets/Scripts/AudioController.cs" />
-      <File FileName="Assets/Scripts/Player.cs" Line="67" Column="64" />
-      <File FileName="Assets/Scripts/AIAttack.cs" />
-      <File FileName="Assets/Scripts/GameController.cs" />
-      <File FileName="Assets/Scripts/ButtonController.cs" />
-      <File FileName="Assets/Scripts/ScrollingBackground.cs" Line="8" Column="1" />
+      <File FileName="Assets/Scripts/GameController.cs" Line="53" Column="1" />
+      <File FileName="Assets/Scripts/HighScore.cs" Line="13" Column="37" />
     </Files>
     <Pads>
       <Pad Id="MonoDevelop.UnitTesting.TestPad">
@@ -21,7 +14,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="ef42f150-4951-41bc-b3fe-9e65ca118ebc" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="bcb4b065-d496-45f9-9f7b-f2313164a176" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

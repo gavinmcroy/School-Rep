@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 338576418}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -353,7 +353,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 423f14b7d41664554934bf7e5a18364a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 20
+  health: 25
   moveSpeed: 3
   text: {fileID: 1578295149}
   attackSound: {fileID: 8300000, guid: 659e88d34989b4bf5a366fe1cfa181e6, type: 3}

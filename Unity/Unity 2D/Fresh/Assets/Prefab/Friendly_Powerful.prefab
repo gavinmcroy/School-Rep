@@ -328,10 +328,10 @@ MonoBehaviour:
   health: 100
   attackRange: 0.75
   lookRange: 100
-  attackSpeed: 10
+  attackSpeed: 3
   pointsForKill: 5
   attackSound: {fileID: 8300000, guid: e6d104ee8f3e6408c8edbc5392b98b67, type: 3}
-  deathSound: {fileID: 0}
+  deathSound: {fileID: 8300000, guid: eaf6f247d8c6d4ba7903a8443f068b04, type: 3}
   text: {fileID: 5542984158605324749}
 --- !u!1 &9054974264252713333
 GameObject:

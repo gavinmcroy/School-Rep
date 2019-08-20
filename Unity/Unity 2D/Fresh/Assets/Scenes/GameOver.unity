@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingImage: {fileID: 0}
+  buttonPressed: {fileID: 8300000, guid: c53676886422a421288c65ceb64dea26, type: 3}
 --- !u!1 &778455891
 GameObject:
   m_ObjectHideFlags: 0

@@ -28,7 +28,7 @@ public class Attack : MonoBehaviour,AIAttack
         animator.SetInteger("Health", health);
         animator.SetFloat("Direction", direction);
         total++;
-        Debug.Log(total);
+        //Debug.Log("Total Enemies Spawned: "+total);
     }
 
     void FixedUpdate()

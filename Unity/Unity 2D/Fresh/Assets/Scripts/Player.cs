@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -18,12 +19,12 @@ public class Player : MonoBehaviour
     Animator animator;
     Vector2 movement;
 
-
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         text.text = health.ToString();
+        AudioController.instance.StartSoundTrack();
     }
 
     void Update()
@@ -37,11 +38,6 @@ public class Player : MonoBehaviour
         AnimationController();
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log("Collision with " + collision.gameObject);
-    }
-
     public void DealDamage(int val)
     {
         RaycastHit2D rayCast = Physics2D.Raycast(rigidBody2D.position, new Vector2(direction, 0), 1.25f, LayerMask.GetMask("Hostile"));
@@ -50,11 +46,6 @@ public class Player : MonoBehaviour
             Attack enemy = rayCast.collider.gameObject.GetComponent<Attack>();
             enemy.TakeDamage(val);
         }
-        else
-        {
-            Debug.Log("Player Attack RayCast Collision Fail");
-        }
-
     }
 
     public void TakeDamage(int damage)
@@ -66,10 +57,8 @@ public class Player : MonoBehaviour
             {
                 AudioController.instance.RandomSFX(deathSound);
                 text.text = "0";
-                if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Death"))
-                {
-                    ButtonController.instance.ChangeScene(2);
-                }
+                AudioController.instance.StopSoundTrack();
+                SceneManager.LoadScene(2);
             }
             else
             {

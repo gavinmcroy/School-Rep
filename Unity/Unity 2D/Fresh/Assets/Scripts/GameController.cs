@@ -5,12 +5,17 @@ using TMPro;
 
 public class GameController : MonoBehaviour
 {
+    private static int cash;
     private static int score;
-    [SerializeField] TextMeshProUGUI text;
+    private static int highScore;
+    [SerializeField] TextMeshProUGUI cashText;
+    [SerializeField] TextMeshProUGUI scoreText;
     public static GameController instance;
 
     private void Awake()
     {
+        cash = 0;
+        score = 0;
         if (instance == null)
         {
             instance = this;
@@ -29,25 +34,31 @@ public class GameController : MonoBehaviour
     {
         QualitySettings.vSyncCount = 0;
         Application.targetFrameRate = 144;
-        text.text = score.ToString();
+        cashText.text = "Cash:$"+cash.ToString();
+        scoreText.text = "Score:" + score.ToString();
     }
 
     public void AddScore(int scoreAmount)
     {
-        score += scoreAmount;
-        text.text = score.ToString();
+        cash += scoreAmount;
+        score += scoreAmount * 2;
+        cashText.text = "Cash:$"+cash.ToString();
+        scoreText.text = "Score:"+score.ToString();
+        if (score > highScore)
+        {
+            highScore = score;
+            PlayerPrefs.SetInt("Highscore", highScore);
+        }
     }
 
     public void RemoveScore(int removeAmount)
     {
-        score -= removeAmount;
-        text.text = score.ToString();
+        cash -= removeAmount;
+        cashText.text = "Cash:$"+cash.ToString();
     }
 
     public int GetScore()
     {
-        return score;
+        return cash;
     }
-
-
 }

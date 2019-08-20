@@ -6,6 +6,7 @@ using UnityEngine;
 public class ButtonController : MonoBehaviour
 {
     [SerializeField] private GameObject loadingImage;
+    [SerializeField] private AudioClip buttonPressed;
     public static ButtonController instance;
 
     private void Awake()
@@ -22,6 +23,7 @@ public class ButtonController : MonoBehaviour
 
     public void ChangeScene(int sceneIndex)
     {
+        AudioController.instance.RandomSFX(buttonPressed);
         if (loadingImage != null)
         {
             loadingImage.SetActive(true);
@@ -31,6 +33,7 @@ public class ButtonController : MonoBehaviour
 
     public void OnApplicationQuit()
     {
+        AudioController.instance.RandomSFX(buttonPressed);
         Application.Quit();
     }
 }

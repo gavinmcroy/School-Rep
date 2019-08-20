@@ -396,7 +396,7 @@ MonoBehaviour:
   attackSpeed: 1
   pointsForKill: 5
   attackSound: {fileID: 8300000, guid: e6d104ee8f3e6408c8edbc5392b98b67, type: 3}
-  deathSound: {fileID: 8300000, guid: eaf6f247d8c6d4ba7903a8443f068b04, type: 3}
+  deathSound: {fileID: 8300000, guid: 3553dae115e77412fb8a9ca174f0f039, type: 3}
   text: {fileID: 670616684}
 --- !u!1 &8608911919539948952
 GameObject:
