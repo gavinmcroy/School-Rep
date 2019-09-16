@@ -4,58 +4,26 @@ using UnityEngine;
 
 public class CardController : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer[] spriteRender;
-    [SerializeField] private Sprite flippedCard;
-    [SerializeField] GameObject cardFlipped;
     [SerializeField] int cardMoveSpeed =2;
-    private string[] cardLocation;
+    [SerializeField] List<Card> cardList;
+    private List<Vector2> locations;
 
     void Start()
     {
-        cardLocation = new string[spriteRender.Length];
-        SaveLocation();
+        //locations.Add(new Vector2(-2, 0));
+        //locations.Add(new Vector2(0, 0));
+        //locations.Add(new Vector2(2, 0));
     }
 
     void Update()
     {
-        //MoveCard();
-;        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            FlipAllCards();
-        }
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            UnFlipAllCards();
-        }
+        Scramble();
     }
 
-    private void MoveCard()
+    private void Scramble()
     {
-        Vector2 cardMove = new Vector2(1, 0);
-        Vector2 position = spriteRender[1].transform.position;
-        position.x += cardMove.x * cardMoveSpeed * Time.deltaTime;
-        spriteRender[1].transform.position = position;
+        //Vector2 randomTest = new Vector2(Random.Range(0f, 2f), 0);
+        cardList[0].MoveCard(new Vector2(3,3));
     }
-
-    private void SaveLocation()
-    {
-        for(int i = 0; i < spriteRender.Length; i++)
-        {
-            cardLocation[i] = spriteRender[i].sprite.name;
-            Debug.Log(cardLocation[i]);
-        }
-    }
-
-    private void FlipAllCards()
-    {
-        cardFlipped.SetActive(false);
-    }
-
-    private void UnFlipAllCards()
-    {
-        cardFlipped.SetActive(true);
-        spriteRender[1].transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
-    }
-
 
 }
