@@ -1,4 +1,4 @@
-# Install script for directory: /Users/gavintaylormcroy/Documents/College/CPSC 1010/Chapter 5/CE5.0
+# Install script for directory: /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/gavintaylormcroy/Documents/College/CPSC 1010/Chapter 5/CE5.0/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
