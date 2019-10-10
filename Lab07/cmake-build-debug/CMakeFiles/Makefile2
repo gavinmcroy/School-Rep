@@ -44,21 +44,21 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0
+CMAKE_SOURCE_DIR = "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug
+CMAKE_BINARY_DIR = "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/CE5_0.dir/all
+all: CMakeFiles/Lab07.dir/all
 
 .PHONY : all
 
 # The main recursive "clean" target.
-clean: CMakeFiles/CE5_0.dir/clean
+clean: CMakeFiles/Lab07.dir/clean
 
 .PHONY : clean
 
@@ -68,31 +68,31 @@ preinstall:
 .PHONY : preinstall
 
 #=============================================================================
-# Target rules for target CMakeFiles/CE5_0.dir
+# Target rules for target CMakeFiles/Lab07.dir
 
 # All Build rule for target.
-CMakeFiles/CE5_0.dir/all:
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/depend
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target CE5_0"
-.PHONY : CMakeFiles/CE5_0.dir/all
+CMakeFiles/Lab07.dir/all:
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/depend
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug/CMakeFiles" --progress-num=1,2 "Built target Lab07"
+.PHONY : CMakeFiles/Lab07.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/CE5_0.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/CE5_0.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/CE5_0.dir/rule
+CMakeFiles/Lab07.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug/CMakeFiles" 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Lab07.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug/CMakeFiles" 0
+.PHONY : CMakeFiles/Lab07.dir/rule
 
 # Convenience name for target.
-CE5_0: CMakeFiles/CE5_0.dir/rule
+Lab07: CMakeFiles/Lab07.dir/rule
 
-.PHONY : CE5_0
+.PHONY : Lab07
 
 # clean rule for target.
-CMakeFiles/CE5_0.dir/clean:
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/clean
-.PHONY : CMakeFiles/CE5_0.dir/clean
+CMakeFiles/Lab07.dir/clean:
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/clean
+.PHONY : CMakeFiles/Lab07.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

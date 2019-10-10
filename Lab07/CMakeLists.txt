@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.15)
-project(CE5_0 C)
+project(Lab07 C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(CE5_0 main.c)
+add_executable(Lab07 main.c)

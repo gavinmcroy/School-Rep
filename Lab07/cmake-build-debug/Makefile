@@ -48,10 +48,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0
+CMAKE_SOURCE_DIR = "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug
+CMAKE_BINARY_DIR = "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/CMakeFiles /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug/CMakeFiles" "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug/CMakeFiles/progress.marks"
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/Work-Projects/CE5.0/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "/Users/gavintaylormcroy/Documents/College/CPSC 1011/Lab07/cmake-build-debug/CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CE5_0
+# Target rules for targets named Lab07
 
 # Build rule for target.
-CE5_0: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 CE5_0
-.PHONY : CE5_0
+Lab07: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Lab07
+.PHONY : Lab07
 
 # fast build rule for target.
-CE5_0/fast:
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/build
-.PHONY : CE5_0/fast
+Lab07/fast:
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/build
+.PHONY : Lab07/fast
 
 main.o: main.c.o
 
@@ -129,7 +129,7 @@ main.o: main.c.o
 
 # target to build an object file
 main.c.o:
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/main.c.o
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/main.c.o
 .PHONY : main.c.o
 
 main.i: main.c.i
@@ -138,7 +138,7 @@ main.i: main.c.i
 
 # target to preprocess a source file
 main.c.i:
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/main.c.i
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/main.c.i
 .PHONY : main.c.i
 
 main.s: main.c.s
@@ -147,7 +147,7 @@ main.s: main.c.s
 
 # target to generate assembly for a file
 main.c.s:
-	$(MAKE) -f CMakeFiles/CE5_0.dir/build.make CMakeFiles/CE5_0.dir/main.c.s
+	$(MAKE) -f CMakeFiles/Lab07.dir/build.make CMakeFiles/Lab07.dir/main.c.s
 .PHONY : main.c.s
 
 # Help Target
@@ -158,7 +158,7 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... CE5_0"
+	@echo "... Lab07"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
