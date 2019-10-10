@@ -43,6 +43,8 @@ int main() {
 }
 
 void binaryConverter(const char test[]) {
+    printf("Binary function has fired\n");
+    //FIXME For some reason this function doesnt run anything!
     int check = 0;
     int tmp;
     char binaryArray[256];
@@ -50,7 +52,7 @@ void binaryConverter(const char test[]) {
 
     check = atoi(test);
 
-    //printf("CHECK: %d\n", check);
+    printf("CHECK: %d\n", check);
 
     while (check > 0) {
         tmp = check % 2;
@@ -66,5 +68,5 @@ void binaryConverter(const char test[]) {
         }
         printf("%d ", binaryArray[j]);
     }
-//    printf("\n");
+
 }
