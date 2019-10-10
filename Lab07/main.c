@@ -11,20 +11,26 @@ int main() {
     char gav[256];
     bool reset;
     bool isBinary;
+    int eof;
 
     printf("Starting the CPSC 1011 Decimal to Binary Converter!\n");
 
-    while (true) {
+    do {
         reset = true;
         isBinary = true;
-        printf("Please enter a positive whole number (or EOF to quit): \n");
+        printf("Please enter a positive whole number (or EOF to quit): ");
+
         scanf("%s", gav);
-        if (strcmp(gav, "EXIT") == 0) {
-            break;
+
+        int check = atoi(gav);
+        if (check <= 0) {
+            printf("Sorry, that was not a positive whole number.\n");
+            continue;
         }
+        //---Checks if the number is either a character or a decimal. Reset is used to prevent cycling and repeating error text
         for (int i = 0; i < strlen(gav); i++) {
             if (isalpha(gav[i]) && reset) {
-                printf("Sorry, that was not a positive whole number!\n");
+                printf("Sorry, that was not a positive whole number.\n");
                 reset = false;
                 isBinary = false;
             } else if (gav[i - 1] == '.') {
@@ -35,16 +41,23 @@ int main() {
             }
         }
         if (isBinary) {
-            printf("Is binary has fired\n");
+            printf("\n");
             binaryConverter(gav);
+            printf("\n");
         }
-    }
-    return 0;
+        //---Checks if cmd + d was pressed
+    } while (((eof = getchar() != EOF)));
+
+    //FIXME---Final statement does not print. slight problem
+
+
+    fprintf(stdin, "Thank you for using the CPSC 1011 Decimal to Binary Generator. Goodbye!");
+
+    return eof;
+
 }
 
 void binaryConverter(const char test[]) {
-    printf("Binary function has fired\n");
-    //FIXME For some reason this function doesnt run anything!
     int check = 0;
     int tmp;
     char binaryArray[256];
@@ -52,21 +65,21 @@ void binaryConverter(const char test[]) {
 
     check = atoi(test);
 
-    printf("CHECK: %d\n", check);
-
+    //---Converts to binary digits
+    printf("\t%d (base-10) is equivalent to ", check);
     while (check > 0) {
         tmp = check % 2;
         binaryArray[i] = (char) tmp;
         check /= 2;
         i++;
     }
-    //---prints the reverse of the array using i - 1 as the size of the array and checks if end is reached
-    binaryArray[i + 1] = '\0';
+
+    //---prints the reverse of the array using i - 1 as the size of the array
     for (int j = i - 1; j >= 0; j--) {
-        if (binaryArray[i] == '\0') {
-            break;
-        }
+
         printf("%d ", binaryArray[j]);
     }
+    printf("(base-2)!");
+    printf("\n");
 
 }
