@@ -11,9 +11,9 @@ int main() {
     char gav[256];
     bool reset;
     bool isBinary;
-    int eof;
+    //int eof;
 
-    printf("Starting the CPSC 1011 Decimal to Binary Converter!\n");
+    printf("Starting the CPSC 1011 Decimal to Binary Converter!\n\n");
 
     do {
         reset = true;
@@ -24,18 +24,20 @@ int main() {
 
         int check = atoi(gav);
         if (check <= 0) {
-            printf("Sorry, that was not a positive whole number.\n");
+            printf("\n\tSorry, that was not a positive whole number.\n\n");
             continue;
         }
         //---Checks if the number is either a character or a decimal. Reset is used to prevent cycling and repeating error text
         for (int i = 0; i < strlen(gav); i++) {
-            if (isalpha(gav[i]) && reset) {
-                printf("Sorry, that was not a positive whole number.\n");
+            if (isalpha(gav[i]) && reset) {\
+                printf("\n");
+                printf("\tSorry, that was not a positive whole number.\n\n");
                 reset = false;
                 isBinary = false;
             } else if (gav[i - 1] == '.') {
                 if (gav[i] != '0') {
-                    printf("Sorry, that was not a positive whole number.\n");
+                    printf("\n");
+                    printf("\tSorry, that was not a positive whole number.\n\n");
                     isBinary = false;
                 }
             }
@@ -46,14 +48,14 @@ int main() {
             printf("\n");
         }
         //---Checks if cmd + d was pressed
-    } while (((eof = getchar() != EOF)));
+    } while ((!feof(stdin)));
 
     //FIXME---Final statement does not print. slight problem
 
 
-    fprintf(stdin, "Thank you for using the CPSC 1011 Decimal to Binary Generator. Goodbye!");
+    printf("Thank you for using the CPSC 1011 Decimal to Binary Generator. Goodbye!");
 
-    return eof;
+    return 0;
 
 }
 
@@ -77,9 +79,9 @@ void binaryConverter(const char test[]) {
     //---prints the reverse of the array using i - 1 as the size of the array
     for (int j = i - 1; j >= 0; j--) {
 
-        printf("%d ", binaryArray[j]);
+        printf("%d", binaryArray[j]);
     }
-    printf("(base-2)!");
+    printf(" (base-2)!");
     printf("\n");
 
 }
