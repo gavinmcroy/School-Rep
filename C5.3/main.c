@@ -2,7 +2,6 @@
 #include<stdlib.h>
 #include<stdbool.h>
 
-bool checkDuplicate(int const array[]);
 
 int main() {
     int randomSeed = 0;
@@ -12,18 +11,26 @@ int main() {
     int totalMatched = 0;
     bool matched = false;
     bool gameWon = false;
-    //---FIXME make it 1-9 and generate unique numbers with no repeats
-    printf("Enter an integer random seed:");
+
+    printf("Enter an integer random seed: ");
     scanf("%d", &randomSeed);
     srand(randomSeed);
-    printf("To play the Pick-5 game, enter five integers between 1 and 9 (inclusive):");
+    printf("To play the Pick-5 game, enter five integers bewteen 1 and 9 (inclusive):\n");
     scanf("%d %d %d %d %d", &fiveIntegers[0], &fiveIntegers[1], &fiveIntegers[2], &fiveIntegers[3],
           &fiveIntegers[4]);
 
-    int tmp = 0;
-
     for (int i = 0; i < 5; i++) {
         randomArray[i] = (rand() % 9) + 1;
+
+    }
+
+    for (int i = 0; i < 5; i++) {
+        for (int j = i + 1; j < 5; j++) {
+            if (randomArray[i] == randomArray[j]) {
+                randomArray[j] = (rand() % 9) + 1;
+                //printf("Duplicate on index : %d and %d\n",i,j);
+            }
+        }
     }
 
     for (int i = 0; i < 5; i++) {
@@ -33,8 +40,9 @@ int main() {
             totalMatched++;
         }
     }
+
     if (!matched) {
-        printf("You didn't match any numbers! \n");
+        printf("You didn't match any numbers!\n");
     } else if (totalMatched < 4) {
         printf("You only matched %d numbers. \n", totalMatched);
     } else {
@@ -55,20 +63,8 @@ int main() {
         if (i < 4) {
             printf("%d, ", randomArray[i]);
         } else {
-            printf("%d ", randomArray[i]);
+            printf("%d\n", randomArray[i]);
         }
     }
-
     return 0;
-}
-
-bool checkDuplicate(int const array[]) {
-    for (int i = 0; i < 5; i++) {
-        for (int j = 0; j < 5; j++) {
-            if (array[j] == array[i]) {
-                return true;
-            }
-        }
-    }
-    return false;
 }
