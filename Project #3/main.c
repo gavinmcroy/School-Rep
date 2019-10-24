@@ -103,17 +103,17 @@ void initialize(char playerName[10][100], int jerseyNumber[], double rating[]) {
 
 int findPlayer(int whichPlayer, const int jerseyNumber[], int maxJersyCount) {
 
-    //---Returns negative if player already exists corresponding to location
+    //---Returns negative if player already exists corresponding to location has padding to avoid 0
     for (int i = 0; i < maxJersyCount; i++) {
 
         if (jerseyNumber[i] == whichPlayer) {
-            return -1 * (i+1);
+            return -1 * (i + 1);
         }
     }
-    //---returns available spot if player does not exist
+    //---returns available spot if player does not exist has padding to avoid 0
     for (int i = 0; i < maxJersyCount; i++) {
         if (jerseyNumber[i] == -1) {
-            return i+1;
+            return i + 1;
         }
     }
     //---for if no space available
@@ -135,7 +135,7 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
     int playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
 
     if (playerLocation > 0) {
-        playerLocation-=1;
+        playerLocation -= 1;
         jerseyNumbers[playerLocation] = jerseyToAdd;
         for (int i = 0; i < strlen(playerToAdd); i++) {
             playerNames[playerLocation][i] = playerToAdd[i];
@@ -171,7 +171,7 @@ void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[
         char playerName[100];
         double playerRating = 0.0;
 
-        playerLocation+=1;
+        playerLocation += 1;
         playerLocation *= -1;
 
         printf("Enter player first or nickname:\n");
@@ -197,15 +197,14 @@ void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings
     if (location > 0) {
         printf("Player does not exist");
         return;
-    }
-    else if (location < 0 && location > -15) {
-        location+=1;
+    } else if (location < 0 && location > -15) {
+        location += 1;
         location *= -1;
         for (int i = 0; i < strlen(playerNames[location]); i++) {
             playerNames[location][i] = '+';
         }
-            jerseyNumbers[location] = -1;
-            ratings[location] = -1.0;
+        jerseyNumbers[location] = -1;
+        ratings[location] = -1.0;
     }
 
 }
@@ -220,14 +219,15 @@ void displayPlayerInformation(const char playerNames[10][100], const int jerseyN
         return;
     }
     if (location <= -1 && location > -15) {
-        printf("Player exists at location %d\n", location * -1);
+        location += 1;
+        location *= -1;
+        printf("Player exists at location %d\n", location);
     }
     if (location == -99) {
         printf("There is no available space: (displayPlayerInformation)\n");
         return;
     }
-    location+=1;
-    location *= -1;
+
     printf("Name: %s\n", playerNames[location]);
     printf("Jersey #: %d\n", jerseyNumbers[location]);
     printf("Rating: %lf\n", ratings[location]);
@@ -235,6 +235,17 @@ void displayPlayerInformation(const char playerNames[10][100], const int jerseyN
 }
 
 void printFullRoster(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]) {
+    //---If it detects a + or -1 continue over and display the next
+    printf("ROSTER\n");
+    for (int i = 0; i < MAX_PLAYERS; i++) {
+        if (playerNames[i][0] == '+' && jerseyNumbers[i] == -1) {
+            continue;
+        }
+        printf("----\n");
+        printf("Name: %s\n", playerNames[i]);
+        printf("Jersey: %d\n", jerseyNumbers[i]);
+        printf("Rating: %lf\n", ratings[i]);
+    }
 
 }
 
