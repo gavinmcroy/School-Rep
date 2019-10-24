@@ -3,8 +3,6 @@
 #include<stdbool.h>
 #include<string.h>
 
-//--- -1 Represents data unfilled for type int
-//--- + represents data unfilled for type char
 
 /*FIXME left of incorporating remove player function. Potential issue of determining string size and
  * adding in a null character at the end of the player name.
@@ -15,29 +13,28 @@ int findPlayer(int whichPlayer, const int jerseyNumber[], int maxJersyCount);
 
 void printMenu();
 
-void addPlayer(char playerNames[],int jerseyNumbers[],double ratings);
+void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]);
 
-void updatePlayerInformation();
+void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[], double ratings[]);
 
-void removePlayer();
+void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]);
 
-void displayPlayerInformation(const char playerNames[],const int jerseyNumbers[], const double ratings[]);
+void displayPlayerInformation(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]);
 
-void printFullRoster();
+void printFullRoster(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]);
 
 void printStarPlayers();
 
 void quitApplication();
 
 const int MAX_PLAYERS = 10;
-//char playerNames[MAX_PLAYERS][100];
-//int jerseyNumbers[MAX_PLAYERS];
-//double ratings[MAX_PLAYERS];
+
 
 int main() {
     char playerNames[MAX_PLAYERS][100];
     int jerseyNumbers[MAX_PLAYERS];
     double ratings[MAX_PLAYERS];
+
     initialize(playerNames, jerseyNumbers, ratings);
     char userChoice = ' ';
     printMenu();
@@ -49,19 +46,19 @@ int main() {
         }
         switch (userChoice) {
             case 'A':
-                addPlayer();
+                addPlayer(playerNames, jerseyNumbers, ratings);
                 break;
             case 'U':
-                updatePlayerInformation();
+                updatePlayerInformation(playerNames, jerseyNumbers, ratings);
                 break;
             case 'R':
-                removePlayer();
+                removePlayer(playerNames, jerseyNumbers, ratings);
                 break;
             case 'D':
-                displayPlayerInformation();
+                displayPlayerInformation(playerNames, jerseyNumbers, ratings);
                 break;
             case 'P':
-                printFullRoster();
+                printFullRoster(playerNames, jerseyNumbers, ratings);
                 break;
             case 'S':
                 printStarPlayers();
@@ -91,7 +88,12 @@ void printMenu() {
            "Please make a selection: ");
 }
 
+/*
+ * '-1' Represents data unfilled for type int
+ * '+'  Represents data unfilled for type char
+ */
 void initialize(char playerName[10][100], int jerseyNumber[], double rating[]) {
+
     for (int i = 0; i < MAX_PLAYERS; i++) {
         playerName[i][0] = '+'; //---FIXME some incorperation of a null character?
         jerseyNumber[i] = -1;
@@ -100,114 +102,139 @@ void initialize(char playerName[10][100], int jerseyNumber[], double rating[]) {
 }
 
 int findPlayer(int whichPlayer, const int jerseyNumber[], int maxJersyCount) {
-    //---Returns negative if player already exists corresponding to location and -99 for if no space available
+
+    //---Returns negative if player already exists corresponding to location
     for (int i = 0; i < maxJersyCount; i++) {
+
         if (jerseyNumber[i] == whichPlayer) {
-            return -1 * i;
+            return -1 * (i+1);
         }
     }
-    //---find available spot if player does not exist
+    //---returns available spot if player does not exist
     for (int i = 0; i < maxJersyCount; i++) {
         if (jerseyNumber[i] == -1) {
-            return i;
+            return i+1;
         }
     }
+    //---for if no space available
     return -99;
 }
 
-void addPlayer() {
-    int jersey = 0;
-    char player[100];
-    double playerRating = 0.0;
+void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]) {
+    int jerseyToAdd = 0;
+    char playerToAdd[100];
+    double ratingToAdd = 0.0;
 
     printf("Enter player jersey number:\n");
-    scanf("%d", &jersey);
+    scanf("%d", &jerseyToAdd);
     printf("Enter player first or nick name:\n");
-    scanf("%s", player);
+    scanf("%s", playerToAdd);
     printf("Enter player ratings:\n");
-    scanf("%lf", &playerRating);
+    scanf("%lf", &ratingToAdd);
 
-    int playerLocation = findPlayer(jersey, jerseyNumbers, MAX_PLAYERS);
+    int playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
 
-    if (playerLocation >= 0) {
-        jerseyNumbers[playerLocation] = jersey;
-        for(int i = 0; i <strlen(player);i++){
-            playerNames[playerLocation][i] = player[i];
+    if (playerLocation > 0) {
+        playerLocation-=1;
+        jerseyNumbers[playerLocation] = jerseyToAdd;
+        for (int i = 0; i < strlen(playerToAdd); i++) {
+            playerNames[playerLocation][i] = playerToAdd[i];
         }
-        ratings[playerLocation] = playerRating;
+        ratings[playerLocation] = ratingToAdd;
         printf("Player successfully added\n");
-    } else if (playerLocation <= 0 && playerLocation >= -15) {
+    } else if (playerLocation < 0 && playerLocation > -15) {
         printf("Error player already exists\n");
     } else if (playerLocation == -99) {
         printf("Maximum slots reached\n");
     }
 }
 
-void updatePlayerInformation() {
-    //---Finish writing to properly update information
+void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[], double ratings[]) {
     int jerseyNum = 0;
     printf("Enter player jersey number: ");
     scanf("%d", &jerseyNum);
+
     int playerLocation = findPlayer(jerseyNum, jerseyNumbers, MAX_PLAYERS);
-    playerLocation *= -1;
-    if (playerLocation >= 0) {
+
+    if (playerLocation > 0) {
+        printf("Something occurred. Player does not exist\n");
+        return;
+    }
+
+    if (playerLocation < 0 && playerLocation != -99) {
+//        playerLocation+=1;
+//        playerLocation *= -1;
+        printf("Player found at %d \n", playerLocation);
+    }
+
+    if (playerLocation < 0) {
         char playerName[100];
         double playerRating = 0.0;
-        printf("Player found at %d ", playerLocation);
+
+        playerLocation+=1;
+        playerLocation *= -1;
+
         printf("Enter player first or nickname:\n");
         scanf("%s", playerName);
         printf("Enter player rating:\n");
         scanf("%lf", &playerRating);
-    } else {
-        printf("Player was not found\n");
-    }
 
+        ratings[playerLocation] = playerRating;
+        for (int i = 0; i < strlen(playerName); i++) {
+            playerNames[playerLocation][i] = playerName[i];
+        }
+    }
+    printf("Successfully Updated player information! \n");
 }
 
-void removePlayer() {
+void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]) {
+    //---FIXME finish writing to properly remove player
     int num = 0;
     printf("Enter player jersey number: ");
     scanf("%d", &num);
     int location = findPlayer(num, jerseyNumbers, MAX_PLAYERS);
-    if (location >= 0) {
+
+    if (location > 0) {
         printf("Player does not exist");
-    } else if (location <= 0 && location >= -15) {
+        return;
+    }
+    else if (location < 0 && location > -15) {
+        location+=1;
         location *= -1;
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < strlen(playerNames[location]); i++) {
             playerNames[location][i] = '+';
         }
-        for(int i = 0; i<MAX_PLAYERS; i++){
-            jerseyNumbers[i] = -1;
-            ratings[i] = -1.0;
-        }
+            jerseyNumbers[location] = -1;
+            ratings[location] = -1.0;
     }
 
 }
 
-void displayPlayerInformation() {
+void displayPlayerInformation(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]) {
     int num = 0;
     printf("Enter player jersey number: ");
-    scanf("%d",&num);
-    int location = findPlayer(num,jerseyNumbers,MAX_PLAYERS);
-    if(location>0){
+    scanf("%d", &num);
+    int location = findPlayer(num, jerseyNumbers, MAX_PLAYERS);
+    if (location > 0) {
         printf("player does not exist \n");
         return;
     }
-    if(location<=-1 && location>=-15){
-        printf("Player exists at location %d\n",location*-1);
+    if (location <= -1 && location > -15) {
+        printf("Player exists at location %d\n", location * -1);
     }
-    if(location==-99){
+    if (location == -99) {
         printf("There is no available space: (displayPlayerInformation)\n");
         return;
     }
-    location*=-1;
-    printf("Name: %s\n",playerNames[location]);
-    printf("Jersey #: %d\n",jerseyNumbers[location]);
-    printf("Rating: %lf\n",ratings[location]);
+    location+=1;
+    location *= -1;
+    printf("Name: %s\n", playerNames[location]);
+    printf("Jersey #: %d\n", jerseyNumbers[location]);
+    printf("Rating: %lf\n", ratings[location]);
 
 }
 
-void printFullRoster() {
+void printFullRoster(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]) {
 
 }
 
