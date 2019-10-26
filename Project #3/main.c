@@ -66,7 +66,7 @@ int main() {
                 printf("Ending! \n");
                 break;
             default:
-                printf("Invalid option");
+                printf("Invalid option\n");
                 break;
         }
         printMenu();
@@ -75,7 +75,7 @@ int main() {
 }
 
 void printMenu() {
-    printf("MENU\n"
+    printf("\nMENU\n"
            "a - Add a new player\n"
            "u - Update player information\n"
            "r - Remove a player from the roster\n"
@@ -94,7 +94,7 @@ void printMenu() {
 void initialize(char playerName[10][100], int jerseyNumber[], double rating[]) {
 
     for (int i = 0; i < MAX_PLAYERS; i++) {
-        playerName[i][0] = '+'; //---FIXME some incorperation of a null character?
+        playerName[i][0] = '+'; //---FIXME some incorporation of a null character?
         jerseyNumber[i] = -1;
         rating[i] = -1;
     }
@@ -124,6 +124,11 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
     char playerToAdd[100];
     double ratingToAdd = 0.0;
 
+    int playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
+    if (playerLocation == -99) {
+        printf("The Roster is full.\n");
+    }
+
     printf("Enter player jersey number:\n");
     scanf("%d", &jerseyToAdd);
     printf("Enter player first or nick name:\n");
@@ -131,7 +136,7 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
     printf("Enter player rating:\n");
     scanf("%lf", &ratingToAdd);
 
-    int playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
+    playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
 
     if (playerLocation > 0) {
         playerLocation -= 1;
@@ -143,8 +148,6 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
         //---printf("Player successfully added\n");
     } else if (playerLocation < 0 && playerLocation > -15) {
         printf("Jersey # already in use.\n");
-    } else if (playerLocation == -99) {
-        printf("The Roster is full.\n");
     }
 }
 
@@ -187,12 +190,12 @@ void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[
 void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]) {
     //---FIXME finish writing to properly remove player
     int num = 0;
-    printf("Enter player jersey number:\n");
+    printf("Enter a jersey number:\n");
     scanf("%d", &num);
     int location = findPlayer(num, jerseyNumbers, MAX_PLAYERS);
 
     if (location > 0) {
-        printf("Player does not exist");
+        printf("Jersey not in use. No such player\n");
         return;
     } else if (location < 0 && location > -15) {
         location += 1;
