@@ -131,18 +131,18 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
         return;
     }
 
-    printf("Enter player jersey number:\n");
+    printf("Enter player jersey number: ");
     scanf("%d", &jerseyToAdd);
 
     playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
 
     if (playerLocation < 0 && playerLocation > -15) {
-        printf("Jersey # already in use.\n");
+        printf("Jersey # already in use. ");
         return;
     }
-    printf("Enter player first or nick name:\n");
+    printf("Enter player first or nick name: ");
     scanf("%s", playerToAdd);
-    printf("Enter player rating:\n");
+    printf("Enter player rating: ");
     scanf("%lf", &ratingToAdd);
 
     playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
@@ -159,7 +159,7 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
 
 void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[], double ratings[]) {
     int jerseyNum = 0;
-    printf("Enter a jersey number:\n");
+    printf("Enter a jersey number: ");
     scanf("%d", &jerseyNum);
 
     int playerLocation = findPlayer(jerseyNum, jerseyNumbers, MAX_PLAYERS);
@@ -180,9 +180,9 @@ void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[
         playerLocation += 1;
         playerLocation *= -1;
 
-        printf("Enter player first or nickname:\n");
+        printf("Enter player first or nick name: ");
         scanf("%s", playerName);
-        printf("Enter player rating:\n");
+        printf("Enter player rating: ");
         scanf("%lf", &playerRating);
 
         ratings[playerLocation] = playerRating;
@@ -201,7 +201,7 @@ void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings
     int location = findPlayer(num, jerseyNumbers, MAX_PLAYERS);
 
     if (location > 0) {
-        printf("Jersey not in use. No such player\n");
+        printf("Jersey not in use. No such player.\n");
         return;
     } else if (location < 0 && location > -15) {
         location += 1;
@@ -247,7 +247,7 @@ void printFullRoster(const char playerNames[10][100], const int jerseyNumbers[],
         if (playerNames[i][0] == '+' && jerseyNumbers[i] == -1) {
             continue;
         }
-        printf("\n");
+        //printf("\n");
         printf("%s\n", playerNames[i]);
         printf("%d\n", jerseyNumbers[i]);
         printf("%lf\n", ratings[i]);
