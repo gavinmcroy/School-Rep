@@ -3,7 +3,7 @@
 #include<stdbool.h>
 #include<string.h>
 
-
+//---Terminate add after jersey num is wrong
 /*FIXME left of incorporating remove player function. Potential issue of determining string size and
  * adding in a null character at the end of the player name.
  */
@@ -13,6 +13,7 @@ int findPlayer(int whichPlayer, const int jerseyNumber[], int maxJersyCount);
 
 void printMenu();
 
+//---Remove white spaces in prompt
 void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]);
 
 void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[], double ratings[]);
@@ -123,14 +124,22 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
     int jerseyToAdd = 0;
     char playerToAdd[100];
     double ratingToAdd = 0.0;
-
     int playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
+
     if (playerLocation == -99) {
         printf("The Roster is full.\n");
+        return;
     }
 
     printf("Enter player jersey number:\n");
     scanf("%d", &jerseyToAdd);
+
+    playerLocation = findPlayer(jerseyToAdd, jerseyNumbers, MAX_PLAYERS);
+
+    if (playerLocation < 0 && playerLocation > -15) {
+        printf("Jersey # already in use.\n");
+        return;
+    }
     printf("Enter player first or nick name:\n");
     scanf("%s", playerToAdd);
     printf("Enter player rating:\n");
@@ -141,19 +150,16 @@ void addPlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[])
     if (playerLocation > 0) {
         playerLocation -= 1;
         jerseyNumbers[playerLocation] = jerseyToAdd;
-        for (int i = 0; i < strlen(playerToAdd); i++) {
+        for (int i = 0; i < strlen(playerToAdd-1); i++) { //---Why did this fix anything
             playerNames[playerLocation][i] = playerToAdd[i];
         }
         ratings[playerLocation] = ratingToAdd;
-        //---printf("Player successfully added\n");
-    } else if (playerLocation < 0 && playerLocation > -15) {
-        printf("Jersey # already in use.\n");
     }
 }
 
 void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[], double ratings[]) {
     int jerseyNum = 0;
-    printf("Enter player jersey number:\n");
+    printf("Enter a jersey number:\n");
     scanf("%d", &jerseyNum);
 
     int playerLocation = findPlayer(jerseyNum, jerseyNumbers, MAX_PLAYERS);
@@ -163,9 +169,9 @@ void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[
         return;
     }
 
-    if (playerLocation < 0 && playerLocation != -99) {
-        printf("Player found at %d \n", (playerLocation + 1) * -1);
-    }
+//    if (playerLocation < 0 && playerLocation != -99) {
+//        //printf("Player found at %d \n", (playerLocation + 1) * -1);
+//    }
 
     if (playerLocation < 0) {
         char playerName[100];
@@ -188,7 +194,7 @@ void updatePlayerInformation(char playerNames[10][100], const int jerseyNumbers[
 }
 
 void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings[]) {
-    //---FIXME finish writing to properly remove player
+
     int num = 0;
     printf("Enter a jersey number:\n");
     scanf("%d", &num);
@@ -211,7 +217,7 @@ void removePlayer(char playerNames[10][100], int jerseyNumbers[], double ratings
 
 void displayPlayerInformation(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]) {
     int num = 0;
-    printf("Enter player jersey number:\n");
+    printf("Enter a jersey number:\n");
     scanf("%d", &num);
     int location = findPlayer(num, jerseyNumbers, MAX_PLAYERS);
     if (location > 0) {
@@ -228,9 +234,9 @@ void displayPlayerInformation(const char playerNames[10][100], const int jerseyN
         return;
     }
 
-    printf("%s\n", playerNames[location]);
-    printf("%d\n", jerseyNumbers[location]);
-    printf("%lf\n", ratings[location]);
+    printf("Name: %s\n", playerNames[location]);
+    printf("Jersey #: %d\n", jerseyNumbers[location]);
+    printf("Rating: %lf\n", ratings[location]);
 
 }
 
@@ -250,7 +256,7 @@ void printFullRoster(const char playerNames[10][100], const int jerseyNumbers[],
 
 void printStarPlayers(const char playerNames[10][100], const int jerseyNumbers[], const double ratings[]) {
     double starRating = 0.0;
-    printf("Enter \"STAR\" rating:");
+    printf("Enter minimum STAR rating: ");
     scanf("%lf", &starRating);
     printf("MY STARS\n");
     printf("--------\n");

@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="60a1e670-eee8-4639-be76-49e33a91b6bd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project__3.dir/main.c.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project__3.dir/main.c.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Project__3" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Project__3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
@@ -73,6 +72,8 @@
       <workItem from="1571932384279" duration="2338000" />
       <workItem from="1571936383197" duration="1000" />
       <workItem from="1571936491230" duration="7701000" />
+      <workItem from="1572353975683" duration="1344000" />
+      <workItem from="1572373321629" duration="1841000" />
     </task>
     <servers />
   </component>
@@ -84,7 +85,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
