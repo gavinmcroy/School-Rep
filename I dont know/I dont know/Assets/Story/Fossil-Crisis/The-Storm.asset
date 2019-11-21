@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: The-Storm
+  m_EditorClassIdentifier: 
+  storyText: 'It''s been over a few months, and you and your council are about to
+    initiate the green phase. But you get a call from a distraught researcher. You''ve
+    never met him nor heard of him, but he is imploring there is soon to be the formation
+    of a mega cell storm due to implications of greenhouse gasses from fossil fuels.
+    Your advisors warn that he is the boy who cried wolf and is not one to listen
+    too. They assure you their data shows no correlation to increased storm strength
+
+    What do you do?
+
+
+    1. Ignore the phone call and proceed with the plan
+
+
+    2. Consider his warning and bring him to the council meeting'
+  nextStates:
+  - {fileID: 11400000, guid: 2a77f2d5bef2c483984a4a0c91cb95c4, type: 2}
+  - {fileID: 11400000, guid: 4b4ca35d159d345f5b746a994f54d352, type: 2}

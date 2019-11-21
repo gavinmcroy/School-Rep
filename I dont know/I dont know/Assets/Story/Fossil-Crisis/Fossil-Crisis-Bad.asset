@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Fossil-Crisis-Bad
+  m_EditorClassIdentifier: 
+  storyText: 'People are incredibly angry. Data poles show an exponentially decrease
+    in likability towards the kingdom. Banning fossil fuels has made transitting between
+    different locations nearly undoable. Many transit systems were dependent on fossil
+    fuels, and the markets are beginning to go downward
+
+    What do you do?
+
+
+    1. Reintroduce fossil fuels
+
+
+    2. Make a public announcement for why fossil fuels cannot be allowed back'
+  nextStates:
+  - {fileID: 11400000, guid: bc9ddbd1398bd417c8d2b9316b753b67, type: 2}
+  - {fileID: 11400000, guid: b10e1e69339d14c05a93181cba6f4117, type: 2}

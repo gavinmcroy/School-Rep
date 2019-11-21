@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: The-Results
+  m_EditorClassIdentifier: 
+  storyText: "It's been a few years since the carbon tax has been placed, and the
+    kingdom has reached a new prime. All energy sources are 100% green. Your people
+    praise you as one of the greatest rulers yet. The kingdom is predicted to prosper
+    for many centuries to come thanks to your actions. It turns out researches had
+    concluded if a change wasn't made, it was highly likely that a superstorm would've
+    formed as a result of increasing world temperature. You saved the kingdom\nHow
+    do you feel?\n\n1. A deep sense of significant accomplishment and a re-establishment
+    of purpose. You want to run four marathons \n\n2. A deep disgust as it feels your
+    time has been ripped away from you without anything you could do. You feel victimized"
+  nextStates:
+  - {fileID: 11400000, guid: 415c5be3d7d064926a62cc543e9e439a, type: 2}
+  - {fileID: 11400000, guid: 415c5be3d7d064926a62cc543e9e439a, type: 2}

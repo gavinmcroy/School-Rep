@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Wood-Crisis-Bad
+  m_EditorClassIdentifier: 
+  storyText: 'People are rioting in the streets. Multiple organizations are forming
+    with the intent of overthrowing you the ruler. But with further researching the
+    pressure change you have been informed of a mega super storm approaching expected
+    to arrive in less than a week. Your kingdom is in no way to handle this storm.
+    Explains the odd pressure change. Turns out it could have been way worse if the
+    trees had been cut down. Keeping the trees might make this storm survivable
+
+    What do you do?
+
+
+    1. Declare a state of emergency and may god have mercy on your soul '
+  nextStates:
+  - {fileID: 11400000, guid: 2fa009e8f2bc64c688b4ad07db5ae875, type: 2}

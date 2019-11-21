@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Reconstruction
+  m_EditorClassIdentifier: 
+  storyText: 'You start a kingdom-wide reconstruction project utilizing the remaining
+    resources to build homes. But on the 4th day of the project, one of your advisors
+    run in hysteria, stating there has been the formation of a mega superstorm. With
+    it, he opens a book of graphs indicating the cause of this monster has been our
+    excessive fuel usage and extensive deforestation. At that moment, the problem
+    you ignored confronts you. Your kingdom is in no place to prepare. What do you
+    do
+
+    What do you do?
+
+
+    1. Declare a state of emergency and prepare for the worst'
+  nextStates:
+  - {fileID: 11400000, guid: 4a68eb97c22a04a4794725ef934be85a, type: 2}

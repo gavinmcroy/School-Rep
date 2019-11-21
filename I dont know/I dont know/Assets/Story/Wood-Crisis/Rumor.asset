@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Rumor
+  m_EditorClassIdentifier: 
+  storyText: 'Rumor is beginning to spread that the king is a traitor to the people.
+    There losing faith in the kingdom as many of there needs are yet to be met. But
+    after investigating the odd pressure behavior your advisors concluded that the
+    kingdom was influencing the climate through release of CO2. As a result the odd
+    pressure was due to increased temperatures from CO2. You''re advisors confirm
+    that CO2 will cause an increase in storm power. It is only a matter of time before
+    one wipes the kingdom
+
+
+    What do you do?
+
+
+    1. Make public announcement regarding the new data'
+  nextStates:
+  - {fileID: 11400000, guid: 94cdaa9db52e442a8b0c37cec1d80bfb, type: 2}

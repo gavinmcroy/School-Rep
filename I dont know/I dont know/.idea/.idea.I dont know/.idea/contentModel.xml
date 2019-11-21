@@ -6,9 +6,6 @@
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="AdventureGame.cs" t="Include" />
-          <e p="Misc" t="Include">
-            <e p="EditorMenus.cs" t="Include" />
-          </e>
           <e p="State.cs" t="Include" />
         </e>
         <e p="TextMesh Pro" t="Include">

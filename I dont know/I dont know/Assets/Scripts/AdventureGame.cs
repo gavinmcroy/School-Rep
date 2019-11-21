@@ -8,13 +8,13 @@ public class AdventureGame : MonoBehaviour
 
     private State _state;
 
-    void Start()
+    private void Start()
     {
         _state = startingState;
         textMeshPro.text = _state.GetStateStory();
     }
 
-    void Update()
+    private void Update()
     {
         ManageState();
     }
@@ -22,17 +22,14 @@ public class AdventureGame : MonoBehaviour
     private void ManageState()
     {
         var nextStates = _state.GetNextState();
+        var size = _state.GetStateSize();
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
             _state = nextStates[0];
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        else if (Input.GetKeyDown(KeyCode.Alpha2) && size > 1)
         {
             _state = nextStates[1];
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            _state = nextStates[0];
         }
 
         textMeshPro.text = _state.GetStateStory();

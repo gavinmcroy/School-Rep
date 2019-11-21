@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Guilt
+  m_EditorClassIdentifier: 
+  storyText: 'It''s been over three weeks since the mysterious phone call. Your counselors
+    call an emergency meeting to discuss an imminent crisis. Documents report that
+    Current emissions have caused the formation of a supercell monster that''s expected
+    to make landfall in less than one day.
+
+    What do you do?
+
+
+    1. Feel the burden of making a poor choice and initiate a state of emergency '
+  nextStates:
+  - {fileID: 11400000, guid: 2fa009e8f2bc64c688b4ad07db5ae875, type: 2}
