@@ -2,6 +2,7 @@
 #include<ctype.h>
 #include<stdbool.h>
 #include<string.h>
+#include<stdlib.h>
 
 typedef struct playerData {
     char playerName[100];
@@ -9,18 +10,20 @@ typedef struct playerData {
     double rating;
 } playerData;
 
-void initialize(playerData playerData1[]);
+void initialize(playerData playerData1[], int size);
 
 //---TODO Data is now dynamic
-const int MAX_PLAYERS = 10;
+int MAX_PLAYERS = 1;
 
 int findPlayer(int whichPlayer, playerData players[]);
 
 void printMenu();
 
-playerData* loadRoster(char filenameInput[], int* mySize);
+playerData *loadRoster(char filenameInput[], int *mySize);
 
 int saveRoster(char filenameOutput[], playerData myRoster[], int playerCount);
+
+void emptyRoster(playerData players[]);
 
 void addPlayer(playerData players[]);
 
@@ -38,11 +41,12 @@ bool jerseyValid(int playerJerseyNumber);
 
 bool ratingValid(double playerRating);
 
-
 int main() {
-    playerData myTeam[10];
-    initialize(myTeam);
+    //---TODO SEGFAULT from malloc data not containing initialization of new added elements?
 
+    playerData *myTeam = (playerData *) malloc(sizeof(playerData) * MAX_PLAYERS);
+    initialize(myTeam, MAX_PLAYERS);
+    char fileName[50];
     char userChoice = ' ';
     printMenu();
     while (true) {
@@ -53,13 +57,18 @@ int main() {
         }
         switch (userChoice) {
             case 'L':
-                printf(".");
+                printf("Enter file name: \n");
+                scanf("%s", fileName);
+                int tmp = 20;
+                myTeam = loadRoster(fileName, &tmp);
                 break;
             case 'S':
-                printf(".");
+                printf("Enter file name: \n");
+                scanf("%s", fileName);
+                saveRoster(fileName, myTeam, MAX_PLAYERS);
                 break;
             case 'E':
-                printf(".");
+                emptyRoster(myTeam);
                 break;
             case 'A':
                 addPlayer(myTeam);
@@ -111,8 +120,8 @@ void printMenu() {
  * '-1' Represents data unfilled for type int
  * '+'  Represents data unfilled for type char
  */
-void initialize(playerData playerData1[]) {
-    for (int i = 0; i < MAX_PLAYERS; i++) {
+void initialize(playerData playerData1[], int size) {
+    for (int i = 0; i < size; i++) {
         playerData1[i].playerName[0] = '+'; //---FIXME some incorporation of a null character?
         playerData1[i].jerseyNumber = -1;
         playerData1[i].rating = -1;
@@ -138,12 +147,54 @@ int findPlayer(int whichPlayer, playerData players[]) {
     return -99;
 }
 
-playerData* loadRoster(char filenameInput[], int* mySize){
-    printf("Implementation\n");
+playerData *loadRoster(char filenameInput[], int *mySize) {
+    FILE *file = fopen(filenameInput, "r");
+    if (file == NULL) {
+        printf("Error loading roster: \"%s\".\n", filenameInput);
+        return NULL;
+    }
+    playerData *data = (playerData *) malloc((sizeof(playerData) * *mySize));
+    //---TODO MAX PLAYERS MODIFIED
+    MAX_PLAYERS = *mySize;
+    initialize(data, MAX_PLAYERS);
+
+    if (data == NULL) {
+        printf("Failed allocation");
+        return NULL;
+    }
+    for (int i = 0; i < *mySize; i++) {
+        int tmp = fscanf(file, "%s\t%d\t%lf\n", data[i].playerName, &data[i].jerseyNumber, &data[i].rating);
+        if (tmp == 0) {
+            break;
+        }
+    }
+    printf("Roster Loaded.\n");
+    fclose(file);
+    return data;
 }
 
-int saveRoster(char filenameOutput[], playerData myRoster[], int playerCount){
-    printf("Implementation\n");
+int saveRoster(char filenameOutput[], playerData myRoster[], int playerCount) {
+    FILE *file = fopen(filenameOutput, "w+");
+    if (file == NULL) {
+        printf("Error saving roster: \"%s\".\n", filenameOutput);
+        return 1;
+    }
+    for (int i = 0; i < playerCount; i++) {
+        if (myRoster[i].playerName[0] == '+' && myRoster[i].jerseyNumber == -1) {
+            continue;
+        }
+        fprintf(file, "%s\t%d\t%lf\n", myRoster[i].playerName, myRoster[i].jerseyNumber, myRoster[i].rating);
+    }
+    fclose(file);
+    printf("Roster Saved.\n");
+    return 0;
+}
+
+void emptyRoster(playerData players[]) {
+    MAX_PLAYERS = 10;
+    players = realloc(players, sizeof(playerData) * MAX_PLAYERS);
+    initialize(players, MAX_PLAYERS);
+    printf("Roster Emptied.\n");
 }
 
 void addPlayer(playerData players[]) {
@@ -152,9 +203,19 @@ void addPlayer(playerData players[]) {
     double ratingToAdd = 0.0;
     int playerLocation = findPlayer(jerseyNum, players);
 
+    //---True only if array is filled with players
     if (playerLocation == -99) {
-        printf("The Roster is full.\n");
-        return;
+        //---TODO LOCATION WHERE MAX_PLAYERS IS MODIFIED
+        MAX_PLAYERS++;
+
+        players = realloc(players, sizeof(playerData) * MAX_PLAYERS);
+        if (players == NULL) {
+            printf("Allocation failed");
+            return;
+        }
+        players[MAX_PLAYERS - 1].playerName[0] = '+';
+        players[MAX_PLAYERS - 1].jerseyNumber = -1;
+        players[MAX_PLAYERS - 1].rating = -1.0;
     }
 
     printf("Enter player jersey number: ");
@@ -181,11 +242,11 @@ void addPlayer(playerData players[]) {
     }
 
     playerLocation = findPlayer(jerseyNum, players);
+    printf("Location %d",playerLocation);
 
     if (playerLocation > 0) {
         playerLocation -= 1;
         players[playerLocation].jerseyNumber = jerseyNum;
-
         strcpy(players[playerLocation].playerName, playerName);
         players[playerLocation].rating = ratingToAdd;
     }
@@ -225,14 +286,11 @@ void updatePlayerInformation(playerData players[]) {
         }
 
         players[playerLocation].rating = playerRating;
-
         strcpy(players[playerLocation].playerName, playerName);
-
     }
 }
 
 void removePlayer(playerData players[]) {
-
     int jerseyNum = 0;
     printf("Enter a jersey number:\n");
     scanf("%d", &jerseyNum);
@@ -297,10 +355,10 @@ void printFullRoster(playerData players[]) {
         if (players[i].playerName[0] == '+' && players[i].jerseyNumber == -1) {
             continue;
         }
-
         printf("%s\n", players[i].playerName);
         printf("%d\n", players[i].jerseyNumber);
         printf("%lf\n", players[i].rating);
+        printf("\n");
     }
 }
 
