@@ -13,7 +13,7 @@ typedef struct playerData {
 void initialize(playerData playerData1[], int size);
 
 //---TODO Data is now dynamic
-int MAX_PLAYERS = 1;
+int MAX_PLAYERS = 100;
 
 int findPlayer(int whichPlayer, playerData players[]);
 
@@ -57,13 +57,15 @@ int main() {
         }
         switch (userChoice) {
             case 'L':
-                printf("Enter file name: \n");
+                printf("Enter file name: ");
                 scanf("%s", fileName);
-                int tmp = 20;
-                myTeam = loadRoster(fileName, &tmp);
+                int temp = 50;
+                //---TODO doesnt know size of file
+                free(myTeam);
+                myTeam = loadRoster(fileName, &temp);
                 break;
             case 'S':
-                printf("Enter file name: \n");
+                printf("Enter file name: ");
                 scanf("%s", fileName);
                 saveRoster(fileName, myTeam, MAX_PLAYERS);
                 break;
@@ -153,7 +155,13 @@ playerData *loadRoster(char filenameInput[], int *mySize) {
         printf("Error loading roster: \"%s\".\n", filenameInput);
         return NULL;
     }
+    // int size = 0;
+    //char test[100];
+
+
     playerData *data = (playerData *) malloc((sizeof(playerData) * *mySize));
+
+
     //---TODO MAX PLAYERS MODIFIED
     MAX_PLAYERS = *mySize;
     initialize(data, MAX_PLAYERS);
@@ -162,6 +170,7 @@ playerData *loadRoster(char filenameInput[], int *mySize) {
         printf("Failed allocation");
         return NULL;
     }
+
     for (int i = 0; i < *mySize; i++) {
         int tmp = fscanf(file, "%s\t%d\t%lf\n", data[i].playerName, &data[i].jerseyNumber, &data[i].rating);
         if (tmp == 0) {
@@ -242,7 +251,8 @@ void addPlayer(playerData players[]) {
     }
 
     playerLocation = findPlayer(jerseyNum, players);
-    printf("Location %d",playerLocation);
+    printf("Location %d", playerLocation);
+    printf("SIZE %d", MAX_PLAYERS);
 
     if (playerLocation > 0) {
         playerLocation -= 1;
