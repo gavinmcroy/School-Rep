@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/Assignment 1/ColorPixel.h
+
+/Users/gavintaylormcroy/Desktop/Assignment 1/GrayPixel.h
+
+/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.cpp
+Pgm.h
+/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.h
+Ppm.h
+/Users/gavintaylormcroy/Desktop/Assignment 1/Ppm.h
+iostream
+-
+sstream
+-
+utility
+-
+
+/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.h
+string
+-
+fstream
+-
+vector
+-
+GrayPixel.h
+/Users/gavintaylormcroy/Desktop/Assignment 1/GrayPixel.h
+
+/Users/gavintaylormcroy/Desktop/Assignment 1/Ppm.h
+vector
+-
+fstream
+-
+ColorPixel.h
+/Users/gavintaylormcroy/Desktop/Assignment 1/ColorPixel.h
+string
+-
+
