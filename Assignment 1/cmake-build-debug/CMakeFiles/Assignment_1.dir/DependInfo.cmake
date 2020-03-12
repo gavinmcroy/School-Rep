@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o"
   "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Pgm.cpp.o"
   "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Ppm.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Singleton.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Singleton.cpp.o"
   "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

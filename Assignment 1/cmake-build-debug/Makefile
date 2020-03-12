@@ -231,6 +231,33 @@ Ppm.cpp.s:
 	$(MAKE) -f CMakeFiles/Assignment_1.dir/build.make CMakeFiles/Assignment_1.dir/Ppm.cpp.s
 .PHONY : Ppm.cpp.s
 
+Singleton.o: Singleton.cpp.o
+
+.PHONY : Singleton.o
+
+# target to build an object file
+Singleton.cpp.o:
+	$(MAKE) -f CMakeFiles/Assignment_1.dir/build.make CMakeFiles/Assignment_1.dir/Singleton.cpp.o
+.PHONY : Singleton.cpp.o
+
+Singleton.i: Singleton.cpp.i
+
+.PHONY : Singleton.i
+
+# target to preprocess a source file
+Singleton.cpp.i:
+	$(MAKE) -f CMakeFiles/Assignment_1.dir/build.make CMakeFiles/Assignment_1.dir/Singleton.cpp.i
+.PHONY : Singleton.cpp.i
+
+Singleton.s: Singleton.cpp.s
+
+.PHONY : Singleton.s
+
+# target to generate assembly for a file
+Singleton.cpp.s:
+	$(MAKE) -f CMakeFiles/Assignment_1.dir/build.make CMakeFiles/Assignment_1.dir/Singleton.cpp.s
+.PHONY : Singleton.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -279,6 +306,9 @@ help:
 	@echo "... Ppm.o"
 	@echo "... Ppm.i"
 	@echo "... Ppm.s"
+	@echo "... Singleton.o"
+	@echo "... Singleton.i"
+	@echo "... Singleton.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

@@ -104,6 +104,12 @@
 		<Unit filename="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.h">
 			<Option target="Assignment_1"/>
 		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Singleton.cpp">
+			<Option target="Assignment_1"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Singleton.h">
+			<Option target="Assignment_1"/>
+		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp">
 			<Option target="Assignment_1"/>
 		</Unit>

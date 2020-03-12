@@ -5,6 +5,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o"
   "CMakeFiles/Assignment_1.dir/Pgm.cpp.o"
   "CMakeFiles/Assignment_1.dir/Ppm.cpp.o"
+  "CMakeFiles/Assignment_1.dir/Singleton.cpp.o"
   "CMakeFiles/Assignment_1.dir/main.cpp.o"
 )
 

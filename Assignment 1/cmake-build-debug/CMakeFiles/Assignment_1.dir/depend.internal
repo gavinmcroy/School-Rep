@@ -17,9 +17,17 @@ CMakeFiles/Assignment_1.dir/Ppm.cpp.o
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.h
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.cpp
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.h
+CMakeFiles/Assignment_1.dir/Singleton.cpp.o
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.h
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.h
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.h
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.h
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Singleton.cpp
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Singleton.h
 CMakeFiles/Assignment_1.dir/main.cpp.o
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.h
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.h
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.h
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.h
+ /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Singleton.h
  /Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp
