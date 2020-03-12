@@ -36,15 +36,6 @@ void Pgm::createImage() {
     outFile << maxValue << std::endl;
 
     if (binary) {
-//        std::vector<GrayPixel>::iterator iter;
-//        for (iter = grayPixels.begin(); iter != grayPixels.end(); iter++) {
-//            if (iter->getIntensity() < 0) {
-//                //std::cout << "Error intensity below 0" << iter->getIntensity()<<std::endl;
-//                outFile << (unsigned char) (iter->getIntensity()+255)<<" ";
-//            } else {
-//                outFile << (unsigned char) iter->getIntensity()<<" ";
-//            }
-//        }
         char *buffer = new char[grayPixels.size()];
         int bufferSize = grayPixels.size();
 
@@ -53,8 +44,6 @@ void Pgm::createImage() {
         }
         outFile.write(buffer, bufferSize);
         delete[] buffer;
-        //outFile.write()
-        return;
 
     } else if (ascii) {
         std::vector<GrayPixel>::iterator iter;
@@ -64,7 +53,6 @@ void Pgm::createImage() {
     }
 
     std::cout << "SUCCESSFUL IMAGE GENERATION" << std::endl;
-    //outFile.close();
 }
 
 void Pgm::openImage() {
@@ -142,38 +130,19 @@ void Pgm::copyImage() {
             i++;
         }
     } else if (binary) {
-//        std::vector<int> buffer(std::istreambuf_iterator<char>(inFile), {});
-//        while (buffer.size() > i) {
-//            intensity = buffer.at(i - 1);
-//            GrayPixel grayPixel(intensity);
-//            grayPixels.push_back(grayPixel);
-//            i++;
-//        }
-//        std::string tmp;
-//        unsigned test;
-//        while(getline(inFile,tmp)){
-//            for(int j =0; j<tmp.length(); j++){
-//                if(tmp.at(j)<0){
-//                    test = tmp.at(j)+255;
-//                }else{
-//                    test = tmp.at(j);
-//                }
-//                GrayPixel grayPixel(test);
-//                grayPixels.push_back(grayPixel);
-//            }
-//        }
+
         int location = inFile.tellg();
-        std::cout << location << std::endl;
+        //std::cout << location << std::endl;
         inFile.seekg(location, inFile.end);
         int bufferSize = inFile.tellg();
         inFile.seekg(location, inFile.beg);
 
-        std::cout << bufferSize << std::endl;
+        //std::cout << bufferSize << std::endl;
         char *buffer = new char[bufferSize];
         inFile.read(buffer, bufferSize);
 
-        if (inFile) {
-            std::cout << "characters read from file! " << std::endl;
+        if (!inFile) {
+            std::cout << "Characters unsuccessfully read from file" << std::endl;
         }
 
         for (int i = 0; i < bufferSize; i++) {
@@ -181,19 +150,10 @@ void Pgm::copyImage() {
             GrayPixel grayPixel(c);
             grayPixels.push_back(grayPixel);
         }
-
-        /*TODO REMOVE ME
-         *
-         */
-
-//        std::ofstream out("DEBUG.pgm",std::ios::binary | std::ios::out);
-//        out.write(buffer,length);
-//        delete[] buffer;
     }
 
     std::cout << "DONE" << std::endl;
 }
-
 
 void Pgm::closeImage() {
     this->inFile.close();
