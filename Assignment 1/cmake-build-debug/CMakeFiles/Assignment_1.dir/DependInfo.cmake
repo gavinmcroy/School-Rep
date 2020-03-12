@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/gavintaylormcroy/Desktop/Assignment 1/ColorPixel.cpp" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/Assignment 1/GrayPixel.cpp" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.cpp" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Pgm.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/Assignment 1/Ppm.cpp" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Ppm.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/Assignment 1/main.cpp" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/main.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Pgm.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/Ppm.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

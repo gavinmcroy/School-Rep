@@ -43,10 +43,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "/Users/gavintaylormcroy/Desktop/Assignment 1"
+CMAKE_SOURCE_DIR = "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug"
+CMAKE_BINARY_DIR = "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Assignment_1.dir/depend.make
@@ -59,68 +59,68 @@ include CMakeFiles/Assignment_1.dir/flags.make
 
 CMakeFiles/Assignment_1.dir/main.cpp.o: CMakeFiles/Assignment_1.dir/flags.make
 CMakeFiles/Assignment_1.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Assignment_1.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/main.cpp.o -c "/Users/gavintaylormcroy/Desktop/Assignment 1/main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Assignment_1.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/main.cpp.o -c "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp"
 
 CMakeFiles/Assignment_1.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Assignment 1/main.cpp" > CMakeFiles/Assignment_1.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp" > CMakeFiles/Assignment_1.dir/main.cpp.i
 
 CMakeFiles/Assignment_1.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Assignment 1/main.cpp" -o CMakeFiles/Assignment_1.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/main.cpp" -o CMakeFiles/Assignment_1.dir/main.cpp.s
 
 CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o: CMakeFiles/Assignment_1.dir/flags.make
 CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o: ../ColorPixel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o -c "/Users/gavintaylormcroy/Desktop/Assignment 1/ColorPixel.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/ColorPixel.cpp.o -c "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.cpp"
 
 CMakeFiles/Assignment_1.dir/ColorPixel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1.dir/ColorPixel.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Assignment 1/ColorPixel.cpp" > CMakeFiles/Assignment_1.dir/ColorPixel.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.cpp" > CMakeFiles/Assignment_1.dir/ColorPixel.cpp.i
 
 CMakeFiles/Assignment_1.dir/ColorPixel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1.dir/ColorPixel.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Assignment 1/ColorPixel.cpp" -o CMakeFiles/Assignment_1.dir/ColorPixel.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/ColorPixel.cpp" -o CMakeFiles/Assignment_1.dir/ColorPixel.cpp.s
 
 CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o: CMakeFiles/Assignment_1.dir/flags.make
 CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o: ../GrayPixel.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o -c "/Users/gavintaylormcroy/Desktop/Assignment 1/GrayPixel.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/GrayPixel.cpp.o -c "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.cpp"
 
 CMakeFiles/Assignment_1.dir/GrayPixel.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1.dir/GrayPixel.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Assignment 1/GrayPixel.cpp" > CMakeFiles/Assignment_1.dir/GrayPixel.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.cpp" > CMakeFiles/Assignment_1.dir/GrayPixel.cpp.i
 
 CMakeFiles/Assignment_1.dir/GrayPixel.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1.dir/GrayPixel.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Assignment 1/GrayPixel.cpp" -o CMakeFiles/Assignment_1.dir/GrayPixel.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/GrayPixel.cpp" -o CMakeFiles/Assignment_1.dir/GrayPixel.cpp.s
 
 CMakeFiles/Assignment_1.dir/Ppm.cpp.o: CMakeFiles/Assignment_1.dir/flags.make
 CMakeFiles/Assignment_1.dir/Ppm.cpp.o: ../Ppm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Assignment_1.dir/Ppm.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/Ppm.cpp.o -c "/Users/gavintaylormcroy/Desktop/Assignment 1/Ppm.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Assignment_1.dir/Ppm.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/Ppm.cpp.o -c "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.cpp"
 
 CMakeFiles/Assignment_1.dir/Ppm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1.dir/Ppm.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Assignment 1/Ppm.cpp" > CMakeFiles/Assignment_1.dir/Ppm.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.cpp" > CMakeFiles/Assignment_1.dir/Ppm.cpp.i
 
 CMakeFiles/Assignment_1.dir/Ppm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1.dir/Ppm.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Assignment 1/Ppm.cpp" -o CMakeFiles/Assignment_1.dir/Ppm.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Ppm.cpp" -o CMakeFiles/Assignment_1.dir/Ppm.cpp.s
 
 CMakeFiles/Assignment_1.dir/Pgm.cpp.o: CMakeFiles/Assignment_1.dir/flags.make
 CMakeFiles/Assignment_1.dir/Pgm.cpp.o: ../Pgm.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Assignment_1.dir/Pgm.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/Pgm.cpp.o -c "/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Assignment_1.dir/Pgm.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Assignment_1.dir/Pgm.cpp.o -c "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.cpp"
 
 CMakeFiles/Assignment_1.dir/Pgm.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Assignment_1.dir/Pgm.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.cpp" > CMakeFiles/Assignment_1.dir/Pgm.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.cpp" > CMakeFiles/Assignment_1.dir/Pgm.cpp.i
 
 CMakeFiles/Assignment_1.dir/Pgm.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Assignment_1.dir/Pgm.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Assignment 1/Pgm.cpp" -o CMakeFiles/Assignment_1.dir/Pgm.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/Pgm.cpp" -o CMakeFiles/Assignment_1.dir/Pgm.cpp.s
 
 # Object files for target Assignment_1
 Assignment_1_OBJECTS = \
@@ -140,7 +140,7 @@ Assignment_1: CMakeFiles/Assignment_1.dir/Ppm.cpp.o
 Assignment_1: CMakeFiles/Assignment_1.dir/Pgm.cpp.o
 Assignment_1: CMakeFiles/Assignment_1.dir/build.make
 Assignment_1: CMakeFiles/Assignment_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Assignment_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Assignment_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Assignment_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -153,6 +153,6 @@ CMakeFiles/Assignment_1.dir/clean:
 .PHONY : CMakeFiles/Assignment_1.dir/clean
 
 CMakeFiles/Assignment_1.dir/depend:
-	cd "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/gavintaylormcroy/Desktop/Assignment 1" "/Users/gavintaylormcroy/Desktop/Assignment 1" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug" "/Users/gavintaylormcroy/Desktop/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/DependInfo.cmake" --color=$(COLOR)
+	cd "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug" "/Users/gavintaylormcroy/Desktop/Work-Projects/Assignment 1/cmake-build-debug/CMakeFiles/Assignment_1.dir/DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Assignment_1.dir/depend
 

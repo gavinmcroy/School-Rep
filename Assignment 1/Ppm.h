@@ -5,6 +5,7 @@
 #include<fstream>
 #include"ColorPixel.h"
 #include <string>
+
 #ifndef ASSIGNMENT_1_PPM_H
 #define ASSIGNMENT_1_PPM_H
 
@@ -20,6 +21,7 @@ private:
     std::string fileName;
     std::ifstream inFile;
     std::vector<ColorPixel> pixels;
+
 public:
 
     Ppm(std::string);

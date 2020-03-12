@@ -6,6 +6,7 @@
 #include<fstream>
 #include<vector>
 #include "GrayPixel.h"
+
 #ifndef ASSIGNMENT_1_PGM_H
 #define ASSIGNMENT_1_PGM_H
 
