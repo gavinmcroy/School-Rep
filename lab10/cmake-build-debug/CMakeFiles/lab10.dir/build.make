@@ -43,10 +43,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/lab10
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/Work-Projects/lab10
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/lab10.dir/depend.make
@@ -59,29 +59,29 @@ include CMakeFiles/lab10.dir/flags.make
 
 CMakeFiles/lab10.dir/driver.cpp.o: CMakeFiles/lab10.dir/flags.make
 CMakeFiles/lab10.dir/driver.cpp.o: ../driver.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab10.dir/driver.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab10.dir/driver.cpp.o -c /Users/gavintaylormcroy/Desktop/lab10/driver.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/lab10.dir/driver.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab10.dir/driver.cpp.o -c /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/driver.cpp
 
 CMakeFiles/lab10.dir/driver.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab10.dir/driver.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/lab10/driver.cpp > CMakeFiles/lab10.dir/driver.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/driver.cpp > CMakeFiles/lab10.dir/driver.cpp.i
 
 CMakeFiles/lab10.dir/driver.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab10.dir/driver.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/lab10/driver.cpp -o CMakeFiles/lab10.dir/driver.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/driver.cpp -o CMakeFiles/lab10.dir/driver.cpp.s
 
 CMakeFiles/lab10.dir/pixelArt.cpp.o: CMakeFiles/lab10.dir/flags.make
 CMakeFiles/lab10.dir/pixelArt.cpp.o: ../pixelArt.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab10.dir/pixelArt.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab10.dir/pixelArt.cpp.o -c /Users/gavintaylormcroy/Desktop/lab10/pixelArt.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/lab10.dir/pixelArt.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/lab10.dir/pixelArt.cpp.o -c /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.cpp
 
 CMakeFiles/lab10.dir/pixelArt.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/lab10.dir/pixelArt.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/lab10/pixelArt.cpp > CMakeFiles/lab10.dir/pixelArt.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.cpp > CMakeFiles/lab10.dir/pixelArt.cpp.i
 
 CMakeFiles/lab10.dir/pixelArt.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/lab10.dir/pixelArt.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/lab10/pixelArt.cpp -o CMakeFiles/lab10.dir/pixelArt.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.cpp -o CMakeFiles/lab10.dir/pixelArt.cpp.s
 
 # Object files for target lab10
 lab10_OBJECTS = \
@@ -95,7 +95,7 @@ lab10: CMakeFiles/lab10.dir/driver.cpp.o
 lab10: CMakeFiles/lab10.dir/pixelArt.cpp.o
 lab10: CMakeFiles/lab10.dir/build.make
 lab10: CMakeFiles/lab10.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab10"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable lab10"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/lab10.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -108,6 +108,6 @@ CMakeFiles/lab10.dir/clean:
 .PHONY : CMakeFiles/lab10.dir/clean
 
 CMakeFiles/lab10.dir/depend:
-	cd /Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/lab10 /Users/gavintaylormcroy/Desktop/lab10 /Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug /Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug /Users/gavintaylormcroy/Desktop/lab10/cmake-build-debug/CMakeFiles/lab10.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/Work-Projects/lab10 /Users/gavintaylormcroy/Desktop/Work-Projects/lab10 /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug /Users/gavintaylormcroy/Desktop/Work-Projects/lab10/cmake-build-debug/CMakeFiles/lab10.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/lab10.dir/depend
 

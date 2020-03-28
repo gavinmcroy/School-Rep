@@ -7,13 +7,13 @@ int main()
     p0.readArts("art_0");
     
 
-//    pixelArt p1(70,16);
-//    p1.readArts("art_1");
+    pixelArt p1(70,16);
+    p1.readArts("art_1");
 //    p1 = p1+1;
 //
 //
-//    pixelArt p2(70,16);
-//    p2.readArts("art_2");
+    pixelArt p2(70,16);
+    p2.readArts("art_2");
 //    p2 = p2+2;
 
 

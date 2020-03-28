@@ -14,7 +14,12 @@ public:
     void readArts(string fileName);
     pixelArt operator + (int num); 
     pixelArt operator - (int num); 
-    pixelArt operator + (const pixelArt& pa); 
+    pixelArt operator + (const pixelArt& pa);
+
+    //---DEBUG
+    void printVector();
+    //---DEBUG
+
     friend ostream& operator<<(ostream& os, const pixelArt& pa);
 private:
     vector<vector<int>> pixels;

@@ -11,7 +11,30 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2c90c74a-57d1-4480-9b13-d2423c07ac7d" name="Default Changelist" comment="" />
+    <list default="true" id="2c90c74a-57d1-4480-9b13-d2423c07ac7d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/driver.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/driver.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/pixelArt.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/lab10.dir/pixelArt.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab10" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab10" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/lab10.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/lab10.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/driver.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/driver.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixelArt.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/pixelArt.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pixelArt.h" beforeDir="false" afterPath="$PROJECT_DIR$/pixelArt.h" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +44,11 @@
     <option name="formatViaClangd" value="false" />
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="ProjectId" id="1ZjPvoIRVKKsSEVka66Oc0BqJsA" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -29,7 +56,9 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="lab10" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="lab10" TARGET_NAME="lab10" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="lab10" RUN_TARGET_NAME="lab10">
@@ -49,6 +78,8 @@
       <option name="presentableId" value="Default" />
       <updated>1585349762947</updated>
       <workItem from="1585349764201" duration="3101000" />
+      <workItem from="1585354887577" duration="1219000" />
+      <workItem from="1585356149630" duration="2168000" />
     </task>
     <servers />
   </component>
@@ -56,25 +87,29 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="256" key="GridCell.Tab.0.bottom" timestamp="1585354824016">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="254" key="GridCell.Tab.0.bottom" timestamp="1585357948746">
+      <screen x="0" y="23" width="1680" height="954" />
     </state>
-    <state width="1638" height="256" key="GridCell.Tab.0.bottom/0.23.1680.954@0.23.1680.954" timestamp="1585354124742" />
-    <state width="1638" height="256" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1585354824016" />
-    <state width="1638" height="256" key="GridCell.Tab.0.center" timestamp="1585354824016">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="255" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1585356341029" />
+    <state width="1638" height="254" key="GridCell.Tab.0.bottom/0.23.1680.954@0.23.1680.954" timestamp="1585357948746" />
+    <state width="1638" height="254" key="GridCell.Tab.0.bottom/0.23.1680.955@0.23.1680.955" timestamp="1585356468331" />
+    <state width="1638" height="254" key="GridCell.Tab.0.center" timestamp="1585357948746">
+      <screen x="0" y="23" width="1680" height="954" />
     </state>
-    <state width="1638" height="256" key="GridCell.Tab.0.center/0.23.1680.954@0.23.1680.954" timestamp="1585354124741" />
-    <state width="1638" height="256" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1585354824016" />
-    <state width="1638" height="256" key="GridCell.Tab.0.left" timestamp="1585354824015">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="255" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1585356341028" />
+    <state width="1638" height="254" key="GridCell.Tab.0.center/0.23.1680.954@0.23.1680.954" timestamp="1585357948746" />
+    <state width="1638" height="254" key="GridCell.Tab.0.center/0.23.1680.955@0.23.1680.955" timestamp="1585356468330" />
+    <state width="1638" height="254" key="GridCell.Tab.0.left" timestamp="1585357948745">
+      <screen x="0" y="23" width="1680" height="954" />
     </state>
-    <state width="1638" height="256" key="GridCell.Tab.0.left/0.23.1680.954@0.23.1680.954" timestamp="1585354124741" />
-    <state width="1638" height="256" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1585354824015" />
-    <state width="1638" height="256" key="GridCell.Tab.0.right" timestamp="1585354824016">
-      <screen x="0" y="23" width="1680" height="955" />
+    <state width="1638" height="255" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1585356341028" />
+    <state width="1638" height="254" key="GridCell.Tab.0.left/0.23.1680.954@0.23.1680.954" timestamp="1585357948745" />
+    <state width="1638" height="254" key="GridCell.Tab.0.left/0.23.1680.955@0.23.1680.955" timestamp="1585356468330" />
+    <state width="1638" height="254" key="GridCell.Tab.0.right" timestamp="1585357948746">
+      <screen x="0" y="23" width="1680" height="954" />
     </state>
-    <state width="1638" height="256" key="GridCell.Tab.0.right/0.23.1680.954@0.23.1680.954" timestamp="1585354124742" />
-    <state width="1638" height="256" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1585354824016" />
+    <state width="1638" height="255" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1585356341029" />
+    <state width="1638" height="254" key="GridCell.Tab.0.right/0.23.1680.954@0.23.1680.954" timestamp="1585357948746" />
+    <state width="1638" height="254" key="GridCell.Tab.0.right/0.23.1680.955@0.23.1680.955" timestamp="1585356468331" />
   </component>
 </project>
