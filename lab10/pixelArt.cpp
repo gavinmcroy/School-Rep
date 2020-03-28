@@ -2,7 +2,7 @@
 #include<iostream>
 #include"pixelArt.h"
 
-void pixelArt::readArts(string fileName) {
+void pixelArt::readArts(const string &fileName) {
     std::ifstream inFile(fileName, std::ios::in);
     if (inFile) {
         std::cout << "File opened" << std::endl;
@@ -10,19 +10,19 @@ void pixelArt::readArts(string fileName) {
         std::cout << "File open error" << std::endl;
     }
     ////---DEBUG
+    //---Read char by char and convert to int, pushes vector back once it fills row
     char tmp;
     int i = 1;
     vector<int> v1;
     while (inFile >> tmp) {
-        v1.push_back(tmp - '0');
+        int val = tmp - '0';
+        v1.push_back(val);
         if (i % w == 0) {
-            v1.push_back('\n');
             pixels.push_back(v1);
             v1.clear();
         }
         i++;
     }
-    printVector();
     ////---DEBUG
 }
 
@@ -44,30 +44,43 @@ int pixelArt::getH() {
 
 
 pixelArt pixelArt::operator+(int num) {
-
+    for (int i = 0; i < pixels.size(); i++) {
+        for (int j = 0; j < pixels[i].size(); j++) {
+            pixels[i][j] = pixels[i][j] + num;
+        }
+    }
+    return *this;
 }
 
 pixelArt pixelArt::operator-(int num) {
-
+    for (int i = 0; i < pixels.size(); i++) {
+        for (int j = 0; j < pixels[i].size(); j++) {
+            pixels[i][j] = pixels[i][j] - num;
+        }
+    }
+    return *this;
 }
 
 pixelArt pixelArt::operator+(const pixelArt &pa) {
-
-}
-
-ostream &operator<<(ostream &os, const pixelArt &pa) {
-
-}
-
-void pixelArt::printVector() {
     for (int i = 0; i < pixels.size(); i++) {
         for (int j = 0; j < pixels[i].size(); j++) {
-            if (pixels[i][j] == 0) {
-                cout << pixels[i][j];
+            pixels[i][j] = pixels[i][j] + pa.pixels[i][j];
+        }
+    }
+    return *this;
+}
+//---9 = ' '
+ostream &operator<<(ostream &os, const pixelArt &pa) {
+    for (int i = 0; i < pa.pixels.size(); i++) {
+        for (int j = 0; j < pa.pixels[i].size(); j++) {
+            if (pa.pixels[i][j] == 9) {
+                os << " ";
             } else {
-                cout << " ";
+                os << pa.pixels[i][j];
             }
         }
-        cout << endl;
+        os << endl;
     }
+    return os;
 }
+
