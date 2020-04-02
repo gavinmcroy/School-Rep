@@ -11,9 +11,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f62099af-661c-4820-8066-5555916a7104" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="f62099af-661c-4820-8066-5555916a7104" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +22,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1YU378m8l2RhCZmwwplxusxSXWB" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -62,6 +60,7 @@
       <workItem from="1583862047165" duration="16020000" />
       <workItem from="1583888786043" duration="2561000" />
       <workItem from="1583933907860" duration="10492000" />
+      <workItem from="1585846681349" duration="248000" />
     </task>
     <servers />
   </component>
