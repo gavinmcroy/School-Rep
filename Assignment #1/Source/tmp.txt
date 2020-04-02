@@ -1,0 +1,1 @@
+ tar cvf mcroyAssign1.tar chips.pgm chips.ppm ColorPixel.cpp ColorPixel.h GrayPixel.cpp GrayPixel.h main.cpp makefile Pgm.cpp Pgm.h potatochips.pgm potatochips.ppm Ppm.cpp Ppm.h README.txt Refactor.cpp Refactor.h
