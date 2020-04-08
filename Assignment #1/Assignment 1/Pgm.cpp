@@ -11,7 +11,7 @@
 Pgm::Pgm(std::string fileName) {
     this->fileName = std::move(fileName);
     ascii = false;
-    binary = false;
+
 }
 
 void Pgm::createImage() {
@@ -22,8 +22,6 @@ void Pgm::createImage() {
     if (ascii) {
         outFile.open("TASCII.pgm", std::ios::out);
 
-    } else if (binary) {
-        outFile.open("TBinary.pgm", std::ios::out | std::ios::binary);
     }
     if (!outFile) {
 
@@ -35,17 +33,7 @@ void Pgm::createImage() {
     outFile << width << " " << height << std::endl;
     outFile << maxValue << std::endl;
 
-    if (binary) {
-        char *buffer = new char[grayPixels.size()];
-        int bufferSize = grayPixels.size();
-
-        for (int i = 0; i < grayPixels.size(); i++) {
-            buffer[i] = grayPixels.at(i).getIntensity();
-        }
-        outFile.write(buffer, bufferSize);
-        delete[] buffer;
-
-    } else if (ascii) {
+    if (ascii) {
         std::vector<GrayPixel>::iterator iter;
         for (iter = grayPixels.begin(); iter != grayPixels.end(); iter++) {
             outFile << iter->getIntensity() << std::endl;
@@ -71,18 +59,6 @@ void Pgm::readImageInformation() {
             if (magicNum == "P2") {
                 std::cout << "TYPE: ASCII" << std::endl;
                 this->ascii = true;
-                this->binary = false;
-                //---TODO TEMP
-
-                break;
-            }
-            if (magicNum == "P5") {
-                std::cout << "TYPE: Binary" << std::endl;
-                inFile.close();
-                inFile.open(fileName, std::ios::binary | std::ios::in);
-                this->ascii = false;
-                this->binary = true;
-
                 break;
             }
         }
@@ -129,29 +105,7 @@ void Pgm::copyImage() {
             grayPixels.push_back(grayPixel);
             i++;
         }
-    } else if (binary) {
-
-        int location = inFile.tellg();
-        //std::cout << location << std::endl;
-        inFile.seekg(location, inFile.end);
-        int bufferSize = inFile.tellg();
-        inFile.seekg(location, inFile.beg);
-
-        //std::cout << bufferSize << std::endl;
-        char *buffer = new char[bufferSize];
-        inFile.read(buffer, bufferSize);
-
-        if (!inFile) {
-            std::cout << "Characters unsuccessfully read from file" << std::endl;
-        }
-
-        for (int i = 0; i < bufferSize; i++) {
-            unsigned char c = buffer[i];
-            GrayPixel grayPixel(c);
-            grayPixels.push_back(grayPixel);
-        }
     }
-
     std::cout << "DONE" << std::endl;
 }
 

@@ -16,7 +16,6 @@ class Pgm {
     int width;
     int maxValue;
     bool ascii;
-    bool binary;
     std::string magicNum;
     std::string fileName;
     std::ifstream inFile;

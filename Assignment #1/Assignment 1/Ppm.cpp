@@ -9,7 +9,7 @@
 Ppm::Ppm(std::string fileName) {
     this->fileName = std::move(fileName);
     ascii = false;
-    binary = false;
+
 }
 
 void Ppm::createImage() {
@@ -20,8 +20,6 @@ void Ppm::createImage() {
     if (ascii) {
         outFile.open("T_CASCII.ppm", std::ios::out);
 
-    } else if (binary) {
-        outFile.open("T_CBINARY.ppm", std::ios::out | std::ios::binary);
     }
     if (!outFile) {
 
@@ -33,35 +31,7 @@ void Ppm::createImage() {
     outFile << width << " " << height << std::endl;
     outFile << maxValue << std::endl;
 
-    if (binary) {
-        int tmpLength = pixels.size() * 3;
-        char *buffer = new char[tmpLength];
-
-        //---I is set to one in order to accurately determine which color (RGB) is needed
-        int i = 1;
-        int j = 0;
-
-        while (i <= tmpLength) {
-            if (i % 3 == 1) {
-                buffer[i - 1] = pixels.at(j).getRed();
-                i++;
-                //--Red
-            } else if (i % 3 == 2) {
-                //--Green
-                buffer[i - 1] = pixels.at(j).getGreen();
-                i++;
-            } else if (i % 3 == 0) {
-                //---Blue
-                buffer[i - 1] = pixels.at(j).getBlue();
-                i++;
-                j++;
-            }
-
-        }
-        outFile.write(buffer, tmpLength);
-        delete[] buffer;
-
-    } else if (ascii) {
+    if (ascii) {
         std::vector<ColorPixel>::iterator iter;
         for (iter = pixels.begin(); iter != pixels.end(); iter++) {
             outFile << iter->getRed() << std::endl;
@@ -86,18 +56,11 @@ void Ppm::readImageInformation() {
     if (inFile) {
         std::cout << "File Read" << std::endl;
         while (getline(inFile, magicNum)) {
-            if (magicNum == "P6") {
-                std::cout << "BINARY" << std::endl;
-                this->ascii = false;
-                this->binary = true;
-                break;
-            }
             if (magicNum == "P3") {
                 std::cout << "ASCII" << std::endl;
                 inFile.close();
                 inFile.open(fileName, std::ios::binary | std::ios::in);
                 this->ascii = true;
-                this->binary = false;
                 break;
             }
         }
@@ -134,40 +97,7 @@ void Ppm::printImageInformation() {
 void Ppm::copyImage() {
     std::string tmp;
     std::cout << "COPYING IMAGE TO VECTOR" << std::endl;
-
-    if (binary) {
-        int currentLocation = inFile.tellg();
-        //std::cout << currentLocation << std::endl;
-        inFile.seekg(currentLocation, inFile.end);
-        int bufferSize = inFile.tellg();
-        inFile.seekg(currentLocation, inFile.beg);
-
-        //std::cout << bufferSize << std::endl;
-        char *buffer = new char[bufferSize];
-        inFile.read(buffer, bufferSize);
-
-        if (inFile) {
-            std::cout << "characters read from file! " << std::endl;
-        }
-
-        int i = 1;
-        unsigned char red, blue, green;
-        while (i < bufferSize) {
-            if (i % 3 == 1) {
-                red = buffer[i - 1];
-            } else if (i % 3 == 2) {
-                green = buffer[i - 1];
-            } else if (i % 3 == 0) {
-                blue = buffer[i - 1];
-                ColorPixel colorPixel(red, green, blue);
-                pixels.push_back(colorPixel);
-            }
-            i++;
-        }
-        delete[] buffer;
-
-
-    } else if (ascii) {
+    if (ascii) {
         int i = 1;
         int red, green, blue;
         while (getline(inFile, tmp)) {
