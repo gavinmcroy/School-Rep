@@ -1,7 +1,7 @@
 //
 // Created by Gavin McRoy on 4/9/2020.
 //
-#include<iostream>
+#include <iostream>
 #include <utility>
 #include "Tiger.h"
 
@@ -27,5 +27,10 @@ void Tiger::setName(std::string name) {
 }
 
 void Tiger::printInfo() {
-    std::cout << "Tiger Info" << std::endl;
+    std::cout << "***************************************" << std::endl;
+    std::cout << "Name: " << getName() << std::endl;
+    std::cout << "Sound Made: " << getVoice() << std::endl;
+    std::cout << "Age: " << getAge() << std::endl;
+    std::cout << "Weight: " << getWeight() << std::endl;
+    std::cout << "***************************************" << std::endl;
 }

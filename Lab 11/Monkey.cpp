@@ -1,10 +1,9 @@
 //
 // Created by Gavin McRoy on 4/9/2020.
 //
-
-#include "Monkey.h"
 #include<iostream>
 #include <utility>
+#include "Monkey.h"
 
 Monkey::Monkey(int age, double weight, std::string name, std::string soundsLike) : Animal(age, weight) {
     this->name = std::move(name);
@@ -28,5 +27,10 @@ void Monkey::setName(std::string name) {
 }
 
 void Monkey::printInfo() {
-    std::cout << "Monkey Info" << std::endl;
+    std::cout << "***************************************" << std::endl;
+    std::cout << "Name: " << getName() << std::endl;
+    std::cout << "Sound Made: " << getVoice() << std::endl;
+    std::cout << "Age: " << getAge() << std::endl;
+    std::cout << "Weight: " << getWeight() << std::endl;
+    std::cout << "***************************************" << std::endl;
 }

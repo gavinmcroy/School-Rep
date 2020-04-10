@@ -8,11 +8,27 @@
 
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Animal.h
 
+C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Monkey.cpp
+iostream
+-
+utility
+-
+Monkey.h
+C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Monkey.h
+
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Monkey.h
 string
 -
 Animal.h
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Animal.h
+
+C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Tiger.cpp
+iostream
+-
+utility
+-
+Tiger.h
+C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Tiger.h
 
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Tiger.h
 string
@@ -21,8 +37,6 @@ Animal.h
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/Animal.h
 
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Lab 11/main.cpp
-iostream
--
 vector
 -
 memory
