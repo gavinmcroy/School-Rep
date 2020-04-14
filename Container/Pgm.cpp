@@ -20,7 +20,7 @@ void Pgm::createImage() {
 
     std::ofstream outFile;
     if (ascii) {
-        outFile.open("T_ASCII.pgm", std::ios::out);
+        outFile.open(outputName, std::ios::out);
 
     }
     if (!outFile) {

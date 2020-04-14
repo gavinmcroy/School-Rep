@@ -21,7 +21,7 @@ void Ppm::createImage() {
 
     std::ofstream outFile;
     if (ascii) {
-        outFile.open("T_CASCII.ppm", std::ios::out);
+        outFile.open(outputName, std::ios::out);
 
     }
     if (!outFile) {

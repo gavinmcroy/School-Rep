@@ -1,0 +1,1 @@
+Works just with two command arguments, first is input name, second is output name. 
