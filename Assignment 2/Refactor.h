@@ -9,9 +9,9 @@
 class Refactor {
 private:
     static Refactor* instance;
-    Refactor();
+    Refactor(const std::string&,const std::string&);
 public:
-    static Refactor* getInstance();
+    static Refactor* getInstance(const std::string&,const std::string&);
 };
 
 

@@ -18,12 +18,15 @@ private:
     bool ascii;
     std::string magicNum;
     std::string fileName;
+    std::string outputName;
     std::ifstream inFile;
-    std::vector<ColorPixel> pixels;
+    std::vector<std::vector<ColorPixel>> pixels;
 
 public:
 
-    Ppm(std::string);
+    Ppm(std::string,std::string);
+
+    ~Ppm();
 
     void openImage();
 

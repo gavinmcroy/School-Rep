@@ -4,11 +4,14 @@
 #include "Ppm.h"
 #include<iostream>
 #include<sstream>
-#include <utility>
 
-Ppm::Ppm(std::string fileName) {
+Ppm::Ppm(std::string fileName,std::string outputFile) {
     this->fileName = std::move(fileName);
+    this->outputName = std::move(outputFile);
     ascii = false;
+}
+
+Ppm::~Ppm(){
 
 }
 
@@ -32,11 +35,19 @@ void Ppm::createImage() {
     outFile << maxValue << std::endl;
 
     if (ascii) {
-        std::vector<ColorPixel>::iterator iter;
-        for (iter = pixels.begin(); iter != pixels.end(); iter++) {
-            outFile << iter->getRed() << std::endl;
-            outFile << iter->getGreen() << std::endl;
-            outFile << iter->getBlue() << std::endl;
+//        std::vector<ColorPixel>::iterator iter;
+//        for (iter = pixels.begin(); iter != pixels.end(); iter++) {
+//            outFile << iter->getRed() << std::endl;
+//            outFile << iter->getGreen() << std::endl;
+//            outFile << iter->getBlue() << std::endl;
+//        }
+
+        for (int i = pixels.size()-1; i >= 0; i--) {
+            for (int j = pixels.at(i).size()-1; j >= 0 ; j--) {
+                outFile << pixels.at(i).at(j).getRed() << std::endl;
+                outFile << pixels.at(i).at(j).getGreen() << std::endl;
+                outFile << pixels.at(i).at(j).getBlue() << std::endl;
+            }
         }
     }
 
@@ -99,6 +110,7 @@ void Ppm::copyImage() {
     std::cout << "COPYING IMAGE TO VECTOR" << std::endl;
     if (ascii) {
         int i = 1;
+        std::vector<ColorPixel> colorTmp;
         int red, green, blue;
         while (getline(inFile, tmp)) {
             if (i % 3 == 1) {
@@ -108,7 +120,11 @@ void Ppm::copyImage() {
             } else if (i % 3 == 0) {
                 blue = stoi(tmp);
                 ColorPixel colorPixel(red, green, blue);
-                pixels.push_back(colorPixel);
+                colorTmp.push_back(colorPixel);
+            }
+            if(i%width==0){
+                pixels.push_back(colorTmp);
+                colorTmp.clear();
             }
             i++;
         }

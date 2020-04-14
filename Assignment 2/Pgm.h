@@ -18,11 +18,12 @@ class Pgm {
     bool ascii;
     std::string magicNum;
     std::string fileName;
+    std::string outputName;
     std::ifstream inFile;
     std::vector<std::vector<GrayPixel>> grayPixels;
 public:
 
-    Pgm(std::string);
+    Pgm(std::string,std::string);
 
     void openImage();
 

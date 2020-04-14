@@ -6,10 +6,10 @@
 #include "Ppm.h"
 #include<iostream>
 #include<sstream>
-#include <utility>
 
-Pgm::Pgm(std::string fileName) {
+Pgm::Pgm(std::string fileName,std::string outputName) {
     this->fileName = std::move(fileName);
+    this->outputName = std::move(outputName);
     ascii = false;
 
 }
@@ -37,8 +37,8 @@ void Pgm::createImage() {
 //        for (iter = grayPixels.begin(); iter != grayPixels.end(); iter++) {
 //            outFile << iter->getIntensity() << std::endl;
 //        }
-        for (int i = grayPixels.size()-1; i > 0; i--) {
-            for (int j = 0; j < grayPixels.at(i).size(); j++) {
+        for (int i = grayPixels.size()-1; i >= 0; i--) {
+            for (int j = grayPixels.at(i).size()-1; j >= 0 ; j--) {
                 outFile << grayPixels.at(i).at(j).getIntensity() << std::endl;
             }
         }
