@@ -19,7 +19,7 @@ class Pgm {
     std::string magicNum;
     std::string fileName;
     std::ifstream inFile;
-    std::vector<GrayPixel> grayPixels;
+    std::vector<std::vector<GrayPixel>> grayPixels;
 public:
 
     Pgm(std::string);

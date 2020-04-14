@@ -20,11 +20,10 @@ void Pgm::createImage() {
 
     std::ofstream outFile;
     if (ascii) {
-        outFile.open("TASCII.pgm", std::ios::out);
+        outFile.open("T_ASCII.pgm", std::ios::out);
 
     }
     if (!outFile) {
-
         std::cout << "Error opening/generating file" << std::endl;
         return;
     }
@@ -34,10 +33,17 @@ void Pgm::createImage() {
     outFile << maxValue << std::endl;
 
     if (ascii) {
-        std::vector<GrayPixel>::iterator iter;
-        for (iter = grayPixels.begin(); iter != grayPixels.end(); iter++) {
-            outFile << iter->getIntensity() << std::endl;
+        //std::vector<GrayPixel>::iterator iter;
+//        for (iter = grayPixels.begin(); iter != grayPixels.end(); iter++) {
+//            outFile << iter->getIntensity() << std::endl;
+//        }
+        for (int i = grayPixels.size()-1; i > 0; i--) {
+            for (int j = 0; j < grayPixels.at(i).size(); j++) {
+                outFile << grayPixels.at(i).at(j).getIntensity() << std::endl;
+            }
         }
+//    std::cout<<grayPixels.size()<<std::endl;
+//    std::cout<<grayPixels.at(0).size();
     }
 
     std::cout << "SUCCESSFUL IMAGE GENERATION" << std::endl;
@@ -99,10 +105,15 @@ void Pgm::copyImage() {
 
     if (ascii) {
         int i = 1;
+        std::vector<GrayPixel> vecTmp;
         while (getline(inFile, tmp)) {
             intensity = stoi(tmp);
             GrayPixel grayPixel(intensity);
-            grayPixels.push_back(grayPixel);
+            vecTmp.push_back(grayPixel);
+            if (i % width == 0) {
+                grayPixels.push_back(vecTmp);
+                vecTmp.clear();
+            }
             i++;
         }
     }

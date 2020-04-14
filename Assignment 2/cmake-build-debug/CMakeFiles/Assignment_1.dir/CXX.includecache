@@ -6,15 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/ColorPixel.cpp
-ColorPixel.h
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/ColorPixel.h
-
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/ColorPixel.h
-
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/GrayPixel.cpp
-GrayPixel.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/GrayPixel.h
 
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/GrayPixel.h
 
@@ -40,16 +32,6 @@ vector
 GrayPixel.h
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/GrayPixel.h
 
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Ppm.cpp
-Ppm.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Ppm.h
-iostream
--
-sstream
--
-utility
--
-
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Ppm.h
 vector
 -
@@ -59,22 +41,4 @@ ColorPixel.h
 C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/ColorPixel.h
 string
 -
-
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Refactor.cpp
-Ppm.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Ppm.h
-Pgm.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Pgm.h
-Refactor.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Refactor.h
-
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Refactor.h
-
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/main.cpp
-Ppm.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Ppm.h
-Pgm.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Pgm.h
-Refactor.h
-C:/Users/Gavin McRoy/Desktop/GitHubProjects/Assignment 2/Refactor.h
 
