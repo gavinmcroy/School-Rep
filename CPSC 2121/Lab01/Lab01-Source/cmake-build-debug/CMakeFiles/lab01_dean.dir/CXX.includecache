@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/lab01-dean/lab01/intset.h
+
+C:/Users/Gavin McRoy/Desktop/lab01-dean/lab01/main.cpp
+string
+-
+iostream
+-
+intset.h
+C:/Users/Gavin McRoy/Desktop/lab01-dean/lab01/intset.h
+
