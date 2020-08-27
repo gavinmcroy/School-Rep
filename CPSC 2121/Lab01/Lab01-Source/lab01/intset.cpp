@@ -6,56 +6,57 @@ using namespace std;
 
 Intset::Intset() {
     headNode = nullptr;
-    size = 0;
 }
 
-struct Intset::Node {
-    int val;
-    Node *nextNode;
-};
+Intset::Node::Node(int val, Intset::Node *next) {
+    this->val = val;
+    this->nextNode = next;
+}
 
 //TODO Implement destructor
 Intset::~Intset() {
-//---To implement
+//---TODO implement
 }
 
 /* Return true if key is in the set */
 bool Intset::find(int key) {
     Node *tmp = headNode;
     while (true) {
+        if (tmp == nullptr) {
+            return false;
+        }
         if (tmp->val == key) {
             return true;
-        }
-        if (tmp->nextNode == nullptr) {
-            return false;
         }
         tmp = tmp->nextNode;
     }
 }
-
-
+//---currentStep->nextNode == nullptr
+/*headNode->val < key && oneStepAhead->val > key*/
 /* TODO Inserts a new key in order.  It is an error if key is already in the set. */
 void Intset::insert(int key) {
     assert (!find(key));
     if (headNode == nullptr) {
-        Node *element = new Node;
-        element->val = key;
+        Node *element = new Node(key, nullptr);
         headNode = element;
-        headNode->nextNode = nullptr;
-        size++;
-    } else {
-        Node *tmp = headNode;
+    }
+    else if(headNode->val>key){
+        Node *element = new Node(key,headNode);
+        headNode = element;
+    }
+    else {
+        Node *currentStep = headNode;
+        //Node *stepBehind = nullptr;
         while (true) {
-            if (tmp->nextNode == nullptr) {
-                Node *element = new Node;
-                element->val = key;
-                tmp->nextNode = element;
-                element->nextNode = nullptr;
+            if (currentStep->nextNode == nullptr) {
+                Node *element = new Node(key, nullptr);
+                currentStep->nextNode = element;
                 break;
             }
-            tmp = tmp->nextNode;
+            //stepBehind = currentStep;
+           // currentStep = currentStep->nextNode;
+            //break;
         }
-        size++;
     }
 }
 
@@ -65,7 +66,7 @@ void Intset::remove(int key) {
     Node *tmp = headNode;
     while (true) {
         if (tmp->val == key) {
-             break;
+            break;
         }
         tmp = tmp->nextNode;
     }
@@ -76,11 +77,11 @@ void Intset::print(void) {
     Node *tmp = headNode;
     while (true) {
         std::cout << tmp->val << std::endl;
-
         if (tmp->nextNode == nullptr) {
             break;
         }
         tmp = tmp->nextNode;
     }
-    std::cout << "SIZE: " << size << std::endl;
+    //std::cout << "SIZE: " << size << std::endl;
 }
+

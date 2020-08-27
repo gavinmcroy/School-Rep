@@ -10,14 +10,16 @@ int main(void) {
     int key;
 
     I.insert(10);
-    I.insert(34);
-    I.insert(35);
-    I.insert(36);
-    I.insert(37);
-    I.insert(39);
-    I.insert(40);
+    I.insert(9);
+    I.insert(8);
+    I.insert(7);
+    I.insert(6);
+    I.insert(5);
+    I.insert(3);
+    I.insert(2);
+    I.insert(1);
     I.print();
-    cout<<I.find(41)<<endl;
+    cout<<"SEARCH RESULT: "<<I.find(34)<<endl;
 
 //    while (1) {
 //

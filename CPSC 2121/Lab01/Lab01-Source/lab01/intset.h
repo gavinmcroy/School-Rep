@@ -6,7 +6,11 @@ class Intset {
 private:
     int size; //,allocated;
     //int *A;
-    struct Node;
+    struct Node {
+        int val;
+        Node* nextNode;
+        Node(int val,Node* next);
+    };
     Node *headNode;
 
 public:
