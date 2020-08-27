@@ -9,17 +9,17 @@ int main(void) {
     string command;
     int key;
 
+    I.insert(14);
+    I.insert(13);
+    I.insert(12);
+    I.insert(11);
     I.insert(10);
     I.insert(9);
     I.insert(8);
     I.insert(7);
-    I.insert(6);
-    I.insert(5);
-    I.insert(3);
-    I.insert(2);
-    I.insert(1);
+    I.remove(14);
     I.print();
-    cout<<"SEARCH RESULT: "<<I.find(34)<<endl;
+    cout<<"SEARCH RESULT: "<<I.find(14)<<endl;
 
 //    while (1) {
 //
