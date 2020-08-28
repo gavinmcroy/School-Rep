@@ -22,7 +22,6 @@ Intset::~Intset() {
         test = tmp;
     }
     headNode = nullptr;
-    print();
 }
 
 /* Return true if key is in the set */
