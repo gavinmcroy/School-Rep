@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC 2121/Lab01/Lab01-Source/lab01/intset.cpp
+iostream
+-
+assert.h
+-
+intset.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC 2121/Lab01/Lab01-Source/lab01/intset.h
+
 /Users/gavintaylormcroy/Desktop/School-Rep/CPSC 2121/Lab01/Lab01-Source/lab01/intset.h
 
 /Users/gavintaylormcroy/Desktop/School-Rep/CPSC 2121/Lab01/Lab01-Source/lab01/main.cpp

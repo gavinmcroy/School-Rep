@@ -13,9 +13,16 @@ Intset::Node::Node(int val, Intset::Node *next) {
     this->nextNode = next;
 }
 
-//TODO Implement destructor
 Intset::~Intset() {
-
+    Node *tmp = headNode;
+    Node *test = headNode;
+    while (tmp != nullptr) {
+        tmp = tmp->nextNode;
+        delete test;
+        test = tmp;
+    }
+    headNode = nullptr;
+    print();
 }
 
 /* Return true if key is in the set */
@@ -90,6 +97,10 @@ void Intset::remove(int key) {
 
 void Intset::print(void) {
     Node *tmp = headNode;
+    if (tmp == nullptr) {
+        cout << "List is empty" << endl;
+        return;
+    }
     while (true) {
         std::cout << tmp->val << std::endl;
         if (tmp->nextNode == nullptr) {

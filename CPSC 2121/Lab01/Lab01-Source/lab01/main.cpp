@@ -20,7 +20,6 @@ int main(void) {
     I.remove(14);
     I.print();
     cout<<"SEARCH RESULT: "<<I.find(14)<<endl;
-
 //    while (1) {
 //
 //        cin >> command;
