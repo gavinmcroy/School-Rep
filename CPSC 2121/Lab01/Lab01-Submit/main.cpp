@@ -8,8 +8,7 @@ int main(void) {
     Intset I;
     string command;
     int key;
-    printf("");
-    //---Insert 3 1 2 breaks
+
     while (1) {
         cin >> command;
         if (cin.eof()) break;

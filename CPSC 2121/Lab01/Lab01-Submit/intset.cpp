@@ -7,7 +7,7 @@ using namespace std;
 Intset::Intset() {
     headNode = nullptr;
 }
-/* */
+
 Intset::Node::Node(int val, Intset::Node *next) {
     this->val = val;
     this->nextNode = next;
