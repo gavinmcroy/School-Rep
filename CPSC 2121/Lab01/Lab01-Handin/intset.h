@@ -4,8 +4,6 @@
 class Intset {
 
 private:
-    int size; //,allocated;
-    //int *A;
     struct Node {
         int val;
         Node* nextNode;
