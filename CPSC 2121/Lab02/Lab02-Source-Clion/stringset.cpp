@@ -13,9 +13,10 @@ int myhash(string s, int table_size) {
     return h;
 }
 
+/* Initializes all head pointers to NULL */
 Stringset::Stringset() {
-    size = 4; // initial size of table
-    table = new Node *[size]; // allocate table, initialize head ptrs all to NULL
+    size = 4;
+    table = new Node *[size];
     for (int i = 0; i < size; i++)
         table[i] = NULL;
     num_elems = 0;
@@ -50,11 +51,7 @@ void Stringset::insert(string key) {
     int h = myhash(key, size);
 
     if (num_elems == size) {
-        // TODO: Expand table -- allocate new table of twice the size,
-        // re-insert all keys into new table, and de-allocate old table.
-        // (you may want to wait and add this code last, once everything
-        // else is working, since the class will still function properly,
-        // albeit slowly, without this part)
+        /* Allocates memory for table of double size and stores old table in tmp */
         size *= 2;
         h = myhash(key, size);
         Node **tempNewTable = new Node *[size];
@@ -79,7 +76,7 @@ void Stringset::insert(string key) {
                 table[hash] = newNode;
             }
         }
-        /* Delete the old table */
+        /* Deletes the old table */
         for (int i = 0; i < size / 2; i++) {
             while (tmpOldTable[i] != NULL) {
                 Node *temp = tmpOldTable[i];

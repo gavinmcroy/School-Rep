@@ -18,8 +18,18 @@ void spellcheck(void) {
 
     while (cin >> word) {
         cout << "Possible alternatives for word '" << word << "':\n";
-
-        // TBD: print out all words that differ by exactly one character...
+        /* print out all words that differ by exactly one character */
+        string searchedWord = word;
+        for (int i = 0; i < word.size(); i++) {
+            char temp = word[i];
+            for (char j = 'a'; j <= 'z'; j++) {
+                word[i] = j;
+                if (S.find(word) && (word != searchedWord)) {
+                    cout << word << endl;
+                }
+            }
+            word[i] = temp;
+        }
     }
 }
 
@@ -72,6 +82,6 @@ void test(void) {
 
 int main(void) {
     //test();
-     spellcheck();
+    spellcheck();
     return 0;
 }

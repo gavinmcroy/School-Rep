@@ -6,12 +6,12 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/main.cpp
-string
--
-fstream
--
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/stringset.cpp
 iostream
+-
+string.h
+-
+assert.h
 -
 stringset.h
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/stringset.h
