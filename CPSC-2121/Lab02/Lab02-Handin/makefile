@@ -1,5 +1,5 @@
 # Config
-CC=g++-6
+CC=g++
 CFLAGS=-Wall 
 TARGET=out
 

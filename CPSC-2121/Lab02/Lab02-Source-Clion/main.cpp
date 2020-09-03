@@ -20,7 +20,7 @@ void spellcheck(void) {
         cout << "Possible alternatives for word '" << word << "':\n";
         /* print out all words that differ by exactly one character */
         string searchedWord = word;
-        for (int i = 0; i < word.size(); i++) {
+        for (unsigned int i = 0; i < word.size(); i++) {
             char temp = word[i];
             for (char j = 'a'; j <= 'z'; j++) {
                 word[i] = j;
