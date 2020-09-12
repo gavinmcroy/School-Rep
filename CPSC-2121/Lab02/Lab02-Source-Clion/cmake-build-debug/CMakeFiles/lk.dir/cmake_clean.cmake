@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/lk.dir/main.cpp.obj"
-  "CMakeFiles/lk.dir/stringset.cpp.obj"
-  "liblk.dll.a"
-  "lk.exe"
-  "lk.exe.manifest"
+  "CMakeFiles/lk.dir/main.cpp.o"
+  "CMakeFiles/lk.dir/stringset.cpp.o"
+  "lk"
   "lk.pdb"
 )
 
