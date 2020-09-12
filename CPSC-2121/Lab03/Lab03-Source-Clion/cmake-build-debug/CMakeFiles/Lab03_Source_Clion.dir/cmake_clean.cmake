@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Lab03_Source_Clion.dir/Points.cpp.obj"
+  "CMakeFiles/Lab03_Source_Clion.dir/Point.cpp.obj"
+  "CMakeFiles/Lab03_Source_Clion.dir/PointMap.cpp.obj"
   "CMakeFiles/Lab03_Source_Clion.dir/main.cpp.obj"
   "Lab03_Source_Clion.exe"
   "Lab03_Source_Clion.exe.manifest"

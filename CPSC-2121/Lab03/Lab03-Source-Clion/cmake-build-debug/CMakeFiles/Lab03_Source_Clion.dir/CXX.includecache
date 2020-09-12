@@ -6,9 +6,21 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab03/Lab03-Source-Clion/main.cpp
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.cpp
+cmath
+-
+Point.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/main.cpp
 iostream
 -
 fstream
 -
+iomanip
+-
+Point.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
 

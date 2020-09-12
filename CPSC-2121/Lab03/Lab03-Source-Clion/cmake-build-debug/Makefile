@@ -67,10 +67,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.6
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC 2121\Lab03\Lab03-Source-Clion"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab03\Lab03-Source-Clion"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC 2121\Lab03\Lab03-Source-Clion\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab03\Lab03-Source-Clion\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC 2121\Lab03\Lab03-Source-Clion\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC 2121\Lab03\Lab03-Source-Clion\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab03\Lab03-Source-Clion\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab03\Lab03-Source-Clion\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC 2121\Lab03\Lab03-Source-Clion\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab03\Lab03-Source-Clion\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -142,32 +142,59 @@ Lab03_Source_Clion/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/build
 .PHONY : Lab03_Source_Clion/fast
 
-Points.obj: Points.cpp.obj
+Point.obj: Point.cpp.obj
 
-.PHONY : Points.obj
+.PHONY : Point.obj
 
 # target to build an object file
-Points.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/Points.cpp.obj
-.PHONY : Points.cpp.obj
+Point.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/Point.cpp.obj
+.PHONY : Point.cpp.obj
 
-Points.i: Points.cpp.i
+Point.i: Point.cpp.i
 
-.PHONY : Points.i
+.PHONY : Point.i
 
 # target to preprocess a source file
-Points.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/Points.cpp.i
-.PHONY : Points.cpp.i
+Point.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/Point.cpp.i
+.PHONY : Point.cpp.i
 
-Points.s: Points.cpp.s
+Point.s: Point.cpp.s
 
-.PHONY : Points.s
+.PHONY : Point.s
 
 # target to generate assembly for a file
-Points.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/Points.cpp.s
-.PHONY : Points.cpp.s
+Point.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/Point.cpp.s
+.PHONY : Point.cpp.s
+
+PointMap.obj: PointMap.cpp.obj
+
+.PHONY : PointMap.obj
+
+# target to build an object file
+PointMap.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/PointMap.cpp.obj
+.PHONY : PointMap.cpp.obj
+
+PointMap.i: PointMap.cpp.i
+
+.PHONY : PointMap.i
+
+# target to preprocess a source file
+PointMap.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/PointMap.cpp.i
+.PHONY : PointMap.cpp.i
+
+PointMap.s: PointMap.cpp.s
+
+.PHONY : PointMap.s
+
+# target to generate assembly for a file
+PointMap.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab03_Source_Clion.dir\build.make CMakeFiles/Lab03_Source_Clion.dir/PointMap.cpp.s
+.PHONY : PointMap.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -205,9 +232,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Lab03_Source_Clion
-	@echo ... Points.obj
-	@echo ... Points.i
-	@echo ... Points.s
+	@echo ... Point.obj
+	@echo ... Point.i
+	@echo ... Point.s
+	@echo ... PointMap.obj
+	@echo ... PointMap.i
+	@echo ... PointMap.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
