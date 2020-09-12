@@ -4,15 +4,6 @@
 
 int main() {
 
-    std::ifstream file;
-    file.open("points.txt", std::ios::in);
-
-    if (file.is_open()) {
-        std::cout << "Working" << std::endl;
-    }
-
-    
-
 
 
 

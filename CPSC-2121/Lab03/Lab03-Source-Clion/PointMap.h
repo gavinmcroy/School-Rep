@@ -1,8 +1,8 @@
 //
 // Created by Gavin McRoy on 9/12/2020.
 //
-#include "Point.h"
 #include<iostream>
+#include "Point.h"
 
 #ifndef LAB03_SOURCE_CLION_POINTMAP_H
 #define LAB03_SOURCE_CLION_POINTMAP_H
@@ -15,15 +15,19 @@ private:
         Node *next;
 
         Node(Point p, Node *n) {
-            //point = ;
+            point = p;
             next = n;
         }
-
-        Node() {
-            Point p(0, 0);
-            next = NULL;
-        }
     };
+
+    int b = 1000;
+    Node ***table;
+    std::ifstream file;
+
+    int hashValue(int val);
+
+public:
+    PointMap();
 
 };
 
