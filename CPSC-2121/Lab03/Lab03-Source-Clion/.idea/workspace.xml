@@ -13,7 +13,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c5612546-3de8-4591-ad01-0e212a8be1e7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/PointMap.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/PointMap.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PointMap.h" beforeDir="false" afterPath="$PROJECT_DIR$/PointMap.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,11 +43,6 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -64,6 +58,7 @@
       <workItem from="1600036043864" duration="3160000" />
       <workItem from="1600039243012" duration="815000" />
       <workItem from="1600040975934" duration="112000" />
+      <workItem from="1600041216681" duration="251000" />
     </task>
     <servers />
   </component>

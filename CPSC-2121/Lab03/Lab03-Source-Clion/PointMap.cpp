@@ -19,7 +19,7 @@ PointMap::PointMap() {
     }
 }
 
-/* TODO Implement */
+/* Destructor */
 PointMap::~PointMap() {
     for (int i = 0; i < b; i++) {
         delete[] table[i];
@@ -83,13 +83,11 @@ void PointMap::insert(Point point) {
 
 
 }
-
-/* TODO Implement */
+/* Calculate shortest distance of one million points */
 void PointMap::calculateShortestDistance() const {
     double shortestDistance = std::numeric_limits<double>::max();
     double tmpDistance = std::numeric_limits<double>::max();
 //    Point center = table[1][1]->point;
-    Node *center;
 
     for (int x = 0; x < b - 1; x++) {
         for (int y = 0; y < b - 1; y++) {
