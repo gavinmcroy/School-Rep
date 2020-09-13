@@ -20,7 +20,7 @@ private:
         }
     };
 
-    int b = 100;
+    int b = 1000;
     Node ***table;
     std::ifstream file;
 

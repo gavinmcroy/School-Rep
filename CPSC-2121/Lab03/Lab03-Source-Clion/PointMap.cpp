@@ -54,8 +54,11 @@ void PointMap::readFileIntoTable(const std::string &fileName) {
 }
 
 /* TODO How does a single hash value work for 2D elements? */
+//---[x,y] You hash x and y together to find the location to place the point object. That
+//--- then is your head pointer. Some may hash together but 1000 is the best choice since
+//--- theoretically every value could hash to exactly one point
 int PointMap::hashValue(double val) const {
-    return (int) (val * b) - 1;
+    return (int) (val * b);
 }
 
 /* TODO Implement */
