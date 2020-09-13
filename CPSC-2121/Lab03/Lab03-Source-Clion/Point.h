@@ -17,9 +17,15 @@ public:
 
     Point();
 
+    double getXValue();
+
+    double getYValue();
+
     static double calcDistance(Point point1, Point point2);
 
     Point &operator=(const Point &rhs);
+
+    bool operator==(const Point &rhs);
 
 };
 

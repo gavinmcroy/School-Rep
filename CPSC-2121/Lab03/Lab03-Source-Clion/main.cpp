@@ -6,9 +6,23 @@
 int main() {
 
     PointMap map;
+    std::cout << "Hello, World!" << std::endl;
     map.readFileIntoTable("points.txt");
 
-    std::cout << "Hello, World!" << std::endl;
+    //map.printData();
+    map.calculateShortestDistance();
+
+//    Point point(.1,.2);
+//    Point point1 (.1,.2);
+//    Point point2 (.1,.2);
+//    Point point3 (.1,.2);
+//
+//    map.insert(point);
+//    map.insert(point1);
+//    map.insert(point2);
+//    map.insert(point3);
+//    map.printData();
+
     return 0;
 
 

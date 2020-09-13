@@ -4,14 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/cmake-build-debug/CMakeFiles/Lab03_Source_Clion.dir/Point.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/cmake-build-debug/CMakeFiles/Lab03_Source_Clion.dir/PointMap.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/main.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/cmake-build-debug/CMakeFiles/Lab03_Source_Clion.dir/main.cpp.o"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/cmake-build-debug/CMakeFiles/Lab03_Source_Clion.dir/Point.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/cmake-build-debug/CMakeFiles/Lab03_Source_Clion.dir/PointMap.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/cmake-build-debug/CMakeFiles/Lab03_Source_Clion.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "../."
   )
 
 # Targets to which this target links.

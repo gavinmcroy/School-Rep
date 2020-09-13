@@ -9,7 +9,7 @@
 
 
 class PointMap {
-private:
+public:
     struct Node {
         Point point;
         Node *next;
@@ -18,10 +18,14 @@ private:
             point = p;
             next = n;
         }
+
+        Node(){
+            next = nullptr;
+        }
     };
 
     int b = 1000;
-    Node ***table;
+    Node *** table;
     std::ifstream file;
 
     int hashValue(double val) const;
@@ -33,9 +37,11 @@ public:
 
     void readFileIntoTable(const std::string &fileName);
 
-    void insert(Point point, int hash);
+    void insert(Point point);
 
-    void calculateShortestDistance();
+    void calculateShortestDistance() const;
+
+    void printData();
 
 };
 

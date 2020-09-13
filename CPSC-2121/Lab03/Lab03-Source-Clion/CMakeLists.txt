@@ -3,4 +3,11 @@ project(Lab03_Source_Clion)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Lab03_Source_Clion main.cpp Point.cpp Point.h PointMap.cpp PointMap.h)
+include_directories(.)
+
+add_executable(Lab03_Source_Clion
+        main.cpp
+        Point.cpp
+        Point.h
+        PointMap.cpp
+        PointMap.h)
