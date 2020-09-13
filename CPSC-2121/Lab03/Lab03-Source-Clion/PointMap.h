@@ -1,6 +1,6 @@
-//
-// Created by Gavin McRoy on 9/12/2020.
-//
+/*
+   Created by Gavin McRoy on 9/9/2020.
+*/
 #include<iostream>
 #include "Point.h"
 
@@ -24,10 +24,18 @@ private:
     Node ***table;
     std::ifstream file;
 
-    int hashValue(int val);
+    int hashValue(double val) const;
 
 public:
     PointMap();
+
+    ~PointMap();
+
+    void readFileIntoTable(const std::string &fileName);
+
+    void insert(Point point, int hash);
+
+    void calculateShortestDistance();
 
 };
 

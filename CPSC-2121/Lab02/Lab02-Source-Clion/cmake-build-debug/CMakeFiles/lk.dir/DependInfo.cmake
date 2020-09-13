@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/cmake-build-debug/CMakeFiles/lk.dir/main.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/stringset.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC 2121/Lab02/Lab02-Source-Clion/cmake-build-debug/CMakeFiles/lk.dir/stringset.cpp.obj"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab02/Lab02-Source-Clion/main.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab02/Lab02-Source-Clion/cmake-build-debug/CMakeFiles/lk.dir/main.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab02/Lab02-Source-Clion/stringset.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab02/Lab02-Source-Clion/cmake-build-debug/CMakeFiles/lk.dir/stringset.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
