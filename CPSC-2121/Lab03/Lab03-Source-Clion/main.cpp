@@ -9,7 +9,7 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     map.readFileIntoTable("points.txt");
 
-    //map.printData();
+    // map.printData();
     map.calculateShortestDistance();
 
 //    Point point(.1,.2);
