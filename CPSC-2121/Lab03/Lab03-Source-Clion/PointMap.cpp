@@ -21,5 +21,5 @@ PointMap::PointMap() {
 }
 
 int PointMap::hashValue(int val){
-    
+
 }
