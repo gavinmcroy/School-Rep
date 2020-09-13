@@ -1,5 +1,4 @@
 #include <iostream>
-#include <fstream>
 #include "Point.h"
 #include "PointMap.h"
 
@@ -8,11 +7,14 @@ int main() {
     PointMap map;
     std::cout << "Hello, World!" << std::endl;
     map.readFileIntoTable("points.txt");
-
-    // map.printData();
     map.calculateShortestDistance();
+    return 0;
 
-//    Point point(.1,.2);
+
+
+/*** [DEBUG]
+    ------------
+    //    Point point(.1,.2);
 //    Point point1 (.1,.2);
 //    Point point2 (.1,.2);
 //    Point point3 (.1,.2);
@@ -23,12 +25,6 @@ int main() {
 //    map.insert(point3);
 //    map.printData();
 
-    return 0;
-
-
-
-/*** [DEBUG]
-    ------------
     Point point(1,2);
     Point point1(3,4);
     point = point1;

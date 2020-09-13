@@ -19,13 +19,13 @@ public:
             next = n;
         }
 
-        Node(){
+        Node() {
             next = nullptr;
         }
     };
 
     int b = 1000;
-    Node *** table;
+    Node ***table;
     std::ifstream file;
 
     int hashValue(double val) const;

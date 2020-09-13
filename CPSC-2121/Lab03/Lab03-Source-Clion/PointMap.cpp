@@ -97,6 +97,7 @@ void PointMap::calculateShortestDistance() const {
 
     for (int x = 0; x < b - 1; x++) {
         for (int y = 0; y < b - 1; y++) {
+            /* Protective bounds on array */
             if (x - 1 >= 0 && x + 1 < b && y - 1 >= 0 && y + 1 < b) {
                 /* Make sure the center element is not null */
                 if (table[x][y] == nullptr) {
@@ -110,109 +111,29 @@ void PointMap::calculateShortestDistance() const {
                         if (table[i][j] == nullptr) {
                             continue;
                         }
-                        for(Node* tmp = table[i][j]; tmp!= nullptr; tmp = tmp->next){
-
-                        }
-
-                        /* Make sure center is not compared with itself */
-                        if (table[i][j]->point == table[x][y]->point) {
-                            continue;
-                        }
-                        tmpDistance = Point::calcDistance(table[x][y]->point, table[i][j]->point);
-                        if (tmpDistance < shortestDistance) {
-                            shortestDistance = tmpDistance;
+                        /* Check chained elements and compare with center value */
+                        for (Node *tmp = table[i][j]; tmp != nullptr; tmp = tmp->next) {
+                            /* Make sure center is not compared with itself [X][Y] IS CENTER */
+                            if (tmp->point == table[x][y]->point) {
+                                continue;
+                            }
+                            tmpDistance = Point::calcDistance(table[x][y]->point, tmp->point);
+                            if (tmpDistance < shortestDistance) {
+                                shortestDistance = tmpDistance;
+                            }
                         }
                     }
                 }
 
 
-                /* Make sure the farthest left element is not null */
-                if (table[x - 1][y] != nullptr) {
-                    tmpDistance = Point::calcDistance(table[x][y]->point, table[x - 1][y]->point);
-                }
-                if (table[x + 1][y] != nullptr) {
-                    tmpDistance = Point::calcDistance(table[x][y]->point, table[x + 1][y]->point);
-                }
             }
         }
     }
-    //std::cout<<tmpDistance<<std::endl;
-
-
-
-
-
-
-    /* Breaks table in 3x3 squares and iterates through */
-
-//    for (int x = 0; x < b; x += 3) {
-//        for (int y = 0; y < b; y += 3) {
-//            /* Prevents going out of bounds */
-//            if ((x + 1 < 1000 && y + 1 < 1000) && (table[x + 1][y + 1] != nullptr)) {
-//                center = table[x + 1][y + 1]->point;
-//            }
-//            /* Iterate through 3x3 square and calculate shortest distance */
-//            for (int i = 0; i < 3; i++) {
-//                for (int j = 0; j < 3; j++) {
-//
-//                    if (table[i][j] == nullptr) {
-//                        continue;
-//                    }
-//                    /* Check chained elements */
-//                    Node* tmp = table[i][j];
-//                        while(tmp!= nullptr){
-//
-//                            /* Make sure center is not compared with itself */
-//                            if (tmp->point == center) {
-//                                tmp = tmp->next;
-//                                continue;
-//                            }
-//                            /* Calculate distance and check if it is smaller than current val */
-//                            tmpDistance = Point::calcDistance(center, tmp->point);
-//                            if (tmpDistance < shortestDistance) {
-//                                shortestDistance = tmpDistance;
-//                            }
-//                            tmp = tmp->next;
-//                        }
-////                    if(table[i][j]->next!= nullptr){
-////                        counter++;
-////                    }
-////
-////                    /* Make sure center is not compared with itself */
-////                    if (table[i][j]->point == center) {
-////                        continue;
-////                    }
-////                    tmpDistance = Point::calcDistance(center, table[i][j]->point);
-////                    if (tmpDistance < shortestDistance) {
-////                        shortestDistance = tmpDistance;
-////                    }
-//                }
-//            }
-//        }
-//
-//    }
-
-
-//    for (int i = 0; i < 3; i++) {
-//        for (int j = 0; j < 3; j++) {
-//            if (table[i][j] == nullptr) {
-//                continue;
-//            }
-//            if (table[i][j]->point == center) {
-//                continue;
-//            }
-//            tmpDistance = Point::calcDistance(center, table[i][j]->point);
-//            if (tmpDistance < shortestDistance) {
-//                shortestDistance = tmpDistance;
-//            }
-//        }
-//    }
-
     std::cout << "The shortest distance calculated is : " << shortestDistance << std::endl;
 
 }
 
-/* TODO Modified for debug */
+/* TODO Modified for debug usage only not intended to function properly */
 void PointMap::printData() {
     int count = 0;
     for (int i = 0; i < b; i++) {
