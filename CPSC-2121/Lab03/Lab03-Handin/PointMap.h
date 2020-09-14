@@ -2,6 +2,7 @@
    Created by Gavin McRoy on 9/9/2020.
 */
 #include<iostream>
+#include<fstream>
 #include "Point.h"
 
 #ifndef LAB03_SOURCE_CLION_POINTMAP_H
@@ -41,7 +42,7 @@ public:
 
     void calculateShortestDistance() const;
 
-    void printData();
+    //void printData();
 
 };
 

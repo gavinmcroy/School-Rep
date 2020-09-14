@@ -19,7 +19,7 @@ PointMap::PointMap() {
     }
 }
 
-/* TODO Implement */
+/* Destructor */
 PointMap::~PointMap() {
     for (int i = 0; i < b; i++) {
         delete[] table[i];
@@ -47,10 +47,6 @@ void PointMap::readFileIntoTable(const std::string &fileName) {
         /* Load data into table */
         std::cout << "Loading Data..." << std::endl;
         while (file >> x >> y) {
-            //std::cout<< x << " " <<y<<std::endl;
-//            if(count==10){
-//                break;
-//            }
             Point point(x, y);
             insert(point);
             count++;
@@ -63,8 +59,8 @@ void PointMap::readFileIntoTable(const std::string &fileName) {
 
 //---[x,y] You hash x and y together to find the location to place the point object. That
 //--- then is your head pointer. Some may hash together but 1000 is the best choice since
-//--- theoretically every value could hash to exactly one point which is the most effecient possibility for a
-//--- hash table
+//--- theoretically every value could hash to exactly one point which is the most efficient possibility for a
+//--- hash table as 1000*1000 = 1 million
 int PointMap::hashValue(double val) const {
     return (int) (val * b);
 }
@@ -87,13 +83,11 @@ void PointMap::insert(Point point) {
 
 
 }
-
-/* TODO Implement */
+/* Calculate shortest distance of one million points */
 void PointMap::calculateShortestDistance() const {
     double shortestDistance = std::numeric_limits<double>::max();
     double tmpDistance = std::numeric_limits<double>::max();
 //    Point center = table[1][1]->point;
-    Node *center;
 
     for (int x = 0; x < b - 1; x++) {
         for (int y = 0; y < b - 1; y++) {
@@ -134,20 +128,20 @@ void PointMap::calculateShortestDistance() const {
 }
 
 /* TODO Modified for debug usage only not intended to function properly */
-void PointMap::printData() {
-    int count = 0;
-    for (int i = 0; i < b; i++) {
-        for (int j = 0; j < b; j++) {
-            Node *tmp = table[i][j];
-
-            if (table[i][j] == nullptr) {
-                count++;
-                continue;
-            }
-//            std::cout << "X: " << (table[i][j])->point.getXValue()
-//                      << "    Y: " << (table[i][j])->point.getYValue() << std::endl;
-        }
-
-    }
-    std::cout << count << std::endl;
-}
+//void PointMap::printData() {
+//    int count = 0;
+//    for (int i = 0; i < b; i++) {
+//        for (int j = 0; j < b; j++) {
+//            Node *tmp = table[i][j];
+//
+//            if (table[i][j] == nullptr) {
+//                count++;
+//                continue;
+//            }
+////            std::cout << "X: " << (table[i][j])->point.getXValue()
+////                      << "    Y: " << (table[i][j])->point.getYValue() << std::endl;
+//        }
+//
+//    }
+//    std::cout << count << std::endl;
+//}
