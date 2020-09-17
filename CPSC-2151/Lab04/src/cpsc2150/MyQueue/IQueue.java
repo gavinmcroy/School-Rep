@@ -12,13 +12,23 @@ public interface IQueue {
 
     public static final int MAX_LENGTH = 100;
 
-    /* Adds x to the end of the queue */
+    /**
+     * Queues a integer into the array by adding it to the back of the array
+     *
+     * @param x the integer to enqueue into the array
+     */
     void enqueue(Integer x);
 
-    /* removes and returns the Integer at the front of the queue */
+    /**
+     * removes and returns the Integer at the front of the queue
+     * @return the variable at the front of the queue
+     */
     Integer dequeue();
 
-    /* returns the number of Integers in the Queue */
+    /**
+     * Gets the current length of the queue
+     * @return the current length of the queue
+     */
     int length();
 
     /* clears the entire queue */
