@@ -58,6 +58,9 @@ public class QueueApp {
         /** @Question
          * Do we add java doc comments to implemented classes or do these comments
          * just stay inside the interface
+         * Where do method contracts go?
+         * What exactly is a constraint ? Example ?
+         * How do pre and post conditions work for a method like clear()
          * @TODO
          * Implement Contracts + Constraints
          * Implement Java Comments on Constructors + Contracts

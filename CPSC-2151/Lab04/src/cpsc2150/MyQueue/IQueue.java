@@ -5,6 +5,12 @@ package cpsc2150.MyQueue;
  * A queue is a data structure where the first item added to the
  * structure is the first item removed from the structure
  * This queue is bounded by MAX_LENGTH
+ *
+ * Initialization:
+ *
+ * Defines:
+ *
+ * Constraint:
  */
 
 

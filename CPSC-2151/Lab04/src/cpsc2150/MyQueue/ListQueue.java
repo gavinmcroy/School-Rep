@@ -21,6 +21,8 @@ public class ListQueue implements IQueue {
     /**
      * Queues a integer into the array by adding it to the back of the array
      *
+     * @pre
+     * @post
      * @param x the integer to enqueue into the array
      */
     @Override
@@ -36,27 +38,35 @@ public class ListQueue implements IQueue {
     /**
      * removes and returns the Integer at the front of the queue
      *
+     * @pre
+     * @post
      * @return the variable at the front of the queue
      */
     @Override
     public Integer dequeue() {
+        boolean foundVal = false;
         int firstInteger = 0;
         for (int i = 0; i < myQ.size(); i++) {
             if (myQ.get(i) != 0) {
                 firstInteger = i;
+                foundVal = true;
                 break;
             }
         }
-
-        int tmp = myQ.get(firstInteger);
-        myQ.remove(firstInteger);
-        return tmp;
+        if (foundVal) {
+            int tmp = myQ.get(firstInteger);
+            myQ.remove(firstInteger);
+            return tmp;
+        }
+        return 0;
     }
 
     /**
      * Gets the current length of the queue
      *
      * @return the current length of the queue
+     * @pre none
+     * @post length = myQ.size()
      */
     @Override
     public int length() {
@@ -66,6 +76,9 @@ public class ListQueue implements IQueue {
     /**
      * Clears the queue by setting every element back equal to 0.
      * If the queue is empty it does nothing
+     *
+     * @pre none
+     * @post
      */
     @Override
     public void clear() {

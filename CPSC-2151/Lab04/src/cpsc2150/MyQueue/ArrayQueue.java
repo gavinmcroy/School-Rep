@@ -10,7 +10,7 @@ public class ArrayQueue implements IQueue {
     /**
      * tracks how many items in the queue
      * also used to find the end of the queue
-     * Invariant  0 <= myLength < MAX_LENGTH
+     * @invariant  0 <= myLength < MAX_LENGTH
      */
     private int myLength = 0;
 
