@@ -14,8 +14,12 @@ public class ArrayQueue implements IQueue {
      */
     private int myLength = 0;
 
+    /* TODO Implement */
     ArrayQueue() {
         myQ = new Integer[100];
+        for (int i = 0; i < MAX_LENGTH; i++) {
+            myQ[i] = 0;
+        }
     }
 
     /**
@@ -25,7 +29,13 @@ public class ArrayQueue implements IQueue {
      */
     @Override
     public void enqueue(Integer x) {
-        myQ[MAX_LENGTH - myLength - 1] = x;
+        for (int i = 0; i < MAX_LENGTH; i++) {
+            if (myQ[i] != 0 && i != 0) {
+                int val = myQ[i];
+                myQ[i - 1] = val;
+            }
+        }
+        myQ[MAX_LENGTH - 1] = x;
         myLength++;
     }
 
@@ -38,12 +48,12 @@ public class ArrayQueue implements IQueue {
     public Integer dequeue() {
         int firstInteger = 0;
         for (int i = 0; i < MAX_LENGTH; i++) {
-            if (myQ[i] != null) {
+            if (myQ[i] != 0) {
                 firstInteger = i;
                 break;
             }
         }
-        if(myQ[firstInteger] !=null){
+        if (myQ[firstInteger] != 0) {
             int tmp = myQ[firstInteger];
             myQ[firstInteger] = 0;
             return tmp;

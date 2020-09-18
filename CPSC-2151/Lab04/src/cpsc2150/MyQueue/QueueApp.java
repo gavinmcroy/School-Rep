@@ -27,8 +27,11 @@ public class QueueApp {
             x = 12;
             q.enqueue(x);
 
+            /* TODO print all elements */
+
             x = q.dequeue();
             System.out.println(x);
+
 
         } else if (userAnswer.compareTo("array") == 0) {
             System.out.println("Entered array");
@@ -44,6 +47,7 @@ public class QueueApp {
             x = 12;
             q.enqueue(x);
 
+            /* TODO print all elements */
             x = q.dequeue();
             System.out.println(x);
 
@@ -54,16 +58,13 @@ public class QueueApp {
         /** @Question
          * Do we add java doc comments to implemented classes or do these comments
          * just stay inside the interface
-         *
+         * @TODO
+         * Implement Contracts + Constraints
+         * Implement Java Comments on Constructors + Contracts
          */
-
-        /*
-        You will add in code here to ask the user whether they want an
-        array implementation or a list implementation. Then use their
-        answer to initialize q appropriately
-        */
 
         //Add the code to print the queue. After the code is finished,
         //the queue should still contain all its values in order
     }
 }
+

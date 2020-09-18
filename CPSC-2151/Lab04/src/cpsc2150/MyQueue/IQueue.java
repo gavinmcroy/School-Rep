@@ -21,16 +21,21 @@ public interface IQueue {
 
     /**
      * removes and returns the Integer at the front of the queue
+     *
      * @return the variable at the front of the queue
      */
     Integer dequeue();
 
     /**
      * Gets the current length of the queue
+     *
      * @return the current length of the queue
      */
     int length();
 
-    /* clears the entire queue */
+    /**
+     * Clears the queue by setting every element back equal to 0.
+     * If the queue is empty it does nothing
+     */
     void clear();
 }
