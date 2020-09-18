@@ -28,9 +28,7 @@ public class QueueApp {
             q.enqueue(x);
 
             /* TODO print all elements */
-
-            x = q.dequeue();
-            System.out.println(x);
+            q.printList();
 
 
         } else if (userAnswer.compareTo("array") == 0) {
@@ -47,27 +45,13 @@ public class QueueApp {
             x = 12;
             q.enqueue(x);
 
-            /* TODO print all elements */
-            x = q.dequeue();
-            System.out.println(x);
+            /* TODO print all elements I wasnt sure how to do it without
+             *  having a method inside the class */
+            q.printList();
 
         } else {
             System.out.println("Invalid Input");
         }
-
-        /** @Question
-         * Do we add java doc comments to implemented classes or do these comments
-         * just stay inside the interface
-         * Where do method contracts go?
-         * What exactly is a constraint ? Example ?
-         * How do pre and post conditions work for a method like clear()
-         * @TODO
-         * Implement Contracts + Constraints
-         * Implement Java Comments on Constructors + Contracts
-         */
-
-        //Add the code to print the queue. After the code is finished,
-        //the queue should still contain all its values in order
     }
 }
 

@@ -7,16 +7,25 @@ public class ArrayQueue implements IQueue {
      */
     private Integer[] myQ;
 
+
     /**
      * tracks how many items in the queue
      * also used to find the end of the queue
-     * @invariant  0 <= myLength < MAX_LENGTH
+     *
+     * @invariant 0 <= myLength < MAX_LENGTH
+     * @correspondence total_element = myLength
      */
     private int myLength = 0;
 
-    /* TODO Implement */
+    /**
+     * Initializes integer array of size MAX_LENGTH and initializes every
+     * element in the array to 0
+     *
+     * @pre none
+     * @post myQ == 0
+     */
     ArrayQueue() {
-        myQ = new Integer[100];
+        myQ = new Integer[MAX_LENGTH];
         for (int i = 0; i < MAX_LENGTH; i++) {
             myQ[i] = 0;
         }
@@ -56,6 +65,7 @@ public class ArrayQueue implements IQueue {
         if (myQ[firstInteger] != 0) {
             int tmp = myQ[firstInteger];
             myQ[firstInteger] = 0;
+            myLength--;
             return tmp;
         }
         return 0;
@@ -82,6 +92,24 @@ public class ArrayQueue implements IQueue {
         }
         for (int i = 0; i < MAX_LENGTH; i++) {
             myQ[i] = 0;
+        }
+        myLength = 0;
+    }
+
+    /* The lab asks for the list to be printed */
+
+    /**
+     * Prints the current elements inside the queue
+     *
+     * @pre none
+     * @post none
+     */
+    public void printList() {
+        for (Integer integer : myQ) {
+            if (integer == 0) {
+                continue;
+            }
+            System.out.println(integer);
         }
     }
 }
