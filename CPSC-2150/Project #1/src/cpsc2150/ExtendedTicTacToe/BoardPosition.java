@@ -3,19 +3,20 @@ package cpsc2150.ExtendedTicTacToe;
 public class BoardPosition {
 
     /**
-     * @invarient
+     * @invarient 0 < row <= 8
      */
     private int row;
 
     /**
-     * @invarient
+     * @invarient 0 < column <= 8
      */
     private int column;
 
     /* TODO IMPLEMENT CONTRACT */
+
     /**
-     * @pre: row > 0 and row < 8
-     *      column > 0 and column < 8
+     * @pre: 0 < row <= 8
+     * 0 < column <= 8
      * @post: row = row
      * column = column
      */
@@ -29,7 +30,7 @@ public class BoardPosition {
      *
      * @return returns value of row
      * @pre: none
-     * @post: row > 0 and row < 8
+     * @post: 0 < row <= 8
      * getRow = row
      */
     public int getRow() {
@@ -41,15 +42,22 @@ public class BoardPosition {
      *
      * @return returns the value of column
      * @pre: none
-     * @post: column > 0 and column < 8
+     * @post: 0 < column <= 8
      * getColumn = column
      */
     public int getColumn() {
         return column;
     }
 
+    /*TODO ---------------------------------Implement Post and Pre---------------------------------- TODO */
+
+
     /**
-     * IMPLEMENT
+     * returns a formatted string for (row, column)
+     *
+     * @return returns a formatted string in the structure of (row,column)
+     * @pre: none
+     * @post:
      */
     @Override
     public String toString() {
@@ -57,7 +65,9 @@ public class BoardPosition {
     }
 
     /**
-     * IMPLEMENT
+     * @return returns true if the positions object
+     * @pre: obj = #obj instanceof(BoardPosition)
+     * @post: iff()
      */
     @Override
     public boolean equals(Object obj) {

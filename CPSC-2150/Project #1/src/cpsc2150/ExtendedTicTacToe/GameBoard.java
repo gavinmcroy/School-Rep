@@ -4,7 +4,11 @@ public class GameBoard {
 
     char gameBoard[][];
 
-    /* TODO IMPLEMENT */
+    /**
+     * Initializes the game board to be a 8x8 array of empty characters ' '
+     * @pre:
+     * @post:
+     */
     GameBoard() {
 
     }
@@ -16,6 +20,8 @@ public class GameBoard {
      *
      * @return returns true if the position specified in pos is available,
      * false otherwise. If a space is not in bounds, then it is not available
+     * @pre: 
+     * @post:
      */
     public boolean checkSpace(BoardPosition pos) {
         return false;
@@ -29,6 +35,8 @@ public class GameBoard {
      *
      * @param marker the position on the board at which the character will be placed
      * @param player the type of character that will be placed on the board (O or X)
+     * @pre:
+     * @post:
      */
     public void placeMarker(BoardPosition marker, char player) {
 
@@ -38,7 +46,7 @@ public class GameBoard {
 
     /**
      * this function will check to see if the lastPos placed resulted
-     * in a winner. It so it will return true, otherwise false.
+     * in a winner. If so it will return true, otherwise false.
      * Passing in the last position will help limit the possible
      * places to check for a win condition, since you can assume that any win
      * condition that did not include the most recent play made would have
@@ -47,6 +55,8 @@ public class GameBoard {
      *
      * @param lastPos the most recently placed marker on the board
      * @return true if there is a winner based on the previous move
+     * @pre:
+     * @post:
      */
     public boolean checkForWinner(BoardPosition lastPos) {
         return false;
@@ -62,6 +72,8 @@ public class GameBoard {
      * game
      *
      * @return true if the game is tied, and false otherwise
+     * @pre:
+     * @post:
      */
     public boolean checkForDraw() {
         return false;
@@ -76,6 +88,8 @@ public class GameBoard {
      * @param lastPos the most recently placed marker on the board
      * @param player  the player who placed the most recent marker (O or X)
      * @return true if there is a horizontal win by the player and false if not
+     * @pre:
+     * @post:
      */
 
     public boolean checkHorizontalWin(BoardPosition lastPos, char player) {
@@ -91,6 +105,8 @@ public class GameBoard {
      * @param lastPos the most recently placed marker on the board
      * @param player  the player who placed the most recent marker (O or X)
      * @return true if there is a vertical win by the player and false if not
+     * @pre:
+     * @post:
      */
     public boolean checkVerticalWin(BoardPosition lastPos, char player) {
         return false;
@@ -106,6 +122,8 @@ public class GameBoard {
      * @param lastPos the most recently placed marker on the board
      * @param player  the player who placed the most recent marker (O or X)
      * @return true if there is a diagonal win by the player and false if not
+     * @pre:
+     * @post:
      */
     public boolean checkDiagonalWin(BoardPosition lastPos, char player) {
         return false;
@@ -120,6 +138,8 @@ public class GameBoard {
      * @param pos the desired position to be checked
      * @return the marker present at the desired location and if there is no marker it
      * will return ' ' instead
+     * @pre:
+     * @post:
      */
     public char whatsAtPos(BoardPosition pos) {
         return ' ';
@@ -139,12 +159,20 @@ public class GameBoard {
      * @param pos    the position of the character on the board
      * @return return true if the player is found to be present on the board
      * and false if not
+     * @pre:
+     * @post:
      */
     public boolean isPlayerAtPos(BoardPosition pos, char player) {
         return false;
     }
 
-    /* TODO IMPLEMENT JAVA DOC AND OR CONTRACT */
+    /**
+     * returns the board array formatted as a tic tac toe board 8x8 with lined boundaries
+     *
+     * @return returns the a string containing a formatted board that shows all the current plays on the board
+     * @pre:
+     * @post:
+     */
     @Override
     public String toString() {
         return super.toString();
