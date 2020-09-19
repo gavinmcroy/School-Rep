@@ -1,0 +1,31 @@
+//    int low = 0, high = size - 1, mid;
+//    if (headNode->nextNode == nullptr) {
+//        return false;
+//    }
+
+//    /* Binary search for key... */
+    /*while (low <= high) {
+        mid = (low + high) / 2;
+
+        int increment = -1;
+        Node *tmp = headNode;
+
+        //---This condition is the problem the search finds it but is unable to end
+        while (increment < mid) {
+            if ((increment+1) == mid) {
+                if (key == tmp->val)
+                    return true;
+            }
+            tmp = tmp->nextNode;
+            increment++;
+        }
+
+        if (key > tmp->val) {
+            low = mid + 1;
+        }
+        if (key < tmp->val) {
+            high = mid - 1;
+        }
+        */
+    //tmp = tmp->nextNode;
+    //increment++;
