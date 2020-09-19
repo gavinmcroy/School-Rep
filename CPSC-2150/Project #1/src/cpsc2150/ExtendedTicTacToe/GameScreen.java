@@ -2,62 +2,26 @@ package cpsc2150.ExtendedTicTacToe;
 
 public class GameScreen {
 
-    boolean isPlayerTurn;
-    int row;
-    int col;
+    boolean isPlayerXTurn = true;
+    boolean isPlayerOTurn = false;
+    String winnerMessage = " ";
+    String drawMessage = " ";
+    GameBoard gameBoard = new GameBoard();
 
     public static void main(String[] args) {
 
     }
 
     /**
-     * Implement Contract
+     * Controls the flow of the game. Prompts player to enter a location as (row,column), The method then will
+     * check to see if this position is valid. If not it will loop until a valid position is entered. If the
+     * position is valid it will check for a win. If a win is detected it will print a congrats message and prompt
+     * the user to play again. If a win is not detected it will attempt to detect a draw. If a draw is detected a
+     * message about the draw will be printed. If there is no draw the turns will be changed and the boards current
+     * layout will be displayed looping back to the beginning by asking the player to enter another location
      */
-    private void changeTurn() {
+    private void runGame() {
 
     }
-
-    /**
-     * Implement Contract
-     */
-    private void nextPlayer() {
-
-    }
-
-    /**
-     * Implement Contract
-     */
-    private void printBoardScreen() {
-
-    }
-
-    /**
-     * Implement Contract
-     */
-    private void resetGame() {
-
-    }
-
-    /**
-     * Implement Contract
-     */
-    private void checkRequestedPlacement() {
-
-    }
-
-    /**
-     * Implement Contract
-     */
-    private void checkForWin() {
-
-    }
-
-    /**
-     * Implement Contract
-     */
-    private void checkForDraw() {
-
-    }
-
 
 }
