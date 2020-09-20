@@ -49,9 +49,7 @@ public class BoardPosition {
         return column;
     }
 
-    /*TODO ---------------------------------Implement Post and Pre---------------------------------- TODO */
-
-
+   
     /**
      * returns a formatted string for (row, column)
      *

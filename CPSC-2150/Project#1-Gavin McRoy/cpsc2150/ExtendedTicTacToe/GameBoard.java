@@ -103,7 +103,6 @@ public class GameBoard {
         return false;
     }
 
-    /* TODO IMPLEMENT CONTRACT*/
 
     /**
      * checks to see if the last marker placed resulted in 5 in a row
