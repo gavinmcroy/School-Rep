@@ -83,6 +83,7 @@ void PointMap::insert(Point point) {
 
 
 }
+
 /* Calculate shortest distance of one million points */
 void PointMap::calculateShortestDistance() const {
     double shortestDistance = std::numeric_limits<double>::max();
