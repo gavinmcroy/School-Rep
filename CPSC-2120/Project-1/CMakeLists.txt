@@ -4,4 +4,4 @@ project(Project_1)
 set(CMAKE_CXX_STANDARD 14)
 
 add_executable(Project_1
-        utils.cpp)
+        Utils.cpp StringIntMap.cpp StringIntMap.h)
