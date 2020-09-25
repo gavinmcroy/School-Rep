@@ -1,7 +1,5 @@
 package cpsc2150.MyQueue;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class QueueApp {
@@ -10,11 +8,7 @@ public class QueueApp {
         Scanner scanner = new Scanner(System.in);
         String userAnswer;
         IQueue q;
-        List<Integer> myList = new ArrayList<>();
-        Integer y = 46;
-        myList.add(y);
-        y = 30;
-        System.out.println(myList.get(0));
+
         System.out.println("Do you want an array (Type array) or list implementation? (Type list) ");
         userAnswer = scanner.nextLine();
         userAnswer = userAnswer.toLowerCase();
@@ -73,5 +67,13 @@ public class QueueApp {
                 "8. Exit\n");
     }
 
+
+    /**
+     * Questions:
+     * How are we supposed to implement the peek method if dequeue removes
+     * the integer from the front?
+     * I don't understand how we are supposed to implement secondary methods
+     * that use only primary methods to do things primary methods cannot do
+     */
 }
 
