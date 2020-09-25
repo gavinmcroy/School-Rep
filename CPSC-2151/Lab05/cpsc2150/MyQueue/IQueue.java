@@ -1,5 +1,7 @@
 package cpsc2150.MyQueue;
 
+import java.util.ArrayList;
+
 /**
  * A queue containing integers.
  * A queue is a data structure where the first item added to the
@@ -78,7 +80,14 @@ public interface IQueue {
      * @post
      */
     default Integer peek() {
-        return null;
+        Integer x = dequeue();
+        enqueue(x);
+
+        for (int i = 0; i < length() - 1; i++) {
+            Integer tmp = dequeue();
+            enqueue(tmp);
+        }
+        return x;
     }
 
     /**
@@ -90,7 +99,12 @@ public interface IQueue {
      * @post
      */
     default Integer endOfQueue() {
-        return null;
+        Integer x = null;
+        for (int i = 0; i < length(); i++) {
+            x = dequeue();
+            enqueue(x);
+        }
+        return x;
     }
 
     /**
@@ -99,11 +113,25 @@ public interface IQueue {
      *
      * @param x
      * @param pos
-     * @pre
+     * @pre x != null and pos > 0 and pos <= MAX_SIZE
      * @post
      */
     default void insert(Integer x, int pos) {
-
+        ArrayList<Integer> tmp = new ArrayList<>();
+        //---Length reduces on each dequeue so you have to store initial size
+        int length = length();
+        for (int i = 0; i < length; i++) {
+            Integer add = dequeue();
+            //---Pos = 1 at position [0]
+            if (i == pos - 1) {
+                tmp.add(x);
+            }
+            tmp.add(add);
+        }
+        clear();
+        for (Integer integer : tmp) {
+            enqueue(integer);
+        }
     }
 
     /**
@@ -117,7 +145,15 @@ public interface IQueue {
      * @post
      */
     default Integer remove(int pos) {
-        return null;
+        Integer removeInt = null;
+        for (int i = 0; i < length(); i++) {
+            if (i == pos - 1) {
+                removeInt = dequeue();
+            }
+            Integer tmp = dequeue();
+            enqueue(tmp);
+        }
+        return removeInt;
     }
 
     /**
@@ -131,7 +167,17 @@ public interface IQueue {
      * @post
      */
     default Integer get(int pos) {
-        return null;
+        Integer getInt = null;
+        for (int i = 0; i < length(); i++) {
+            if (i == pos - 1) {
+                getInt = dequeue();
+                enqueue(getInt);
+            } else {
+                Integer tmp = dequeue();
+                enqueue(tmp);
+            }
+        }
+        return getInt;
     }
 
 

@@ -13,7 +13,7 @@ public class QueueApp {
         userAnswer = scanner.nextLine();
         userAnswer = userAnswer.toLowerCase();
 
-        printMenu();
+        //printMenu();
 
         if (userAnswer.compareTo("list") == 0) {
             System.out.println("Entered List");
@@ -30,6 +30,18 @@ public class QueueApp {
             q.enqueue(x);
 
             /* TODO print all elements */
+            Integer tmp = q.endOfQueue();
+            q.printList();
+            System.out.println("--------INSERT---------");
+            q.insert(4, 3);
+            //System.out.println(tmp);
+            q.printList();
+            int myVal = q.remove(3);
+            System.out.println("--------REMOVE---------");
+            q.printList();
+            System.out.println("--------GET---------");
+            int myGet = q.get(3);
+            System.out.println("VALUE GOT = " + myGet);
             q.printList();
 
 
@@ -49,6 +61,7 @@ public class QueueApp {
 
             /* TODO print all elements I wasnt sure how to do it without
              *  having a method inside the class */
+            q.peek();
             q.printList();
 
         } else {
