@@ -2,13 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d2e0d620-63a9-4ff5-af4a-00891841a939" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/out/production/Lab04/cpsc2150/MyQueue/ArrayQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab04/cpsc2150/MyQueue/ArrayQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab04/cpsc2150/MyQueue/ListQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab04/cpsc2150/MyQueue/ListQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab04/cpsc2150/MyQueue/QueueApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab04/cpsc2150/MyQueue/QueueApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cpsc2150/MyQueue/ArrayQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpsc2150/MyQueue/ArrayQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cpsc2150/MyQueue/IQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpsc2150/MyQueue/IQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cpsc2150/MyQueue/ListQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpsc2150/MyQueue/ListQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cpsc2150/MyQueue/QueueApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpsc2150/MyQueue/QueueApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../Test/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/Test.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/Test" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/Test" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/Test.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/Test.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Test/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../Test/main.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +43,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CPSC-2150/Project #1" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />

@@ -11,7 +11,7 @@ int main() {
         printf("\n");
         printf("%4d", i);
         for (int j = 1; j < 10; j++) {
-            printf("%4d", i * j);
+            //printf("%4d", i * j);
         }
     }
     return 0;
