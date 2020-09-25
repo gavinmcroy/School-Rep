@@ -2,8 +2,12 @@ package cpsc2150.MyQueue;
 
 public abstract class AbsQueue implements IQueue {
 
-    /*
-     * TODO FINISH IMPLEMENTATION
+    /**
+     * Takes all the current members in the queue and nicely formats them with a string
+     *
+     * @return returns a formatted string of all the elements inside the queue
+     * @pre none
+     * @post toString = formattedQueue
      */
     @Override
     public String toString() {

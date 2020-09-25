@@ -118,6 +118,11 @@ public class QueueApp {
 
     /**
      * TODO Implement Contract
+     *
+     * @param q
+     * @return
+     * @pre
+     * @post
      */
     public static boolean queueIsValidLength(IQueue q) {
         if (q.length() == 0) {
@@ -129,6 +134,11 @@ public class QueueApp {
 
     /**
      * TODO Implement Contract
+     *
+     * @param q
+     * @return
+     * @pre
+     * @post
      */
     public static int readDesiredPosition(IQueue q) {
         int positionToGet;

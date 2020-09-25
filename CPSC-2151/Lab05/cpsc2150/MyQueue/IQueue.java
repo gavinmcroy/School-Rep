@@ -70,14 +70,15 @@ public interface IQueue {
     void printList();
 
     /**
+     * TODO POST CONDITION
      * returns the integer at the front of the queue but does not
      * remove it from the queue (final state of the queue is equivalent to the initial state of the
      * queue, the queue can change during the method)
      *
      * @return the integer at the front of the queue but does not
      * remove it from the queue
-     * @pre
-     * @post
+     * @pre length() > 0
+     * @post peek =
      */
     default Integer peek() {
         Integer x = dequeue();
@@ -91,12 +92,13 @@ public interface IQueue {
     }
 
     /**
+     * TODO POST CONDITION
      * returns the integer at the end of the queue, but does
      * not remove it from the queue
      *
-     * @return
-     * @pre
-     * @post
+     * @return returns the integer at the end of the queue. Note it does NOT remove it from the queue
+     * @pre |self| > 0 and length() > 0
+     * @post endOfQueue = |self| > 0 and length() > 0
      */
     default Integer endOfQueue() {
         Integer x = null;
@@ -108,13 +110,14 @@ public interface IQueue {
     }
 
     /**
+     * TODO IMPLEMENT POST CONDITION
      * inserts x at position pos in the queue.
      * Pos index starts at 1, so the item at the very front of the queue is pos 1
      *
-     * @param x
-     * @param pos
-     * @pre x != null and pos > 0 and pos <= MAX_SIZE
-     * @post
+     * @param x   the integer to be inserted into the queue
+     * @param pos the position in the queue where the integer will be entered if pos = 1 then its accessing [0]
+     * @pre x != null and pos > 0 and pos <= MAX_SIZE and length < 100
+     * @post self = <x> pos #self [self = x added to position pos in #self] and length() >= 1
      */
     default void insert(Integer x, int pos) {
         ArrayList<Integer> tmp = new ArrayList<>();
@@ -135,14 +138,15 @@ public interface IQueue {
     }
 
     /**
+     * TODO FINISH POST CONDITION
      * removes whatever integer was in position pos in
      * the queue and returns it. Pos index starts at 1, so the item at the very front of the
      * queue is pos 1
      *
-     * @param pos
-     * @return
-     * @pre
-     * @post
+     * @param pos the position of an element inside of the queue
+     * @return the integer that was removed from the queue
+     * @pre pos > 0 and pos <= MAX_SIZE and |self| > 0 and length() > 0
+     * @post remove() = and #self = remove(pos) o self [self = remove(pos) removed from the position pos in #self]
      */
     default Integer remove(int pos) {
         Integer removeInt = null;
@@ -157,14 +161,15 @@ public interface IQueue {
     }
 
     /**
+     * TODO FINISH POST CONDITION
      * returns whatever integer was in position pos in the
      * queue and without removing it. Pos index starts at 1, so the item at the very front of
      * the queue is pos 1
      *
-     * @param pos
-     * @return
-     * @pre
-     * @post
+     * @param pos the position of the element you want to get from the queue
+     * @return the value located at pos inside the queue
+     * @pre pos > 0 and pos <= 100
+     * @post get() =
      */
     default Integer get(int pos) {
         Integer getInt = null;
