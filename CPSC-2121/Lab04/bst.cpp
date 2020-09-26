@@ -19,71 +19,122 @@ struct Node {
     }
 };
 
-// insert key k into tree T, returning a pointer to the resulting tree
+/* TODO insert key k into tree T, returning a pointer to the resulting tree */
 Node *insert(Node *T, int k) {
-    // TBD
-    // We covered this in lecture, but please make sure the code still makes sense to you...
+    /* We covered this in lecture, but please make sure the code still makes sense to you... */
+    if (T == NULL) {
+        return new Node(k);
+    }
+    if (k < T->key) {
+        T->left = insert(T->left, k);
+    } else {
+        T->right = insert(T->right, k);
+    }
+    T->size++;
+    return T;
 }
 
-// prints out the inorder traversal of T (i.e., the contents of T in sorted order)
+/* TODO prints out the inorder traversal of T (i.e., the contents of T in sorted order) */
 void print_inorder(Node *T) {
-    // TBD
-    // We covered this in lecture, but please make sure the code still makes sense to you...
+    /* We covered this in lecture, but please make sure the code still makes sense to you... */
+    if (T == NULL) return;
+    print_inorder(T->left);
+    cout << T->key << endl;
+    print_inorder(T->right);
 }
 
-// return a pointer to the node with key k in tree T, or NULL if it doesn't exist
+/* TODO return a pointer to the node with key k in tree T, or NULL if it doesn't exist */
 Node *find(Node *T, int k) {
-    // TBD
-    // We covered this in lecture, but please make sure the code still makes sense to you...
-}
-
-// Return pointer to the node with key k if it exists
-// If not, return a pointer to the node with the largest key smaller than k (i.e., 
-// k's predecessor) or NULL if there isn't any node with key smaller than k.
-Node *predfind(Node *T, int k) {
-    // TBD
-}
-
-// Join trees L and R (with L containing keys all <= the keys in R)
-// Return a pointer to the joined tree.  
-Node *join(Node *L, Node *R) {
-    // TBD
-    // choose either the root of L or the root of R to be the root of the joined tree
-    // (where we choose with probabilities proportional to the sizes of L and R)
-
-    // Probably need some base cases here or else the next line will crash...
-    int total = L->size + R->size;
-    int randn = rand() % total;  // Pick random number in {0, 1, ..., total-1}
-    if (randn < L->size) { // Happens with probability L->size / total
-        // Make L the root of the joined tree in this case
-    } else {               // Happens with probability R->size / total
-        // Make R the root of the joined tree in this case
+    /* We covered this in lecture, but please make sure the code still makes sense to you... */
+    if (T == NULL) {
+        return NULL;
+    }
+    if (T->key == k) {
+        return T;
+    }
+    if (k < T->key) {
+        return find(T->left, k);
+    } else {
+        return find(T->right, k);
     }
 }
 
-// remove key k from T, returning a pointer to the resulting tree.
-// if k isn't present in T, then return the pointer to T's root, with T unchanged
+/* TODO Return pointer to the node with key k if it exists
+ * TODO If not, return a pointer to the node with the largest key smaller than k (i.e.,
+ * TODO k's predecessor) or NULL if there isn't any node with key smaller than k. */
+Node *predfind(Node *T, int k) {
+    /* 3 Cases assume 20 is the root
+     * predfind(20) return the root
+     * prefind(5) -left sub tree (recursion)
+     * prefind(50) -right sub tree (What if the smallest is 53?) (if you get back null then the root is the pred)
+     */
+}
+
+/* TODO Join trees L and R (with L containing keys all <= the keys in R)
+ * TODO Return a pointer to the joined tree.  */
+Node *join(Node *L, Node *R) {
+    /* choose either the root of L or the root of R to be the root of the joined tree
+     * (where we choose with probabilities proportional to the sizes of L and R) */
+    /* TODO Probably need some base cases here or else the next line will crash... */
+
+    int total = L->size + R->size;
+    int randn = rand() % total;  /* Pick random number in {0, 1, ..., total-1} */
+
+    /* Make L the root of the joined tree in this case */
+    /* R has to be merged into L's right subtree */
+    if (randn < L->size) {
+        /* Happens with probability L->size / total */
+        //L->right = join(L->right,R);
+    } else {
+        /* Happens with probability R->size / total
+         * Make R the root of the joined tree in this case */
+        //L->left = join(L->left,L);
+    }
+}
+
+/* TODO remove key k from T, returning a pointer to the resulting tree.
+ * TODO if k isn't present in T, then return the pointer to T's root, with T unchanged */
 Node *remove(Node *T, int k) {
-    // TBD
+
+    /* TODO Delete root? return join of left and right children */
+    if (T == NULL) {
+        return NULL;
+    }
+
+    if (k < T->key) {
+        T->left = remove(T->left, k);
+    } else {
+        T->right = remove(T->right, k);
+    }
+    T->size--;
+    return T;
 }
 
-// Split tree T on key k into tree L (containing keys <= k) and a tree R (containing keys > k)
+/* TODO Split tree T on key k into tree L (containing keys <= k) and a tree R (containing keys > k) */
 pair<Node *, Node *> split(Node *T, int k) {
-    // TBD
 
-    // Below is just for syntax reference on how to return a pair; you'll want to
-    // remove this bit when filling in the function yourself...
-    Node *root_of_left_part;
-    Node *root_of_right_part;
-    return make_pair(root_of_left_part, root_of_right_part);
+    /* Assume root is 20. Split at 5 breaks the tree so that l<5 and r>5
+     * this is passed on to the left subtree. For values < 5 we can just let them be
+     * and we can reattach the values > 5 back to our left tree */
+
+    /* What is you split on the root (20)? Should return two trees with vals < 20 and one with vals > 20
+     * Delegate the split to the right, if 20 does not exist then the right bcomes NULL and the other previous
+     * right tree is "pulled" out */
+
+    /* Below is just for syntax reference on how to return a pair; you'll want to
+     * remove this bit when filling in the function yourself...
+     * Node *root_of_left_part;
+     * Node *root_of_right_part;
+     * return make_pair(root_of_left_part, root_of_right_part);
+     */
 }
 
-// insert key k into the tree T, returning a pointer to the resulting tree
-// keep the tree balanced by using randomized balancing.
-// We'll discuss the algorithm used here in lecture:
-// if N represents the size of our tree after the insert, then
-// ... with probability 1/N, insert k at the root of T (by splitting on k)
-// ... otherwise recursively call insert_keep_balanced on the left or right
+/* insert key k into the tree T, returning a pointer to the resulting tree
+ * keep the tree balanced by using randomized balancing.
+ * We'll discuss the algorithm used here in lecture:
+ * if N represents the size of our tree after the insert, then
+ * ... with probability 1/N, insert k at the root of T (by splitting on k)
+ * ... otherwise recursively call insert_keep_balanced on the left or right */
 Node *insert_keep_balanced(Node *T, int k) {
     if (T == NULL) return new Node(k);
     if (rand() % (1 + T->size) == 0) {
