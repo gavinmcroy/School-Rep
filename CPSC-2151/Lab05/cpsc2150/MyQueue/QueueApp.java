@@ -137,7 +137,7 @@ public class QueueApp {
                     System.out.println("Not a valid option! ");
                     break;
             }
-            System.out.println("Queue is: \n" + q.toString());
+            //System.out.println("Queue is: \n" + q.toString());
         }
     }
 
