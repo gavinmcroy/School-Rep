@@ -5,6 +5,8 @@
 #include <cstdio>
 #include <cstdlib>
 
+#include "StoredWebPages.h"
+
 using namespace std;
 
 /* Returns entire file as one big string, quickly */
@@ -37,6 +39,7 @@ string color_cyan = "\e[36;40m";
 string color_white = "\e[37;40m";
 string color_whiteblue = "\e[37;44m";
 
+/* TODO IMPLEMENT */
 void predict(string query) {
     cout << color_green << "Here is where query results for '"
          << color_white << query
@@ -72,18 +75,68 @@ void processKeystrokes() {
 
 /* This shows how to use some of the starter code above */
 int main() {
+    StoredWebPages webPages(25);
+
     cout << color_green << "Reading input..." << endl;
     const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
+
     istringstream webfile(readWebpagesFast(filename));
 
+    std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
+
     /* For now, this just counts the number of web pages in the input file... */
+//    string s;
+//    string page;
+//    int N = 0;
+//    while (webfile >> s)
+//        if (s != "LINK" && s!="PAGE") {
+//            //webfile >> s; // s is the url of the webpage currently being processed
+//            N++;
+//        }
+//    cout<<N<<endl;
+
+
+    /* 26,881 Pages, 184,408 Hyperlinks, 18,896,392 words */
+
+    int numPages = 0;
     string s;
-    int N = 0;
-    while (webfile >> s)
+    string url;
+    int numLinks = 0;
+    int numWords = 0;
+    vector<int> links;
+    vector<string> words;
+
+    vector<string> toBeHashed;
+    string hyperLink;
+    bool first = true;
+    while (webfile >> s) {
         if (s == "PAGE") {
-            webfile >> s; // s is the url of the webpage currently being processed
-            N++;
+
+            /* Reset all the counters */
+            if (!first) {
+                pages.push_back(StoredWebPages::Webpage(url, numLinks, numWords,));
+            }
+            numLinks = 0;
+            numWords = 0;
+            /* Reset all the counters */
+            first = false;
+            webfile >> url;
+            numPages++;
+        } else if (s == "LINK") {
+            webfile >> hyperLink; /*(-THIS STRING NEEDS TO BE HASHED-) */
+            toBeHashed.push_back(hyperLink);
+            numLinks++;
+        } /* Regular Words */
+        else if (s != "LINK" && s != "PAGES") {
+            numWords++;
         }
+    }
+
+    cout << "NUM PAGES " << numPages << endl;
+    cout << "NUM LINKS " << numLinks << endl;
+    cout << "NUM WORDS " << numWords << endl;
+
+
 
     // If you want to reset the webfile for reading again from the beginning...
     // webfile.clear();

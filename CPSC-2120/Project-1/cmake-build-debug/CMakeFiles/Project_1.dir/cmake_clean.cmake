@@ -1,10 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Project_1.dir/StringIntMap.cpp.obj"
-  "CMakeFiles/Project_1.dir/Utils.cpp.obj"
-  "Project_1.exe"
-  "Project_1.exe.manifest"
+  "CMakeFiles/Project_1.dir/StoredWebPages.cpp.o"
+  "CMakeFiles/Project_1.dir/StringIntMap.cpp.o"
+  "CMakeFiles/Project_1.dir/Utils.cpp.o"
+  "Project_1"
   "Project_1.pdb"
-  "libProject_1.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

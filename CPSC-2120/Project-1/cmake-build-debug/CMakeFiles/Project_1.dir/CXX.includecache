@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+string
+-
+utility
+-
+vector
+-
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/Utils.cpp
+termios.h
+-
+unistd.h
+-
+iostream
+-
+sstream
+-
+cstdio
+-
+cstdlib
+-
+StoredWebPages.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+
