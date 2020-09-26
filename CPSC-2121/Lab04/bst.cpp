@@ -15,14 +15,13 @@ struct Node {
     Node(int k) {
         key = k;
         size = 1;
-        left = right = NULL;
+        left = right = nullptr;
     }
 };
 
-/* TODO insert key k into tree T, returning a pointer to the resulting tree */
+/* insert key k into tree T, returning a pointer to the resulting tree */
 Node *insert(Node *T, int k) {
-    /* We covered this in lecture, but please make sure the code still makes sense to you... */
-    if (T == NULL) {
+    if (T == nullptr) {
         return new Node(k);
     }
     if (k < T->key) {
@@ -34,20 +33,19 @@ Node *insert(Node *T, int k) {
     return T;
 }
 
-/* TODO prints out the inorder traversal of T (i.e., the contents of T in sorted order) */
+/* prints out the inorder traversal of T (i.e., the contents of T in sorted order) */
 void print_inorder(Node *T) {
-    /* We covered this in lecture, but please make sure the code still makes sense to you... */
-    if (T == NULL) return;
+    if (T == nullptr) return;
     print_inorder(T->left);
     cout << T->key << endl;
     print_inorder(T->right);
 }
 
-/* TODO return a pointer to the node with key k in tree T, or NULL if it doesn't exist */
+/* return a pointer to the node with key k in tree T, or NULL if it doesn't exist */
 Node *find(Node *T, int k) {
-    /* We covered this in lecture, but please make sure the code still makes sense to you... */
-    if (T == NULL) {
-        return NULL;
+    /* key does not exist */
+    if (T == nullptr) {
+        return nullptr;
     }
     if (T->key == k) {
         return T;
@@ -68,6 +66,32 @@ Node *predfind(Node *T, int k) {
      * prefind(5) -left sub tree (recursion)
      * prefind(50) -right sub tree (What if the smallest is 53?) (if you get back null then the root is the pred)
      */
+
+//    if(T== nullptr){
+//        return T;
+//    }
+
+    /* Left tree */
+    if(k < T->key){
+        if(k < T->key && T->left->key > k ){
+            return T;
+        }
+        if(T->key == k){
+            return T;
+        }
+        return predfind(T->left,k);
+    }
+    /* Right Tree */
+    else {
+        if(k < T->key && T->right->key > k){
+            return T;
+        }
+        if(T->key == k){
+            return T;
+        }
+        return predfind(T->right,k);
+    }
+
 }
 
 /* TODO Join trees L and R (with L containing keys all <= the keys in R)
@@ -97,8 +121,8 @@ Node *join(Node *L, Node *R) {
 Node *remove(Node *T, int k) {
 
     /* TODO Delete root? return join of left and right children */
-    if (T == NULL) {
-        return NULL;
+    if (T == nullptr) {
+        return nullptr;
     }
 
     if (k < T->key) {
@@ -136,7 +160,7 @@ pair<Node *, Node *> split(Node *T, int k) {
  * ... with probability 1/N, insert k at the root of T (by splitting on k)
  * ... otherwise recursively call insert_keep_balanced on the left or right */
 Node *insert_keep_balanced(Node *T, int k) {
-    if (T == NULL) return new Node(k);
+    if (T == nullptr) return new Node(k);
     if (rand() % (1 + T->size) == 0) {
         // With probability 1/N, insert at root...
         pair<Node *, Node *> result = split(T, k);
@@ -151,8 +175,8 @@ Node *insert_keep_balanced(Node *T, int k) {
     }
     // Make sure T's size is correct, since its subtrees may have changed
     T->size = 1;
-    if (T->left != NULL) T->size += T->left->size;
-    if (T->right != NULL) T->size += T->right->size;
+    if (T->left != nullptr) T->size += T->left->size;
+    if (T->right != nullptr) T->size += T->right->size;
     return T;
 }
 
@@ -165,7 +189,7 @@ int main(void) {
     for (int i = 9; i > 0; i--) swap(A[i], A[rand() % i]);
 
     // insert contents of A into a BST
-    Node *T = NULL;
+    Node *T = nullptr;
     for (int i = 0; i < 10; i++) T = insert(T, A[i] * 10);
 
     // print contents of BST (should be 0, 10, 20, ..., 90 in sorted order)
@@ -182,6 +206,8 @@ int main(void) {
     // test predfind -- if nothing printed, that's good news
     if (predfind(T, -1)) cout << "Error: predfind(-1) returned something and should have returned NULL\n";
     if (predfind(T, 50)->key != 50) cout << "Error: predfind(50) didn't return the node with 50 as its key\n";
+    //cout<<(predfind(T,-1))->key<<endl;
+    cout<<(predfind(T,50)->key);
     for (int i = 0; i <= 90; i += 10)
         if (predfind(T, i + 3)->key != i)
             cout << "Error: predfind(" << i + 3 << ") didn't return the node with " << i << " as its key\n";
