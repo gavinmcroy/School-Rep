@@ -6,8 +6,14 @@
 #include <cstdlib>
 
 #include "StoredWebPages.h"
+#include "StringIntMap.h"
 
 using namespace std;
+
+/** WHERE I LEFT OFF
+ *
+ *              */
+
 
 /* Returns entire file as one big string, quickly */
 string readWebpagesFast(const char *filename) {
@@ -75,67 +81,90 @@ void processKeystrokes() {
 
 /* This shows how to use some of the starter code above */
 int main() {
-    StoredWebPages webPages(25);
+    StoredWebPages webPages;
+    StringIntMap stringIntMap;
 
     cout << color_green << "Reading input..." << endl;
     const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
-
     istringstream webfile(readWebpagesFast(filename));
 
     std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
 
-    /* For now, this just counts the number of web pages in the input file... */
-//    string s;
-//    string page;
-//    int N = 0;
-//    while (webfile >> s)
-//        if (s != "LINK" && s!="PAGE") {
-//            //webfile >> s; // s is the url of the webpage currently being processed
-//            N++;
-//        }
-//    cout<<N<<endl;
+    /* I could insert these string values of page into the hash table
+     * then when I am checking all my hyper links I can call find. If I find it
+     * I can check its location, and store the corresponding location inside of
+     * my vector<int> */
 
+    /* Insert all PAGES into the hash table TODO the value 0 needs to be changed */
+    int totalWebPages = 0;
+    string n;
+    while (webfile >> n) {
+        if (n == "PAGE") {
+            webfile >> n;
+            stringIntMap.insert(n, totalWebPages);
+            totalWebPages++;
+        }
+
+    }
+    webfile.clear();
+    webfile.seekg(0);
 
     /* 26,881 Pages, 184,408 Hyperlinks, 18,896,392 words */
 
-    int numPages = 0;
-    string s;
+    /* COUNTERS */
+    string readInValue;
     string url;
     int numLinks = 0;
     int numWords = 0;
     vector<int> links;
-    vector<string> words;
+    vector<string> wordsOccurringInPage;
+    /* COUNTERS */
 
-    vector<string> toBeHashed;
-    string hyperLink;
+    /* Parameters */
     bool first = true;
-    while (webfile >> s) {
-        if (s == "PAGE") {
+    string hyperLink;
+    /* Parameters */
 
-            /* Reset all the counters */
+    while (webfile >> readInValue) {
+        if (readInValue == "PAGE") {
             if (!first) {
-                pages.push_back(StoredWebPages::Webpage(url, numLinks, numWords,));
+                /* Reset all the counters by adding the WebPage + all its data */
+                pages.emplace_back(url, numLinks, numWords, links, wordsOccurringInPage);
+                wordsOccurringInPage.clear();
+                numLinks = 0;
+                numWords = 0;
+                /* Reset all the counters */
             }
-            numLinks = 0;
-            numWords = 0;
-            /* Reset all the counters */
             first = false;
+            /* Read in because you want the PAGE then the url next to it */
             webfile >> url;
-            numPages++;
-        } else if (s == "LINK") {
-            webfile >> hyperLink; /*(-THIS STRING NEEDS TO BE HASHED-) */
-            toBeHashed.push_back(hyperLink);
-            numLinks++;
-        } /* Regular Words */
-        else if (s != "LINK" && s != "PAGES") {
+
+        } /* Reads a hyperLink, calculates the index at which the hyperLink would exist inside inside the StringToIntMap
+           * hash table. It then determines if the hyperLink in question exists inside the hash table. If it exists
+           * inside the hash table, a reference value is given that corresponds to the index at which this link
+           * would exist inside the Vector of WebPages. Reference value is given on first file read */
+        else if (readInValue == "LINK") {
+            /* Read in because you want LINK then the url next to it */
+            webfile >> hyperLink;
+            if (stringIntMap.find(hyperLink)) {
+                int hash = stringIntMap[hyperLink];
+                links.push_back(hash);
+                numLinks++;
+            }
+        } /* Regular Words are read in and added to the wordsOccurring vector*/
+        else {
+            wordsOccurringInPage.push_back(readInValue);
             numWords++;
         }
     }
 
-    cout << "NUM PAGES " << numPages << endl;
-    cout << "NUM LINKS " << numLinks << endl;
-    cout << "NUM WORDS " << numWords << endl;
+    /* DEBUG */
+    cout << pages.at(0).url << endl;
+    cout << pages.at(0).numLinks << endl;
 
+    cout << pages.at(0).words.size() << endl;
+    cout << pages.at(0).words.at(0) << endl;
+    /* DEBUG */
 
 
     // If you want to reset the webfile for reading again from the beginning...
@@ -148,3 +177,27 @@ int main() {
 
     return 0;
 }
+
+/** REFERENCES */
+//while (webfile >> s) {
+//        if (s == "PAGE") {
+//
+//            /* Reset all the counters */
+//            if (!first) {
+//                pages.push_back(StoredWebPages::Webpage(url, numLinks, numWords,));
+//            }
+//            numLinks = 0;
+//            numWords = 0;
+//            /* Reset all the counters */
+//            first = false;
+//            webfile >> url;
+//            numPages++;
+//        } else if (s == "LINK") {
+//            webfile >> hyperLink; /*(-THIS STRING NEEDS TO BE HASHED-) */
+//            toBeHashed.push_back(hyperLink);
+//            numLinks++;
+//        } /* Regular Words */
+//        else if (s != "LINK" && s != "PAGES") {
+//            numWords++;
+//        }
+//    }

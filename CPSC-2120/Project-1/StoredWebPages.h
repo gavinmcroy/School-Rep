@@ -17,12 +17,12 @@ class StoredWebPages {
  * */
 public:
     struct Webpage {
-        std::string url;           /* https://www.clemson.edu */
-        int numLinks;         /* Number of outgoing links on the page */
-        int numWords;         /* Number of words on the page */
-        std::vector<int> links;    /* Array of page IDs to which this page links */
+        std::string url;                /* https://www.clemson.edu */
+        int numLinks;                   /* Number of outgoing links on the page */
+        int numWords;                   /* Number of words on the page */
+        std::vector<int> links;         /* Array of page IDs to which this page links */
         std::vector<std::string> words; /* Array of all words on the page */
-        double weight;        /* Importance of the page, using PageRank algorithm */
+        double weight;                  /* Importance of the page, using PageRank algorithm */
 
         Webpage(std::string url, int numLinks, int numWords, std::vector<int> links,
                 std::vector<std::string> words) {
@@ -34,10 +34,6 @@ public:
             this->weight = 0;
         }
     };
-
-    StoredWebPages(int reserve){
-        pages.reserve(reserve);
-    }
 
     std::vector<Webpage> &getWebPages();
 

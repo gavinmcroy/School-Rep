@@ -14,6 +14,10 @@ utility
 vector
 -
 
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+string
+-
+
 /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/Utils.cpp
 termios.h
 -
@@ -29,4 +33,6 @@ cstdlib
 -
 StoredWebPages.h
 /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+StringIntMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
 
