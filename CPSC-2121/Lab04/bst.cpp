@@ -19,6 +19,14 @@ struct Node {
     }
 };
 
+int findMinimumVal(Node *T) {
+    if (T->left == nullptr) {
+        return T->key;
+    }
+    return findMinimumVal(T->left);
+
+}
+
 /* insert key k into tree T, returning a pointer to the resulting tree */
 Node *insert(Node *T, int k) {
     if (T == nullptr) {
@@ -61,37 +69,25 @@ Node *find(Node *T, int k) {
  * TODO If not, return a pointer to the node with the largest key smaller than k (i.e.,
  * TODO k's predecessor) or NULL if there isn't any node with key smaller than k. */
 Node *predfind(Node *T, int k) {
+
     /* 3 Cases assume 20 is the root
      * predfind(20) return the root
      * prefind(5) -left sub tree (recursion)
      * prefind(50) -right sub tree (What if the smallest is 53?) (if you get back null then the root is the pred)
      */
 
-//    if(T== nullptr){
-//        return T;
-//    }
+    Node * findIfExist = find(T, k);
 
-    /* Left tree */
-    if(k < T->key){
-        if(k < T->key && T->left->key > k ){
-            return T;
-        }
-        if(T->key == k){
-            return T;
-        }
-        return predfind(T->left,k);
+    /* There is no pred */
+    if (findMinimumVal(T) < k) {
+        return nullptr;
     }
-    /* Right Tree */
-    else {
-        if(k < T->key && T->right->key > k){
-            return T;
-        }
-        if(T->key == k){
-            return T;
-        }
-        return predfind(T->right,k);
+    /* If the key exists in the tree */
+    if (findIfExist != nullptr) {
+        return findIfExist;
     }
 
+    return nullptr;
 }
 
 /* TODO Join trees L and R (with L containing keys all <= the keys in R)
@@ -206,11 +202,14 @@ int main(void) {
     // test predfind -- if nothing printed, that's good news
     if (predfind(T, -1)) cout << "Error: predfind(-1) returned something and should have returned NULL\n";
     if (predfind(T, 50)->key != 50) cout << "Error: predfind(50) didn't return the node with 50 as its key\n";
-    //cout<<(predfind(T,-1))->key<<endl;
-    cout<<(predfind(T,50)->key);
-    for (int i = 0; i <= 90; i += 10)
-        if (predfind(T, i + 3)->key != i)
+    cout << "Marker" << endl;
+
+    for (int i = 0; i <= 90; i += 10) {
+        if (predfind(T, i + 3)->key != i) {
             cout << "Error: predfind(" << i + 3 << ") didn't return the node with " << i << " as its key\n";
+        }
+    }
+
 
     // test split
     cout << "\nTesting split\n";

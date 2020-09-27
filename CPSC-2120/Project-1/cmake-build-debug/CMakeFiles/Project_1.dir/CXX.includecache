@@ -6,7 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.cpp
+StoredWebPages.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
 string
 -
 utility
@@ -14,11 +18,21 @@ utility
 vector
 -
 
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.cpp
+iostream
+-
+string
+-
+cassert
+-
+StringIntMap.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
 string
 -
 
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/Utils.cpp
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/Utils.cpp
 termios.h
 -
 unistd.h
@@ -32,7 +46,7 @@ cstdio
 cstdlib
 -
 StoredWebPages.h
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
 StringIntMap.h
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
 
