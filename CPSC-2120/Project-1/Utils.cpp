@@ -7,6 +7,7 @@
 
 #include "StoredWebPages.h"
 #include "StringIntMap.h"
+#include "StoredWords.h"
 
 using namespace std;
 
@@ -82,30 +83,54 @@ void processKeystrokes() {
 /* This shows how to use some of the starter code above */
 int main() {
     StoredWebPages webPages;
-    StringIntMap stringIntMap;
+    StoredWords storedWords;
+
+    StringIntMap webPageIntMap;
+    StringIntMap wordIntMap;
 
     cout << color_green << "Reading input..." << endl;
     const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
     istringstream webfile(readWebpagesFast(filename));
 
     std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
+    std::vector<StoredWords::Word> words = storedWords.getWords();
 
     /* I could insert these string values of page into the hash table
      * then when I am checking all my hyper links I can call find. If I find it
      * I can check its location, and store the corresponding location inside of
      * my vector<int> */
 
-    /* Insert all PAGES into the hash table TODO the value 0 needs to be changed */
     int totalWebPages = 0;
-    string n;
-    while (webfile >> n) {
-        if (n == "PAGE") {
-            webfile >> n;
-            stringIntMap.insert(n, totalWebPages);
-            totalWebPages++;
-        }
+    int totalDistinctWords = 0;
+    string data;
 
+    /* Insert all PAGES and DISTINCT words into separate hash table */
+    while (webfile >> data) {
+        if (data == "PAGE") {
+            webfile >> data;
+            webPageIntMap.insert(data, totalWebPages);
+            totalWebPages++;
+        } else if (data == "LINK ") {
+            string hyperLinkTMP;
+            /* This is catching the hyper link and just trashing it */
+            webfile >> hyperLinkTMP;
+        } else {
+            /* Store all the DISTINCT words in a map/hash table THAT containing
+             * the words INDEX/POS for the words INSIDE the vector located in StoredWords */
+            if (!wordIntMap.find(data)) {
+                wordIntMap.insert(data, totalDistinctWords);
+                /* This is adding the words to the vector */
+                words.emplace_back(data);
+                totalDistinctWords++;
+            }
+        }
     }
+//    cout << words.size() << endl;
+//    cout << totalDistinctWords << endl;
+    cout << "Indexing..." << endl;
+
+
+    /* Reset the file being read */
     webfile.clear();
     webfile.seekg(0);
 
@@ -125,6 +150,7 @@ int main() {
     string hyperLink;
     /* Parameters */
 
+    /* This builds our webpage vector with all appropriate info */
     while (webfile >> readInValue) {
         if (readInValue == "PAGE") {
             if (!first) {
@@ -146,31 +172,57 @@ int main() {
         else if (readInValue == "LINK") {
             /* Read in because you want LINK then the url next to it */
             webfile >> hyperLink;
-            if (stringIntMap.find(hyperLink)) {
-                int hash = stringIntMap[hyperLink];
+            /* If the link is not a dead end */
+            if (webPageIntMap.find(hyperLink)) {
+                int hash = webPageIntMap[hyperLink];
                 links.push_back(hash);
                 numLinks++;
             }
         } /* Regular Words are read in and added to the wordsOccurring vector*/
         else {
+            /* These are the words that OCCUR within the scope of a page */
+
             wordsOccurringInPage.push_back(readInValue);
             numWords++;
+
+            /* A lot is happening here. We are taking the index at which the page exists
+             * in the page structure. Then getting the index at which the word exists in the word structure.
+             * then we are accessing the index at which the word exists, adding the index at which the link exists
+             * to the word struct. Then while inside the word struct we are incrementing num pages to signify
+             * how many pages the word is on*/
+
+            /* TODO THIS IS counting duplicates */
+            int linkIndex = webPageIntMap[url];
+            int wordIndex = wordIntMap[readInValue];
+            words.at(wordIndex).pages.push_back(linkIndex);
+            words.at(wordIndex).numPages++;
         }
     }
 
+    int myLookUp = wordIntMap["dabo"];
+    cout << words.at(myLookUp).text << endl;
+    // cout << "Frequency " << myLookUp << endl;
+    cout << "Total Pages " << words.at(myLookUp).numPages << endl;
+    myLookUp = wordIntMap["football"];
+    cout << words.at(myLookUp).text << endl;
+    //cout << "Frequency " << myLookUp << endl;
+    cout << "Total Pages " << words.at(myLookUp).numPages << endl;
+    myLookUp = wordIntMap["pancakes"];
+    cout << words.at(myLookUp).text << endl;
+    //cout << "Frequency " << words.at(myLookUp). << endl;
+    cout << "Total Pages " << words.at(myLookUp).numPages << endl;
+
+    for (int i = 0; i < words.at(myLookUp).pages.size(); i++) {
+        cout << words.at(myLookUp).pages.at(i) << endl;
+    }
+
     /* DEBUG */
-    cout << pages.at(0).url << endl;
-    cout << pages.at(0).numLinks << endl;
-
-    cout << pages.at(0).words.size() << endl;
-    cout << pages.at(0).words.at(0) << endl;
+//    cout << pages.at(0).url << endl;
+//    cout << pages.at(0).numLinks << endl;
+//
+//    cout << pages.at(0).words.size() << endl;
+//    cout << pages.at(0).words.at(0) << endl;
     /* DEBUG */
-
-
-    // If you want to reset the webfile for reading again from the beginning...
-    // webfile.clear();
-    // webfile.seekg(0);
-    // while (webfile >> s) ...
 
     // Enter loop to ask for query
     processKeystrokes();
@@ -199,5 +251,36 @@ int main() {
 //        } /* Regular Words */
 //        else if (s != "LINK" && s != "PAGES") {
 //            numWords++;
+//        }
+//    }
+
+
+/*Reset File Read */
+//    webfile.clear();
+//    webfile.seekg(0);
+
+/*  std::string text;
+    int numPages;
+    std::vector<int> pages; */
+
+//    while (webfile >> readInValue) {
+//        if (readInValue == "PAGE") {
+//            /* This variable is helpful for grabbing the link index  */
+//            webfile >> url;
+//        } else if (readInValue == "LINK") {
+//            /* Trash the link associated with page  */
+//            webfile >> readInValue;
+//        } else {
+//            /* A lot is happening here. We are taking the index at which the page exists
+//             * in the page structure. Then getting the index at which the word exists in the word structure.
+//             * then we are accessing the index at which the word exists, adding the index at which the link exists
+//             * to the word struct. Then while inside the word struct we are incrementing num pages to signify
+//             * how many pages the word is on*/
+//            int linkIndex = webPageIntMap[url];
+//            int wordIndex = wordIntMap[readInValue];
+//            words.at(wordIndex).pages.push_back(linkIndex);
+//            words.at(wordIndex).numPages++;
+//            //pagesThatContainWord.push_back(index);
+//            /* This is all the words in the entire file */
 //        }
 //    }

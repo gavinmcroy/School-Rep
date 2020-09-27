@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.cpp
-StoredWebPages.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
-
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
 string
 -
 utility
@@ -18,21 +14,19 @@ utility
 vector
 -
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.cpp
-iostream
--
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWords.h
 string
 -
-cassert
+utility
 -
-StringIntMap.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+vector
+-
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
 string
 -
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/Utils.cpp
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/Utils.cpp
 termios.h
 -
 unistd.h
@@ -46,7 +40,9 @@ cstdio
 cstdlib
 -
 StoredWebPages.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
 StringIntMap.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StringIntMap.h
+StoredWords.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWords.h
 
