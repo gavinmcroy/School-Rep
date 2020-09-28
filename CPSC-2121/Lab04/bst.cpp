@@ -76,7 +76,7 @@ Node *predfind(Node *T, int k) {
      * prefind(50) -right sub tree (What if the smallest is 53?) (if you get back null then the root is the pred)
      */
 
-    Node * findIfExist = find(T, k);
+    Node *findIfExist = find(T, k);
 
     /* There is no pred */
     if (findMinimumVal(T) < k) {
@@ -96,6 +96,12 @@ Node *join(Node *L, Node *R) {
     /* choose either the root of L or the root of R to be the root of the joined tree
      * (where we choose with probabilities proportional to the sizes of L and R) */
     /* TODO Probably need some base cases here or else the next line will crash... */
+    if (L == nullptr) {
+        return R;
+    }
+    if (R == nullptr) {
+        return L;
+    }
 
     int total = L->size + R->size;
     int randn = rand() % total;  /* Pick random number in {0, 1, ..., total-1} */
@@ -104,11 +110,27 @@ Node *join(Node *L, Node *R) {
     /* R has to be merged into L's right subtree */
     if (randn < L->size) {
         /* Happens with probability L->size / total */
-        //L->right = join(L->right,R);
+        L->right = join(L->right, R);
+        L->size = 1;
+        if (L->left) L->size += L->left->size;
+        if (L->right) L->size += L->right->size;
+        /* Change size */
+        return L;
     } else {
         /* Happens with probability R->size / total
          * Make R the root of the joined tree in this case */
-        //L->left = join(L->left,L);
+
+        R->left = join(L, R->left);
+        R->size = 1;
+        if (R->left) {
+            R->size += R->left->size;
+        }
+        if (R->right) {
+            R->size += R->right->size;
+        }
+
+        /* Change size */
+        return R;
     }
 }
 
@@ -117,16 +139,37 @@ Node *join(Node *L, Node *R) {
 Node *remove(Node *T, int k) {
 
     /* TODO Delete root? return join of left and right children */
-    if (T == nullptr) {
-        return nullptr;
+//    if (!find(T, k)) {
+//        return nullptr;
+//    }
+//    if(T== nullptr){
+//        return nullptr;
+//    }
+    assert(find(T, k) != nullptr);
+
+    if (T->key == k) {
+        Node *tmp = T;
+        T = join(T->left, T->right);
+        delete tmp;
+        return T;
     }
 
     if (k < T->key) {
         T->left = remove(T->left, k);
+        // T->size--;
     } else {
         T->right = remove(T->right, k);
+        //T->size--;
     }
-    T->size--;
+    //T->size--;
+
+    T->size = 1;
+    if (T->left) {
+        T->size += T->left->size;
+    }
+    if (T->right) {
+        T->size += T->right->size;
+    }
     return T;
 }
 
@@ -136,7 +179,30 @@ pair<Node *, Node *> split(Node *T, int k) {
     /* Assume root is 20. Split at 5 breaks the tree so that l<5 and r>5
      * this is passed on to the left subtree. For values < 5 we can just let them be
      * and we can reattach the values > 5 back to our left tree */
-
+    if (T == nullptr) {
+        return make_pair(nullptr, nullptr);
+    }
+    if (k < T->key) {
+        split(T->left, k);
+        T->size = 1;
+        if (T->left) {
+            T->size += T->left->size;
+        }
+        if (T->right) {
+            T->size += T->right->size;
+        }
+        return make_pair(T, T->left);
+    } else {
+        split(T->right, k);
+        T->size = 1;
+        if (T->left) {
+            T->size += T->left->size;
+        }
+        if (T->right) {
+            T->size += T->right->size;
+        }
+        return make_pair(T->right, T);
+    }
     /* What is you split on the root (20)? Should return two trees with vals < 20 and one with vals > 20
      * Delegate the split to the right, if 20 does not exist then the right bcomes NULL and the other previous
      * right tree is "pulled" out */
@@ -147,6 +213,14 @@ pair<Node *, Node *> split(Node *T, int k) {
      * Node *root_of_right_part;
      * return make_pair(root_of_left_part, root_of_right_part);
      */
+//    T->size = 1;
+//    if (T->left) {
+//        T->size += T->left->size;
+//    }
+//    if (T->right) {
+//        T->size += T->right->size;
+//    }
+    //return make_pair()
 }
 
 /* insert key k into the tree T, returning a pointer to the resulting tree
@@ -200,15 +274,15 @@ int main(void) {
         else cout << i << " not found\n";
 
     // test predfind -- if nothing printed, that's good news
-    if (predfind(T, -1)) cout << "Error: predfind(-1) returned something and should have returned NULL\n";
-    if (predfind(T, 50)->key != 50) cout << "Error: predfind(50) didn't return the node with 50 as its key\n";
-    cout << "Marker" << endl;
-
-    for (int i = 0; i <= 90; i += 10) {
-        if (predfind(T, i + 3)->key != i) {
-            cout << "Error: predfind(" << i + 3 << ") didn't return the node with " << i << " as its key\n";
-        }
-    }
+//    if (predfind(T, -1)) cout << "Error: predfind(-1) returned something and should have returned NULL\n";
+//    if (predfind(T, 50)->key != 50) cout << "Error: predfind(50) didn't return the node with 50 as its key\n";
+//    cout << "Marker" << endl;
+//
+//    for (int i = 0; i <= 90; i += 10) {
+//        if (predfind(T, i + 3)->key != i) {
+//            cout << "Error: predfind(" << i + 3 << ") didn't return the node with " << i << " as its key\n";
+//        }
+//    }
 
 
     // test split
