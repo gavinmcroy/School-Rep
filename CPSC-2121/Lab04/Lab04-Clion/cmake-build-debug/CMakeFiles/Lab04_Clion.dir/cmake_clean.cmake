@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Lab04_Clion.dir/bst.cpp.obj"
-  "Lab04_Clion.exe"
-  "Lab04_Clion.exe.manifest"
+  "CMakeFiles/Lab04_Clion.dir/bst.cpp.o"
+  "Lab04_Clion"
   "Lab04_Clion.pdb"
-  "libLab04_Clion.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

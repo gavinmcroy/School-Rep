@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/bst.cpp
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/bst.cpp
 iostream
 -
 fstream
@@ -16,5 +16,7 @@ cstdlib
 algorithm
 -
 tuple
+-
+cmath
 -
 
