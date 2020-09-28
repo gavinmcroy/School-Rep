@@ -145,7 +145,7 @@ Node *remove(Node *T, int k) {
 //    if(T== nullptr){
 //        return nullptr;
 //    }
-    assert(find(T, k) != nullptr);
+    //assert(find(T, k) != nullptr);
 
     if (T->key == k) {
         Node *tmp = T;
@@ -183,7 +183,8 @@ pair<Node *, Node *> split(Node *T, int k) {
         return make_pair(nullptr, nullptr);
     }
     if (k < T->key) {
-        split(T->left, k);
+        pair<Node*,Node*> tmp = split(T->left, k);
+        T->left = tmp.second;
         T->size = 1;
         if (T->left) {
             T->size += T->left->size;
@@ -191,9 +192,10 @@ pair<Node *, Node *> split(Node *T, int k) {
         if (T->right) {
             T->size += T->right->size;
         }
-        return make_pair(T, T->left);
+        return make_pair(tmp.first, T);
     } else {
-        split(T->right, k);
+        pair<Node*,Node*> tmp = split(T->right, k);
+        T->right = tmp.first;
         T->size = 1;
         if (T->left) {
             T->size += T->left->size;
@@ -201,7 +203,7 @@ pair<Node *, Node *> split(Node *T, int k) {
         if (T->right) {
             T->size += T->right->size;
         }
-        return make_pair(T->right, T);
+        return make_pair(T, tmp.second);
     }
     /* What is you split on the root (20)? Should return two trees with vals < 20 and one with vals > 20
      * Delegate the split to the right, if 20 does not exist then the right bcomes NULL and the other previous
