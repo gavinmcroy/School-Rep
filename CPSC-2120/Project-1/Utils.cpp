@@ -11,11 +11,6 @@
 
 using namespace std;
 
-/** WHERE I LEFT OFF
- *
- *              */
-
-
 /* Returns entire file as one big string, quickly */
 string readWebpagesFast(const char *filename) {
     FILE *fp = fopen(filename, "r");
@@ -47,7 +42,7 @@ string color_white = "\e[37;40m";
 string color_whiteblue = "\e[37;44m";
 
 /* TODO IMPLEMENT */
-void predict(string query) {
+void predict(const string& query) {
     cout << color_green << "Here is where query results for '"
          << color_white << query
          << color_green << "' should go\n";
