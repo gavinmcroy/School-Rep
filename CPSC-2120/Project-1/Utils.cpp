@@ -87,13 +87,14 @@ int main() {
 
     StringIntMap webPageIntMap;
     StringIntMap wordIntMap;
+    StringIntMap * wordOnPage = new StringIntMap;
 
     cout << color_green << "Reading input..." << endl;
     const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
     istringstream webfile(readWebpagesFast(filename));
 
     std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
-    std::vector<StoredWords::Word> words = storedWords.getWords();
+    std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
 
     /* I could insert these string values of page into the hash table
      * then when I am checking all my hyper links I can call find. If I find it
@@ -120,7 +121,7 @@ int main() {
             if (!wordIntMap.find(data)) {
                 wordIntMap.insert(data, totalDistinctWords);
                 /* This is adding the words to the vector */
-                words.emplace_back(data);
+                everyDistinctWordVec.emplace_back(data);
                 totalDistinctWords++;
             }
         }
@@ -148,6 +149,7 @@ int main() {
     /* Parameters */
     bool first = true;
     string hyperLink;
+    int tmpUniqueWords = 0;
     /* Parameters */
 
     /* This builds our webpage vector with all appropriate info */
@@ -156,15 +158,17 @@ int main() {
             if (!first) {
                 /* Reset all the counters by adding the WebPage + all its data */
                 pages.emplace_back(url, numLinks, numWords, links, wordsOccurringInPage);
+                wordOnPage->~StringIntMap();
+                wordOnPage = new StringIntMap();
                 wordsOccurringInPage.clear();
                 numLinks = 0;
                 numWords = 0;
+                tmpUniqueWords = 0;
                 /* Reset all the counters */
             }
             first = false;
             /* Read in because you want the PAGE then the url next to it */
             webfile >> url;
-
         } /* Reads a hyperLink, calculates the index at which the hyperLink would exist inside inside the StringToIntMap
            * hash table. It then determines if the hyperLink in question exists inside the hash table. If it exists
            * inside the hash table, a reference value is given that corresponds to the index at which this link
@@ -191,29 +195,44 @@ int main() {
              * to the word struct. Then while inside the word struct we are incrementing num pages to signify
              * how many pages the word is on*/
 
+            /* This is adding only non duplicate words from a particular page*/
+            if (!wordOnPage->find(readInValue)) {
+                wordOnPage->insert(readInValue, tmpUniqueWords);
+                int linkIndex = webPageIntMap[url];
+                int wordIndex = wordIntMap[readInValue];
+                everyDistinctWordVec.at(wordIndex).pages.push_back(linkIndex);
+                everyDistinctWordVec.at(wordIndex).numPages++;
+                tmpUniqueWords++;
+                /* This is adding the words to the vector */
+                //words.emplace_back(data);
+                //totalDistinctWords++;
+            }
+
+
             /* TODO THIS IS counting duplicates */
-            int linkIndex = webPageIntMap[url];
-            int wordIndex = wordIntMap[readInValue];
-            words.at(wordIndex).pages.push_back(linkIndex);
-            words.at(wordIndex).numPages++;
+//            int linkIndex = webPageIntMap[url];
+//            int wordIndex = wordIntMap[readInValue];
+//            words.at(wordIndex).pages.push_back(linkIndex);
+//            words.at(wordIndex).numPages++;
         }
     }
+    delete wordOnPage;
 
     int myLookUp = wordIntMap["dabo"];
-    cout << words.at(myLookUp).text << endl;
+    cout << everyDistinctWordVec.at(myLookUp).text << endl;
     // cout << "Frequency " << myLookUp << endl;
-    cout << "Total Pages " << words.at(myLookUp).numPages << endl;
+    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
     myLookUp = wordIntMap["football"];
-    cout << words.at(myLookUp).text << endl;
+    cout << everyDistinctWordVec.at(myLookUp).text << endl;
     //cout << "Frequency " << myLookUp << endl;
-    cout << "Total Pages " << words.at(myLookUp).numPages << endl;
+    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
     myLookUp = wordIntMap["pancakes"];
-    cout << words.at(myLookUp).text << endl;
+    cout << everyDistinctWordVec.at(myLookUp).text << endl;
     //cout << "Frequency " << words.at(myLookUp). << endl;
-    cout << "Total Pages " << words.at(myLookUp).numPages << endl;
+    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
 
-    for (int i = 0; i < words.at(myLookUp).pages.size(); i++) {
-        cout << words.at(myLookUp).pages.at(i) << endl;
+    for (int i = 0; i < everyDistinctWordVec.at(myLookUp).pages.size(); i++) {
+        cout << everyDistinctWordVec.at(myLookUp).pages.at(i) << endl;
     }
 
     /* DEBUG */

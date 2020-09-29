@@ -66,9 +66,9 @@ Node *find(Node *T, int k) {
     }
 }
 
-/* TODO Return pointer to the node with key k if it exists
- * TODO If not, return a pointer to the node with the largest key smaller than k (i.e.,
- * TODO k's predecessor) or NULL if there isn't any node with key smaller than k. */
+/*  Return pointer to the node with key k if it exists
+ *  If not, return a pointer to the node with the largest key smaller than k (i.e.,
+ *  k's predecessor) or NULL if there isn't any node with key smaller than k. */
 Node *predfind(Node *T, int k) {
 
     /* 3 Cases assume 20 is the root
@@ -119,15 +119,16 @@ Node *predfind(Node *T, int k) {
     }
 }
 
-/* TODO Join trees L and R (with L containing keys all <= the keys in R)
- * TODO Return a pointer to the joined tree.  */
+/*  Join trees L and R (with L containing keys all <= the keys in R)
+ *  Return a pointer to the joined tree.  */
 Node *join(Node *L, Node *R) {
     /* choose either the root of L or the root of R to be the root of the joined tree
      * (where we choose with probabilities proportional to the sizes of L and R) */
-    /* TODO Probably need some base cases here or else the next line will crash... */
+    /*  Probably need some base cases here or else the next line will crash... */
     if (L == nullptr) {
         return R;
     }
+    /* Doesnt really need two ifs but why not */
     if (R == nullptr) {
         return L;
     }
@@ -141,9 +142,16 @@ Node *join(Node *L, Node *R) {
         /* Happens with probability L->size / total */
         L->right = join(L->right, R);
         L->size = 1;
-        if (L->left) L->size += L->left->size;
-        if (L->right) L->size += L->right->size;
-        /* Change size */
+
+        /* Update the size */
+        if (L->left) {
+            L->size += L->left->size;
+        }
+        if (L->right) {
+            L->size += L->right->size;
+        }
+        L->size += L->right->size;
+
         return L;
     } else {
         /* Happens with probability R->size / total
@@ -151,6 +159,8 @@ Node *join(Node *L, Node *R) {
 
         R->left = join(L, R->left);
         R->size = 1;
+
+        /* Change size */
         if (R->left) {
             R->size += R->left->size;
         }
@@ -163,12 +173,12 @@ Node *join(Node *L, Node *R) {
     }
 }
 
-/* TODO remove key k from T, returning a pointer to the resulting tree.
- * TODO if k isn't present in T, then return the pointer to T's root, with T unchanged */
+/*  remove key k from T, returning a pointer to the resulting tree.
+ *  if k isn't present in T, then return the pointer to T's root, with T unchanged */
 Node *remove(Node *T, int k) {
 
-    /* TODO Delete root? return join of left and right children */
-//    if (!find(T, k)) {
+    /* Delete root? return join of left and right children */
+//    if (!find(T, k)) { /*  <--- WHY DOES THIS NOT WORK? ????? */
 //        return nullptr;
 //    }
 //    if(T== nullptr){
@@ -193,6 +203,7 @@ Node *remove(Node *T, int k) {
     //T->size--;
 
     T->size = 1;
+    /* Update size */
     if (T->left) {
         T->size += T->left->size;
     }
@@ -215,6 +226,8 @@ pair<Node *, Node *> split(Node *T, int k) {
         pair<Node *, Node *> tmp = split(T->left, k);
         T->left = tmp.second;
         T->size = 1;
+
+        /* Update the size */
         if (T->left) {
             T->size += T->left->size;
         }
@@ -226,6 +239,8 @@ pair<Node *, Node *> split(Node *T, int k) {
         pair<Node *, Node *> tmp = split(T->right, k);
         T->right = tmp.first;
         T->size = 1;
+
+        /* Update the size */
         if (T->left) {
             T->size += T->left->size;
         }
