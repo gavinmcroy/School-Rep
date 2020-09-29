@@ -13,7 +13,7 @@ public class ListQueue extends AbsQueue implements IQueue {
      * @correspondence total_elements = myQ.size() ?
      */
     private List<Integer> myQ;
-
+/**@Contract (x<10) */
     /**
      * Initializes myQ to a new empty array list
      *

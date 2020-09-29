@@ -64,10 +64,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -94,14 +94,14 @@ clean: CMakeFiles/Lab04_Clion.dir/clean
 CMakeFiles/Lab04_Clion.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab04_Clion.dir/build.make CMakeFiles/Lab04_Clion.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Lab04_Clion.dir/build.make CMakeFiles/Lab04_Clion.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Lab04_Clion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target Lab04_Clion"
 .PHONY : CMakeFiles/Lab04_Clion.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Lab04_Clion.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion/cmake-build-debug/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Lab04_Clion.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Lab04_Clion.dir/rule
 
 # Convenience name for target.

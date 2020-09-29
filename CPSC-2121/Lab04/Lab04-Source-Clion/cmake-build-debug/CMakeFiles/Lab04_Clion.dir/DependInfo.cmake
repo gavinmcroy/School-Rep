@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/bst.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Clion/cmake-build-debug/CMakeFiles/Lab04_Clion.dir/bst.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion/bst.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab04/Lab04-Source-Clion/cmake-build-debug/CMakeFiles/Lab04_Clion.dir/bst.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

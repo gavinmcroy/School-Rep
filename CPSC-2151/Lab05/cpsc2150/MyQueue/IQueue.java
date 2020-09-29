@@ -57,7 +57,7 @@ public interface IQueue {
      * @pre None
      * @post total_elements = 0
      */
-    void clear();
+    public void clear();
 
     /**
      * returns the integer at the front of the queue but does not
