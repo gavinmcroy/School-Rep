@@ -25,8 +25,8 @@ std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
 
 /* Returns entire file as one big string, quickly */
 
-bool comparePageWeight(int a, int b) {
-    return (a > b);
+bool operator<(const StoredWebPages::Webpage &a, const StoredWebPages::Webpage &b) {
+    return a.weight < b.weight;
 }
 
 string readWebpagesFast(const char *filename) {
@@ -57,11 +57,13 @@ string color_magenta = "\e[35;40m";
 string color_cyan = "\e[36;40m";
 string color_white = "\e[37;40m";
 string color_whiteblue = "\e[37;44m";
+string background_blue = "\e[44;1m";
+string reset_background = "\e[40m";
 
 /* TODO IMPLEMENT */
 void predict(const string &query) {
     cout << color_green << "Next word: '"
-         << color_white << query
+         << color_white << "query"
          << color_green << "'\n";
 
     /* TEST CODE */
@@ -70,25 +72,53 @@ void predict(const string &query) {
 void processKeystrokes() {
     int ch = 0;
     string query;
-
     while (ch != '\n') {
         cout << clear_screen << color_green << "Search keyword: "
              << color_white << query
              << color_green << "-\n\n";
         int wordIndex = wordIntMap[query];
-        cout << color_yellow << everyDistinctWordVec.at(wordIndex).numPages << color_green << " ' 'pages match" << endl;
+        cout << color_yellow << "'" << everyDistinctWordVec.at(wordIndex).numPages << color_green << "' pages match"
+             << endl;
+        /* Go through every page that links to the word being searched */
         for (int i = 0; i < everyDistinctWordVec.at(wordIndex).numPages; i++) {
-            int index;
+            cout << endl;
+            int pageIndex = everyDistinctWordVec.at(wordIndex).pages.at(i);
+            /* Only want 5 pages to be printed */
             if (i == 5) {
                 break;
             }
+            /* In case a word only has less than 5 links associated with it  */
             if (i < everyDistinctWordVec.at(wordIndex).numPages) {
-                index = everyDistinctWordVec.at(wordIndex).pages.at(i);
-                cout << color_white << i + 1 << "." << color_red << " [" << pages.at(index).weight << "] "
+                cout << color_white << i + 1 << "." << color_red << " [" << pages.at(pageIndex).weight << "] "
                      << color_white
-                     << pages.at(index).url
-                     << endl << endl;
+                     << pages.at(pageIndex).url
+                     << endl;
+                /* Iterate and find the index of the words on the page itself */
+                auto it = std::find(pages.at(pageIndex).words.begin(),
+                                    pages.at(pageIndex).words.end(), query);
+
+                if (it != pages.at(pageIndex).words.end()) {
+                    int location = it - pages.at(pageIndex).words.begin();
+                    /* Put bounds for 5 words surrounding the word being searched */
+                    if (location > 5 && location + 5 < pages.at(pageIndex).words.size()) {
+                        /* Print the 5 nearest words */
+                        for (int j = -5; j <= 5; j++) {
+                            /* High light the word being queued */
+                            if (j == 0) {
+                                cout << background_blue << pages.at(pageIndex).words.at(j + location)
+                                     << reset_background
+                                     << " ";
+                            } else {
+                                cout << color_white << pages.at(pageIndex).words.at(j + location) << " ";
+                            }
+                        }
+                    } else {
+                        /*TODO Change this to work for texts that are too short to be displayed */
+                        cout << "No text provided " << endl;
+                    }
+                }
             }
+            cout << endl;
         }
 
         predict(query);
@@ -110,13 +140,6 @@ void processKeystrokes() {
 }
 
 int main() {
-//    StoredWebPages webPages(25000);
-//    StoredWords storedWords(tmpAlloc);
-//    StringIntMap webPageIntMap;
-//    StringIntMap wordIntMap;
-//    auto *wordOnPage = new StringIntMap;
-//    std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
-//    std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
     const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
     string readInData;
 
@@ -148,13 +171,10 @@ int main() {
         }
     }
     cout << "Indexing..." << endl;
-
     /* Reset the file being read */
     webFile.clear();
     webFile.seekg(0);
-
     /* 26,881 Pages, 184,408 Hyperlinks, 18,896,392 words */
-
     /* This builds our webpage vector with all appropriate info */
     {
         string url;
@@ -219,45 +239,24 @@ int main() {
         }
     }
 
-    /* TEST SEARCH */
-    int myLookUp = wordIntMap["dabo"];
-    cout << everyDistinctWordVec.at(myLookUp).text << endl;
-    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
-
-    myLookUp = wordIntMap["football"];
-    cout << everyDistinctWordVec.at(myLookUp).text << endl;
-    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
-
-    myLookUp = wordIntMap["pancakes"];
-    cout << everyDistinctWordVec.at(myLookUp).text << endl;
-    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
-
-    myLookUp = wordIntMap["pancake"];
-    cout << everyDistinctWordVec.at(myLookUp).text << endl;
-    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
-    /* TEST SEARCH */
-
     /* GOOGLE PAGE RANK */
     std::cout << "Google page rank" << endl;
 
     for (int x = 0; x < 50; x++) {
         for (auto &page : pages) {
-            page.newWeight = .1; /* change to newWeight */
+            page.newWeight = .1;
         }
-        for (int i = 0; i < pages.size(); i++) {
+        for (size_t i = 0; i < pages.size(); i++) {
             /* Every page that pages.at(j) links too*/
             if (pages.at(i).links.empty()) {
                 pages.at(i).newWeight += .9 * pages.at(i).weight;
             } else {
-                for (int j = 0; j < pages.at(i).links.size(); j++) {
-                    /* pages.at(j).links.at(k); */
-                    /*
-                    Increase new_weight[j] by 0.9 * pages[i].weight / pages[i].num_links
+                for (size_t j = 0; j < pages.at(i).links.size(); j++) {
+                    /*Increase new_weight[j] by 0.9 * pages[i].weight / pages[i].num_links
                     (this spreads 90% of the weight of a page uniformly across its
                     outgoing links. As a special case, if page i has no outgoing links,
                     please keep that 90% on the page by increasing new_weight[i] by
-                    pages[i].weight * 0.9)
-                     */
+                    pages[i].weight * 0.9 */
 
                     int index = pages.at(i).links.at(j) - 1;
 
@@ -271,40 +270,25 @@ int main() {
                         std::cout << " I = " << i << endl;
                         std::cout << "J = " << j << endl;
                     }
-                    // pages.at(index).newWeight += (.9 * pages.at(i).weight) / (double) pages.at(i).numLinks;
-
                 }
             }
         }
 
-        for (int i = 0; i < pages.size(); i++) {
+        for (size_t i = 0; i < pages.size(); i++) {
             pages.at(i).weight = pages.at(i).newWeight;
-            /*
-            For each page i, set pages[i].weight = new_weight[i].
-                    (note that these are three separate "for each page i" loops, one after
+            /*For each page i, set pages[i].weight = new_weight[i].
+            (note that these are three separate "for each page i" loops, one after
             the other. also note that weights on pages are never created or destroyed
             in each iteration of Pagerank --- they are only redistributed, so the
-            total of all the weights should always be 1).
-             */
+            total of all the weights should always be 1).*/
         }
     }
 
-    myLookUp = wordIntMap["pancake"];
-    cout << everyDistinctWordVec.at(myLookUp).text << endl;
-    int tmp = everyDistinctWordVec.at(myLookUp).pages.at(0);
-    cout << pages.at(tmp).weight << endl;
-    tmp = everyDistinctWordVec.at(myLookUp).pages.at(1);
-    cout << pages.at(tmp).weight << endl;
-    tmp = everyDistinctWordVec.at(myLookUp).pages.at(2);
-    cout << pages.at(tmp).weight << endl;
-    tmp = everyDistinctWordVec.at(myLookUp).pages.at(3);
-    cout << pages.at(tmp).weight << endl;
-    tmp = everyDistinctWordVec.at(myLookUp).pages.at(4);
-    cout << pages.at(tmp).weight << endl;
-    tmp = everyDistinctWordVec.at(myLookUp).pages.at(5);
-    cout << pages.at(tmp).weight << endl;
-
-
+    // for(int i = 0; i < pages.size(); i++){
+    /*   webPageIntMap; This changes the indexes. */
+    //sort(pages.begin(), pages.end(),
+    //   [](const StoredWebPages::Webpage &a, const StoredWebPages::Webpage &b) { return b < a; });
+    // }
     cout << "Finished" << endl;
     delete wordOnPage;
 
@@ -385,4 +369,40 @@ int main() {
 //
 //    cout << pages.at(0).words.size() << endl;
 //    cout << pages.at(0).words.at(0) << endl;
+
+
+
+/* TEST SEARCH
+int myLookUp = wordIntMap["dabo"];
+cout << everyDistinctWordVec.at(myLookUp).text << endl;
+cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
+
+myLookUp = wordIntMap["football"];
+cout << everyDistinctWordVec.at(myLookUp).text << endl;
+cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
+
+myLookUp = wordIntMap["pancakes"];
+cout << everyDistinctWordVec.at(myLookUp).text << endl;
+cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
+
+myLookUp = wordIntMap["pancake"];
+cout << everyDistinctWordVec.at(myLookUp).text << endl;
+cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
+ TEST SEARCH */
+/*
+myLookUp = wordIntMap["pancake"];
+cout << everyDistinctWordVec.at(myLookUp).text << endl;
+int tmp = everyDistinctWordVec.at(myLookUp).pages.at(0);
+cout << pages.at(tmp).weight << endl;
+tmp = everyDistinctWordVec.at(myLookUp).pages.at(1);
+cout << pages.at(tmp).weight << endl;
+tmp = everyDistinctWordVec.at(myLookUp).pages.at(2);
+cout << pages.at(tmp).weight << endl;
+tmp = everyDistinctWordVec.at(myLookUp).pages.at(3);
+cout << pages.at(tmp).weight << endl;
+tmp = everyDistinctWordVec.at(myLookUp).pages.at(4);
+cout << pages.at(tmp).weight << endl;
+tmp = everyDistinctWordVec.at(myLookUp).pages.at(5);
+cout << pages.at(tmp).weight << endl;
+*/
 /* DEBUG */
