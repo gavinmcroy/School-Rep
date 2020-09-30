@@ -11,7 +11,23 @@
 
 using namespace std;
 
+/* TEMP */
+int tmpAlloc = 180 - 000;
+StoredWebPages webPages(25000);
+StoredWords storedWords(tmpAlloc);
+StringIntMap webPageIntMap;
+StringIntMap wordIntMap;
+auto *wordOnPage = new StringIntMap;
+std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
+std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
+/* TEMP */
+
 /* Returns entire file as one big string, quickly */
+
+bool comparePageWeight(int a, int b) {
+    return (a > b);
+}
+
 string readWebpagesFast(const char *filename) {
     FILE *fp = fopen(filename, "r");
     if (fp == NULL) {
@@ -42,10 +58,25 @@ string color_white = "\e[37;40m";
 string color_whiteblue = "\e[37;44m";
 
 /* TODO IMPLEMENT */
-void predict(const string& query) {
-    cout << color_green << "Here is where query results for '"
+void predict(const string &query) {
+    cout << color_green << "Search keyword: '"
          << color_white << query
          << color_green << "' should go\n";
+
+    /* TEST CODE */
+//    int myLookUp = wordIntMap[query];
+//    cout << everyDistinctWordVec.at(myLookUp).text << endl;
+//    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
+//    cout << "5 webpages "<<endl;
+//    for (int i = 0; i < everyDistinctWordVec.at(myLookUp).pages.size(); i++) {
+//        int link = everyDistinctWordVec.at(myLookUp).pages.at(i);
+//        cout << "LINK: "<<pages.at(link).url << endl;
+//        cout << "";
+//        if (i == 5) {
+//            break;
+//        }
+//    }
+    /* TEST CODE */
 }
 
 void processKeystrokes() {
@@ -75,15 +106,15 @@ void processKeystrokes() {
     cout << color_white;
 }
 
+/*Toy with preAlloc memory */
 int main() {
-
-    StoredWebPages webPages;
-    StoredWords storedWords;
-    StringIntMap webPageIntMap;
-    StringIntMap wordIntMap;
-    auto *wordOnPage = new StringIntMap;
-    std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
-    std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
+//    StoredWebPages webPages(25000);
+//    StoredWords storedWords(tmpAlloc);
+//    StringIntMap webPageIntMap;
+//    StringIntMap wordIntMap;
+//    auto *wordOnPage = new StringIntMap;
+//    std::vector<StoredWebPages::Webpage> pages = webPages.getWebPages();
+//    std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
     const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
     string readInData;
 
@@ -140,6 +171,7 @@ int main() {
                     wordOnPage->~StringIntMap();
                     wordOnPage = new StringIntMap();
                     wordsOccurringInPage.clear();
+                    links.clear();
                     numLinksOnPageCounter = 0;
                     numWordsOnPageCounter = 0;
                     uniqueWordsOnPageCounter = 0;
@@ -203,6 +235,74 @@ int main() {
     cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
     /* TEST SEARCH */
 
+    /* GOOGLE PAGE RANK */
+    std::cout << "Google page rank" << endl;
+
+    for (int x = 0; x < 50; x++) {
+        for (auto &page : pages) {
+            page.newWeight = .1; /* change to newWeight */
+        }
+        for (int i = 0; i < pages.size(); i++) {
+            /* Every page that pages.at(j) links too*/
+            if (pages.at(i).links.empty()) {
+                pages.at(i).newWeight += .9 * pages.at(i).weight;
+            } else {
+                for (int j = 0; j < pages.at(i).links.size(); j++) {
+                    /* pages.at(j).links.at(k); */
+                    /*
+                    Increase new_weight[j] by 0.9 * pages[i].weight / pages[i].num_links
+                    (this spreads 90% of the weight of a page uniformly across its
+                    outgoing links. As a special case, if page i has no outgoing links,
+                    please keep that 90% on the page by increasing new_weight[i] by
+                    pages[i].weight * 0.9)
+                     */
+
+                    int index = pages.at(i).links.at(j);
+                    try {
+                        pages.at(index).newWeight += (.9 * pages.at(i).weight) / (double) pages.at(
+                                i).numLinks;     // vector::at throws an out-of-range
+                    }
+                    catch (const std::out_of_range &oor) {
+                        std::cerr << "Out of Range error: " << oor.what() << '\n';
+                        std::cout << "INDEX VALUE = " << index << endl;
+                        std::cout << " I = " << i << endl;
+                        std::cout << "J = " << j << endl;
+                    }
+                    // pages.at(index).newWeight += (.9 * pages.at(i).weight) / (double) pages.at(i).numLinks;
+
+                }
+            }
+        }
+
+        for (int i = 0; i < pages.size(); i++) {
+            pages.at(i).weight = pages.at(i).newWeight;
+            /*
+            For each page i, set pages[i].weight = new_weight[i].
+                    (note that these are three separate "for each page i" loops, one after
+            the other. also note that weights on pages are never created or destroyed
+            in each iteration of Pagerank --- they are only redistributed, so the
+            total of all the weights should always be 1).
+             */
+        }
+    }
+
+    myLookUp = wordIntMap["pancake"];
+    cout << everyDistinctWordVec.at(myLookUp).text << endl;
+    int tmp = everyDistinctWordVec.at(myLookUp).pages.at(0);
+    cout << pages.at(tmp).weight << endl;
+    tmp = everyDistinctWordVec.at(myLookUp).pages.at(1);
+    cout << pages.at(tmp).weight << endl;
+    tmp = everyDistinctWordVec.at(myLookUp).pages.at(2);
+    cout << pages.at(tmp).weight << endl;
+    tmp = everyDistinctWordVec.at(myLookUp).pages.at(3);
+    cout << pages.at(tmp).weight << endl;
+    tmp = everyDistinctWordVec.at(myLookUp).pages.at(4);
+    cout << pages.at(tmp).weight << endl;
+    tmp = everyDistinctWordVec.at(myLookUp).pages.at(5);
+    cout << pages.at(tmp).weight << endl;
+
+
+    cout << "Finished" << endl;
     delete wordOnPage;
 
     /* Enter loop to ask for query */

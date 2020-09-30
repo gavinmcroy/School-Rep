@@ -7,3 +7,7 @@
 std::vector<StoredWords::Word> &StoredWords::getWords(){
     return words;
 }
+
+StoredWords::StoredWords(int alloc) {
+    words.reserve(alloc);
+}

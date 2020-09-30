@@ -28,6 +28,8 @@ public:
         }
     };
 
+    explicit StoredWords(int alloc);
+
     std::vector<Word> &getWords();
 
 private:

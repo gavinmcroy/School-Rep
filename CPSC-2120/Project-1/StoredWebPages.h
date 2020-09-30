@@ -23,6 +23,7 @@ public:
         std::vector<int> links;         /* Array of page IDs to which this page links */
         std::vector<std::string> words; /* Array of all words on the page */
         double weight;                  /* Importance of the page, using PageRank algorithm */
+        double newWeight;
 
         Webpage(std::string url, int numLinks, int numWords, std::vector<int> links,
                 std::vector<std::string> words) {
@@ -31,11 +32,15 @@ public:
             this->numWords = numWords;
             this->links = std::move(links);
             this->words = std::move(words);
-            this->weight = 0;
+            this->weight = 1;
+            /*TEST */
+            this->words.reserve(1000);
         }
     };
 
     std::vector<Webpage> &getWebPages();
+
+    StoredWebPages(int alloc);
 
 private:
     std::vector<Webpage> pages; /* Array of all webpages */
