@@ -257,10 +257,11 @@ int main() {
                     pages[i].weight * 0.9)
                      */
 
-                    int index = pages.at(i).links.at(j);
+                    int index = pages.at(i).links.at(j) - 1;
+
                     try {
                         pages.at(index).newWeight += (.9 * pages.at(i).weight) / (double) pages.at(
-                                i).numLinks;     // vector::at throws an out-of-range
+                                i).links.size();     // vector::at throws an out-of-range
                     }
                     catch (const std::out_of_range &oor) {
                         std::cerr << "Out of Range error: " << oor.what() << '\n';
