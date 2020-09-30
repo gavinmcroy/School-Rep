@@ -39,6 +39,8 @@ cstdio
 -
 cstdlib
 -
+algorithm
+-
 StoredWebPages.h
 /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-1/StoredWebPages.h
 StringIntMap.h

@@ -4,6 +4,7 @@
 #include <sstream>
 #include <cstdio>
 #include <cstdlib>
+#include<algorithm>
 
 #include "StoredWebPages.h"
 #include "StringIntMap.h"
@@ -59,23 +60,10 @@ string color_whiteblue = "\e[37;44m";
 
 /* TODO IMPLEMENT */
 void predict(const string &query) {
-    cout << color_green << "Search keyword: '"
+    cout << color_green << "Next word: '"
          << color_white << query
-         << color_green << "' should go\n";
+         << color_green << "'\n";
 
-    /* TEST CODE */
-//    int myLookUp = wordIntMap[query];
-//    cout << everyDistinctWordVec.at(myLookUp).text << endl;
-//    cout << "Total Pages " << everyDistinctWordVec.at(myLookUp).numPages << endl;
-//    cout << "5 webpages "<<endl;
-//    for (int i = 0; i < everyDistinctWordVec.at(myLookUp).pages.size(); i++) {
-//        int link = everyDistinctWordVec.at(myLookUp).pages.at(i);
-//        cout << "LINK: "<<pages.at(link).url << endl;
-//        cout << "";
-//        if (i == 5) {
-//            break;
-//        }
-//    }
     /* TEST CODE */
 }
 
@@ -87,6 +75,21 @@ void processKeystrokes() {
         cout << clear_screen << color_green << "Search keyword: "
              << color_white << query
              << color_green << "-\n\n";
+        int wordIndex = wordIntMap[query];
+        cout << color_yellow << everyDistinctWordVec.at(wordIndex).numPages << color_green << " ' 'pages match" << endl;
+        for (int i = 0; i < everyDistinctWordVec.at(wordIndex).numPages; i++) {
+            int index;
+            if (i == 5) {
+                break;
+            }
+            if (i < everyDistinctWordVec.at(wordIndex).numPages) {
+                index = everyDistinctWordVec.at(wordIndex).pages.at(i);
+                cout << color_white << i + 1 << "." << color_red << " [" << pages.at(index).weight << "] "
+                     << color_white
+                     << pages.at(index).url
+                     << endl << endl;
+            }
+        }
 
         predict(query);
         cout << flush;
@@ -106,7 +109,6 @@ void processKeystrokes() {
     cout << color_white;
 }
 
-/*Toy with preAlloc memory */
 int main() {
 //    StoredWebPages webPages(25000);
 //    StoredWords storedWords(tmpAlloc);
@@ -261,7 +263,7 @@ int main() {
 
                     try {
                         pages.at(index).newWeight += (.9 * pages.at(i).weight) / (double) pages.at(
-                                i).links.size();     // vector::at throws an out-of-range
+                                i).numLinks;     // vector::at throws an out-of-range
                     }
                     catch (const std::out_of_range &oor) {
                         std::cerr << "Out of Range error: " << oor.what() << '\n';
