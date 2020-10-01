@@ -24,6 +24,7 @@ public:
         std::vector<std::string> words; /* Array of all words on the page */
         double weight;                  /* Importance of the page, using PageRank algorithm */
         double newWeight;
+        bool isDuplicatePrint;
 
         Webpage(std::string url, int numLinks, int numWords, std::vector<int> links,
                 std::vector<std::string> words) {
@@ -35,6 +36,7 @@ public:
             this->weight = 1;
             /*TEST */
             this->words.reserve(1000);
+            isDuplicatePrint = false;
         }
     };
 

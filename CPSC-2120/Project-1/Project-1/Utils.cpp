@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include<algorithm>
+#include<math.h>
 
 #include "StoredWebPages.h"
 #include "StringIntMap.h"
@@ -28,6 +29,38 @@ std::vector<StoredWords::Word> everyDistinctWordVec = storedWords.getWords();
 bool operator<(const StoredWebPages::Webpage &a, const StoredWebPages::Webpage &b) {
     return a.weight < b.weight;
 }
+
+//double giveHighestWeight(vector<StoredWebPages::Webpage> &web, const vector<StoredWords::Word> &w, int wordIndex) {
+//    vector<int> index;
+//    vector<double> weights;
+//    double epsilon = .00001;
+//
+//    index.reserve(w.at(wordIndex).pages.size());
+//
+//    for (int i = 0; i < w.at(wordIndex).pages.size(); i++) {
+//        index.push_back(w.at(wordIndex).pages.at(i));
+//    }
+//    //int tmp = w.at(wordIndex).pages;
+//    weights.reserve(index.size());
+//    for (int i = 0; i < index.size(); i++) {
+//        weights.push_back(web.at(i).weight);
+//    }
+//    sort(weights.begin(), weights.end());
+//    double myMax = -1.0;
+//    for (int i = weights.size() - 1; i >= 0; i--) {
+//        //cout<<"Loop"<<endl;
+//        for (int j = 0; j < index.size(); j++) {
+//            if ((fabs(weights.at(i) - web.at(index.at(j)).weight) <= epsilon * fabs(weights.at(i))) &&
+//                !web.at(index.at(i)).isDuplicatePrint) {
+//                if (weights.at(i) > myMax) {
+//                    myMax = web.at(index.at(i)).weight;
+//                    web.at(index.at(i)).isDuplicatePrint = true;
+//                }
+//            }
+//        }
+//    }
+//    return myMax;
+//}
 
 string readWebpagesFast(const char *filename) {
     FILE *fp = fopen(filename, "r");
@@ -71,14 +104,31 @@ void predict(const string &query) {
 
 void processKeystrokes() {
     int ch = 0;
+    vector<double> tmpWeight;
+    vector<int> tmpPageIndexHolder;
     string query;
     while (ch != '\n') {
         cout << clear_screen << color_green << "Search keyword: "
              << color_white << query
              << color_green << "-\n\n";
         int wordIndex = wordIntMap[query];
+        tmpWeight.clear();
+        tmpPageIndexHolder.clear();
         cout << color_yellow << "'" << everyDistinctWordVec.at(wordIndex).numPages << color_green << "' pages match"
              << endl;
+        /* Store all the page weights of that the desired word links too */
+        //auto iter = everyDistinctWordVec.at(wordIndex).pages;
+        for (int i = 0; i < everyDistinctWordVec.at(wordIndex).pages.size(); i++) {
+            int tmpIndex = everyDistinctWordVec.at(wordIndex).pages.at(i);
+            tmpPageIndexHolder.push_back(tmpIndex);
+            tmpWeight.push_back(pages.at(tmpIndex).weight);
+        }
+        sort(tmpWeight.begin(), tmpWeight.end());
+//        for (double i : tmpWeight) {
+//            cout << i << " ";
+//        }
+        /**/
+
         /* Go through every page that links to the word being searched */
         for (int i = 0; i < everyDistinctWordVec.at(wordIndex).numPages; i++) {
             cout << endl;
@@ -89,7 +139,19 @@ void processKeystrokes() {
             }
             /* In case a word only has less than 5 links associated with it  */
             if (i < everyDistinctWordVec.at(wordIndex).numPages) {
-                cout << color_white << i + 1 << "." << color_red << " [" << pages.at(pageIndex).weight << "] "
+                //for (int j = tmpWeight.size() - 1; j >= 0; j--) {
+                /** TESTING */
+                /* For this to work I need to access every page weight for the word */
+//                    if ((tmpWeight.at(j) == pages.at(pageIndex).weight) && !pages.at(pageIndex).isDuplicatePrint) {
+//                        pages.at(pageIndex).isDuplicatePrint = true;
+//                        cout << color_white << i + 1 << "." << color_red << " [" << pages.at(pageIndex).weight << "] "
+//                             << color_white
+//                             << pages.at(pageIndex).url
+//                             << endl;
+//                    }
+                //}
+                cout << color_white << i + 1 << "." << color_red << " ["
+                     << pages.at(pageIndex).weight << "] "
                      << color_white
                      << pages.at(pageIndex).url
                      << endl;
@@ -137,6 +199,7 @@ void processKeystrokes() {
         } else if (ch != ' ' && ch != '\n') query += ch;
     }
     cout << color_white;
+
 }
 
 int main() {
@@ -291,6 +354,17 @@ int main() {
     // }
     cout << "Finished" << endl;
     delete wordOnPage;
+
+    int myLookUp = wordIntMap["pancakes"];
+    for (int i = 0; i < everyDistinctWordVec.at(myLookUp).pages.size(); i++) {
+        //cout << everyDistinctWordVec.at(myLookUp).text << endl;
+        int tmp = everyDistinctWordVec.at(myLookUp).pages.at(i);
+        cout << pages.at(tmp).weight << endl;
+    }
+    //myLookUp = wordIntMap["pancake"];
+//    cout << everyDistinctWordVec.at(myLookUp).text << endl;
+//    int tmp = everyDistinctWordVec.at(myLookUp).pages.at(0);
+//    cout << pages.at(tmp).weight << endl;
 
     /* Enter loop to ask for query */
     processKeystrokes();
