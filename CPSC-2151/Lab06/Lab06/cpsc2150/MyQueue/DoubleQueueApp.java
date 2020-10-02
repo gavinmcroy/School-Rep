@@ -47,29 +47,24 @@ public class DoubleQueueApp {
                 }
                 /* Next number in the queue */
                 case 2: {
-                    if (isQueueEmpty(q)) {
-                        break;
-                    } else {
+                    if (!isQueueEmpty(q)) {
                         System.out.println("Next number in the queue is " + q.get(1));
                         q.remove(1);
-                        break;
                     }
+                    break;
                 }
                 /* Peek at first value in the queue */
                 case 3: {
-                    if (isQueueEmpty(q)) {
-                        break;
+                    if (!isQueueEmpty(q)) {
+                        System.out.println("Peek is " + q.peek());
                     }
-
-                    System.out.println("Peek is " + q.peek());
                     break;
                 }
                 /* Peek at the last value in the queue */
                 case 4: {
-                    if (isQueueEmpty(q)) {
-                        break;
+                    if (!isQueueEmpty(q)) {
+                        System.out.println("Peek at end " + q.endOfQueue());
                     }
-                    System.out.println("Peek at end " + q.endOfQueue());
                     break;
                 }
                 /* Insert into a position in the queue */
@@ -108,23 +103,22 @@ public class DoubleQueueApp {
                 /* Peek at a value at any position in the queue */
                 case 6: {
                     String message = "What position to get from the Queue?";
-                    if (isQueueEmpty(q)) {
-                        break;
+                    if (!isQueueEmpty(q)) {
+                        Integer positionToGet = readDesiredPosition(q, message);
+                        System.out.println("Value at position " + positionToGet + " is " + q.get(positionToGet));
                     }
-                    Integer positionToGet = readDesiredPosition(q, message);
-                    System.out.println("Value at position " + positionToGet + " is " + q.get(positionToGet));
+
                     break;
 
                 }
                 /* Remove a value from any position in the queue and return it */
                 case 7: {
                     String message = "What position to remove from the Queue?";
-                    if (isQueueEmpty(q)) {
-                        break;
+                    if (!isQueueEmpty(q)) {
+                        int pos = readDesiredPosition(q, message);
+                        System.out.println(q.get(pos) + " was at the position " + pos + " in the queue");
+                        q.remove(pos);
                     }
-                    int pos = readDesiredPosition(q, message);
-                    System.out.println(q.get(pos) + " was at the position " + pos + " in the queue");
-                    q.remove(pos);
                     break;
                 }
                 /* Exit */

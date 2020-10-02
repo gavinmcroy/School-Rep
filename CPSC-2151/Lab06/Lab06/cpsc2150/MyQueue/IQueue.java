@@ -9,7 +9,7 @@ import java.util.ArrayList;
  * This queue is bounded by MAX_LENGTH
  * <p>
  * Initialization Ensures:
- * Ensures data elements are initialized to 0
+ * Ensures data elements are initialized to null
  * <p>
  * Defines:
  * total_elements : Z
@@ -18,9 +18,6 @@ import java.util.ArrayList;
  * 0 <= total_elements < MAX_SIZE
  */
 
-//public static <T> boolean isEqual(GenericsType<T> g1, GenericsType<T> g2){
-//        return g1.get().equals(g2.get());
-//        }
 public interface IQueue<T> {
 
     public static final int MAX_LENGTH = 100;
@@ -29,8 +26,9 @@ public interface IQueue<T> {
      * Queues a integer into the array by adding it to the back of the array
      *
      * @param o the integer to enqueue into the array
-     * @pre None
+     * @pre total_elements <= MAX_LENGTH
      * @post total_element = #total_element + 1
+     *       self = o added to the back of #self
      */
     void enqueue(T o);
 
@@ -38,8 +36,9 @@ public interface IQueue<T> {
      * removes and returns the Integer at the front of the queue
      *
      * @return the variable at the front of the queue
-     * @pre None
+     * @pre total_elements > 0
      * @post total_elements = #total_elements - 1
+     *       self = dequeue() remove from the front of #self
      */
     T dequeue();
 

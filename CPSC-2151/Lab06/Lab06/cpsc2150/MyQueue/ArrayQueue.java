@@ -16,7 +16,7 @@ public class ArrayQueue<T> extends AbsQueue<T> implements IQueue<T> {
      * @invariant 0 <= myLength < MAX_LENGTH
      * @correspondence total_element = myLength
      */
-    private int myLength = 0;
+    private int myLength;
 
     /**
      * Initializes integer array of size MAX_LENGTH and initializes every
@@ -31,6 +31,7 @@ public class ArrayQueue<T> extends AbsQueue<T> implements IQueue<T> {
         for (int i = 0; i < MAX_LENGTH; i++) {
             myQ[i] = null;
         }
+        myLength = 0;
 //        @SuppressWarnings("unchecked")
 //        final T[] a = (T[]) Array.newInstance(c, MAX_LENGTH);
 //        this.a = a;
@@ -101,21 +102,4 @@ public class ArrayQueue<T> extends AbsQueue<T> implements IQueue<T> {
         }
         myLength = 0;
     }
-
-    /* The lab asks for the list to be printed */
-
-    /**
-     * Prints the current elements inside the queue
-     *
-     * @pre none
-     * @post none
-     */
-//    public void printList() {
-//        for (Integer integer : myQ) {
-//            if (integer == 0) {
-//                continue;
-//            }
-//            System.out.println(integer);
-//        }
-//    }
 }

@@ -5,15 +5,15 @@ import java.util.List;
 
 public class ListQueue<T> extends AbsQueue<T> implements IQueue<T> {
 
-
     /**
      * this time store the queue in a list
      * myQ.get(0) is the front of the queue
      *
      * @correspondence total_elements = myQ.size() ?
+     * @invariant 0 <= myQ.size() < MAX_LENGTH
      */
     private List<T> myQ;
-/**@Contract (x<10) */
+
     /**
      * Initializes myQ to a new empty array list
      *
@@ -32,12 +32,8 @@ public class ListQueue<T> extends AbsQueue<T> implements IQueue<T> {
      */
     @Override
     public void enqueue(T x) {
-        int tmp = myQ.size();
-        if (tmp == 0) {
-            myQ.add(x);
-        } else {
-            myQ.add(tmp, x);
-        }
+        myQ.add(x);
+
     }
 
     /**
@@ -47,22 +43,7 @@ public class ListQueue<T> extends AbsQueue<T> implements IQueue<T> {
      */
     @Override
     public T dequeue() {
-        boolean foundVal = false;
-        int firstInteger = 0;
-        for (int i = 0; i < myQ.size(); i++) {
-            if (myQ.get(i) !=null) {
-                firstInteger = i;
-                foundVal = true;
-                break;
-            }
-        }
-        if (foundVal) {
-            T tmp = myQ.get(firstInteger);
-            myQ.remove(firstInteger);
-            return tmp;
-        }
-
-        return null;
+        return myQ.remove(0);
     }
 
     /**
