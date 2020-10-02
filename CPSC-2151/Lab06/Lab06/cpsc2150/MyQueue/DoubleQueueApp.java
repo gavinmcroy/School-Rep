@@ -2,14 +2,13 @@ package cpsc2150.MyQueue;
 
 import java.util.Scanner;
 
-public class QueueApp {
-
+public class DoubleQueueApp {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         int usersImplementationChoice;
         int userChoice = 0;
-        IQueue<Integer> q = null;
+        IQueue<Double> q = null;
 
         /* Input for which implementation the user wants */
         System.out.println("Enter 1 for array implementation or 2 for List implementation ");
@@ -17,9 +16,9 @@ public class QueueApp {
 
         /* Make sure valid implementation is selected */
         if (usersImplementationChoice == 1) {
-            q = new ArrayQueue<Integer>();
+            q = new ArrayQueue<>();
         } else if (usersImplementationChoice == 2) {
-            q = new ListQueue<Integer>();
+            q = new ListQueue<>();
         } else {
             System.out.println("Invalid input");
             System.exit(1);
@@ -37,7 +36,7 @@ public class QueueApp {
                 /* Add to queue */
                 case 1: {
                     System.out.println("What number to add to the queue");
-                    int x = scanner.nextInt();
+                    double x = scanner.nextDouble();
                     /* Special case for when queue is full */
                     if (q.length() == IQueue.MAX_LENGTH) {
                         System.out.println("Queue is full");
@@ -76,7 +75,7 @@ public class QueueApp {
                 /* Insert into a position in the queue */
                 case 5: {
                     System.out.println("What number to add to the queue? ");
-                    int valToAdd = scanner.nextInt();
+                    double valToAdd = scanner.nextDouble();
                     int position;
 
                     /* Special case for when queue is full */
@@ -170,7 +169,7 @@ public class QueueApp {
      * @pre q != null
      * @post isQueueEmpty = (q.length == 0)
      */
-    public static boolean isQueueEmpty(IQueue<Integer> q) {
+    public static boolean isQueueEmpty(IQueue<Double> q) {
         if (q.length() == 0) {
             System.out.println("Queue is empty!");
             return true;
@@ -190,7 +189,7 @@ public class QueueApp {
      * @pre q != null and message != null
      * @post readDesiredPosition() = position
      */
-    public static Integer readDesiredPosition(IQueue<Integer> q, String message) {
+    public static Integer readDesiredPosition(IQueue<Double> q, String message) {
         int position;
         while (true) {
             System.out.println(message);
@@ -203,4 +202,3 @@ public class QueueApp {
         }
     }
 }
-

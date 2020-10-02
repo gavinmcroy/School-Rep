@@ -3,7 +3,7 @@ package cpsc2150.MyQueue;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListQueue extends AbsQueue implements IQueue {
+public class ListQueue<T> extends AbsQueue<T> implements IQueue<T> {
 
 
     /**
@@ -12,7 +12,7 @@ public class ListQueue extends AbsQueue implements IQueue {
      *
      * @correspondence total_elements = myQ.size() ?
      */
-    private List<Integer> myQ;
+    private List<T> myQ;
 /**@Contract (x<10) */
     /**
      * Initializes myQ to a new empty array list
@@ -31,7 +31,7 @@ public class ListQueue extends AbsQueue implements IQueue {
      * @param x the integer to enqueue into the array
      */
     @Override
-    public void enqueue(Integer x) {
+    public void enqueue(T x) {
         int tmp = myQ.size();
         if (tmp == 0) {
             myQ.add(x);
@@ -46,22 +46,23 @@ public class ListQueue extends AbsQueue implements IQueue {
      * @return the variable at the front of the queue
      */
     @Override
-    public Integer dequeue() {
+    public T dequeue() {
         boolean foundVal = false;
         int firstInteger = 0;
         for (int i = 0; i < myQ.size(); i++) {
-            if (myQ.get(i) != 0) {
+            if (myQ.get(i) !=null) {
                 firstInteger = i;
                 foundVal = true;
                 break;
             }
         }
         if (foundVal) {
-            int tmp = myQ.get(firstInteger);
+            T tmp = myQ.get(firstInteger);
             myQ.remove(firstInteger);
             return tmp;
         }
-        return 0;
+
+        return null;
     }
 
     /**

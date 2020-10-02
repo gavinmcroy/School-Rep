@@ -28,7 +28,7 @@ public interface IQueue<T> {
     /**
      * Queues a integer into the array by adding it to the back of the array
      *
-     * @param x the integer to enqueue into the array
+     * @param o the integer to enqueue into the array
      * @pre None
      * @post total_element = #total_element + 1
      */
@@ -90,8 +90,8 @@ public interface IQueue<T> {
      * @pre |self| > 0 and length() > 0
      * @post endOfQueue = [Last element in queue] and |self| > 0 and length() > 0
      */
-    default Integer endOfQueue() {
-        Integer x = null;
+    default T endOfQueue() {
+        T x = null;
         for (int i = 0; i < length(); i++) {
             x = dequeue();
             enqueue(x);
@@ -109,7 +109,7 @@ public interface IQueue<T> {
      * @pre x != null and pos > 0 and pos <= MAX_SIZE and length() < 100
      * @post self = <x> pos #self [self = x added to position pos in #self] and length() >= 1
      */
-    default void insert(Integer x, int pos) {
+    default void insert(T x, int pos) {
         ArrayList<T> tmp = new ArrayList<>();
         //---Special case if length is 0
         if (length() == 0) {
@@ -119,7 +119,7 @@ public interface IQueue<T> {
         //---Length reduces on each dequeue so you have to store initial size
         int length = length();
         for (int i = 0; i < length; i++) {
-            Integer add = dequeue();
+            T add = dequeue();
             //---Pos = 1 at position [0]
             if (i == pos - 1) {
                 tmp.add(x);
@@ -127,8 +127,8 @@ public interface IQueue<T> {
             tmp.add(add);
         }
         clear();
-        for (Integer integer : tmp) {
-            enqueue(integer);
+        for (T o : tmp) {
+            enqueue(o);
         }
     }
 
@@ -142,13 +142,13 @@ public interface IQueue<T> {
      * @pre pos > 0 and pos <= MAX_SIZE and |self| > 0 and length() > 0
      * @post remove() = (#self = remove(pos) o self) [self = remove(pos) removed from the position pos in #self]
      */
-    default Integer remove(int pos) {
-        Integer removeInt = null;
+    default T remove(int pos) {
+        T removeInt = null;
         for (int i = 0; i < length(); i++) {
             if (i == pos - 1) {
                 removeInt = dequeue();
             }
-            Integer tmp = dequeue();
+            T tmp = dequeue();
             enqueue(tmp);
         }
         return removeInt;
@@ -164,14 +164,14 @@ public interface IQueue<T> {
      * @pre pos > 0 and pos <= 100
      * @post get() = [self at get(pos)] [( get() = the element present in self at position pos)]
      */
-    default Integer get(int pos) {
-        Integer getInt = null;
+    default T get(int pos) {
+        T getInt = null;
         for (int i = 0; i < length(); i++) {
             if (i == pos - 1) {
                 getInt = dequeue();
                 enqueue(getInt);
             } else {
-                Integer tmp = dequeue();
+                T tmp = dequeue();
                 enqueue(tmp);
             }
         }

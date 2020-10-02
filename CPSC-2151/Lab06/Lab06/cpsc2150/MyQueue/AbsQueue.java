@@ -1,6 +1,6 @@
 package cpsc2150.MyQueue;
 
-public abstract class AbsQueue implements IQueue<T> {
+public abstract class AbsQueue<T> implements IQueue<T> {
 
     /**
      * Takes all the current members in the queue and nicely formats them with a string in the
@@ -14,7 +14,7 @@ public abstract class AbsQueue implements IQueue<T> {
     public String toString() {
         String formattedQueue = "";
         for (int i = 0; i < length(); i++) {
-            Integer tmp = dequeue();
+            T tmp = dequeue();
             if (i > 0) {
                 formattedQueue = formattedQueue.concat(", " + tmp);
             } else {

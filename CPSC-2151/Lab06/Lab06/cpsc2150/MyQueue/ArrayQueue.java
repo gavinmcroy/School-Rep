@@ -1,8 +1,6 @@
 package cpsc2150.MyQueue;
 
-import java.lang.reflect.Array;
-
-public class ArrayQueue<T> extends AbsQueue implements IQueue<T> {
+public class ArrayQueue<T> extends AbsQueue<T> implements IQueue<T> {
 
     /**
      * where the data is stored. myQ[0] is the front of the queue
@@ -28,9 +26,10 @@ public class ArrayQueue<T> extends AbsQueue implements IQueue<T> {
      * @post myQ == 0
      */
     ArrayQueue() {
-        myQ = new T[MAX_LENGTH];
+        //Object[] ;
+        myQ = (T[]) new Object[MAX_LENGTH];
         for (int i = 0; i < MAX_LENGTH; i++) {
-            myQ[i] = 0;
+            myQ[i] = null;
         }
 //        @SuppressWarnings("unchecked")
 //        final T[] a = (T[]) Array.newInstance(c, MAX_LENGTH);
@@ -46,8 +45,8 @@ public class ArrayQueue<T> extends AbsQueue implements IQueue<T> {
     @Override
     public void enqueue(T x) {
         for (int i = 0; i < MAX_LENGTH; i++) {
-            if (myQ[i] != 0 && i != 0) {
-                int val = myQ[i];
+            if (myQ[i] != null && i != 0) {
+                T val = myQ[i];
                 myQ[i - 1] = val;
             }
         }
@@ -61,21 +60,21 @@ public class ArrayQueue<T> extends AbsQueue implements IQueue<T> {
      * @return the variable at the front of the queue, 0 if a variable is not found
      */
     @Override
-    public Integer dequeue() {
+    public T dequeue() {
         int firstInteger = 0;
         for (int i = 0; i < MAX_LENGTH; i++) {
-            if (myQ[i] != 0) {
+            if (myQ[i] != null) {
                 firstInteger = i;
                 break;
             }
         }
-        if (myQ[firstInteger] != 0) {
-            int tmp = myQ[firstInteger];
-            myQ[firstInteger] = 0;
+        if (myQ[firstInteger] != null) {
+            T tmp = myQ[firstInteger];
+            myQ[firstInteger] = null;
             myLength--;
             return tmp;
         }
-        return 0;
+        return null;
     }
 
     /**
@@ -98,7 +97,7 @@ public class ArrayQueue<T> extends AbsQueue implements IQueue<T> {
             return;
         }
         for (int i = 0; i < MAX_LENGTH; i++) {
-            myQ[i] = 0;
+            myQ[i] = null;
         }
         myLength = 0;
     }
