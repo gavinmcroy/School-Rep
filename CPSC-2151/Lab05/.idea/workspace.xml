@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="68925d22-64eb-40e6-ab05-0321b70dd1b0" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/cpsc2150/MyQueue/QueueApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/cpsc2150/MyQueue/QueueApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/AbsQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/AbsQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/IQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/IQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/ListQueue.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/ListQueue.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/QueueApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Lab05/cpsc2150/MyQueue/QueueApp.class" afterDir="false" />
-    </list>
+    <list default="true" id="68925d22-64eb-40e6-ab05-0321b70dd1b0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,6 +25,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Lab05-Intellij" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -72,6 +67,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1600949623023" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601640116786">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601640116786" />
     <state width="1877" height="347" key="GridCell.Tab.0.bottom" timestamp="1601080979180">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -108,16 +107,5 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="655" y="263" key="refactoring.ChangeSignatureDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601067300501" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/cpsc2150/MyQueue/QueueApp.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
