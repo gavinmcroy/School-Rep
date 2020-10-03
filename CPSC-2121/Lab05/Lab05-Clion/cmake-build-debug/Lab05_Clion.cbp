@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.cpp">
+			<Option target="Lab05_Clion"/>
+		</Unit>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.h">
+			<Option target="Lab05_Clion"/>
+		</Unit>
 		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/main.cpp">
 			<Option target="Lab05_Clion"/>
 		</Unit>

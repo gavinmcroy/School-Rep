@@ -48,6 +48,10 @@ int main() {
     std::cout << "Total pieces " << totalIntersections + numberOfCuts + 1;
     return 0;
 }
+
+
+
+/** Reference */
 //    for (auto &cut : cuts) {
 //        std::cout << cut.first << " " << cut.second << std::endl;
 //    }

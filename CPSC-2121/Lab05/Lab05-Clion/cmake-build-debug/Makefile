@@ -142,6 +142,33 @@ Lab05_Clion/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab05_Clion.dir\build.make CMakeFiles/Lab05_Clion.dir/build
 .PHONY : Lab05_Clion/fast
 
+BinarySearchT.obj: BinarySearchT.cpp.obj
+
+.PHONY : BinarySearchT.obj
+
+# target to build an object file
+BinarySearchT.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab05_Clion.dir\build.make CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.obj
+.PHONY : BinarySearchT.cpp.obj
+
+BinarySearchT.i: BinarySearchT.cpp.i
+
+.PHONY : BinarySearchT.i
+
+# target to preprocess a source file
+BinarySearchT.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab05_Clion.dir\build.make CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.i
+.PHONY : BinarySearchT.cpp.i
+
+BinarySearchT.s: BinarySearchT.cpp.s
+
+.PHONY : BinarySearchT.s
+
+# target to generate assembly for a file
+BinarySearchT.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab05_Clion.dir\build.make CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.s
+.PHONY : BinarySearchT.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Lab05_Clion
+	@echo ... BinarySearchT.obj
+	@echo ... BinarySearchT.i
+	@echo ... BinarySearchT.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
