@@ -5,10 +5,18 @@
 #include "BinarySearchT.h"
 #include <iostream>
 #include <cstdlib>
+#include <cmath>
 #include <tuple>
 
 // type of data stored in key fields in tree
 using namespace std;
+
+double const BinarySearchT::EPSILON = 1e-9;
+
+bool BinarySearchT::double_equals(double a, double b, double epsilon) {
+    return std::abs(a - b) < epsilon;
+}
+
 
 int BinarySearchT::get_size(Node *n) {
     return n == nullptr ? 0 : n->size;
@@ -43,10 +51,10 @@ BinarySearchT::Node *BinarySearchT::find(Node *root, keyType k) {
     return find(k < root->key ? root->left : root->right, k);
 }
 
-BinarySearchT::Node *BinarySearchT::predfind(BinarySearchT::Node *root, keyType k) {
+BinarySearchT::Node *BinarySearchT::predFind(BinarySearchT::Node *root, keyType k) {
     if (root == nullptr || k == root->key) return root;
-    if (k < root->key) return predfind(root->left, k);
-    BinarySearchT::Node *right_result = predfind(root->right, k);
+    if (k < root->key) return predFind(root->left, k);
+    BinarySearchT::Node *right_result = predFind(root->right, k);
     return right_result == nullptr ? root : right_result;
 }
 
@@ -95,4 +103,16 @@ BinarySearchT::Node *BinarySearchT::remove(Node *root, keyType k) {
     else root->right = remove(root->right, k);
     update_size(root);
     return root;
+}
+
+int BinarySearchT::get_rank(Node *node, double val) {
+    int count = 0;
+    if (node == nullptr) {
+        return 0;
+    }
+    if (val > node->key) {
+        count++;
+    }/* key.compareTo(n.key) > 0)*/
+    return count + get_rank(node->left, val) + get_rank(node->right, val);
+
 }

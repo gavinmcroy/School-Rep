@@ -10,7 +10,9 @@
 class BinarySearchT {
 
 public:
-    typedef int keyType;
+    static double const EPSILON;
+    typedef double keyType;
+
     struct Node {
         keyType key;
         int size;
@@ -23,7 +25,9 @@ public:
         }
     };
 
-    int get_size(Node *n;
+    static bool double_equals(double a,double b,double epsilon);
+
+    int get_size(Node *n);
 
     void update_size(Node *n);
 
@@ -33,7 +37,7 @@ public:
 
     Node *find(Node *root, keyType k);
 
-    Node *predfind(Node *root, keyType k);
+    Node *predFind(Node *root, keyType k);
 
     std::pair<Node *, Node *> split(Node *root, keyType k);
 
@@ -42,6 +46,8 @@ public:
     Node *join(Node *L, Node *R);
 
     Node *remove(Node *root, keyType k);
+
+    int get_rank(Node* node, double val);
 
 
 };
