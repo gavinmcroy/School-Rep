@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d072d18c-8d83-431d-b9ee-3cd94cddd922" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Lab05/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab05/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/out/production/Lab05/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/out/production/Lab05/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/out/production/Lab05/cpsc2150/MyQueue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/out/production/Lab05/cpsc2150/MyQueue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Lab05/Lab05-Intellij/out/production/Lab05/lab5 (2).pdf" beforeDir="false" />
-    </list>
+    <list default="true" id="d072d18c-8d83-431d-b9ee-3cd94cddd922" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,7 +18,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Partner/DreamTeam" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -62,6 +56,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601920391275">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1601920391275" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1601644755452">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
