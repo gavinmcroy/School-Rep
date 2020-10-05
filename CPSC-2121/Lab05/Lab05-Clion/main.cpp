@@ -43,35 +43,26 @@ int main() {
 
 
     while (input >> firstReadVal >> secondReadVal) {
-        // if (firstReadVal > secondReadVal) {
+
         cuts.emplace_back(firstReadVal, secondReadVal);
         cuts.emplace_back(secondReadVal, firstReadVal); /*This is removed for O(n^2) */
-        /* } else {
-             cuts.emplace_back(firstReadVal, secondReadVal);
-             cuts.emplace_back(secondReadVal, firstReadVal);  */ /*This is removed for O(n^2) */
-        // }
+
         numberOfCuts++;
     }
     sort(cuts.begin(), cuts.end());
-//    for(int i= 0; i < cuts.size(); i++){
-//        std::cout<<cuts.at(i).first <<" "<<cuts.at(i).second<<std::endl;
-//    }
-//
-    long int value = 0;
-    int testing = 0;
+
     for (auto &cut : cuts) {
         /* Insert only the end point which is defined as (x1>x2) */
-        if (cut.first > cut.second) {
-            root = binarySearchT.insert_keep_balanced(root, cut.first);
-        } else if (cut.first < cut.second) {
+        if (binarySearchT.find(root, cut.first)) {
+            root = binarySearchT.remove(root, cut.first);
+        } else {
+            /* Remove */
             root = binarySearchT.insert_keep_balanced(root, cut.second);
-        }
-        /* If it finds the closing interval for a specific value do this operation */
-    }
-    std::cout << "ROOT SIZE: " << root->size << std::endl;
-    std::cout << "TESTING: " << testing << std::endl;
-    std::cout << "Empty Value " << value << std::endl;
+            totalIntersections += binarySearchT.get_rank(root, cut.second);
 
+        }
+
+    }
 
     /* THIS IS THE O(n^2) Solution */
     /* [N = numberOfCuts and P = Total Intersections ] 1 + N + P */
@@ -97,6 +88,7 @@ int main() {
 
     std::cout << "Number of cuts " << numberOfCuts << std::endl;
     std::cout << "Total Intersections " << totalIntersections << std::endl;
-    std::cout << "Total pieces " << totalIntersections + numberOfCuts + 1;
+    std::cout << "Total pieces = " << totalIntersections << " + " << +numberOfCuts << " + 1 = "
+              << totalIntersections + numberOfCuts + 1;
     return 0;
 }
