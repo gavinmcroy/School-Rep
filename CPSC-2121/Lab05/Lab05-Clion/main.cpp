@@ -34,34 +34,33 @@ int main() {
 //    std::cout << binarySearchT.get_rank(root, 2.5) << std::endl;
     /*Testing get_rank */
 
-//    while (input >> firstReadVal >> secondReadVal) {
-//        cuts.emplace_back(firstReadVal, secondReadVal);
-//        cuts.emplace_back(secondReadVal, firstReadVal);
-//    }
 
-    cuts.emplace_back(190,34);
-    cuts.emplace_back(34,190);
-    cuts.emplace_back(110,12);
-    cuts.emplace_back(12,110);
-    cuts.emplace_back(110,340);
-    cuts.emplace_back(340,110);
+//    cuts.emplace_back(190,34);
+//    cuts.emplace_back(34,190);
+//    cuts.emplace_back(110,12);
+//    cuts.emplace_back(12,110);
+//    cuts.emplace_back(110,340);
+//    cuts.emplace_back(340,110);
     sort(cuts.begin(), cuts.end());
 
 
-//    while (input >> firstReadVal >> secondReadVal) {
-//        if (firstReadVal > secondReadVal) {
-//            cuts.emplace_back(secondReadVal, firstReadVal);
-//        } else {
-//            cuts.emplace_back(firstReadVal, secondReadVal);
-//        }
-//        numberOfCuts++;
-//    }
+    while (input >> firstReadVal >> secondReadVal) {
+        if (firstReadVal > secondReadVal) {
+            cuts.emplace_back(secondReadVal, firstReadVal);
+            cuts.emplace_back(firstReadVal, secondReadVal); /*This is removed for O(n^2) */
+        } else {
+            cuts.emplace_back(firstReadVal, secondReadVal);
+            cuts.emplace_back(secondReadVal, firstReadVal);  /*This is removed for O(n^2) */
+        }
+        numberOfCuts++;
+    }
+    sort(cuts.begin(), cuts.end());
 
-    for(auto & cut : cuts){
+    for (auto &cut : cuts) {
         //std::cout<<"FIRST: "<<cuts.at(i).first << " SECOND: "<<cuts.at(i).second<<std::endl;
-        root = binarySearchT.insert_keep_balanced(root,cut.first);
+        root = binarySearchT.insert_keep_balanced(root, cut.first);
         /*  */
-        /*int val += (binarySearchT.get_rank(root,first))Get the rank of this element in search*/
+        /*int val += (binarySearchT.get_rank(root,first)) Get the rank of this element in search*/
     }
 
 
