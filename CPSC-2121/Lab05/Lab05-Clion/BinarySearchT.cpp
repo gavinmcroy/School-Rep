@@ -106,13 +106,25 @@ BinarySearchT::Node *BinarySearchT::remove(Node *root, keyType k) {
 }
 
 int BinarySearchT::get_rank(Node *node, double val) {
-    int count = 0;
+//    int count = 0;
+//    if (node == nullptr) {
+//        return 0;
+//    }
+//    if (val > node->key) {
+//        count++;
+//    }/* key.compareTo(n.key) > 0)*/
+//    return count + get_rank(node->left, val) + get_rank(node->right, val);
     if (node == nullptr) {
         return 0;
     }
-    if (val > node->key) {
-        count++;
-    }/* key.compareTo(n.key) > 0)*/
-    return count + get_rank(node->left, val) + get_rank(node->right, val);
+    int leftSize = node->left ? node->left->size : 0;
+    if (val == node->key) {
+        return leftSize;
+    }
+    if (val < node->key) {
+        return get_rank(node->left, val);
+    } else {
+        return 1 + leftSize + get_rank(node->right, val);
+    }
 
 }

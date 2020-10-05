@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.obj"
-  "CMakeFiles/Lab05_Clion.dir/main.cpp.obj"
-  "Lab05_Clion.exe"
-  "Lab05_Clion.exe.manifest"
+  "CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o"
+  "CMakeFiles/Lab05_Clion.dir/main.cpp.o"
+  "Lab05_Clion"
   "Lab05_Clion.pdb"
-  "libLab05_Clion.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

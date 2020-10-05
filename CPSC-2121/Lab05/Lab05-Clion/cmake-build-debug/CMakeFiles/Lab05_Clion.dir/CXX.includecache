@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.h
 cstdlib
 -
 utility
 -
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/main.cpp
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/main.cpp
 iostream
 -
 fstream
@@ -24,5 +24,5 @@ algorithm
 random
 -
 BinarySearchT.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.h
 
