@@ -1,5 +1,6 @@
 package cpsc2150.ExtendedTicTacToe;
 
+/* Class complete: */
 public class BoardPosition {
 
     /**
@@ -11,8 +12,6 @@ public class BoardPosition {
      * @invarient 0 < column <= 8
      */
     private int column;
-
-    /* TODO IMPLEMENT CONTRACT */
 
     /**
      * @pre: 0 < row <= 8
@@ -49,7 +48,7 @@ public class BoardPosition {
         return column;
     }
 
-   
+
     /**
      * returns a formatted string for (row, column)
      *
@@ -59,16 +58,24 @@ public class BoardPosition {
      */
     @Override
     public String toString() {
-        return super.toString();
+        return row + "," + column;
     }
 
     /**
+     * First checks if the object passed in equals the type of object expected. If not then it returns false
+     * else if it does than it checks to see if the row and columns are equal by converting them both to strings and
+     * checking for equality. If there equal return true, else return false
+     *
      * @return returns true if the positions object
      * @pre: obj = #obj instanceof(BoardPosition)
      * @post: equals = true iff(row = obj.row and column = obj.column)
      */
     @Override
     public boolean equals(Object obj) {
-        return super.equals(obj);
+        if (obj instanceof BoardPosition) {
+            return obj.toString().equals(toString());
+        } else {
+            return false;
+        }
     }
 }

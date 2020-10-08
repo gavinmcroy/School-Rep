@@ -1,40 +1,55 @@
 package cpsc2150.ExtendedTicTacToe;
 
-public class GameBoard implements IGameBoard {
+public class GameBoard extends AbsGameBoard implements IGameBoard {
+
+    /* TODO Remove this variable*/
+    final int tmpSize = 8;
+    final int numToWin = 5;
 
     char[][] gameBoard;
 
     /**
-     * Initializes the game board to be a 8x8 array of empty characters ' '
+     * TODO look into if null is the appropriate indication of empty
+     * Initializes the game board to be a 8x8 array of empty characters. A character is
+     * said to be empty if its board position inside of it equals null
      *
      * @pre: none
      * @post: gameBoard = (all elements = ' ')
      */
     GameBoard() {
+        gameBoard = new char[tmpSize][tmpSize];
 
+        for (int i = 0; i < tmpSize; i++) {
+            for (int j = 0; j < tmpSize; j++) {
+                gameBoard[i][j] = ' ';
+            }
+        }
     }
 
     /**
-     * Checks if the desired space is available on the board such that its not taken, and
-     * in the board bounds
-     *
+     * If the board position is equal to null that means that the position has not been
+     * taken on the board. If it does not equal null that means the position has been taken
+     * already
      */
     @Override
     public boolean checkSpace(BoardPosition pos) {
-        return false;
+        return gameBoard[pos.getRow()][pos.getColumn()] == ' ';
     }
 
     /**
+     * TODO does this method assume that the space is available ?
+     * <p>
      * places the character in marker on the position specified by
-     * marker, and should not be called if the space is not available.
-     *
+     * marker, and should not be called if the space is not available. This method
+     * assume that the space is available
      */
     @Override
     public void placeMarker(BoardPosition marker, char player) {
-
+        gameBoard[marker.getRow()][marker.getColumn()] = player;
     }
 
     /**
+     * TODO IMPLEMENT [I think this method is default]
      * this function will check to see if the lastPos placed resulted
      * in a winner. If so it will return true, otherwise false.
      * Passing in the last position will help limit the possible
@@ -42,7 +57,6 @@ public class GameBoard implements IGameBoard {
      * condition that did not include the most recent play made would have
      * been caught earlier.
      * You may call other methods to complete this method
-     *
      */
     @Override
     public boolean checkForWinner(BoardPosition lastPos) {
@@ -62,10 +76,18 @@ public class GameBoard implements IGameBoard {
      */
     @Override
     public boolean checkForDraw() {
-        return false;
+        for (int i = 0; i < tmpSize; i++) {
+            for (int j = 0; j < tmpSize; j++) {
+                if (gameBoard[i][j] == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     /**
+     * TODO check to see whats the point of last pos
      * checks to see if the last marker placed resulted in 5 in a row
      * horizontally. Returns true if it does, otherwise false
      *
@@ -78,10 +100,24 @@ public class GameBoard implements IGameBoard {
      */
     @Override
     public boolean checkHorizontalWin(BoardPosition lastPos, char player) {
+        int countToWin = 0;
+        for (int i = 0; i < tmpSize; i++) {
+            for (int j = 0; j < tmpSize; j++) {
+                if (gameBoard[i][j] != ' ') {
+                    countToWin++;
+                } else {
+                    countToWin = 0;
+                }
+                if (countToWin == getNumToWin()) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
     /**
+     * TODO IMPLEMENT
      * checks to see if the last marker placed resulted in 5 in a row
      * vertically. Returns true if it does, otherwise false
      *
@@ -99,6 +135,7 @@ public class GameBoard implements IGameBoard {
 
 
     /**
+     * TODO IMPLEMENT
      * checks to see if the last marker placed resulted in 5 in a row
      * diagonally. Returns true if it does, otherwise false
      * Note: there are two diagonals to check
@@ -127,7 +164,7 @@ public class GameBoard implements IGameBoard {
      */
     @Override
     public char whatsAtPos(BoardPosition pos) {
-        return ' ';
+        return gameBoard[pos.getRow()][pos.getColumn()];
     }
 
     /**
@@ -147,22 +184,31 @@ public class GameBoard implements IGameBoard {
      */
     @Override
     public boolean isPlayerAtPos(BoardPosition pos, char player) {
-        return false;
+        return gameBoard[pos.getRow()][pos.getColumn()] != ' ';
     }
 
+    /**
+     * TODO implement Description and fix returned Variable
+     */
     @Override
     public int getNumRows() {
-        return 0;
+        return tmpSize;
     }
 
+    /**
+     * TODO implement Description and fix returned variable
+     */
     @Override
     public int getNumColumns() {
-        return 0;
+        return tmpSize;
     }
 
+    /**
+     * TODO implement Description and fix returned variable
+     */
     @Override
     public int getNumToWin() {
-        return 0;
+        return numToWin;
     }
 
 }

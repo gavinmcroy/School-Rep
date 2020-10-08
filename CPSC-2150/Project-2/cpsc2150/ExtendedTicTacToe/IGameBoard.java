@@ -1,5 +1,8 @@
 package cpsc2150.ExtendedTicTacToe;
 
+/**
+ * TODO IMPLEMENT DEFAULT METHODS, CORRESPONDENCES, and INTERFACE SPECIFICATIONS
+ */
 public interface IGameBoard {
     /**
      * Checks if the desired space is available on the board such that its not taken, and
@@ -125,18 +128,21 @@ public interface IGameBoard {
 
     /**
      * TODO -Description-
+     *
      * @return returns the number of rows that are present in the Game Board
      */
     int getNumRows();
 
     /**
      * TODO -Description-
+     *
      * @return returns the number of columns that are present in the Game Board
      */
     int getNumColumns();
 
     /**
      * TODO -Description-
+     *
      * @return returns the number of consecutive marks required to win the game. Meaning if
      * getNumToWin = 5 that means it takes 5 consecutive vertical horizontal or diagonal marks
      * to win the game
