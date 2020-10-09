@@ -11,7 +11,30 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="553c3ba7-1d55-4ed0-b4bd-aabbc3a09f0b" name="Default Changelist" comment="" />
+    <list default="true" id="553c3ba7-1d55-4ed0-b4bd-aabbc3a09f0b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bad3" beforeDir="false" afterPath="$PROJECT_DIR$/bad3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bad3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/bad3.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/bad1.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/bad1.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Project_2.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Project_2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Project_2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Project_2.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Project_2.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/input3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/prog3" beforeDir="false" afterPath="$PROJECT_DIR$/prog3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/prog3.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/prog3.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -22,7 +45,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$USER_HOME$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
   <component name="ProjectId" id="1iYjSzmwDwWB4etqlRNiNTGOWTL" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -38,14 +61,19 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Project_2" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Project_2" TARGET_NAME="Project_2" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Project_2" RUN_TARGET_NAME="Project_2">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -60,6 +88,7 @@
       <workItem from="1602091426437" duration="298000" />
       <workItem from="1602091840915" duration="5736000" />
       <workItem from="1602098340530" duration="292000" />
+      <workItem from="1602196830605" duration="4522000" />
     </task>
     <servers />
   </component>
@@ -67,26 +96,34 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1638" height="256" key="GridCell.Tab.0.bottom" timestamp="1602098105175">
+    <state x="568" y="310" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1602197906789">
       <screen x="0" y="23" width="1680" height="957" />
+    </state>
+    <state x="568" y="310" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1680.957@0.23.1680.957" timestamp="1602197906789" />
+    <state width="1638" height="256" key="GridCell.Tab.0.bottom" timestamp="1602203301744">
+      <screen x="0" y="23" width="1680" height="959" />
     </state>
     <state width="1638" height="256" key="GridCell.Tab.0.bottom/0.23.1680.953@0.23.1680.953" timestamp="1602091989876" />
-    <state width="1638" height="256" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1602098105175" />
-    <state width="1638" height="256" key="GridCell.Tab.0.center" timestamp="1602098105174">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state width="1638" height="256" key="GridCell.Tab.0.bottom/0.23.1680.957@0.23.1680.957" timestamp="1602199383909" />
+    <state width="1638" height="256" key="GridCell.Tab.0.bottom/0.23.1680.959@0.23.1680.959" timestamp="1602203301744" />
+    <state width="1638" height="256" key="GridCell.Tab.0.center" timestamp="1602203301743">
+      <screen x="0" y="23" width="1680" height="959" />
     </state>
     <state width="1638" height="256" key="GridCell.Tab.0.center/0.23.1680.953@0.23.1680.953" timestamp="1602091989875" />
-    <state width="1638" height="256" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1602098105174" />
-    <state width="1638" height="256" key="GridCell.Tab.0.left" timestamp="1602098105174">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state width="1638" height="256" key="GridCell.Tab.0.center/0.23.1680.957@0.23.1680.957" timestamp="1602199383908" />
+    <state width="1638" height="256" key="GridCell.Tab.0.center/0.23.1680.959@0.23.1680.959" timestamp="1602203301743" />
+    <state width="1638" height="256" key="GridCell.Tab.0.left" timestamp="1602203301743">
+      <screen x="0" y="23" width="1680" height="959" />
     </state>
     <state width="1638" height="256" key="GridCell.Tab.0.left/0.23.1680.953@0.23.1680.953" timestamp="1602091989874" />
-    <state width="1638" height="256" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1602098105174" />
-    <state width="1638" height="256" key="GridCell.Tab.0.right" timestamp="1602098105175">
-      <screen x="0" y="23" width="1680" height="957" />
+    <state width="1638" height="256" key="GridCell.Tab.0.left/0.23.1680.957@0.23.1680.957" timestamp="1602199383905" />
+    <state width="1638" height="256" key="GridCell.Tab.0.left/0.23.1680.959@0.23.1680.959" timestamp="1602203301743" />
+    <state width="1638" height="256" key="GridCell.Tab.0.right" timestamp="1602203301744">
+      <screen x="0" y="23" width="1680" height="959" />
     </state>
     <state width="1638" height="256" key="GridCell.Tab.0.right/0.23.1680.953@0.23.1680.953" timestamp="1602091989875" />
-    <state width="1638" height="256" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1602098105175" />
+    <state width="1638" height="256" key="GridCell.Tab.0.right/0.23.1680.957@0.23.1680.957" timestamp="1602199383908" />
+    <state width="1638" height="256" key="GridCell.Tab.0.right/0.23.1680.959@0.23.1680.959" timestamp="1602203301744" />
     <state x="341" y="138" key="SettingsEditor" timestamp="1602091877659">
       <screen x="0" y="23" width="1680" height="955" />
     </state>

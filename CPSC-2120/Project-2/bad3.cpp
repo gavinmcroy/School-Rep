@@ -5,6 +5,10 @@
 
 using namespace std;
 
+int get_rand(int N) {
+    return 123456789 % N;
+}
+
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         cout << "Usage: bad1 <input size>\n";
@@ -17,10 +21,13 @@ int main(int argc, char *argv[]) {
         return 0;
     }
 
-
+    /* p = 123456789 % (len - p - 1)*/
     cout << N << "\n";
     for (int i = 0; i < N; i++) {
-        cout << i << endl;
+//        if(get_rand(i)){
+//
+//        }
+        cout << 5 << endl;
     }
     return 0;
 }

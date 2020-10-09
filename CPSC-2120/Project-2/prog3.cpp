@@ -19,6 +19,9 @@ int get_rand(int N) {
 // of the pivot in the resulting array
 int partition(int *A, int len) {
     int pivot = get_rand(len);
+    if(pivot==0){
+        cout<<len<<endl;
+    }
 
     // Forgot how to partition in-place, so I'm going to just allocate
     // a temporary buffer for now...
@@ -66,19 +69,22 @@ void quicksort(int *A, int len) {
 }
 
 int main(void) {
-    int N; // size of input
-    if (!(cin >> N) || N < 1 || N > 100000) {
-        cout << "Invalid input size!\n";
-        return 0;
-    }
+    int N=100000; // size of input
+//    if (!(cin >> N) || N < 1 || N > 100000) {
+//        cout << "Invalid input size!\n";
+//        return 0;
+//    }
 
     // read input
     int *A = new int[N];
-    for (int i = 0; i < N; i++)
-        if (!(cin >> A[i]) || A[i] < 0) {
-            cout << "Invalid input!\n";
-            return 0;
-        }
+    for(int i =0; i < N; i++){
+        A[i] = 5;
+    }
+//    for (int i = 0; i < N; i++)
+//        if (!(cin >> A[i]) || A[i] < 0) {
+//            cout << "Invalid input!\n";
+//            return 0;
+//        }
 
     quicksort(A, N);
 //
