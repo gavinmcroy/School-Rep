@@ -12,12 +12,14 @@ public abstract class AbsGameBoard implements IGameBoard {
      */
     @Override
     public String toString() {
-        StringBuilder formatted = new StringBuilder("");
+        StringBuilder formatted = new StringBuilder();
+        /* Moves top row of characters over by " " */
         formatted.append(" ");
         for (int i = 0; i < getNumRows(); i++) {
             formatted.append(" ").append(i);
         }
         formatted.append("\n");
+        /* Builds 2D grind for tic tac toe board */
         for (int i = 0; i < getNumRows(); i++) {
             formatted.append(i);
             for (int j = 0; j < getNumColumns(); j++) {

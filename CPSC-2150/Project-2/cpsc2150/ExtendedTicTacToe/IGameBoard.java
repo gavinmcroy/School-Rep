@@ -4,16 +4,27 @@ package cpsc2150.ExtendedTicTacToe;
  * TODO IMPLEMENT DEFAULT METHODS, CORRESPONDENCES, and INTERFACE SPECIFICATIONS
  */
 public interface IGameBoard {
+
     /**
+     * TODO Implement Description of Variables
+     */
+    int SIZE = 8;
+    int NUM_TO_WIN = 5;
+
+    /**
+     * TODO default Type
      * Checks if the desired space is available on the board such that its not taken, and
-     * in the board bounds
+     * in the board bounds (Not taken is defined as " ")
      *
      * @return returns true if the position specified in pos is available,
      * false otherwise. If a space is not in bounds, then it is not available
      * @pre: pos !=null
      * @post: checkSpace = true iff(gameBoard at pos = ' ') : else it is false
      */
-    boolean checkSpace(BoardPosition pos);
+    default boolean checkSpace(BoardPosition pos) {
+        char positionDetails = whatsAtPos(pos);
+        return positionDetails == ' ';
+    }
 
     /**
      * places the character in marker on the position specified by
@@ -27,6 +38,7 @@ public interface IGameBoard {
     void placeMarker(BoardPosition marker, char player);
 
     /**
+     * TODO default Type
      * this function will check to see if the lastPos placed resulted
      * in a winner. If so it will return true, otherwise false.
      * Passing in the last position will help limit the possible
@@ -40,9 +52,20 @@ public interface IGameBoard {
      * @pre: lastPos != null
      * @post: checkForWinner = true iff [checkHorizontalWin or checkVerticalWin or checkDiagonalWin = true]
      */
-    boolean checkForWinner(BoardPosition lastPos);
+    default boolean checkForWinner(BoardPosition lastPos) {
+        char player = whatsAtPos(lastPos);
+        // return checkHorizontalWin(lastPos,player)
+        if (checkHorizontalWin(lastPos, player)) {
+            System.out.println("Horizontal");
+            return true;
+        } else if (checkVerticalWin(lastPos, player)) {
+            System.out.println("Vertical");
+            return true;
+        } else return checkDiagonalWin(lastPos, player);
+    }
 
     /**
+     * TODO default Type
      * this function will check to see if the game has resulted in a
      * tie. A game is tied if there are no free board positions remaining.
      * You do not need to check for any potential wins, because we can assume
@@ -53,9 +76,19 @@ public interface IGameBoard {
      * @pre: none
      * @post: checkForDraw = true iff [board is filled with elements not equal to ' ']
      */
-    boolean checkForDraw();
+    default boolean checkForDraw() {
+        for (int i = 0; i < getNumRows(); i++) {
+            for (int j = 0; j < getNumColumns(); j++) {
+                if (whatsAtPos(new BoardPosition(i, j)) == ' ') {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 
     /**
+     * TODO default Type
      * checks to see if the last marker placed resulted in 5 in a row
      * horizontally. Returns true if it does, otherwise false
      *
@@ -66,9 +99,25 @@ public interface IGameBoard {
      * @post: checkHorizontalWin = true iff [5 consecutive horizontal spots on the board [1...5] all equal the same character
      * as player]
      */
-    boolean checkHorizontalWin(BoardPosition lastPos, char player);
+    default boolean checkHorizontalWin(BoardPosition lastPos, char player) {
+        int countToWin = 0;
+        for (int i = 0; i < getNumRows(); i++) {
+            for (int j = 0; j < getNumColumns(); j++) {
+                if (whatsAtPos(new BoardPosition(i, j)) == player) {
+                    countToWin++;
+                } else {
+                    countToWin = 0;
+                }
+                if (countToWin == getNumToWin()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
     /**
+     * TODO default Type
      * checks to see if the last marker placed resulted in 5 in a row
      * vertically. Returns true if it does, otherwise false
      *
@@ -79,10 +128,26 @@ public interface IGameBoard {
      * @post: checkVerticalWin = true iff [5 consecutive vertical spots on the board all equal the same character
      * as player]
      */
-    boolean checkVerticalWin(BoardPosition lastPos, char player);
+    default boolean checkVerticalWin(BoardPosition lastPos, char player) {
+        int countToWin = 0;
+        for (int i = 0; i < getNumColumns(); i++) {
+            for (int j = 0; j < getNumRows(); j++) {
+                if (whatsAtPos(new BoardPosition(i, j)) == player) {
+                    countToWin++;
+                } else {
+                    countToWin = 0;
+                }
+                if (countToWin == getNumToWin()) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 
     /**
+     * TODO default Type
      * checks to see if the last marker placed resulted in 5 in a row
      * diagonally. Returns true if it does, otherwise false
      * Note: there are two diagonals to check
@@ -94,7 +159,9 @@ public interface IGameBoard {
      * @post: checkDiagonalWin = true iff [5 consecutive diagonal spots on the board all equal the same character
      * as player]
      */
-    boolean checkDiagonalWin(BoardPosition lastPos, char player);
+    default boolean checkDiagonalWin(BoardPosition lastPos, char player) {
+        return false;
+    }
 
     /**
      * returns what is in the GameBoard at position pos
@@ -109,6 +176,7 @@ public interface IGameBoard {
     char whatsAtPos(BoardPosition pos);
 
     /**
+     * TODO default Type
      * returns true if the player is at pos, otherwise it returns false
      * Note: this method will be implemented very similarly to
      * whatsAtPos, but it’s asking a different question. We only know they
@@ -123,7 +191,9 @@ public interface IGameBoard {
      * @pre: pos != null and player = 'O' or player 'X'
      * @post: isPlayerAtPos = true iff(gameBoard[at pos] == player)
      */
-    boolean isPlayerAtPos(BoardPosition pos, char player);
+    default boolean isPlayerAtPos(BoardPosition pos, char player) {
+        return whatsAtPos(pos) != player;
+    }
 
 
     /**

@@ -3,8 +3,9 @@ package cpsc2150.ExtendedTicTacToe;
 public class GameBoard extends AbsGameBoard implements IGameBoard {
 
     /* TODO Remove this variable*/
-    final int tmpSize = 8;
-    final int numToWin = 5;
+
+//    final int SIZE = 8;
+//    final int NUM_TO_WIN = 5;
 
     char[][] gameBoard;
 
@@ -17,10 +18,10 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * @post: gameBoard = (all elements = ' ')
      */
     GameBoard() {
-        gameBoard = new char[tmpSize][tmpSize];
+        gameBoard = new char[SIZE][SIZE];
 
-        for (int i = 0; i < tmpSize; i++) {
-            for (int j = 0; j < tmpSize; j++) {
+        for (int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
                 gameBoard[i][j] = ' ';
             }
         }
@@ -31,10 +32,10 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * taken on the board. If it does not equal null that means the position has been taken
      * already
      */
-    @Override
-    public boolean checkSpace(BoardPosition pos) {
-        return gameBoard[pos.getRow()][pos.getColumn()] == ' ';
-    }
+//    @Override
+//    public boolean checkSpace(BoardPosition pos) {
+//        return gameBoard[pos.getRow()][pos.getColumn()] == ' ';
+//    }
 
     /**
      * TODO does this method assume that the space is available ?
@@ -58,10 +59,10 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * been caught earlier.
      * You may call other methods to complete this method
      */
-    @Override
-    public boolean checkForWinner(BoardPosition lastPos) {
-        return false;
-    }
+//    @Override
+//    public boolean checkForWinner(BoardPosition lastPos) {
+//        return true;
+//    }
 
     /**
      * this function will check to see if the game has resulted in a
@@ -74,17 +75,17 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * @pre: none
      * @post: checkForDraw = true iff [board is filled with elements not equal to ' ']
      */
-    @Override
-    public boolean checkForDraw() {
-        for (int i = 0; i < tmpSize; i++) {
-            for (int j = 0; j < tmpSize; j++) {
-                if (gameBoard[i][j] == ' ') {
-                    return false;
-                }
-            }
-        }
-        return true;
-    }
+//    @Override
+//    public boolean checkForDraw() {
+//        for (int i = 0; i < tmpSize; i++) {
+//            for (int j = 0; j < tmpSize; j++) {
+//                if (gameBoard[i][j] == ' ') {
+//                    return false;
+//                }
+//            }
+//        }
+//        return true;
+//    }
 
     /**
      * TODO check to see whats the point of last pos
@@ -98,23 +99,23 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * @post: checkHorizontalWin = true iff [5 consecutive horizontal spots on the board [1...5] all equal the same character
      * as player]
      */
-    @Override
-    public boolean checkHorizontalWin(BoardPosition lastPos, char player) {
-        int countToWin = 0;
-        for (int i = 0; i < tmpSize; i++) {
-            for (int j = 0; j < tmpSize; j++) {
-                if (gameBoard[i][j] != ' ') {
-                    countToWin++;
-                } else {
-                    countToWin = 0;
-                }
-                if (countToWin == getNumToWin()) {
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+//    @Override
+//    public boolean checkHorizontalWin(BoardPosition lastPos, char player) {
+//        int countToWin = 0;
+//        for (int i = 0; i < tmpSize; i++) {
+//            for (int j = 0; j < tmpSize; j++) {
+//                if (gameBoard[i][j] != ' ') {
+//                    countToWin++;
+//                } else {
+//                    countToWin = 0;
+//                }
+//                if (countToWin == getNumToWin()) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
+//    }
 
     /**
      * TODO IMPLEMENT
@@ -128,10 +129,10 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * @post: checkVerticalWin = true iff [5 consecutive vertical spots on the board all equal the same character
      * as player]
      */
-    @Override
-    public boolean checkVerticalWin(BoardPosition lastPos, char player) {
-        return false;
-    }
+//    @Override
+//    public boolean checkVerticalWin(BoardPosition lastPos, char player) {
+//        return false;
+//    }
 
 
     /**
@@ -147,10 +148,10 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * @post: checkDiagonalWin = true iff [5 consecutive diagonal spots on the board all equal the same character
      * as player]
      */
-    @Override
-    public boolean checkDiagonalWin(BoardPosition lastPos, char player) {
-        return false;
-    }
+//    @Override
+//    public boolean checkDiagonalWin(BoardPosition lastPos, char player) {
+//        return false;
+//    }
 
     /**
      * returns what is in the GameBoard at position pos
@@ -182,17 +183,17 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * @pre: pos != null and player = 'O' or player 'X'
      * @post: isPlayerAtPos = true iff(gameBoard[at pos] == player)
      */
-    @Override
-    public boolean isPlayerAtPos(BoardPosition pos, char player) {
-        return gameBoard[pos.getRow()][pos.getColumn()] != ' ';
-    }
+//    @Override
+//    public boolean isPlayerAtPos(BoardPosition pos, char player) {
+//        return gameBoard[pos.getRow()][pos.getColumn()] != ' ';
+//    }
 
     /**
      * TODO implement Description and fix returned Variable
      */
     @Override
     public int getNumRows() {
-        return tmpSize;
+        return SIZE;
     }
 
     /**
@@ -200,7 +201,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public int getNumColumns() {
-        return tmpSize;
+        return SIZE;
     }
 
     /**
@@ -208,7 +209,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public int getNumToWin() {
-        return numToWin;
+        return NUM_TO_WIN;
     }
 
 }
