@@ -12,7 +12,6 @@ public interface IGameBoard {
     int NUM_TO_WIN = 5;
 
     /**
-     * TODO default Type
      * Checks if the desired space is available on the board such that its not taken, and
      * in the board bounds (Not taken is defined as " ")
      *
@@ -38,7 +37,6 @@ public interface IGameBoard {
     void placeMarker(BoardPosition marker, char player);
 
     /**
-     * TODO default Type
      * this function will check to see if the lastPos placed resulted
      * in a winner. If so it will return true, otherwise false.
      * Passing in the last position will help limit the possible
@@ -54,21 +52,19 @@ public interface IGameBoard {
      */
     default boolean checkForWinner(BoardPosition lastPos) {
         char player = whatsAtPos(lastPos);
-        // return checkHorizontalWin(lastPos,player)
         if (checkHorizontalWin(lastPos, player)) {
             System.out.println("Horizontal");
             return true;
         } else if (checkVerticalWin(lastPos, player)) {
             System.out.println("Vertical");
             return true;
-        } else{
+        } else {
             System.out.println("Diagonal");
             return checkDiagonalWin(lastPos, player);
         }
     }
 
     /**
-     * TODO default Type
      * this function will check to see if the game has resulted in a
      * tie. A game is tied if there are no free board positions remaining.
      * You do not need to check for any potential wins, because we can assume
@@ -87,6 +83,7 @@ public interface IGameBoard {
                 }
             }
         }
+        /* Board is full */
         return true;
     }
 
@@ -116,11 +113,11 @@ public interface IGameBoard {
                 }
             }
         }
+        /* No Horizontal win */
         return false;
     }
 
     /**
-     * TODO default Type
      * checks to see if the last marker placed resulted in 5 in a row
      * vertically. Returns true if it does, otherwise false
      *
@@ -150,7 +147,6 @@ public interface IGameBoard {
 
 
     /**
-     *
      * checks to see if the last marker placed resulted in 5 in a row
      * diagonally. Returns true if it does, otherwise false
      * Note: there are two diagonals to check (Left diagonal and right diagonal)
@@ -166,38 +162,56 @@ public interface IGameBoard {
         int countToWin = 0;
 
         /* Right diagonal */
-        for(int i = 0;i<getNumRows(); i++){
-            if(i+1<getNumRows())
-            {
-                if(whatsAtPos(new BoardPosition(i,i+1))==player) {
+//        for(int i = 0;i<getNumRows(); i++){
+//            if(i+1<getNumRows())
+//            {
+//                if(whatsAtPos(new BoardPosition(i,i+1))==player) {
+//                    countToWin++;
+//                }else{
+//                    countToWin = 0;
+//                }
+//                if(countToWin==getNumToWin()){
+//                    return true;
+//                }
+//
+//            }
+//        }
+        /* Right Diagonal */
+        for (int i = 0; i < getNumRows() - getNumToWin() - 1; i++) {
+            for (int j = 0; j < getNumColumns() - 1 - getNumToWin(); j++) {
+                while (whatsAtPos(new BoardPosition(i, j)) == player) {
+                    i++;
+                    j++;
                     countToWin++;
-                }else{
-                    countToWin = 0;
+                    if (countToWin == getNumToWin()) {
+                        return true;
+                    }
                 }
-                if(countToWin==getNumToWin()){
-                    return true;
-                }
+                countToWin = 0;
+            }
+        }
 
-            }
-        }
-        /* Right diagonal (reset countToWin in case it had data from previous count)*/
-        countToWin = 0;
-        int j = 0;
-        for(int i = 6; i >=0; i--){
-            if(i-1>=0 && j<getNumRows()){
-                if(whatsAtPos(new BoardPosition(i-1,j))==player){
+        /* Left Diagonal */
+        for (int i = getNumRows() - 1; i > (getNumToWin() - 2); i--) {
+            for (int j = 0; j < (getNumColumns() - getNumToWin() - 1); j++) {
+                while (whatsAtPos(new BoardPosition(j, i)) == player) {
+                    j++;
+                    i--;
                     countToWin++;
-                }else{
-                    countToWin = 0;
+                    if (countToWin == getNumToWin()) {
+                        return true;
+                    }
                 }
-                if(countToWin==getNumToWin()){
-                    return true;
-                }
+                countToWin = 0;
             }
-            j++;
         }
+
+        /* No Diagonal win */
         return false;
+
+
     }
+
 
     /**
      * returns what is in the GameBoard at position pos
@@ -234,6 +248,7 @@ public interface IGameBoard {
     /**
      * TODO Contracts
      * This method gets the current number of rows present in the game board
+     *
      * @return returns the number of rows that are present in the Game Board
      * @pre:
      * @post:
@@ -241,15 +256,17 @@ public interface IGameBoard {
     int getNumRows();
 
     /**
-     * TODO -Description-
+     * TODO -Contracts-
      * This method gets the current number of columns present in the game board
+     *
      * @return returns the number of columns that are present in the Game Board
      */
     int getNumColumns();
 
     /**
-     * TODO -Description-
+     * TODO -Contracts-
      * Returns the number of consecutive marks on the game board to win the game
+     *
      * @return returns the number of consecutive marks required to win the game. Meaning if
      * getNumToWin = 5 that means it takes 5 consecutive vertical horizontal or diagonal marks
      * to win the game
