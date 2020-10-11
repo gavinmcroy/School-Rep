@@ -23,6 +23,8 @@ public class GameScreen {
             playAgain = scanner.nextLine();
             resetGameBoard();
         }
+        /* TODO Issue with game not looping (flush input)? */
+        System.out.println(playAgain);
         System.out.println("[TMP] Closing");
     }
 

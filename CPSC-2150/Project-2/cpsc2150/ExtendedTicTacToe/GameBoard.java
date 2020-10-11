@@ -25,6 +25,17 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
                 gameBoard[i][j] = ' ';
             }
         }
+        /* TODO DEBUG */
+        int j = 0;
+        for(int i = 6; i > 1; i--){
+            gameBoard[i-1][j] = 'X';
+            j++;
+        }
+
+//        for(int i = 3; i < 6;i++){
+//            gameBoard[i][i] = 'X';
+//            j++
+//        }
     }
 
     /**
