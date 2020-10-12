@@ -53,6 +53,7 @@ double get_productivity(Student &s, double t1, double t2) {
   half of the productivity of student s (between t1 and t2) has been reached
   e.g., get_productivity(t1,answer) should be half of get_productivity(t1,t2) */
 double get_halfway_cutoff(Student &s, double t1, double t2) {
+
     /* TODO: use binary search and the get_productivity() function to return an
      * answer here that is accurate to within a tolerance of 0.0001
      * (i.e., the correct cutoff should differ from yours by at most 0.0001) */
