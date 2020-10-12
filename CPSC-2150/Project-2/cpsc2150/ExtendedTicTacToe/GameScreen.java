@@ -16,16 +16,15 @@ public class GameScreen {
     public static void main(String[] args) {
         String playAgain = "Y";
         /* If the player wants to play again, reset board and play again , else close program */
-        System.out.println(gameBoard.toString());
         while (playAgain.equals("Y")) {
+            System.out.println(gameBoard.toString());
             runGame();
-            System.out.println("Play again ?");
-            playAgain = scanner.nextLine();
+            System.out.println("Would you like to play again ?");
+            playAgain = scanner.next();
+            playAgain = playAgain.toUpperCase();
             resetGameBoard();
         }
-        /* TODO Issue with game not looping (flush input)? */
-        System.out.println(playAgain);
-        System.out.println("[TMP] Closing");
+        System.out.println("Thanks for playing! ");
     }
 
     /**
@@ -36,6 +35,13 @@ public class GameScreen {
      * the user to play again. If a win is not detected it will attempt to detect a draw. If a draw is detected a
      * message about the draw will be printed. If there is no draw the turns will be changed and the boards current
      * layout will be displayed looping back to the beginning by asking the player to enter another location
+     * ---Insert
+     * ---CheckForWin
+     * ---No Win Check Draw
+     * ---No Draw Change Turn
+     * ---Yes Draw print Message
+     * ---Print Win Message
+     * ---Ask play again Y/N
      *
      * @pre: isPlayerXTurn = true and isPlayerOTurn = false
      * @post: none
@@ -69,15 +75,6 @@ public class GameScreen {
                 System.out.println(gameBoard.toString());
             }
         }
-
-
-        //---Insert
-        //---CheckForWin
-        //---No Check Draw
-        //---No Change Turn
-        //---Yes Draw print Message
-        //---Print Win Message
-        //---Ask play again Y/N
     }
 
     /**

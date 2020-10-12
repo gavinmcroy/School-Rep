@@ -1,15 +1,22 @@
 package cpsc2150.ExtendedTicTacToe;
 
 /**
- * TODO IMPLEMENT DEFAULT METHODS, CORRESPONDENCES, and INTERFACE SPECIFICATIONS
+ * Contains information about the game board necessary methods to control the flow of tic tac toe
+ * <p>
+ * Defines: numToWin : Z [The number of consecutive marks either vertical horizontal or diagonal to win]
+ * <p>
+ * Initialization Ensures: [An empty (Empty is defined as " ")2D grid of characters with row == MAX_SIZE
+ * and column == MAX_SIZE]
+ * <p>
+ * Constraints:
+ * 0<NUM_TO_WIN <= MAX_SIZE
  */
 public interface IGameBoard {
 
     /**
      * TODO Implement Description of Variables
      */
-    int SIZE = 8;
-    int NUM_TO_WIN = 5;
+    int MAX_SIZE = 8;
 
     /**
      * Checks if the desired space is available on the board such that its not taken, and
@@ -145,7 +152,6 @@ public interface IGameBoard {
         return false;
     }
 
-
     /**
      * checks to see if the last marker placed resulted in 5 in a row
      * diagonally. Returns true if it does, otherwise false
@@ -161,24 +167,10 @@ public interface IGameBoard {
     default boolean checkDiagonalWin(BoardPosition lastPos, char player) {
         int countToWin = 0;
 
-        /* Right diagonal */
-//        for(int i = 0;i<getNumRows(); i++){
-//            if(i+1<getNumRows())
-//            {
-//                if(whatsAtPos(new BoardPosition(i,i+1))==player) {
-//                    countToWin++;
-//                }else{
-//                    countToWin = 0;
-//                }
-//                if(countToWin==getNumToWin()){
-//                    return true;
-//                }
-//
-//            }
-//        }
-        /* Right Diagonal */
+        /* Right Diagonal (Contains some padding to not go out of bounds) */
         for (int i = 0; i < getNumRows() - getNumToWin() - 1; i++) {
             for (int j = 0; j < getNumColumns() - 1 - getNumToWin(); j++) {
+                /* Count the diagonal streak until it equals getNumToWin()*/
                 while (whatsAtPos(new BoardPosition(i, j)) == player) {
                     i++;
                     j++;
@@ -190,10 +182,10 @@ public interface IGameBoard {
                 countToWin = 0;
             }
         }
-
-        /* Left Diagonal */
+        /* Left Diagonal (Contains some padding to not go out of bounds) */
         for (int i = getNumRows() - 1; i > (getNumToWin() - 2); i--) {
             for (int j = 0; j < (getNumColumns() - getNumToWin() - 1); j++) {
+                /* Count the diagonal streak until it equals getNumToWin()*/
                 while (whatsAtPos(new BoardPosition(j, i)) == player) {
                     j++;
                     i--;
@@ -205,13 +197,9 @@ public interface IGameBoard {
                 countToWin = 0;
             }
         }
-
         /* No Diagonal win */
         return false;
-
-
     }
-
 
     /**
      * returns what is in the GameBoard at position pos
@@ -246,30 +234,31 @@ public interface IGameBoard {
 
 
     /**
-     * TODO Contracts
      * This method gets the current number of rows present in the game board
      *
      * @return returns the number of rows that are present in the Game Board
-     * @pre:
-     * @post:
+     * @pre: none
+     * @post: getNumRows() = MAX_SIZE
      */
     int getNumRows();
 
     /**
-     * TODO -Contracts-
      * This method gets the current number of columns present in the game board
      *
      * @return returns the number of columns that are present in the Game Board
+     * @pre: none
+     * @post: getNumColumns() = MAX_SIZE
      */
     int getNumColumns();
 
     /**
-     * TODO -Contracts-
      * Returns the number of consecutive marks on the game board to win the game
      *
      * @return returns the number of consecutive marks required to win the game. Meaning if
      * getNumToWin = 5 that means it takes 5 consecutive vertical horizontal or diagonal marks
      * to win the game
+     * @pre: none
+     * @post: getNumToWin() = numToWin
      */
     int getNumToWin();
 
