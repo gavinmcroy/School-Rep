@@ -3,7 +3,6 @@ package cpsc2150.ExtendedTicTacToe;
 public abstract class AbsGameBoard implements IGameBoard {
 
     /**
-     * TODO Clean up toString()
      * returns the board array formatted as a tic tac toe board 8x8 with lined boundaries
      *
      * @return returns the a string containing a formatted board that shows all the current plays on the board

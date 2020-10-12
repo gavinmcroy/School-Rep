@@ -1,6 +1,5 @@
 package cpsc2150.ExtendedTicTacToe;
 
-/* TODO implementation details*/
 
 public class GameBoard extends AbsGameBoard implements IGameBoard {
 
@@ -27,17 +26,6 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
                 gameBoard[i][j] = ' ';
             }
         }
-        /* TODO Remove DEBUG */
-//        int j = 0;
-//        for(int i = 6; i > 1; i--){
-//            gameBoard[i-1][j] = 'X';
-//            j++;
-//        }
-
-//        for(int i = 1; i < 7;i++){
-//            gameBoard[i][i] = 'X';
-//            j++;
-//        }
     }
 
     /* checkSpace */

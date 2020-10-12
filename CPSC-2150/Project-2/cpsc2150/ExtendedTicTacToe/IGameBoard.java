@@ -14,7 +14,7 @@ package cpsc2150.ExtendedTicTacToe;
 public interface IGameBoard {
 
     /**
-     * TODO Implement Description of Variables
+     * The maximum size that the table can be. This speaks for both the tables row and column
      */
     int MAX_SIZE = 8;
 
@@ -95,7 +95,6 @@ public interface IGameBoard {
     }
 
     /**
-     * TODO default Type
      * checks to see if the last marker placed resulted in 5 in a row
      * horizontally. Returns true if it does, otherwise false
      *
@@ -110,6 +109,7 @@ public interface IGameBoard {
         int countToWin = 0;
         for (int i = 0; i < getNumRows(); i++) {
             for (int j = 0; j < getNumColumns(); j++) {
+                /* Check if have a player, if so add to the streak till it equals getNumToWin */
                 if (whatsAtPos(new BoardPosition(i, j)) == player) {
                     countToWin++;
                 } else {
@@ -139,6 +139,7 @@ public interface IGameBoard {
         int countToWin = 0;
         for (int i = 0; i < getNumColumns(); i++) {
             for (int j = 0; j < getNumRows(); j++) {
+                /* Check if have a player, if so add to the streak till it equals getNumToWin */
                 if (whatsAtPos(new BoardPosition(j, i)) == player) {
                     countToWin++;
                 } else {

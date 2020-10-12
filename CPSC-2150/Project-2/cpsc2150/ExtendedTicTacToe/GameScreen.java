@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class GameScreen {
 
-    /* TODO Potentially Temporary Variable */
     private static final char PLAYER_ONE = 'X';
     private static final char PLAYER_TWO = 'O';
     private static final Scanner scanner = new Scanner(System.in);
@@ -28,7 +27,6 @@ public class GameScreen {
     }
 
     /**
-     * TODO Potential Post Condition ?
      * Controls the flow of the game. Prompts player to enter a location as (row,column), The method then will
      * check to see if this position is valid. If not it will loop until a valid position is entered. If the
      * position is valid it will check for a win. If a win is detected it will print a congrats message and prompt
