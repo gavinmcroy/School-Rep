@@ -51,7 +51,7 @@ public class GameScreen {
             System.out.println("Player " + currentPlayer() + " Please enter your COLUMN");
             int column = scanner.nextInt();
             /* If input is invalid ask for it again */
-            while (row > gameBoard.getNumRows() || column > gameBoard.getNumColumns()
+            while (row > gameBoard.getNumRows()-1 || column > gameBoard.getNumColumns()-1
                     || gameBoard.whatsAtPos(new BoardPosition(row, column)) != ' ') {
                 System.out.println("That space is unavailable, please pick again");
                 System.out.println("Player " + currentPlayer() + " Please enter your ROW ");
