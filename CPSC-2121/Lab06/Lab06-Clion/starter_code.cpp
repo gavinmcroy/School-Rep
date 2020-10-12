@@ -37,39 +37,40 @@ void read_input() {
     input_file.close();
 }
 
-// return total productivity of student s up to time t
+/* return total productivity of student s up to time t */
 double cumulative_productivity(Student &s, double t) {
     int iPart = min((int) t, (int) s.productivity->size() - 1);
     double dPart = t - iPart;
     return s.productivity_sum->at(iPart) + dPart * s.productivity->at(iPart);
 }
 
-// return total productivity of a student from time t1 to time t2
+/* return total productivity of a student from time t1 to time t2 */
 double get_productivity(Student &s, double t1, double t2) {
     return cumulative_productivity(s, t2) - cumulative_productivity(s, t1);
 }
 
-// binary search between times t1 and t2 to find the point in time when
-// half of the productivity of student s (between t1 and t2) has been reached
-// e.g., get_productivity(t1,answer) should be half of get_productivity(t1,t2)
+/* binary search between times t1 and t2 to find the point in time when
+  half of the productivity of student s (between t1 and t2) has been reached
+  e.g., get_productivity(t1,answer) should be half of get_productivity(t1,t2) */
 double get_halfway_cutoff(Student &s, double t1, double t2) {
-    // TBD: use binary search and the get_productivity() function to return an
-    // answer here that is accurate to within a tolerance of 0.0001
-    // (i.e., the correct cutoff should differ from yours by at most 0.0001)
+    /* TODO: use binary search and the get_productivity() function to return an
+     * answer here that is accurate to within a tolerance of 0.0001
+     * (i.e., the correct cutoff should differ from yours by at most 0.0001) */
 }
 
-// TBD: Re-order subarray of students S[s1..s2] so those it contains:
-// elements with cutoff values < val
-// followed by elements with cutoff values == val
-// followed by elements with cutoff values > val
-// for full credit, your approach should run "in place"
+/* TODO: Re-order subarray of students S[s1..s2] so those it contains:
+ * elements with cutoff values < val
+ * followed by elements with cutoff values == val
+ * followed by elements with cutoff values > val
+ * for full credit, your approach should run "in place" */
 void partition(int s1, int s2, double val) {
 }
 
-// TBD: return the cutoff value of the student at a given rank within the
-// subarray S[s1..s2] (re-ordering the array is fine during the process)
-// e.g., if rank==0, we want to return the minimum cutoff of S[s1..s2]
+/* TODO: return the cutoff value of the student at a given rank within the
+ * subarray S[s1..s2] (re-ordering the array is fine during the process)
+ * e.g., if rank==0, we want to return the minimum cutoff of S[s1..s2] */
 double quick_select(int s1, int s2, int rank) {
+
 }
 
 
@@ -102,7 +103,7 @@ void solve(int s1, int s2, double t1, double t2) {
     solve(mid + 1, s2, median_cutoff, t2);
 }
 
-void test_quickselect(void) {
+void test_quickselect() {
     int N = 7;
 
     // Add N random students
