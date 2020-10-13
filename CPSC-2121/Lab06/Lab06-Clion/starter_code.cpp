@@ -226,7 +226,7 @@ void test_quickselect() {
 
 int main() {
     // Use this to make sure your quickselect code works, then comment it out...
-    //est_quickselect();
+    //test_quickselect();
 
     // cout<< S.at(0).productivity_sum->at(0)<<endl;
     //cout <<S.at(0).name<<endl;
@@ -235,7 +235,7 @@ int main() {
     //return 0;
 
     read_input();
-    S.at(0);
+    //S.at(0);
 
     int N = S.size();    // # students
     double T = 24 * 7 * 60;  // upper end of time range
