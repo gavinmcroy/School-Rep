@@ -4,8 +4,11 @@
 #include <vector>
 #include <algorithm>
 #include <iomanip>
+#include <cmath>
 
 using namespace std;
+
+double const EPSILON = .0001;
 
 struct Student {
     string name;
@@ -15,10 +18,17 @@ struct Student {
     double tStart, tStop; // time range to be assigned to this student by our algorithm
 };
 
+bool are_same(double a, double b) {
+    return fabs(a - b) < EPSILON;
+}
+
 vector<Student> S;
 
 void read_input() {
     ifstream input_file("productivity.txt");
+    if (!input_file) {
+        cout << "Issue" << endl;
+    }
     string next_line;
     while (getline(input_file, next_line)) { // read one line at a time
         istringstream input_line(next_line);
@@ -46,17 +56,52 @@ double cumulative_productivity(Student &s, double t) {
 
 /* return total productivity of a student from time t1 to time t2 */
 double get_productivity(Student &s, double t1, double t2) {
-    return cumulative_productivity(s, t2) - cumulative_productivity(s, t1);
+    return (cumulative_productivity(s, t2) - cumulative_productivity(s, t1));
 }
 
 /* binary search between times t1 and t2 to find the point in time when
   half of the productivity of student s (between t1 and t2) has been reached
   e.g., get_productivity(t1,answer) should be half of get_productivity(t1,t2) */
 double get_halfway_cutoff(Student &s, double t1, double t2) {
-
     /* TODO: use binary search and the get_productivity() function to return an
      * answer here that is accurate to within a tolerance of 0.0001
      * (i.e., the correct cutoff should differ from yours by at most 0.0001) */
+
+    double getHalfWay = get_productivity(s, t1, t2) / 2.0;
+
+    //double midPoint = t1+(t2-1) / 2.0 ;
+
+    //  double newRangeMin = t1;
+    // double newRangeMax = t2;
+    //t2-=1;
+    //cout<<"Matter"<<endl;
+    //cout<<"Working"<<endl;
+
+//    while (t1 <= t2) {
+//        double mid = (t1 + t2) / 2.0;
+//        if (get_productivity(s, t1, t2) < getHalfWay) {
+//            t1 = mid + 1;
+//        } else if (get_productivity(s, t1, t2) > getHalfWay) {
+//            t2 = mid - 1;
+//        } else {
+//            return mid;
+//        }
+//    }
+    double lowerBound = 0;
+    double upperBound = t2;
+    while (true) {
+
+        double midPoint = lowerBound + (upperBound - lowerBound) / 2.0;
+        if (get_productivity(s, t1, midPoint) < getHalfWay) {
+            lowerBound = midPoint + 1;
+        }
+        if (get_productivity(s, t1, midPoint) > getHalfWay) {
+            upperBound = midPoint - 1;
+        }
+        if (are_same(get_productivity(s, t1, midPoint), getHalfWay)) {
+            return midPoint;
+        }
+    }
 }
 
 /* TODO: Re-order subarray of students S[s1..s2] so those it contains:
@@ -64,7 +109,20 @@ double get_halfway_cutoff(Student &s, double t1, double t2) {
  * followed by elements with cutoff values == val
  * followed by elements with cutoff values > val
  * for full credit, your approach should run "in place" */
-void partition(int s1, int s2, double val) {
+int calc_partition(int s1, int s2, double val) {
+    while (s1 < s2) {
+        while (S.at(s1).cutoff < val) {
+            s1++;
+        }
+        while (S.at(s2).cutoff > val) {
+            s2--;
+        }
+        if (s1 < s2) {
+            swap(S.at(s1), S.at(s2));
+            s1++;
+        }
+    }
+    return s1;
 }
 
 /* TODO: return the cutoff value of the student at a given rank within the
@@ -72,6 +130,33 @@ void partition(int s1, int s2, double val) {
  * e.g., if rank==0, we want to return the minimum cutoff of S[s1..s2] */
 double quick_select(int s1, int s2, int rank) {
 
+    if (s1 == s2) {
+        return S.at(s1).cutoff;
+    }
+    if (rank == 0) {
+        double min = 100000;
+        for (auto &i : S) {
+            if (i.cutoff < min) {
+                min = i.cutoff;
+            }
+        }
+        return min;
+    }
+
+    int pivotIndex = s1 + (rand() % (s2 - s1) + 1);  /*abs((s2-s1))+1)*/;
+    double pivotValue = S.at(pivotIndex).cutoff;
+    pivotIndex = calc_partition(s1, s2, pivotValue);
+
+    if (rank == pivotIndex) {
+        return S.at(pivotIndex).cutoff;
+    } else if (rank < pivotIndex) {
+        return quick_select(s1, pivotIndex - 1, rank);
+        //return quick_select(pivotIndex-1,s2,rank);
+    } else /*if (rank > pivotIndex) */{
+        return quick_select(pivotIndex, s2, rank);
+        /*len - p - 1 */
+        //return quick_select(s1,pivotIndex+1,rank);
+    }
 }
 
 
@@ -96,7 +181,7 @@ void solve(int s1, int s2, double t1, double t2) {
 
     // Partition students into two groups based on the median, using the same
     // function for partitioning you deveoped for quickselect
-    partition(s1, s2, median_cutoff);
+    calc_partition(s1, s2, median_cutoff);
 
     // Now recursively call solve() on two appropriate "half-sized" subproblems
     int mid = (s1 + s2) / 2;
@@ -141,10 +226,16 @@ void test_quickselect() {
 
 int main() {
     // Use this to make sure your quickselect code works, then comment it out...
-    test_quickselect();
-    return 0;
+    //est_quickselect();
+
+    // cout<< S.at(0).productivity_sum->at(0)<<endl;
+    //cout <<S.at(0).name<<endl;
+
+
+    //return 0;
 
     read_input();
+    S.at(0);
 
     int N = S.size();    // # students
     double T = 24 * 7 * 60;  // upper end of time range
