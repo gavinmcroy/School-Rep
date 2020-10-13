@@ -110,16 +110,18 @@ double get_halfway_cutoff(Student &s, double t1, double t2) {
  * followed by elements with cutoff values > val
  * for full credit, your approach should run "in place" */
 int calc_partition(int s1, int s2, double val) {
-    while (s1 < s2) {
+
+    while (s1 <= s2) {
         while (S.at(s1).cutoff < val) {
             s1++;
         }
         while (S.at(s2).cutoff > val) {
             s2--;
         }
-        if (s1 < s2) {
+        if (s1 <= s2) {
             swap(S.at(s1), S.at(s2));
             s1++;
+            s2--;
         }
     }
     return s1;
@@ -143,17 +145,17 @@ double quick_select(int s1, int s2, int rank) {
         return min;
     }
 
-    int pivotIndex = s1 + (rand() % (s2 - s1) + 1);  /*abs((s2-s1))+1)*/;
+    int pivotIndex = s1 + (rand() % abs(((s1-s2) + 1)));  /*abs((s2-s1))+1)*/;
     double pivotValue = S.at(pivotIndex).cutoff;
     pivotIndex = calc_partition(s1, s2, pivotValue);
 
     if (rank == pivotIndex) {
         return S.at(pivotIndex).cutoff;
     } else if (rank < pivotIndex) {
-        return quick_select(s1, pivotIndex - 1, rank);
+        return quick_select(s1, pivotIndex -1 , rank);
         //return quick_select(pivotIndex-1,s2,rank);
-    } else /*if (rank > pivotIndex) */{
-        return quick_select(pivotIndex, s2, rank);
+    } else if (rank > pivotIndex) {
+        return quick_select(pivotIndex -1 , s2, rank - pivotIndex+s1-1);
         /*len - p - 1 */
         //return quick_select(s1,pivotIndex+1,rank);
     }
