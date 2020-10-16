@@ -77,18 +77,18 @@ int main(void) {
 
     // read input
     int *A = new int[N];
-    for(int i =0; i < N; i++){
-        A[i] = 5;
-    }
-//    for (int i = 0; i < N; i++)
-//        if (!(cin >> A[i]) || A[i] < 0) {
-//            cout << "Invalid input!\n";
-//            return 0;
-//        }
+//    for(int i = 0; i < N; i++){
+//        A[i] = 5;
+//    }
+    for (int i = 0; i < N; i++)
+        if (!(cin >> A[i]) || A[i] < 0) {
+            cout << "Invalid input!\n";
+            return 0;
+        }
 
     quicksort(A, N);
 //
-//    for (int i = 0; i < N; i++)
-//        cout << A[i] << "\n";
+    for (int i = 0; i < N; i++)
+        cout << A[i] << "\n";
     return 0;
 }
