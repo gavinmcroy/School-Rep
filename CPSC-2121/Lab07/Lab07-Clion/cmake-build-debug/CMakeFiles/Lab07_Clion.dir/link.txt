@@ -1,0 +1,3 @@
+"C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.7660.37\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Lab07_Clion.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\Lab07_Clion.dir/objects.a @CMakeFiles\Lab07_Clion.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g   -Wl,--whole-archive CMakeFiles\Lab07_Clion.dir/objects.a -Wl,--no-whole-archive  -o Lab07_Clion.exe -Wl,--out-implib,libLab07_Clion.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Lab07_Clion.dir\linklibs.rsp
