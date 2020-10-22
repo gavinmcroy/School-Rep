@@ -12,12 +12,12 @@ private:
     int size;
     int count;
     char **board;
+    bool isValid(int r, int c);
+
 public:
     explicit NQueenSolver(int size);
-
     int check_row(int row);
 
-    bool isValid(int r, int c);
 
 };
 

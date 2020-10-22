@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/Hash.cpp">
+			<Option target="Lab07_Clion"/>
+		</Unit>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/Hash.h">
+			<Option target="Lab07_Clion"/>
+		</Unit>
 		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/NQueenSolver.cpp">
 			<Option target="Lab07_Clion"/>
 		</Unit>

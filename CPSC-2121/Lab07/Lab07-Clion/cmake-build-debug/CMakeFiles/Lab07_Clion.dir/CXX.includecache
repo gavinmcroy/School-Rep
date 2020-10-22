@@ -6,6 +6,14 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/Hash.h
+string
+-
+iostream
+-
+assert.h
+-
+
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/NQueenSolver.h
 
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/main.cpp
@@ -13,4 +21,6 @@ iostream
 -
 NQueenSolver.h
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/NQueenSolver.h
+Hash.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/Hash.h
 

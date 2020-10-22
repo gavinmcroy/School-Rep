@@ -142,6 +142,33 @@ Lab07_Clion/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab07_Clion.dir\build.make CMakeFiles/Lab07_Clion.dir/build
 .PHONY : Lab07_Clion/fast
 
+Hash.obj: Hash.cpp.obj
+
+.PHONY : Hash.obj
+
+# target to build an object file
+Hash.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab07_Clion.dir\build.make CMakeFiles/Lab07_Clion.dir/Hash.cpp.obj
+.PHONY : Hash.cpp.obj
+
+Hash.i: Hash.cpp.i
+
+.PHONY : Hash.i
+
+# target to preprocess a source file
+Hash.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab07_Clion.dir\build.make CMakeFiles/Lab07_Clion.dir/Hash.cpp.i
+.PHONY : Hash.cpp.i
+
+Hash.s: Hash.cpp.s
+
+.PHONY : Hash.s
+
+# target to generate assembly for a file
+Hash.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab07_Clion.dir\build.make CMakeFiles/Lab07_Clion.dir/Hash.cpp.s
+.PHONY : Hash.cpp.s
+
 NQueenSolver.obj: NQueenSolver.cpp.obj
 
 .PHONY : NQueenSolver.obj
@@ -205,6 +232,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Lab07_Clion
+	@echo ... Hash.obj
+	@echo ... Hash.i
+	@echo ... Hash.s
 	@echo ... NQueenSolver.obj
 	@echo ... NQueenSolver.i
 	@echo ... NQueenSolver.s
