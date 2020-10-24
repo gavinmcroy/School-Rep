@@ -7,7 +7,6 @@ CMakeFiles/Lab07_Clion.dir/Hash.cpp.obj: ../Hash.h
 CMakeFiles/Lab07_Clion.dir/NQueenSolver.cpp.obj: ../NQueenSolver.cpp
 CMakeFiles/Lab07_Clion.dir/NQueenSolver.cpp.obj: ../NQueenSolver.h
 
-CMakeFiles/Lab07_Clion.dir/main.cpp.obj: ../Hash.h
 CMakeFiles/Lab07_Clion.dir/main.cpp.obj: ../NQueenSolver.h
 CMakeFiles/Lab07_Clion.dir/main.cpp.obj: ../main.cpp
 
