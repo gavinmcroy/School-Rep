@@ -10,14 +10,16 @@ class NQueenSolver {
 
 private:
     int size;
-    int count;
+    int index;
+    int totalSolutionsDetected;
+    int symmetryValue;
     char **board;
     bool isValid(int r, int c);
 
 public:
     explicit NQueenSolver(int size);
     int check_row(int row);
-
+    int get_solution();
 
 };
 
