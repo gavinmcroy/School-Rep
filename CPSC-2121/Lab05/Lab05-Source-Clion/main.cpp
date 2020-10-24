@@ -39,7 +39,7 @@ int main() {
 //    cuts.emplace_back(110,340);
 //    cuts.emplace_back(340,110);
     /* Testing get_rank */
-    sort(cuts.begin(), cuts.end());
+    //sort(cuts.begin(), cuts.end());
 
 
     while (input >> firstReadVal >> secondReadVal) {
@@ -49,41 +49,41 @@ int main() {
 
         numberOfCuts++;
     }
-    sort(cuts.begin(), cuts.end());
+   // sort(cuts.begin(), cuts.end());
 
-    for (auto &cut : cuts) {
-        /* Insert only the end point which is defined as (x1>x2) */
-        if (binarySearchT.find(root, cut.first)) {
-            root = binarySearchT.remove(root, cut.first);
-        } else {
-            /* Remove */
-            root = binarySearchT.insert_keep_balanced(root, cut.second);
-            totalIntersections += binarySearchT.get_rank(root, cut.second);
-
-        }
-
-    }
+//    for (auto &cut : cuts) {
+//        /* Insert only the end point which is defined as (x1>x2) */
+//        if (binarySearchT.find(root, cut.first)) {
+//            root = binarySearchT.remove(root, cut.first);
+//        } else {
+//            /* Remove */
+//            root = binarySearchT.insert_keep_balanced(root, cut.second);
+//            totalIntersections += binarySearchT.get_rank(root, cut.second);
+//
+//        }
+//
+//    }
 
     /* THIS IS THE O(n^2) Solution */
     /* [N = numberOfCuts and P = Total Intersections ] 1 + N + P */
-//    std::cout << "O(N)^2 Solution is loading..." << std::endl;
-//    std::sort(cuts.begin(), cuts.end());
+    std::cout << "O(N)^2 Solution is loading..." << std::endl;
+    std::sort(cuts.begin(), cuts.end());
 
-//    for (int i = 0; i < cuts.size(); i++) {
-//        double first = cuts.at(i).first;
-//        double second = cuts.at(i).second;
-//
-//        for (int j = i; j < cuts.size(); j++) {
-//            /* First condition checks to see if the second point lies within the interval and first does not
-//             * Second condition checks to see if the first point lies within the interval and second does not */
-//            if (((cuts.at(j).first < first) && (cuts.at(j).second > first) &&
-//                 (cuts.at(j).second < second)) ||
-//                ((cuts.at(j).first > first) && (cuts.at(j).first < second) && (cuts.at(j).second > second))) {
-//                totalIntersections++;
-//            }
-//
-//        }
-//    }
+    for (int i = 0; i < cuts.size(); i++) {
+        double first = cuts.at(i).first;
+        double second = cuts.at(i).second;
+
+        for (int j = i; j < cuts.size(); j++) {
+            /* First condition checks to see if the second point lies within the interval and first does not
+             * Second condition checks to see if the first point lies within the interval and second does not */
+            if (((cuts.at(j).first < first) && (cuts.at(j).second > first) &&
+                 (cuts.at(j).second < second)) ||
+                ((cuts.at(j).first > first) && (cuts.at(j).first < second) && (cuts.at(j).second > second))) {
+                totalIntersections++;
+            }
+
+        }
+    }
     /* THIS IS THE O(n^2) Solution */
 
     std::cout << "Number of cuts " << numberOfCuts << std::endl;

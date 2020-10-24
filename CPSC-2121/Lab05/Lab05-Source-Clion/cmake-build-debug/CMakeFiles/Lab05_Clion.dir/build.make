@@ -54,19 +54,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.6397.106/CLion.app/Contents/bin/cmake/mac/bin/cmake"
+CMAKE_COMMAND = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake"
 
 # The command to remove a file.
-RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.6397.106/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
+RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/202.7660.37/CLion.app/Contents/bin/cmake/mac/bin/cmake" -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Lab05_Clion.dir/depend.make
@@ -79,29 +79,29 @@ include CMakeFiles/Lab05_Clion.dir/flags.make
 
 CMakeFiles/Lab05_Clion.dir/main.cpp.o: CMakeFiles/Lab05_Clion.dir/flags.make
 CMakeFiles/Lab05_Clion.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lab05_Clion.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab05_Clion.dir/main.cpp.o -c /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Lab05_Clion.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab05_Clion.dir/main.cpp.o -c /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/main.cpp
 
 CMakeFiles/Lab05_Clion.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab05_Clion.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/main.cpp > CMakeFiles/Lab05_Clion.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/main.cpp > CMakeFiles/Lab05_Clion.dir/main.cpp.i
 
 CMakeFiles/Lab05_Clion.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab05_Clion.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/main.cpp -o CMakeFiles/Lab05_Clion.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/main.cpp -o CMakeFiles/Lab05_Clion.dir/main.cpp.s
 
 CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o: CMakeFiles/Lab05_Clion.dir/flags.make
 CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o: ../BinarySearchT.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o -c /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o -c /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.cpp
 
 CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.cpp > CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.cpp > CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.i
 
 CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/BinarySearchT.cpp -o CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.cpp -o CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.s
 
 # Object files for target Lab05_Clion
 Lab05_Clion_OBJECTS = \
@@ -115,7 +115,7 @@ Lab05_Clion: CMakeFiles/Lab05_Clion.dir/main.cpp.o
 Lab05_Clion: CMakeFiles/Lab05_Clion.dir/BinarySearchT.cpp.o
 Lab05_Clion: CMakeFiles/Lab05_Clion.dir/build.make
 Lab05_Clion: CMakeFiles/Lab05_Clion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Lab05_Clion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Lab05_Clion"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Lab05_Clion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +128,6 @@ CMakeFiles/Lab05_Clion.dir/clean:
 .PHONY : CMakeFiles/Lab05_Clion.dir/clean
 
 CMakeFiles/Lab05_Clion.dir/depend:
-	cd /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug/CMakeFiles/Lab05_Clion.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug/CMakeFiles/Lab05_Clion.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Lab05_Clion.dir/depend
 

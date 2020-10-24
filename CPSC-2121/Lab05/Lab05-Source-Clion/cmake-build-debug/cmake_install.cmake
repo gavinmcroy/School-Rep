@@ -1,4 +1,4 @@
-# Install script for directory: /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion
+# Install script for directory: /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
