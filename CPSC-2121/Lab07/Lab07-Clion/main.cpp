@@ -5,18 +5,19 @@
 
 void debugIsValid(int r, int c);
 
-int main() {
+int main(int argv, char *argc[]) {
     /* Change to take command line input */
-    debugIsValid(7, 7);
-    NQueenSolver nQueenSolver(14);
+    int argument = atoi(argc[1]);
+    //debugIsValid(7, 7);
+    NQueenSolver nQueenSolver(argument);
     nQueenSolver.check_row(0);
-    std::cout<<"Unique Solutions: "<<nQueenSolver.get_solution();
+    std::cout << "Unique Solutions: " << nQueenSolver.get_solution();
     return 0;
 }
 
 void debugIsValid(const int r, const int c) {
     const int SIZE = 9;
-    const int index = SIZE-1;
+    const int index = SIZE - 1;
     char board[SIZE][SIZE] = {};
     // const int r = 0;
     //const int c = 5;
@@ -78,20 +79,19 @@ void debugIsValid(const int r, const int c) {
         columns++;
     }
     /* Detect for left diagonals given position (r,c)  Starts top left */
-       /* columns = start - 8;
-          start = 8;
-       */
+    /* columns = start - 8;
+       start = 8;
+    */
     columns = r + c;
-    if(r>c){
-        start = r -c;
+    if (r > c) {
+        start = r - c;
         columns = 0;
-    }
-    else if (columns > index) {
+    } else if (columns > index) {
         start = 0;
         columns = abs(c - r);
-    }else{
+    } else {
         start = 0;
-        columns = c-r;
+        columns = c - r;
     }
     for (int i = start; i < SIZE; i++) {
         //std::cout<<board[i][c];

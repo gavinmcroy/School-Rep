@@ -4,8 +4,6 @@
 #include <iostream>
 #include "NQueenSolver.h"
 
-int tmp = 0;
-
 NQueenSolver::NQueenSolver(int size) {
     this->size = size;
     index = size - 1;
@@ -14,8 +12,10 @@ NQueenSolver::NQueenSolver(int size) {
 
     if (size % 2 == 1) {
         symmetryValue = 0; /* */
+        isOdd = true;
     } else {
         symmetryValue = size / 2;
+        isOdd = false;
     }
 
     board = new char *[size];
@@ -30,15 +30,31 @@ NQueenSolver::NQueenSolver(int size) {
     }
 }
 
+int val = 0;
+
 /* Solves the N queen problem (input 0 for start) */
 int NQueenSolver::check_row(int row) {
     if (row == size) {
         /* Condition for a odd #pivot */
-        totalSolutionsDetected++;
+        if (!isOdd) {
+            totalSolutionsDetected += 2;
+        } else {
+            totalSolutionsDetected++;
+        }
+
         return 0;
     }
-    //if(isValid())
     for (int c = 0; c < size; c++) {
+        if (row == 0) {
+            if (c == (size / 2) + 1) {
+                isOdd = true;
+            }
+            if (c == size / 2 && !isOdd) {
+                isOdd = false;
+                break;
+            }
+        }
+        val++;
         if (isValid(row, c)) {
             board[row][c] = 'X';
             check_row(row + 1);
@@ -106,5 +122,6 @@ bool NQueenSolver::isValid(const int r, const int c) {
 }
 
 int NQueenSolver::get_solution() {
+    std::cout << "Total calculations" << val << std::endl;
     return totalSolutionsDetected;
 }
