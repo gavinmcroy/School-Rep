@@ -1,3 +1,0 @@
-/Users/gavintaylormcroy/Desktop/School-Rep/Debug/Lab07-Clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gavintaylormcroy/Desktop/School-Rep/Debug/Lab07-Clion/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gavintaylormcroy/Desktop/School-Rep/Debug/Lab07-Clion/cmake-build-debug/CMakeFiles/Lab07_Clion.dir
