@@ -122,7 +122,7 @@ bool NQueenSolver::isValid(const int r, const int c) {
     int jCounter = start;
     for (int i = start1; i < size; i++) {
         /* Invalid position detected */
-        if (start1 < jCounter) {
+        if (jCounter < 0) {
             break;
         }
         if (board[jCounter][columns] == 'X') {

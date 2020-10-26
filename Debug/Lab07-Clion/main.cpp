@@ -7,9 +7,9 @@ void debugIsValid(int r, int c);
 
 int main(int argv, char *argc[]) {
     /* Change to take command line input */
-    int argument = atoi(argc[1]);
+//    int argument = atoi(argc[1]);
     debugIsValid(7, 7);
-    NQueenSolver nQueenSolver(14);
+    NQueenSolver nQueenSolver(8);
     nQueenSolver.check_row(0);
     std::cout << "Unique Solutions: " << nQueenSolver.get_solution();
     return 0;
