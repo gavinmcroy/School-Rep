@@ -9,9 +9,9 @@ class NQueenSolver {
 
 private:
     int size;
+    /* This converts size into index for the last element in the array */
     int index;
     int totalSolutionsDetected;
-    int symmetryValue;
     char **board;
     bool isValid(int r, int c);
 

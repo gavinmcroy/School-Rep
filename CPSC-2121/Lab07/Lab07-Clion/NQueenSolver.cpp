@@ -8,21 +8,18 @@ NQueenSolver::NQueenSolver(int size) {
     this->size = size;
     index = size - 1;
     totalSolutionsDetected = 0;
-    symmetryValue = size;
 
     if (size % 2 == 1) {
-        symmetryValue = 0; /* */
         isOdd = true;
     } else {
-        symmetryValue = size / 2;
         isOdd = false;
     }
-
+    /* Allocate memory for Size x Size board*/
     board = new char *[size];
     for (int i = 0; i < size; i++) {
         board[i] = new char[size];
     }
-
+    /* Assign empty positions denoted by '-' */
     for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
             board[i][j] = '-';
@@ -35,17 +32,19 @@ int val = 0;
 /* Solves the N queen problem (input 0 for start) */
 int NQueenSolver::check_row(int row) {
     if (row == size) {
-        /* Condition for a odd #pivot */
+        /* Condition for a odd board size */
         if (!isOdd) {
             totalSolutionsDetected += 2;
         } else {
             totalSolutionsDetected++;
         }
-
         return 0;
     }
     for (int c = 0; c < size; c++) {
+        /* Symmetry only for the first row */
         if (row == 0) {
+            /* If the board is a odd number this prevents miscalculations from 7/2 = 3 by accounting
+             * for the center part of the board meaning solutions are being ++ instead of +=2 */
             if (c == (size / 2) + 1) {
                 isOdd = true;
             }
@@ -54,13 +53,14 @@ int NQueenSolver::check_row(int row) {
                 break;
             }
         }
-        val++;
+        /* Purge boards that are already invalid by checking if its a valid placement*/
         if (isValid(row, c)) {
             board[row][c] = 'X';
             check_row(row + 1);
             board[row][c] = '-';
         }
     }
+    return 0;
 }
 
 /* Checks if a queens placement is valid */
@@ -78,7 +78,9 @@ bool NQueenSolver::isValid(const int r, const int c) {
         }
     }
 
-    /* Check right diagonal given position (r,c) Starts bottom right */
+    /* Check right diagonal given position (r,c) Starts bottom left. This works by
+     * calculating the index (r,c) on the board for which the diagonal begins, it then checks if there
+     * is any queens there (represented by X) */
     int columns = 0;
     int start = r + c;
     /* Protects bounds on board */
@@ -87,6 +89,7 @@ bool NQueenSolver::isValid(const int r, const int c) {
         start = index;
     }
     for (int i = start; i >= 0; i--) {
+        /* Invalid position detected */
         if (board[i][columns] == 'X') {
             return false;
         }
@@ -96,20 +99,26 @@ bool NQueenSolver::isValid(const int r, const int c) {
         columns++;
     }
 
-    /* Detect for left diagonals given position (r,c)  Starts top left */
+    /* Detect for left diagonals given position (r,c)  Starts top left This works similarly to right
+     * diagonal but comes with many more base conditions. Condition for if(r>c) its to the left of the center diagonal ()
+     * which is the diagonal that cuts the board in half, else if columns > index is for if its on the right side of
+     * the half way diagonal, else the the position is inside the half diagonal */
     columns = r + c;
-    /* Protects bounds on board */
+    /* Protects bounds on board and left of center diagonal*/
     if (r > c) {
         start = r - c;
         columns = 0;
-    } else if (columns > index) {
+    } /* To the right of center diagonal */
+    else if (columns > index) {
         start = 0;
         columns = abs(c - r);
-    } else {
+    }/* columns basically is columns = 0  */
+    else {
         start = 0;
         columns = c - r;
     }
     for (int i = start; i < size; i++) {
+        /* Invalid position detected */
         if (board[i][columns] == 'X') {
             return false;
         }
@@ -122,6 +131,7 @@ bool NQueenSolver::isValid(const int r, const int c) {
 }
 
 int NQueenSolver::get_solution() {
-    std::cout << "Total calculations" << val << std::endl;
+    /* Debug statement for reducing iterations inside for loops */
+    std::cout << "Total Iterations" << val << std::endl;
     return totalSolutionsDetected;
 }
