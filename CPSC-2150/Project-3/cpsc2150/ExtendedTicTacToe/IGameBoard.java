@@ -65,13 +65,13 @@ public interface IGameBoard {
     default boolean checkForWinner(BoardPosition lastPos) {
         char player = whatsAtPos(lastPos);
         if (checkHorizontalWin(lastPos, player)) {
-            System.out.println("Horizontal");
+            //System.out.println("Horizontal");
             return true;
         } else if (checkVerticalWin(lastPos, player)) {
-            System.out.println("Vertical");
+            //System.out.println("Vertical");
             return true;
         } else {
-            System.out.println("Diagonal");
+            //System.out.println("Diagonal");
             return checkDiagonalWin(lastPos, player);
         }
     }

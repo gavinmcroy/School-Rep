@@ -5,16 +5,17 @@ import java.util.Scanner;
 
 public class GameScreen {
 
-    private static final char PLAYER_ONE = 'X';
-    private static final char PLAYER_TWO = 'O';
+    //private static final char PLAYER_ONE = 'X';
+    //private static final char PLAYER_TWO = 'O';
     private static final Scanner scanner = new Scanner(System.in);
 
     private static int totalPlayers;
     private static int rows;
     private static int columns;
     private static int numToWin;
-    private static boolean isPlayerXTurn = true;
-    private static boolean isPlayerOTurn = false;
+    private static int currentPlayer = 0;
+   // private static boolean isPlayerXTurn = true;
+   // private static boolean isPlayerOTurn = false;
     private static char implementation = '0';
     private static IGameBoard gameBoard;
     private static final Hashtable<Integer, Character> hashTable = new Hashtable<>();
@@ -52,37 +53,32 @@ public class GameScreen {
      * @post: none
      */
     private static void runGame() {
-        int cyclePlayers = hashTable.size();
+        validateInput();
         while (true) {
-            validateInput();
 
               // while (/* Get each character to place there character */) {
             /* Ask for input */
             /* Check if its a valid place */
             /* Place it on the board */
               // }
-            for(int i = cyclePlayers -1; i >=0; i++){
-                System.out.println("Player +");
-            }
-
-            System.out.println("Player " + currentPlayer() + " Please enter your ROW ");
+            System.out.println("Player " + getCurrentPlayer() + " Please enter your ROW ");
             int row = scanner.nextInt();
-            System.out.println("Player " + currentPlayer() + " Please enter your COLUMN");
+            System.out.println("Player " + getCurrentPlayer() + " Please enter your COLUMN");
             int column = scanner.nextInt();
             /* If input is invalid ask for it again */
             while (row > gameBoard.getNumRows() - 1 || column > gameBoard.getNumColumns() - 1
                     || gameBoard.whatsAtPos(new BoardPosition(row, column)) != ' ') {
                 System.out.println("That space is unavailable, please pick again");
-                System.out.println("Player " + currentPlayer() + " Please enter your ROW ");
+                System.out.println("Player " + getCurrentPlayer() + " Please enter your ROW ");
                 row = scanner.nextInt();
-                System.out.println("Player " + currentPlayer() + " Please enter your COLUMN");
+                System.out.println("Player " + getCurrentPlayer() + " Please enter your COLUMN");
                 column = scanner.nextInt();
             }
             /* Place players desired position */
-            gameBoard.placeMarker(new BoardPosition(row, column), currentPlayer());
+            gameBoard.placeMarker(new BoardPosition(row, column), getCurrentPlayer());
             /* If any conditions for win or draw are met end runGame, else continue looping */
             if (gameBoard.checkForWinner(new BoardPosition(row, column))) {
-                System.out.println("Player " + currentPlayer() + " wins!");
+                System.out.println("Player " + getCurrentPlayer() + " wins!");
                 break;
             } else if (gameBoard.checkForDraw()) {
                 System.out.println("drawMessage");
@@ -113,7 +109,7 @@ public class GameScreen {
             System.out.println("How many players?");
             totalPlayers = scanner.nextInt();
         }
-        for (int i = totalPlayers - 1; i >= 0; i--) {
+        for (int i = 0; i < totalPlayers; i++) {
             /* Store these characters */
             System.out.println("Enter player ");
             char val = scanner.next().charAt(0);
@@ -162,9 +158,11 @@ public class GameScreen {
         }
         if (implementation == 'F') {
             gameBoard = new GameBoard(rows, columns, numToWin);
+            System.out.println("Fast Implementation");
             System.out.println(gameBoard.toString());
         } else if (implementation == 'M') {
             gameBoard = new GameBoardMem(rows, columns, numToWin);
+            System.out.println("Memory Implementation");
         }
     }
 
@@ -176,8 +174,6 @@ public class GameScreen {
      * @post: isPlayerXTurn = true and isPlayerOTurn = false and gameBoard = new GameBoard();
      */
     private static void resetGameBoard() {
-        isPlayerXTurn = true;
-        isPlayerOTurn = false;
         gameBoard = null;
         hashTable.clear();
     }
@@ -190,11 +186,14 @@ public class GameScreen {
      * @pre: none
      * @post: currentPlayer = playerTwo iff(isPlayerOTurn) or playerOne iff(!isPlayerOTurn)
      */
-    private static char currentPlayer() {
-        if (isPlayerOTurn) {
-            return PLAYER_TWO;
-        }
-        return PLAYER_ONE;
+    private static char getCurrentPlayer() {
+//        if(currentPlayer==hashTable.size()-1){
+//
+//        }
+//        if (isPlayerOTurn) {
+//            return PLAYER_TWO;
+//        }
+        return hashTable.get(currentPlayer);
     }
 
     /**
@@ -205,8 +204,12 @@ public class GameScreen {
      * @post: isPlayerOTurn = !isPlayerOTurn and isPlayerXTurn = !isPlayerXTurn
      */
     private static void changeTurns() {
-        isPlayerOTurn = !isPlayerOTurn;
-        isPlayerXTurn = !isPlayerXTurn;
+        currentPlayer++;
+        if(currentPlayer==hashTable.size()){
+            currentPlayer = 0;
+        }
+        //isPlayerOTurn = !isPlayerOTurn;
+       // isPlayerXTurn = !isPlayerXTurn;
     }
 
 }
