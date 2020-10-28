@@ -1,15 +1,30 @@
 package cpsc2150.ExtendedTicTacToe;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class GameBoardMem extends AbsGameBoard implements IGameBoard {
 
     /**
      * Game board is represented by a map
      * Map <Character, BoardPosition>
      */
-    public GameBoardMem(int rows, int columns, int numToWin){
+    private final int rows;
+    private final int columns;
+    private final int numToWin;
+    Map<Character, BoardPosition> boardPositionMap;
+
+
+    public GameBoardMem(int rows, int columns, int numToWin) {
+        this.rows = rows;
+        this.columns = columns;
+        this.numToWin = numToWin;
+        boardPositionMap = new HashMap<>();
         System.out.println("Memory Efficient Call ");
     }
+
     /**
+     * TODO update Explanation
      * places the character in marker on the position specified by
      * marker, and should not be called if the space is not available.
      *
@@ -20,10 +35,11 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public void placeMarker(BoardPosition marker, char player) {
-
+        boardPositionMap.put(player, marker);
     }
 
     /**
+     * TODO update explanation
      * returns what is in the GameBoard at position pos
      * If no marker is there it returns a blank space char ‘ ‘
      *
@@ -35,7 +51,15 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public char whatsAtPos(BoardPosition pos) {
-        return 0;
+        /* If the board contains the position find the character associated with it */
+        if (boardPositionMap.containsValue(pos)) {
+            for (Map.Entry<Character, BoardPosition> m : boardPositionMap.entrySet()) {
+                if (m.getValue().equals(pos)) {
+                    return m.getKey();
+                }
+            }
+        }
+        return ' ';
     }
 
     /**
@@ -47,7 +71,7 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public int getNumRows() {
-        return 0;
+        return rows;
     }
 
     /**
@@ -59,7 +83,7 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public int getNumColumns() {
-        return 0;
+        return columns;
     }
 
     /**
@@ -73,7 +97,13 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      */
     @Override
     public int getNumToWin() {
-        return 0;
+        return numToWin;
+    }
+
+    @Override
+    public boolean isPlayerAtPos(BoardPosition pos, char player) {
+        // return whatsAtPos(pos) != player;
+        return false;
     }
 
 }
