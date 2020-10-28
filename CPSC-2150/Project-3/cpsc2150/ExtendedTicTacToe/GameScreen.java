@@ -78,6 +78,7 @@ public class GameScreen {
             gameBoard.placeMarker(new BoardPosition(row, column), getCurrentPlayer());
             /* If any conditions for win or draw are met end runGame, else continue looping */
             if (gameBoard.checkForWinner(new BoardPosition(row, column))) {
+                System.out.println(gameBoard.toString());
                 System.out.println("Player " + getCurrentPlayer() + " wins!");
                 break;
             } else if (gameBoard.checkForDraw()) {

@@ -112,21 +112,31 @@ public interface IGameBoard {
      */
     default boolean checkHorizontalWin(BoardPosition lastPos, char player) {
         int countToWin = 0;
-        for (int i = 0; i < getNumRows(); i++) {
-            for (int j = 0; j < getNumColumns(); j++) {
-                /* Check if have a player, if so add to the streak till it equals getNumToWin */
-                if (whatsAtPos(new BoardPosition(i, j)) == player) {
-                    countToWin++;
-                } else {
-                    countToWin = 0;
-                }
-                if (countToWin == getNumToWin()) {
-                    return true;
-                }
+        for (int i = 0; i < getNumColumns(); i++) {
+            if (countToWin == getNumToWin()) {
+                return true;
+            }
+            if (whatsAtPos(new BoardPosition(i, lastPos.getColumn())) == player) {
+                countToWin++;
             }
         }
-        /* No Horizontal win */
         return false;
+
+//        for (int i = 0; i < getNumRows(); i++) {
+//            for (int j = 0; j < getNumColumns(); j++) {
+//                /* Check if have a player, if so add to the streak till it equals getNumToWin */
+//                if (whatsAtPos(new BoardPosition(i, j)) == player) {
+//                    countToWin++;
+//                } else {
+//                    countToWin = 0;
+//                }
+//                if (countToWin == getNumToWin()) {
+//                    return true;
+//                }
+//            }
+//        }
+//        /* No Horizontal win */
+//        return false;
     }
 
     /**
