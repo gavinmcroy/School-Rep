@@ -15,18 +15,18 @@ public abstract class AbsGameBoard implements IGameBoard {
         /* Moves top row of characters over by " " */
         formatted.append("   ");
         for (int i = 0; i < getNumColumns(); i++) {
-            if(i < 10){
+            if (i < 10) {
                 formatted.append("  ").append(i);
-            }else{
+            } else {
                 formatted.append(" ").append(i);
             }
         }
         formatted.append("\n");
         /* Builds 2D grind for tic tac toe board */
         for (int i = 0; i < getNumRows(); i++) {
-            if(i < 10){
+            if (i < 10) {
                 formatted.append(" ").append(i);
-            }else{
+            } else {
                 formatted.append(i);
             }
 

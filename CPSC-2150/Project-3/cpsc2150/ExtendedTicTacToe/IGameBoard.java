@@ -16,13 +16,13 @@ public interface IGameBoard {
     /**
      * The maximum size that the table can be. This speaks for both the tables row and column
      */
-//    int MAX_SIZE = 8;
-    public static final int MAX_BOARD_SIZE = 100;
-    public static final int MIN_BOARD_SIZE = 3;
-    public static final int MAX_NUM_TO_WIN = 25;
-    public static final int MIN_NUM_TO_WIN = 3;
-    public static final int MAX_PLAYERS = 10;
-    public static final int MIN_PLAYERS = 2;
+    int MAX_BOARD_SIZE = 100;
+    int MIN_BOARD_SIZE = 3;
+    int MAX_NUM_TO_WIN = 25;
+    int MIN_NUM_TO_WIN = 3;
+    int MAX_PLAYERS = 10;
+    int MIN_PLAYERS = 2;
+
     /**
      * Checks if the desired space is available on the board such that its not taken, and
      * in the board bounds (Not taken is defined as " ")
@@ -142,20 +142,30 @@ public interface IGameBoard {
      */
     default boolean checkVerticalWin(BoardPosition lastPos, char player) {
         int countToWin = 0;
-        for (int i = 0; i < getNumColumns(); i++) {
-            for (int j = 0; j < getNumRows(); j++) {
-                /* Check if have a player, if so add to the streak till it equals getNumToWin */
-                if (whatsAtPos(new BoardPosition(j, i)) == player) {
-                    countToWin++;
-                } else {
-                    countToWin = 0;
-                }
-                if (countToWin == getNumToWin()) {
-                    return true;
-                }
+        for (int i = 0; i < getNumRows(); i++) {
+            if (countToWin == getNumToWin()) {
+                return true;
+            }
+            if (whatsAtPos(new BoardPosition(lastPos.getRow(), i)) == player) {
+                countToWin++;
             }
         }
         return false;
+
+//        for (int i = 0; i < getNumColumns(); i++) {
+//            for (int j = 0; j < getNumRows(); j++) {
+//                /* Check if have a player, if so add to the streak till it equals getNumToWin */
+//                if (whatsAtPos(new BoardPosition(j, i)) == player) {
+//                    countToWin++;
+//                } else {
+//                    countToWin = 0;
+//                }
+//                if (countToWin == getNumToWin()) {
+//                    return true;
+//                }
+//            }
+//        }
+//        return false;
     }
 
     /**
