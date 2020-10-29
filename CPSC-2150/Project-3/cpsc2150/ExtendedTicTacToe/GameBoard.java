@@ -5,7 +5,12 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
 
     /**
      * @invarient gameBoard[][] != null
+     * MIN_BOARD_SIZE <= rows <= MAX_BOARD_SIZE
+     * MIN_BOARD_SIZE <= columns <= MAX_BOARD_SIZE
+     * (MIN_NUM_TO_WIN < numToWin <= MAX_SIZE) and (MIN_NUM_TO_WIN < numToWin <= MAX_NUM_TO_WIN)
      * @correspondence numRequiredToWin = numToWIn
+     * totalRows = rows
+     * totalColumns = columns
      */
 
     private final int rows;
@@ -15,10 +20,12 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
 
 
     /**
-     * Initializes the game board to be a 8x8 array of empty characters. A character is
+     * Initializes the game board to be a rows by columns array of empty characters. A character is
      * said to be empty if its board position inside of it equals " "
      *
-     * @pre: none
+     * @pre: MIN_BOARD_SIZE <= rows <= MAX_BOARD_SIZE
+     * MIN_BOARD_SIZE <= columns <= MAX_BOARD_SIZE
+     * (MIN_NUM_TO_WIN < numToWin <= MAX_SIZE) and (MIN_NUM_TO_WIN < numToWin <= MAX_NUM_TO_WIN)
      * @post: gameBoard = (all elements = ' ')
      */
     GameBoard(int rows, int columns, int numToWin) {
@@ -41,7 +48,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * marker, and should not be called if the space is not available.
      *
      * @param marker the position on the board at which the character will be placed
-     * @param player the type of character that will be placed on the board (O or X)
+     * @param player the type of character that will be placed on the board
      */
     @Override
     public void placeMarker(BoardPosition marker, char player) {
@@ -116,7 +123,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
      * Returns the number of consecutive marks on the game board required to win the game
      *
      * @return returns the number of consecutive marks required to win the game. Meaning if
-     * getNumToWin = 5 that means it takes 5 consecutive vertical horizontal or diagonal marks
+     * getNumToWin = numToWin that means it takes numToWin consecutive vertical horizontal or diagonal marks
      * to win the game
      */
     @Override

@@ -4,12 +4,16 @@ package cpsc2150.ExtendedTicTacToe;
  * Contains information about the game board necessary methods to control the flow of tic tac toe
  * <p>
  * Defines: numRequiredToWin : Z [The number of consecutive marks either vertical horizontal or diagonal to win]
+ * totalRows : Z [The number of rows on the board]
+ * totalColumns : Z [The number of columns on the board]
  * <p>
- * Initialization Ensures: [An empty (Empty is defined as " ")2D grid of characters with row >= MIN_BOARD_SIZE and
+ * Initialization Ensures: [An empty (Empty is defined as " ") 2D grid of characters with row >= MIN_BOARD_SIZE and
  * row <= MAX_BOARD_SIZE and column >= MIN_BOARD_SIZE and column <= MAX_BOARD_SIZE]
  * <p>
  * Constraints:
- * 0 < NUM_TO_WIN <= MAX_SIZE
+ * MIN_BOARD_SIZE <= totalRows <= MAX_BOARD_SIZE
+ * MIN_BOARD_SIZE <= totalColumns <= MAX_BOARD_SIZE
+ * (MIN_NUM_TO_WIN < numRequiredToWin <= MAX_SIZE) and (MIN_NUM_TO_WIN < numRequiredToWin <= MAX_NUM_TO_WIN)
  */
 public interface IGameBoard {
 
@@ -42,8 +46,8 @@ public interface IGameBoard {
      * marker, and should not be called if the space is not available.
      *
      * @param marker the position on the board at which the character will be placed
-     * @param player the type of character that will be placed on the board (O or X)
-     * @pre: marker != null and player = 'O' or player = 'X'
+     * @param player the type of character that will be placed on the board
+     * @pre: marker != null
      * @post: gameBoard [at marker] = player
      */
     void placeMarker(BoardPosition marker, char player);
@@ -65,13 +69,10 @@ public interface IGameBoard {
     default boolean checkForWinner(BoardPosition lastPos) {
         char player = whatsAtPos(lastPos);
         if (checkHorizontalWin(lastPos, player)) {
-            //System.out.println("Horizontal");
             return true;
         } else if (checkVerticalWin(lastPos, player)) {
-            //System.out.println("Vertical");
             return true;
         } else {
-            //System.out.println("Diagonal");
             return checkDiagonalWin(lastPos, player);
         }
     }
@@ -107,7 +108,8 @@ public interface IGameBoard {
      * @param player  the player who placed the most recent marker
      * @return true if there is a horizontal win by the player and false if not
      * @pre: lastPos != null
-     * @post: checkHorizontalWin = true iff [5 consecutive horizontal spots on the board [1...5] all equal the same character
+     * @post: checkHorizontalWin = true iff [numRequiredToWin consecutive horizontal spots on the board [MIN_NUM_TO_WIN
+     * ...numRequiredToWin] all equal the same character
      * as player]
      */
     default boolean checkHorizontalWin(BoardPosition lastPos, char player) {
@@ -121,33 +123,17 @@ public interface IGameBoard {
             }
         }
         return false;
-
-//        for (int i = 0; i < getNumRows(); i++) {
-//            for (int j = 0; j < getNumColumns(); j++) {
-//                /* Check if have a player, if so add to the streak till it equals getNumToWin */
-//                if (whatsAtPos(new BoardPosition(i, j)) == player) {
-//                    countToWin++;
-//                } else {
-//                    countToWin = 0;
-//                }
-//                if (countToWin == getNumToWin()) {
-//                    return true;
-//                }
-//            }
-//        }
-//        /* No Horizontal win */
-//        return false;
     }
 
     /**
-     * checks to see if the last marker placed resulted in 5 in a row
+     * checks to see if the last marker placed resulted in numRequiredToWin in a row
      * vertically. Returns true if it does, otherwise false
      *
      * @param lastPos the most recently placed marker on the board
      * @param player  the player who placed the most recent marker
      * @return true if there is a vertical win by the player and false if not
      * @pre: lastPos != null
-     * @post: checkVerticalWin = true iff [5 consecutive vertical spots on the board all equal the same character
+     * @post: checkVerticalWin = true iff [numRequiredToWin consecutive vertical spots on the board all equal the same character
      * as player]
      */
     default boolean checkVerticalWin(BoardPosition lastPos, char player) {
@@ -161,25 +147,10 @@ public interface IGameBoard {
             }
         }
         return false;
-
-//        for (int i = 0; i < getNumColumns(); i++) {
-//            for (int j = 0; j < getNumRows(); j++) {
-//                /* Check if have a player, if so add to the streak till it equals getNumToWin */
-//                if (whatsAtPos(new BoardPosition(j, i)) == player) {
-//                    countToWin++;
-//                } else {
-//                    countToWin = 0;
-//                }
-//                if (countToWin == getNumToWin()) {
-//                    return true;
-//                }
-//            }
-//        }
-//        return false;
     }
 
     /**
-     * checks to see if the last marker placed resulted in 5 in a row
+     * checks to see if the last marker placed resulted in numRequiredToWin in a row
      * diagonally. Returns true if it does, otherwise false
      * Note: there are two diagonals to check (Left diagonal and right diagonal)
      *
@@ -281,7 +252,7 @@ public interface IGameBoard {
      * Returns the number of consecutive marks on the game board to win the game
      *
      * @return returns the number of consecutive marks required to win the game. Meaning if
-     * getNumToWin = 5 that means it takes 5 consecutive vertical horizontal or diagonal marks
+     * getNumToWin = numRequiredToWin that means it takes numRequiredToWin consecutive vertical horizontal or diagonal marks
      * to win the game
      * @pre: none
      * @post: getNumToWin() = numToWin

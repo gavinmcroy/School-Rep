@@ -5,18 +5,16 @@ import java.util.Scanner;
 
 public class GameScreen {
 
-    //private static final char PLAYER_ONE = 'X';
-    //private static final char PLAYER_TWO = 'O';
     private static final Scanner scanner = new Scanner(System.in);
 
     private static int totalPlayers;
     private static int rows;
     private static int columns;
     private static int numToWin;
+    /* Corresponds to the current players index in the hashTable*/
     private static int currentPlayer = 0;
-   // private static boolean isPlayerXTurn = true;
-   // private static boolean isPlayerOTurn = false;
     private static char implementation = '0';
+
     private static IGameBoard gameBoard;
     private static final Hashtable<Integer, Character> hashTable = new Hashtable<>();
 
@@ -55,12 +53,6 @@ public class GameScreen {
     private static void runGame() {
         validateInput();
         while (true) {
-
-              // while (/* Get each character to place there character */) {
-            /* Ask for input */
-            /* Check if its a valid place */
-            /* Place it on the board */
-              // }
             System.out.println("Player " + getCurrentPlayer() + " Please enter your ROW ");
             int row = scanner.nextInt();
             System.out.println("Player " + getCurrentPlayer() + " Please enter your COLUMN");
@@ -188,12 +180,6 @@ public class GameScreen {
      * @post: currentPlayer = playerTwo iff(isPlayerOTurn) or playerOne iff(!isPlayerOTurn)
      */
     private static char getCurrentPlayer() {
-//        if(currentPlayer==hashTable.size()-1){
-//
-//        }
-//        if (isPlayerOTurn) {
-//            return PLAYER_TWO;
-//        }
         return hashTable.get(currentPlayer);
     }
 
@@ -206,11 +192,9 @@ public class GameScreen {
      */
     private static void changeTurns() {
         currentPlayer++;
-        if(currentPlayer==hashTable.size()){
+        if (currentPlayer == hashTable.size()) {
             currentPlayer = 0;
         }
-        //isPlayerOTurn = !isPlayerOTurn;
-       // isPlayerXTurn = !isPlayerXTurn;
     }
 
 }

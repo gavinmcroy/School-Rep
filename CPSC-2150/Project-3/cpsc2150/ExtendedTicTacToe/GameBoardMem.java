@@ -8,8 +8,13 @@ import java.util.Map;
 public class GameBoardMem extends AbsGameBoard implements IGameBoard {
 
     /**
-     * @invarient boardPositionMap != null
+     * @invarient gameBoard[][] != null
+     * MIN_BOARD_SIZE <= rows <= MAX_BOARD_SIZE
+     * MIN_BOARD_SIZE <= columns <= MAX_BOARD_SIZE
+     * (MIN_NUM_TO_WIN < numToWin <= MAX_SIZE) and (MIN_NUM_TO_WIN < numToWin <= MAX_NUM_TO_WIN)
      * @correspondence numRequiredToWin = numToWIn
+     * totalRows = rows
+     * totalColumns = columns
      */
 
     /*
@@ -22,6 +27,16 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
     Map<Character, List<BoardPosition>> boardPositionMap;
 
 
+    /**
+     * Initializes the game board to be a row by column array of empty characters. A character is
+     * said to be empty if its board position inside of it equals " "
+     *
+     * @pre: MIN_BOARD_SIZE <= rows <= MAX_BOARD_SIZE
+     * MIN_BOARD_SIZE <= columns <= MAX_BOARD_SIZE
+     * (MIN_NUM_TO_WIN < numToWin <= MAX_SIZE) and (MIN_NUM_TO_WIN < numToWin <= MAX_NUM_TO_WIN)
+     * @post: gameBoard != null
+     */
+
     public GameBoardMem(int rows, int columns, int numToWin) {
         this.rows = rows;
         this.columns = columns;
@@ -31,7 +46,6 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
     }
 
     /**
-     * TODO update Explanation
      * places the character in marker on the position specified by
      * marker, and should not be called if the space is not available.
      *
@@ -52,7 +66,6 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
             positions.add(marker);
             boardPositionMap.put(player, positions);
         }
-        //boardPositionMap.put(player, marker);
     }
 
     /**
@@ -80,7 +93,8 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
         return ' ';
     }
 
-    /** TODO test/Implement
+    /**
+     * Todo test
      * returns true if the player is at pos, otherwise it returns false
      * Note: this method will be implemented very similarly to
      * whatsAtPos, but it’s asking a different question. We only know they
@@ -136,7 +150,7 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      * Returns the number of consecutive marks on the game board to win the game
      *
      * @return returns the number of consecutive marks required to win the game. Meaning if
-     * getNumToWin = 5 that means it takes 5 consecutive vertical horizontal or diagonal marks
+     * getNumToWin = numToWin that means it takes numToWin consecutive vertical horizontal or diagonal marks
      * to win the game
      * @pre: none
      * @post: getNumToWin() = numToWin
