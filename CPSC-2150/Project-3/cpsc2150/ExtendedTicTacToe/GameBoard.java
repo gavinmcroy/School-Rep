@@ -5,7 +5,7 @@ public class GameBoard extends AbsGameBoard implements IGameBoard {
 
     /**
      * @invarient gameBoard[][] != null
-     * @correspondence numToWin = NUM_TO_WIN
+     * @correspondence numRequiredToWin = numToWIn
      */
 
     private final int rows;

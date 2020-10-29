@@ -3,13 +3,13 @@ package cpsc2150.ExtendedTicTacToe;
 /**
  * Contains information about the game board necessary methods to control the flow of tic tac toe
  * <p>
- * Defines: numToWin : Z [The number of consecutive marks either vertical horizontal or diagonal to win]
+ * Defines: numRequiredToWin : Z [The number of consecutive marks either vertical horizontal or diagonal to win]
  * <p>
- * Initialization Ensures: [An empty (Empty is defined as " ")2D grid of characters with row == MAX_SIZE
- * and column == MAX_SIZE]
+ * Initialization Ensures: [An empty (Empty is defined as " ")2D grid of characters with row >= MIN_BOARD_SIZE and
+ * row <= MAX_BOARD_SIZE and column >= MIN_BOARD_SIZE and column <= MAX_BOARD_SIZE]
  * <p>
  * Constraints:
- * 0<NUM_TO_WIN <= MAX_SIZE
+ * 0 < NUM_TO_WIN <= MAX_SIZE
  */
 public interface IGameBoard {
 
@@ -100,13 +100,13 @@ public interface IGameBoard {
     }
 
     /**
-     * checks to see if the last marker placed resulted in 5 in a row
+     * checks to see if the last marker placed resulted in numRequiredToWin in a row
      * horizontally. Returns true if it does, otherwise false
      *
      * @param lastPos the most recently placed marker on the board
-     * @param player  the player who placed the most recent marker (O or X)
+     * @param player  the player who placed the most recent marker
      * @return true if there is a horizontal win by the player and false if not
-     * @pre: lastPos != null and player = 'O' or player = 'X'
+     * @pre: lastPos != null
      * @post: checkHorizontalWin = true iff [5 consecutive horizontal spots on the board [1...5] all equal the same character
      * as player]
      */
@@ -144,9 +144,9 @@ public interface IGameBoard {
      * vertically. Returns true if it does, otherwise false
      *
      * @param lastPos the most recently placed marker on the board
-     * @param player  the player who placed the most recent marker (O or X)
+     * @param player  the player who placed the most recent marker
      * @return true if there is a vertical win by the player and false if not
-     * @pre: lastPos != null and player = 'O' or player = 'X'
+     * @pre: lastPos != null
      * @post: checkVerticalWin = true iff [5 consecutive vertical spots on the board all equal the same character
      * as player]
      */
@@ -184,10 +184,10 @@ public interface IGameBoard {
      * Note: there are two diagonals to check (Left diagonal and right diagonal)
      *
      * @param lastPos the most recently placed marker on the board
-     * @param player  the player who placed the most recent marker (O or X)
+     * @param player  the player who placed the most recent marker
      * @return true if there is a diagonal win by the player and false if not
-     * @pre: lastPos != null and player = 'O' or player 'X'
-     * @post: checkDiagonalWin = true iff [5 consecutive diagonal spots on the board all equal the same character
+     * @pre: lastPos != null
+     * @post: checkDiagonalWin = true iff [numRequiredToWin consecutive diagonal spots on the board all equal the same character
      * as player]
      */
     default boolean checkDiagonalWin(BoardPosition lastPos, char player) {
@@ -247,11 +247,11 @@ public interface IGameBoard {
      * the data structure were to change in the future these two methods
      * could end up being radically different.
      *
-     * @param player the player desired to be checked (O or X)
+     * @param player the player desired to be checked
      * @param pos    the position of the character on the board
      * @return return true if the player is found to be present on the board
      * and false if not
-     * @pre: pos != null and player = 'O' or player 'X'
+     * @pre: pos != null
      * @post: isPlayerAtPos = true iff(gameBoard[at pos] == player)
      */
     default boolean isPlayerAtPos(BoardPosition pos, char player) {

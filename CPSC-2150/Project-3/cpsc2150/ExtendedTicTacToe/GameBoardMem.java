@@ -8,6 +8,11 @@ import java.util.Map;
 public class GameBoardMem extends AbsGameBoard implements IGameBoard {
 
     /**
+     * @invarient boardPositionMap != null
+     * @correspondence numRequiredToWin = numToWIn
+     */
+
+    /*
      * Game board is represented by a map
      * Map <Character, BoardPosition>
      */
@@ -31,8 +36,8 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
      * marker, and should not be called if the space is not available.
      *
      * @param marker the position on the board at which the character will be placed
-     * @param player the type of character that will be placed on the board (O or X)
-     * @pre: marker != null and player = 'O' or player = 'X'
+     * @param player the type of character that will be placed on the board
+     * @pre: marker != null
      * @post: gameBoard [at marker] = player
      */
     @Override
@@ -51,7 +56,6 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
     }
 
     /**
-     * TODO update explanation
      * returns what is in the GameBoard at position pos
      * If no marker is there it returns a blank space char ‘ ‘
      *
@@ -64,7 +68,7 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
     @Override
     public char whatsAtPos(BoardPosition pos) {
         /* If the board contains the position find the character associated with it */
-        //if (boardPositionMap.containsValue(pos)) {
+
         for (Map.Entry<Character, List<BoardPosition>> m : boardPositionMap.entrySet()) {
             List<BoardPosition> tmp = m.getValue();
             for (BoardPosition boardPosition : tmp) {
@@ -73,13 +77,34 @@ public class GameBoardMem extends AbsGameBoard implements IGameBoard {
                 }
             }
         }
-        // }
         return ' ';
     }
 
-
+    /** TODO test/Implement
+     * returns true if the player is at pos, otherwise it returns false
+     * Note: this method will be implemented very similarly to
+     * whatsAtPos, but it’s asking a different question. We only know they
+     * will be similar because we know GameBoard will contain a 2D array. If
+     * the data structure were to change in the future these two methods
+     * could end up being radically different.
+     *
+     * @param player the player desired to be checked
+     * @param pos    the position of the character on the board
+     * @return return true if the player is found to be present on the board
+     * and false if not
+     * @pre: pos != null
+     * @post: isPlayerAtPos = true iff(gameBoard[at pos] == player)
+     */
     @Override
     public boolean isPlayerAtPos(BoardPosition pos, char player) {
+        for (Map.Entry<Character, List<BoardPosition>> m : boardPositionMap.entrySet()) {
+            List<BoardPosition> tmp = m.getValue();
+            for (BoardPosition boardPosition : tmp) {
+                if (boardPosition.equals(pos)) {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 
