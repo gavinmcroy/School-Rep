@@ -7,14 +7,18 @@
 #IncludeRegexTransform: 
 
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.cpp
-TSP.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.h
 fstream
 -
 iostream
 -
 cmath
 -
+algorithm
+-
+random
+-
+TSP.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.h
 
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.h
 vector
