@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.cpp
+TSP.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.h
+fstream
+-
+iostream
+-
+cmath
+-
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab08/TSP.h
+vector
+-
+string
+-
+

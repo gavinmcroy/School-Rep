@@ -4,14 +4,17 @@
 
 #ifndef LAB08_TSP_H
 #define LAB08_TSP_H
+
 #include <vector>
+#include <string>
 
 class TSP {
 
-    struct Point{
+    struct Point {
         double x;
         double y;
-        Point(double x , double y){
+
+        Point(double x, double y) {
             this->x = x;
             this->y = y;
         }
@@ -19,10 +22,13 @@ class TSP {
 
     std::vector<Point> cityLocations;
     std::vector<int> tour;
+
+    double calculateTourDistance();
+
 public:
-    TSP();
+    explicit TSP(const std::string &fileName);
 
-
+    double calculateOptimalTour();
 };
 
 
