@@ -1,5 +1,6 @@
 #include <iostream>
 #include "TSP.h"
+#include <limits>
 
 int main() {
 
@@ -9,6 +10,6 @@ int main() {
     std::cout << "Hello, World!" << std::endl;
     TSP tsp("tsp_points.txt");
     std::cout << "Optimal Tour: " << tsp.calculateOptimalTour() << std::endl;
-
+    //std::cout<<std::numeric_limits<double>::max()<<std::endl;
     return 0;
 }

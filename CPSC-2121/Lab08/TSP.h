@@ -9,7 +9,7 @@
 #include <string>
 
 class TSP {
-    const int N = 1000;
+    //const int N = 1;
 
     struct Point {
         double x;
@@ -26,9 +26,11 @@ class TSP {
 
     double calculateTourDistance();
 
-    void randomizeTour();
+    void randomizeTour(std::vector<int> &t);
 
-    void reverseTour(int start, int ending);
+    void reverseTour(int start, int ending, std::vector<int> &t);
+
+    void outputTour();
 
 public:
     explicit TSP(const std::string &fileName);

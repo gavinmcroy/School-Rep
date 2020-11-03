@@ -6,12 +6,16 @@
 #include <cmath>
 #include <algorithm>
 #include <random>
+#include <limits>
+#include <chrono>
 #include "TSP.h"
+
+/* Debug purposes */
+std::vector<int> optimalTour;
 
 
 TSP::TSP(const std::string &fileName) {
     std::ifstream inFile;
-    std::ofstream outputFile;
     inFile.open(fileName);
     cityLocations.reserve(50);
     tour.reserve(50);
@@ -30,19 +34,6 @@ TSP::TSP(const std::string &fileName) {
     for (int i = 0; i < cityLocations.size(); i++) {
         tour.push_back(i);
     }
-
-    /* Testing output */
-    randomizeTour();
-    outputFile.open("Output.txt");
-    for (int i = 0; i < tour.size(); i++) {
-        outputFile << tour.at(i) << " ";
-    }
-    outputFile << std::endl;
-    //reverseTour(0, 49);
-    for (int i = 0; i <= 49; i++) {
-        outputFile << tour.at(i) << " ";
-    }
-    outputFile.close();
 
     inFile.close();
 }
@@ -70,15 +61,16 @@ double TSP::calculateTourDistance() {
     return currentDistance;
 }
 
-void TSP::randomizeTour() {
-    std::shuffle(tour.begin(), tour.end(), std::mt19937(std::random_device()()));
+void TSP::randomizeTour(std::vector<int> &t) {
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    std::shuffle(t.begin(), t.end(),  std::default_random_engine(seed));
 }
 
-void TSP::reverseTour(int start, int ending) {
+void TSP::reverseTour(int start, int ending, std::vector<int> &t) {
     for (int i = start; i < ending; i++) {
-        int tmp = tour.at(i);
-        tour.at(i) = tour.at(ending);
-        tour.at(ending) = tmp;
+        int tmpVal = t.at(i);
+        t.at(i) = t.at(ending);
+        t.at(ending) = tmpVal;
         ending--;
         if (ending == i) {
             break;
@@ -86,13 +78,56 @@ void TSP::reverseTour(int start, int ending) {
     }
 }
 
-double TSP::calculateOptimalTour() {
-    for(int i =0 ; i < tour.size(); i++){
-        for(int j = 0; j < tour.size(); j++){
+void TSP::outputTour() {
+    std::ofstream outputFile;
+    /* Testing output */
+    outputFile.open("Output.txt");
+    for (int i = 0; i < tour.size(); i++) {
+        outputFile << optimalTour.at(i) << " ";
+    }
+    outputFile << std::endl;
+    /* Testing reverse */
+    //reverseTour(0, 49);
+//    for (int i = 0; i <= 49; i++) {
+//        outputFile << tour.at(i) << " ";
+//    }
+    outputFile.close();
+}
 
+
+double TSP::calculateOptimalTour() {
+    double minDistance = std::numeric_limits<double>::max();
+    for (int i = 0; i < 1000; i++) {
+        randomizeTour(tour);
+        for(int z = 0; z < 10; z++) {
+            for (int x = 0; x < tour.size() - 1; x++) {
+                for (int j = x + 1; j < tour.size(); j++) {
+                    reverseTour(x, j, tour);
+                    double calculation = calculateTourDistance();
+                    if (calculation < minDistance) {
+                        optimalTour = tour;
+                        std::cout<<"Speed"<<std::endl;
+                        minDistance = calculation;
+                    } else {
+                        /* Flip tour back to original state */
+                        reverseTour(x, j, tour);
+                    }
+                }
+            }
         }
     }
-    return calculateTourDistance();
+//    for (int i = 0; i < tour.size(); i++) {
+//        for (int j = 0; j < tour.size(); j++) {
+//            randomizeTour();
+//            double calculation = calculateTourDistance();
+//            if (calculation < minDistance) {
+//                minDistance = calculation;
+//            }
+//        }
+//    }
+
+    outputTour();
+    return minDistance;
 }
 
 
