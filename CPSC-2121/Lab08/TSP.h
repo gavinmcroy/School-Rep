@@ -26,7 +26,7 @@ class TSP {
 
     double calculateTourDistance();
 
-    void randomizeTour(std::vector<int> &t);
+    void randomizeTour(/*std::vector<int> &t*/);
 
     void reverseTour(int start, int ending, std::vector<int> &t);
 

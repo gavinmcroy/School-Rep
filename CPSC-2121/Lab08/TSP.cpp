@@ -62,9 +62,9 @@ double TSP::calculateTourDistance() {
     return currentDistance;
 }
 
-void TSP::randomizeTour(std::vector<int> &t) {
+void TSP::randomizeTour(/*std::vector<int> &t*/) {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
-    std::shuffle(t.begin(), t.end(),  std::default_random_engine(seed));
+    std::shuffle(tour.begin(), tour.end(), std::default_random_engine(seed));
 }
 
 void TSP::reverseTour(int start, int ending, std::vector<int> &t) {
@@ -84,62 +84,60 @@ void TSP::outputTour() {
     /* Testing output */
     outputFile.open("Output.txt");
     for (int i = 0; i < tour.size(); i++) {
-        outputFile << optimalTour.at(i) << " ";
+        // outputFile << optimalTour.at(i) << " ";
     }
     outputFile << std::endl;
     /* Testing reverse */
     //reverseTour(0, 49);
-//    for (int i = 0; i <= 49; i++) {
-//        outputFile << tour.at(i) << " ";
-//    }
+    for (int i : tour) {
+        outputFile << i << " ";
+    }
     outputFile.close();
 }
 
+double absoluteMin = std::numeric_limits<double>::max();
 
 double TSP::calculateOptimalTour() {
-    double minDistance = std::numeric_limits<double>::max();
+    std::vector<double> testingMin;
+    bool beingOptimized = true;
+    double minDistancePerSolution = std::numeric_limits<double>::max();
     for (int i = 0; i < 1000; i++) {
-        counter = 0;
-        randomizeTour(tour);
-        for(int z = 0; z < 500; z++) {
+        testingMin.push_back(minDistancePerSolution);
+        minDistancePerSolution = std::numeric_limits<double>::max();
+        randomizeTour();
+        beingOptimized = true;
+
+        /* While its being optimized  */
+        while (beingOptimized) {
+            beingOptimized = false;
             for (int x = 0; x < tour.size(); x++) {
                 for (int j = x + 1; j < tour.size(); j++) {
                     reverseTour(x, j, tour);
                     double calculation = calculateTourDistance();
-                    if (calculation < minDistance) {
+                    if (calculation < absoluteMin) {
                         optimalTour = tour;
-                        counter++;
-                        breakCounter=0;
-                        std::cout<<counter<<std::endl;
-                        minDistance = calculation;
+                        absoluteMin = calculation;
+                    }
+                    if (calculation < minDistancePerSolution) {
+                        beingOptimized = true;
+                        minDistancePerSolution = calculation;
                     } else {
                         /* Flip tour back to original state since change did not help */
                         reverseTour(x, j, tour);
-                        breakCounter++;
-                        if(breakCounter%10000==1){
-                            int x = 0;
-                        }
-                        if(breakCounter==100000){
-                            return minDistance;
-                        }
-
                     }
                 }
             }
         }
     }
-//    for (int i = 0; i < tour.size(); i++) {
-//        for (int j = 0; j < tour.size(); j++) {
-//            randomizeTour();
-//            double calculation = calculateTourDistance();
-//            if (calculation < minDistance) {
-//                minDistance = calculation;
-//            }
+
+    //absoluteMin = std::numeric_limits<double>::max();
+    outputTour();
+//    for (double i : testingMin) {
+//        if (i < absoluteMin) {
+//            absoluteMin = i;
 //        }
 //    }
-
-    outputTour();
-    return minDistance;
+    return absoluteMin;
 }
 
 
