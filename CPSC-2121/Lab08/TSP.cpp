@@ -12,7 +12,8 @@
 
 /* Debug purposes */
 std::vector<int> optimalTour;
-
+int counter = 0;
+int breakCounter = 0;
 
 TSP::TSP(const std::string &fileName) {
     std::ifstream inFile;
@@ -98,19 +99,30 @@ void TSP::outputTour() {
 double TSP::calculateOptimalTour() {
     double minDistance = std::numeric_limits<double>::max();
     for (int i = 0; i < 1000; i++) {
+        counter = 0;
         randomizeTour(tour);
-        for(int z = 0; z < 10; z++) {
-            for (int x = 0; x < tour.size() - 1; x++) {
+        for(int z = 0; z < 500; z++) {
+            for (int x = 0; x < tour.size(); x++) {
                 for (int j = x + 1; j < tour.size(); j++) {
                     reverseTour(x, j, tour);
                     double calculation = calculateTourDistance();
                     if (calculation < minDistance) {
                         optimalTour = tour;
-                        std::cout<<"Speed"<<std::endl;
+                        counter++;
+                        breakCounter=0;
+                        std::cout<<counter<<std::endl;
                         minDistance = calculation;
                     } else {
-                        /* Flip tour back to original state */
+                        /* Flip tour back to original state since change did not help */
                         reverseTour(x, j, tour);
+                        breakCounter++;
+                        if(breakCounter%10000==1){
+                            int x = 0;
+                        }
+                        if(breakCounter==100000){
+                            return minDistance;
+                        }
+
                     }
                 }
             }
