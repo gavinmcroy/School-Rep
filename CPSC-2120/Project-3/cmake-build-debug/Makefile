@@ -142,6 +142,33 @@ Project_3/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_3.dir\build.make CMakeFiles/Project_3.dir/build
 .PHONY : Project_3/fast
 
+HalloweenOptimization.obj: HalloweenOptimization.cpp.obj
+
+.PHONY : HalloweenOptimization.obj
+
+# target to build an object file
+HalloweenOptimization.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_3.dir\build.make CMakeFiles/Project_3.dir/HalloweenOptimization.cpp.obj
+.PHONY : HalloweenOptimization.cpp.obj
+
+HalloweenOptimization.i: HalloweenOptimization.cpp.i
+
+.PHONY : HalloweenOptimization.i
+
+# target to preprocess a source file
+HalloweenOptimization.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_3.dir\build.make CMakeFiles/Project_3.dir/HalloweenOptimization.cpp.i
+.PHONY : HalloweenOptimization.cpp.i
+
+HalloweenOptimization.s: HalloweenOptimization.cpp.s
+
+.PHONY : HalloweenOptimization.s
+
+# target to generate assembly for a file
+HalloweenOptimization.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Project_3.dir\build.make CMakeFiles/Project_3.dir/HalloweenOptimization.cpp.s
+.PHONY : HalloweenOptimization.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -178,6 +205,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Project_3
+	@echo ... HalloweenOptimization.obj
+	@echo ... HalloweenOptimization.i
+	@echo ... HalloweenOptimization.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

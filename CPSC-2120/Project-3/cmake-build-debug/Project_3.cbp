@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/HalloweenOptimization.cpp">
+			<Option target="Project_3"/>
+		</Unit>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/HalloweenOptimization.h">
+			<Option target="Project_3"/>
+		</Unit>
 		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/main.cpp">
 			<Option target="Project_3"/>
 		</Unit>
