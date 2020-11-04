@@ -25,7 +25,9 @@ class TSP {
     std::vector<int> optimalTour;
     double absoluteMin;
 
-    double calculateTourDistance();
+    double calculateTourDistance(std::vector<int> &t);
+
+    double calculateTourWithPoints(unsigned int start, unsigned int ending);
 
     void randomizeTour(std::vector<int> &t);
 
@@ -37,6 +39,8 @@ public:
     double calculateOptimalTour();
 
     void outputTour();
+
+
 };
 
 

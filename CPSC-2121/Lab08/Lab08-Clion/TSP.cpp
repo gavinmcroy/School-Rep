@@ -32,30 +32,78 @@ TSP::TSP(const std::string &fileName) {
         tour.push_back(i);
     }
 
+    /* DEBUG */
+//    std::cout << calculateTourWithPoints(0, 1) << std::endl;
+//    double val = calculateTourWithPoints(0, 1);
+//    tour.at(0) = 1;
+//    tour.at(1) = 0;
+//    std::cout << calculateTourWithPoints(0, 1) << std::endl;
+//    double val2 = calculateTourWithPoints(0, 1);
+//    std::cout << std::abs(val - val2) << std::endl;
+    /* DEBUG */
+
     inFile.close();
 }
 
-double TSP::calculateTourDistance() {
+double TSP::calculateTourDistance(std::vector<int> &t) {
     double currentDistance = 0;
-    for (unsigned int i = 0; i < tour.size(); i++) {
+//    int previous = tour.at(0);
+//    int current = tour.at(tour.size() - 1);
+//    currentDistance += sqrt(pow((cityLocations.at(previous).x - cityLocations.at(current).x), 2) +
+//                            pow((cityLocations.at(previous).y - cityLocations.at(current).y), 2));
+    for (unsigned int i = 0; i < t.size(); i++) {
         /* Special case for comparing last city to start city */
         int previous = 0;
         int current = 0;
-        if (i + 1 >= tour.size()) {
-            previous = tour.at(0);
-            current = tour.at(tour.size() - 1);
+        if (i + 1 >= t.size()) {
+            previous = t.at(0);
+            current = t.at(t.size() - 1);
             currentDistance += sqrt(pow((cityLocations.at(previous).x - cityLocations.at(current).x), 2) +
                                     pow((cityLocations.at(previous).y - cityLocations.at(current).y), 2));
         }
             /* Compare city 1 distance to city 2, then city 2 to city 3 and add it up */
         else {
-            previous = tour.at(i);
-            current = tour.at(i + 1);
+            previous = t.at(i);
+            current = t.at(i + 1);
             currentDistance += sqrt(pow((cityLocations.at(previous).x - cityLocations.at(current).x), 2) +
                                     pow((cityLocations.at(previous).y - cityLocations.at(current).y), 2));
         }
     }
     return currentDistance;
+}
+
+double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
+
+    double distance = 0;
+    if (start == 0 && ending == tour.size() - 1) {
+        return calculateTourDistance(tour);
+    }
+    /* Special case for linking last city to first */
+    if (start == 0) {
+        /* We need to tie the last city to the starting city I need to find distance from last to start */
+        unsigned int lastCityIndex = tour.at(tour.size() - 1);
+        unsigned int firstCityIndex = tour.at(start);
+        distance += sqrt(pow((cityLocations.at(lastCityIndex).x - cityLocations.at(firstCityIndex).x), 2) +
+                         pow((cityLocations.at(lastCityIndex).y - cityLocations.at(firstCityIndex).y), 2));
+        if (ending + 1 >= tour.size()) {
+            distance += sqrt(pow((cityLocations.at(tour.at(ending)).x - cityLocations.at(0).x), 2) +
+                             pow((cityLocations.at(tour.at(ending)).y - cityLocations.at(0).y), 2));
+        } else {
+            distance += sqrt(pow((cityLocations.at(tour.at(ending)).x - cityLocations.at(tour.at(ending + 1)).x), 2) +
+                             pow((cityLocations.at(tour.at(ending)).y - cityLocations.at(tour.at(ending + 1)).y), 2));
+        }
+    } else {
+        distance += sqrt(pow((cityLocations.at(tour.at(start - 1)).x - cityLocations.at(tour.at(start)).x), 2) +
+                         pow((cityLocations.at(tour.at(start - 1)).y - cityLocations.at(tour.at(start)).y), 2));
+        if (ending + 1 >= tour.size()) {
+            distance += sqrt(pow((cityLocations.at(tour.at(ending)).x - cityLocations.at(0).x), 2) +
+                             pow((cityLocations.at(tour.at(ending)).y - cityLocations.at(0).y), 2));
+        } else {
+            distance += sqrt(pow((cityLocations.at(tour.at(ending + 1)).x - cityLocations.at(tour.at(ending)).x), 2) +
+                             pow((cityLocations.at(tour.at(ending + 1)).y - cityLocations.at(tour.at(ending)).y), 2));
+        }
+    }
+    return distance;
 }
 
 void TSP::randomizeTour(std::vector<int> &t) {
@@ -77,6 +125,7 @@ void TSP::reverseTour(unsigned int start, unsigned int ending, std::vector<int> 
 
 void TSP::outputTour() {
     /* Its easier to copy paste from a file */
+    std::cout<<calculateTourDistance(optimalTour)<<std::endl;
     std::ofstream outputFile;
     outputFile.open("Output.txt");
     for (int i : optimalTour) {
@@ -90,24 +139,40 @@ double TSP::calculateOptimalTour() {
     for (int i = 0; i < 1000; i++) {
         double minDistancePerSolution = std::numeric_limits<double>::max();
         randomizeTour(tour);
+        /* Initial tour distance */
+        double calculation = calculateTourDistance(tour);
         bool beingOptimized = true;
-
         /* While its being optimized  */
         while (beingOptimized) {
             beingOptimized = false;
             for (unsigned int x = 0; x < tour.size(); x++) {
                 for (unsigned int j = x + 1; j < tour.size(); j++) {
                     /* Reverse the tour and see if the distance is reduced */
-                    reverseTour(x, j, tour);
-                    double calculation = calculateTourDistance();
                     if (calculation < absoluteMin) {
                         optimalTour = tour;
                         absoluteMin = calculation;
                     }
-                    if (calculation < minDistancePerSolution) {
+                    /* DEBUG */
+                    //---If all elements have been reversed, call calculateTour
+                    double currentDistance = calculateTourWithPoints(x, j);
+                    reverseTour(x, j, tour);
+                    double predictedGain = calculateTourWithPoints(x, j);
+                    /* If (this is an improvement) { update calculation } */
+                    if (predictedGain < currentDistance) {
+                        calculation = calculation - currentDistance + predictedGain;
                         beingOptimized = true;
-                        minDistancePerSolution = calculation;
-                    } else {
+                    }
+                        /* DEBUG */
+                        //double calculation = calculateTourDistance();
+//                    if (calculation < absoluteMin) {
+//                        optimalTour = tour;
+//                        absoluteMin = calculation;
+//                    }
+//                    if (calculation < minDistancePerSolution) {
+//                        beingOptimized = true;
+//                        minDistancePerSolution = calculation;
+                        // }
+                    else {
                         /* Flip tour back to original state since change did not help */
                         reverseTour(x, j, tour);
                     }
@@ -115,7 +180,8 @@ double TSP::calculateOptimalTour() {
             }
         }
     }
-    return absoluteMin;
+    std::cout<<absoluteMin;
+    return 0; //calculateTourDistance();
 }
 
 
