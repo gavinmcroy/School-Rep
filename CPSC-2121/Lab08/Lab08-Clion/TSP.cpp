@@ -74,6 +74,12 @@ double TSP::calculateTourDistance(std::vector<int> &t) {
 
 double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
 
+//    if(start > ending){
+//        unsigned int tmp = start;
+//        start = ending;
+//        ending = tmp;
+//    }
+
     double distance = 0;
     if (start == 0 && ending == tour.size() - 1) {
         return calculateTourDistance(tour);
@@ -92,6 +98,8 @@ double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
             distance += sqrt(pow((cityLocations.at(tour.at(ending)).x - cityLocations.at(tour.at(ending + 1)).x), 2) +
                              pow((cityLocations.at(tour.at(ending)).y - cityLocations.at(tour.at(ending + 1)).y), 2));
         }
+        //return distance;
+
     } else {
         distance += sqrt(pow((cityLocations.at(tour.at(start - 1)).x - cityLocations.at(tour.at(start)).x), 2) +
                          pow((cityLocations.at(tour.at(start - 1)).y - cityLocations.at(tour.at(start)).y), 2));
@@ -102,8 +110,12 @@ double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
             distance += sqrt(pow((cityLocations.at(tour.at(ending + 1)).x - cityLocations.at(tour.at(ending)).x), 2) +
                              pow((cityLocations.at(tour.at(ending + 1)).y - cityLocations.at(tour.at(ending)).y), 2));
         }
+        //return distance;
     }
+
+
     return distance;
+
 }
 
 void TSP::randomizeTour(std::vector<int> &t) {
@@ -125,7 +137,6 @@ void TSP::reverseTour(unsigned int start, unsigned int ending, std::vector<int> 
 
 void TSP::outputTour() {
     /* Its easier to copy paste from a file */
-    std::cout<<calculateTourDistance(optimalTour)<<std::endl;
     std::ofstream outputFile;
     outputFile.open("Output.txt");
     for (int i : optimalTour) {
@@ -160,6 +171,7 @@ double TSP::calculateOptimalTour() {
                     /* If (this is an improvement) { update calculation } */
                     if (predictedGain < currentDistance) {
                         calculation = calculation - currentDistance + predictedGain;
+                        //reverseTour(x,j,tour);
                         beingOptimized = true;
                     }
                         /* DEBUG */
@@ -180,8 +192,9 @@ double TSP::calculateOptimalTour() {
             }
         }
     }
-    std::cout<<absoluteMin;
-    return 0; //calculateTourDistance();
+    return calculateTourDistance(optimalTour);
 }
+
+
 
 

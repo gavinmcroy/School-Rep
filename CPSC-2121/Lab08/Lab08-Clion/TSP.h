@@ -40,6 +40,7 @@ public:
 
     void outputTour();
 
+    void debugFunction();
 
 };
 
