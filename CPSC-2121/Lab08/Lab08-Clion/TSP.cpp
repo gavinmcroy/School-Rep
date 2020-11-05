@@ -32,25 +32,11 @@ TSP::TSP(const std::string &fileName) {
         tour.push_back(i);
     }
 
-    /* DEBUG */
-//    std::cout << calculateTourWithPoints(0, 1) << std::endl;
-//    double val = calculateTourWithPoints(0, 1);
-//    tour.at(0) = 1;
-//    tour.at(1) = 0;
-//    std::cout << calculateTourWithPoints(0, 1) << std::endl;
-//    double val2 = calculateTourWithPoints(0, 1);
-//    std::cout << std::abs(val - val2) << std::endl;
-    /* DEBUG */
-
     inFile.close();
 }
 
 double TSP::calculateTourDistance(std::vector<int> &t) {
     double currentDistance = 0;
-//    int previous = tour.at(0);
-//    int current = tour.at(tour.size() - 1);
-//    currentDistance += sqrt(pow((cityLocations.at(previous).x - cityLocations.at(current).x), 2) +
-//                            pow((cityLocations.at(previous).y - cityLocations.at(current).y), 2));
     for (unsigned int i = 0; i < t.size(); i++) {
         /* Special case for comparing last city to start city */
         int previous = 0;
@@ -73,13 +59,6 @@ double TSP::calculateTourDistance(std::vector<int> &t) {
 }
 
 double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
-
-//    if(start > ending){
-//        unsigned int tmp = start;
-//        start = ending;
-//        ending = tmp;
-//    }
-
     double distance = 0;
     if (start == 0 && ending == tour.size() - 1) {
         return calculateTourDistance(tour);
@@ -91,6 +70,7 @@ double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
         unsigned int firstCityIndex = tour.at(start);
         distance += sqrt(pow((cityLocations.at(lastCityIndex).x - cityLocations.at(firstCityIndex).x), 2) +
                          pow((cityLocations.at(lastCityIndex).y - cityLocations.at(firstCityIndex).y), 2));
+        /* If we are on index 49 we want to lap over to the next index would be 0 */
         if (ending + 1 >= tour.size()) {
             distance += sqrt(pow((cityLocations.at(tour.at(ending)).x - cityLocations.at(0).x), 2) +
                              pow((cityLocations.at(tour.at(ending)).y - cityLocations.at(0).y), 2));
@@ -98,7 +78,6 @@ double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
             distance += sqrt(pow((cityLocations.at(tour.at(ending)).x - cityLocations.at(tour.at(ending + 1)).x), 2) +
                              pow((cityLocations.at(tour.at(ending)).y - cityLocations.at(tour.at(ending + 1)).y), 2));
         }
-        //return distance;
 
     } else {
         distance += sqrt(pow((cityLocations.at(tour.at(start - 1)).x - cityLocations.at(tour.at(start)).x), 2) +
@@ -110,7 +89,6 @@ double TSP::calculateTourWithPoints(unsigned int start, unsigned int ending) {
             distance += sqrt(pow((cityLocations.at(tour.at(ending + 1)).x - cityLocations.at(tour.at(ending)).x), 2) +
                              pow((cityLocations.at(tour.at(ending + 1)).y - cityLocations.at(tour.at(ending)).y), 2));
         }
-        //return distance;
     }
 
 
@@ -148,7 +126,6 @@ void TSP::outputTour() {
 double TSP::calculateOptimalTour() {
     /* Generate 1000 possible solutions and pick the best */
     for (int i = 0; i < 1000; i++) {
-        double minDistancePerSolution = std::numeric_limits<double>::max();
         randomizeTour(tour);
         /* Initial tour distance */
         double calculation = calculateTourDistance(tour);
@@ -163,28 +140,15 @@ double TSP::calculateOptimalTour() {
                         optimalTour = tour;
                         absoluteMin = calculation;
                     }
-                    /* DEBUG */
-                    //---If all elements have been reversed, call calculateTour
                     double currentDistance = calculateTourWithPoints(x, j);
                     reverseTour(x, j, tour);
                     double predictedGain = calculateTourWithPoints(x, j);
+
                     /* If (this is an improvement) { update calculation } */
                     if (predictedGain < currentDistance) {
                         calculation = calculation - currentDistance + predictedGain;
-                        //reverseTour(x,j,tour);
                         beingOptimized = true;
-                    }
-                        /* DEBUG */
-                        //double calculation = calculateTourDistance();
-//                    if (calculation < absoluteMin) {
-//                        optimalTour = tour;
-//                        absoluteMin = calculation;
-//                    }
-//                    if (calculation < minDistancePerSolution) {
-//                        beingOptimized = true;
-//                        minDistancePerSolution = calculation;
-                        // }
-                    else {
+                    } else {
                         /* Flip tour back to original state since change did not help */
                         reverseTour(x, j, tour);
                     }
