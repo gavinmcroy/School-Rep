@@ -79,19 +79,20 @@ int HalloweenOptimization::refineImplementation() {
             isOptimizing = false;
             for (int i = 0; i < bagCollection.size(); i++) {
                 for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+                    /* Take candy that is to be moved */
+                    Candy c = bagCollection.at(i).bag.at(j);
+                    /* Delete the candy that is to be moved from the vector */
+                    bagCollection.at(i).bag.erase(bagCollection.at(i).bag.begin() + j);
+                    /* Update the bags weight to accommodate the moved candy */
+                    bagCollection.at(i).currentWeight -= c.weight;
                     for (int x = 0; x < bagCollection.size(); x++) {
-                        /* Take candy that is to be moved */
-                        Candy c = bagCollection.at(i).bag.at(j);
-                        /* Delete the candy that is to be moved from the vector */
-                        bagCollection.at(i).bag.erase(bagCollection.at(i).bag.begin() + (j-1));
-                        /* Update the bags weight to accommodate the moved candy */
-                        bagCollection.at(i).currentWeight -=c.weight;
                         /* Prevent adding candy back to its original position */
                         if (x == i) {
                             continue;
                         }
-
-                        /* Add candy back to its new bag */
+                        /* TODO Add candy back to its new bag
+                           LEFT OFF -> When we add the candy we never remove it again. So the candy is being
+                           duplicated everywhere */
                         bagCollection.at(x).bag.push_back(c);
                         /* The bag is no longer valid */
                         if (bagCollection.at(x).currentWeight > Bag::MAX_WEIGHT) {
@@ -99,12 +100,11 @@ int HalloweenOptimization::refineImplementation() {
                             isOptimizing = true;
                         }
                     }
-                    //bagCollection.at(i).bag.at(j).weight;
                 }
             }
         }
     }
-    return 0;
+    return calculateCandyTastiness();
 }
 
 void HalloweenOptimization::debugPrintStatements() {
