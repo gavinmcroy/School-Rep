@@ -15,6 +15,7 @@ public:
     struct Candy {
         int tastiness;
         int weight;
+        double ratio;
         bool hasVisited;
 
         Candy(int tastiness, int weight) {
@@ -22,12 +23,14 @@ public:
             this->weight = weight;
             hasVisited = false;
         }
+
+        Candy &operator=(const Candy &c) = default;
     };
 
     struct Bag {
         std::vector<Candy> bag;
         int currentWeight;
-        const int MAX_WEIGHT = 2000;
+        static const int MAX_WEIGHT = 2000;
 
         Bag() {
             currentWeight = 0;
@@ -35,16 +38,27 @@ public:
     };
 
     std::vector<Candy> candy;
-    std::vector<Bag> bags;
+    std::vector<Bag> bagCollection;
 
 
     explicit HalloweenOptimization(std::string &s);
 
     int greedyImplementation();
 
+    int refineImplementation();
+
+    void debugPrintStatements();
+
 private:
     const int NUM_BAGS = 3;
 
+    void randomizeCandy(std::vector<Candy> &c);
+
+    int calculateCandyTastiness();
+
+    bool isInvalid(int index);
+
+    void operator=(const Candy &c);
 };
 
 

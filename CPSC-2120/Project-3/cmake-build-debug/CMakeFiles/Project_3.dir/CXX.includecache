@@ -13,16 +13,18 @@ iostream
 -
 algorithm
 -
+chrono
+-
+random
+-
+cstdlib
+-
+stdlib.h
+-
 HalloweenOptimization.h
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/HalloweenOptimization.h
 
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/HalloweenOptimization.h
 vector
 -
-
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/main.cpp
-iostream
--
-HalloweenOptimization.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2120/Project-3/HalloweenOptimization.h
 
