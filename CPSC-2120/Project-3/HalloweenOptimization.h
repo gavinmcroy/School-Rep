@@ -39,8 +39,6 @@ public:
 
     std::vector<Candy> candy;
     std::vector<Bag> bagCollection;
-    //std::vector<Candy> notInsideBag;
-
 
     explicit HalloweenOptimization(std::string &s);
 
@@ -59,7 +57,6 @@ private:
 
     bool isInvalid(int index);
 
-    void operator=(const Candy &c);
 };
 
 

@@ -98,14 +98,16 @@ void HalloweenOptimization::randomizeCandy(std::vector<HalloweenOptimization::Ca
 
 int HalloweenOptimization::refineImplementation() {
     int refinement = 1000;
-    std::vector<int> solutions;
     bool isOptimizing = true;
-    int currentTastiness = calculateCandyTastiness();
+    int currentTastiness = 0;
+    std::vector<int> solutions;
     for (int z = 0; z < refinement; z++) {
         randomizeCandy(candy);
         isOptimizing = true;
+        currentTastiness = 0;
         while (isOptimizing) {
             isOptimizing = false;
+
             /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
             for (int i = 1; i < bagCollection.size(); i++) {
                 for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
@@ -116,7 +118,7 @@ int HalloweenOptimization::refineImplementation() {
                     /* Update the bags weight to accommodate the moved candy */
                     // bagCollection.at(i).currentWeight -= c.weight;
 
-                    int swapVal = 0 ;/* j % bagCollection.at(0).bag.size(); */
+                    int swapVal = j % bagCollection.at(0).bag.size();
                     /* Update the bags weight by taking the current weight - subtracting by whats there and
                      * adding the to be swapped element */
                     bagCollection.at(i).currentWeight = bagCollection.at(i).currentWeight -
@@ -124,7 +126,12 @@ int HalloweenOptimization::refineImplementation() {
                                                         bagCollection.at(i).bag.at(swapVal).weight;
                     bagCollection.at(i).bag.at(swapVal).weight = bagCollection.at(i).bag.at(j).weight;
                     std::swap(bagCollection.at(i).bag.at(j), bagCollection.at(i).bag.at(swapVal));
-
+                    int calculation = calculateCandyTastiness();
+                    if (currentTastiness < calculation) {
+                        solutions.push_back(calculation);
+                        currentTastiness = calculation;
+                        isOptimizing = true;
+                    }
                     /* Lets find a bag to move this candy too */
                     //  for (int x = 0; x < bagCollection.size(); x++) {
                     /* Prevent adding candy back to its original position */
@@ -142,10 +149,21 @@ int HalloweenOptimization::refineImplementation() {
                     // }
                     // }
                 }
+
             }
         }
     }
-    return calculateCandyTastiness();
+    std::ofstream out;
+    out.open("debug.txt");
+    int max = 0;
+    for(int i = 0; i < solutions.size(); i++){
+//        if(solutions.at(i)>max){
+//            max = solutions.at(i);
+//        }
+       out<<solutions.at(i)<<std::endl;
+    }
+    std::cout<<solutions.size();
+    return max;
 }
 
 void HalloweenOptimization::debugPrintStatements() {
