@@ -62,13 +62,13 @@ void HalloweenOptimization::randomizeCandy(std::vector<HalloweenOptimization::Ca
     }
     srand(time(nullptr));
 
-    for (unsigned int i = 0; i < candy.size(); ++i) {
+    for (unsigned int i = 0; i < candy.size(); i++) {
         /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
         unsigned int randomNumber = (rand() % 3) + 1;
         /* If a particular bag is maxed out on weight, place it outside of the bag */
         if (bagCollection.at(randomNumber).currentWeight + candy.at(i).weight > Bag::MAX_WEIGHT) {
             bool emptyIsOnlyOption = true;
-            for  (unsigned int j = 1; j < bagCollection.size(); j++) {
+            for (unsigned int j = 1; j < bagCollection.size(); j++) {
                 /* Avoid adding it back to itself */
                 if (j == randomNumber) {
                     continue;
@@ -97,70 +97,48 @@ void HalloweenOptimization::randomizeCandy(std::vector<HalloweenOptimization::Ca
 int HalloweenOptimization::refineImplementation() {
     int refinement = 1000;
     bool isOptimizing = true;
-    int currentTastiness = 0;
     std::vector<int> solutions;
-    solutions.reserve(1000);
+    solutions.reserve(refinement);
     for (int z = 0; z < refinement; z++) {
         randomizeCandy(candy);
         isOptimizing = true;
-        currentTastiness = 0;
+        int maxTastiness = 0;
         while (isOptimizing) {
             isOptimizing = false;
-
             /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
             for (unsigned int i = 1; i < bagCollection.size(); i++) {
                 for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
-                    /* Take candy that is to be moved */
-                    //Candy c = bagCollection.at(i).bag.at(j);
-                    /* Delete the candy that is to be moved from the bag */
-                    // bagCollection.at(i).bag.erase(bagCollection.at(i).bag.begin() + j);
-                    /* Update the bags weight to accommodate the moved candy */
-                    // bagCollection.at(i).currentWeight -= c.weight;
-
-                    int swapVal = j % bagCollection.at(0).bag.size();
+                    unsigned int swapVal = j % bagCollection.at(0).bag.size();
                     /* Update the bags weight by taking the current weight - subtracting by whats there and
                      * adding the to be swapped element */
+                    if (j == swapVal) {
+                        continue;
+                    }
                     bagCollection.at(i).currentWeight = bagCollection.at(i).currentWeight -
                                                         bagCollection.at(i).bag.at(j).weight +
                                                         bagCollection.at(i).bag.at(swapVal).weight;
                     bagCollection.at(i).bag.at(swapVal).weight = bagCollection.at(i).bag.at(j).weight;
                     std::swap(bagCollection.at(i).bag.at(j), bagCollection.at(i).bag.at(swapVal));
-                    int calculation = calculateCandyTastiness();
-                    if (currentTastiness < calculation) {
-                        solutions.push_back(calculation);
-                        std::cout<<calculation<<std::endl;
-                        currentTastiness = calculation;
+
+                    int currentCandyTastiness = calculateCandyTastiness();
+                    if (maxTastiness < currentCandyTastiness) {
+                        solutions.push_back(currentCandyTastiness);
+                        std::cout << currentCandyTastiness << std::endl;
+                        maxTastiness = currentCandyTastiness;
                         isOptimizing = true;
                     }
-                    /* Lets find a bag to move this candy too */
-                    //  for (int x = 0; x < bagCollection.size(); x++) {
-                    /* Prevent adding candy back to its original position */
-                    //  if (x == i) {
-                    //      continue;
-                    // }
-                    //std::swap(bagCollection.at(i).bag.at(j),)
-                    /*  Add candy back to its new bag */
-
-                    //bagCollection.at(x).bag.push_back(c);
-                    /* The bag would not be valid */
-                    // if (bagCollection.at(x).currentWeight + c.weight > Bag::MAX_WEIGHT) {
-                    /* Greedily add elements until valid */
-                    // isOptimizing = true;
-                    // }
-                    // }
                 }
-
             }
         }
     }
     std::ofstream out;
     out.open("debug.txt");
-    int max = 0;
-    for(unsigned int i = 0; i < solutions.size(); i++){
-//        if(solutions.at(i)>max){
-//            max = solutions.at(i);
-//        }
-       out<<i<<" " <<solutions.at(i)<<std::endl;
+    int max = 30;
+    for (unsigned int i = 0; i < solutions.size(); i++) {
+        if (solutions.at(i) > max) {
+            max = solutions.at(i);
+        }
+        out << i << " " << solutions.at(i) << std::endl;
     }
     //std::cout<<solutions.size();
     return max;
@@ -210,13 +188,13 @@ void HalloweenOptimization::debugPrintStatements() {
 }
 
 int HalloweenOptimization::calculateCandyTastiness() {
-    double counter = 0;
+    int counter = 0;
     for (unsigned int i = 1; i < bagCollection.size(); i++) {
         for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
             counter += bagCollection.at(i).bag.at(j).tastiness;
         }
     }
-    return (int) counter;
+    return counter;
 }
 
 bool HalloweenOptimization::isInvalid(int index) {
@@ -232,3 +210,17 @@ bool HalloweenOptimization::isInvalid(int index) {
     }
     return true;
 }
+
+
+//                    std::cout<<"BEFORE "<<std::endl;
+//                    std::cout<<"1. "<<bagCollection.at(i).bag.at(j).tastiness << " "
+//                    <<bagCollection.at(i).bag.at(j).weight << std::endl;
+//                    std::cout<<"2. "<<bagCollection.at(i).bag.at(swapVal).tastiness << " " <<
+//                    bagCollection.at(i).bag.at(swapVal).weight << std::endl;
+//std::swap(bagCollection.at(i).bag.at(j), bagCollection.at(i).bag.at(swapVal));
+//                    std::cout<<"AFTER "<<std::endl;
+//
+//                    std::cout<<"1. "<<bagCollection.at(i).bag.at(j).tastiness << " "
+//                             <<bagCollection.at(i).bag.at(j).weight << std::endl;
+//                    std::cout<<"2. "<<bagCollection.at(i).bag.at(swapVal).tastiness << " " <<
+//                             bagCollection.at(i).bag.at(swapVal).weight << std::endl;
