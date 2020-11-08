@@ -92,7 +92,7 @@ int HalloweenOptimization::refineImplementation() {
                         }
                         /* TODO Add candy back to its new bag
                            LEFT OFF -> When we add the candy we never remove it again. So the candy is being
-                           duplicated everywhere */
+                           duplicated everywhere. I need to move a piece of candy back to follow this */
                         bagCollection.at(x).bag.push_back(c);
                         /* The bag is no longer valid */
                         if (bagCollection.at(x).currentWeight > Bag::MAX_WEIGHT) {
