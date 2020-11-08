@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/New-Proj/HalloweenOptimization.cpp
+fstream
+-
+iostream
+-
+algorithm
+-
+time.h
+-
+stdlib.h
+-
+HalloweenOptimization.h
+C:/Users/Gavin McRoy/Desktop/New-Proj/HalloweenOptimization.h
+
+C:/Users/Gavin McRoy/Desktop/New-Proj/HalloweenOptimization.h
+vector
+-
+
