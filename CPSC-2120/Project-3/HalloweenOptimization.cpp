@@ -101,6 +101,7 @@ int HalloweenOptimization::refineImplementation() {
     bool isOptimizing = true;
     int currentTastiness = 0;
     std::vector<int> solutions;
+    solutions.reserve(1000);
     for (int z = 0; z < refinement; z++) {
         randomizeCandy(candy);
         isOptimizing = true;
@@ -129,6 +130,7 @@ int HalloweenOptimization::refineImplementation() {
                     int calculation = calculateCandyTastiness();
                     if (currentTastiness < calculation) {
                         solutions.push_back(calculation);
+                        std::cout<<calculation<<std::endl;
                         currentTastiness = calculation;
                         isOptimizing = true;
                     }
@@ -160,9 +162,9 @@ int HalloweenOptimization::refineImplementation() {
 //        if(solutions.at(i)>max){
 //            max = solutions.at(i);
 //        }
-       out<<solutions.at(i)<<std::endl;
+       out<<i<<" " <<solutions.at(i)<<std::endl;
     }
-    std::cout<<solutions.size();
+    //std::cout<<solutions.size();
     return max;
 }
 
