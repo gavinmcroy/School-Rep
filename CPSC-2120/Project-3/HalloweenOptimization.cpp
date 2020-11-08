@@ -38,13 +38,13 @@ HalloweenOptimization::HalloweenOptimization(std::string &s) {
 
 int HalloweenOptimization::greedyImplementation() {
 
-    for (int i = 0; i < candy.size(); i++) {
+    for (unsigned int i = 0; i < candy.size(); i++) {
         candy.at(i).ratio = (candy.at(i).tastiness / (double) candy.at(i).weight);
     }
     std::sort(candy.begin(), candy.end(), howToSort);
 
-    for (int i = 1; i < bagCollection.size(); i++) {
-        for (int j = 0; j < candy.size(); j++) {
+    for (unsigned int i = 1; i < bagCollection.size(); i++) {
+        for (unsigned int j = 0; j < candy.size(); j++) {
             if ((bagCollection.at(i).currentWeight + candy.at(j).weight) < Bag::MAX_WEIGHT && !candy.at(j).hasVisited) {
                 bagCollection.at(i).bag.push_back(candy.at(j));
                 bagCollection.at(i).currentWeight += candy.at(j).weight;
@@ -58,19 +58,19 @@ int HalloweenOptimization::greedyImplementation() {
 
 void HalloweenOptimization::randomizeCandy(std::vector<HalloweenOptimization::Candy> &c) {
     /* This randomizes candy so that every bag is valid, if candy did not fit we just place it outside the bag */
-    for (int i = 0; i < bagCollection.size(); i++) {
+    for (unsigned int i = 0; i < bagCollection.size(); i++) {
         bagCollection.at(i).bag.clear();
         bagCollection.at(i).currentWeight = 0;
     }
     srand(time(nullptr));
 
-    for (int i = 0; i < candy.size(); ++i) {
+    for (unsigned int i = 0; i < candy.size(); ++i) {
         /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
         int randomNumber = (rand() % 3) + 1;
         /* If a particular bag is maxed out on weight, place it outside of the bag */
         if (bagCollection.at(randomNumber).currentWeight + candy.at(i).weight > Bag::MAX_WEIGHT) {
             bool emptyIsOnlyOption = true;
-            for (int j = 1; j < bagCollection.size(); j++) {
+            for (unsigned int j = 1; j < bagCollection.size(); j++) {
                 /* Avoid adding it back to itself */
                 if (j == randomNumber) {
                     continue;
@@ -102,7 +102,7 @@ int HalloweenOptimization::refineImplementation() {
     int currentTastiness = 0;
     std::vector<int> solutions;
     solutions.reserve(1000);
-    for (int z = 0; z < refinement; z++) {
+    for (unsigned int z = 0; z < refinement; z++) {
         randomizeCandy(candy);
         isOptimizing = true;
         currentTastiness = 0;
@@ -110,8 +110,8 @@ int HalloweenOptimization::refineImplementation() {
             isOptimizing = false;
 
             /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
-            for (int i = 1; i < bagCollection.size(); i++) {
-                for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+            for (unsigned int i = 1; i < bagCollection.size(); i++) {
+                for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
                     /* Take candy that is to be moved */
                     //Candy c = bagCollection.at(i).bag.at(j);
                     /* Delete the candy that is to be moved from the bag */
@@ -158,7 +158,7 @@ int HalloweenOptimization::refineImplementation() {
     std::ofstream out;
     out.open("debug.txt");
     int max = 0;
-    for(int i = 0; i < solutions.size(); i++){
+    for(unsigned int i = 0; i < solutions.size(); i++){
 //        if(solutions.at(i)>max){
 //            max = solutions.at(i);
 //        }
@@ -182,8 +182,8 @@ void HalloweenOptimization::debugPrintStatements() {
 
 
     double weightC = 0;
-    for (int i = 1; i < bagCollection.size(); i++) {
-        for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+    for (unsigned int i = 1; i < bagCollection.size(); i++) {
+        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
             weightC += bagCollection.at(i).bag.at(j).weight;
             //double tastiness = bagCollection.at(i).bag.at(j).tastiness;
             //std::cout << "Bag :" << i << " Candy Present " << weight << " " << tastiness << std::endl;
@@ -192,8 +192,8 @@ void HalloweenOptimization::debugPrintStatements() {
     std::cout << "WEIGHT " << weightC << std::endl;
     //std::cout << "IS VALID " << isInvalid() << std::endl;
     std::cout << "Randomization Testing" << std::endl;
-    for (int i = 1; i < bagCollection.size(); i++) {
-        for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+    for (unsigned int i = 1; i < bagCollection.size(); i++) {
+        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
             double weight = bagCollection.at(i).bag.at(j).weight;
             double tastiness = bagCollection.at(i).bag.at(j).tastiness;
             std::cout << "Bag :" << i << " Candy Present " << weight << " " << tastiness << std::endl;
@@ -201,8 +201,8 @@ void HalloweenOptimization::debugPrintStatements() {
     }
     std::cout << "BEFORE " << std::endl;
     randomizeCandy(candy);
-    for (int i = 1; i < bagCollection.size(); i++) {
-        for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+    for (unsigned int i = 1; i < bagCollection.size(); i++) {
+        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
             double weight = bagCollection.at(i).bag.at(j).weight;
             double tastiness = bagCollection.at(i).bag.at(j).tastiness;
             std::cout << "Bag :" << i << " Candy Present " << weight << " " << tastiness << std::endl;
@@ -213,8 +213,8 @@ void HalloweenOptimization::debugPrintStatements() {
 
 int HalloweenOptimization::calculateCandyTastiness() {
     double counter = 0;
-    for (int i = 1; i < bagCollection.size(); i++) {
-        for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+    for (unsigned int i = 1; i < bagCollection.size(); i++) {
+        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
             counter += bagCollection.at(i).bag.at(j).tastiness;
         }
     }
@@ -223,8 +223,8 @@ int HalloweenOptimization::calculateCandyTastiness() {
 
 bool HalloweenOptimization::isInvalid(int index) {
     double weight = 0;
-    for (int i = 1; i < bagCollection.size(); i++) {
-        for (int j = 0; j < bagCollection.at(i).bag.size(); j++) {
+    for (unsigned int i = 1; i < bagCollection.size(); i++) {
+        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
             weight += bagCollection.at(i).bag.at(j).tastiness;
             if (weight > Bag::MAX_WEIGHT) {
                 return false;
