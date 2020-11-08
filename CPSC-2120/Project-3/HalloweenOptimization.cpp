@@ -5,8 +5,6 @@
 #include <iostream>
 #include <algorithm>
 #include <chrono>
-#include <random>
-#include <cstdlib>
 #include <stdlib.h>
 #include "HalloweenOptimization.h"
 
@@ -66,11 +64,11 @@ void HalloweenOptimization::randomizeCandy(std::vector<HalloweenOptimization::Ca
 
     for (unsigned int i = 0; i < candy.size(); ++i) {
         /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
-        int randomNumber = (rand() % 3) + 1;
+        unsigned int randomNumber = (rand() % 3) + 1;
         /* If a particular bag is maxed out on weight, place it outside of the bag */
         if (bagCollection.at(randomNumber).currentWeight + candy.at(i).weight > Bag::MAX_WEIGHT) {
             bool emptyIsOnlyOption = true;
-            for (unsigned int j = 1; j < bagCollection.size(); j++) {
+            for  (unsigned int j = 1; j < bagCollection.size(); j++) {
                 /* Avoid adding it back to itself */
                 if (j == randomNumber) {
                     continue;
@@ -102,7 +100,7 @@ int HalloweenOptimization::refineImplementation() {
     int currentTastiness = 0;
     std::vector<int> solutions;
     solutions.reserve(1000);
-    for (unsigned int z = 0; z < refinement; z++) {
+    for (int z = 0; z < refinement; z++) {
         randomizeCandy(candy);
         isOptimizing = true;
         currentTastiness = 0;
