@@ -62,10 +62,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.7
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\New-Proj"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/New_Proj.dir/depend.make
@@ -79,30 +79,30 @@ include CMakeFiles/New_Proj.dir/flags.make
 CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj: CMakeFiles/New_Proj.dir/flags.make
 CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj: CMakeFiles/New_Proj.dir/includes_CXX.rsp
 CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj: ../HalloweenOptimization.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\New_Proj.dir\HalloweenOptimization.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\New-Proj\HalloweenOptimization.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\New_Proj.dir\HalloweenOptimization.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\HalloweenOptimization.cpp"
 
 CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\New-Proj\HalloweenOptimization.cpp" > CMakeFiles\New_Proj.dir\HalloweenOptimization.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\HalloweenOptimization.cpp" > CMakeFiles\New_Proj.dir\HalloweenOptimization.cpp.i
 
 CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\New-Proj\HalloweenOptimization.cpp" -o CMakeFiles\New_Proj.dir\HalloweenOptimization.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\HalloweenOptimization.cpp" -o CMakeFiles\New_Proj.dir\HalloweenOptimization.cpp.s
 
 CMakeFiles/New_Proj.dir/main.cpp.obj: CMakeFiles/New_Proj.dir/flags.make
 CMakeFiles/New_Proj.dir/main.cpp.obj: CMakeFiles/New_Proj.dir/includes_CXX.rsp
 CMakeFiles/New_Proj.dir/main.cpp.obj: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/New_Proj.dir/main.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\New_Proj.dir\main.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\New-Proj\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/New_Proj.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\New_Proj.dir\main.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\main.cpp"
 
 CMakeFiles/New_Proj.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/New_Proj.dir/main.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\New-Proj\main.cpp" > CMakeFiles\New_Proj.dir\main.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\main.cpp" > CMakeFiles\New_Proj.dir\main.cpp.i
 
 CMakeFiles/New_Proj.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/New_Proj.dir/main.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\New-Proj\main.cpp" -o CMakeFiles\New_Proj.dir\main.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\main.cpp" -o CMakeFiles\New_Proj.dir\main.cpp.s
 
 # Object files for target New_Proj
 New_Proj_OBJECTS = \
@@ -118,7 +118,7 @@ New_Proj.exe: CMakeFiles/New_Proj.dir/build.make
 New_Proj.exe: CMakeFiles/New_Proj.dir/linklibs.rsp
 New_Proj.exe: CMakeFiles/New_Proj.dir/objects1.rsp
 New_Proj.exe: CMakeFiles/New_Proj.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable New_Proj.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable New_Proj.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\New_Proj.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -131,6 +131,6 @@ CMakeFiles/New_Proj.dir/clean:
 .PHONY : CMakeFiles/New_Proj.dir/clean
 
 CMakeFiles/New_Proj.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\New-Proj" "C:\Users\Gavin McRoy\Desktop\New-Proj" "C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\New-Proj\cmake-build-debug\CMakeFiles\New_Proj.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj" "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj" "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\New-Proj\cmake-build-debug\CMakeFiles\New_Proj.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/New_Proj.dir/depend
 

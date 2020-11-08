@@ -17,11 +17,13 @@ public:
         int weight;
         double ratio;
         bool hasVisited;
+        bool isInBag;
 
         Candy(int tastiness, int weight) {
             this->tastiness = tastiness;
             this->weight = weight;
             hasVisited = false;
+            isInBag = false;
         }
 
         Candy &operator=(const Candy &c) = default;
@@ -46,6 +48,12 @@ public:
 
     int refineImplementation();
 
+    int prunedExhaustiveSearch(int start);
+
+    void resetForPrune();
+
+    int findMax();
+
     void debugPrintStatements();
 
 private:
@@ -55,7 +63,7 @@ private:
 
     int calculateCandyTastiness();
 
-    bool isInvalid(int index);
+    bool isValid(int bagIndex ,int candyIndex);
 
 };
 

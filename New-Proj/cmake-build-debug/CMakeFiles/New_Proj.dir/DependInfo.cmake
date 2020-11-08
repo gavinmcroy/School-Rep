@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Gavin McRoy/Desktop/New-Proj/HalloweenOptimization.cpp" "C:/Users/Gavin McRoy/Desktop/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/New-Proj/main.cpp" "C:/Users/Gavin McRoy/Desktop/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/main.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/HalloweenOptimization.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
