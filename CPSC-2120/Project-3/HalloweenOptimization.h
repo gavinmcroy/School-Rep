@@ -39,6 +39,7 @@ public:
 
     std::vector<Candy> candy;
     std::vector<Bag> bagCollection;
+    //std::vector<Candy> notInsideBag;
 
 
     explicit HalloweenOptimization(std::string &s);
@@ -50,7 +51,7 @@ public:
     void debugPrintStatements();
 
 private:
-    const int NUM_BAGS = 3;
+    const int NUM_BAGS = 4;
 
     void randomizeCandy(std::vector<Candy> &c);
 
