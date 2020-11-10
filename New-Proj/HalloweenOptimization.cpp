@@ -15,22 +15,26 @@ bool howToSort(HalloweenOptimization::Candy c1, HalloweenOptimization::Candy c2)
 }
 
 HalloweenOptimization::HalloweenOptimization(std::string &s) {
+    tastinessOverall = 0;
+    uniqueSolutions.reserve(21805580);
+    bagCollection.reserve(NUM_BAGS);
+    double weight, tastiness;
     srand(time(nullptr));
+
     std::ifstream inputFile;
     inputFile.open("candy.txt");
+
     if (inputFile.fail()) {
         std::cout << "File error" << std::endl;
         exit(1);
     }
     std::cout << "Reading in file " << std::endl;
-    double weight, tastiness;
+
     while (inputFile >> weight >> tastiness) {
         candy.emplace_back(tastiness, weight);
     }
     /* Create our 3 empty bags */
     /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
-    uniqueSolutions.reserve(2180580);
-    bagCollection.reserve(4);
     for (int i = 0; i < NUM_BAGS; i++) {
         bagCollection.emplace_back();
     }
@@ -163,7 +167,7 @@ int val = 0;
 
 int HalloweenOptimization::prunedExhaustiveSearch(int start) {
     if (start == candy.size()-3) {
-        uniqueSolutions.push_back(calculateCandyTastinessO());
+        uniqueSolutions.push_back(tastinessOverall-bagCollection.at(0).currentTastiness);
         return 0;
     }
     for (int c = 0; c < bagCollection.size(); c++) {
@@ -179,11 +183,13 @@ int HalloweenOptimization::prunedExhaustiveSearch(int start) {
             bagCollection.at(c).bag.push_back(candy.at(start));
             bagCollection.at(c).currentWeight += candy.at(start).weight;
             bagCollection.at(c).currentTastiness += candy.at(start).tastiness;
+            tastinessOverall+=candy.at(start).tastiness;
             prunedExhaustiveSearch(start + 1);
             /* Remove Candy */
             bagCollection.at(c).bag.pop_back();
             bagCollection.at(c).currentWeight -= candy.at(start).weight;
             bagCollection.at(c).currentTastiness -= candy.at(start).tastiness;
+            tastinessOverall -= candy.at(start).tastiness;
         }
     }
     return 0;
@@ -195,6 +201,7 @@ void HalloweenOptimization::resetForPrune() {
         bagCollection.at(i).bag.clear();
         bagCollection.at(i).currentWeight = 0;
         bagCollection.at(i).currentTastiness = 0;
+        tastinessOverall = 0;
     }
 //    for(int i = 0; i < candy.size()-1; i++){
 //        bagCollection.at(0).bag.push_back(candy.at(i));

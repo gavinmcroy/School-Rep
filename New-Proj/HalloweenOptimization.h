@@ -41,7 +41,7 @@ public:
         }
     };
 
-    //int tastinessForAll
+    int tastinessOverall;
     std::vector<int> uniqueSolutions;
     std::vector<Candy> candy;
     std::vector<Bag> bagCollection;
