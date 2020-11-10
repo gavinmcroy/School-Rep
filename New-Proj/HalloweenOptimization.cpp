@@ -18,6 +18,8 @@ HalloweenOptimization::HalloweenOptimization(std::string &s) {
     tastinessOverall = 0;
     uniqueSolutions.reserve(21805580);
     bagCollection.reserve(NUM_BAGS);
+    candy.reserve(16);
+
     double weight, tastiness;
     srand(time(nullptr));
 
@@ -176,6 +178,10 @@ int HalloweenOptimization::prunedExhaustiveSearch(int start) {
             if(c==bagCollection.size()/2){
                 break;
             }
+        }else if(start == 1){
+            if(c==bagCollection.size()-1){
+                break;
+            }
         }
         calculationsFound++;
         if (isValid(c, start)) {
@@ -196,26 +202,20 @@ int HalloweenOptimization::prunedExhaustiveSearch(int start) {
 }
 
 void HalloweenOptimization::resetForPrune() {
-
     for (int i = 0; i < bagCollection.size(); i++) {
         bagCollection.at(i).bag.clear();
         bagCollection.at(i).currentWeight = 0;
         bagCollection.at(i).currentTastiness = 0;
         tastinessOverall = 0;
     }
-//    for(int i = 0; i < candy.size()-1; i++){
-//        bagCollection.at(0).bag.push_back(candy.at(i));
-////    }
-//    bagCollection.at(1).bag.push_back((candy.at(candy.size()-1)));
-
 }
 
 
 int HalloweenOptimization::findMax() {
     int max = 0;
-    for (int i = 0; i < uniqueSolutions.size(); i++) {
-        if (uniqueSolutions.at(i) > max) {
-            max = uniqueSolutions.at(i);
+    for (int uniqueSolution : uniqueSolutions) {
+        if (uniqueSolution > max) {
+            max = uniqueSolution;
         }
     }
     return max;
@@ -236,8 +236,8 @@ void HalloweenOptimization::debugPrintStatements() {
 
     double weightC = 0;
     for (unsigned int i = 1; i < bagCollection.size(); i++) {
-        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
-            weightC += bagCollection.at(i).bag.at(j).weight;
+        for (auto & j : bagCollection.at(i).bag) {
+            weightC += j.weight;
             //double tastiness = bagCollection.at(i).bag.at(j).tastiness;
             //std::cout << "Bag :" << i << " Candy Present " << weight << " " << tastiness << std::endl;
         }
@@ -267,8 +267,8 @@ void HalloweenOptimization::debugPrintStatements() {
 int HalloweenOptimization::calculateCandyTastiness() {
     int counter = 0;
     for (unsigned int i = 1; i < bagCollection.size(); i++) {
-        for (unsigned int j = 0; j < bagCollection.at(i).bag.size(); j++) {
-            counter += bagCollection.at(i).bag.at(j).tastiness;
+        for (auto & j : bagCollection.at(i).bag) {
+            counter += j.tastiness;
         }
     }
     return counter;
