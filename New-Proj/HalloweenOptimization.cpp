@@ -29,6 +29,7 @@ HalloweenOptimization::HalloweenOptimization(std::string &s) {
     }
     /* Create our 3 empty bags */
     /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
+    uniqueSolutions.reserve(2180580);
     bagCollection.reserve(4);
     for (int i = 0; i < NUM_BAGS; i++) {
         bagCollection.emplace_back();
@@ -157,13 +158,12 @@ int HalloweenOptimization::refineImplementation() {
     return max;
 }
 
-std::vector<int> uniqueSolutions;
+
 int val = 0;
 
 int HalloweenOptimization::prunedExhaustiveSearch(int start) {
     if (start == candy.size()-3) {
         uniqueSolutions.push_back(calculateCandyTastinessO());
-        calculationsFound++;
         return 0;
     }
     for (int c = 0; c < bagCollection.size(); c++) {
@@ -173,6 +173,7 @@ int HalloweenOptimization::prunedExhaustiveSearch(int start) {
                 break;
             }
         }
+        calculationsFound++;
         if (isValid(c, start)) {
             /* Place Candy */
             bagCollection.at(c).bag.push_back(candy.at(start));
@@ -296,7 +297,7 @@ bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
 }
 
 int HalloweenOptimization::calculationOptimizer() {
-    return calculationsFound;
+    return uniqueSolutions.size();
 }
 
 
