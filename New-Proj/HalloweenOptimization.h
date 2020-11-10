@@ -32,10 +32,12 @@ public:
     struct Bag {
         std::vector<Candy> bag;
         int currentWeight;
+        int currentTastiness;
         static const int MAX_WEIGHT = 2000;
 
         Bag() {
             currentWeight = 0;
+            currentTastiness = 0;
         }
     };
 
@@ -64,6 +66,8 @@ private:
     void randomizeCandy(std::vector<Candy> &c);
 
     int calculateCandyTastiness();
+
+    int calculateCandyTastinessO();
 
     bool isValid(int bagIndex ,int candyIndex);
 
