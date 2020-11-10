@@ -56,6 +56,8 @@ public:
 
     void debugPrintStatements();
 
+    int calculationOptimizer();
+
 private:
     const int NUM_BAGS = 4;
 

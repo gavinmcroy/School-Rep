@@ -259,6 +259,8 @@ int HalloweenOptimization::calculateCandyTastiness() {
     return counter;
 }
 
+int calculationsFound = 0;
+
 bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
     /* This currently is checking if adding a specified candy to a bag is valid */
     /* TODO this can be made faster by keeping track of candyWeight instead of re adding it */
@@ -266,6 +268,7 @@ bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
 
     for (unsigned int j = 0; j < bagCollection.at(bagIndex).bag.size(); j++) {
         weight += bagCollection.at(bagIndex).bag.at(j).weight;
+        calculationsFound++;
     }
 
     if (weight + candy.at(candyIndex).weight > Bag::MAX_WEIGHT) {
@@ -273,6 +276,10 @@ bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
     }
 
     return true;
+}
+
+int HalloweenOptimization::calculationOptimizer() {
+    return calculationsFound;
 }
 
 
