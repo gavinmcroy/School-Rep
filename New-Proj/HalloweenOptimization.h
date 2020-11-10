@@ -17,13 +17,12 @@ public:
         int weight;
         double ratio;
         bool hasVisited;
-        bool isInBag;
 
         Candy(int tastiness, int weight) {
             this->tastiness = tastiness;
             this->weight = weight;
             hasVisited = false;
-            isInBag = false;
+            ratio = 0;
         }
 
         Candy &operator=(const Candy &c) = default;
@@ -46,13 +45,13 @@ public:
     std::vector<Candy> candy;
     std::vector<Bag> bagCollection;
 
-    explicit HalloweenOptimization(std::string &s);
+    explicit HalloweenOptimization(std::string &fileName);
 
     int greedyImplementation();
 
     int refineImplementation();
 
-    int prunedExhaustiveSearch(int start);
+    int prunedExhaustiveSearch(unsigned int start);
 
     void resetForPrune();
 
@@ -60,7 +59,9 @@ public:
 
     void debugPrintStatements();
 
-    int calculationOptimizer();
+    int calculationOptimizer() const;
+
+    static void outputToFile(const std::string& fileHeaderName, std::vector<Bag> &optimalBag);
 
 private:
     const int NUM_BAGS = 4;
@@ -71,7 +72,7 @@ private:
 
     int calculateCandyTastinessO();
 
-    bool isValid(int bagIndex ,int candyIndex);
+    bool isValid(unsigned int bagIndex, unsigned int candyIndex);
 
 };
 

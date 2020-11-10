@@ -13,9 +13,9 @@ iostream
 -
 algorithm
 -
-time.h
+ctime
 -
-stdlib.h
+cstdlib
 -
 HalloweenOptimization.h
 C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/HalloweenOptimization.h
