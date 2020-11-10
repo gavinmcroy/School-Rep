@@ -167,6 +167,12 @@ int HalloweenOptimization::prunedExhaustiveSearch(int start) {
         return 0;
     }
     for (int c = 0; c < bagCollection.size(); c++) {
+        /* Symmetry */
+        if(start == 0){
+            if(c==bagCollection.size()/2){
+                break;
+            }
+        }
         if (isValid(c, start)) {
             /* Place Candy */
             bagCollection.at(c).bag.push_back(candy.at(start));
@@ -272,7 +278,7 @@ int HalloweenOptimization::calculateCandyTastinessO() {
 bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
     /* This currently is checking if adding a specified candy to a bag is valid */
     /* TODO this can be made faster by keeping track of candyWeight instead of re adding it */
-    int weight = 0;
+    //int weight = 0;
 
 //    for (unsigned int j = 0; j < bagCollection.at(bagIndex).bag.size(); j++) {
 //        weight += bagCollection.at(bagIndex).bag.at(j).weight;
@@ -282,11 +288,11 @@ bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
 //    if (weight + candy.at(candyIndex).weight > Bag::MAX_WEIGHT) {
 //        return false;
 //    }
-    if (bagCollection.at(bagIndex).currentWeight + candy.at(candyIndex).weight > Bag::MAX_WEIGHT) {
-        return false;
-    }
+//    if (bagCollection.at(bagIndex).currentWeight + candy.at(candyIndex).weight > Bag::MAX_WEIGHT) {
+//        return false;
+//    }
 
-    return true;
+    return bagCollection.at(bagIndex).currentWeight + candy.at(candyIndex).weight < Bag::MAX_WEIGHT;
 }
 
 int HalloweenOptimization::calculationOptimizer() {
