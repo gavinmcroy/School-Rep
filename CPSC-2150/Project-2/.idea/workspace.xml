@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78f5b057-0182-4428-8b38-71710543077f" name="Default Changelist" comment="" />
+    <list default="true" id="78f5b057-0182-4428-8b38-71710543077f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +32,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="GameScreen" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -64,6 +66,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="304" y="159" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1604951342691">
+      <screen x="0" y="23" width="1680" height="948" />
+    </state>
+    <state x="304" y="159" width="1071" height="724" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.948@0.23.1680.948" timestamp="1604951342691" />
     <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser" timestamp="1602173367539">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -108,10 +114,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="601" y="222" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1603816977317" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1602174326783">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="403" y="171" key="SettingsEditor" timestamp="1604951113044">
+      <screen x="0" y="23" width="1680" height="948" />
     </state>
     <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602174326783" />
+    <state x="403" y="171" key="SettingsEditor/0.23.1680.948@0.23.1680.948" timestamp="1604951113044" />
     <state x="551" y="119" key="new project wizard" timestamp="1603816959633">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

@@ -157,20 +157,28 @@ int HalloweenOptimization::refineImplementation() {
 }
 
 std::vector<int> uniqueSolutions;
+int val = 0;
 
 int HalloweenOptimization::prunedExhaustiveSearch(int start) {
-    if (start == candy.size()) {
+    if (start == candy.size()-2) {
         uniqueSolutions.push_back(calculateCandyTastiness());
+       // std::cout<<calculateCandyTastiness()<<std::endl;
         return 0;
     }
-    for (int c = 1; c < bagCollection.size(); c++) {
-        //if(isValid(start,c)){
+    for (int c = 0; c < bagCollection.size(); c++) {
+        if(isValid(c,start)){
             /* Place Candy */
+//            val++;
+//            if(val==1000){
+//                return 0;
+//            }
+           // uniqueSolutions.push_back(calculateCandyTastiness());
             bagCollection.at(c).bag.push_back(candy.at(start));
             prunedExhaustiveSearch(start + 1);
-            bagCollection.at(c).bag.erase(bagCollection.at(c).bag.begin() + (start - 1));
+            //bagCollection.at(c).bag.erase(bagCollection.at(c).bag.end()-1);
+            bagCollection.at(c).bag.pop_back();
             /* Remove Candy */
-       // }
+        }
     }
     return 0;
 }
@@ -180,10 +188,10 @@ void HalloweenOptimization::resetForPrune() {
     for(int i = 0; i < bagCollection.size(); i++){
        bagCollection.at(i).bag.clear();
     }
-    for(int i = 0; i < candy.size()-1; i++){
-        bagCollection.at(0).bag.push_back(candy.at(i));
-    }
-    bagCollection.at(1).bag.push_back((candy.at(candy.size()-1)));
+//    for(int i = 0; i < candy.size()-1; i++){
+//        bagCollection.at(0).bag.push_back(candy.at(i));
+////    }
+//    bagCollection.at(1).bag.push_back((candy.at(candy.size()-1)));
 
 }
 
@@ -254,13 +262,12 @@ int HalloweenOptimization::calculateCandyTastiness() {
 bool HalloweenOptimization::isValid(int bagIndex, int candyIndex) {
     /* This currently is checking if adding a specified candy to a bag is valid */
     /* TODO this can be made faster by keeping track of candyWeight instead of re adding it */
-    double weight = 0;
-
-
+    int weight = 0;
 
     for (unsigned int j = 0; j < bagCollection.at(bagIndex).bag.size(); j++) {
         weight += bagCollection.at(bagIndex).bag.at(j).weight;
     }
+
     if (weight + candy.at(candyIndex).weight > Bag::MAX_WEIGHT) {
         return false;
     }
