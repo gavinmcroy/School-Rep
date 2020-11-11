@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.cpp
+iostream
+-
+algorithm
+-
+string
+-
+Jugs.h
+C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.h
+
+C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.h
+string
+-
+utility
+-
+
+C:/Users/Gavin McRoy/Desktop/Pls-Work/reference.cpp
+Jugs.h
+C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.h
+
