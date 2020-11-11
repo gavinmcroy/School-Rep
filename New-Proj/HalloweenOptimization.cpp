@@ -45,13 +45,13 @@ HalloweenOptimization::HalloweenOptimization(std::string &fileName) {
 
 int HalloweenOptimization::greedyImplementation() {
 
-    for (auto & i : candy) {
+    for (auto &i : candy) {
         i.ratio = (i.tastiness / (double) i.weight);
     }
     std::sort(candy.begin(), candy.end(), howToSort);
 
     for (unsigned int i = 1; i < bagCollection.size(); i++) {
-        for (auto & j : candy) {
+        for (auto &j : candy) {
             if ((bagCollection.at(i).currentWeight + j.weight) < Bag::MAX_WEIGHT && !j.hasVisited) {
                 bagCollection.at(i).bag.push_back(j);
                 bagCollection.at(i).currentWeight += j.weight;
@@ -59,18 +59,18 @@ int HalloweenOptimization::greedyImplementation() {
             }
         }
     }
-    outputToFile("GREEDY IMPLEMENTATION ",bagCollection);
+    outputToFile("GREEDY IMPLEMENTATION ", bagCollection);
     double counter = calculateCandyTastiness();
     return (int) counter;
 }
 
 void HalloweenOptimization::randomizeCandy(std::vector<HalloweenOptimization::Candy> &c) {
     /* This randomizes candy so that every bag is valid, if candy did not fit we just place it outside the bag */
-    for (auto & i : bagCollection) {
+    for (auto &i : bagCollection) {
         i.bag.clear();
         i.currentWeight = 0;
     }
-    for (auto & i : candy) {
+    for (auto &i : candy) {
         /* IMPORTANT NOTE bag.at(0) REPRESENTS NOT INSIDE THE BAG */
         unsigned int randomNumber = (rand() % 3) + 1;
         /* If a particular bag is maxed out on weight, place it outside of the bag */
@@ -144,7 +144,7 @@ int HalloweenOptimization::refineImplementation() {
             }
         }
     }
-    outputToFile("ITERATIVE REFINEMENT ",optimalBag);
+    outputToFile("ITERATIVE REFINEMENT ", optimalBag);
     int max = 0;
     for (int answer : answers) {
         if (answer > max) {
@@ -156,18 +156,18 @@ int HalloweenOptimization::refineImplementation() {
 
 
 int HalloweenOptimization::prunedExhaustiveSearch(unsigned int start) {
-    if (start == candy.size()-3) {
-        uniqueSolutions.push_back(tastinessOverall-bagCollection.at(0).currentTastiness);
+    if (start == candy.size() - 3) {
+        uniqueSolutions.push_back(tastinessOverall - bagCollection.at(0).currentTastiness);
         return 0;
     }
     for (unsigned int c = 0; c < bagCollection.size(); c++) {
         /* Symmetry */
-        if(start == 0) {
+        if (start == 0) {
             if (c == bagCollection.size() / 2) {
                 break;
             }
-        }else if(start == 1){
-            if(c==bagCollection.size()-1){
+        } else if (start == 1) {
+            if (c == bagCollection.size() - 1) {
                 break;
             }
         }
@@ -178,7 +178,7 @@ int HalloweenOptimization::prunedExhaustiveSearch(unsigned int start) {
             bagCollection.at(c).bag.push_back(candy.at(start));
             bagCollection.at(c).currentWeight += candy.at(start).weight;
             bagCollection.at(c).currentTastiness += candy.at(start).tastiness;
-            tastinessOverall+=candy.at(start).tastiness;
+            tastinessOverall += candy.at(start).tastiness;
             prunedExhaustiveSearch(start + 1);
             /* Remove Candy */
             bagCollection.at(c).bag.pop_back();
@@ -192,7 +192,7 @@ int HalloweenOptimization::prunedExhaustiveSearch(unsigned int start) {
 
 void HalloweenOptimization::resetForPrune() {
     /* Reset everything to default */
-    for (auto & i : bagCollection) {
+    for (auto &i : bagCollection) {
         i.bag.clear();
         i.currentWeight = 0;
         i.currentTastiness = 0;
@@ -214,7 +214,7 @@ int HalloweenOptimization::findMax() {
 void HalloweenOptimization::debugPrintStatements() {
     double weightC = 0;
     for (unsigned int i = 1; i < bagCollection.size(); i++) {
-        for (auto & j : bagCollection.at(i).bag) {
+        for (auto &j : bagCollection.at(i).bag) {
             weightC += j.weight;
         }
     }
@@ -242,7 +242,7 @@ void HalloweenOptimization::debugPrintStatements() {
 int HalloweenOptimization::calculateCandyTastiness() {
     int counter = 0;
     for (unsigned int i = 1; i < bagCollection.size(); i++) {
-        for (auto & j : bagCollection.at(i).bag) {
+        for (auto &j : bagCollection.at(i).bag) {
             counter += j.tastiness;
         }
     }
@@ -262,9 +262,9 @@ bool HalloweenOptimization::isValid(unsigned int bagIndex, unsigned int candyInd
     return bagCollection.at(bagIndex).currentWeight + candy.at(candyIndex).weight < Bag::MAX_WEIGHT;
 }
 
-void HalloweenOptimization::outputToFile(const std::string& fileHeaderName, std::vector<Bag> &optimalBag) {
+void HalloweenOptimization::outputToFile(const std::string &fileHeaderName, std::vector<Bag> &optimalBag) {
     std::ofstream out;
-    out.open("debug.txt",std::fstream::app);
+    out.open("debug.txt", std::fstream::app);
     out << fileHeaderName << std::endl;
     for (unsigned int i = 1; i < optimalBag.size(); i++) {
         out << "BAG ----------------------- " << std::endl;
