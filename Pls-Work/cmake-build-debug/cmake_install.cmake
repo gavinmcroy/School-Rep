@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Gavin McRoy/Desktop/Pls-Work
+# Install script for directory: C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/Gavin McRoy/Desktop/Pls-Work/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

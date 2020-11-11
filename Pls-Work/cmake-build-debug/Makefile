@@ -67,10 +67,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.7
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\Pls-Work"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -169,32 +169,32 @@ Jugs.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/Jugs.cpp.s
 .PHONY : Jugs.cpp.s
 
-reference.obj: reference.cpp.obj
+main.obj: main.cpp.obj
 
-.PHONY : reference.obj
+.PHONY : main.obj
 
 # target to build an object file
-reference.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/reference.cpp.obj
-.PHONY : reference.cpp.obj
+main.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/main.cpp.obj
+.PHONY : main.cpp.obj
 
-reference.i: reference.cpp.i
+main.i: main.cpp.i
 
-.PHONY : reference.i
+.PHONY : main.i
 
 # target to preprocess a source file
-reference.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/reference.cpp.i
-.PHONY : reference.cpp.i
+main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/main.cpp.i
+.PHONY : main.cpp.i
 
-reference.s: reference.cpp.s
+main.s: main.cpp.s
 
-.PHONY : reference.s
+.PHONY : main.s
 
 # target to generate assembly for a file
-reference.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/reference.cpp.s
-.PHONY : reference.cpp.s
+main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/main.cpp.s
+.PHONY : main.cpp.s
 
 # Help Target
 help:
@@ -208,9 +208,9 @@ help:
 	@echo ... Jugs.obj
 	@echo ... Jugs.i
 	@echo ... Jugs.s
-	@echo ... reference.obj
-	@echo ... reference.i
-	@echo ... reference.s
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 .PHONY : help
 
 

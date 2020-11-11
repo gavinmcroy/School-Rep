@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.cpp
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/Jugs.cpp
 iostream
 -
 algorithm
@@ -14,15 +14,15 @@ algorithm
 string
 -
 Jugs.h
-C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/Jugs.h
 
-C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/Jugs.h
 string
 -
 utility
 -
 
-C:/Users/Gavin McRoy/Desktop/Pls-Work/reference.cpp
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/main.cpp
 Jugs.h
-C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/Jugs.h
 

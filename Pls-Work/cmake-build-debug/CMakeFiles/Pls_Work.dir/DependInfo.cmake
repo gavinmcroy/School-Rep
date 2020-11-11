@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Gavin McRoy/Desktop/Pls-Work/Jugs.cpp" "C:/Users/Gavin McRoy/Desktop/Pls-Work/cmake-build-debug/CMakeFiles/Pls_Work.dir/Jugs.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/Pls-Work/reference.cpp" "C:/Users/Gavin McRoy/Desktop/Pls-Work/cmake-build-debug/CMakeFiles/Pls_Work.dir/reference.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/Jugs.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/cmake-build-debug/CMakeFiles/Pls_Work.dir/Jugs.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/cmake-build-debug/CMakeFiles/Pls_Work.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

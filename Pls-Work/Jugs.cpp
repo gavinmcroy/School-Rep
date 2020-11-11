@@ -24,12 +24,12 @@ bool Jugs::solve(int j1Param, int j2Param, const std::string &previousMove) {
         return true;
     }
 
-    // other base case: been here before
+    /* Protect from revisiting state */
     if (states[j1Param][j2Param].hasBeenThere) {
         return false;
     }
 
-    // mark this state as visited
+    /* mark the current state as visited */
     states[j1Param][j2Param].hasBeenThere = true;
 
     /* Fill up jug 1(A) */

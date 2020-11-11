@@ -62,10 +62,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.7
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\Pls-Work"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Pls_Work.dir/depend.make
@@ -76,47 +76,47 @@ include CMakeFiles/Pls_Work.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Pls_Work.dir/flags.make
 
-CMakeFiles/Pls_Work.dir/reference.cpp.obj: CMakeFiles/Pls_Work.dir/flags.make
-CMakeFiles/Pls_Work.dir/reference.cpp.obj: ../reference.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Pls_Work.dir/reference.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Pls_Work.dir\reference.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\Pls-Work\reference.cpp"
+CMakeFiles/Pls_Work.dir/main.cpp.obj: CMakeFiles/Pls_Work.dir/flags.make
+CMakeFiles/Pls_Work.dir/main.cpp.obj: ../main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Pls_Work.dir/main.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Pls_Work.dir\main.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\main.cpp"
 
-CMakeFiles/Pls_Work.dir/reference.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pls_Work.dir/reference.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\Pls-Work\reference.cpp" > CMakeFiles\Pls_Work.dir\reference.cpp.i
+CMakeFiles/Pls_Work.dir/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pls_Work.dir/main.cpp.i"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\main.cpp" > CMakeFiles\Pls_Work.dir\main.cpp.i
 
-CMakeFiles/Pls_Work.dir/reference.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pls_Work.dir/reference.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\Pls-Work\reference.cpp" -o CMakeFiles\Pls_Work.dir\reference.cpp.s
+CMakeFiles/Pls_Work.dir/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pls_Work.dir/main.cpp.s"
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\main.cpp" -o CMakeFiles\Pls_Work.dir\main.cpp.s
 
 CMakeFiles/Pls_Work.dir/Jugs.cpp.obj: CMakeFiles/Pls_Work.dir/flags.make
 CMakeFiles/Pls_Work.dir/Jugs.cpp.obj: ../Jugs.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Pls_Work.dir/Jugs.cpp.obj"
-	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Pls_Work.dir\Jugs.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\Pls-Work\Jugs.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Pls_Work.dir/Jugs.cpp.obj"
+	C:\MinGW\bin\g++.exe  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Pls_Work.dir\Jugs.cpp.obj -c "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\Jugs.cpp"
 
 CMakeFiles/Pls_Work.dir/Jugs.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Pls_Work.dir/Jugs.cpp.i"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\Pls-Work\Jugs.cpp" > CMakeFiles\Pls_Work.dir\Jugs.cpp.i
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\Jugs.cpp" > CMakeFiles\Pls_Work.dir\Jugs.cpp.i
 
 CMakeFiles/Pls_Work.dir/Jugs.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Pls_Work.dir/Jugs.cpp.s"
-	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\Pls-Work\Jugs.cpp" -o CMakeFiles\Pls_Work.dir\Jugs.cpp.s
+	C:\MinGW\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\Jugs.cpp" -o CMakeFiles\Pls_Work.dir\Jugs.cpp.s
 
 # Object files for target Pls_Work
 Pls_Work_OBJECTS = \
-"CMakeFiles/Pls_Work.dir/reference.cpp.obj" \
+"CMakeFiles/Pls_Work.dir/main.cpp.obj" \
 "CMakeFiles/Pls_Work.dir/Jugs.cpp.obj"
 
 # External object files for target Pls_Work
 Pls_Work_EXTERNAL_OBJECTS =
 
-Pls_Work.exe: CMakeFiles/Pls_Work.dir/reference.cpp.obj
+Pls_Work.exe: CMakeFiles/Pls_Work.dir/main.cpp.obj
 Pls_Work.exe: CMakeFiles/Pls_Work.dir/Jugs.cpp.obj
 Pls_Work.exe: CMakeFiles/Pls_Work.dir/build.make
 Pls_Work.exe: CMakeFiles/Pls_Work.dir/linklibs.rsp
 Pls_Work.exe: CMakeFiles/Pls_Work.dir/objects1.rsp
 Pls_Work.exe: CMakeFiles/Pls_Work.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Pls_Work.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Pls_Work.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Pls_Work.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -129,6 +129,6 @@ CMakeFiles/Pls_Work.dir/clean:
 .PHONY : CMakeFiles/Pls_Work.dir/clean
 
 CMakeFiles/Pls_Work.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\Pls-Work" "C:\Users\Gavin McRoy\Desktop\Pls-Work" "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\Pls-Work\cmake-build-debug\CMakeFiles\Pls_Work.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles\Pls_Work.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Pls_Work.dir/depend
 

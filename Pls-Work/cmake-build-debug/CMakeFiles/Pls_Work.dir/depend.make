@@ -4,6 +4,6 @@
 CMakeFiles/Pls_Work.dir/Jugs.cpp.obj: ../Jugs.cpp
 CMakeFiles/Pls_Work.dir/Jugs.cpp.obj: ../Jugs.h
 
-CMakeFiles/Pls_Work.dir/reference.cpp.obj: ../Jugs.h
-CMakeFiles/Pls_Work.dir/reference.cpp.obj: ../reference.cpp
+CMakeFiles/Pls_Work.dir/main.cpp.obj: ../Jugs.h
+CMakeFiles/Pls_Work.dir/main.cpp.obj: ../main.cpp
 
