@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/HalloweenOptimization.cpp
+/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/HalloweenOptimization.cpp
 fstream
 -
 iostream
@@ -18,9 +18,9 @@ ctime
 cstdlib
 -
 HalloweenOptimization.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/HalloweenOptimization.h
+/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/HalloweenOptimization.h
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/HalloweenOptimization.h
+/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/HalloweenOptimization.h
 vector
 -
 

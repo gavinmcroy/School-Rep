@@ -162,8 +162,8 @@ int HalloweenOptimization::prunedExhaustiveSearch(unsigned int start) {
     }
     for (unsigned int c = 0; c < bagCollection.size(); c++) {
         /* Symmetry */
-        if(start == 0){
-            if(c==bagCollection.size()/2){
+        if(start == 0) {
+            if (c == bagCollection.size() / 2) {
                 break;
             }
         }else if(start == 1){
@@ -191,6 +191,7 @@ int HalloweenOptimization::prunedExhaustiveSearch(unsigned int start) {
 }
 
 void HalloweenOptimization::resetForPrune() {
+    /* Reset everything to default */
     for (auto & i : bagCollection) {
         i.bag.clear();
         i.currentWeight = 0;

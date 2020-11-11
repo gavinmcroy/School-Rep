@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/HalloweenOptimization.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/main.cpp.obj"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/HalloweenOptimization.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/HalloweenOptimization.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/main.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/New-Proj/cmake-build-debug/CMakeFiles/New_Proj.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
