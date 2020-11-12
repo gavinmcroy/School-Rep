@@ -63,16 +63,16 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.7
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug"
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Lab09.dir/all
+all: CMakeFiles/Pls_Work.dir/all
 
 .PHONY : all
 
@@ -82,36 +82,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Lab09.dir/clean
+clean: CMakeFiles/Pls_Work.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Lab09.dir
+# Target rules for target CMakeFiles/Pls_Work.dir
 
 # All Build rule for target.
-CMakeFiles/Lab09.dir/all:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug\CMakeFiles" --progress-num=1,2,3 "Built target Lab09"
-.PHONY : CMakeFiles/Lab09.dir/all
+CMakeFiles/Pls_Work.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" --progress-num=1,2,3 "Built target Pls_Work"
+.PHONY : CMakeFiles/Pls_Work.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Lab09.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug\CMakeFiles" 3
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Lab09.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug\CMakeFiles" 0
-.PHONY : CMakeFiles/Lab09.dir/rule
+CMakeFiles/Pls_Work.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" 3
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/Pls_Work.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" 0
+.PHONY : CMakeFiles/Pls_Work.dir/rule
 
 # Convenience name for target.
-Lab09: CMakeFiles/Lab09.dir/rule
+Pls_Work: CMakeFiles/Pls_Work.dir/rule
 
-.PHONY : Lab09
+.PHONY : Pls_Work
 
 # clean rule for target.
-CMakeFiles/Lab09.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/clean
-.PHONY : CMakeFiles/Lab09.dir/clean
+CMakeFiles/Pls_Work.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/clean
+.PHONY : CMakeFiles/Pls_Work.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

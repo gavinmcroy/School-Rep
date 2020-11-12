@@ -1,7 +1,6 @@
-#include <iostream>
-#include "FillingJugs.h"
+#include "Jugs.h"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+    Jugs jugs;
+    jugs.getUserInput();
 }

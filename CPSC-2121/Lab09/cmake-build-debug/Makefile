@@ -67,10 +67,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\202.7
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2121\Lab09\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\Pls-Work\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -130,44 +130,44 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Lab09
+# Target rules for targets named Pls_Work
 
 # Build rule for target.
-Lab09: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Lab09
-.PHONY : Lab09
+Pls_Work: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Pls_Work
+.PHONY : Pls_Work
 
 # fast build rule for target.
-Lab09/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/build
-.PHONY : Lab09/fast
+Pls_Work/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/build
+.PHONY : Pls_Work/fast
 
-FillingJugs.obj: FillingJugs.cpp.obj
+Jugs.obj: Jugs.cpp.obj
 
-.PHONY : FillingJugs.obj
+.PHONY : Jugs.obj
 
 # target to build an object file
-FillingJugs.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/FillingJugs.cpp.obj
-.PHONY : FillingJugs.cpp.obj
+Jugs.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/Jugs.cpp.obj
+.PHONY : Jugs.cpp.obj
 
-FillingJugs.i: FillingJugs.cpp.i
+Jugs.i: Jugs.cpp.i
 
-.PHONY : FillingJugs.i
+.PHONY : Jugs.i
 
 # target to preprocess a source file
-FillingJugs.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/FillingJugs.cpp.i
-.PHONY : FillingJugs.cpp.i
+Jugs.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/Jugs.cpp.i
+.PHONY : Jugs.cpp.i
 
-FillingJugs.s: FillingJugs.cpp.s
+Jugs.s: Jugs.cpp.s
 
-.PHONY : FillingJugs.s
+.PHONY : Jugs.s
 
 # target to generate assembly for a file
-FillingJugs.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/FillingJugs.cpp.s
-.PHONY : FillingJugs.cpp.s
+Jugs.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/Jugs.cpp.s
+.PHONY : Jugs.cpp.s
 
 main.obj: main.cpp.obj
 
@@ -175,7 +175,7 @@ main.obj: main.cpp.obj
 
 # target to build an object file
 main.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/main.cpp.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/main.cpp.obj
 .PHONY : main.cpp.obj
 
 main.i: main.cpp.i
@@ -184,7 +184,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -193,7 +193,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Lab09.dir\build.make CMakeFiles/Lab09.dir/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Pls_Work.dir\build.make CMakeFiles/Pls_Work.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -204,10 +204,10 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Lab09
-	@echo ... FillingJugs.obj
-	@echo ... FillingJugs.i
-	@echo ... FillingJugs.s
+	@echo ... Pls_Work
+	@echo ... Jugs.obj
+	@echo ... Jugs.i
+	@echo ... Jugs.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
