@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/Lab10/WordGraph.h
+
+C:/Users/Gavin McRoy/Desktop/Lab10/main.cpp
+iostream
+-
+WordGraph.h
+C:/Users/Gavin McRoy/Desktop/Lab10/WordGraph.h
+
