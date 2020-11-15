@@ -3,6 +3,7 @@ package cpsc2150.ExtendedTicTacToe;
 import org.junit.Test;
 
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class TestGameBoard {
 
@@ -41,7 +42,18 @@ public class TestGameBoard {
         return formatted.toString();
     }
 
+    private char[][] generateBoard(int row, int column) {
+        char[][] tmpBoard = new char[row][column];
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < column; j++) {
+                tmpBoard[i][j] = ' ';
+            }
+        }
+        return tmpBoard;
+    }
+
     /* CONSTRUCTOR TEST CASES */
+    /* 1. */
     @Test
     public void constructorTestAssignmentMin() {
         testGameBoard = myFactory(3, 3, 3);
@@ -49,6 +61,7 @@ public class TestGameBoard {
                 && testGameBoard.getNumToWin() == 3);
     }
 
+    /* 2. */
     @Test
     public void constructorTestAssignmentMax() {
         testGameBoard = myFactory(100, 100, 25);
@@ -57,6 +70,7 @@ public class TestGameBoard {
                 && testGameBoard.getNumToWin() == 25);
     }
 
+    /* 3. */
     @Test
     public void constructorTestAssignmentNormal() {
         testGameBoard = myFactory(8, 8, 4);
@@ -68,42 +82,195 @@ public class TestGameBoard {
 
 
     /* placeMarker TEST CASES */
+    /* 1. */
     @Test
     public void placeMarkerOnEmptyBoard() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        testGameBoard.placeMarker(new BoardPosition(2, 2), 'X');
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[2][2] = 'X';
+        String formatted = formatInput(tmpBoard, row, col);
+        assertEquals(formatted, testGameBoard.toString());
 
     }
 
+    /* 2. */
     @Test
     public void placeMarkerTopLeft() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
 
+        testGameBoard = myFactory(row, col, numToWin);
+
+        testGameBoard.placeMarker(new BoardPosition(2, 2), 'X');
+        testGameBoard.placeMarker(new BoardPosition(0, 0), 'X');
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[2][2] = 'X';
+        tmpBoard[0][0] = 'X';
+        String formatted = formatInput(tmpBoard, row, col);
+        assertEquals(formatted, testGameBoard.toString());
     }
 
+    /* 3. */
     @Test
-    public void placeMarkerOnAlmostFullBoard() {
+    public void placeMarkerBottomRight() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
 
+        testGameBoard = myFactory(row, col, numToWin);
+        testGameBoard.placeMarker(new BoardPosition(2, 2), 'X');
+        testGameBoard.placeMarker(new BoardPosition(7, 7), 'X');
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[2][2] = 'X';
+        tmpBoard[7][7] = 'X';
+        String formatted = formatInput(tmpBoard, row, col);
+        assertEquals(formatted, testGameBoard.toString());
     }
 
-    @Test
-    public void placeMarkerOnColumnBoundary() {
-
-    }
-
+    /* 4. */
     @Test
     public void placeMarkerOnRowBoundary() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
 
+        testGameBoard = myFactory(row, col, numToWin);
+        testGameBoard.placeMarker(new BoardPosition(2, 2), 'X');
+        testGameBoard.placeMarker(new BoardPosition(7, 0), 'X');
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[2][2] = 'X';
+        tmpBoard[7][0] = 'X';
+        String formatted = formatInput(tmpBoard, row, col);
+        assertEquals(formatted, testGameBoard.toString());
     }
 
+    /* 5. */
+    @Test
+    public void placeMarkerOnColumnBoundary() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        testGameBoard.placeMarker(new BoardPosition(2, 2), 'X');
+        testGameBoard.placeMarker(new BoardPosition(0, 7), 'X');
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[2][2] = 'X';
+        tmpBoard[0][7] = 'X';
+        String formatted = formatInput(tmpBoard, row, col);
+        assertEquals(formatted, testGameBoard.toString());
+    }
     /* placeMarker TEST CASES */
 
 
+    /* whatsAtPos TEST CASES*/
+    /* 1. */
+    @Test
+    public void whatsAtPosOnEmptyBoard() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+
+        assertEquals(' ', testGameBoard.whatsAtPos(new BoardPosition(4, 4)));
+
+    }
+
+    /* 2. */
+    @Test
+    public void whatsAtPosOnMarkedTopLeft() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[0][0] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(0, 0), 'X');
+
+        assertEquals('X', testGameBoard.whatsAtPos(new BoardPosition(0, 0)));
+
+    }
+
+    /* 3. */
+    @Test
+    public void whatsAtPosOnMarkedBottomRight() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[7][7] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(7, 7), 'X');
+
+        assertEquals('X', testGameBoard.whatsAtPos(new BoardPosition(7, 7)));
+
+    }
+
+    /* 4. */
+    @Test
+    public void whatsAtPosOnMarkedBottomLeft() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[7][0] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(7, 0), 'X');
+
+        assertEquals('X', testGameBoard.whatsAtPos(new BoardPosition(7, 0)));
+
+    }
+
+    /* 5. */
+    @Test
+    public void whatsAtPosOnMarkedTopRight() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[0][7] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(0, 7), 'X');
+
+        assertEquals('X', testGameBoard.whatsAtPos(new BoardPosition(0, 7)));
+
+    }
+    /* whatsAtPos TEST CASES*/
+
+
     /* checkSpace TEST CASES */
+    /* 1. */
     @Test
     public void checkSpacePlacementEmptyBoard() {
-        BoardPosition pos = new BoardPosition(4, 4);
-        testGameBoard = myFactory(8, 8, 4);
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
 
-        assertTrue(testGameBoard.checkSpace(pos));
+        testGameBoard = myFactory(row, col, numToWin);
+
+        assertTrue(testGameBoard.checkSpace(new BoardPosition(0, 0)));
     }
+
 
     @Test
     public void checkSpacePlacementOneAwayFromFullBoard() {
