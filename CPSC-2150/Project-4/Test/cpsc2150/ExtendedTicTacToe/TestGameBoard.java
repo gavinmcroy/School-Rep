@@ -2,8 +2,10 @@ package cpsc2150.ExtendedTicTacToe;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertTrue;
+import java.util.Random;
+
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class TestGameBoard {
 
@@ -268,28 +270,100 @@ public class TestGameBoard {
 
         testGameBoard = myFactory(row, col, numToWin);
 
-        assertTrue(testGameBoard.checkSpace(new BoardPosition(0, 0)));
+        assertTrue(testGameBoard.checkSpace(new BoardPosition(4, 4)));
     }
-
 
     @Test
     public void checkSpacePlacementOneAwayFromFullBoard() {
-        BoardPosition pos = new BoardPosition(4, 4);
-        testGameBoard = myFactory(8, 8, 4);
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
 
-        /* TODO fill board with productive garbage */
-
-        assertTrue(testGameBoard.checkSpace(pos));
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean inverse = false;
+        for (int i = 0; i < row; i++) {
+            if (i == 4) {
+                inverse = true;
+            } else {
+                inverse = false;
+            }
+            for (int j = 0; j < col; j++) {
+                if (i == 4 && j == 4) {
+                    continue;
+                }
+                if (j % 2 == 0) {
+                    if (inverse) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }
+                } else if (j % 2 == 1) {
+                    if (inverse) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+            }
+        }
+        String formatted = formatInput(tmpBoard, row, col);
+        //System.out.println(formatted);
+        assertTrue(testGameBoard.checkSpace(new BoardPosition(4, 4)) &&
+                formatted.equals(testGameBoard.toString()));
     }
+
 
     @Test
     public void checkSpacePlacementNormalBoard() {
-        BoardPosition pos = new BoardPosition(4, 4);
-        testGameBoard = myFactory(8, 8, 4);
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+        Random rand = new Random();
 
-        /* TODO Fill board with productive garbage */
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean inverse = false;
+        for (int i = 0; i < row; i++) {
 
-        assertTrue(testGameBoard.checkSpace(pos));
+            if (i == 4) {
+                inverse = true;
+            } else {
+                inverse = false;
+            }
+            for (int j = 0; j < col; j++) {
+                boolean randomVal = rand.nextBoolean();
+                if (i == 4 && j == 4) {
+                    continue;
+                }
+
+                if (j % 2 == 0) {
+                    if (randomVal) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }
+                } else if (j % 2 == 1) {
+                    if (randomVal) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+            }
+        }
+        String formatted = formatInput(tmpBoard, row, col);
+        //System.out.println(formatted);
+        assertTrue(testGameBoard.checkSpace(new BoardPosition(4, 4)) &&
+                formatted.equals(testGameBoard.toString()));
     }
     /* checkSpace TEST CASES */
 
