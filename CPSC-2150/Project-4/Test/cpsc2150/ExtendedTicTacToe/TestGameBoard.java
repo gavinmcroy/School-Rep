@@ -4,8 +4,7 @@ import org.junit.Test;
 
 import java.util.Random;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class TestGameBoard {
 
@@ -323,7 +322,7 @@ public class TestGameBoard {
         int row = 8;
         int col = 8;
         int numToWin = 4;
-        Random rand = new Random();
+        Random rand = new Random(3);
 
         testGameBoard = myFactory(row, col, numToWin);
         char[][] tmpBoard = generateBoard(row, col);
@@ -345,11 +344,11 @@ public class TestGameBoard {
                     if (randomVal) {
                         tmpBoard[i][j] = 'X';
                         testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
-                    } else {
+                    } /*else {
                         tmpBoard[i][j] = 'O';
                         testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
-                    }
-                } else if (j % 2 == 1) {
+                    }*/
+                } else {
                     if (randomVal) {
                         tmpBoard[i][j] = 'O';
                         testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
@@ -367,5 +366,302 @@ public class TestGameBoard {
     }
     /* checkSpace TEST CASES */
 
+    /* checkHorizontalWin TEST CASES*/
+    /* 1. */
+    @Test
+    public void checkHorizontalWinPlacedInMiddle() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < 5; i++) {
+            tmpBoard[0][i] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(0, i), 'X');
+        }
+        //System.out.println(formatInput(tmpBoard, row, col));
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkHorizontalWin((new BoardPosition(0, 0)), 'X'));
+
+    }
+
+    /* 2. */
+    @Test
+    public void checkHorizontalWinNoFalsePositive() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < 3; j++) {
+                tmpBoard[i][j] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+            }
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 4; j < 7; j++) {
+                tmpBoard[i][j] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+            }
+        }
+        //tmpBoard[4][4] = 'X';
+        // testGameBoard.placeMarker(new BoardPosition(4,4),'X');
+        //  System.out.println(formatInput(tmpBoard, row, col));
+        //System.out.println(testGameBoard.toString());
+        assertFalse(testGameBoard.checkHorizontalWin((new BoardPosition(0, 0)), 'X'));
+    }
+
+    /* 3. */
+    @Test
+    public void checkHorizontalDetectingProperWin() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < 3; j++) {
+                tmpBoard[i][j] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+            }
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 4; j < 7; j++) {
+                tmpBoard[i][j] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+            }
+        }
+        tmpBoard[4][7] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(4, 7), 'X');
+        // System.out.println(formatInput(tmpBoard, row, col));
+        // System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkHorizontalWin((new BoardPosition(4, 3)), 'X'));
+    }
+
+    /* 4. */
+    @Test
+    public void checkHorizontalWinWithMixedChars() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i % 2 == 1) {
+                    tmpBoard[i][j] = 'X';
+                    testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                } else {
+                    tmpBoard[i][j] = 'O';
+                    testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                }
+            }
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 4; j < 7; j++) {
+                if (i % 2 == 1) {
+                    tmpBoard[i][j] = 'X';
+                    testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                } else {
+                    tmpBoard[i][j] = 'O';
+                    testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                }
+            }
+        }
+        tmpBoard[4][7] = 'O';
+        tmpBoard[4][3] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(4, 7), 'O');
+        testGameBoard.placeMarker(new BoardPosition(4, 3), 'X');
+        // System.out.println(formatInput(tmpBoard, row, col));
+        // System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkHorizontalWin((new BoardPosition(4, 7)), 'O'));
+    }
+    /* checkHorizontalWin TEST CASES*/
+
+    /* checkVerticalWin TEST CASES */
+    /* 1. */
+    @Test
+    public void checkVerticalWinPlacedInMiddle() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < 5; i++) {
+            tmpBoard[i][0] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, 0), 'X');
+        }
+        //System.out.println(formatInput(tmpBoard, row, col));
+        // System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkVerticalWin((new BoardPosition(0, 0)), 'X'));
+
+    }
+
+    /* 2. */
+    @Test
+    public void checkVerticalWinNoFalsePositive() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < 3; j++) {
+                tmpBoard[j][i] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(j, i), 'X');
+            }
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 4; j < 7; j++) {
+                tmpBoard[j][i] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(j, i), 'X');
+            }
+        }
+        //tmpBoard[4][4] = 'X';
+        // testGameBoard.placeMarker(new BoardPosition(4,4),'X');
+        //  System.out.println(formatInput(tmpBoard, row, col));
+        //System.out.println(testGameBoard.toString());
+        assertFalse(testGameBoard.checkVerticalWin((new BoardPosition(0, 0)), 'X'));
+    }
+
+    /* 3. */
+    @Test
+    public void checkVerticalDetectingProperWin() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < 3; j++) {
+                tmpBoard[j][i] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(j, i), 'X');
+            }
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 4; j < 7; j++) {
+                tmpBoard[j][i] = 'X';
+                testGameBoard.placeMarker(new BoardPosition(j, i), 'X');
+            }
+        }
+        tmpBoard[7][4] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(7, 4), 'X');
+        // System.out.println(formatInput(tmpBoard, row, col));
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkVerticalWin((new BoardPosition(7, 4)), 'X'));
+    }
+
+    /* 4. */
+    @Test
+    public void checkVerticalWinWithMixedChars() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (i % 2 == 1) {
+                    tmpBoard[j][i] = 'X';
+                    testGameBoard.placeMarker(new BoardPosition(j, i), 'X');
+                } else {
+                    tmpBoard[j][i] = 'O';
+                    testGameBoard.placeMarker(new BoardPosition(j, i), 'O');
+                }
+            }
+        }
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 4; j < 7; j++) {
+                if (i % 2 == 1) {
+                    tmpBoard[j][i] = 'X';
+                    testGameBoard.placeMarker(new BoardPosition(j, i), 'X');
+                } else {
+                    tmpBoard[j][i] = 'O';
+                    testGameBoard.placeMarker(new BoardPosition(j, i), 'O');
+                }
+            }
+        }
+        tmpBoard[7][4] = 'O';
+        tmpBoard[3][4] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(7, 4), 'O');
+        testGameBoard.placeMarker(new BoardPosition(3, 4), 'X');
+        // System.out.println(formatInput(tmpBoard, row, col));
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkVerticalWin((new BoardPosition(7, 4)), 'O'));
+    }
+    /* checkVerticalWin TEST CASES */
+
+    /* checkDiagonalWin TEST CASES*/
+    /* 1. */
+    @Test
+    public void checkDiagonalWinStandardRightDiagonal() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        int columnsCount = 0;
+        /* Draws right Diagonal through center */
+        for (int i = testGameBoard.getNumRows() - 1; i >= 0; i--) {
+            tmpBoard[i][columnsCount] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, columnsCount), 'X');
+            columnsCount++;
+        }
+
+        System.out.println(testGameBoard.toString());
+
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(4, 3), 'X'));
+
+
+    }
+
+    @Test
+    public void checkDiagonalWinStandardLeftDiagonal() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        int columns = 0;
+
+        /* Draws left Diagonal through center */
+        for (int i = 0; i < testGameBoard.getNumColumns(); i++) {
+            tmpBoard[i][columns] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
+            columns++;
+        }
+
+        System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(4, 4), 'X'));
+
+
+    }
 
 }
+

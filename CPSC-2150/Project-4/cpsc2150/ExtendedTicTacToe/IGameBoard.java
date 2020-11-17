@@ -1,5 +1,7 @@
 package cpsc2150.ExtendedTicTacToe;
 
+import static java.lang.Math.abs;
+
 /**
  * Contains information about the game board necessary methods to control the flow of tic tac toe
  * <p>
@@ -119,11 +121,13 @@ public interface IGameBoard {
             if (countToWin == getNumToWin()) {
                 return true;
             }
-            if (whatsAtPos(new BoardPosition(i, lastPos.getColumn())) == player) {
+            if (whatsAtPos(new BoardPosition(lastPos.getRow(), i)) == player) {
                 countToWin++;
+            } else {
+                countToWin = 0;
             }
         }
-        return false;
+        return countToWin == getNumToWin();
     }
 
     /**
@@ -143,11 +147,13 @@ public interface IGameBoard {
             if (countToWin == getNumToWin()) {
                 return true;
             }
-            if (whatsAtPos(new BoardPosition(lastPos.getRow(), i)) == player) {
+            if (whatsAtPos(new BoardPosition(i, lastPos.getColumn())) == player) {
                 countToWin++;
+            } else {
+                countToWin = 0;
             }
         }
-        return false;
+        return countToWin == getNumToWin();
     }
 
     /**
@@ -164,33 +170,88 @@ public interface IGameBoard {
      */
     default boolean checkDiagonalWin(BoardPosition lastPos, char player) {
         int countToWin = 0;
-       // int majDiag;
-       // boolean isMatching = true;
-        //int row = 0;
-        for (int row = 0; row < getNumRows(); row++) {
-            //majDiag = row;   //not being used anywhere
-            if (whatsAtPos(new BoardPosition(row, row)) ==player && whatsAtPos(new BoardPosition(row, row)) == whatsAtPos(new BoardPosition(row + 1, row + 1))) { //out of bounds with row+1
-                countToWin++;
-                if (countToWin == getNumToWin()) {
-                    return true;
-                }
-            }else {
-                countToWin= 0;
-            }
+        int index = getNumColumns() - 1;
+
+        /* Check right diagonal */
+        int columns = 0;
+        int start = lastPos.getRow() + lastPos.getColumn();
+        if (start > index) {
+            columns = start - index;
+            start = index;
         }
 
-        for (int row = 0; row < getNumRows(); row++) {
-            for (int col = 0; col < getNumColumns(); col++) {
-                if (row + col == getNumColumns()) {
-                    countToWin++;
-                   if(countToWin == getNumToWin()){
-                       return true;
-                   }else{
-                       countToWin = 0;
-                   }
-                }
+        for (int i = start; i >= 0; i--) {
+            if (whatsAtPos(new BoardPosition(i, columns)) == player) {
+                countToWin++;
+            }else{
+                countToWin = 0;
             }
+            if (countToWin == getNumToWin()) {
+                return true;
+            }
+            if (columns == index) {
+                break;
+            }
+            columns++;
         }
+
+        /* Check left diagonal */
+        countToWin = 0;
+        columns = lastPos.getRow() + lastPos.getColumn();
+        if (lastPos.getRow() > lastPos.getColumn()) {
+            start = lastPos.getRow() - lastPos.getColumn();
+            columns = 0;
+        } else if (columns > index) {
+            start = 0;
+            columns = abs(lastPos.getColumn() - lastPos.getRow());
+        } else {
+            start = 0;
+            columns = lastPos.getColumn() - lastPos.getRow();
+        }
+
+        for (int i = start; i < getNumRows(); i++) {
+            if (whatsAtPos(new BoardPosition(i, columns)) == player) {
+                countToWin++;
+            }else{
+                countToWin= 0;
+            }
+            if (countToWin == getNumToWin()) {
+                return true;
+            }
+            if (columns == index) {
+                break;
+            }
+            columns++;
+        }
+        return false;
+//        int countToWin = 0;
+//       // int majDiag;
+//       // boolean isMatching = true;
+//        //int row = 0;
+//        for (int row = 0; row < getNumRows(); row++) {
+//            //majDiag = row;   //not being used anywhere
+//            if (whatsAtPos(new BoardPosition(row, row)) ==player && whatsAtPos(new BoardPosition(row, row)) == whatsAtPos(new BoardPosition(row + 1, row + 1))) { //out of bounds with row+1
+//                countToWin++;
+//                if (countToWin == getNumToWin()) {
+//                    return true;
+//                }
+//            }else {
+//                countToWin= 0;
+//            }
+//        }
+//
+//        for (int row = 0; row < getNumRows(); row++) {
+//            for (int col = 0; col < getNumColumns(); col++) {
+//                if (row + col == getNumColumns()) {
+//                    countToWin++;
+//                   if(countToWin == getNumToWin()){
+//                       return true;
+//                   }else{
+//                       countToWin = 0;
+//                   }
+//                }
+//            }
+//        }
 
 //        int r = lastPos.getRow();
 //        int c = lastPos.getColumn();
@@ -254,7 +315,7 @@ public interface IGameBoard {
 //            columns++;
 //        }
 
-            /* Right Diagonal (Contains some padding to not go out of bounds) */
+        /* Right Diagonal (Contains some padding to not go out of bounds) */
 //        for (int i = 0; i < getNumRows() - getNumToWin() - 1; i++) {
 //            for (int j = 0; j < getNumColumns() - 1 - getNumToWin(); j++) {
 //                /* Count the diagonal streak until it equals getNumToWin()*/
@@ -286,8 +347,7 @@ public interface IGameBoard {
 //        }
 //        /* No Diagonal win */
 //        return false;
-            return false;
-        }
+    }
 
     /**
      * returns what is in the GameBoard at position pos
