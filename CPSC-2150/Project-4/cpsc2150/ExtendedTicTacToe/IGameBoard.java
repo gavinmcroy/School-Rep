@@ -169,15 +169,18 @@ public interface IGameBoard {
      * as player]
      */
     default boolean checkDiagonalWin(BoardPosition lastPos, char player) {
+        int standardSize = getNumColumns();
         int countToWin = 0;
-        int index = getNumColumns() - 1;
-
+        int index = getNumRows() - 1;
+        boolean specialCase = false;
         /* Check right diagonal */
         int columns = 0;
         int start = lastPos.getRow() + lastPos.getColumn();
         if (start > index) {
+            //index = getNumRows();
             columns = start - index;
             start = index;
+            specialCase = true;
         }
 
         for (int i = start; i >= 0; i--) {
@@ -189,7 +192,10 @@ public interface IGameBoard {
             if (countToWin == getNumToWin()) {
                 return true;
             }
-            if (columns == index) {
+            if ( !specialCase && (columns == index)) {
+                break;
+            }
+            if(specialCase && (columns == getNumColumns()-1)){
                 break;
             }
             columns++;
@@ -209,7 +215,7 @@ public interface IGameBoard {
             columns = lastPos.getColumn() - lastPos.getRow();
         }
 
-        for (int i = start; i < getNumRows(); i++) {
+        for (int i = start; i < standardSize; i++) {
             if (whatsAtPos(new BoardPosition(i, columns)) == player) {
                 countToWin++;
             }else{

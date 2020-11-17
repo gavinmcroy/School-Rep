@@ -614,6 +614,7 @@ public class TestGameBoard {
     }
     /* checkVerticalWin TEST CASES */
 
+
     /* checkDiagonalWin TEST CASES*/
     /* 1. */
     @Test
@@ -633,13 +634,14 @@ public class TestGameBoard {
             columnsCount++;
         }
 
-        System.out.println(testGameBoard.toString());
+        //System.out.println(testGameBoard.toString());
 
         assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(4, 3), 'X'));
 
 
     }
 
+    /* 2. */
     @Test
     public void checkDiagonalWinStandardLeftDiagonal() {
         int row = 8;
@@ -649,7 +651,6 @@ public class TestGameBoard {
         testGameBoard = myFactory(row, col, numToWin);
         char[][] tmpBoard = generateBoard(row, col);
         int columns = 0;
-
         /* Draws left Diagonal through center */
         for (int i = 0; i < testGameBoard.getNumColumns(); i++) {
             tmpBoard[i][columns] = 'X';
@@ -657,11 +658,103 @@ public class TestGameBoard {
             columns++;
         }
 
-        System.out.println(testGameBoard.toString());
+        //System.out.println(testGameBoard.toString());
         assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(4, 4), 'X'));
-
-
     }
+
+    /* 3. */
+    @Test
+    public void checkDiagonalWinOnRightDB(){
+        int row = 5;
+        int col = 9;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        int columns = 0;
+        /* Draws left Diagonal through center */
+        for (int i = testGameBoard.getNumRows()-1; i >= 0; i--) {
+            tmpBoard[i][columns] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
+            columns++;
+            if(columns==row){
+                break;
+            }
+        }
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(1,3 ), 'X'));
+    }
+
+    /* 4. */
+    @Test
+    public void checkDiagonalWinOnLeftDB(){
+        int row = 5;
+        int col = 9;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        int columns = 0;
+        /* Draws left Diagonal through center */
+        for (int i = 0; i < testGameBoard.getNumColumns(); i++) {
+            tmpBoard[i][columns] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
+            columns++;
+            if(columns==row){
+                break;
+            }
+        }
+
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(4, 4), 'X'));
+    }
+
+    /* 5. */
+    @Test
+    public void checkDiagonalWinOnRightWithRHigherThanC(){
+        int row = 9;
+        int col = 5;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        int columns = 0;
+        /* Draws left Diagonal through center */
+        for (int i = testGameBoard.getNumRows()-1; i >= 0; i--) {
+            tmpBoard[i][columns] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
+            columns++;
+            if(columns==col){
+                break;
+            }
+        }
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(8,0 ), 'X'));
+    }
+
+    /* 6. */
+    @Test
+    public void checkDiagonalWinOnLeftWithRHigherThanC(){
+        int row = 9;
+        int col = 5;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        int columns = 0;
+        /* Draws left Diagonal through center */
+        for (int i = 0; i < testGameBoard.getNumColumns(); i++) {
+            tmpBoard[i][columns] = 'X';
+            testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
+            columns++;
+            if(columns==col){
+                break;
+            }
+        }
+        System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(0,0 ), 'X'));
+    }
+
 
 }
 
