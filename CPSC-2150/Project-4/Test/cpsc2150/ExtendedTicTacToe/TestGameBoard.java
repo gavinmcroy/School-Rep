@@ -975,7 +975,7 @@ public class TestGameBoard {
         testGameBoard = myFactory(row, col, numToWin);
         char[][] tmpBoard = generateBoard(row, col);
 
-        assertFalse(testGameBoard.isPlayerAtPos(new BoardPosition(0,0),'O'));
+        assertTrue(testGameBoard.isPlayerAtPos(new BoardPosition(0,0),'O'));
 
     }
 
@@ -1022,7 +1022,7 @@ public class TestGameBoard {
 
         tmpBoard[7][7] = ' ';
         testGameBoard.placeMarker(new BoardPosition(7, 7), ' ');
-        assertFalse(testGameBoard.isPlayerAtPos(new BoardPosition(7,7),'X'));
+        assertTrue(testGameBoard.isPlayerAtPos(new BoardPosition(7,7),'X'));
 
     }
     /* 3. */
