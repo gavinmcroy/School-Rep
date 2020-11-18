@@ -751,10 +751,58 @@ public class TestGameBoard {
                 break;
             }
         }
-        System.out.println(testGameBoard.toString());
+        //System.out.println(testGameBoard.toString());
         assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(0,0 ), 'X'));
     }
 
+    /* 7. */
+    @Test
+    public void checkDiagonalWinOnNormalBoard(){
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+        Random rand = new Random(3);
 
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean inverse = false;
+        for (int i = 0; i < row; i++) {
+
+            if (i == 4) {
+                inverse = true;
+            } else {
+                inverse = false;
+            }
+            for (int j = 0; j < col; j++) {
+                boolean randomVal = rand.nextBoolean();
+                if (i == 4 && j == 4) {
+                    continue;
+                }
+
+                if (j % 2 == 0) {
+                    if (randomVal) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } /*else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }*/
+                } else {
+                    if (randomVal) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+            }
+        }
+        //String formatted = formatInput(tmpBoard, row, col);
+        //System.out.println(formatted);
+
+        System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(6,7 ), 'X'));
+    }
 }
 
