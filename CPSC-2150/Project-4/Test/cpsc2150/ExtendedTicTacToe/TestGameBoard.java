@@ -664,7 +664,7 @@ public class TestGameBoard {
 
     /* 3. */
     @Test
-    public void checkDiagonalWinOnRightDB(){
+    public void checkDiagonalWinOnRightDB() {
         int row = 5;
         int col = 9;
         int numToWin = 4;
@@ -673,21 +673,21 @@ public class TestGameBoard {
         char[][] tmpBoard = generateBoard(row, col);
         int columns = 0;
         /* Draws left Diagonal through center */
-        for (int i = testGameBoard.getNumRows()-1; i >= 0; i--) {
+        for (int i = testGameBoard.getNumRows() - 1; i >= 0; i--) {
             tmpBoard[i][columns] = 'X';
             testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
             columns++;
-            if(columns==row){
+            if (columns == row) {
                 break;
             }
         }
         //System.out.println(testGameBoard.toString());
-        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(1,3 ), 'X'));
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(1, 3), 'X'));
     }
 
     /* 4. */
     @Test
-    public void checkDiagonalWinOnLeftDB(){
+    public void checkDiagonalWinOnLeftDB() {
         int row = 5;
         int col = 9;
         int numToWin = 4;
@@ -700,7 +700,7 @@ public class TestGameBoard {
             tmpBoard[i][columns] = 'X';
             testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
             columns++;
-            if(columns==row){
+            if (columns == row) {
                 break;
             }
         }
@@ -711,7 +711,7 @@ public class TestGameBoard {
 
     /* 5. */
     @Test
-    public void checkDiagonalWinOnRightWithRHigherThanC(){
+    public void checkDiagonalWinOnRightWithRHigherThanC() {
         int row = 9;
         int col = 5;
         int numToWin = 4;
@@ -720,21 +720,21 @@ public class TestGameBoard {
         char[][] tmpBoard = generateBoard(row, col);
         int columns = 0;
         /* Draws left Diagonal through center */
-        for (int i = testGameBoard.getNumRows()-1; i >= 0; i--) {
+        for (int i = testGameBoard.getNumRows() - 1; i >= 0; i--) {
             tmpBoard[i][columns] = 'X';
             testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
             columns++;
-            if(columns==col){
+            if (columns == col) {
                 break;
             }
         }
         //System.out.println(testGameBoard.toString());
-        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(8,0 ), 'X'));
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(8, 0), 'X'));
     }
 
     /* 6. */
     @Test
-    public void checkDiagonalWinOnLeftWithRHigherThanC(){
+    public void checkDiagonalWinOnLeftWithRHigherThanC() {
         int row = 9;
         int col = 5;
         int numToWin = 4;
@@ -747,17 +747,17 @@ public class TestGameBoard {
             tmpBoard[i][columns] = 'X';
             testGameBoard.placeMarker(new BoardPosition(i, columns), 'X');
             columns++;
-            if(columns==col){
+            if (columns == col) {
                 break;
             }
         }
-        //System.out.println(testGameBoard.toString());
-        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(0,0 ), 'X'));
+        // System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(0, 0), 'X'));
     }
 
     /* 7. */
     @Test
-    public void checkDiagonalWinOnNormalBoard(){
+    public void checkDiagonalWinOnNormalBoard() {
         int row = 8;
         int col = 8;
         int numToWin = 4;
@@ -801,8 +801,271 @@ public class TestGameBoard {
         //String formatted = formatInput(tmpBoard, row, col);
         //System.out.println(formatted);
 
-        System.out.println(testGameBoard.toString());
-        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(6,7 ), 'X'));
+        //System.out.println(testGameBoard.toString());
+        assertTrue(testGameBoard.checkDiagonalWin(new BoardPosition(6, 7), 'X'));
     }
-}
+    /* Diagonal Test End */
 
+    /* CheckForDraw */
+    /* 1. */
+    @Test
+    public void checkForDrawNormal() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean flip = false;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (j == 0 || j == 4) {
+                    flip = true;
+                } else {
+                    flip = false;
+                }
+
+                if (i % 2 == 1) {
+                    if (flip) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }
+
+                } else {
+                    if (flip) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+
+            }
+        }
+        // System.out.println(formatInput(tmpBoard, row, col));
+        assertTrue(testGameBoard.checkForDraw());
+    }
+
+    /* 2. */
+    @Test
+    public void checkForDrawOneCharMissing() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean flip = false;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (j == 0 || j == 4) {
+                    flip = true;
+                } else {
+                    flip = false;
+                }
+
+                if (i % 2 == 1) {
+                    if (flip) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }
+
+                } else {
+                    if (flip) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+
+            }
+        }
+
+        tmpBoard[7][7] = ' ';
+        testGameBoard.placeMarker(new BoardPosition(7, 7), ' ');
+        System.out.println(formatInput(tmpBoard, row, col));
+        assertFalse(testGameBoard.checkForDraw());
+    }
+
+    /* 3. */
+    @Test
+    public void checkForDrawOneCharMissingOnTop() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean flip = false;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+
+                if (j == 0 || j == 4) {
+                    flip = true;
+                } else {
+                    flip = false;
+                }
+
+                if (i % 2 == 1) {
+                    if (flip) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }
+
+                } else {
+                    if (flip) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+
+            }
+        }
+        tmpBoard[0][0] = ' ';
+        testGameBoard.placeMarker(new BoardPosition(0, 0), ' ');
+        System.out.println(formatInput(tmpBoard, row, col));
+        assertFalse(testGameBoard.checkForDraw());
+    }
+
+    @Test
+    public void checkForDrawOnNearlyEmptyBoard() {
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        tmpBoard[0][0] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(0, 0), 'X');
+        tmpBoard[7][7] = 'O';
+        testGameBoard.placeMarker(new BoardPosition(7, 7), 'O');
+
+        assertFalse(testGameBoard.checkForDraw());
+    }
+    /* checkDraw TEST*/
+
+
+    /* isPlayerAtPos TEST */
+    /* 1. */
+    @Test
+    public void isPlayerAtPosEmptyBoard(){
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+
+        assertFalse(testGameBoard.isPlayerAtPos(new BoardPosition(0,0),'O'));
+
+    }
+
+    /* 2. */
+    @Test
+    public void isPlayerAtPosFullBoard(){
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        boolean flip = false;
+
+        for (int i = 0; i < row; i++) {
+            for (int j = 0; j < col; j++) {
+                if (j == 0 || j == 4) {
+                    flip = true;
+                } else {
+                    flip = false;
+                }
+
+                if (i % 2 == 1) {
+                    if (flip) {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    } else {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    }
+
+                } else {
+                    if (flip) {
+                        tmpBoard[i][j] = 'O';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'O');
+                    } else {
+                        tmpBoard[i][j] = 'X';
+                        testGameBoard.placeMarker(new BoardPosition(i, j), 'X');
+                    }
+                }
+
+            }
+        }
+
+        tmpBoard[7][7] = ' ';
+        testGameBoard.placeMarker(new BoardPosition(7, 7), ' ');
+        assertFalse(testGameBoard.isPlayerAtPos(new BoardPosition(7,7),'X'));
+
+    }
+    /* 3. */
+    @Test
+    public void isPlayerAtPosOneCharOnB(){
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        tmpBoard[0][0] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(0,0), 'X');
+        assertTrue(testGameBoard.isPlayerAtPos(new BoardPosition(0,0),'O'));
+
+    }
+
+    @Test
+    public void isPlayerAtPosBottomLeft(){
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        tmpBoard[7][0] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(7,0), 'X');
+        assertTrue(testGameBoard.isPlayerAtPos(new BoardPosition(7,0),'O'));
+
+    }
+
+    @Test
+    public void isPlayerAtPosTopRight(){
+        int row = 8;
+        int col = 8;
+        int numToWin = 4;
+
+        testGameBoard = myFactory(row, col, numToWin);
+        char[][] tmpBoard = generateBoard(row, col);
+        tmpBoard[0][0] = 'X';
+        testGameBoard.placeMarker(new BoardPosition(0,0), 'X');
+        assertTrue(testGameBoard.isPlayerAtPos(new BoardPosition(0,0),'O'));
+
+    }
+
+}
