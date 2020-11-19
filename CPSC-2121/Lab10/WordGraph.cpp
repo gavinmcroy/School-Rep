@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <fstream>
+#include <queue>
 #include "WordGraph.h"
 
 WordGraph::WordGraph(const std::string &fileName) {
@@ -52,20 +53,41 @@ void WordGraph::generateAdjacencyList() {
     std::cout << "Dictionary Loaded" << std::endl;
 }
 
-bool WordGraph::visit(const Node &myVal) {
-    beenThere[myVal] = true;
-    if (myVal == end) {
-        return true;
+//bool WordGraph::visit(const Node &myVal) {
+//    beenThere[myVal] = true;
+//    if (myVal == end) {
+//        return true;
+//    }
+//    for (const Node &nbr : neighbors[myVal]) {
+//        if (!beenThere[nbr]) {
+//            predecessor[nbr] = myVal;
+//            if (visit(nbr)) {
+//                return true;
+//            }
+//        }
+//    }
+//    return false;
+//}
+
+void WordGraph::breadthFirstSearch(const Node &source) {
+    for (const Node &a : allWords) {
+        distance[a] = allWords.size();
     }
-    for (const Node &nbr : neighbors[myVal]) {
-        if (!beenThere[nbr]) {
-            predecessor[nbr] = myVal;
-            if (visit(nbr)) {
-                return true;
+    distance[source] = 0;
+    queue<Node> toVisit;
+    toVisit.push(source);
+
+    while (!toVisit.empty()) {
+        Node x = toVisit.front();
+        toVisit.pop();
+        for (const Node &n : neighbors[x]) {
+            if (distance[n] == allWords.size()) {
+                distance[n] = 1 + distance[x];
+                predecessor[n] = x;
+                toVisit.push(n);
             }
         }
     }
-    return false;
 }
 
 void WordGraph::readInputFromUser() {
@@ -77,4 +99,10 @@ void WordGraph::readInputFromUser() {
 
 std::string WordGraph::getStart() {
     return start;
+}
+
+void WordGraph::markPath(const Node& x, const Node& y) {
+    string val = predecessor[x];
+    std::cout<<val<<std::endl;
+    std::cout<<val.length()<<std::endl;
 }

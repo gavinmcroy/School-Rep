@@ -9,16 +9,11 @@ int main() {
 
     wordGraph.readInputFromUser();
     start = wordGraph.getStart();
-//    std::pair<int,int> myPair = wordGraph.convertWordIntoIndex(start,goal);
-//    std::cout<<myPair.first <<" " << myPair.second <<std::endl;
+
+
     wordGraph.generateAdjacencyList();
-    if (wordGraph.visit(start)) {
-        std::cout << "Solution Detected" << std::endl;
-    } else {
-        std::cout << "No Solution Detected " << std::endl;
-    }
-
-
-//    wordGraph.breadthFirstSearch(myPair.first,myPair.second);
+    wordGraph.breadthFirstSearch(start);
+    wordGraph.markPath(start,goal);
+    /* Mark path */
     return 0;
 }

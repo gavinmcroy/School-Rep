@@ -20,28 +20,34 @@ private:
     Node start;
     Node end;
 
-    std::map <Node,bool> beenThere;
+    std::map <Node,int> distance;
+
     std::map <Node,Node> predecessor;
+
     std::map<Node,std::vector<Node>> neighbors;
 
 public:
     /* Reads file in */
-    WordGraph(const std::string& fileName);
+    explicit WordGraph(const std::string& fileName);
 
 
     void generateAdjacencyList();
 
-    bool visit(const Node& myVal);
+    //bool visit(const Node& myVal);
 
 //    std::pair<int,int> convertWordIntoIndex(const std::string& start, const std::string& end);
 //
 //    void breadthFirstSearch(int i, int j);
 
-    void printPath(Node x, Node y);
+    //void printPath(Node x, Node y);
 
     void readInputFromUser();
 
     std::string getStart();
+
+    void breadthFirstSearch(const Node& source);
+
+    void markPath(const Node& x, const Node& y);
 
 
 };
