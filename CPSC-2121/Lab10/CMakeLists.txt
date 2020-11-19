@@ -3,4 +3,4 @@ project(Lab10)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Lab10 main.cpp WordGraph.cpp WordGraph.h)
+add_executable(Lab10 main.cpp WordGraph.cpp WordGraph.h StringIntMap.cpp StringIntMap.h)

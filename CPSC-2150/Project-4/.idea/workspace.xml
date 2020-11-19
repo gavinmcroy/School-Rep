@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fc6ca7dd-6ab2-4a40-a5c6-b4ac79005667" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Test/cpsc2150/ExtendedTicTacToe/TestGameBoard.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/cpsc2150/ExtendedTicTacToe/TestGameBoard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/Project-4/cpsc2150/ExtendedTicTacToe/TestGameBoard.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/Project-4/cpsc2150/ExtendedTicTacToe/TestGameBoard.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1kCVb1RJu6INT3hUt2NWvM5wjG4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.folding" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cpsc2150.ExtendedTicTacToe" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.Test">
+    <configuration name="Main" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="cpsc2150.ExtendedTicTacToe.GameScreen" />
+      <module name="Project-4" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test" type="JUnit" factoryName="JUnit">
+      <module name="Project-4" />
+      <useClassPathOnly />
+      <option name="PACKAGE_NAME" value="cpsc2150.ExtendedTicTacToe" />
+      <option name="MAIN_CLASS_NAME" value="cpsc2150.ExtendedTicTacToe.TestGameBoard" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main" />
+      <item itemvalue="JUnit.Test" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fc6ca7dd-6ab2-4a40-a5c6-b4ac79005667" name="Default Changelist" comment="" />
+      <created>1605204628534</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1605204628534</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" width="1092" height="820" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605205391233">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" width="1092" height="820" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605205391233" />
+    <state x="689" y="322" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605205309057">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="689" y="322" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605205309057" />
+    <state x="736" y="385" width="447" height="278" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605205273951">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="736" y="385" width="447" height="278" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1605205273951" />
+    <state width="914" height="273" key="GridCell.Tab.0.bottom" timestamp="1605663996945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="273" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996945" />
+    <state width="914" height="273" key="GridCell.Tab.0.center" timestamp="1605663996945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="273" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996945" />
+    <state width="914" height="273" key="GridCell.Tab.0.left" timestamp="1605663996945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="273" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996945" />
+    <state width="914" height="273" key="GridCell.Tab.0.right" timestamp="1605663996945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="273" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996945" />
+    <state width="914" height="347" key="GridCell.Tab.1.bottom" timestamp="1605663996942">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="347" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996942" />
+    <state width="914" height="347" key="GridCell.Tab.1.center" timestamp="1605663996941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="347" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996941" />
+    <state width="914" height="347" key="GridCell.Tab.1.left" timestamp="1605663996941">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="347" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996941" />
+    <state width="914" height="347" key="GridCell.Tab.1.right" timestamp="1605663996942">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="914" height="347" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1605663996942" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1605205280507">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1605205280507" />
+    <state x="664" y="247" width="591" height="793" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1605205127381">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="664" y="247" width="591" height="793" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040@0.0.1920.1040" timestamp="1605205127380" />
+    <state x="593" y="119" key="new project wizard" timestamp="1605204719184">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="593" y="119" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1605204719184" />
+    <state x="1096" y="244" key="run.anything.popup" timestamp="1605620497219">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1096" y="244" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605620497219" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1605637335563">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1605637335563" />
+  </component>
+</project>
