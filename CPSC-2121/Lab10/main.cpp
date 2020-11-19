@@ -7,14 +7,18 @@ int main() {
     std::string goal;
 
 
-    std::cout << "Enter starting position " << std::endl;
-    std::cin >> start;
-    std::cout << "Enter goal position" << std::endl;
-    std::cin >> goal;
-
-    std::pair<int,int> myPair = wordGraph.convertWordIntoIndex(start,goal);
-    std::cout<<myPair.first <<" " << myPair.second <<std::endl;
+    wordGraph.readInputFromUser();
+    start = wordGraph.getStart();
+//    std::pair<int,int> myPair = wordGraph.convertWordIntoIndex(start,goal);
+//    std::cout<<myPair.first <<" " << myPair.second <<std::endl;
     wordGraph.generateAdjacencyList();
-    wordGraph.breadthFirstSearch(myPair.first,myPair.second);
+    if (wordGraph.visit(start)) {
+        std::cout << "Solution Detected" << std::endl;
+    } else {
+        std::cout << "No Solution Detected " << std::endl;
+    }
+
+
+//    wordGraph.breadthFirstSearch(myPair.first,myPair.second);
     return 0;
 }

@@ -14,12 +14,12 @@ class WordGraph {
 private:
 
     StringIntMap stringSet;
-    int start;
-    int end;
-
     std::vector<std::string> allWords;
 
     typedef std::string Node;
+    Node start;
+    Node end;
+
     std::map <Node,bool> beenThere;
     std::map <Node,Node> predecessor;
     std::map<Node,std::vector<Node>> neighbors;
@@ -31,9 +31,17 @@ public:
 
     void generateAdjacencyList();
 
-    std::pair<int,int> convertWordIntoIndex(const std::string& start, const std::string& end);
+    bool visit(const Node& myVal);
 
-    void breadthFirstSearch(int i, int j);
+//    std::pair<int,int> convertWordIntoIndex(const std::string& start, const std::string& end);
+//
+//    void breadthFirstSearch(int i, int j);
+
+    void printPath(Node x, Node y);
+
+    void readInputFromUser();
+
+    std::string getStart();
 
 
 };

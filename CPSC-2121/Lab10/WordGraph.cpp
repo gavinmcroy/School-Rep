@@ -18,7 +18,7 @@ WordGraph::WordGraph(const std::string &fileName) {
     std::string buffer;
     int counter = 0;
     while (inputFile >> buffer) {
-        stringSet.insert(buffer,counter);
+        stringSet.insert(buffer, counter);
         allWords.push_back(buffer);
         counter++;
     }
@@ -43,21 +43,38 @@ void WordGraph::generateAdjacencyList() {
         }
         neighbors.insert(std::make_pair(word, oneWordDifference));
     }
-    std::vector<std::string> s = neighbors["grape"];
 
-    for (auto &i : s) {
-        std::cout << i << std::endl;
-    }
+//    std::vector<std::string> s = neighbors["grape"];
+//    for (auto &i : s) {
+//        std::cout << i << std::endl;
+//    }
 
     std::cout << "Dictionary Loaded" << std::endl;
 }
 
-std::pair<int,int> WordGraph::convertWordIntoIndex(const std::string& begin, const std::string& ending) {
-    start = stringSet[begin];
-    end = stringSet[ending];
-    return std::make_pair(stringSet[begin],stringSet[ending]);
+bool WordGraph::visit(const Node &myVal) {
+    beenThere[myVal] = true;
+    if (myVal == end) {
+        return true;
+    }
+    for (const Node &nbr : neighbors[myVal]) {
+        if (!beenThere[nbr]) {
+            predecessor[nbr] = myVal;
+            if (visit(nbr)) {
+                return true;
+            }
+        }
+    }
+    return false;
 }
 
-//void WordGraph::breadthFirstSearch(int i, int j) {
-//    if(i==)
-//}
+void WordGraph::readInputFromUser() {
+    std::cout << "Enter starting position " << std::endl;
+    std::cin >> start;
+    std::cout << "Enter goal position" << std::endl;
+    std::cin >> end;
+}
+
+std::string WordGraph::getStart() {
+    return start;
+}
