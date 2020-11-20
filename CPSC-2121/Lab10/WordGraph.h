@@ -45,7 +45,7 @@ public:
 
     int calcDistance();
 
-    void printPath(const Node &x, const Node &y);
+    int printPath(const Node &x, const Node &y);
 };
 
 

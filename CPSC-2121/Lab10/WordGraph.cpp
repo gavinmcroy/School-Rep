@@ -6,6 +6,9 @@
 #include <queue>
 #include "WordGraph.h"
 
+std::vector<std::string> solutionAll;
+std::vector<std::string> solutionMain;
+
 WordGraph::WordGraph(const std::string &fileName) {
     std::fstream inputFile;
     inputFile.open(fileName);
@@ -62,11 +65,11 @@ std::string WordGraph::breadthFirstSearch(const Node &source) {
     queue<Node> toVisit;
     toVisit.push(source);
 
-    string lastVisisted = "";
+    string lastVisited;
 
     while (!toVisit.empty()) {
         Node x = toVisit.front();
-        lastVisisted = x;
+        lastVisited = x;
         toVisit.pop();
         for (const Node &n : neighbors[x]) {
             if (distance[n] == allWords.size()) {
@@ -76,7 +79,7 @@ std::string WordGraph::breadthFirstSearch(const Node &source) {
             }
         }
     }
-    return lastVisisted;
+    return lastVisited;
 }
 
 std::vector<int> values;
@@ -84,33 +87,31 @@ int val = 0;
 
 int WordGraph::findLongest() {
     distance.clear();
-    val = 0;
     predecessor.clear();
+    solutionAll.clear();
+    int max = 0;
 
-    for (int i = 0; i < allWords.size(); i++) {
-        string tmp = breadthFirstSearch(allWords.at(i));
+    for (auto &allWord : allWords) {
+       // solutionMain.clear();
+        string tmp = breadthFirstSearch(allWord);
         val = distance[tmp];
+        if (val > max) {
+            printPath(allWord, tmp);
+            solutionMain = solutionAll;
+            max = val;
+        }
         values.push_back(val);
         distance.clear();
         predecessor.clear();
+        solutionAll.clear();
     }
 
-    int max = -1;
-    for (int i = 0; i < values.size(); i++) {
-        if (values.at(i) > max) {
-            max = values.at(i);
-        }
-    }
+   for( auto & word : solutionMain){
+       std::cout<<word<<std::endl;
+   }
+
     return max;
 }
-//
-//int WordGraph::calcDistance() {
-//    //if(y.empty()) return;
-//    if (x != y) {
-//        printPath(x, predecessor[y]);
-//        std::cout << predecessor[y] << std::endl;
-//    }
-//}
 
 void WordGraph::readInputFromUser() {
     std::cout << "Enter starting position " << std::endl;
@@ -128,11 +129,13 @@ std::string WordGraph::getGoal() {
 }
 
 
-void WordGraph::printPath(const Node &x, const Node &y) {
-    if (y.empty()) return;
+int WordGraph::printPath(const Node &x, const Node &y) {
+    //if (y.empty()) return;
     if (x != y) {
-        val++;
+        //val++;
+        solutionAll.push_back(predecessor[y]);
         printPath(x, predecessor[y]);
         //std::cout <<val <<" " <<predecessor[y] << std::endl;
     }
+    return val;
 }

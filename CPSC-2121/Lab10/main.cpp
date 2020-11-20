@@ -7,15 +7,18 @@ int main() {
     std::string goal;
 
 
-    wordGraph.readInputFromUser();
-    start = wordGraph.getStart();
-    goal = wordGraph.getGoal();
+   // wordGraph.readInputFromUser();
+    //start = wordGraph.getStart();
+    //goal = wordGraph.getGoal();
 
 
     wordGraph.generateAdjacencyList();
-    wordGraph.breadthFirstSearch(start);
-    wordGraph.printPath(start, goal);
-    std::cout<<wordGraph.findLongest();
+    // wordGraph.breadthFirstSearch(start);
+    // wordGraph.printPath(start, goal);
+
+
+    int x = wordGraph.findLongest();
+    std::cout << "Distance : " << x << std::endl;
     /* Mark path */
     return 0;
 }
