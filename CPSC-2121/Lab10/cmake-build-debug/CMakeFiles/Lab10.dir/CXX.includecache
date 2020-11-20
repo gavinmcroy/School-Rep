@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/StringIntMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/StringIntMap.h
 string
 -
 utility
 -
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.cpp
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.cpp
 iostream
 -
 fstream
@@ -20,13 +20,19 @@ fstream
 queue
 -
 WordGraph.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.h
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.h
 map
 -
 vector
 -
 StringIntMap.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/StringIntMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/StringIntMap.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/main.cpp
+iostream
+-
+WordGraph.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.h
 

@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Lab10.dir/StringIntMap.cpp.obj"
-  "CMakeFiles/Lab10.dir/WordGraph.cpp.obj"
-  "CMakeFiles/Lab10.dir/main.cpp.obj"
-  "Lab10.exe"
-  "Lab10.exe.manifest"
+  "CMakeFiles/Lab10.dir/StringIntMap.cpp.o"
+  "CMakeFiles/Lab10.dir/WordGraph.cpp.o"
+  "CMakeFiles/Lab10.dir/main.cpp.o"
+  "Lab10"
   "Lab10.pdb"
-  "libLab10.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

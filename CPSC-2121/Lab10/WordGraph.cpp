@@ -53,23 +53,8 @@ void WordGraph::generateAdjacencyList() {
     std::cout << "Dictionary Loaded" << std::endl;
 }
 
-//bool WordGraph::visit(const Node &myVal) {
-//    beenThere[myVal] = true;
-//    if (myVal == end) {
-//        return true;
-//    }
-//    for (const Node &nbr : neighbors[myVal]) {
-//        if (!beenThere[nbr]) {
-//            predecessor[nbr] = myVal;
-//            if (visit(nbr)) {
-//                return true;
-//            }
-//        }
-//    }
-//    return false;
-//}
 
-void WordGraph::breadthFirstSearch(const Node &source) {
+std::string WordGraph::breadthFirstSearch(const Node &source) {
     for (const Node &a : allWords) {
         distance[a] = allWords.size();
     }
@@ -77,8 +62,11 @@ void WordGraph::breadthFirstSearch(const Node &source) {
     queue<Node> toVisit;
     toVisit.push(source);
 
+    string lastVisisted = "";
+
     while (!toVisit.empty()) {
         Node x = toVisit.front();
+        lastVisisted = x;
         toVisit.pop();
         for (const Node &n : neighbors[x]) {
             if (distance[n] == allWords.size()) {
@@ -88,7 +76,41 @@ void WordGraph::breadthFirstSearch(const Node &source) {
             }
         }
     }
+    return lastVisisted;
 }
+
+std::vector<int> values;
+int val = 0;
+
+int WordGraph::findLongest() {
+    distance.clear();
+    val = 0;
+    predecessor.clear();
+
+    for (int i = 0; i < allWords.size(); i++) {
+        string tmp = breadthFirstSearch(allWords.at(i));
+        val = distance[tmp];
+        values.push_back(val);
+        distance.clear();
+        predecessor.clear();
+    }
+
+    int max = -1;
+    for (int i = 0; i < values.size(); i++) {
+        if (values.at(i) > max) {
+            max = values.at(i);
+        }
+    }
+    return max;
+}
+//
+//int WordGraph::calcDistance() {
+//    //if(y.empty()) return;
+//    if (x != y) {
+//        printPath(x, predecessor[y]);
+//        std::cout << predecessor[y] << std::endl;
+//    }
+//}
 
 void WordGraph::readInputFromUser() {
     std::cout << "Enter starting position " << std::endl;
@@ -101,8 +123,16 @@ std::string WordGraph::getStart() {
     return start;
 }
 
-void WordGraph::markPath(const Node& x, const Node& y) {
-    string val = predecessor[x];
-    std::cout<<val<<std::endl;
-    std::cout<<val.length()<<std::endl;
+std::string WordGraph::getGoal() {
+    return end;
+}
+
+
+void WordGraph::printPath(const Node &x, const Node &y) {
+    if (y.empty()) return;
+    if (x != y) {
+        val++;
+        printPath(x, predecessor[y]);
+        //std::cout <<val <<" " <<predecessor[y] << std::endl;
+    }
 }

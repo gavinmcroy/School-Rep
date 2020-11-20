@@ -9,11 +9,13 @@ int main() {
 
     wordGraph.readInputFromUser();
     start = wordGraph.getStart();
+    goal = wordGraph.getGoal();
 
 
     wordGraph.generateAdjacencyList();
     wordGraph.breadthFirstSearch(start);
-    wordGraph.markPath(start,goal);
+    wordGraph.printPath(start, goal);
+    std::cout<<wordGraph.findLongest();
     /* Mark path */
     return 0;
 }

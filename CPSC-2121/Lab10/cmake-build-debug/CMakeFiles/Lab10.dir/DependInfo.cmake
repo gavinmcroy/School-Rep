@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/StringIntMap.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/cmake-build-debug/CMakeFiles/Lab10.dir/StringIntMap.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/cmake-build-debug/CMakeFiles/Lab10.dir/WordGraph.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab10/cmake-build-debug/CMakeFiles/Lab10.dir/main.cpp.obj"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/StringIntMap.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/cmake-build-debug/CMakeFiles/Lab10.dir/StringIntMap.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/WordGraph.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/cmake-build-debug/CMakeFiles/Lab10.dir/WordGraph.cpp.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/main.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab10/cmake-build-debug/CMakeFiles/Lab10.dir/main.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
