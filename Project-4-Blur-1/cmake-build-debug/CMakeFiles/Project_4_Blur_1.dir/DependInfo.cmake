@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "C:/Users/Gavin McRoy/Desktop/Project-4-Blur-1/Blur.cpp" "C:/Users/Gavin McRoy/Desktop/Project-4-Blur-1/cmake-build-debug/CMakeFiles/Project_4_Blur_1.dir/blur.cpp.obj"
-  "C:/Users/Gavin McRoy/Desktop/Project-4-Blur-1/main.cpp" "C:/Users/Gavin McRoy/Desktop/Project-4-Blur-1/cmake-build-debug/CMakeFiles/Project_4_Blur_1.dir/main.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/Blur.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/cmake-build-debug/CMakeFiles/Project_4_Blur_1.dir/Blur.cpp.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/cmake-build-debug/CMakeFiles/Project_4_Blur_1.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
