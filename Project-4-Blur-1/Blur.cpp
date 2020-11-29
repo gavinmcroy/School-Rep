@@ -14,7 +14,9 @@ Blur::Blur() {
 }
 
 Blur::Pixel::Pixel() {
-
+    r = 0;
+    g = 0;
+    b = 0;
 }
 
 Blur::Pixel &Blur::getPixel(int x, int y) {
@@ -41,17 +43,13 @@ void Blur::breadthFirstSearch(const Node &source) {
     for (Node &a: allNodes) {
         distance[a] = height * width;
     }
-
-    //Node lastVisited;
     distance[source] = 0;
     std::queue<Node> toVisit;
     toVisit.push(source);
 
     while (!toVisit.empty()) {
         Node x = toVisit.front();
-        //lastVisited = x;
         toVisit.pop();
-
         for (const Node &n : neighbors[x]) {
             if (distance[n] == (height * width)) {
                 distance[n] = 1 + distance[x];
@@ -59,9 +57,8 @@ void Blur::breadthFirstSearch(const Node &source) {
                 toVisit.push(n);
             }
         }
-
     }
-    //return lastVisited;
+
 }
 
 void Blur::buildGraph() {
@@ -73,34 +70,22 @@ void Blur::buildGraph() {
             allNodes.emplace_back(x, y);
         }
     }
-//    int di[] = {+1, -1, 0, 0};
-//    int dj[] = {0, 0, +1, -1};
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
-//            for (int k = 0; k < 4; k++) {
-//                Node temp = std::make_pair(x, y);
-//                Node nbr = std::make_pair(x + di[k], y + dj[k]);
-//                neighbors[temp].push_back(nbr);
-//            }
             if (x - 1 >= 0) {
                 tempNeighbors.emplace_back(x - 1, y);
-                //tempNeighbors.emplace_back(y, x - 1);
             }
             if (x + 1 < width) {
                 tempNeighbors.emplace_back(x + 1, y);
-                //tempNeighbors.emplace_back(y, x + 1);
             }
             if (y - 1 >= 0) {
                 tempNeighbors.emplace_back(x, y - 1);
-                //tempNeighbors.emplace_back(y - 1, x);
             }
             if (y + 1 < height) {
                 tempNeighbors.emplace_back(x, y + 1);
-                //tempNeighbors.emplace_back(y + 1, x);
             }
             /* Insert the node and then its neighbors */
             neighbors.insert(std::make_pair(std::make_pair(x, y), tempNeighbors));
-            //neighbors.insert(std::make_pair(std::make_pair(j, i), tempNeighbors));
             tempNeighbors.clear();
         }
     }
@@ -122,8 +107,8 @@ bool Blur::Pixel::operator==(const Blur::Pixel &pixel) const {
 void Blur::calculateBlur() {
     for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
-            for(int k = 0; k < allWhitePixels.size(); k++){
-                printPath(std::make_pair(i,j),allWhitePixels.at(k));
+            if(getPixel(i,j)==Blur::white){
+                modified(std::make_pair(i,j),std::make_pair(0,0));
             }
         }
     }
@@ -140,22 +125,29 @@ void Blur::findEveryWhitePixel() {
             }
         }
     }
-    std::cout << tempCount;
+    std::cout << allWhitePixels.at(0).first << " " << allWhitePixels.at(0).second;
 }
 
-int steps = 0;
 
-void Blur::printPath(Node x, Node y) {
-    if(steps == 6){
-        return;
+//void Blur::printPath(Node x, Node y) {
+//    if (x != y) printPath(x, predecessor[y]);
+//    // int val = 255; // (int) 255 * std::pow(.9,steps);
+//    image[y.second * width + y.first] = Pixel(0, 0, 255);
+//    steps++;
+//    /* y * width + x */
+//}
+
+int Blur::modified(Node x, Node y) {
+    int steps = 0;
+    while (predecessor[y] != x) {
+        int operation = y.second * width + y.first;
+        int calculated = (int) 255 * std::pow(.9,steps);
+        Node val = predecessor[y];
+        image[operation].r = calculated;
+        image[operation].g = calculated;
+        image[operation].b = calculated;
+        y = val;
+        steps++;
     }
-    if (x != y) printPath(x, predecessor[y]);
-    int val = (int) 255 * std::pow(.9,steps);
-    image[y.second * width + y.first] = Pixel(val,val,val);
-    steps++;
-    /* y * width + x */
-}
-
-int Blur::getSteps() {
     return steps;
 }

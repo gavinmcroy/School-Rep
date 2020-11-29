@@ -66,9 +66,9 @@ public:
 
     void findEveryWhitePixel();
 
-    void printPath(Node x, Node y);
+    int modified(Node x, Node y);
 
-    int getSteps();
+   // void printPath(Node x, Node y);
 
 };
 
