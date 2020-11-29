@@ -91,6 +91,12 @@ void Blur::buildGraph() {
     }
 }
 
+void Blur::buildMegaNode() {
+    megaNode = std::make_pair(0, 0);
+    findEveryWhitePixel();
+    neighbors.insert(std::make_pair(megaNode, allWhitePixels));
+}
+
 bool Blur::Pixel::operator<(const Pixel &pixel) const {
     return (r + g + b) > (pixel.r + pixel.g + pixel.b);
 }
@@ -105,11 +111,16 @@ bool Blur::Pixel::operator==(const Blur::Pixel &pixel) const {
 
 /* Call print path from every pixel until it finds the nearest white pixel ? */
 void Blur::calculateBlur() {
+
+    breadthFirstSearch(megaNode);
     for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
-            if(getPixel(i,j)==Blur::white){
-                modified(std::make_pair(i,j),std::make_pair(0,0));
-            }
+            int location = j * width + i;
+            int x = distance[std::make_pair(i, j)];
+            int calculation = 255 * std::pow(.9, x);
+            image[location].r = calculation;
+            image[location].g = calculation;
+            image[location].b = calculation;
         }
     }
 }
@@ -128,24 +139,14 @@ void Blur::findEveryWhitePixel() {
     std::cout << allWhitePixels.at(0).first << " " << allWhitePixels.at(0).second;
 }
 
-
-//void Blur::printPath(Node x, Node y) {
-//    if (x != y) printPath(x, predecessor[y]);
-//    // int val = 255; // (int) 255 * std::pow(.9,steps);
-//    image[y.second * width + y.first] = Pixel(0, 0, 255);
-//    steps++;
-//    /* y * width + x */
-//}
-
-int Blur::modified(Node x, Node y) {
+int Blur::printShortedPathOnImage(Node x, Node y) {
     int steps = 0;
     while (predecessor[y] != x) {
         int operation = y.second * width + y.first;
-        int calculated = (int) 255 * std::pow(.9,steps);
         Node val = predecessor[y];
-        image[operation].r = calculated;
-        image[operation].g = calculated;
-        image[operation].b = calculated;
+        image[operation].r = 255;
+        image[operation].g = 0;
+        image[operation].b = 0;
         y = val;
         steps++;
     }

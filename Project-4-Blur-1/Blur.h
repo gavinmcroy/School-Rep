@@ -32,9 +32,9 @@ private:
 
         Pixel();
     };
-
     typedef std::pair<int, int> Node;
 
+    Node megaNode;
     Pixel *image;
     int width;
     int height;
@@ -64,9 +64,11 @@ public:
 
     void buildGraph();
 
+    void buildMegaNode();
+
     void findEveryWhitePixel();
 
-    int modified(Node x, Node y);
+    int printShortedPathOnImage(Node x, Node y);
 
    // void printPath(Node x, Node y);
 
