@@ -22,6 +22,8 @@ private:
 
         bool operator!=(const Pixel &pixel) const;
 
+        bool operator==(const Pixel &pixel) const;
+
         Pixel(unsigned char r, unsigned char g, unsigned char b) {
             this->r = r;
             this->g = g;
@@ -39,6 +41,7 @@ private:
     Pixel white = {255, 255, 255};
     Pixel black = {0, 0, 0};
 
+    std::vector<Node> allWhitePixels;
     std::vector<Node> allNodes;
     std::map<Node, int> distance;
     std::map<Node, Node> predecessor;
@@ -60,6 +63,8 @@ public:
     void calculateBlur();
 
     void buildGraph();
+
+    void findEveryWhitePixel();
 
     void printPath(Node x, Node y);
 

@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/Blur.cpp
+cstdio
+-
+Blur.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/Blur.h
+
 C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/Blur.h
 iostream
 -
@@ -19,8 +25,4 @@ map
 -
 queue
 -
-
-C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/main.cpp
-Blur.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/Project-4-Blur-1/Blur.h
 

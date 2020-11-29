@@ -10,6 +10,7 @@ Blur::Blur() {
     this->height = 0;
     this->image = nullptr;
     allNodes.reserve((width * height) / 2);
+    allWhitePixels.reserve(75000);
 }
 
 Blur::Pixel::Pixel() {
@@ -94,7 +95,7 @@ void Blur::buildGraph() {
                 //tempNeighbors.emplace_back(y - 1, x);
             }
             if (y + 1 < height) {
-                 tempNeighbors.emplace_back(x, y + 1);
+                tempNeighbors.emplace_back(x, y + 1);
                 //tempNeighbors.emplace_back(y + 1, x);
             }
             /* Insert the node and then its neighbors */
@@ -113,16 +114,44 @@ bool Blur::Pixel::operator!=(const Blur::Pixel &pixel) const {
     return !(r == pixel.r && g == pixel.g && b == pixel.b);
 }
 
+bool Blur::Pixel::operator==(const Blur::Pixel &pixel) const {
+    return (r == pixel.r && g == pixel.g && b == pixel.b);
+}
+
 /* Call print path from every pixel until it finds the nearest white pixel ? */
 void Blur::calculateBlur() {
-    for (int i = 0; i < width * height; i++) {
-        //printPath()
+    for (int i = 0; i < width; i++) {
+        for (int j = 0; j < height; j++) {
+            for(int k = 0; k < allWhitePixels.size(); k++){
+                printPath(std::make_pair(i,j),allWhitePixels.at(k));
+            }
+        }
     }
 }
+
+
+void Blur::findEveryWhitePixel() {
+    int tempCount = 0;
+    for (int i = 0; i < width; i++) {
+        for (int j = 0; j < height; j++) {
+            if (getPixel(i, j) == Blur::white) {
+                allWhitePixels.emplace_back(i, j);
+                tempCount++;
+            }
+        }
+    }
+    std::cout << tempCount;
+}
+
 int steps = 0;
+
 void Blur::printPath(Node x, Node y) {
+    if(steps == 6){
+        return;
+    }
     if (x != y) printPath(x, predecessor[y]);
-    image[y.second * width + y.first] = Pixel(255, 0, 0);
+    int val = (int) 255 * std::pow(.9,steps);
+    image[y.second * width + y.first] = Pixel(val,val,val);
     steps++;
     /* y * width + x */
 }
