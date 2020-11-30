@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2483bbef-b751-42c3-848a-10eb41d69716" name="Default Changelist" comment="" />
+    <list default="true" id="2483bbef-b751-42c3-848a-10eb41d69716" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../Project-4/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Project-4/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -72,10 +74,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="224" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603826060215" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1605204620134">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1606761026863">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1605204620134" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1606761026863" />
     <state width="1877" height="343" key="GridCell.Tab.0.bottom" timestamp="1603936786999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -108,10 +110,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1877" height="343" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603936786999" />
-    <state x="601" y="222" key="NewModule_or_Project.wizard" timestamp="1605204627053">
+    <state x="601" y="222" key="NewModule_or_Project.wizard" timestamp="1606761031800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="601" y="222" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1605204627053" />
+    <state x="601" y="222" key="NewModule_or_Project.wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1606761031800" />
     <state x="616" y="240" key="run.anything.popup" timestamp="1603888716799">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
