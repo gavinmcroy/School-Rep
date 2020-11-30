@@ -20,7 +20,7 @@ public abstract class SetAbs<T> implements ISet<T> {
         //We have to do this because there is no guarantee where remove will get the value from
         int size = getSize();
         for (int i = 0; i < size; i++) {
-            temp.add((T) remove());
+            temp.add(remove());
         }
 
         //make string and refill this

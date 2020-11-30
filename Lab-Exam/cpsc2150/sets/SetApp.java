@@ -107,7 +107,7 @@ public class SetApp {
 
             //add the value to our set
             //!contains(val) and size < MAX_SIZE
-            if (s.contains(addVal) && s.getSize() < ISet.MAX_SIZE) {
+            if (!s.contains(addVal) && s.getSize() < ISet.MAX_SIZE) {
                 s.add(addVal);
             } else {
                 System.out.println("Set exceeds max size or contains a duplicate ");

@@ -36,7 +36,12 @@ public class ArraySet<T> extends SetAbs<T> implements ISet<T> {
      */
     @Override
     public void add(T val) {
-        myArraySet[setSize] = val;
+        for(int i = 0; i < ISet.MAX_SIZE; i++){
+            if(myArraySet[i]==null){
+                myArraySet[i] = val;
+                break;
+            }
+        }
         setSize++;
     }
 
@@ -52,8 +57,8 @@ public class ArraySet<T> extends SetAbs<T> implements ISet<T> {
         Random rand = new Random();
         int r_num = rand.nextInt(this.getSize());
         T myParam = myArraySet[r_num];
-        setSize--;
         myArraySet[r_num] = null;
+        setSize--;
         return myParam;
     }
 
@@ -67,8 +72,10 @@ public class ArraySet<T> extends SetAbs<T> implements ISet<T> {
      */
     @Override
     public boolean contains(T val) {
-        for(int i = 0; i < ISet.MAX_SIZE; i++){
-            if(myArraySet[i].equals(val)){
+        for (int i = 0; i < ISet.MAX_SIZE; i++) {
+            if (myArraySet[i] == null) {
+                //---Do nothing
+            } else if (myArraySet[i].equals(val)) {
                 return true;
             }
         }
