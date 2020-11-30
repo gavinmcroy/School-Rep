@@ -1,7 +1,5 @@
 package cpsc2150.sets;
 
-import java.util.Random;
-
 public class ArraySet<T> extends SetAbs<T> implements ISet<T> {
 
     /**
@@ -54,10 +52,12 @@ public class ArraySet<T> extends SetAbs<T> implements ISet<T> {
      */
     @Override
     public T remove() {
-        Random rand = new Random();
-        int r_num = rand.nextInt(this.getSize());
-        T myParam = myArraySet[r_num];
-        myArraySet[r_num] = null;
+        //Random rand = new Random();
+        //int r_num = rand.nextInt(this.getSize());
+        T myParam = myArraySet[setSize-1];
+
+        //myArraySet[r_num] = null;
+        myArraySet[setSize-1] = null;
         setSize--;
         return myParam;
     }
