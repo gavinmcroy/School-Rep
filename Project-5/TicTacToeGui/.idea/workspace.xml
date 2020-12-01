@@ -3,33 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="fe7283cd-3588-4285-9dac-03c19c9ea65f" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/.idea/codeStyles/Project.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/TicTacToeGui.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/AbsGameBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/BoardPosition.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/GameBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/GameBoardMem.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/GameSetupController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/GameSetupScreen.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/IGameBoard.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/TicTacToeController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/TicTacToeGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/out/production/TicTacToeGui/cpsc2150/extendedTicTacToe/TicTacToeView.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/AbsGameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/BoardPosition.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/GameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/GameBoardMem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/GameSetupController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/GameSetupScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/IGameBoard.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/TicTacToeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/TicTacToeGame.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TicTacToeGui/src/cpsc2150/extendedTicTacToe/TicTacToeView.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cpsc2150/extendedTicTacToe/TicTacToeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cpsc2150/extendedTicTacToe/TicTacToeController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

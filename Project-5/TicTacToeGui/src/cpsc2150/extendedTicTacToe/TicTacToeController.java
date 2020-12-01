@@ -13,20 +13,21 @@ import java.util.Hashtable;
  */
 public class TicTacToeController {
 
+    //---Max players allowed
+    public final int MAX_PLAYERS = 10;
 
     //---Default Players
-    final char[] twoDefaultPlayers = {'X', 'O'};
+    final char[] DEFAULT_PLAYERS = {'X', 'O'};
     //--- Keeps track of active players
-    private static final Hashtable<Integer, Character> hashTable = new Hashtable<>();
+    private final Hashtable<Integer, Character> hashTable = new Hashtable<>();
     //--- Keeps track of active player by indexing into the hashTable
-    private static int currentPlayer = 0;
+    private int currentPlayer = 0;
     //--- our current game that is being played
     private IGameBoard curGame;
     //--- Number of players in the game
     private int numPlayers;
     //--- The screen that provides our view
     private TicTacToeView screen;
-    public static final int MAX_PLAYERS = 10;
 
     //--- Initiates the game over process if true
     private boolean gameOver;
@@ -61,6 +62,7 @@ public class TicTacToeController {
         if (gameOver) {
             newGame();
             gameOver = false;
+            return;
         }
 
         if (curGame.checkSpace(new BoardPosition(row, col))) {
@@ -99,21 +101,30 @@ public class TicTacToeController {
      * @pre none
      * @post currentPlayers = currentPlayers + 1  || currentPlayer = 0 iff(currentPlayers > hashTable.size();
      */
-    private static void changeTurns() {
+    private void changeTurns() {
         currentPlayer++;
         if (currentPlayer == hashTable.size()) {
             currentPlayer = 0;
         }
     }
 
+    /**
+     * Handles setting the different players up. It creates the first two players based on what is defined
+     * as the default starting characters. After that, it then randomly chooses other letters through A-Z and adds
+     * them to the active player list so that each player has a letter.
+     *
+     * @pre none
+     * @post hashTable[i..numPlayers] = { twoDefaultPlayers[0], twoDefault[1] ...}
+     *       numPlayers = |hashTable|
+     */
     private void setPlayersUp() {
         char startLetter = 'A';
         char endLetter = 'Z';
         //---We are adding two default players, so players 0 and 1 are taken so if there are more than 2 there
         // cant be 0 or 1
         int randomizePlayerAfterXAndO = 2;
-        hashTable.put(0, twoDefaultPlayers[0]);
-        hashTable.put(1, twoDefaultPlayers[1]);
+        hashTable.put(0, DEFAULT_PLAYERS[0]);
+        hashTable.put(1, DEFAULT_PLAYERS[1]);
 
         for (int i = 0; i < numPlayers - randomizePlayerAfterXAndO; i++) {
             char randomASCII = (char) ((Math.random() * (endLetter - startLetter)) + startLetter);
