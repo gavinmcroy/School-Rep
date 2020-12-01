@@ -6,8 +6,8 @@ int main() {
     blur.readImage("paw.ppm");
 
     std::pair<int, int> val;
-    val.first = 0;
-    val.second = 0;
+    val.first = -1;
+    val.second = -1;
 
     blur.buildMegaNode();
     blur.calculateBlur();

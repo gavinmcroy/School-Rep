@@ -111,13 +111,12 @@ bool Blur::Pixel::operator==(const Blur::Pixel &pixel) const {
 
 /* Call print path from every pixel until it finds the nearest white pixel ? */
 void Blur::calculateBlur() {
-
     breadthFirstSearch(megaNode);
     for (int i = 0; i < width; i++) {
         for (int j = 0; j < height; j++) {
             int location = j * width + i;
             int x = distance[std::make_pair(i, j)];
-            int calculation = 255 * std::pow(.9, x);
+            int calculation = 255 * std::pow(.9, x-1);
             image[location].r = calculation;
             image[location].g = calculation;
             image[location].b = calculation;
