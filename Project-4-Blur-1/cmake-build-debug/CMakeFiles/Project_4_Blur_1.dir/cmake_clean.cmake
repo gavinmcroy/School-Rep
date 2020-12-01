@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Project_4_Blur_1.dir/Blur.cpp.obj"
-  "CMakeFiles/Project_4_Blur_1.dir/main.cpp.obj"
-  "Project_4_Blur_1.exe"
-  "Project_4_Blur_1.exe.manifest"
+  "CMakeFiles/Project_4_Blur_1.dir/Blur.cpp.o"
+  "CMakeFiles/Project_4_Blur_1.dir/main.cpp.o"
+  "Project_4_Blur_1"
   "Project_4_Blur_1.pdb"
-  "libProject_4_Blur_1.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

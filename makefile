@@ -2,7 +2,7 @@
 #	javac cpsc2150/MyQueue/IQueue.java cpsc2150/MyQueue/ListQueue.java cpsc2150/MyQueue/ArrayQueue.java cpsc2150/MyQueue/AbsQueue.java cpsc2150/MyQueue/QueueApp.java
 #	java cpsc2150.MyQueue.QueueApp
 #clean:
-#	$(RM) cpsc2150/MyQueue/*.class
+#	$(RM) cpsc2150.sets/*.class
 ##
 # source directory
 
@@ -49,10 +49,13 @@ JCFLAGS := -d $(OUT_DIR)/ -cp $(SRC_DIR)/
 #$(CLS): $(OUT_DIR)/%.class: $(SRC_DIR)/%.java
 #	$(JC) $(JCFLAGS) $<
 all:
-	javac cpsc2150/mortgages/*.java
-run:
-	javac cpsc2150/mortgages/*.java
-	java cpsc2150.mortgages.MortgageApp
+	javac cpsc2150.sets/*.java
+runInt:
+	javac cpsc2150.sets/*.java
+	java cpsc2150.sets.SetApp
+runDouble: 
+	javac cpsc2150.sets/*.java
+	java cpsc2150.sets.DoubleSetApp
 
 
 ##
