@@ -83,9 +83,9 @@ public interface ISet<T> {
                 myTmp.add((T)i);
             }
         }
-        for(int i = 0; i < getSize(); i++){
-            remove();
-        }
+//        for(int i = 0; i < getSize(); i++){
+//            remove();
+//        }
         for(Integer i = 0; i < LOOP_VAL; i++){
             if(this.contains((T) i) && myTmp.contains((T) i)){
                 //---DO not add duplicates
