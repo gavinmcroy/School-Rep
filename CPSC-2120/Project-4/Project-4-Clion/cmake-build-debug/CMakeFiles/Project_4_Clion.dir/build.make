@@ -63,10 +63,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/Project-4-Clion
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Project_4_Clion.dir/depend.make
@@ -79,29 +79,29 @@ include CMakeFiles/Project_4_Clion.dir/flags.make
 
 CMakeFiles/Project_4_Clion.dir/graphics.cpp.o: CMakeFiles/Project_4_Clion.dir/flags.make
 CMakeFiles/Project_4_Clion.dir/graphics.cpp.o: ../graphics.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project_4_Clion.dir/graphics.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_4_Clion.dir/graphics.cpp.o -c /Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project_4_Clion.dir/graphics.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_4_Clion.dir/graphics.cpp.o -c /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/graphics.cpp
 
 CMakeFiles/Project_4_Clion.dir/graphics.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_4_Clion.dir/graphics.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.cpp > CMakeFiles/Project_4_Clion.dir/graphics.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/graphics.cpp > CMakeFiles/Project_4_Clion.dir/graphics.cpp.i
 
 CMakeFiles/Project_4_Clion.dir/graphics.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_4_Clion.dir/graphics.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.cpp -o CMakeFiles/Project_4_Clion.dir/graphics.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/graphics.cpp -o CMakeFiles/Project_4_Clion.dir/graphics.cpp.s
 
 CMakeFiles/Project_4_Clion.dir/main.cpp.o: CMakeFiles/Project_4_Clion.dir/flags.make
 CMakeFiles/Project_4_Clion.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project_4_Clion.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_4_Clion.dir/main.cpp.o -c /Users/gavintaylormcroy/Desktop/Project-4-Clion/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project_4_Clion.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_4_Clion.dir/main.cpp.o -c /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/main.cpp
 
 CMakeFiles/Project_4_Clion.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_4_Clion.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/Project-4-Clion/main.cpp > CMakeFiles/Project_4_Clion.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/main.cpp > CMakeFiles/Project_4_Clion.dir/main.cpp.i
 
 CMakeFiles/Project_4_Clion.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_4_Clion.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/Project-4-Clion/main.cpp -o CMakeFiles/Project_4_Clion.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/main.cpp -o CMakeFiles/Project_4_Clion.dir/main.cpp.s
 
 # Object files for target Project_4_Clion
 Project_4_Clion_OBJECTS = \
@@ -115,7 +115,7 @@ Project_4_Clion: CMakeFiles/Project_4_Clion.dir/graphics.cpp.o
 Project_4_Clion: CMakeFiles/Project_4_Clion.dir/main.cpp.o
 Project_4_Clion: CMakeFiles/Project_4_Clion.dir/build.make
 Project_4_Clion: CMakeFiles/Project_4_Clion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Project_4_Clion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable Project_4_Clion"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_4_Clion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -128,6 +128,6 @@ CMakeFiles/Project_4_Clion.dir/clean:
 .PHONY : CMakeFiles/Project_4_Clion.dir/clean
 
 CMakeFiles/Project_4_Clion.dir/depend:
-	cd /Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/Project-4-Clion /Users/gavintaylormcroy/Desktop/Project-4-Clion /Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/Project-4-Clion/cmake-build-debug/CMakeFiles/Project_4_Clion.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2120/Project-4/Project-4-Clion/cmake-build-debug/CMakeFiles/Project_4_Clion.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Project_4_Clion.dir/depend
 
