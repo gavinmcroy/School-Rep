@@ -50,18 +50,25 @@ void kd_nearest(Node *root, int p, int dim, int &nearest) {
     if (root == nullptr) {
         return;
     }
-    if (nearest < 0) {
-        nearest = 1000000000;
-    }
+
     /* Don't compare point with itself */
-    if (root->p != p) {
-        double myVal = get_dist(root->p,p);
-        if(myVal < nearest){
-            std::cout<<myVal<<std::endl;
-            nearest = myVal;
+    if(root->p != p && (get_dist(root->p,p)) < get_dist(p,nearest)){
+        nearest = root->p;
+    }
+
+    if (all_points[p].data[dim] <= all_points[root->p].data[dim]) {
+        kd_nearest(root->left, p, (dim + 1) % D, nearest);
+
+        if (abs(all_points[p].data[dim] - all_points[root->p].data[dim]) <= get_dist(nearest, p)) {
+
+            kd_nearest(root->right, p, (dim + 1) % D, nearest);
         }
-        kd_nearest(root->left, p, dim, nearest);
-        kd_nearest(root->right, p, dim, nearest);
+    } else {
+        kd_nearest(root->right, p, (dim + 1) % D, nearest);
+        if (abs(all_points[p].data[dim] - all_points[root->p].data[dim]) <= get_dist(nearest, p)) {
+
+            kd_nearest(root->left, p, (dim + 1) % D, nearest);
+        }
     }
 
 
@@ -114,10 +121,6 @@ int main(void) {
     for (int i = 2; i < N; i++) root = insert(root, i, 0); // Insert points into a kd tree
     for (int i = 2; i < N; i++) {
         int nearest = -1;
-        /* Modify */
-        if(root->p == i) continue;
-        if(i ==3){ break ; }
-        /* Modify */
         kd_nearest(root, i, 0, nearest);
         assert (nearest != -1); // If this fires, your code is returning -1 for nearest!!!
         confusion[all_points[i].quality][all_points[nearest].quality]++;

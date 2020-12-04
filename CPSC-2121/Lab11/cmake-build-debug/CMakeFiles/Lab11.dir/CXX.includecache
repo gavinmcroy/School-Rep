@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab11/kd.cpp
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab11/kd.cpp
 iostream
 -
 fstream
@@ -18,5 +18,5 @@ vector
 cmath
 -
 assert.h
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab11/assert.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab11/assert.h
 
