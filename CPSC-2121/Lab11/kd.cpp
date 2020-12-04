@@ -47,39 +47,26 @@ double get_dist(int p, int q) {
 // Return the index of this point in the "nearest" variable
 // Assume "nearest" is initially set to -1
 void kd_nearest(Node *root, int p, int dim, int &nearest) {
-    int check_other;
-
-    if (root == nullptr) return;
-
-    if (all_points[p].data[dim] < tree->point[dim]) check_other = kd_nearest(root->right, , dim + 1, "left");
-    if (P[d] >= tree->point[dim]) check_other = kd_nearest(root->right, , dim + 1, "right");
-    if (check_other == 1) {
-        if (dir == "right")
-            check_other = solve(P, T->left, d + 1, "left");
-        else
-            check_other = solve(P, T->right, d + 1, "right");
+    if (root == nullptr) {
+        return;
     }
-
-    // check if T is a nearer neighbor than current nearest neighbors
-    // if so, insert it and shift rest of knns over
-    if (!compare(P, T->point)) {
-        for (int i = 0; i < K; i++) {
-            if (pt_dist(P, T->point) < knns[i].dist) {
-                for (int j = K; j - 2 >= i; j--) {
-                    knns[j - 1].dist = knns[j - 2].dist;
-                    knns[j - 1].point = knns[j - 2].point;
-                }
-                knns[i].dist = pt_dist(P, T->point);
-                knns[i].point = T->point;
-                knn_sort(P);
-                break;
-            }
+    if (nearest < 0) {
+        nearest = 1000000000;
+    }
+    /* Don't compare point with itself */
+    if (root->p != p) {
+        double myVal = get_dist(root->p,p);
+        if(myVal < nearest){
+            std::cout<<myVal<<std::endl;
+            nearest = myVal;
         }
+        kd_nearest(root->left, p, dim, nearest);
+        kd_nearest(root->right, p, dim, nearest);
     }
 
-    // if distance to furthest neighbor is greater than distance to splitting
-    // point, check other side
-    //if (knns[K - 1].dist > abs(P[d] - T->point[d])) return 1
+
+
+
     // TBD: Fill in this function.
     // How hard could it be...
 }
@@ -124,9 +111,13 @@ int main(void) {
         for (int j = 1; j <= 9; j++)
             confusion[i][j] = 0; // clear matrix
     Node *root = nullptr;
-    for (int i = 0; i < N; i++) root = insert(root, i, 0); // Insert points into a kd tree
-    for (int i = 0; i < N; i++) {
+    for (int i = 2; i < N; i++) root = insert(root, i, 0); // Insert points into a kd tree
+    for (int i = 2; i < N; i++) {
         int nearest = -1;
+        /* Modify */
+        if(root->p == i) continue;
+        if(i ==3){ break ; }
+        /* Modify */
         kd_nearest(root, i, 0, nearest);
         assert (nearest != -1); // If this fires, your code is returning -1 for nearest!!!
         confusion[all_points[i].quality][all_points[nearest].quality]++;
