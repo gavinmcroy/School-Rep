@@ -2,7 +2,6 @@
 #include <fstream>
 #include <cstdio>
 #include <vector>
-#include <cmath>
 #include "assert.h"
 
 using namespace std;
@@ -51,8 +50,12 @@ void kd_nearest(Node *root, int p, int dim, int &nearest) {
         return;
     }
 
+    if(nearest < 0){
+        nearest = root->p;
+    }
+
     /* Don't compare point with itself */
-    if(root->p != p && (get_dist(root->p,p)) < get_dist(p,nearest)){
+    if(root->p != p && (get_dist(root->p,p)) <= get_dist(p,nearest)){
         nearest = root->p;
     }
 
@@ -70,9 +73,6 @@ void kd_nearest(Node *root, int p, int dim, int &nearest) {
             kd_nearest(root->left, p, (dim + 1) % D, nearest);
         }
     }
-
-
-
 
     // TBD: Fill in this function.
     // How hard could it be...

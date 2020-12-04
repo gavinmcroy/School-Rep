@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab11/kd.cpp
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab11/kd.cpp
 iostream
 -
 fstream
@@ -15,8 +15,6 @@ cstdio
 -
 vector
 -
-cmath
--
 assert.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab11/assert.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab11/assert.h
 
