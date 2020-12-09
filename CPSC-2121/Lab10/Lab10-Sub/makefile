@@ -1,6 +1,6 @@
 # Config
-CC=g++-6 
-CFLAGS=-Wall -Ofast
+CC=g++ 
+CFLAGS=-Wall -Ofast -std=c++11
 TARGET=out
 
 # Generate source object lists
