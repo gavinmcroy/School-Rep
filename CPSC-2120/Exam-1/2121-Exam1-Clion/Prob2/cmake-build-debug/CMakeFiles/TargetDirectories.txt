@@ -1,3 +1,0 @@
-/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/cmake-build-debug/CMakeFiles/Prob2.dir

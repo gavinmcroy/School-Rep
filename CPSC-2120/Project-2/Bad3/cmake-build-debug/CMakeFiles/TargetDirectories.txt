@@ -1,3 +1,0 @@
-/Users/gavintaylormcroy/Desktop/Bad3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gavintaylormcroy/Desktop/Bad3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gavintaylormcroy/Desktop/Bad3/cmake-build-debug/CMakeFiles/Bad3.dir
