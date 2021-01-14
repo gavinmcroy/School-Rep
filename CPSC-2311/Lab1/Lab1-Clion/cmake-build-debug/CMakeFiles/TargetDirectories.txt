@@ -1,0 +1,3 @@
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab1/Lab1-Clion/cmake-build-debug/CMakeFiles/Lab1_Clion.dir
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab1/Lab1-Clion/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab1/Lab1-Clion/cmake-build-debug/CMakeFiles/rebuild_cache.dir
