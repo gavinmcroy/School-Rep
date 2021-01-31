@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.c
+stdio.h
+-
+stdlib.h
+-
+stdbool.h
+-
+
