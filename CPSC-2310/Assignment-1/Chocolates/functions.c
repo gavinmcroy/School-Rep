@@ -1,9 +1,8 @@
 //
 // Created by Gavin McRoy on 1/31/2021.
 //
-#include <stdio.h>
-#include <stdlib.h>
-#include <stdbool.h>
+#include "functions.h"
+
 
 void Winner(int students, int sweets, int start, char **names) {
     /* Parallel array to keep track of who did not get chocolate */
@@ -35,7 +34,7 @@ char **readData(FILE *in, int *students, int *sweets, int *start) {
     fscanf(in, "%d %d %d", students, sweets, start);
 
     /* Allocate memory for 2d array */
-    char **names = (char **) malloc(sizeof(char) * (*students*5));
+    char **names = (char **) malloc(sizeof(char) * (*students * 5));
     for (int i = 0; i < *students; i++) {
         names[i] = (char *) malloc(sizeof(char) * nameSize);
     }
@@ -58,5 +57,5 @@ void freeMemory(char **n, int s) {
     for (int i = 0; i < s; i++) {
         free(n[i]);
     }
-   // free(n);
+    // free(n);
 }

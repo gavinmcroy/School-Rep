@@ -1,6 +1,9 @@
 //
 // Created by Gavin McRoy on 1/31/2021.
 //
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
 
 #ifndef CHOCOLATES_FUNCTIONS_H
 #define CHOCOLATES_FUNCTIONS_H

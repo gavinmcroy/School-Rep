@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "functions.h"
 
+/* Malloc error inside functions */
+
 int main(int argc, char *argv[]) {
     int numStudentsAtTable = 0;
     int numChocolatesInBowl = 0;

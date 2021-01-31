@@ -74,13 +74,13 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/driver.c">
+			<Option target="Chocolates"/>
+		</Unit>
 		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.c">
 			<Option target="Chocolates"/>
 		</Unit>
 		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.h">
-			<Option target="Chocolates"/>
-		</Unit>
-		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/main.c">
 			<Option target="Chocolates"/>
 		</Unit>
 		<Unit filename="C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/CMakeLists.txt">

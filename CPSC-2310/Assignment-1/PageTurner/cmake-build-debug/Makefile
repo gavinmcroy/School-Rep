@@ -67,10 +67,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.6
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\PageTurner"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\PageTurner\cmake-build-debug"
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\cmake-build-debug\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\PageTurner\cmake-build-debug\CMakeFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\PageTurner\cmake-build-debug\CMakeFiles\progress.marks"
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\PageTurner\cmake-build-debug\CMakeFiles" 0
 .PHONY : all
 
 # The main clean target
@@ -130,17 +130,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named Chocolates
+# Target rules for targets named PageTurner
 
 # Build rule for target.
-Chocolates: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 Chocolates
-.PHONY : Chocolates
+PageTurner: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 PageTurner
+.PHONY : PageTurner
 
 # fast build rule for target.
-Chocolates/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/build
-.PHONY : Chocolates/fast
+PageTurner/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/build
+.PHONY : PageTurner/fast
 
 driver.obj: driver.c.obj
 
@@ -148,7 +148,7 @@ driver.obj: driver.c.obj
 
 # target to build an object file
 driver.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/driver.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/driver.c.obj
 .PHONY : driver.c.obj
 
 driver.i: driver.c.i
@@ -157,7 +157,7 @@ driver.i: driver.c.i
 
 # target to preprocess a source file
 driver.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/driver.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/driver.c.i
 .PHONY : driver.c.i
 
 driver.s: driver.c.s
@@ -166,7 +166,7 @@ driver.s: driver.c.s
 
 # target to generate assembly for a file
 driver.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/driver.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/driver.c.s
 .PHONY : driver.c.s
 
 functions.obj: functions.c.obj
@@ -175,7 +175,7 @@ functions.obj: functions.c.obj
 
 # target to build an object file
 functions.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/functions.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/functions.c.obj
 .PHONY : functions.c.obj
 
 functions.i: functions.c.i
@@ -184,7 +184,7 @@ functions.i: functions.c.i
 
 # target to preprocess a source file
 functions.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/functions.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/functions.c.i
 .PHONY : functions.c.i
 
 functions.s: functions.c.s
@@ -193,7 +193,7 @@ functions.s: functions.c.s
 
 # target to generate assembly for a file
 functions.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chocolates.dir\build.make CMakeFiles/Chocolates.dir/functions.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\PageTurner.dir\build.make CMakeFiles/PageTurner.dir/functions.c.s
 .PHONY : functions.c.s
 
 # Help Target
@@ -204,7 +204,7 @@ help:
 	@echo ... depend
 	@echo ... edit_cache
 	@echo ... rebuild_cache
-	@echo ... Chocolates
+	@echo ... PageTurner
 	@echo ... driver.obj
 	@echo ... driver.i
 	@echo ... driver.s

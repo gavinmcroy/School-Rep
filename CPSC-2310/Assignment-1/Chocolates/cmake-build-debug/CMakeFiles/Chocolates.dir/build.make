@@ -76,18 +76,18 @@ include CMakeFiles/Chocolates.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Chocolates.dir/flags.make
 
-CMakeFiles/Chocolates.dir/main.c.obj: CMakeFiles/Chocolates.dir/flags.make
-CMakeFiles/Chocolates.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Chocolates.dir/main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Chocolates.dir\main.c.obj   -c "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\main.c"
+CMakeFiles/Chocolates.dir/driver.c.obj: CMakeFiles/Chocolates.dir/flags.make
+CMakeFiles/Chocolates.dir/driver.c.obj: ../driver.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Chocolates.dir/driver.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Chocolates.dir\driver.c.obj   -c "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\driver.c"
 
-CMakeFiles/Chocolates.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Chocolates.dir/main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\main.c" > CMakeFiles\Chocolates.dir\main.c.i
+CMakeFiles/Chocolates.dir/driver.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Chocolates.dir/driver.c.i"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\driver.c" > CMakeFiles\Chocolates.dir\driver.c.i
 
-CMakeFiles/Chocolates.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Chocolates.dir/main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\main.c" -o CMakeFiles\Chocolates.dir\main.c.s
+CMakeFiles/Chocolates.dir/driver.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Chocolates.dir/driver.c.s"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-1\Chocolates\driver.c" -o CMakeFiles\Chocolates.dir\driver.c.s
 
 CMakeFiles/Chocolates.dir/functions.c.obj: CMakeFiles/Chocolates.dir/flags.make
 CMakeFiles/Chocolates.dir/functions.c.obj: ../functions.c
@@ -104,13 +104,13 @@ CMakeFiles/Chocolates.dir/functions.c.s: cmake_force
 
 # Object files for target Chocolates
 Chocolates_OBJECTS = \
-"CMakeFiles/Chocolates.dir/main.c.obj" \
+"CMakeFiles/Chocolates.dir/driver.c.obj" \
 "CMakeFiles/Chocolates.dir/functions.c.obj"
 
 # External object files for target Chocolates
 Chocolates_EXTERNAL_OBJECTS =
 
-Chocolates.exe: CMakeFiles/Chocolates.dir/main.c.obj
+Chocolates.exe: CMakeFiles/Chocolates.dir/driver.c.obj
 Chocolates.exe: CMakeFiles/Chocolates.dir/functions.c.obj
 Chocolates.exe: CMakeFiles/Chocolates.dir/build.make
 Chocolates.exe: CMakeFiles/Chocolates.dir/linklibs.rsp

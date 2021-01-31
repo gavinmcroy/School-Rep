@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/Chocolates.dir/driver.c.obj"
   "CMakeFiles/Chocolates.dir/functions.c.obj"
-  "CMakeFiles/Chocolates.dir/main.c.obj"
   "Chocolates.exe"
   "Chocolates.exe.manifest"
   "Chocolates.pdb"

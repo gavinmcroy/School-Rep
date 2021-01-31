@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/driver.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir/driver.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir/functions.c.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/driver.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/cmake-build-debug/CMakeFiles/PageTurner.dir/driver.c.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/functions.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/cmake-build-debug/CMakeFiles/PageTurner.dir/functions.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
