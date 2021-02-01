@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#ifndef LAB_1
-#define LAB_1
+#ifndef LAB_2
+#define LAB_2
 
 /* Parameters: input - the file to be checked
  * Return:        Nothing

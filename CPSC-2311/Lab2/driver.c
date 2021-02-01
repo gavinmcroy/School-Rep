@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "functions.h"
+#include "src/functions.h"
 
 int main(int args, char *argv[]) {
     checkArguments(args);
@@ -10,3 +10,4 @@ int main(int args, char *argv[]) {
     checkBraces(input);
     return 0;
 }
+
