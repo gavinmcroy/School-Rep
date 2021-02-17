@@ -62,10 +62,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.6
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/StarterFiles.dir/depend.make
@@ -78,29 +78,29 @@ include CMakeFiles/StarterFiles.dir/flags.make
 
 CMakeFiles/StarterFiles.dir/driver.c.obj: CMakeFiles/StarterFiles.dir/flags.make
 CMakeFiles/StarterFiles.dir/driver.c.obj: ../driver.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/StarterFiles.dir/driver.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\StarterFiles.dir\driver.c.obj   -c "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\driver.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/StarterFiles.dir/driver.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\StarterFiles.dir\driver.c.obj   -c "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\driver.c"
 
 CMakeFiles/StarterFiles.dir/driver.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/StarterFiles.dir/driver.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\driver.c" > CMakeFiles\StarterFiles.dir\driver.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\driver.c" > CMakeFiles\StarterFiles.dir\driver.c.i
 
 CMakeFiles/StarterFiles.dir/driver.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/StarterFiles.dir/driver.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\driver.c" -o CMakeFiles\StarterFiles.dir\driver.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\driver.c" -o CMakeFiles\StarterFiles.dir\driver.c.s
 
 CMakeFiles/StarterFiles.dir/functions.c.obj: CMakeFiles/StarterFiles.dir/flags.make
 CMakeFiles/StarterFiles.dir/functions.c.obj: ../functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/StarterFiles.dir/functions.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\StarterFiles.dir\functions.c.obj   -c "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\functions.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/StarterFiles.dir/functions.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\StarterFiles.dir\functions.c.obj   -c "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\functions.c"
 
 CMakeFiles/StarterFiles.dir/functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/StarterFiles.dir/functions.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\functions.c" > CMakeFiles\StarterFiles.dir\functions.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\functions.c" > CMakeFiles\StarterFiles.dir\functions.c.i
 
 CMakeFiles/StarterFiles.dir/functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/StarterFiles.dir/functions.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\functions.c" -o CMakeFiles\StarterFiles.dir\functions.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\functions.c" -o CMakeFiles\StarterFiles.dir\functions.c.s
 
 # Object files for target StarterFiles
 StarterFiles_OBJECTS = \
@@ -116,7 +116,7 @@ StarterFiles.exe: CMakeFiles/StarterFiles.dir/build.make
 StarterFiles.exe: CMakeFiles/StarterFiles.dir/linklibs.rsp
 StarterFiles.exe: CMakeFiles/StarterFiles.dir/objects1.rsp
 StarterFiles.exe: CMakeFiles/StarterFiles.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable StarterFiles.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable StarterFiles.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\StarterFiles.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -129,6 +129,6 @@ CMakeFiles/StarterFiles.dir/clean:
 .PHONY : CMakeFiles/StarterFiles.dir/clean
 
 CMakeFiles/StarterFiles.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles" "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles" "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\StarterFiles (1)\StarterFiles\cmake-build-debug\CMakeFiles\StarterFiles.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab4\StarterFiles\cmake-build-debug\CMakeFiles\StarterFiles.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/StarterFiles.dir/depend
 

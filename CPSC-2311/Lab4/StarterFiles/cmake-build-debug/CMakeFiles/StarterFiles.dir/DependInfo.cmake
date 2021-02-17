@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Gavin McRoy/Desktop/StarterFiles (1)/StarterFiles/driver.c" "C:/Users/Gavin McRoy/Desktop/StarterFiles (1)/StarterFiles/cmake-build-debug/CMakeFiles/StarterFiles.dir/driver.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/StarterFiles (1)/StarterFiles/functions.c" "C:/Users/Gavin McRoy/Desktop/StarterFiles (1)/StarterFiles/cmake-build-debug/CMakeFiles/StarterFiles.dir/functions.c.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/driver.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/cmake-build-debug/CMakeFiles/StarterFiles.dir/driver.c.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/functions.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/cmake-build-debug/CMakeFiles/StarterFiles.dir/functions.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
