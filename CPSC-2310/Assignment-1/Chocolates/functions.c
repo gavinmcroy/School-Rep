@@ -7,6 +7,10 @@
 void Winner(int students, int sweets, int start, char **names) {
     /* Parallel array to keep track of who did not get chocolate */
     bool *whoDoesNotGetsChocolate = (bool *) malloc(sizeof(bool) * students);
+    /* Initialize parallel array to all true */
+    for(int i = 0; i < students; i++){
+        whoDoesNotGetsChocolate[i] = true;
+    }
     while (sweets > 0) {
         /* loop the array back around when it goes out of bounds */
         if (start > students) {
@@ -34,7 +38,7 @@ char **readData(FILE *in, int *students, int *sweets, int *start) {
     fscanf(in, "%d %d %d", students, sweets, start);
 
     /* Allocate memory for 2d array */
-    char **names = (char **) malloc(sizeof(char) * (*students * 5));
+    char **names = (char **) malloc(sizeof(char*) * (*students));
     for (int i = 0; i < *students; i++) {
         names[i] = (char *) malloc(sizeof(char) * nameSize);
     }
@@ -57,5 +61,5 @@ void freeMemory(char **n, int s) {
     for (int i = 0; i < s; i++) {
         free(n[i]);
     }
-    // free(n);
+     free(n);
 }

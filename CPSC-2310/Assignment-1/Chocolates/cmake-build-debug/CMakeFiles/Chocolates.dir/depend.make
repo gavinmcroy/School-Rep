@@ -5,4 +5,5 @@ CMakeFiles/Chocolates.dir/driver.c.obj: ../driver.c
 CMakeFiles/Chocolates.dir/driver.c.obj: ../functions.h
 
 CMakeFiles/Chocolates.dir/functions.c.obj: ../functions.c
+CMakeFiles/Chocolates.dir/functions.c.obj: ../functions.h
 
