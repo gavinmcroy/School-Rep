@@ -26,6 +26,7 @@ void readData(FILE *in, int *totalPages, int *desiredPage) {
     fclose(in);
 }
 
+
 void checkData(int totalPages, int desiredPage) {
     if (desiredPage > totalPages) {
         printf("The total pages in the book is smaller than the page you are looking for!\n"
