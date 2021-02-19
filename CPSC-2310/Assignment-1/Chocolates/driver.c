@@ -10,13 +10,13 @@ int main(int argc, char *argv[]) {
     int whoGoesFirst = 0;
     char **names = NULL;
 
-    if (argc < 1) {
-        printf("Error not enough command line arguments");
+    if (argc < 2) {
+        printf("Not enough command line arguments! Exiting the program!\n");
         exit(1);
     }
     FILE *inputFile = fopen(argv[1], "r");
     if (!inputFile) {
-        printf("Failed to open file");
+        printf("File did not open successfully! Exiting the program!\n");
         exit(1);
     }
     names = readData(inputFile, &numStudentsAtTable, &numChocolatesInBowl, &whoGoesFirst);

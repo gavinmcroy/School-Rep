@@ -6,19 +6,13 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/driver.c
-stdio.h
--
-stdlib.h
--
-functions.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/functions.h
-
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/functions.c
 functions.h
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/functions.h
 
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/functions.h
 stdio.h
+-
+assert.h
 -
 

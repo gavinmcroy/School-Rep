@@ -5,7 +5,7 @@ int main(int argc, char *argv[]) {
     int numberOfGrades = 0;
     checkArguments(argc);
     FILE *in = fopen(argv[1], "r");
-
+    printf("%d\n",abs(91%5 - 5));
     checkFile(in);
     int *arr = readData(in, &numberOfGrades);
 

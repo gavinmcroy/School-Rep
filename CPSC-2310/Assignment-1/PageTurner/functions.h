@@ -3,8 +3,7 @@
 #define FUNCTIONS_H
 
 #include <stdio.h>
-#include <assert.h>
-
+#include <stdlib.h>
 
 void howManyTurns(int, int);
 
