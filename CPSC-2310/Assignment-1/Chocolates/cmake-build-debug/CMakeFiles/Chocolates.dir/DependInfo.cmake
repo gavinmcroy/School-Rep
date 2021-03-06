@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/driver.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir/driver.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir/functions.c.obj"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/driver.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir/driver.c.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir/functions.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

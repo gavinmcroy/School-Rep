@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Chocolates.dir/driver.c.obj"
-  "CMakeFiles/Chocolates.dir/functions.c.obj"
-  "Chocolates.exe"
-  "Chocolates.exe.manifest"
+  "CMakeFiles/Chocolates.dir/driver.c.o"
+  "CMakeFiles/Chocolates.dir/functions.c.o"
+  "Chocolates"
   "Chocolates.pdb"
-  "libChocolates.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

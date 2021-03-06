@@ -1,3 +1,3 @@
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/cmake-build-debug/CMakeFiles/Chocolates.dir

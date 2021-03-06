@@ -37,8 +37,13 @@ char **readData(FILE *in, int *students, int *sweets, int *start) {
     fscanf(in, "%d %d %d", students, sweets, start);
 
     /* Allocate memory for 2d array */
+<<<<<<< Updated upstream
     char **names = (char **) malloc(sizeof(char *) * (*students));
     for (int i = 0; i < *students; i++) {
+=======
+    char **names = (char **) malloc(sizeof(char*) * (*students));
+    for (int i = 0; i < *(students); i++) {
+>>>>>>> Stashed changes
         names[i] = (char *) malloc(sizeof(char) * nameSize);
     }
 

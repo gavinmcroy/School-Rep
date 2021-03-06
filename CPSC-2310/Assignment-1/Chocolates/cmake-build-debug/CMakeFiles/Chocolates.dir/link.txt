@@ -1,3 +1,7 @@
+<<<<<<< Updated upstream
 "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.7148.70\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Chocolates.dir/objects.a
 C:\MinGW\bin\ar.exe cr CMakeFiles\Chocolates.dir/objects.a @CMakeFiles\Chocolates.dir\objects1.rsp
 C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Chocolates.dir/objects.a -Wl,--no-whole-archive  -o Chocolates.exe -Wl,--out-implib,libChocolates.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Chocolates.dir\linklibs.rsp
+=======
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Chocolates.dir/driver.c.o CMakeFiles/Chocolates.dir/functions.c.o  -o Chocolates 
+>>>>>>> Stashed changes

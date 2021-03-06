@@ -6,6 +6,7 @@
 
 #IncludeRegexTransform: 
 
+<<<<<<< Updated upstream
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/driver.c
 stdio.h
 -
@@ -15,6 +16,13 @@ functions.h
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.h
 
 C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.h
+=======
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/driver.c
+functions.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-1/Chocolates/functions.h
+>>>>>>> Stashed changes
 stdio.h
 -
 stdlib.h

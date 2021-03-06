@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "functions.h"
 
 /* Malloc error inside functions */
@@ -19,10 +17,11 @@ int main(int argc, char *argv[]) {
         printf("File did not open successfully! Exiting the program!\n");
         exit(1);
     }
+
     names = readData(inputFile, &numStudentsAtTable, &numChocolatesInBowl, &whoGoesFirst);
-    //printStudents(numStudentsAtTable, names);
+    printStudents(numStudentsAtTable, names);
     Winner(numStudentsAtTable, numChocolatesInBowl, whoGoesFirst, names);
-    freeMemory(names, numStudentsAtTable);
+    //freeMemory(names, numStudentsAtTable);
 
     return 0;
 }
