@@ -32,5 +32,6 @@ int isOddOne(unsigned int x)
 {
     int temp = 0b1010101010101010101010101010101;
     return !(x & temp);
+
 }
 
