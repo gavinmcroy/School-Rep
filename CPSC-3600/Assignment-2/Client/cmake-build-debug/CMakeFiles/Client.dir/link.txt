@@ -1,3 +1,1 @@
-"C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.7148.70\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Client.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\Client.dir/objects.a @CMakeFiles\Client.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\Client.dir/objects.a -Wl,--no-whole-archive  -o Client.exe -Wl,--out-implib,libClient.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Client.dir\linklibs.rsp
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Client.dir/DieWithMessage.c.o CMakeFiles/Client.dir/TCPClientUtility.c.o CMakeFiles/Client.dir/TCPEchoClient.c.o  -o Client 

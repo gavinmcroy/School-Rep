@@ -1,11 +1,9 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Client.dir/DieWithMessage.c.obj"
-  "CMakeFiles/Client.dir/TCPClientUtility.c.obj"
-  "CMakeFiles/Client.dir/TCPEchoClient.c.obj"
-  "Client.exe"
-  "Client.exe.manifest"
+  "CMakeFiles/Client.dir/DieWithMessage.c.o"
+  "CMakeFiles/Client.dir/TCPClientUtility.c.o"
+  "CMakeFiles/Client.dir/TCPEchoClient.c.o"
+  "Client"
   "Client.pdb"
-  "libClient.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.

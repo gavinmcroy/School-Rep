@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/DieWithMessage.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/cmake-build-debug/CMakeFiles/Client.dir/DieWithMessage.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/TCPClientUtility.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/cmake-build-debug/CMakeFiles/Client.dir/TCPClientUtility.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/TCPEchoClient.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/cmake-build-debug/CMakeFiles/Client.dir/TCPEchoClient.c.obj"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/DieWithMessage.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/cmake-build-debug/CMakeFiles/Client.dir/DieWithMessage.c.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/TCPClientUtility.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/cmake-build-debug/CMakeFiles/Client.dir/TCPClientUtility.c.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/TCPEchoClient.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-3600/Assignment-2/Client/cmake-build-debug/CMakeFiles/Client.dir/TCPEchoClient.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH
