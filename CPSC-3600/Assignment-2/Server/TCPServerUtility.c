@@ -94,7 +94,8 @@ void HandleTCPClient(int clntSocket) {
         numBytesRcvd = recv(clntSocket, buffer, BUFSIZE, 0);
         if (numBytesRcvd < 0)
             DieWithSystemMessage("recv() failed");
-        printf("%s",buffer);
+        //---Print message received
+        printf("%s", buffer);
     }
 
     close(clntSocket); // Close client socket

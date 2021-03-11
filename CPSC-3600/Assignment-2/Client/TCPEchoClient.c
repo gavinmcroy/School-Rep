@@ -23,6 +23,32 @@ int main(int argc, char *argv[]) {
     if (sock < 0)
         DieWithUserMessage("SetupTCPClientSocket() failed", "unable to connect");
 
+    //**********************************************************************//
+    //---Create our echoString based on file input
+    FILE *file = fopen("poem.txt", "r");
+    //---echo string needs to equal contents of file
+    if (!file) {
+        fprintf(stderr, "File Failed to Open");
+    }
+    //---Make a massive string and sends the file contents at once
+    char *fileBuffer = (char *) (malloc(sizeof(char) * 75));
+    char *megaString = (char *) malloc(sizeof(char) * 10000);
+    while (fscanf(file, "%s", fileBuffer) != EOF) {
+        strcat(megaString, fileBuffer);
+        strcat(megaString, " ");
+    }
+    //---TODO Reverse file contents
+    /* in place reversal */
+//    char *reversal = (char*)(malloc(sizeof(char)*10000));
+//    for(int i = 0; i < strlen(megaString); i++){
+//        reversal[i] = megaString[strlen(megaString)-i-1];
+//    }
+    free(fileBuffer);
+    //printf("%s",reversal);
+    echoString = megaString;
+    //**********************************************************************//
+
+
     size_t echoStringLen = strlen(echoString); // Determine input length
 
     // Send the string to the server
@@ -52,5 +78,9 @@ int main(int argc, char *argv[]) {
     fputc('\n', stdout); // Print a final linefeed
 
     close(sock);
+    /* ******************************** */
+    free(megaString);
+    printf("\nClosing Connection. Goodbye! \n");
+    /* ******************************** */
     exit(0);
 }

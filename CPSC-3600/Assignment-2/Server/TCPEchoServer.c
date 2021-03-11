@@ -25,4 +25,9 @@ int main(int argc, char *argv[]) {
     }
     // NOT REACHED
     close(servSock);
+
+    /* ******************************** */
+    printf("\nClosing Connection. Goodbye! \n");
+    /* ******************************** */
+
 }
