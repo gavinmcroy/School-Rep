@@ -6,10 +6,11 @@
 #define ASSIGNMENT_2_FUNCTIONS_H
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <stdbool.h>
 
 typedef struct Birthday {
-    int month;
+    char month;
     int day;
     int year;
 } bday_t;

@@ -6,12 +6,14 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.c
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.c
 functions.h
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
 
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
 stdio.h
+-
+stdlib.h
 -
 stdbool.h
 -
