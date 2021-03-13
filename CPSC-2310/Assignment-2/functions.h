@@ -10,6 +10,11 @@
 #include <stdbool.h>
 #include <string.h>
 
+typedef struct MonthInfo {
+    char month[20];
+    int day;
+} month_t;
+
 typedef struct Birthday {
     int month;
     int day;
@@ -24,7 +29,9 @@ typedef struct Node {
     struct Node *next;
 } node_t;
 
-enum Month {January,February,March,April,May,June,July,August,September,October,November,December };
+enum Month {
+    January, February, March, April, May, June, July, August, September, October, November, December
+};
 
 void add(node_t **node, node_t **head);
 
@@ -51,7 +58,7 @@ void deleteList(node_t **);
 bool checkDate(bday_t);
 
 /* ***************** */
-bool checkMonthDay();
+void loadMonthInfo(FILE *input);
 /* ***************** */
 
 bool isLeapYear(int);

@@ -3,8 +3,7 @@
 //
 #include "functions.h"
 
-const char MONTH_NAMES[12][20] = {"January", "February", "March", "April", "May", "June", "July", "August", "September",
-                                  "October", "November", "December"};
+month_t *months;
 
 void add(node_t **node, node_t **head) {
     //---node is what is going to be added and head is the head pointer
@@ -35,6 +34,9 @@ node_t *readNodeInfo(FILE *input) {
     fscanf(input, "%49[^,],%49[^,],%d,%d,%d, %499[^\n]\n", node->firstName, node->lastName, &(node->birthday.month),
            &node->birthday.day, &node->birthday.year, node->favoriteSong);
 
+
+    checkDate(node->birthday);
+
 //    printf("%s,%s,%d,%d,%d, %s", node->firstName, node->lastName, (node->birthday.month),
 //           node->birthday.day, node->birthday.year, node->favoriteSong);
     node->next = NULL;
@@ -62,6 +64,7 @@ node_t *createList(FILE *input, node_t **head) {
 
 void PrintList(FILE *output, node_t *node) {
     printBorder(output);
+    fprintf(output, "List Info:\n");
     for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
         fprintf(output, "%s,%s,%d,%d,%d, %s\n", node1->firstName, node1->lastName, (node1->birthday.month),
                 node1->birthday.day, node1->birthday.year, node1->favoriteSong);
@@ -114,26 +117,33 @@ void checkFile(FILE *file, char *fileName) {
 }
 
 void deleteList(node_t **head) {
-    //---TODO implement
+    node_t *tmp = *(head);
+    node_t *test = tmp;
+    while (tmp != NULL) {
+        tmp = tmp->next;
+        free(test);
+        test = tmp;
+    }
+    head = NULL;
 }
 
 bool checkDate(bday_t birthday) {
+    enum month;
     if (birthday.year < 1900 || birthday.year > 2020) {
         fprintf(stderr, "Year out of bounds\n");
         return false;
     } else if (birthday.month < 1 || birthday.month > 12) {
         fprintf(stderr, "Month out of bounds\n");
         return false;
-
-        //Check day
-    } else if (1) {
-        //---TODO Finish check day
+    } else if (birthday.day < 0 || birthday.day > months[birthday.month].day) {
         if (isLeapYear(birthday.year)) {
-            //---Do something
+            //---Basically does the february date equal 28 + 1? If so leap year is in affect
+            if (birthday.month == February && (birthday.day == months[birthday.month].day + 1)) {
+                return true;
+            }
         }
         return false;
     }
-
     return true;
 }
 
@@ -142,5 +152,16 @@ bool isLeapYear(int year) {
         return true;
     }
     return false;
+}
+
+void loadMonthInfo(FILE *input) {
+    int size = 0;
+    int iterator = 0;
+    fscanf(input, "%d", &size);
+    months = (month_t *) (malloc(sizeof(month_t) * size));
+    while (fscanf(input, "%s %d", months[iterator].month, &months[iterator].day) != EOF) {
+        //printf("%s %d\n", months[iterator].month, months[iterator].day);
+        iterator++;
+    }
 }
 
