@@ -24,18 +24,19 @@ void add(node_t **node, node_t **head) {
     node1->next = *(node);
 }
 
+//---TODO Add comments
 node_t *readNodeInfo(FILE *input) {
     node_t *node = (node_t *) malloc(sizeof(node_t));
-    if (feof(input)) {
-        return NULL;
-    }
-    //---TODO Check if birthday is valid
+
 
     fscanf(input, "%49[^,],%49[^,],%d,%d,%d, %499[^\n]\n", node->firstName, node->lastName, &(node->birthday.month),
            &node->birthday.day, &node->birthday.year, node->favoriteSong);
 
 
-    checkDate(node->birthday);
+    if (!checkDate(node->birthday)) {
+        free(node);
+        return NULL;
+    }
 
 //    printf("%s,%s,%d,%d,%d, %s", node->firstName, node->lastName, (node->birthday.month),
 //           node->birthday.day, node->birthday.year, node->favoriteSong);
@@ -54,8 +55,12 @@ node_t *createList(FILE *input, node_t **head) {
     while (true) {
         node_t *node = readNodeInfo(input);
         //---Means file has been fully read
-        if (node == NULL) {
+        if (feof(input)) {
             break;
+        }
+        //---Means garbage data, ignore
+        if (node == NULL) {
+            continue;
         }
         add(&node, head);
     }
@@ -66,7 +71,8 @@ void PrintList(FILE *output, node_t *node) {
     printBorder(output);
     fprintf(output, "List Info:\n");
     for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
-        fprintf(output, "%s,%s,%d,%d,%d, %s\n", node1->firstName, node1->lastName, (node1->birthday.month),
+        fprintf(output, "%s,%s,%s,%d,%d, %s\n", node1->firstName, node1->lastName,
+                (months[node1->birthday.month - 1].month),
                 node1->birthday.day, node1->birthday.year, node1->favoriteSong);
     }
     printBorder(output);
@@ -74,10 +80,9 @@ void PrintList(FILE *output, node_t *node) {
 
 void PrintBDay(FILE *output, node_t *node) {
     printBorder(output);
-    //---TODO convert the digit month into the string month (1 == JANUARY)
     for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
-        fprintf(output, "%s %s's date of birth is %d %d,%d\n", node1->firstName, node1->lastName,
-                (node1->birthday.month),
+        fprintf(output, "%s %s's date of birth is %s %d,%d\n", node1->firstName, node1->lastName,
+                (months[node1->birthday.month - 1].month),
                 node1->birthday.day, node1->birthday.year);
     }
     //Yvon Feaster’s date of birth is October 7, 1963
@@ -87,7 +92,6 @@ void PrintBDay(FILE *output, node_t *node) {
 void Song(FILE *output, node_t *node) {
     //Yvon Feaster’s favorite song is I’m moving on
     printBorder(output);
-    //---TODO convert the digit month into the string month (1 == JANUARY)
     for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
         fprintf(output, "%s %s's favorite song is %s\n", node1->firstName, node1->lastName, node1->favoriteSong);
     }

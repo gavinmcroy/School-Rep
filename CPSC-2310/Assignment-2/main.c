@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "functions.h"
 
 int main(int args, char *argv[]) {
@@ -12,7 +11,7 @@ int main(int args, char *argv[]) {
     checkArgs(args);
     loadMonthInfo(monthInput);
     node_t *head = createList(input, &head);
-    print(Song, output, head);
+    print(PrintList, output, head);
     deleteList(&head);
     fclose(input);
     fclose(output);
