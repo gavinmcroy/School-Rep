@@ -3,7 +3,6 @@
 //
 #include "functions.h"
 
-//---TODO Add comments
 month_t *months;
 
 /*
