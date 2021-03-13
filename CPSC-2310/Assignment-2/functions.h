@@ -24,6 +24,7 @@ typedef struct Node {
     struct Node *next;
 } node_t;
 
+enum Month {January,February,March,April,May,June,July,August,September,October,November,December };
 
 void add(node_t **node, node_t **head);
 
@@ -48,6 +49,10 @@ void checkFile(FILE *, char *);
 void deleteList(node_t **);
 
 bool checkDate(bday_t);
+
+/* ***************** */
+bool checkMonthDay();
+/* ***************** */
 
 bool isLeapYear(int);
 
