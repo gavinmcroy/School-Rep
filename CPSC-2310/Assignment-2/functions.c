@@ -3,6 +3,13 @@
 //
 #include "functions.h"
 
+/****************************** /
+* Gavin McRoy                 *
+* CPSC2310 Spring 2021        *
+* UserName: gmcroy            *
+* Instructor:Dr. Yvon Feaster *
+/ *****************************/
+
 month_t *months;
 
 /*
@@ -236,7 +243,6 @@ void loadMonthInfo(FILE *input) {
     fscanf(input, "%d", &size);
     months = (month_t *) (malloc(sizeof(month_t) * size));
     while (fscanf(input, "%s %d", months[iterator].month, &months[iterator].day) != EOF) {
-        //printf("%s %d\n", months[iterator].month, months[iterator].day);
         iterator++;
     }
 }

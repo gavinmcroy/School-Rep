@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include "functions.h"
 
+/****************************** /
+* Gavin McRoy                 *
+* CPSC2310 Spring 2021        *
+* UserName: gmcroy            *
+* Instructor:Dr. Yvon Feaster *
+/ *****************************/
+
 void loadMenu(FILE *output, node_t *head);
 
 int main(int args, char *argv[]) {

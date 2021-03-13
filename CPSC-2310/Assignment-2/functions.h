@@ -1,6 +1,12 @@
 //
 // Created by Gavin McRoy on 3/10/2021.
 //
+/****************************** /
+* Gavin McRoy                 *
+* CPSC2310 Spring 2021        *
+* UserName: gmcroy            *
+* Instructor:Dr. Yvon Feaster *
+/ *****************************/
 
 #ifndef ASSIGNMENT_2_FUNCTIONS_H
 #define ASSIGNMENT_2_FUNCTIONS_H
