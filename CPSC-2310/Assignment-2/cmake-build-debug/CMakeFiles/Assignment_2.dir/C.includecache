@@ -6,15 +6,25 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.c
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.c
 functions.h
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
 
-/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
 stdio.h
 -
 stdlib.h
 -
 stdbool.h
 -
+string.h
+-
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/main.c
+stdio.h
+-
+stdlib.h
+-
+functions.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/functions.h
 
