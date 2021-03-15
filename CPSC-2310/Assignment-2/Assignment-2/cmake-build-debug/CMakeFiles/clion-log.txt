@@ -1,11 +1,11 @@
-"C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.7148.70\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2310\Assignment-2"
--- The C compiler identification is GNU 6.3.0
--- Check for working C compiler: C:/MinGW/bin/gcc.exe
--- Check for working C compiler: C:/MinGW/bin/gcc.exe - works
+"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/203.5981.166/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/Assignment-2
+-- The C compiler identification is AppleClang 12.0.0.12000032
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - works
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-2/cmake-build-debug
+-- Build files have been written to: /Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/Assignment-2/Assignment-2/cmake-build-debug

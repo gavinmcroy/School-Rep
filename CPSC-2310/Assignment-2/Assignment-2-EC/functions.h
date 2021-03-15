@@ -47,6 +47,8 @@ node_t *createList(FILE *, node_t **);
 
 void PrintList(FILE *, node_t *);
 
+void PrintName(FILE *, node_t *);
+
 void PrintBDay(FILE *, node_t *);
 
 void Song(FILE *, node_t *);
