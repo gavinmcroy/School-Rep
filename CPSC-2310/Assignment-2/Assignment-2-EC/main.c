@@ -32,12 +32,13 @@ void loadMenu(FILE *output, node_t *head) {
     while (runMenu) {
         char option = ' ';
         //---Loop until valid input
-        while (option < '1' || option > '4') {
+        while (option < '1' || option > '5') {
             printf("What would you like to print\n"
                    "1. Print List Contents\n"
-                   "2. Print Birthdays\n"
-                   "3. Print Songs\n"
-                   "4. Quit\n");
+                   "2. Print Name \n"
+                   "3. Print Birthdays"
+                   "4. Print Songs\n"
+                   "5. Quit\n");
             scanf(" %1c", &option);
         }
         switch (option) {
@@ -46,14 +47,18 @@ void loadMenu(FILE *output, node_t *head) {
                 printf("Contents written to file\n");
                 break;
             case '2':
-                print(PrintBDay, output, head);
+                print(PrintName, output, head);
                 printf("Contents written to file\n");
                 break;
             case '3':
-                print(Song, output, head);
+                print(PrintBDay, output, head);
                 printf("Contents written to file\n");
                 break;
             case '4':
+                print(Song, output, head);
+                printf("Contents written to file\n");
+                break;
+            case '5':
                 runMenu = false;
                 printf("Exiting.\n");
                 return;

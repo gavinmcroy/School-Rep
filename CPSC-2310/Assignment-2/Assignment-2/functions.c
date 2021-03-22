@@ -105,6 +105,21 @@ void PrintList(FILE *output, node_t *node) {
     printBorder(output);
 }
 
+/* Loops over all the contents while writing contents to a file. Prints ONLY a persons name
+ * Also prints a border around written contents
+ * @param output - the file to write the linked list contents too
+ * @param node - the start of the linked list
+ * @return - none
+ */
+void PrintName(FILE *output, node_t *node) {
+    printBorder(output);
+    fprintf(output, "List Info:\n");
+    for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
+        fprintf(output, "%s,%s\n", node1->firstName, node1->lastName);
+    }
+    printBorder(output);
+}
+
 /* Loops over all the contents while writing contents to a file. Prints everything EXCEPT favorite song
  * Also prints a border around written contents
  * @param output - the file to write the linked list contents too
@@ -114,7 +129,7 @@ void PrintList(FILE *output, node_t *node) {
 void PrintBDay(FILE *output, node_t *node) {
     printBorder(output);
     for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
-        fprintf(output, "%s %s's date of birth is %s %d,%d\n", node1->firstName, node1->lastName,
+        fprintf(output, "%s %s's date of birth is %s %d,%d\n", node1->lastName, node1->firstName,
                 (months[node1->birthday.month - 1].month),
                 node1->birthday.day, node1->birthday.year);
     }
@@ -132,7 +147,7 @@ void Song(FILE *output, node_t *node) {
     //Yvon Feaster’s favorite song is I’m moving on
     printBorder(output);
     for (node_t *node1 = node; node1 != NULL; node1 = node1->next) {
-        fprintf(output, "%s %s's favorite song is %s\n", node1->firstName, node1->lastName, node1->favoriteSong);
+        fprintf(output, "%s %s's favorite song is %s\n", node1->lastName, node1->firstName, node1->favoriteSong);
     }
     printBorder(output);
 }
