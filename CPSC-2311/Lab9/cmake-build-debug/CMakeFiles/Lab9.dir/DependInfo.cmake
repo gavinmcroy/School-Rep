@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Gavin McRoy/Desktop/Lab9/cmake-build-debug/functions.c" "C:/Users/Gavin McRoy/Desktop/Lab9/cmake-build-debug/CMakeFiles/Lab9.dir/functions.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/Lab9/main.c" "C:/Users/Gavin McRoy/Desktop/Lab9/cmake-build-debug/CMakeFiles/Lab9.dir/main.c.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/functions.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/cmake-build-debug/CMakeFiles/Lab9.dir/functions.c.obj"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/main.c" "C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/cmake-build-debug/CMakeFiles/Lab9.dir/main.c.obj"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

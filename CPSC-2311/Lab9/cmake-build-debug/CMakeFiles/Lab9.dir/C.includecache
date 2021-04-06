@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/functions.c
+functions.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/functions.h
+limits.h
+-
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab9/functions.h
+stdio.h
+-
+stdlib.h
+-
+

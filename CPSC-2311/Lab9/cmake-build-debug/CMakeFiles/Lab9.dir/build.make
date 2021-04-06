@@ -62,10 +62,10 @@ RM = "C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.7
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\Lab9"
+CMAKE_SOURCE_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug"
+CMAKE_BINARY_DIR = "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug"
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Lab9.dir/depend.make
@@ -78,29 +78,29 @@ include CMakeFiles/Lab9.dir/flags.make
 
 CMakeFiles/Lab9.dir/main.c.obj: CMakeFiles/Lab9.dir/flags.make
 CMakeFiles/Lab9.dir/main.c.obj: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Lab9.dir/main.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Lab9.dir\main.c.obj   -c "C:\Users\Gavin McRoy\Desktop\Lab9\main.c"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Lab9.dir/main.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Lab9.dir\main.c.obj   -c "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\main.c"
 
 CMakeFiles/Lab9.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab9.dir/main.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\Lab9\main.c" > CMakeFiles\Lab9.dir\main.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\main.c" > CMakeFiles\Lab9.dir\main.c.i
 
 CMakeFiles/Lab9.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab9.dir/main.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\Lab9\main.c" -o CMakeFiles\Lab9.dir\main.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\main.c" -o CMakeFiles\Lab9.dir\main.c.s
 
 CMakeFiles/Lab9.dir/functions.c.obj: CMakeFiles/Lab9.dir/flags.make
-CMakeFiles/Lab9.dir/functions.c.obj: functions.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Lab9.dir/functions.c.obj"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Lab9.dir\functions.c.obj   -c "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\functions.c"
+CMakeFiles/Lab9.dir/functions.c.obj: ../functions.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Lab9.dir/functions.c.obj"
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles\Lab9.dir\functions.c.obj   -c "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\functions.c"
 
 CMakeFiles/Lab9.dir/functions.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Lab9.dir/functions.c.i"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\functions.c" > CMakeFiles\Lab9.dir\functions.c.i
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\functions.c" > CMakeFiles\Lab9.dir\functions.c.i
 
 CMakeFiles/Lab9.dir/functions.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Lab9.dir/functions.c.s"
-	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\functions.c" -o CMakeFiles\Lab9.dir\functions.c.s
+	C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\functions.c" -o CMakeFiles\Lab9.dir\functions.c.s
 
 # Object files for target Lab9
 Lab9_OBJECTS = \
@@ -116,7 +116,7 @@ Lab9.exe: CMakeFiles/Lab9.dir/build.make
 Lab9.exe: CMakeFiles/Lab9.dir/linklibs.rsp
 Lab9.exe: CMakeFiles/Lab9.dir/objects1.rsp
 Lab9.exe: CMakeFiles/Lab9.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Lab9.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Lab9.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Lab9.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -129,6 +129,6 @@ CMakeFiles/Lab9.dir/clean:
 .PHONY : CMakeFiles/Lab9.dir/clean
 
 CMakeFiles/Lab9.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\Lab9" "C:\Users\Gavin McRoy\Desktop\Lab9" "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\Lab9\cmake-build-debug\CMakeFiles\Lab9.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug" "C:\Users\Gavin McRoy\Desktop\School-Rep\CPSC-2311\Lab9\cmake-build-debug\CMakeFiles\Lab9.dir\DependInfo.cmake" --color=$(COLOR)
 .PHONY : CMakeFiles/Lab9.dir/depend
 

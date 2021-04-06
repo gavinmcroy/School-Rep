@@ -1,6 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*********************
+ * Gavin McRoy
+ * CPSC 2310 Lab 9
+ * gmcroy
+ * Lab Section - 002
+ *********************/
+
 /* 
  * absValue - returns the absolute value of x
  *   Example: absValue(-1) = 1.
