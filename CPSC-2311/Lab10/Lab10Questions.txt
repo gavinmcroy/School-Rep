@@ -54,11 +54,17 @@ addl  $1, -8(%rbp)  | jle  | for(i = min; i <=max; min++) | infinite loop
 
 6. lsl r4, r3, #2 is the same as r4 = 4 * r3. Explain
 
+	lsl stands for logical shift left. So we are logically shifting r3 << 2 and storing that into    	r4. Shifting by two is the same thing as multiplying by what ever amount we are shifting which in this case is 2. So 2^2 * r3 == r3 << 2
 
    ldr r5, [r0, r4] is the same as r5 = arr[i] in this case. How does this work
+
+	store the value of the memory address in r0 offset by r4. This is equivalent to lets say our 
+Pointer to r0 is a variable called x. Its the same thing as x + 4, assuming r4 has the value 4 stored inside of it
 
 
 
 7. In the beginning of a function in ARM, we push lr onto the stack. At the
    end, we pop that value into pc. Why is this important? What does it 
    accomplish?	
+
+Lr is the link register which is a special register. Lr holds the return address of a function call. The return address is loaded into PC so that the execution of whatever calling program can be resumed with no issues. You pop LR onto the stack because we need LR saved. If we didn't then we wouldn't know where our return address was 

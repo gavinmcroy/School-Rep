@@ -26,23 +26,24 @@ absVal:
 	push	{r3, r4, r5, lr}
 	
 	mov	r2, #0		@initializing loop variable
-				@initialize remaining variables
-
+	mov	r3, #0
+	mov	r4, #0		@initialize remaining variables
+	mov	r5, #0
 loop:
 	cmp 	r2, r1
 	bge 	done
 	lsl 	r3, r2, #2	@ r3 = 4i
 	ldr 	r4, [r0, r3]	@ r4 = arr[i]
 	cmp	r4, #0		@compare arr[i] and 0
-				@branch to add or subtract
-				@branch to add or subtract
+	blt	subtract	@branch to add or subtract
+	bal	add		@branch to add or subtract
 add:
-				@update total
-				@branch to appropriate location
+	add	r5,r4		@update total
+	bal	increment			@branch to appropriate location
 
 subtract:
-				@update total
-				@branch to appropriate location
+	sub	r5,r4			@update total
+	bal 	increment			@branch to appropriate location
 
 increment:
 	add 	r2, r2, #1	@i++
