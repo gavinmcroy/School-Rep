@@ -18,7 +18,7 @@ int main(int args, char *argv[]) {
     checkArgs(args);
     loadMonthInfo(monthInput);
     node_t *head = createList(input, &head);
-    print(PrintBDay, input, head);
+    print(PrintBDay, output, head);
     deleteList(&head);
     fclose(input);
     fclose(output);

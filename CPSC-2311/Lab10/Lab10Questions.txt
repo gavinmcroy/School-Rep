@@ -7,24 +7,31 @@ Lab 10 Questions
 	What if they were doubles? 
 	(You can test this)
 
+They would be 1 apart if they were chars instead of ints. And they would be 8 apart if they were
+Doubles instead of ints
+
 
 2. Alter the values assigned to min and max in the driver.s file
 	| min | max | result
 	=======================
-	| 0   | 10  | 
-	| 5   | 10  |
-	| 10  | 0   |
-	| -5  | 1   |
+	| 0   | 10  | 0 1 2 3 4 5 6 7 8 9 10
+	| 5   | 10  | 5 6 7 8 9 10
+	| 10  | 0   | No Output
+	| -5  | 1   | -5 -4 -3 -2 -1 0 1
 
 3. What are these lines doing in driver.s?
 
 	movl  -8(%rbp), %eax # min, tmp89
    	movl  %eax, -12(%rbp)   # tmp89, i
 
+This is taking min moving it to register eax then taking the value inside
+eax and moving it into a temporary variable i that's inside the for loop
+
 
 4. What happens when you change the jump conditional to jl instead of jle?
 	What if you change it to jg? Why?
 
+It prints out 0 1 2 3 4 5 6 7 8 9 instead of 10 because its less than instead of less than or equal too. When you change it to jg it prints nothing because it jumps when its greater than which is always false. 
 
 
 5. The last line in .L3 handles the for loop change (i++)
@@ -38,11 +45,11 @@ loop" as the printout)
 
 	.L3         | .L2  |        for loop             |    printout
 ===========================================================================
-addl  $1, -12(%rbp) | jle  | for(i = min; i <= max; i++) | 0 1 3 4....10
-subl  $1, -12(%rbp) | jle  | for(i = min;         ;    ) |
-addl  $2, -12(%rbp) | jl   | for(i = min;         ;    ) |
-mull  $2, -12(%rbp) | jge  | for(i = min;         ;    ) |
-addl  $1, -8(%rbp)  | jle  | for(i = min;         ;    ) |
+addl  $1, -12(%rbp) | jle  | for(i = min; i <= max; i++ ) | 0 1 3 4....10
+subl  $1, -12(%rbp) | jle  | for(i = min; i <= max; i-- ) | infinite loop
+addl  $2, -12(%rbp) | jl   | for(i = min; i < max; i+=2 ) | 0 2 4 6 8 
+mull  $2, -12(%rbp) | jge  | for(i = min; i >=max; i*=2 ) | no output
+addl  $1, -8(%rbp)  | jle  | for(i = min; i <=max; min++) | infinite loop
 
 
 6. lsl r4, r3, #2 is the same as r4 = 4 * r3. Explain
