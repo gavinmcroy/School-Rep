@@ -1,5 +1,12 @@
 #include <stdio.h>
 
+/****************************** /
+* Gavin McRoy                 *
+* CPSC2310 Spring 2021        *
+* UserName: gmcroy            *
+* Instructor:Dr. Yvon Feaster *
+/ *****************************/
+
 int absVal(int* arr, int length);
 
 int main(){

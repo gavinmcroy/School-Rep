@@ -4,6 +4,13 @@
  * in an array 
  ************************/
 
+/****************************** /
+* Gavin McRoy                 *
+* CPSC2310 Spring 2021        *
+* UserName: gmcroy            *
+* Instructor:Dr. Yvon Feaster *
+/ *****************************/
+
 .global absVal
 
 /****************
