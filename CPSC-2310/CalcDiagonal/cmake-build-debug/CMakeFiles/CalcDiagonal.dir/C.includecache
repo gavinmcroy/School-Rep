@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/CalcDiagonal/diagonal.c
+stdlib.h
+-
+math.h
+-
+diagonal.h
+C:/Users/Gavin McRoy/Desktop/CalcDiagonal/diagonal.h
+
+C:/Users/Gavin McRoy/Desktop/CalcDiagonal/diagonal.h
+stdio.h
+-
+
