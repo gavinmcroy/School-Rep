@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "C:/Users/Gavin McRoy/Desktop/CalcDiagonal/diagonal.c" "C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/CMakeFiles/CalcDiagonal.dir/diagonal.c.obj"
-  "C:/Users/Gavin McRoy/Desktop/CalcDiagonal/driver.c" "C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/CMakeFiles/CalcDiagonal.dir/driver.c.obj"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/diagonal.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/CMakeFiles/CalcDiagonal.dir/diagonal.c.o"
+  "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/driver.c" "/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/CMakeFiles/CalcDiagonal.dir/driver.c.o"
   )
-set(CMAKE_C_COMPILER_ID "GNU")
+set(CMAKE_C_COMPILER_ID "AppleClang")
 
 # The include file search paths:
 set(CMAKE_C_TARGET_INCLUDE_PATH

@@ -8,82 +8,86 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug"/>
+				<Option working_dir="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="CalcDiagonal">
-				<Option output="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/CalcDiagonal.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 CalcDiagonal"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="CalcDiagonal/fast">
-				<Option output="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/CalcDiagonal.exe" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug"/>
-				<Option object_output="./"/>
-				<Option type="1"/>
-				<Option compiler="gcc"/>
-				<Compiler>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/../../../../include"/>
-					<Add directory="c:\mingw\bin\../lib/gcc/mingw32/6.3.0/include-fixed"/>
-				</Compiler>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 CalcDiagonal/fast"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-				</MakeCommands>
-			</Target>
-			<Target title="edit_cache">
-				<Option working_dir="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug"/>
-				<Option type="4"/>
-				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug"/>
+				<Option working_dir="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="C:/PROGRA~2/CODEBL~1/MinGW/bin/mingw32-make.exe -f &quot;C:/Users/Gavin McRoy/Desktop/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CalcDiagonal">
+				<Option output="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/CalcDiagonal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 CalcDiagonal"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="CalcDiagonal/fast">
+				<Option output="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/CalcDiagonal" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 CalcDiagonal/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/diagonal.c">
+		<Unit filename="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/diagonal.c">
 			<Option target="CalcDiagonal"/>
 		</Unit>
-		<Unit filename="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/diagonal.h">
+		<Unit filename="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/diagonal.h">
 			<Option target="CalcDiagonal"/>
 		</Unit>
-		<Unit filename="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/driver.c">
+		<Unit filename="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/driver.c">
 			<Option target="CalcDiagonal"/>
 		</Unit>
-		<Unit filename="C:/Users/Gavin McRoy/Desktop/CalcDiagonal/CMakeLists.txt">
+		<Unit filename="/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2310/CalcDiagonal/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

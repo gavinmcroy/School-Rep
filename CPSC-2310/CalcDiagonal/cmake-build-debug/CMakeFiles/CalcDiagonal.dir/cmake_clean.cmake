@@ -1,10 +1,8 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/CalcDiagonal.dir/diagonal.c.obj"
-  "CMakeFiles/CalcDiagonal.dir/driver.c.obj"
-  "CalcDiagonal.exe"
-  "CalcDiagonal.exe.manifest"
+  "CMakeFiles/CalcDiagonal.dir/diagonal.c.o"
+  "CMakeFiles/CalcDiagonal.dir/driver.c.o"
+  "CalcDiagonal"
   "CalcDiagonal.pdb"
-  "libCalcDiagonal.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
