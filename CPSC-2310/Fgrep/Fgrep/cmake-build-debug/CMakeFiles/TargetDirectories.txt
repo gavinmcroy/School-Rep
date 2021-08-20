@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Mimir-Practice/Fgrep/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Mimir-Practice/Fgrep/cmake-build-debug/CMakeFiles/Fgrep.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Mimir-Practice/Fgrep/cmake-build-debug/CMakeFiles/edit_cache.dir

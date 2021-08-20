@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/RoundingRules/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/RoundingRules/cmake-build-debug/CMakeFiles/RoundingRules.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/RoundingRules/cmake-build-debug/CMakeFiles/rebuild_cache.dir
