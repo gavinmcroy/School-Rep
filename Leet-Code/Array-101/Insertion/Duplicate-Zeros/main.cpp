@@ -5,45 +5,53 @@
 void duplicateZeros(std::vector<int> &arr);
 
 int main() {
-    std::vector<int> testInput = {1, 0, 2, 3, 3, 4, 5, 1};
-    //[1,0,0,2,3,0,0,4]
+    std::vector<int> testInput = {0, 4, 1, 0, 0, 8, 0, 0, 3};
+    /* {1, 0, 2, 3, 0, 4, 5, 1} */
+    /* Fails on [0,4,1,0,0,8,0,0,3] */
     duplicateZeros(testInput);
+    for (int i : testInput) {
+        std::cout << i << " ";
+    }
     return 0;
 }
 
 void duplicateZeros(std::vector<int> &arr) {
-    //insert,push all elements forward, remove excessive.
-    for (int i = 0; i < arr.size(); i++) {
-        //---We found our 0
+    /* insert,push all elements forward, remove excessive */
+    for (int i = 0; i < arr.size();) {
+        /*  There is no more possible duplicates */
+        if (i + 2 > arr.size()) {
+            break;
+        }
+        /* We found our 0 */
         if (arr[i] == 0) {
-//            if (j + 1 == arr.size()) {
-//                break;
-//            }
+            //{1, 0, 2, 3, 3, 4, 5, 1}
+            /* Since we are duplicating a 0 one ahead we need to ensure this duplicate is not rechecked*/
             int temp = 0;
             int temp2 = 0;
+            bool duplicateOnce = true;
             for (int j = 0; j < arr.size() - i; j++) {
-                //---current
-                //---Variable one ahead
-                temp = arr[i+j+1];
-                temp2 = arr[i+j+2];
-
-                arr[i+j+1] = arr[i+j];
-                arr[i+j+2] = temp;
+                /* Creates the double 0 */
+                if (duplicateOnce) {
+                    /* current */
+                    /* Variable one ahead */
+                    temp = arr[i + j + 1];
+                    arr[i + j + 1] = 0;
+                    /* i is incremented by two because 0 0 1 <- */
+                    i += 2;
+                    /* The continued at the end causes j to increment when it shouldn't */
+                    j--;
+                    duplicateOnce = false;
+                    continue;
+                }
+                temp2 = arr[i + j];
+                arr[i + j] = temp;
+                temp = temp2;
             }
-
-            //---Special case for when we exceed array bounds
-//            if (j + 1 == arr.size()) {
-//                break;
-//            }
-            //---take every element at j+1 and copy
+        } else {
+            i++;
         }
-
-    }
-    for(int i = 0; i < arr.size(); i++){
-        std::cout<<arr[i]<<" ";
     }
 }
-
 
 //---Out of place operation
 //void duplicateZeros(std::vector<int> &arr) {

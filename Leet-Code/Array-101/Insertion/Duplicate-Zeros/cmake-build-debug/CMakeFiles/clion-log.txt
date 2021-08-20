@@ -1,4 +1,4 @@
-"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/211.7442.42/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Leet-Code/Array-101/Insertion/Duplicate-Zeros
+"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.4746.93/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Leet-Code/Array-101/Insertion/Duplicate-Zeros
 -- The C compiler identification is AppleClang 12.0.0.12000032
 -- The CXX compiler identification is AppleClang 12.0.0.12000032
 -- Detecting C compiler ABI info
