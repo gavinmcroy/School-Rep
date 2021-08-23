@@ -1,1 +1,3 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/Add_Two_Numbers.dir/main.cpp.o  -o Add_Two_Numbers 
+"C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\211.7142.21\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\Add_Two_Numbers.dir/objects.a
+C:\MinGW\bin\ar.exe cr CMakeFiles\Add_Two_Numbers.dir/objects.a @CMakeFiles\Add_Two_Numbers.dir\objects1.rsp
+C:\MinGW\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\Add_Two_Numbers.dir/objects.a -Wl,--no-whole-archive -o Add_Two_Numbers.exe -Wl,--out-implib,libAdd_Two_Numbers.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\Add_Two_Numbers.dir\linklibs.rsp
