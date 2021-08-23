@@ -22,9 +22,9 @@ void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n) {
                 nums1[i] = nums2[j];
                 nums1[i + 1] = temp;
                 noneGreater = true;
-            }else{
-                if(!noneGreater){
-                    
+            } else {
+                if (!noneGreater) {
+
                 }
             }
         }
