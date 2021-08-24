@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/gavintaylormcroy/Desktop/School-Rep/Leet-Code/Add-Two-Numbers/main.cpp" "/Users/gavintaylormcroy/Desktop/School-Rep/Leet-Code/Add-Two-Numbers/cmake-build-debug/CMakeFiles/Add_Two_Numbers.dir/main.cpp.o"
+  "C:/Users/Gavin McRoy/Desktop/School-Rep/Leet-Code/Add-Two-Numbers/main.cpp" "C:/Users/Gavin McRoy/Desktop/School-Rep/Leet-Code/Add-Two-Numbers/cmake-build-debug/CMakeFiles/Add_Two_Numbers.dir/main.cpp.obj"
   )
-set(CMAKE_CXX_COMPILER_ID "AppleClang")
+set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
