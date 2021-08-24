@@ -5,8 +5,8 @@
 void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n);
 
 int main() {
-    std::vector<int> nums1 = {4, 5, 6, 0, 0, 0};//{0, 0, 0, 0, 0};
-    std::vector<int> nums2 = {1, 2, 3};//{1, 2, 3, 4, 5};
+    std::vector<int> nums1 = {1, 2, 3, 0, 0, 0};//{0, 0, 0, 0, 0};
+    std::vector<int> nums2 = {2, 5, 6};//{1, 2, 3, 4, 5};
     merge(nums1, 3, nums2, 3);
     for (int x : nums1) {
         std::cout << x << " ";
@@ -16,6 +16,10 @@ int main() {
 
 //[1,2,3,0,0,0], m = 3, nums2 = [2,5,6]
 void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n) {
+    /* Special case for when nums2 is empty */
+    if (n == 0) {
+        return;
+    }
     /* Special case when nums1 is empty */
     if (m == 0) {
         for (int i = 0; i < n; i++) {
@@ -32,15 +36,35 @@ void merge(std::vector<int> &nums1, int m, std::vector<int> &nums2, int n) {
     }
 
     /* Special case for when every element in nums1 is greater than nums2 */
-    for (int i = 0; i < n; i++) {
-        /* If an element in nums1 is greater than nums2*/
-        if (nums1[i] > nums2[i]) {
-            int temp = nums1[i];
-            nums1[i] = nums2[i];
-            nums1[m + i] = temp;
+    if (nums1[0] > nums2[n - 1]) {
+        for (int i = 0; i < n; i++) {
+            /* If an element in nums1 is greater than nums2*/
+            if (nums1[i] > nums2[i]) {
+                int temp = nums1[i];
+                nums1[i] = nums2[i];
+                nums1[m + i] = temp;
+            }
+            /*  */
         }
-        /*  */
+        return;
     }
+    int secondArrayCounter = 0;
+    for(int i = 0; i < m+n; i++){
+        /* if the current element is less than the first of num2 than skip */
+        if(nums1[i] < nums2[0]){
+            continue;
+        }else{
+            int temp = nums1[i];
+            /* Step the second array to another element */
+            nums1[i] = nums2[secondArrayCounter];
+            /* Take the element replaced and put it on the end */
+            nums1[m+i] = temp;
+            secondArrayCounter++;
+        }
+    }
+
+
+
     /* */
 }
 
