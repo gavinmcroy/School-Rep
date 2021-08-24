@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/cmake-build-debug/CMakeFiles/PageTurner.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2310/Assignment-1/PageTurner/cmake-build-debug/CMakeFiles/rebuild_cache.dir

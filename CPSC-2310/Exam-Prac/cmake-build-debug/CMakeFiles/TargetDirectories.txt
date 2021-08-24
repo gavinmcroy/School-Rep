@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/enumTest/cmake-build-debug/CMakeFiles/enumTest.dir
-C:/Users/Gavin McRoy/Desktop/enumTest/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Gavin McRoy/Desktop/enumTest/cmake-build-debug/CMakeFiles/rebuild_cache.dir

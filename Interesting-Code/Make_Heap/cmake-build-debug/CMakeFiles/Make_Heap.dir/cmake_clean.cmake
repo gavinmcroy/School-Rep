@@ -1,9 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Make_Heap.dir/main.cpp.obj"
-  "Make_Heap.exe"
-  "Make_Heap.exe.manifest"
+  "CMakeFiles/Make_Heap.dir/main.cpp.o"
+  "Make_Heap"
   "Make_Heap.pdb"
-  "libMake_Heap.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
