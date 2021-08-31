@@ -23,13 +23,16 @@ if(Openimageio_FOUND)
     include_directories(${OpenImageIO_INCLUDE_DIR})
 endif()
 
-
 target_link_libraries(Open_Test
         ${Boost_FILESYSTEM_LIBRARY}
         ${Boost_SYSTEM_LIBRARY}
         )
 target_link_libraries(Open_Test /usr/local/Cellar/openimageio/2.2.17.0/lib/libOpenImageIO.2.2.17.dylib)
 
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
+target_link_libraries(Open_Test ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})
 
 
 

@@ -11,6 +11,10 @@ memory
 -
 OpenImageIO/imageio.h
 -
+GLUT/glut.h
+-
+OpenGL/gl.h
+-
 
 /usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/Imath.h
 Imath/ImathColor.h
