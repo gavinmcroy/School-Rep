@@ -1,0 +1,10 @@
+"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-0/212.5080.54/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Desktop/Image
+-- Boost_INCLUDE_DIRS: /usr/local/include
+-- Boost_LIBRARIES: Boost::system;Boost::filesystem
+-- Boost_VERSION: 1.76.0
+-- Openimageio_INCLUDE_DIRS: 
+-- Openimageio_LIBRARIES: 
+-- Openimageio_VERSION: 2.2.17.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/gavintaylormcroy/Desktop/Image/cmake-build-debug
