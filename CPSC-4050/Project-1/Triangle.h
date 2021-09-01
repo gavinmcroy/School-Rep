@@ -12,13 +12,13 @@ class Triangle {
      * Does each triangle cord need to be (x,y,z) */
     Triangle(int cord1,int cord2,int cord3);
 
-    const std::vector<int> threeEdgeVector() const ;
+    std::vector<int> threeEdgeVector() const ;
 
-    const std::vector<int> unitNormal() const ;
+    std::vector<int> unitNormal() const ;
 
-    const double triangleArea() const ;
+    double triangleArea() const ;
 
-    const double triangleAspectRatio() const;
+    double triangleAspectRatio() const;
 
 };
 

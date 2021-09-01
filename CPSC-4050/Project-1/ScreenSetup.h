@@ -11,7 +11,7 @@ public:
 
     static void openGLSetup(int argc, char *argv[]);
 
-    void triangleGenerator();
+    static void triangleGenerator();
 
 };
 
