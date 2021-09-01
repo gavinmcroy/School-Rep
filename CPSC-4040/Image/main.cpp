@@ -19,6 +19,8 @@ void loadImage(const std::string &inputFile);
 
 void writeImage(const std::string &outputFile);
 
+void invertImage();
+
 unsigned char *pixels = nullptr;
 ImageSpec spec;
 
@@ -27,9 +29,9 @@ int main(int argc, char *argv[]) {
      * TODO If no arg is passed then draw a blank black window*/
     /* TODO also test for what type of image (RGB vs RGBA) */
     /* TODO add code documentation */
-    std::string myFile = "lightning.jpg";
-    loadImage(myFile);
-    //openGLSetup(argc, argv);
+
+    /* TODO When clearing the window the color goes to white */
+    openGLSetup(argc, argv);
     delete pixels;
     return 0;
 }
@@ -48,24 +50,33 @@ void displayFunction() {
     glClearColor(1, 1, 1, 1);
     glRasterPos2i(0, 0);
     glWindowPos2i(0, 0);
-    glDrawPixels(1920, 1200, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-    glFlush();
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void keyboardEvent(unsigned char key, int x, int y) {
     switch (key) {
         case 'k': {
-            glClearColor(1.0, 0.0, 0.0, 0.0);
             std::cout << "Input detected " << std::endl;
-            glClear(GL_COLOR_BUFFER_BIT);
+            displayFunction();
+            glFlush();
             break;
         }
-        case 'r':{
-            /* TODO Read in image */
+        case 'r': {
+            std::string fileName;
+            std::cout << "Enter a file name " << std::endl;
+            cin >> fileName;
+            loadImage(fileName);
+            displayFunction();
+            glDrawPixels(1920, 1200, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+            glFlush();
             break;
         }
-        case 'i':{
-            /* TODO Invert colors */
+        case 'i': {
+            std::cout << "i key pressed " << std::endl;
+            invertImage();
+            displayFunction();
+            glDrawPixels(1920, 1200, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+            glFlush();
             break;
         }
         case 'q': {
@@ -78,6 +89,7 @@ void keyboardEvent(unsigned char key, int x, int y) {
             break;
         }
         default:
+            std::cout << "Empty" << std::endl;
             break;
     }
 }
@@ -110,4 +122,10 @@ void writeImage(const std::string &outputFile) {
     out->open(outputFile, specOut);
     out->write_image(TypeDesc::UINT8, pixels);
     out->close();
+}
+
+void invertImage() {
+    for (int i = 0; i < (spec.width * spec.height * spec.nchannels); i++) {
+        pixels[i] = 255 - pixels[i];
+    }
 }
