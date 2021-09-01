@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     /* TODO add code documentation */
     std::string myFile = "lightning.jpg";
     loadImage(myFile);
-    openGLSetup(argc, argv);
+    //openGLSetup(argc, argv);
     delete pixels;
     return 0;
 }
