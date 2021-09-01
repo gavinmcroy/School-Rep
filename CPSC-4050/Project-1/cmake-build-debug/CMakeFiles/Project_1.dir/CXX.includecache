@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/ScreenSetup.cpp
+OpenGL/gl.h
+-
+GLUT/glut.h
+-
+ScreenSetup.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/ScreenSetup.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/ScreenSetup.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/main.cpp
+ScreenSetup.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/ScreenSetup.h
+iostream
+-
+
