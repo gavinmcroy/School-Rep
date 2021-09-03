@@ -196,6 +196,60 @@ Triangle.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/Triangle.cpp.s
 .PHONY : Triangle.cpp.s
 
+VzlThing.o: VzlThing.C.o
+
+.PHONY : VzlThing.o
+
+# target to build an object file
+VzlThing.C.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/VzlThing.C.o
+.PHONY : VzlThing.C.o
+
+VzlThing.i: VzlThing.C.i
+
+.PHONY : VzlThing.i
+
+# target to preprocess a source file
+VzlThing.C.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/VzlThing.C.i
+.PHONY : VzlThing.C.i
+
+VzlThing.s: VzlThing.C.s
+
+.PHONY : VzlThing.s
+
+# target to generate assembly for a file
+VzlThing.C.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/VzlThing.C.s
+.PHONY : VzlThing.C.s
+
+VzlViewer.o: VzlViewer.cpp.o
+
+.PHONY : VzlViewer.o
+
+# target to build an object file
+VzlViewer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/VzlViewer.cpp.o
+.PHONY : VzlViewer.cpp.o
+
+VzlViewer.i: VzlViewer.cpp.i
+
+.PHONY : VzlViewer.i
+
+# target to preprocess a source file
+VzlViewer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/VzlViewer.cpp.i
+.PHONY : VzlViewer.cpp.i
+
+VzlViewer.s: VzlViewer.cpp.s
+
+.PHONY : VzlViewer.s
+
+# target to generate assembly for a file
+VzlViewer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/VzlViewer.cpp.s
+.PHONY : VzlViewer.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -238,6 +292,12 @@ help:
 	@echo "... Triangle.o"
 	@echo "... Triangle.i"
 	@echo "... Triangle.s"
+	@echo "... VzlThing.o"
+	@echo "... VzlThing.i"
+	@echo "... VzlThing.s"
+	@echo "... VzlViewer.o"
+	@echo "... VzlViewer.i"
+	@echo "... VzlViewer.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

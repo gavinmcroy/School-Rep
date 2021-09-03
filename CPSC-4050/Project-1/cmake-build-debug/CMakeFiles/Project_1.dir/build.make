@@ -115,11 +115,39 @@ CMakeFiles/Project_1.dir/ScreenSetup.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_1.dir/ScreenSetup.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/ScreenSetup.cpp -o CMakeFiles/Project_1.dir/ScreenSetup.cpp.s
 
+CMakeFiles/Project_1.dir/VzlViewer.cpp.o: CMakeFiles/Project_1.dir/flags.make
+CMakeFiles/Project_1.dir/VzlViewer.cpp.o: ../VzlViewer.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Project_1.dir/VzlViewer.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_1.dir/VzlViewer.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlViewer.cpp
+
+CMakeFiles/Project_1.dir/VzlViewer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_1.dir/VzlViewer.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlViewer.cpp > CMakeFiles/Project_1.dir/VzlViewer.cpp.i
+
+CMakeFiles/Project_1.dir/VzlViewer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_1.dir/VzlViewer.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlViewer.cpp -o CMakeFiles/Project_1.dir/VzlViewer.cpp.s
+
+CMakeFiles/Project_1.dir/VzlThing.C.o: CMakeFiles/Project_1.dir/flags.make
+CMakeFiles/Project_1.dir/VzlThing.C.o: ../VzlThing.C
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Project_1.dir/VzlThing.C.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_1.dir/VzlThing.C.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlThing.C
+
+CMakeFiles/Project_1.dir/VzlThing.C.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_1.dir/VzlThing.C.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlThing.C > CMakeFiles/Project_1.dir/VzlThing.C.i
+
+CMakeFiles/Project_1.dir/VzlThing.C.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_1.dir/VzlThing.C.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlThing.C -o CMakeFiles/Project_1.dir/VzlThing.C.s
+
 # Object files for target Project_1
 Project_1_OBJECTS = \
 "CMakeFiles/Project_1.dir/main.cpp.o" \
 "CMakeFiles/Project_1.dir/Triangle.cpp.o" \
-"CMakeFiles/Project_1.dir/ScreenSetup.cpp.o"
+"CMakeFiles/Project_1.dir/ScreenSetup.cpp.o" \
+"CMakeFiles/Project_1.dir/VzlViewer.cpp.o" \
+"CMakeFiles/Project_1.dir/VzlThing.C.o"
 
 # External object files for target Project_1
 Project_1_EXTERNAL_OBJECTS =
@@ -127,9 +155,12 @@ Project_1_EXTERNAL_OBJECTS =
 Project_1: CMakeFiles/Project_1.dir/main.cpp.o
 Project_1: CMakeFiles/Project_1.dir/Triangle.cpp.o
 Project_1: CMakeFiles/Project_1.dir/ScreenSetup.cpp.o
+Project_1: CMakeFiles/Project_1.dir/VzlViewer.cpp.o
+Project_1: CMakeFiles/Project_1.dir/VzlThing.C.o
 Project_1: CMakeFiles/Project_1.dir/build.make
+Project_1: /usr/local/lib/libomp.dylib
 Project_1: CMakeFiles/Project_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Project_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Project_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

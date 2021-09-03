@@ -44,8 +44,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
@@ -65,8 +65,8 @@
 				<Option type="1"/>
 				<Option compiler="gcc"/>
 				<Compiler>
-					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/usr/local/include"/>
+					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/12.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
 					<Add directory="/System/Library/Frameworks"/>
@@ -90,6 +90,18 @@
 			<Option target="Project_1"/>
 		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/Triangle.h">
+			<Option target="Project_1"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlThing.C">
+			<Option target="Project_1"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlThing.h">
+			<Option target="Project_1"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlViewer.cpp">
+			<Option target="Project_1"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/VzlViewer.h">
 			<Option target="Project_1"/>
 		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-1/main.cpp">

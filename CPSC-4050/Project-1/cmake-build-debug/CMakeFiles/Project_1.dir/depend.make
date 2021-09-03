@@ -7,6 +7,14 @@ CMakeFiles/Project_1.dir/ScreenSetup.cpp.o: ../ScreenSetup.h
 CMakeFiles/Project_1.dir/Triangle.cpp.o: ../Triangle.cpp
 CMakeFiles/Project_1.dir/Triangle.cpp.o: ../Triangle.h
 
+CMakeFiles/Project_1.dir/VzlThing.C.o: ../VzlThing.C
+CMakeFiles/Project_1.dir/VzlThing.C.o: ../VzlThing.h
+
+CMakeFiles/Project_1.dir/VzlViewer.cpp.o: ../VzlThing.h
+CMakeFiles/Project_1.dir/VzlViewer.cpp.o: ../VzlViewer.cpp
+CMakeFiles/Project_1.dir/VzlViewer.cpp.o: ../VzlViewer.h
+CMakeFiles/Project_1.dir/VzlViewer.cpp.o: /usr/local/Cellar/libomp/12.0.1/include/omp.h
+
 CMakeFiles/Project_1.dir/main.cpp.o: ../ScreenSetup.h
 CMakeFiles/Project_1.dir/main.cpp.o: ../main.cpp
 
