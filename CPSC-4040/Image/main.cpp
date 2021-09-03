@@ -26,11 +26,15 @@ ImageSpec spec;
 
 int main(int argc, char *argv[]) {
     /* TODO program must take an optional command line arg for image file
-     * TODO If no arg is passed then draw a blank black window*/
     /* TODO also test for what type of image (RGB vs RGBA) */
     /* TODO add code documentation */
 
     /* TODO When clearing the window the color goes to white */
+    if (argc > 1) {
+        /* TODO load image via command line */
+        loadImage(argv[1]);
+    }
+
     openGLSetup(argc, argv);
     delete pixels;
     return 0;
@@ -50,6 +54,10 @@ void displayFunction() {
     glClearColor(1, 1, 1, 1);
     glRasterPos2i(0, 0);
     glWindowPos2i(0, 0);
+    if (pixels != nullptr) {
+        glDrawPixels(1920, 1200, GL_RGB, GL_UNSIGNED_BYTE, pixels);
+        glFlush();
+    }
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
@@ -67,8 +75,6 @@ void keyboardEvent(unsigned char key, int x, int y) {
             cin >> fileName;
             loadImage(fileName);
             displayFunction();
-            glDrawPixels(1920, 1200, GL_RGB, GL_UNSIGNED_BYTE, pixels);
-            glFlush();
             break;
         }
         case 'i': {
