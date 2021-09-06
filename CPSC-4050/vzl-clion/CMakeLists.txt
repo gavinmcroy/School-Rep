@@ -1,0 +1,22 @@
+cmake_minimum_required(VERSION 3.19)
+project(vzl_clion)
+
+set(CMAKE_CXX_STANDARD 14)
+add_executable(vzl_clion things/vzl.C things/MyThing.C
+        things/MyThing.h include/Color.h include/Vector.h
+        include/VzlViewer.h include/VzlThing.h base/VzlThing.C base/VzlViewer.C things/Triangle.cpp things/Triangle.h)
+
+find_package(OpenGL REQUIRED)
+find_package(GLUT REQUIRED)
+
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14 -Xclang -fopenmp")
+
+find_package(OpenMP)
+if(OpenMP_CXX_FOUND)
+    target_link_libraries(vzl_clion OpenMP::OpenMP_CXX)
+endif()
+
+include_directories(${OPENMP_INCLUDE_DIRS})
+include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})
+target_link_libraries(vzl_clion ${OPENGL_LIBRARIES} ${GLUT_LIBRARY})

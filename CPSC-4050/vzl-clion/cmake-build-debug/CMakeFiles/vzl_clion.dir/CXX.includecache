@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/vzl-clion/include/Vector.h
+cmath
+-
+cstdio
+-
+
+/Users/gavintaylormcroy/Desktop/vzl-clion/things/Triangle.cpp
+Triangle.h
+/Users/gavintaylormcroy/Desktop/vzl-clion/things/Triangle.h
+
+/Users/gavintaylormcroy/Desktop/vzl-clion/things/Triangle.h
+../include/Vector.h
+/Users/gavintaylormcroy/Desktop/vzl-clion/include/Vector.h
+

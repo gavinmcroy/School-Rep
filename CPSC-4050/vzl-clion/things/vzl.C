@@ -1,0 +1,29 @@
+
+
+#include "../include/VzlViewer.h"
+#include "MyThing.h"
+
+
+int main(int argc, char **argv) {
+    // Set up command line arguments, if any
+    std::vector<std::string> args;
+    for (int i = 0; i < argc; i++) {
+        args.push_back(argv[i]);
+    }
+
+
+    // Instantiate a viewer
+    vzl::VzlViewer *viewer = vzl::CreateViewer();
+
+    // Set up a thing
+    vzl::VzlThing mything = vzl::CreateMyThing();
+    viewer->AddThing(mything);
+
+
+
+    // Initialize viewer
+    viewer->Init(args);
+    // Run the (GLUT) main loop
+    viewer->MainLoop();
+
+}
