@@ -78,10 +78,7 @@
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/main.c">
-			<Option target="Project_1"/>
-		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/shim.c">
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/mallocTest.c">
 			<Option target="Project_1"/>
 		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/CMakeLists.txt">

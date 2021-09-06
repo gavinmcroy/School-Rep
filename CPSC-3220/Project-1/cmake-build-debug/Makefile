@@ -142,59 +142,32 @@ Project_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/build
 .PHONY : Project_1/fast
 
-main.o: main.c.o
+mallocTest.o: mallocTest.c.o
 
-.PHONY : main.o
-
-# target to build an object file
-main.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/main.c.o
-.PHONY : main.c.o
-
-main.i: main.c.i
-
-.PHONY : main.i
-
-# target to preprocess a source file
-main.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/main.c.i
-.PHONY : main.c.i
-
-main.s: main.c.s
-
-.PHONY : main.s
-
-# target to generate assembly for a file
-main.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/main.c.s
-.PHONY : main.c.s
-
-shim.o: shim.c.o
-
-.PHONY : shim.o
+.PHONY : mallocTest.o
 
 # target to build an object file
-shim.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/shim.c.o
-.PHONY : shim.c.o
+mallocTest.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/mallocTest.c.o
+.PHONY : mallocTest.c.o
 
-shim.i: shim.c.i
+mallocTest.i: mallocTest.c.i
 
-.PHONY : shim.i
+.PHONY : mallocTest.i
 
 # target to preprocess a source file
-shim.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/shim.c.i
-.PHONY : shim.c.i
+mallocTest.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/mallocTest.c.i
+.PHONY : mallocTest.c.i
 
-shim.s: shim.c.s
+mallocTest.s: mallocTest.c.s
 
-.PHONY : shim.s
+.PHONY : mallocTest.s
 
 # target to generate assembly for a file
-shim.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/shim.c.s
-.PHONY : shim.c.s
+mallocTest.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/mallocTest.c.s
+.PHONY : mallocTest.c.s
 
 # Help Target
 help:
@@ -205,12 +178,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project_1"
-	@echo "... main.o"
-	@echo "... main.i"
-	@echo "... main.s"
-	@echo "... shim.o"
-	@echo "... shim.i"
-	@echo "... shim.s"
+	@echo "... mallocTest.o"
+	@echo "... mallocTest.i"
+	@echo "... mallocTest.s"
 .PHONY : help
 
 

@@ -4,6 +4,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#ifdef __APPLE__
+char *environment = "DYLD_INSERT_LIBRARIES";
+#else
+char * environment = "LD_PRELOAD";
+#endif
+
+extern char **environ;
 
 /* ./leakCount ./ProgramToRun ./ProgramToRun Arguments */
 int main(int argc, char *argv[]) {
@@ -11,6 +18,7 @@ int main(int argc, char *argv[]) {
         printf("Error, not enough command arguments. Closing");
         exit(1);
     }
+    int status;
 
     /* Program name is always second argument */
     char *programName = argv[1];
@@ -22,17 +30,21 @@ int main(int argc, char *argv[]) {
     /* TODO Run specified program in separate process. Currently overwrites running process */
     pid_t pid = fork();
     if (pid == 0) {
+        printf("Child created\n");
         /* Need to link shim with process */
-        //execvp(programName,args);
-
-        setenv("LD_PRELOAD", "/Users/gavintaylormcroy/Desktop/shim-dir", 1);
-        char *pathVar = getenv("LD_PRELOAD");
+        setenv(environment, "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220"
+                            "/shim.dylib DYLD_FLAT_NAMESPACE=1 .//Users/gavintaylormcroy/Documents/GitHub/School-Rep"
+                            "/CPSC-3220/leakcount", 1);
+        char *pathVar = getenv(environment);
         printf("%s", pathVar);
 
-        //execve(programName, args, &pathVar);
+        execve(programName, args, environ);
     } else {
         printf("Parent!\n");
     }
 
+    waitpid(pid, &status, 0);
     return 0;
 }
+
+//DYLD_INSERT_LIBRARIES=$PWD/shim.dylib DYLD_FORCE_FLAT_NAMESPACE=1 ./mallocTest

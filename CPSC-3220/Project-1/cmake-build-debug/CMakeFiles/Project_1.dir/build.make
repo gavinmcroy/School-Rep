@@ -76,45 +76,30 @@ include CMakeFiles/Project_1.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/Project_1.dir/flags.make
 
-CMakeFiles/Project_1.dir/main.c.o: CMakeFiles/Project_1.dir/flags.make
-CMakeFiles/Project_1.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Project_1.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Project_1.dir/main.c.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/main.c
+CMakeFiles/Project_1.dir/mallocTest.c.o: CMakeFiles/Project_1.dir/flags.make
+CMakeFiles/Project_1.dir/mallocTest.c.o: ../mallocTest.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Project_1.dir/mallocTest.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Project_1.dir/mallocTest.c.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/mallocTest.c
 
-CMakeFiles/Project_1.dir/main.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Project_1.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/main.c > CMakeFiles/Project_1.dir/main.c.i
+CMakeFiles/Project_1.dir/mallocTest.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Project_1.dir/mallocTest.c.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/mallocTest.c > CMakeFiles/Project_1.dir/mallocTest.c.i
 
-CMakeFiles/Project_1.dir/main.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Project_1.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/main.c -o CMakeFiles/Project_1.dir/main.c.s
-
-CMakeFiles/Project_1.dir/shim.c.o: CMakeFiles/Project_1.dir/flags.make
-CMakeFiles/Project_1.dir/shim.c.o: ../shim.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Project_1.dir/shim.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Project_1.dir/shim.c.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/shim.c
-
-CMakeFiles/Project_1.dir/shim.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Project_1.dir/shim.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/shim.c > CMakeFiles/Project_1.dir/shim.c.i
-
-CMakeFiles/Project_1.dir/shim.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Project_1.dir/shim.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/shim.c -o CMakeFiles/Project_1.dir/shim.c.s
+CMakeFiles/Project_1.dir/mallocTest.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Project_1.dir/mallocTest.c.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/mallocTest.c -o CMakeFiles/Project_1.dir/mallocTest.c.s
 
 # Object files for target Project_1
 Project_1_OBJECTS = \
-"CMakeFiles/Project_1.dir/main.c.o" \
-"CMakeFiles/Project_1.dir/shim.c.o"
+"CMakeFiles/Project_1.dir/mallocTest.c.o"
 
 # External object files for target Project_1
 Project_1_EXTERNAL_OBJECTS =
 
-Project_1: CMakeFiles/Project_1.dir/main.c.o
-Project_1: CMakeFiles/Project_1.dir/shim.c.o
+Project_1: CMakeFiles/Project_1.dir/mallocTest.c.o
 Project_1: CMakeFiles/Project_1.dir/build.make
 Project_1: CMakeFiles/Project_1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Project_1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Project_1"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
