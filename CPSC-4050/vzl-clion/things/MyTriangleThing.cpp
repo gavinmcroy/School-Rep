@@ -25,8 +25,8 @@ using namespace vzl;
 
 MyTriangleThing::MyTriangleThing(const std::string &nam) :
         VzlThingyDingy(nam),
-        triangle(Triangle(Vector(-4 * drand48(), -4 * drand48(), -4 * drand48()),
-                          Vector(4 * drand48(), 4 * drand48(), 4 * drand48()))) {
+        triangle(Triangle(Vector(-1 * (1 + drand48()), -1 * (1 + drand48()), -1 * (1 + drand48())),
+                          Vector(1 + drand48(), 1 + drand48(), 1 + drand48()))) {
     std::cout << name << " constructed\n";
 }
 

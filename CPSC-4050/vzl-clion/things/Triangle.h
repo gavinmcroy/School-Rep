@@ -6,6 +6,7 @@
 #define VZL_CLION_TRIANGLE_H
 
 #include <vector>
+#include <iostream>
 #include "../include/Color.h"
 #include "../include/Vector.h"
 
@@ -38,6 +39,8 @@ namespace vzl {
         std::vector<std::vector<Vector>> walls;
 
         std::vector<Color> wall_colors;
+
+        double length(const Vector& v1,const Vector& v2);
 
     };
 
