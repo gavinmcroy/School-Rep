@@ -19,7 +19,7 @@ int main(int argc, char **argv) {
     //for(int i = 0; i < 5; i++) {
     vzl::VzlThing mything = vzl::CreateMyThing();
     viewer->AddThing(mything);
-    //}
+   // }
 
 
     // Initialize viewer

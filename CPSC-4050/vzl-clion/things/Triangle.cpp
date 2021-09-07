@@ -7,14 +7,17 @@
 vzl::Triangle::Triangle(const vzl::Vector &llc, const vzl::Vector &urc) {
     std::vector<Vector> face;
 
+    /* This is what actually draws the faces of the 3D triangle */
+    /* Randomization comes from the parameter passed to constructor */
 /****************************************************************************/
 //    face.push_back(llc);
-//    face.push_back(Vector(llc[0], llc[1], urc[2]));
-//    face.push_back(Vector(llc[0], urc[1], urc[2]));
-//    face.push_back(Vector(llc[0], urc[1], llc[2]));
-//    walls.push_back(face);
-//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
-//    face.clear();
+    face.push_back(Vector(llc[0], llc[1], urc[2]));
+    face.push_back(Vector(llc[0], urc[1], urc[2]));
+    face.push_back(Vector(llc[0], urc[1], llc[2]));
+
+    walls.push_back(face);
+    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+    face.clear();
 
 /********************************************************************************/
 
