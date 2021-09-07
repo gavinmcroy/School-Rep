@@ -104,12 +104,6 @@
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Box.h">
 			<Option target="vzl_clion"/>
 		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyThing.C">
-			<Option target="vzl_clion"/>
-		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyThing.h">
-			<Option target="vzl_clion"/>
-		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.cpp">
 			<Option target="vzl_clion"/>
 		</Unit>

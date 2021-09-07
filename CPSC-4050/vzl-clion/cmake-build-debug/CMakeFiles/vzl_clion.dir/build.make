@@ -89,22 +89,9 @@ CMakeFiles/vzl_clion.dir/things/vzl.C.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vzl_clion.dir/things/vzl.C.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/vzl.C -o CMakeFiles/vzl_clion.dir/things/vzl.C.s
 
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: CMakeFiles/vzl_clion.dir/flags.make
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../things/MyThing.C
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vzl_clion.dir/things/MyThing.C.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/things/MyThing.C.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyThing.C
-
-CMakeFiles/vzl_clion.dir/things/MyThing.C.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/vzl_clion.dir/things/MyThing.C.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyThing.C > CMakeFiles/vzl_clion.dir/things/MyThing.C.i
-
-CMakeFiles/vzl_clion.dir/things/MyThing.C.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/vzl_clion.dir/things/MyThing.C.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyThing.C -o CMakeFiles/vzl_clion.dir/things/MyThing.C.s
-
 CMakeFiles/vzl_clion.dir/base/VzlThing.C.o: CMakeFiles/vzl_clion.dir/flags.make
 CMakeFiles/vzl_clion.dir/base/VzlThing.C.o: ../base/VzlThing.C
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vzl_clion.dir/base/VzlThing.C.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/vzl_clion.dir/base/VzlThing.C.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/base/VzlThing.C.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/base/VzlThing.C
 
 CMakeFiles/vzl_clion.dir/base/VzlThing.C.i: cmake_force
@@ -117,7 +104,7 @@ CMakeFiles/vzl_clion.dir/base/VzlThing.C.s: cmake_force
 
 CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o: CMakeFiles/vzl_clion.dir/flags.make
 CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o: ../base/VzlViewer.C
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/base/VzlViewer.C
 
 CMakeFiles/vzl_clion.dir/base/VzlViewer.C.i: cmake_force
@@ -130,7 +117,7 @@ CMakeFiles/vzl_clion.dir/base/VzlViewer.C.s: cmake_force
 
 CMakeFiles/vzl_clion.dir/things/Box.C.o: CMakeFiles/vzl_clion.dir/flags.make
 CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Box.C
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vzl_clion.dir/things/Box.C.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/vzl_clion.dir/things/Box.C.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/things/Box.C.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Box.C
 
 CMakeFiles/vzl_clion.dir/things/Box.C.i: cmake_force
@@ -143,7 +130,7 @@ CMakeFiles/vzl_clion.dir/things/Box.C.s: cmake_force
 
 CMakeFiles/vzl_clion.dir/things/Plane.C.o: CMakeFiles/vzl_clion.dir/flags.make
 CMakeFiles/vzl_clion.dir/things/Plane.C.o: ../things/Plane.C
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vzl_clion.dir/things/Plane.C.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/vzl_clion.dir/things/Plane.C.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/things/Plane.C.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Plane.C
 
 CMakeFiles/vzl_clion.dir/things/Plane.C.i: cmake_force
@@ -156,7 +143,7 @@ CMakeFiles/vzl_clion.dir/things/Plane.C.s: cmake_force
 
 CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o: CMakeFiles/vzl_clion.dir/flags.make
 CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o: ../things/Triangle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Triangle.cpp
 
 CMakeFiles/vzl_clion.dir/things/Triangle.cpp.i: cmake_force
@@ -169,7 +156,7 @@ CMakeFiles/vzl_clion.dir/things/Triangle.cpp.s: cmake_force
 
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: CMakeFiles/vzl_clion.dir/flags.make
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../things/MyTriangleThing.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.cpp
 
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.i: cmake_force
@@ -183,7 +170,6 @@ CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.s: cmake_force
 # Object files for target vzl_clion
 vzl_clion_OBJECTS = \
 "CMakeFiles/vzl_clion.dir/things/vzl.C.o" \
-"CMakeFiles/vzl_clion.dir/things/MyThing.C.o" \
 "CMakeFiles/vzl_clion.dir/base/VzlThing.C.o" \
 "CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o" \
 "CMakeFiles/vzl_clion.dir/things/Box.C.o" \
@@ -195,7 +181,6 @@ vzl_clion_OBJECTS = \
 vzl_clion_EXTERNAL_OBJECTS =
 
 vzl_clion: CMakeFiles/vzl_clion.dir/things/vzl.C.o
-vzl_clion: CMakeFiles/vzl_clion.dir/things/MyThing.C.o
 vzl_clion: CMakeFiles/vzl_clion.dir/base/VzlThing.C.o
 vzl_clion: CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o
 vzl_clion: CMakeFiles/vzl_clion.dir/things/Box.C.o
@@ -205,7 +190,7 @@ vzl_clion: CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o
 vzl_clion: CMakeFiles/vzl_clion.dir/build.make
 vzl_clion: /usr/local/lib/libomp.dylib
 vzl_clion: CMakeFiles/vzl_clion.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable vzl_clion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable vzl_clion"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/vzl_clion.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

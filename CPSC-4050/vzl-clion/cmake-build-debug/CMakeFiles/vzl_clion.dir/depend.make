@@ -15,15 +15,6 @@ CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Box.C
 CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Box.h
 CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Plane.h
 
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../include/Color.h
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../include/Vector.h
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../include/VzlThing.h
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../things/Box.h
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../things/MyThing.C
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../things/MyThing.h
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: ../things/Plane.h
-CMakeFiles/vzl_clion.dir/things/MyThing.C.o: /usr/local/include/omp.h
-
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../include/Color.h
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../include/Vector.h
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../include/VzlThing.h
@@ -46,8 +37,7 @@ CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../include/Color.h
 CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../include/Vector.h
 CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../include/VzlThing.h
 CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../include/VzlViewer.h
-CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../things/Box.h
-CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../things/MyThing.h
-CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../things/Plane.h
+CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../things/MyTriangleThing.h
+CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../things/Triangle.h
 CMakeFiles/vzl_clion.dir/things/vzl.C.o: ../things/vzl.C
 

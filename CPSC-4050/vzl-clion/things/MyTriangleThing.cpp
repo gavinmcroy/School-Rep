@@ -1,6 +1,7 @@
 //
 // Created by Gavin Taylor Mcroy on 9/7/21.
 //
+#define GL_SILENCE_DEPRECATION
 
 #if defined(__APPLE__)
 
@@ -43,13 +44,11 @@ void MyTriangleThing::Display() {
     // Draw box as quads
     glBegin(GL_TRIANGLES);
     for (size_t i = 0; i < triangle.nb_walls(); i++) {
-        if (i != 2) {
-            const Color &ci = triangle.wall_color(i);
-            glColor3f(ci.red(), ci.green(), ci.blue());
-            const std::vector<Vector> &wall = triangle.triangle_wall(i);
-            for (size_t p = 0; p < wall.size(); p++) {
-                glVertex3f(wall[p].X(), wall[p].Y(), wall[p].Z());
-            }
+        const Color &ci = triangle.wall_color(i);
+        glColor3f(ci.red(), ci.green(), ci.blue());
+        const std::vector<Vector> &wall = triangle.triangle_wall(i);
+        for (size_t p = 0; p < wall.size(); p++) {
+            glVertex3f(wall[p].X(), wall[p].Y(), wall[p].Z());
         }
     }
     glEnd();

@@ -223,33 +223,6 @@ things/Box.C.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Box.C.s
 .PHONY : things/Box.C.s
 
-things/MyThing.o: things/MyThing.C.o
-
-.PHONY : things/MyThing.o
-
-# target to build an object file
-things/MyThing.C.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyThing.C.o
-.PHONY : things/MyThing.C.o
-
-things/MyThing.i: things/MyThing.C.i
-
-.PHONY : things/MyThing.i
-
-# target to preprocess a source file
-things/MyThing.C.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyThing.C.i
-.PHONY : things/MyThing.C.i
-
-things/MyThing.s: things/MyThing.C.s
-
-.PHONY : things/MyThing.s
-
-# target to generate assembly for a file
-things/MyThing.C.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyThing.C.s
-.PHONY : things/MyThing.C.s
-
 things/MyTriangleThing.o: things/MyTriangleThing.cpp.o
 
 .PHONY : things/MyTriangleThing.o
@@ -376,9 +349,6 @@ help:
 	@echo "... things/Box.o"
 	@echo "... things/Box.i"
 	@echo "... things/Box.s"
-	@echo "... things/MyThing.o"
-	@echo "... things/MyThing.i"
-	@echo "... things/MyThing.s"
 	@echo "... things/MyTriangleThing.o"
 	@echo "... things/MyTriangleThing.i"
 	@echo "... things/MyTriangleThing.s"

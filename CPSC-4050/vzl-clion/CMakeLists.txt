@@ -2,8 +2,7 @@ cmake_minimum_required(VERSION 3.19)
 project(vzl_clion)
 
 set(CMAKE_CXX_STANDARD 14)
-add_executable(vzl_clion things/vzl.C things/MyThing.C
-        things/MyThing.h include/Color.h include/Vector.h
+add_executable(vzl_clion things/vzl.C include/Color.h include/Vector.h
         include/VzlViewer.h include/VzlThing.h base/VzlThing.C base/VzlViewer.C things/Box.C things/Box.h
         things/Plane.C things/Plane.h things/Triangle.cpp things/Triangle.h things/MyTriangleThing.cpp things/MyTriangleThing.h)
 

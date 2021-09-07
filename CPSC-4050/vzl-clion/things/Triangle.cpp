@@ -8,35 +8,35 @@ vzl::Triangle::Triangle(const vzl::Vector &llc, const vzl::Vector &urc) {
     std::vector<Vector> face;
 
 /****************************************************************************/
-    face.push_back(llc);
-    face.push_back(Vector(llc[0], llc[1], urc[2]));
-    face.push_back(Vector(llc[0], urc[1], urc[2]));
-    face.push_back(Vector(llc[0], urc[1], llc[2]));
-    walls.push_back(face);
-    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
-    face.clear();
+//    face.push_back(llc);
+//    face.push_back(Vector(llc[0], llc[1], urc[2]));
+//    face.push_back(Vector(llc[0], urc[1], urc[2]));
+//    face.push_back(Vector(llc[0], urc[1], llc[2]));
+//    walls.push_back(face);
+//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    face.clear();
 
 /********************************************************************************/
 
 
-    face.push_back(llc);
-    face.push_back(Vector(llc[0], llc[1], urc[2]));
-    face.push_back(Vector(urc[0], llc[1], urc[2]));
-    face.push_back(Vector(urc[0], llc[1], llc[2]));
-    walls.push_back(face);
-    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
-    face.clear();
+//    face.push_back(llc);
+//    face.push_back(Vector(llc[0], llc[1], urc[2]));
+//    face.push_back(Vector(urc[0], llc[1], urc[2]));
+//    face.push_back(Vector(urc[0], llc[1], llc[2]));
+//    walls.push_back(face);
+//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    face.clear();
 
 
 /****************************************************************************/
 
-    face.push_back(llc);
-    face.push_back(Vector(llc[0], urc[1], llc[2]));
-    face.push_back(Vector(urc[0], urc[1], llc[2]));
-    face.push_back(Vector(urc[0], llc[1], llc[2]));
-    walls.push_back(face);
-    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
-    face.clear();
+//    face.push_back(llc);
+//    face.push_back(Vector(llc[0], urc[1], llc[2]));
+//    face.push_back(Vector(urc[0], urc[1], llc[2]));
+//    face.push_back(Vector(urc[0], llc[1], llc[2]));
+//    walls.push_back(face);
+//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    face.clear();
 
 /********************************************************************************/
 
@@ -45,13 +45,13 @@ vzl::Triangle::Triangle(const vzl::Vector &llc, const vzl::Vector &urc) {
 
 /*********************************************************************************/
 
-    face.push_back(urc);
-    face.push_back(Vector(urc[0], urc[1], llc[2]));
-    face.push_back(Vector(urc[0], llc[1], llc[2]));
-    face.push_back(Vector(urc[0], llc[1], urc[2]));
-    walls.push_back(face);
-    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
-    face.clear();
+//    face.push_back(urc);
+//    face.push_back(Vector(urc[0], urc[1], llc[2]));
+//    face.push_back(Vector(urc[0], llc[1], llc[2]));
+//    face.push_back(Vector(urc[0], llc[1], urc[2]));
+//    walls.push_back(face);
+//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    face.clear();
 }
 
 vzl::Triangle::~Triangle() = default;
