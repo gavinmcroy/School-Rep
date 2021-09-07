@@ -1,4 +1,4 @@
-# Install script for directory: /Users/gavintaylormcroy/Desktop/vzl-clion
+# Install script for directory: /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

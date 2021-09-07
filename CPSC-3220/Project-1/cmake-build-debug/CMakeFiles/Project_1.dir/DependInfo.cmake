@@ -4,7 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/leakcount.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles/Project_1.dir/leakcount.c.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/mallocTest.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles/Project_1.dir/mallocTest.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/shim.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-1/cmake-build-debug/CMakeFiles/Project_1.dir/shim.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

@@ -4,11 +4,14 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/gavintaylormcroy/Desktop/vzl-clion/base/VzlThing.C" "/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/base/VzlThing.C.o"
-  "/Users/gavintaylormcroy/Desktop/vzl-clion/base/VzlViewer.C" "/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o"
-  "/Users/gavintaylormcroy/Desktop/vzl-clion/things/MyThing.C" "/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/MyThing.C.o"
-  "/Users/gavintaylormcroy/Desktop/vzl-clion/things/Triangle.cpp" "/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o"
-  "/Users/gavintaylormcroy/Desktop/vzl-clion/things/vzl.C" "/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/vzl.C.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/base/VzlThing.C" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/base/VzlThing.C.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/base/VzlViewer.C" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/base/VzlViewer.C.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Box.C" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/Box.C.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyThing.C" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/MyThing.C.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Plane.C" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/Plane.C.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/Triangle.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/Triangle.cpp.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/vzl.C" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles/vzl_clion.dir/things/vzl.C.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")
 

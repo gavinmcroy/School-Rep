@@ -63,10 +63,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/vzl-clion
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -93,14 +93,14 @@ clean: CMakeFiles/vzl_clion.dir/clean
 CMakeFiles/vzl_clion.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target vzl_clion"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7,8,9 "Built target vzl_clion"
 .PHONY : CMakeFiles/vzl_clion.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/vzl_clion.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/vzl_clion.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/vzl_clion.dir/rule
 
 # Convenience name for target.

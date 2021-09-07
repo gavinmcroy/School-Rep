@@ -4,7 +4,8 @@ project(vzl_clion)
 set(CMAKE_CXX_STANDARD 14)
 add_executable(vzl_clion things/vzl.C things/MyThing.C
         things/MyThing.h include/Color.h include/Vector.h
-        include/VzlViewer.h include/VzlThing.h base/VzlThing.C base/VzlViewer.C things/Triangle.cpp things/Triangle.h)
+        include/VzlViewer.h include/VzlThing.h base/VzlThing.C base/VzlViewer.C things/Box.C things/Box.h
+        things/Plane.C things/Plane.h things/Triangle.cpp things/Triangle.h things/MyTriangleThing.cpp things/MyTriangleThing.h)
 
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)

@@ -142,6 +142,33 @@ Project_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/build
 .PHONY : Project_1/fast
 
+leakcount.o: leakcount.c.o
+
+.PHONY : leakcount.o
+
+# target to build an object file
+leakcount.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/leakcount.c.o
+.PHONY : leakcount.c.o
+
+leakcount.i: leakcount.c.i
+
+.PHONY : leakcount.i
+
+# target to preprocess a source file
+leakcount.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/leakcount.c.i
+.PHONY : leakcount.c.i
+
+leakcount.s: leakcount.c.s
+
+.PHONY : leakcount.s
+
+# target to generate assembly for a file
+leakcount.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/leakcount.c.s
+.PHONY : leakcount.c.s
+
 mallocTest.o: mallocTest.c.o
 
 .PHONY : mallocTest.o
@@ -169,6 +196,33 @@ mallocTest.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/mallocTest.c.s
 .PHONY : mallocTest.c.s
 
+shim.o: shim.c.o
+
+.PHONY : shim.o
+
+# target to build an object file
+shim.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/shim.c.o
+.PHONY : shim.c.o
+
+shim.i: shim.c.i
+
+.PHONY : shim.i
+
+# target to preprocess a source file
+shim.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/shim.c.i
+.PHONY : shim.c.i
+
+shim.s: shim.c.s
+
+.PHONY : shim.s
+
+# target to generate assembly for a file
+shim.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_1.dir/build.make CMakeFiles/Project_1.dir/shim.c.s
+.PHONY : shim.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -178,9 +232,15 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Project_1"
+	@echo "... leakcount.o"
+	@echo "... leakcount.i"
+	@echo "... leakcount.s"
 	@echo "... mallocTest.o"
 	@echo "... mallocTest.i"
 	@echo "... mallocTest.s"
+	@echo "... shim.o"
+	@echo "... shim.i"
+	@echo "... shim.s"
 .PHONY : help
 
 

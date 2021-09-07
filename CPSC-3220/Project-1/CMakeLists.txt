@@ -8,6 +8,6 @@ set(CMAKE_C_STANDARD 99)
 set(GCC_COVERAGE_COMPILE_FLAGS "-Wall")
 set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}")
 
-add_executable(Project_1 mallocTest.c)
+add_executable(Project_1 mallocTest.c leakcount.c shim.c)
 
 #target_link_libraries(Project_1 ${SHIM})

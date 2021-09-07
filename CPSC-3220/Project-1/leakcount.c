@@ -33,7 +33,7 @@ int main(int argc, char *argv[]) {
         printf("Child created\n");
         /* Need to link shim with process */
         setenv(environment, "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220"
-                            "/shim.dylib DYLD_FLAT_NAMESPACE=1 .//Users/gavintaylormcroy/Documents/GitHub/School-Rep"
+                            "/shim.dylib DYLD_FORCE_FLAT_NAMESPACE=1 .//Users/gavintaylormcroy/Documents/GitHub/School-Rep"
                             "/CPSC-3220/leakcount", 1);
         char *pathVar = getenv(environment);
         printf("%s", pathVar);

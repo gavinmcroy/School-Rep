@@ -5,8 +5,8 @@
 #include <stdio.h>
 
 int main() {
-    const int SIZE = 100;
-    printf("Loading %d\n",rand());
+   // const int SIZE = 100;
+    //printf("Loading %d     \n",rand());
     return 0;
 }
 

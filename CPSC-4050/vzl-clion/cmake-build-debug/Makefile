@@ -67,10 +67,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/vzl-clion
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/vzl-clion/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -196,6 +196,33 @@ base/VzlViewer.C.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/base/VzlViewer.C.s
 .PHONY : base/VzlViewer.C.s
 
+things/Box.o: things/Box.C.o
+
+.PHONY : things/Box.o
+
+# target to build an object file
+things/Box.C.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Box.C.o
+.PHONY : things/Box.C.o
+
+things/Box.i: things/Box.C.i
+
+.PHONY : things/Box.i
+
+# target to preprocess a source file
+things/Box.C.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Box.C.i
+.PHONY : things/Box.C.i
+
+things/Box.s: things/Box.C.s
+
+.PHONY : things/Box.s
+
+# target to generate assembly for a file
+things/Box.C.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Box.C.s
+.PHONY : things/Box.C.s
+
 things/MyThing.o: things/MyThing.C.o
 
 .PHONY : things/MyThing.o
@@ -222,6 +249,60 @@ things/MyThing.s: things/MyThing.C.s
 things/MyThing.C.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyThing.C.s
 .PHONY : things/MyThing.C.s
+
+things/MyTriangleThing.o: things/MyTriangleThing.cpp.o
+
+.PHONY : things/MyTriangleThing.o
+
+# target to build an object file
+things/MyTriangleThing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o
+.PHONY : things/MyTriangleThing.cpp.o
+
+things/MyTriangleThing.i: things/MyTriangleThing.cpp.i
+
+.PHONY : things/MyTriangleThing.i
+
+# target to preprocess a source file
+things/MyTriangleThing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.i
+.PHONY : things/MyTriangleThing.cpp.i
+
+things/MyTriangleThing.s: things/MyTriangleThing.cpp.s
+
+.PHONY : things/MyTriangleThing.s
+
+# target to generate assembly for a file
+things/MyTriangleThing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.s
+.PHONY : things/MyTriangleThing.cpp.s
+
+things/Plane.o: things/Plane.C.o
+
+.PHONY : things/Plane.o
+
+# target to build an object file
+things/Plane.C.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Plane.C.o
+.PHONY : things/Plane.C.o
+
+things/Plane.i: things/Plane.C.i
+
+.PHONY : things/Plane.i
+
+# target to preprocess a source file
+things/Plane.C.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Plane.C.i
+.PHONY : things/Plane.C.i
+
+things/Plane.s: things/Plane.C.s
+
+.PHONY : things/Plane.s
+
+# target to generate assembly for a file
+things/Plane.C.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vzl_clion.dir/build.make CMakeFiles/vzl_clion.dir/things/Plane.C.s
+.PHONY : things/Plane.C.s
 
 things/Triangle.o: things/Triangle.cpp.o
 
@@ -292,9 +373,18 @@ help:
 	@echo "... base/VzlViewer.o"
 	@echo "... base/VzlViewer.i"
 	@echo "... base/VzlViewer.s"
+	@echo "... things/Box.o"
+	@echo "... things/Box.i"
+	@echo "... things/Box.s"
 	@echo "... things/MyThing.o"
 	@echo "... things/MyThing.i"
 	@echo "... things/MyThing.s"
+	@echo "... things/MyTriangleThing.o"
+	@echo "... things/MyTriangleThing.i"
+	@echo "... things/MyTriangleThing.s"
+	@echo "... things/Plane.o"
+	@echo "... things/Plane.i"
+	@echo "... things/Plane.s"
 	@echo "... things/Triangle.o"
 	@echo "... things/Triangle.i"
 	@echo "... things/Triangle.s"

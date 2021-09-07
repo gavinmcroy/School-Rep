@@ -166,7 +166,7 @@ namespace vzl {
         //! This is useful for python bindings.
         char *__str__() {
             static char tmp[1024];
-            std::sprintf(tmp, "Color(%g,%g,%g,%g)", xyzw[0], xyzw[1], xyzw[2], xyzw[3]);
+            sprintf(tmp, "Color(%g,%g,%g,%g)", xyzw[0], xyzw[1], xyzw[2], xyzw[3]);
             return tmp;
         }
 
