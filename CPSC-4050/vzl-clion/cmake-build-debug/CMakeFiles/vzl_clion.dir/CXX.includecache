@@ -24,25 +24,13 @@ memory
 map
 -
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.cpp
-OpenGL/gl.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/include/VzlViewer.h
+cstring
 -
-OpenGL/glu.h
+vector
 -
-GLUT/glut.h
--
-GL/gl.h
--
-GL/glu.h
--
-MyTriangleThing.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.h
-cstdlib
--
-iostream
--
-omp.h
--
+VzlThing.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/include/VzlThing.h
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.h
 ../include/Vector.h
@@ -64,9 +52,9 @@ iostream
 ../include/Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/include/Vector.h
 
-/usr/local/include/omp.h
-stdlib.h
--
-stdint.h
--
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/vzl.C
+../include/VzlViewer.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/include/VzlViewer.h
+MyTriangleThing.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/vzl-clion/things/MyTriangleThing.h
 

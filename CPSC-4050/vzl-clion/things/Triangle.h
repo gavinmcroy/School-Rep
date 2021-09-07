@@ -14,7 +14,7 @@ namespace vzl {
 
     class Triangle {
     public:
-        Triangle(const Vector &llc, const Vector &urc);
+        Triangle();
 
         ~Triangle();
 
