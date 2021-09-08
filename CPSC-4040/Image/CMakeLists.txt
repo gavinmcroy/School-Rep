@@ -29,6 +29,8 @@ target_link_libraries(Open_Test
         )
 target_link_libraries(Open_Test /usr/local/Cellar/openimageio/2.2.17.0/lib/libOpenImageIO.2.2.17.dylib)
 
+SET(GXX_COVERAGE_COMPILE_FLAGS "-O3 -Wall")
+
 find_package(OpenGL REQUIRED)
 find_package(GLUT REQUIRED)
 include_directories(${OPENGL_INCLUDE_DIRS} ${GLUT_INCLUDE_DIRS})

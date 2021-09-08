@@ -36,10 +36,8 @@ void invertImage();
 int getImagePixelTypeForGL();
 
 int state = 0;
-//unsigned char *pixels = nullptr;
 std::vector<unsigned char *> images;
 std::vector<ImageSpec> specs;
-//ImageSpec spec;
 
 int main(int argc, char *argv[]) {
 
@@ -50,7 +48,7 @@ int main(int argc, char *argv[]) {
 
     if (argc > 1) {
         for (int i = 1; argv[i] != nullptr; i++) {
-            loadImage(argv[i]);
+            loadImage(argv[1]);
         }
     }
 
@@ -193,13 +191,20 @@ void loadImage(const std::string &inputFile) {
     int pos = specs.size() - 1;
 
     /* TODO Special case for gray scale images */
-    if (getImagePixelTypeForGL() == GL_LUMINANCE) {
+    if (specs[pos].nchannels == 1) {
         int RGB = 3;
         auto *pixelsTemp = new unsigned char[specs[pos].width * specs[pos].height];
         input->read_image(TypeDesc::UINT8, pixelsTemp);
         pixels = new unsigned char[specs[pos].width * specs[pos].height * RGB];
+        int j = 0;
+        /* First run ensures j++ does not happen immediately */
+        bool firstRun = true;
         for (int i = 0; i < specs[pos].width * specs[pos].height * RGB; i++) {
-            
+            if (i % 3 == 0 && !firstRun) {
+                j++;
+            }
+            pixels[i] = pixelsTemp[j];
+            firstRun = false;
         }
         images.push_back(pixels);
     } else {
@@ -224,9 +229,12 @@ void loadImage(const std::string &inputFile) {
 /* Writes the image */
 void writeImage(const std::string &outputFile) {
     auto out = ImageOutput::create("Output.jpg");
-    ImageSpec specOut(specs[state].width, specs[state].height, specs[state].nchannels, TypeDesc::UINT8);
+    /* TODO CHANGE specs[state].nchannels *3 */
+    ImageSpec specOut(specs[state].width, specs[state].height, specs[state].nchannels * 3, TypeDesc::UINT8);
     out->open(outputFile, specOut);
-    out->write_image(TypeDesc::UINT8, images[state]);
+    std::cout << state << std::endl;
+    auto *val = images[state];
+    out->write_image(TypeDesc::UINT8, val);
     out->close();
 }
 
@@ -250,7 +258,7 @@ int getImagePixelTypeForGL() {
     } else if (mainString == "RGBA") {
         return GL_RGBA;
     } else {
-        return GL_LUMINANCE;
+        return GL_RGB;
     }
 }
 
