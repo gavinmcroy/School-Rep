@@ -38,6 +38,12 @@ bool displayOn = true;
 ImageSpec spec;
 
 int main(int argc, char *argv[]) {
+
+    /* TODO KNOWN PROBLEMS:
+     * Images are displayed upside down
+     * grey scale images are improperly displayed
+     * Implement Multiple Image Input/Output */
+
     if (argc > 1) {
         loadImage(argv[1]);
     }
@@ -75,6 +81,7 @@ void displayFunction() {
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
+/* Required openGL function that handles window resizing */
 void reshapeFunction(int x, int y) {
     /*do nothing */
 }
@@ -138,9 +145,16 @@ void loadImage(const std::string &inputFile) {
     }
 
     spec = input->spec();
-    pixels = new unsigned char[spec.width * spec.height * spec.nchannels];
+    /* TODO Special case for gray scale images */
+    if (getImagePixelTypeForGL() == GL_LUMINANCE) {
+        int RGB = 3;
+        pixels = new unsigned char[spec.width * spec.height * RGB];
+        input->read_image(TypeDesc::UINT8, pixels);
+    } else {
+        pixels = new unsigned char[spec.width * spec.height * spec.nchannels];
+        input->read_image(TypeDesc::UINT8, pixels);
+    }
 
-    input->read_image(TypeDesc::UINT8, pixels);
     std::string displayType;
     for (auto &channelName : spec.channelnames) {
         displayType += channelName;
@@ -178,7 +192,6 @@ int getImagePixelTypeForGL() {
     for (auto &channelName : spec.channelnames) {
         mainString += channelName;
     }
-    //std::cout << mainString << std::endl;
     if (mainString == "RGB") {
         return GL_RGB;
     } else if (mainString == "RGBA") {
@@ -186,6 +199,5 @@ int getImagePixelTypeForGL() {
     } else {
         return GL_LUMINANCE;
     }
-    // }
 }
 

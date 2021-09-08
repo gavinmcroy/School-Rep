@@ -6,6 +6,7 @@
 #include <dlfcn.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdbool.h>
 
 void __attribute__((constructor)) lib_init();
 
@@ -15,16 +16,15 @@ void *(*original_malloc)(size_t size) = NULL;
 
 void (*original_free)(void *ptr) = NULL;
 
-
 int (*original_rand)(void) = NULL;
 
 bool val = true;
 
 void lib_init() {
-    printf("Loading library\n");
     original_malloc = dlsym(RTLD_NEXT, "malloc");
     original_free = dlsym(RTLD_NEXT, "free");
     original_rand = dlsym(RTLD_NEXT, "rand");
+    printf("Loading library\n");
 }
 
 void lib_destroy() {
@@ -32,15 +32,13 @@ void lib_destroy() {
 }
 
 void free(void *ptr) {
-    if(original_free==NULL){
-        val = false;
-    }
+
     original_free(ptr);
 }
 
-//void *malloc(size_t size) {
-//    //return (original_malloc(size));
-//}
+void *malloc(size_t size) {
+    return (original_malloc(size));
+}
 
 int rand(void) {
     return 0;
