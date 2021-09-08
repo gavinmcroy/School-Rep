@@ -33,9 +33,12 @@ void invertImage();
 
 int getImagePixelTypeForGL();
 
-unsigned char *pixels = nullptr;
+int state = 0;
+//unsigned char *pixels = nullptr;
+std::vector<unsigned char*> images;
+std::vector<ImageSpec> specs;
 bool displayOn = true;
-ImageSpec spec;
+//ImageSpec spec;
 
 int main(int argc, char *argv[]) {
 
@@ -49,6 +52,7 @@ int main(int argc, char *argv[]) {
     }
 
     openGLSetup(argc, argv);
+    for(int i = 0; i < images.size(); i++);
     delete pixels;
     return 0;
 }
