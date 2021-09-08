@@ -16,10 +16,10 @@ int main(int argc, char **argv) {
     vzl::VzlViewer *viewer = vzl::CreateViewer();
 
     // Set up a thing
-   // for(int i = 0; i < 10; i++) {
+    //for(int i = 0; i < 10; i++) {
     vzl::VzlThing mything = vzl::CreateMyThing();
     viewer->AddThing(mything);
-   // }
+   //}
 
 
     // Initialize viewer
