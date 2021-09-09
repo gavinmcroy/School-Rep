@@ -43,7 +43,9 @@ namespace vzl {
         void Usage() override;
 
     private:
-        const int MAX_TRIANGLES = 1;
+        const int MAX_TRIANGLES = 1000;
+
+        const int MAX_ANGLE = 30;
 
         std::vector<Triangle> triangles;
 

@@ -27,7 +27,7 @@ vzl::Triangle::Triangle() {
         triangleCords.push_back(i);
     }
 
-    debugInformation();
+  //  debugInformation();
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
@@ -35,8 +35,31 @@ vzl::Triangle::Triangle() {
     face.clear();
 }
 
+/* This condition is assuming the no param constructor has already been created.
+ * Inputted vertex's are assumed to have been normalized */
 vzl::Triangle::Triangle(const vzl::Vector &vertex1, const vzl::Vector &vertex2) {
     /* Triangle generated must use two previous vertices */
+    std::cout<<"Style 2 created"<<std::endl;
+    std::vector<Vector> face;
+    int pPad = 1;
+    int nPad = -1;
+    Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), pPad + drand48());
+    vector3.normalize();
+    face.push_back(vertex1);
+    face.push_back(vertex2);
+    face.push_back(vector3);
+
+    triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
+    for (const auto &i : face) {
+        triangleCords.push_back(i);
+    }
+
+   // debugInformation();
+    setEdgeVectors();
+    setTriangleArea();
+    setAspectRatio();
+    setNormalVector();
+    face.clear();
 }
 
 vzl::Triangle::~Triangle() = default;
