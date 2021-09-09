@@ -26,7 +26,7 @@ namespace vzl {
             return walls.size();
         }
 
-        const void threeEdgeVector() const;
+        const std::vector<Vector> &threeEdgeVector() const;
 
         const double unitNormal() const;
 
@@ -39,6 +39,8 @@ namespace vzl {
         std::vector<std::vector<Vector>> walls;
 
         std::vector<Color> wall_colors;
+
+        std::vector<Vector> edgeVectors;
 
         double length(const Vector& v1,const Vector& v2);
 
