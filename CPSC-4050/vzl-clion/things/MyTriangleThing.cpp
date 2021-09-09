@@ -26,7 +26,11 @@ using namespace vzl;
 MyTriangleThing::MyTriangleThing(const std::string &nam) :
         VzlThingyDingy(nam) {
     for (int i = 0; i < MAX_TRIANGLES; i++) {
-        triangles.emplace_back();
+        if(i==0){
+            triangles.emplace_back();
+        }else{
+            triangles.push_back(generationRules(triangles[i-1]));
+        }
     }
     std::cout << MAX_TRIANGLES << " " << name << " constructed\n";
 }
@@ -47,12 +51,11 @@ void MyTriangleThing::Display() {
         /* Drawing stuff */
         const Color &ci = triangles[i].wall_color(0);
         glColor3f(ci.red(), ci.green(), ci.blue());
-        const std::vector<Vector> &wall = triangles[i].triangle_wall(0);
+        const std::vector<Vector> &wall = triangles[i].triangleCords;
 
-        for (size_t p = 0; p < wall.size(); p++) {
+        for (size_t p = 0; p <wall.size(); p++) {
             glVertex3f(wall[p].X(), wall[p].Y(), wall[p].Z());
         }
-
     }
     glEnd();
 }
@@ -72,6 +75,10 @@ vzl::VzlThing vzl::CreateMyThing() {
     return VzlThing(new MyTriangleThing());
 }
 
-void MyTriangleThing::generationRules() {
+/* Give me the previous triangle, and ill generate one that meets the requirement */
+Triangle MyTriangleThing::generationRules(const Triangle& previous) {
     /* Code that specifies triangle rules */
+    const std::vector<Vector> &wall = previous.triangleCords;
+    Triangle triangle(wall[0],wall[1]);
+    return triangle;
 }

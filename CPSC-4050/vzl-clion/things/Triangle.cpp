@@ -20,63 +20,28 @@ vzl::Triangle::Triangle() {
     face.push_back(vector2);
     face.push_back(vector3);
 
-    /* DEBUG INFORMATION */
-    double edgeLength1 = length(face.at(0), face.at(1));
-    double edgeLength2 = length(face.at(0), face.at(2));
-    double edgeLength3 = length(face.at(1), face.at(2));
-    std::cout << "Data X , Y , Z " << face.at(0).X() << " " << face.at(0).Y() << face.at(0).Z() << std::endl;
-    std::cout << "Data X , Y , Z " << face.at(1).X() << " " << face.at(1).Y() << face.at(1).Z() << std::endl;
-    std::cout << "Data X , Y , Z " << face.at(2).X() << " " << face.at(2).Y() << face.at(2).Z() << std::endl;
-    std::cout << "Edge 1 Length " << edgeLength1 << std::endl;
-    std::cout << "Edge 2 Length " << edgeLength2 << std::endl;
-    std::cout << "Edge 3 Length " << edgeLength3 << std::endl;
-    vertex.push_back(face);
-    wall_colors.emplace_back(drand48(), drand48(), drand48(), 0);
+    triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
 
-    //V1 V2
-    Vector v1v2 = vector2 - vector1;
-    //V1 V3
-    Vector v1v3 = vector3 - vector1;
-    //V2 V3
-    Vector v2v3 = vector3 - vector2;
-
-    edgeVectors.push_back(v1v2);
-    edgeVectors.push_back(v1v3);
-    edgeVectors.push_back(v2v3);
-
-
-    /* Calculating triangle area */
-    /* Find cross product. 1/2 * magnitude(cross product) */
-    Vector crossProduct = v1v2 ^ v1v3;
-    area = .5 * crossProduct.magnitude();
-    std::cout << "Triangle area " << triangleArea() << std::endl;
-    /* Calculating triangle area */
-
-    /* Aspect ratio code */
-    double max;
-    double min;
-    /* Find max */
-    if(edgeLength3 > edgeLength2 && edgeLength3 > edgeLength1){
-        max = edgeLength3;
-    }else if(edgeLength2 > edgeLength3 && edgeLength3 > edgeLength1){
-        max = edgeLength2;
-    }else{
-        max = edgeLength1;
+    /* Keep track of vectors */
+    for (const auto &i : face) {
+        triangleCords.push_back(i);
     }
 
-    /* Find min */
-    if(edgeLength3 < edgeLength2 && edgeLength3 < edgeLength1){
-        min = edgeLength3;
-    }else if(edgeLength2 < edgeLength3 && edgeLength3 < edgeLength1){
-        min = edgeLength2;
-    }else{
-        min = edgeLength1;
-    }
-    aspect_ratio = max / min;
-    std::cout<<"Aspect ratio "<<aspect_ratio<<std::endl;
-    /* Aspect ratio code */
+    debugInformation();
+    setEdgeVectors();
+    setTriangleArea();
+    setAspectRatio();
+    setNormalVector();
+    face.clear();
+}
 
-    /* Find and set the normal vector */
+vzl::Triangle::Triangle(const vzl::Vector &vertex1, const vzl::Vector &vertex2) {
+    /* Triangle generated must use two previous vertices */
+}
+
+vzl::Triangle::~Triangle() = default;
+
+void vzl::Triangle::setNormalVector() {
     double x = ((edgeVectors[0].Y() * edgeVectors[1].Z()) -
                 (edgeVectors[0].Z() * edgeVectors[1].Y()));
     double y = ((edgeVectors[0].Z() * edgeVectors[1].X()) -
@@ -87,18 +52,78 @@ vzl::Triangle::Triangle() {
     unit_normal.normalize();
 
     std::cout << "Normal vector " << unit_normal.X() << " " << unit_normal.Y() << " "
-    << unit_normal.Z() << std::endl;
-    face.clear();
+              << unit_normal.Z() << std::endl;
 }
 
-vzl::Triangle::~Triangle() = default;
+void vzl::Triangle::setAspectRatio() {
+    /* Aspect ratio code */
+    double v1v2Length = length(triangleCords[0], triangleCords[1]);
+    double v1v3Length = length(triangleCords[0], triangleCords[2]);
+    double v2v3Length = length(triangleCords[1], triangleCords[2]);
+    double max = 0.0;
+    double min = 0.0;
+    /* Find max */
+    if (v2v3Length > v1v3Length && v2v3Length > v1v2Length) {
+        max = v2v3Length;
+    } else if (v1v3Length > v2v3Length && v2v3Length > v1v2Length) {
+        max = v1v3Length;
+    } else {
+        max = v1v2Length;
+    }
 
-const std::vector<vzl::Vector> &vzl::Triangle::triangle_wall(int index) const {
-    return vertex[index];;
+    /* Find min */
+    if (v2v3Length < v1v3Length && v2v3Length < v1v2Length) {
+        min = v2v3Length;
+    } else if (v1v3Length < v2v3Length && v2v3Length < v1v2Length) {
+        min = v1v3Length;
+    } else {
+        min = v1v2Length;
+    }
+    aspect_ratio = max / min;
+    std::cout << "Aspect ratio " << aspect_ratio << std::endl;
+    /* Aspect ratio code */
 }
+
+void vzl::Triangle::setTriangleArea() {
+    /* Calculating triangle area */
+    /* Find cross product (v1v2 v1v3) */
+    Vector crossProduct = edgeVectors[0] ^ edgeVectors[1];
+    area = .5 * crossProduct.magnitude();
+    std::cout << "Triangle area " << triangleArea() << std::endl;
+    /* Calculating triangle area */
+}
+
+void vzl::Triangle::setEdgeVectors() {
+    //V1 V2
+    Vector v1v2 = triangleCords[1] - triangleCords[0];
+    //V1 V3
+    Vector v1v3 = triangleCords[2] - triangleCords[0];
+    //V2 V3
+    Vector v2v3 = triangleCords[2] - triangleCords[1];
+    edgeVectors.push_back(v1v2);
+    edgeVectors.push_back(v1v3);
+    edgeVectors.push_back(v2v3);
+}
+
+void vzl::Triangle::debugInformation() {
+    /* DEBUG INFORMATION */
+    double v1v2Length = length(triangleCords[0], triangleCords[1]);
+    double v1v3Length = length(triangleCords[0], triangleCords[2]);
+    double v2v3Length = length(triangleCords[1], triangleCords[2]);
+    std::cout << "Data X , Y , Z " << triangleCords[0].X() << " " << triangleCords[0].Y()
+              << triangleCords[0].Z() << std::endl;
+    std::cout << "Data X , Y , Z " << triangleCords[1].X() << " " << triangleCords[1].Y()
+              << triangleCords[1].Z() << std::endl;
+    std::cout << "Data X , Y , Z " << triangleCords[2].X() << " " << triangleCords[2].Y()
+              << triangleCords[2].Z() << std::endl;
+    std::cout << "Edge 1 Length " << v1v2Length << std::endl;
+    std::cout << "Edge 2 Length " << v1v3Length << std::endl;
+    std::cout << "Edge 3 Length " << v2v3Length << std::endl;
+}
+
 
 const vzl::Color &vzl::Triangle::wall_color(int index) const {
-    return wall_colors[index];;
+    return triangleColor[index];
 }
 
 const vzl::Vector &vzl::Triangle::threeEdgeVector(int index) const {
@@ -136,8 +161,8 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
 ////    face.push_back(Vector(llc[0], llc[1], urc[2]));
 ////    face.push_back(Vector(urc[0], llc[1], urc[2]));
 ////    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    vertex.push_back(face);
-//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    triangleCords.push_back(face);
+//    triangleColor.push_back(Color(drand48(), drand48(), drand48(), 0));
 //    face.clear();
 
 
@@ -156,8 +181,8 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
 ////    face.push_back(Vector(llc[0], urc[1], llc[2]));
 ////    face.push_back(Vector(urc[0], urc[1], llc[2]));
 ////    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    vertex.push_back(face);
-//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    triangleCords.push_back(face);
+//    triangleColor.push_back(Color(drand48(), drand48(), drand48(), 0));
 //    face.clear();
 
 /********************************************************************************/
@@ -171,8 +196,8 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
 //    face.push_back(Vector(urc[0], urc[1], llc[2]));
 //    face.push_back(Vector(urc[0], llc[1], llc[2]));
 //    face.push_back(Vector(urc[0], llc[1], urc[2]));
-//    vertex.push_back(face);
-//    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
+//    triangleCords.push_back(face);
+//    triangleColor.push_back(Color(drand48(), drand48(), drand48(), 0));
 //    face.clear();
 
 /* Aspect Ratio. Find inRadius*/

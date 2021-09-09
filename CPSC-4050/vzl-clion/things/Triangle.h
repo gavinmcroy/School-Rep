@@ -13,18 +13,37 @@
 namespace vzl {
 
     class Triangle {
+    private:
+        double area;
+        double aspect_ratio;
+
+        Vector unit_normal;
+
+        /*0 = v1v2 1 = v1v3 2 = v2v3 */
+        std::vector<Vector> edgeVectors;
+
+        std::vector<Color> triangleColor;
+
+        void setNormalVector();
+
+        void setAspectRatio();
+
+        void setTriangleArea();
+
+        void setEdgeVectors();
+
+        void debugInformation();
+
+        double length(const Vector &v1, const Vector &v2);
+
     public:
         Triangle();
 
+        Triangle(const Vector &vertex1, const Vector &vertex2);
+
         ~Triangle();
 
-        const std::vector<Vector> &triangle_wall(int index) const;
-
         const Color &wall_color(int index) const;
-
-        size_t nb_walls() const {
-            return vertex.size();
-        }
 
         const Vector &threeEdgeVector(int index) const;
 
@@ -34,21 +53,7 @@ namespace vzl {
 
         const double aspectRatio() const;
 
-        std::vector<std::vector<Vector>> vertex;
-
-
-    private:
-        double area;
-        double aspect_ratio;
-
-        Vector unit_normal;
-
-        std::vector<Vector> edgeVectors;
-
-        std::vector<Color> wall_colors;
-
-
-        double length(const Vector &v1, const Vector &v2);
+        std::vector<Vector> triangleCords;
 
     };
 

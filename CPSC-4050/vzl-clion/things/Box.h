@@ -45,7 +45,7 @@ class Box
 
     //std::vector<Plane> planes;
 
-    // Each triangle_wall is four points in order.  This and wall_colors are for opengl display purposes.
+    // Each triangle_wall is four points in order.  This and triangleColor are for opengl display purposes.
     std::vector< std::vector<Vector> > walls;
     std::vector<Color> wall_colors;
 
