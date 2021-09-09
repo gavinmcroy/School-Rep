@@ -1,4 +1,6 @@
 #include <memory>
+#include <iostream>
+#include <string>
 
 #define GL_SILENCE_DEPRECATION
 
@@ -43,12 +45,11 @@ int main(int argc, char *argv[]) {
 
     /* TODO KNOWN PROBLEMS:
      * Images are displayed upside down
-     * grey scale images are improperly displayed
-     * Implement Multiple Image Input/Output */
+     * grey scale images are improperly displayed but properly outputted? */
 
     if (argc > 1) {
         for (int i = 1; argv[i] != nullptr; i++) {
-            loadImage(argv[1]);
+            loadImage(argv[i]);
         }
     }
 
@@ -144,6 +145,7 @@ void keyboardEvent(unsigned char key, int x, int y) {
     }
 }
 
+/* OpenGL function for handling arrow keys + function keys */
 void specialKeyboardEvent(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_LEFT: {
@@ -229,8 +231,12 @@ void loadImage(const std::string &inputFile) {
 /* Writes the image */
 void writeImage(const std::string &outputFile) {
     auto out = ImageOutput::create("Output.jpg");
-    /* TODO CHANGE specs[state].nchannels *3 */
-    ImageSpec specOut(specs[state].width, specs[state].height, specs[state].nchannels * 3, TypeDesc::UINT8);
+    ImageSpec specOut;
+    if (specs[state].nchannels == 1) {
+        specOut = ImageSpec(specs[state].width, specs[state].height, specs[state].nchannels * 3, TypeDesc::UINT8);
+    } else {
+        specOut = ImageSpec(specs[state].width, specs[state].height, specs[state].nchannels, TypeDesc::UINT8);
+    }
     out->open(outputFile, specOut);
     std::cout << state << std::endl;
     auto *val = images[state];
@@ -238,7 +244,7 @@ void writeImage(const std::string &outputFile) {
     out->close();
 }
 
-/* Inverts the image */
+/* Inverts the image by just subtracting max pixel value by current pixel value */
 void invertImage() {
     unsigned char maxVal = 255;
     for (int i = 0; i < (specs[state].width * specs[state].height * specs[state].nchannels); i++) {
