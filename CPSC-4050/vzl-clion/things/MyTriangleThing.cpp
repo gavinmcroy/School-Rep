@@ -80,15 +80,30 @@ Triangle MyTriangleThing::generationRules(const Triangle &previous) {
     int radian = 180;
     const std::vector<Vector> &vertices = previous.triangleCords;
     /* 0 = v1, 1 = v2 */
-    Triangle triangle(vertices[0], vertices[1]);
+    int x = (int) (drand48() * 3);
+    int y = (int) (drand48() * 3);
+    while (y == x) {
+        y = (int) (drand48() * 3);
+    }
+    std::cout << "X " << x << std::endl;
+    Triangle triangle(vertices[x], vertices[y]);
+
 
     /* arccos[(xa * xb + ya * yb + za * zb) / (√(xa2 + ya2 + za2) * √(xb2 + yb2 + zb2))] */
     double theta = acos(triangle.unitNormal() * previous.unitNormal() / (triangle.unitNormal().magnitude() *
                                                                          previous.unitNormal().magnitude()));
     theta = theta * (radian / M_PI);
     /* angle each of the triangles normal vec must be less than MAX_ANGLE */
-    if (theta > MAX_ANGLE) {
-        std::cout << "Invalid angle detected " << std::endl;
+    while (theta > MAX_ANGLE) {
+        x = (int) (drand48() * 3);
+        y = (int) (drand48() * 3);
+        while (y == x) {
+            y = (int) (drand48() * 3);
+        }
+        Triangle temp(vertices[x], vertices[y]);
+        theta = acos(temp.unitNormal() * previous.unitNormal() / (temp.unitNormal().magnitude() *
+                                                                  previous.unitNormal().magnitude()));
+        theta = theta * (radian / M_PI);
     }
     std::cout << "Angle of norm " << theta << std::endl;
     return triangle;

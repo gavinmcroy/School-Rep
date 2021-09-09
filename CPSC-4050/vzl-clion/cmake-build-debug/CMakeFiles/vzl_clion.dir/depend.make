@@ -21,7 +21,6 @@ CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../include/VzlThing.h
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../things/MyTriangleThing.cpp
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../things/MyTriangleThing.h
 CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: ../things/Triangle.h
-CMakeFiles/vzl_clion.dir/things/MyTriangleThing.cpp.o: /usr/local/include/omp.h
 
 CMakeFiles/vzl_clion.dir/things/Plane.C.o: ../include/Color.h
 CMakeFiles/vzl_clion.dir/things/Plane.C.o: ../include/Vector.h

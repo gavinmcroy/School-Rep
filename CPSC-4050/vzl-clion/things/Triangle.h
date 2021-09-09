@@ -14,6 +14,8 @@ namespace vzl {
 
     class Triangle {
     private:
+        const int MAX_LENGTH = 2;
+        const int MIN_LENGTH = 1;
         double area;
         double aspect_ratio;
 
