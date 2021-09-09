@@ -26,9 +26,9 @@ namespace vzl {
             return walls.size();
         }
 
-        const std::vector<Vector> &threeEdgeVector() const;
+        const Vector &threeEdgeVector(int index) const;
 
-        const double unitNormal() const;
+        const vzl::Vector unitNormal() const;
 
         const double triangleArea() const;
 
@@ -36,13 +36,19 @@ namespace vzl {
 
 
     private:
+        double area;
+        double aspect_ratio;
+
+        Vector unit_normal;
+
+        std::vector<Vector> edgeVectors;
+
         std::vector<std::vector<Vector>> walls;
 
         std::vector<Color> wall_colors;
 
-        std::vector<Vector> edgeVectors;
 
-        double length(const Vector& v1,const Vector& v2);
+        double length(const Vector &v1, const Vector &v2);
 
     };
 
