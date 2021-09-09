@@ -8,7 +8,6 @@ vzl::Triangle::Triangle() {
     std::vector<Vector> face;
     int pPad = 1;
     int nPad = -1;
-    bool debug = true;
 
     /**** FIRST TRIANGLE RENDERED MUST HAVE A DISTANCE OF 1-2 BETWEEN EACH EDGE *****/
     Vector vector1(drand48(), pPad + drand48(), pPad + drand48());
@@ -31,12 +30,10 @@ vzl::Triangle::Triangle() {
     std::cout << "Edge 1 Length " << edgeLength1 << std::endl;
     std::cout << "Edge 2 Length " << edgeLength2 << std::endl;
     std::cout << "Edge 3 Length " << edgeLength3 << std::endl;
-    walls.push_back(face);
+    vertex.push_back(face);
     wall_colors.emplace_back(drand48(), drand48(), drand48(), 0);
 
-    /*TODO implement index function */
     //V1 V2
-    //(x,y,z)
     Vector v1v2 = vector2 - vector1;
     //V1 V3
     Vector v1v3 = vector3 - vector1;
@@ -53,18 +50,9 @@ vzl::Triangle::Triangle() {
     Vector crossProduct = v1v2 ^ v1v3;
     area = .5 * crossProduct.magnitude();
     std::cout << "Triangle area " << triangleArea() << std::endl;
+    /* Calculating triangle area */
 
-    /* Aspect Ratio. Find inRadius*/
-    /* max length / min */
-//    double perimeter = edgeLength1 + edgeLength2 + edgeLength3;
-//    double semiPerimeter = .5 * perimeter;
-//    double inRadius = area / semiPerimeter;
-//    double circumRadius = (edgeLength1 * edgeLength2 * edgeLength3) / (4 * inRadius * semiPerimeter);
-//    double aspectRatio = circumRadius / (2 * inRadius);
-//    std::cout << "PERIMETER " << perimeter << std::endl;
-//    std::cout << "inRadius " << inRadius << std::endl;
-//    std::cout << "circumRadius " << circumRadius << std::endl;
-//    std::cout << "Aspect ratio " << aspectRatio << std::endl;
+    /* Aspect ratio code */
     double max;
     double min;
     /* Find max */
@@ -86,6 +74,7 @@ vzl::Triangle::Triangle() {
     }
     aspect_ratio = max / min;
     std::cout<<"Aspect ratio "<<aspect_ratio<<std::endl;
+    /* Aspect ratio code */
 
     /* Find and set the normal vector */
     double x = ((edgeVectors[0].Y() * edgeVectors[1].Z()) -
@@ -97,7 +86,6 @@ vzl::Triangle::Triangle() {
     unit_normal.set(x, y, z);
     unit_normal.normalize();
 
-
     std::cout << "Normal vector " << unit_normal.X() << " " << unit_normal.Y() << " "
     << unit_normal.Z() << std::endl;
     face.clear();
@@ -106,7 +94,7 @@ vzl::Triangle::Triangle() {
 vzl::Triangle::~Triangle() = default;
 
 const std::vector<vzl::Vector> &vzl::Triangle::triangle_wall(int index) const {
-    return walls[index];;
+    return vertex[index];;
 }
 
 const vzl::Color &vzl::Triangle::wall_color(int index) const {
@@ -148,7 +136,7 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
 ////    face.push_back(Vector(llc[0], llc[1], urc[2]));
 ////    face.push_back(Vector(urc[0], llc[1], urc[2]));
 ////    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    walls.push_back(face);
+//    vertex.push_back(face);
 //    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
 //    face.clear();
 
@@ -168,7 +156,7 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
 ////    face.push_back(Vector(llc[0], urc[1], llc[2]));
 ////    face.push_back(Vector(urc[0], urc[1], llc[2]));
 ////    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    walls.push_back(face);
+//    vertex.push_back(face);
 //    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
 //    face.clear();
 
@@ -183,6 +171,18 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
 //    face.push_back(Vector(urc[0], urc[1], llc[2]));
 //    face.push_back(Vector(urc[0], llc[1], llc[2]));
 //    face.push_back(Vector(urc[0], llc[1], urc[2]));
-//    walls.push_back(face);
+//    vertex.push_back(face);
 //    wall_colors.push_back(Color(drand48(), drand48(), drand48(), 0));
 //    face.clear();
+
+/* Aspect Ratio. Find inRadius*/
+/* max length / min */
+//    double perimeter = edgeLength1 + edgeLength2 + edgeLength3;
+//    double semiPerimeter = .5 * perimeter;
+//    double inRadius = area / semiPerimeter;
+//    double circumRadius = (edgeLength1 * edgeLength2 * edgeLength3) / (4 * inRadius * semiPerimeter);
+//    double aspectRatio = circumRadius / (2 * inRadius);
+//    std::cout << "PERIMETER " << perimeter << std::endl;
+//    std::cout << "inRadius " << inRadius << std::endl;
+//    std::cout << "circumRadius " << circumRadius << std::endl;
+//    std::cout << "Aspect ratio " << aspectRatio << std::endl;

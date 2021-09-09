@@ -415,6 +415,9 @@ namespace vzl {
         camera_up_z = upz;
     }
 
+    const std::vector<vzl::VzlThing> &VzlViewer::objectsInScene() {
+        return things;
+    }
 
     VzlViewer *CreateViewer() { return VzlViewer::Instance(); }
 

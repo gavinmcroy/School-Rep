@@ -43,7 +43,11 @@ namespace vzl {
         void Usage() override;
 
     private:
-        Triangle triangle;
+        const int MAX_TRIANGLES = 2;
+
+        std::vector<Triangle> triangles;
+
+        void generationRules();
 
     };
 

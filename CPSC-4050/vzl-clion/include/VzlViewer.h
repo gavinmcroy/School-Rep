@@ -45,6 +45,9 @@ class VzlViewer
 
     ~VzlViewer();
 
+    //! Returns reference to list of objects in scene
+    const std::vector<vzl::VzlThing> &objectsInScene();
+
     //! Initialization, including GLUT initialization.
     void Init( const std::vector<std::string>& args );
     //! Invokes the GLUT main loop.

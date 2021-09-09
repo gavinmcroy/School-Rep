@@ -23,7 +23,7 @@ namespace vzl {
         const Color &wall_color(int index) const;
 
         size_t nb_walls() const {
-            return walls.size();
+            return vertex.size();
         }
 
         const Vector &threeEdgeVector(int index) const;
@@ -34,6 +34,8 @@ namespace vzl {
 
         const double aspectRatio() const;
 
+        std::vector<std::vector<Vector>> vertex;
+
 
     private:
         double area;
@@ -42,8 +44,6 @@ namespace vzl {
         Vector unit_normal;
 
         std::vector<Vector> edgeVectors;
-
-        std::vector<std::vector<Vector>> walls;
 
         std::vector<Color> wall_colors;
 
