@@ -17,7 +17,6 @@
 #include "MyTriangleThing.h"
 #include <cstdlib>
 #include <iostream>
-#include <omp.h>
 
 using namespace std;
 
@@ -25,6 +24,7 @@ using namespace vzl;
 
 MyTriangleThing::MyTriangleThing(const std::string &nam) :
         VzlThingyDingy(nam) {
+    /* if no triangle, setup default, else build triangle based on previous */
     for (int i = 0; i < MAX_TRIANGLES; i++) {
         if (i == 0) {
             triangles.emplace_back();
@@ -77,23 +77,19 @@ vzl::VzlThing vzl::CreateMyThing() {
 
 /* Give me the previous triangle, and ill generate one that meets the requirement */
 Triangle MyTriangleThing::generationRules(const Triangle &previous) {
-    /* Code that specifies triangle rules */
     int radian = 180;
-    const std::vector<Vector> &wall = previous.triangleCords;
-    Triangle triangle(wall[0], wall[1]);
-    /* Here we check the normal vector angle to ensure less than 30 */
+    const std::vector<Vector> &vertices = previous.triangleCords;
+    /* 0 = v1, 1 = v2 */
+    Triangle triangle(vertices[0], vertices[1]);
+
     /* arccos[(xa * xb + ya * yb + za * zb) / (√(xa2 + ya2 + za2) * √(xb2 + yb2 + zb2))] */
     double theta = acos(triangle.unitNormal() * previous.unitNormal() / (triangle.unitNormal().magnitude() *
                                                                          previous.unitNormal().magnitude()));
-    theta = theta * (radian/M_PI);
-    if(theta > MAX_ANGLE){
-        std::cout<<"Problem found"<<std::endl;
-        exit(1);
+    theta = theta * (radian / M_PI);
+    /* angle each of the triangles normal vec must be less than MAX_ANGLE */
+    if (theta > MAX_ANGLE) {
+        std::cout << "Invalid angle detected " << std::endl;
     }
-    std::cout << "X Y Z PREVIOUS " << triangle.unitNormal().X() << " " << triangle.unitNormal().Y() << " "
-              << triangle.unitNormal().Z() << std::endl;
-    std::cout << "X Y Z PREVIOUS " << previous.unitNormal().X() << " " << previous.unitNormal().Y() << " "
-              << previous.unitNormal().Z() << std::endl;
     std::cout << "Angle of norm " << theta << std::endl;
     return triangle;
 }

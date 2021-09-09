@@ -10,9 +10,11 @@ vzl::Triangle::Triangle() {
     int nPad = -1;
 
     /**** FIRST TRIANGLE RENDERED MUST HAVE A DISTANCE OF 1-2 BETWEEN EACH EDGE *****/
-    Vector vector1(drand48(), pPad + drand48(), pPad + drand48());
-    Vector vector2(nPad * (pPad + drand48()), nPad * (pPad + drand48()), nPad * (pPad + drand48()));
-    Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), pPad + drand48());
+    Vector vector1(drand48() * 2 + 1, drand48() * 2 + 1, pPad + drand48() * 2);
+    Vector vector2(nPad * (pPad + drand48()), (pPad + drand48()), nPad * (pPad + drand48()));
+    Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), nPad * (pPad + drand48()));
+
+    //Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), nPad*(drand48()));
     vector1.normalize();
     vector2.normalize();
     vector3.normalize();
@@ -22,12 +24,12 @@ vzl::Triangle::Triangle() {
 
     triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
 
-    /* Keep track of vectors */
+    /* Keep track of vertices */
     for (const auto &i : face) {
         triangleCords.push_back(i);
     }
 
-  //  debugInformation();
+    debugInformation();
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
@@ -38,12 +40,12 @@ vzl::Triangle::Triangle() {
 /* This condition is assuming the no param constructor has already been created.
  * Inputted vertex's are assumed to have been normalized */
 vzl::Triangle::Triangle(const vzl::Vector &vertex1, const vzl::Vector &vertex2) {
+
     /* Triangle generated must use two previous vertices */
-    std::cout<<"Style 2 created"<<std::endl;
     std::vector<Vector> face;
     int pPad = 1;
     int nPad = -1;
-    Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), pPad + drand48());
+    Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), nPad * (drand48()));
     vector3.normalize();
     face.push_back(vertex1);
     face.push_back(vertex2);
@@ -54,37 +56,37 @@ vzl::Triangle::Triangle(const vzl::Vector &vertex1, const vzl::Vector &vertex2) 
         triangleCords.push_back(i);
     }
 
-   // debugInformation();
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
     setNormalVector();
+    debugInformation();
     face.clear();
 }
 
 vzl::Triangle::~Triangle() = default;
 
 void vzl::Triangle::setNormalVector() {
-    double x = ((edgeVectors[0].Y() * edgeVectors[1].Z()) -
-                (edgeVectors[0].Z() * edgeVectors[1].Y()));
-    double y = ((edgeVectors[0].Z() * edgeVectors[1].X()) -
-                (edgeVectors[0].X() * edgeVectors[1].Z()));
-    double z = ((edgeVectors[0].X() * edgeVectors[1].Y()) -
-                (edgeVectors[0].Y()) * edgeVectors[1].X());
+    int v1v2 = 0;
+    int v1v3 = 1;
+    double x = ((edgeVectors[v1v2].Y() * edgeVectors[v1v3].Z()) -
+                (edgeVectors[v1v2].Z() * edgeVectors[v1v3].Y()));
+    double y = ((edgeVectors[v1v2].Z() * edgeVectors[v1v3].X()) -
+                (edgeVectors[v1v2].X() * edgeVectors[v1v3].Z()));
+    double z = ((edgeVectors[v1v2].X() * edgeVectors[v1v3].Y()) -
+                (edgeVectors[v1v2].Y()) * edgeVectors[v1v3].X());
     unit_normal.set(x, y, z);
     unit_normal.normalize();
-
-    std::cout << "Normal vector " << unit_normal.X() << " " << unit_normal.Y() << " "
-              << unit_normal.Z() << std::endl;
 }
 
 void vzl::Triangle::setAspectRatio() {
-    /* Aspect ratio code */
+    /* v1 = 0, v2 = 1, v3 = 2 */
     double v1v2Length = length(triangleCords[0], triangleCords[1]);
     double v1v3Length = length(triangleCords[0], triangleCords[2]);
     double v2v3Length = length(triangleCords[1], triangleCords[2]);
     double max = 0.0;
     double min = 0.0;
+
     /* Find max */
     if (v2v3Length > v1v3Length && v2v3Length > v1v2Length) {
         max = v2v3Length;
@@ -103,8 +105,6 @@ void vzl::Triangle::setAspectRatio() {
         min = v1v2Length;
     }
     aspect_ratio = max / min;
-    std::cout << "Aspect ratio " << aspect_ratio << std::endl;
-    /* Aspect ratio code */
 }
 
 void vzl::Triangle::setTriangleArea() {
@@ -112,7 +112,6 @@ void vzl::Triangle::setTriangleArea() {
     /* Find cross product (v1v2 v1v3) */
     Vector crossProduct = edgeVectors[0] ^ edgeVectors[1];
     area = .5 * crossProduct.magnitude();
-    std::cout << "Triangle area " << triangleArea() << std::endl;
     /* Calculating triangle area */
 }
 
@@ -129,7 +128,6 @@ void vzl::Triangle::setEdgeVectors() {
 }
 
 void vzl::Triangle::debugInformation() {
-    /* DEBUG INFORMATION */
     double v1v2Length = length(triangleCords[0], triangleCords[1]);
     double v1v3Length = length(triangleCords[0], triangleCords[2]);
     double v2v3Length = length(triangleCords[1], triangleCords[2]);
@@ -142,6 +140,11 @@ void vzl::Triangle::debugInformation() {
     std::cout << "Edge 1 Length " << v1v2Length << std::endl;
     std::cout << "Edge 2 Length " << v1v3Length << std::endl;
     std::cout << "Edge 3 Length " << v2v3Length << std::endl;
+    std::cout << "Aspect ratio " << aspect_ratio << std::endl;
+    std::cout << "Triangle area " << triangleArea() << std::endl;
+    std::cout << "Normal vector " << unit_normal.X() << " " << unit_normal.Y() << " "
+              << unit_normal.Z() << std::endl;
+
 }
 
 
