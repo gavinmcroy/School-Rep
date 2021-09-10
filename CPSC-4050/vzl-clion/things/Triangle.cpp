@@ -5,19 +5,13 @@
 #include "Triangle.h"
 
 vzl::Triangle::Triangle() {
-    std::vector<Vector> face;
-    int pPad = 1;
-    int nPad = -1;
 
     /**** FIRST TRIANGLE RENDERED MUST HAVE A DISTANCE OF 1-2 BETWEEN EACH EDGE *****/
-    //Vector vector1(drand48() * 2 + 1, drand48() * 2 + 1, pPad + drand48() * 2);
-    //Vector vector2(nPad * (pPad + drand48()), (pPad + drand48()), nPad * (pPad + drand48()));
-    //Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), nPad * (pPad + drand48()));
-    //Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), nPad*(drand48()));
     Vector vector1(drand48(), drand48(), drand48());
-    Vector vector2(drand48(), drand48(), drand48());
-    Vector vector3(drand48(), drand48(), drand48());
+    Vector vector2(drand48(), -1*drand48(), drand48());
+    Vector vector3(-1*drand48(), -1*drand48(), -1*drand48());
 
+    /* Bruteforce method for generating triangles of required length */
     double v1v2Length = length(vector1, vector2);
     double v1v3Length = length(vector1, vector3);
     double v2v3Length = length(vector2, vector3);
@@ -32,24 +26,16 @@ vzl::Triangle::Triangle() {
         v2v3Length = length(vector2, vector3);
     }
 
-    face.push_back(vector1);
-    face.push_back(vector2);
-    face.push_back(vector3);
-
-
+    triangleCords.push_back(vector1);
+    triangleCords.push_back(vector2);
+    triangleCords.push_back(vector3);
     triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
-
-    /* Keep track of vertices */
-    for (const auto &i : face) {
-        triangleCords.push_back(i);
-    }
 
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
     setNormalVector();
     debugInformation();
-    face.clear();
 }
 
 /* This condition is assuming the no param constructor has already been created.
@@ -57,37 +43,30 @@ vzl::Triangle::Triangle() {
 vzl::Triangle::Triangle(const vzl::Vector &vertex1, const vzl::Vector &vertex2) {
 
     /* Triangle generated must use two previous vertices */
-    std::vector<Vector> vertices;
-    int pPad = 1;
-    int nPad = -1;
-    //Vector vector3(pPad + drand48(), nPad * (pPad + drand48()), nPad * (drand48()));
     Vector vector3(drand48(), drand48(), drand48());
 
+    /* Search in a bruteforce manner for a vector that satisfies the length requirements*/
+    int x = 1;
     double v1v3Length = length(vertex1, vector3);
     double v2v3Length = length(vertex2, vector3);
     while ((v1v3Length > MAX_LENGTH || v1v3Length < MIN_LENGTH) ||
            (v2v3Length > MAX_LENGTH || v2v3Length < MIN_LENGTH)) {
-        vector3 = Vector(drand48(), drand48(), drand48());
+        vector3 = Vector(x*drand48(), x*drand48(), x*drand48());
         v1v3Length = length(vertex1, vector3);
         v2v3Length = length(vertex2, vector3);
+        x*=-1;
     }
 
-
-    vertices.push_back(vertex1);
-    vertices.push_back(vertex2);
-    vertices.push_back(vector3);
-
+    triangleCords.push_back(vertex1);
+    triangleCords.push_back(vertex2);
+    triangleCords.push_back(vector3);
     triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
-    for (const auto &i : vertices) {
-        triangleCords.push_back(i);
-    }
 
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
     setNormalVector();
     debugInformation();
-    vertices.clear();
 }
 
 vzl::Triangle::~Triangle() = default;
@@ -134,11 +113,9 @@ void vzl::Triangle::setAspectRatio() {
 }
 
 void vzl::Triangle::setTriangleArea() {
-    /* Calculating triangle area */
     /* Find cross product (v1v2 v1v3) */
     Vector crossProduct = edgeVectors[0] ^ edgeVectors[1];
     area = .5 * crossProduct.magnitude();
-    /* Calculating triangle area */
 }
 
 void vzl::Triangle::setEdgeVectors() {

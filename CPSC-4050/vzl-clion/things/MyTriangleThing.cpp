@@ -78,33 +78,40 @@ vzl::VzlThing vzl::CreateMyThing() {
 /* Give me the previous triangle, and ill generate one that meets the requirement */
 Triangle MyTriangleThing::generationRules(const Triangle &previous) {
     int radian = 180;
+    int numVertices = previous.triangleCords.size();
     const std::vector<Vector> &vertices = previous.triangleCords;
     /* 0 = v1, 1 = v2 */
-    int x = (int) (drand48() * 3);
-    int y = (int) (drand48() * 3);
-    while (y == x) {
-        y = (int) (drand48() * 3);
-    }
-    std::cout << "X " << x << std::endl;
-    Triangle triangle(vertices[x], vertices[y]);
 
+    /* Randomly pick 2 vertices from the last triangle */
+    int x = (int) (drand48() * numVertices);
+    int y = (int) (drand48() * numVertices);
+    /* if you pick the same vertices trouble occurs */
+    while (y == x) {
+        y = (int) (drand48() * numVertices);
+    }
+    Triangle triangle(vertices[x], vertices[y]);
 
     /* arccos[(xa * xb + ya * yb + za * zb) / (√(xa2 + ya2 + za2) * √(xb2 + yb2 + zb2))] */
     double theta = acos(triangle.unitNormal() * previous.unitNormal() / (triangle.unitNormal().magnitude() *
-                                                                         previous.unitNormal().magnitude()));
+            previous.unitNormal().magnitude()));
     theta = theta * (radian / M_PI);
-    /* angle each of the triangles normal vec must be less than MAX_ANGLE */
+
+    /* angle each of the triangles normal vec must be less than MAX_ANGLE else, new triangle */
     while (theta > MAX_ANGLE) {
-        x = (int) (drand48() * 3);
-        y = (int) (drand48() * 3);
+        /* Randomly pick 2 vertices from the last triangle */
+        x = (int) (drand48() * numVertices);
+        y = (int) (drand48() * numVertices);
+        /* if you pick the same vertices trouble occurs */
         while (y == x) {
-            y = (int) (drand48() * 3);
+            y = (int) (drand48() * numVertices);
         }
-        Triangle temp(vertices[x], vertices[y]);
+        Triangle temp = Triangle(vertices[x], vertices[y]);
         theta = acos(temp.unitNormal() * previous.unitNormal() / (temp.unitNormal().magnitude() *
-                                                                  previous.unitNormal().magnitude()));
+                previous.unitNormal().magnitude()));
         theta = theta * (radian / M_PI);
+        if(theta < MAX_ANGLE){
+            return temp;
+        }
     }
-    std::cout << "Angle of norm " << theta << std::endl;
     return triangle;
 }
