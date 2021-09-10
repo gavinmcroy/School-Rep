@@ -5,13 +5,13 @@
 #include "Triangle.h"
 
 vzl::Triangle::Triangle() {
-
-    /**** FIRST TRIANGLE RENDERED MUST HAVE A DISTANCE OF 1-2 BETWEEN EACH EDGE *****/
+    /* First triangle rendered must have a distance of 1-2 between each point */
     Vector vector1(drand48(), drand48(), drand48());
-    Vector vector2(drand48(), -1*drand48(), drand48());
-    Vector vector3(-1*drand48(), -1*drand48(), -1*drand48());
+    Vector vector2(drand48(), -1 * drand48(), drand48());
+    Vector vector3(-1 * drand48(), -1 * drand48(), -1 * drand48());
 
-    /* Bruteforce method for generating triangles of required length */
+    /* Bruteforce method for generating triangles of required length if previous vectors
+     * fail to satisfy requirement */
     double v1v2Length = length(vector1, vector2);
     double v1v3Length = length(vector1, vector3);
     double v2v3Length = length(vector2, vector3);
@@ -26,11 +26,13 @@ vzl::Triangle::Triangle() {
         v2v3Length = length(vector2, vector3);
     }
 
+    /* Save coordinates */
     triangleCords.push_back(vector1);
     triangleCords.push_back(vector2);
     triangleCords.push_back(vector3);
     triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
 
+    /* Init */
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
@@ -38,30 +40,32 @@ vzl::Triangle::Triangle() {
     debugInformation();
 }
 
-/* This condition is assuming the no param constructor has already been created.
- * Inputted vertex's are assumed to have been normalized */
+/* This condition is assuming the no param constructor has already been created. */
 vzl::Triangle::Triangle(const vzl::Vector &vertex1, const vzl::Vector &vertex2) {
 
-    /* Triangle generated must use two previous vertices */
+    /* Triangle generated must use two previous vertices. We are picking one random vert. */
     Vector vector3(drand48(), drand48(), drand48());
 
-    /* Search in a bruteforce manner for a vector that satisfies the length requirements*/
+    /* Search in a bruteforce manner for a vector that satisfies the length requirements if
+     * randomly generated vector does not satisfy */
     int x = 1;
     double v1v3Length = length(vertex1, vector3);
     double v2v3Length = length(vertex2, vector3);
     while ((v1v3Length > MAX_LENGTH || v1v3Length < MIN_LENGTH) ||
            (v2v3Length > MAX_LENGTH || v2v3Length < MIN_LENGTH)) {
-        vector3 = Vector(x*drand48(), x*drand48(), x*drand48());
+        vector3 = Vector(x * drand48(), x * drand48(), x * drand48());
         v1v3Length = length(vertex1, vector3);
         v2v3Length = length(vertex2, vector3);
-        x*=-1;
+        x *= -1;
     }
 
+    /* Save our coordinates */
     triangleCords.push_back(vertex1);
     triangleCords.push_back(vertex2);
     triangleCords.push_back(vector3);
     triangleColor.emplace_back(drand48(), drand48(), drand48(), 0);
 
+    /* Init */
     setEdgeVectors();
     setTriangleArea();
     setAspectRatio();
@@ -119,11 +123,11 @@ void vzl::Triangle::setTriangleArea() {
 }
 
 void vzl::Triangle::setEdgeVectors() {
-    //V1 V2
+    /* V1 V2 */
     Vector v1v2 = triangleCords[1] - triangleCords[0];
-    //V1 V3
+    /* V1 V3 */
     Vector v1v3 = triangleCords[2] - triangleCords[0];
-    //V2 V3
+    /* V2 V3 */
     Vector v2v3 = triangleCords[2] - triangleCords[1];
     edgeVectors.push_back(v1v2);
     edgeVectors.push_back(v1v3);
@@ -150,7 +154,6 @@ void vzl::Triangle::debugInformation() {
 
 }
 
-
 const vzl::Color &vzl::Triangle::wall_color(int index) const {
     return triangleColor[index];
 }
@@ -175,68 +178,3 @@ double vzl::Triangle::length(const Vector &v1, const Vector &v2) {
     return sqrt(pow((v1.X() - v2.X()), 2) + pow((v1.Y() - v2.Y()), 2) +
                 pow((v1.Z() - v2.Z()), 2));
 }
-
-
-/**** SECOND TRIANGLE RENDERED MUST USE 2 VERTEX + RANDOM *****/
-/********************************************************************************/
-//    Vector vector4 = Vector(pPad + drand48(), nPad * (pPad * drand48()), pPad + drand48());
-//    vector4.normalize();
-//
-//    face.push_back(vector1);
-//    face.push_back(vector2);
-//    face.push_back(vector4);
-//
-////    face.push_back(llc);
-////    face.push_back(Vector(llc[0], llc[1], urc[2]));
-////    face.push_back(Vector(urc[0], llc[1], urc[2]));
-////    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    triangleCords.push_back(face);
-//    triangleColor.push_back(Color(drand48(), drand48(), drand48(), 0));
-//    face.clear();
-
-
-/**** THIRD TRIANGLE RENDERED MUST USE 2 VERTEX + RANDOM *****/
-/****************************************************************************/
-/* Bottom left faded green */
-//    Vector vector5 = vector4;
-//    /* Bottom left neon green */
-//    Vector vector6 = vector3;
-//    /* Bottom right faded green*/
-//    Vector vector7 = vector2;
-////    face.push_back(vector5);
-////    face.push_back(vector6);
-////    face.push_back(vector7);
-////    face.push_back(llc);
-////    face.push_back(Vector(llc[0], urc[1], llc[2]));
-////    face.push_back(Vector(urc[0], urc[1], llc[2]));
-////    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    triangleCords.push_back(face);
-//    triangleColor.push_back(Color(drand48(), drand48(), drand48(), 0));
-//    face.clear();
-
-/********************************************************************************/
-
-// Faces based on urc
-
-
-/*********************************************************************************/
-
-//    face.push_back(urc);
-//    face.push_back(Vector(urc[0], urc[1], llc[2]));
-//    face.push_back(Vector(urc[0], llc[1], llc[2]));
-//    face.push_back(Vector(urc[0], llc[1], urc[2]));
-//    triangleCords.push_back(face);
-//    triangleColor.push_back(Color(drand48(), drand48(), drand48(), 0));
-//    face.clear();
-
-/* Aspect Ratio. Find inRadius*/
-/* max length / min */
-//    double perimeter = edgeLength1 + edgeLength2 + edgeLength3;
-//    double semiPerimeter = .5 * perimeter;
-//    double inRadius = area / semiPerimeter;
-//    double circumRadius = (edgeLength1 * edgeLength2 * edgeLength3) / (4 * inRadius * semiPerimeter);
-//    double aspectRatio = circumRadius / (2 * inRadius);
-//    std::cout << "PERIMETER " << perimeter << std::endl;
-//    std::cout << "inRadius " << inRadius << std::endl;
-//    std::cout << "circumRadius " << circumRadius << std::endl;
-//    std::cout << "Aspect ratio " << aspectRatio << std::endl;

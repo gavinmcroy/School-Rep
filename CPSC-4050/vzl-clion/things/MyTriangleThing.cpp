@@ -47,14 +47,14 @@ void MyTriangleThing::Init(const std::vector<std::string> &args) {
 /* Actually draw the triangle */
 void MyTriangleThing::Display() {
     glBegin(GL_TRIANGLES);
-    for (int i = 0; i < triangles.size(); i++) {
+    for (auto & triangle : triangles) {
         /* Drawing stuff */
-        const Color &ci = triangles[i].wall_color(0);
+        const Color &ci = triangle.wall_color(0);
         glColor3f(ci.red(), ci.green(), ci.blue());
-        const std::vector<Vector> &wall = triangles[i].triangleCords;
+        const std::vector<Vector> &cords = triangle.triangleCords;
 
-        for (size_t p = 0; p < wall.size(); p++) {
-            glVertex3f(wall[p].X(), wall[p].Y(), wall[p].Z());
+        for (const auto & cord : cords) {
+            glVertex3f(cord.X(), cord.Y(), cord.Z());
         }
     }
     glEnd();
@@ -76,27 +76,27 @@ vzl::VzlThing vzl::CreateMyThing() {
 }
 
 /* Give me the previous triangle, and ill generate one that meets the requirement */
-Triangle MyTriangleThing::generationRules(const Triangle &previous) {
+Triangle MyTriangleThing::generationRules(const Triangle &previous) const {
     int radian = 180;
-    int numVertices = previous.triangleCords.size();
+    unsigned int numVertices = previous.triangleCords.size();
     const std::vector<Vector> &vertices = previous.triangleCords;
-    /* 0 = v1, 1 = v2 */
 
     /* Randomly pick 2 vertices from the last triangle */
     int x = (int) (drand48() * numVertices);
     int y = (int) (drand48() * numVertices);
-    /* if you pick the same vertices trouble occurs */
+    /* if you pick 2 of the same vertices trouble occurs */
     while (y == x) {
         y = (int) (drand48() * numVertices);
     }
     Triangle triangle(vertices[x], vertices[y]);
 
-    /* arccos[(xa * xb + ya * yb + za * zb) / (√(xa2 + ya2 + za2) * √(xb2 + yb2 + zb2))] */
+    /* Dandy formula -> arccos[(xa * xb + ya * yb + za * zb) / (√(xa2 + ya2 + za2) * √(xb2 + yb2 + zb2))] */
     double theta = acos(triangle.unitNormal() * previous.unitNormal() / (triangle.unitNormal().magnitude() *
             previous.unitNormal().magnitude()));
     theta = theta * (radian / M_PI);
 
-    /* angle each of the triangles normal vec must be less than MAX_ANGLE else, new triangle */
+    /* The angle of each of the triangles normal vec must be less than MAX_ANGLE else, randomly generate
+     * until triangle satisfies requirements */
     while (theta > MAX_ANGLE) {
         /* Randomly pick 2 vertices from the last triangle */
         x = (int) (drand48() * numVertices);
@@ -109,6 +109,8 @@ Triangle MyTriangleThing::generationRules(const Triangle &previous) {
         theta = acos(temp.unitNormal() * previous.unitNormal() / (temp.unitNormal().magnitude() *
                 previous.unitNormal().magnitude()));
         theta = theta * (radian / M_PI);
+
+        /* Our triangle has been found */
         if(theta < MAX_ANGLE){
             return temp;
         }

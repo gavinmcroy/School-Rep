@@ -49,7 +49,7 @@ namespace vzl {
 
         std::vector<Triangle> triangles;
 
-        Triangle generationRules(const Triangle& previous);
+        Triangle generationRules(const Triangle &previous) const;
 
     };
 
