@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/gavintaylormcroy/Desktop/Dot_Prod/main.c" "/Users/gavintaylormcroy/Desktop/Dot_Prod/cmake-build-debug/CMakeFiles/Dot_Prod.dir/main.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4780/Dot_Prod/main.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4780/Dot_Prod/cmake-build-debug/CMakeFiles/Dot_Prod.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
