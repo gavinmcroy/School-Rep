@@ -1,9 +1,11 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Project_2.dir/Camera.cpp.o"
+  "CMakeFiles/Project_2.dir/Geometry.cpp.o"
   "CMakeFiles/Project_2.dir/ImagePlane.cpp.o"
   "CMakeFiles/Project_2.dir/Light.cpp.o"
   "CMakeFiles/Project_2.dir/Plane.cpp.o"
   "CMakeFiles/Project_2.dir/Ray.cpp.o"
+  "CMakeFiles/Project_2.dir/Scene.cpp.o"
   "CMakeFiles/Project_2.dir/Sphere.cpp.o"
   "CMakeFiles/Project_2.dir/Triangle.cpp.o"
   "CMakeFiles/Project_2.dir/main.cpp.o"

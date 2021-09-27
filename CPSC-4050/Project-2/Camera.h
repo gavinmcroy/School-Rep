@@ -9,12 +9,12 @@
 
 class Camera {
 public:
-    Camera(double position, double viewDirection, double upDirection, double fov, double aspectRatio);
+    Camera(vzl::Vector position, vzl::Vector viewDirection, vzl::Vector upDirection, double fov, double aspectRatio);
 
 private:
-    double position;
-    double viewDirection;
-    double upDirection;
+    vzl::Vector position;
+    vzl::Vector viewDirection;
+    vzl::Vector upDirection;
     double fov;
     double aspectRatio;
 

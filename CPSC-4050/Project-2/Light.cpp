@@ -4,6 +4,10 @@
 
 #include "Light.h"
 
+Light::Light(const vzl::Vector &position, const vzl::Color &color) : position(position), color(color) {
+
+}
+
 const vzl::Vector &Light::getPosition() const {
     return position;
 }

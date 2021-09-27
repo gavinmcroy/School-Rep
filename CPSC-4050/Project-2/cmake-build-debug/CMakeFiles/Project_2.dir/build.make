@@ -180,6 +180,32 @@ CMakeFiles/Project_2.dir/Light.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Light.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.cpp -o CMakeFiles/Project_2.dir/Light.cpp.s
 
+CMakeFiles/Project_2.dir/Geometry.cpp.o: CMakeFiles/Project_2.dir/flags.make
+CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Geometry.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Project_2.dir/Geometry.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Geometry.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.cpp
+
+CMakeFiles/Project_2.dir/Geometry.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Geometry.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.cpp > CMakeFiles/Project_2.dir/Geometry.cpp.i
+
+CMakeFiles/Project_2.dir/Geometry.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Geometry.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.cpp -o CMakeFiles/Project_2.dir/Geometry.cpp.s
+
+CMakeFiles/Project_2.dir/Scene.cpp.o: CMakeFiles/Project_2.dir/flags.make
+CMakeFiles/Project_2.dir/Scene.cpp.o: ../Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Project_2.dir/Scene.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Scene.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp
+
+CMakeFiles/Project_2.dir/Scene.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Scene.cpp.i"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp > CMakeFiles/Project_2.dir/Scene.cpp.i
+
+CMakeFiles/Project_2.dir/Scene.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Scene.cpp.s"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp -o CMakeFiles/Project_2.dir/Scene.cpp.s
+
 # Object files for target Project_2
 Project_2_OBJECTS = \
 "CMakeFiles/Project_2.dir/main.cpp.o" \
@@ -189,7 +215,9 @@ Project_2_OBJECTS = \
 "CMakeFiles/Project_2.dir/Sphere.cpp.o" \
 "CMakeFiles/Project_2.dir/Plane.cpp.o" \
 "CMakeFiles/Project_2.dir/Triangle.cpp.o" \
-"CMakeFiles/Project_2.dir/Light.cpp.o"
+"CMakeFiles/Project_2.dir/Light.cpp.o" \
+"CMakeFiles/Project_2.dir/Geometry.cpp.o" \
+"CMakeFiles/Project_2.dir/Scene.cpp.o"
 
 # External object files for target Project_2
 Project_2_EXTERNAL_OBJECTS =
@@ -202,9 +230,11 @@ Project_2: CMakeFiles/Project_2.dir/Sphere.cpp.o
 Project_2: CMakeFiles/Project_2.dir/Plane.cpp.o
 Project_2: CMakeFiles/Project_2.dir/Triangle.cpp.o
 Project_2: CMakeFiles/Project_2.dir/Light.cpp.o
+Project_2: CMakeFiles/Project_2.dir/Geometry.cpp.o
+Project_2: CMakeFiles/Project_2.dir/Scene.cpp.o
 Project_2: CMakeFiles/Project_2.dir/build.make
 Project_2: CMakeFiles/Project_2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable Project_2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Project_2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

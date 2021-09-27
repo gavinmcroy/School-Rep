@@ -89,6 +89,12 @@
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Color.h">
 			<Option target="Project_2"/>
 		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.cpp">
+			<Option target="Project_2"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h">
+			<Option target="Project_2"/>
+		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.cpp">
 			<Option target="Project_2"/>
 		</Unit>
@@ -111,6 +117,12 @@
 			<Option target="Project_2"/>
 		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.h">
+			<Option target="Project_2"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp">
+			<Option target="Project_2"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.h">
 			<Option target="Project_2"/>
 		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.cpp">

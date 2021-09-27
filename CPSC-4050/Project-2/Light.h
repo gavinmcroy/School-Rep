@@ -10,6 +10,8 @@
 
 class Light {
 public:
+    Light(const vzl::Vector &position, const vzl::Color &color);
+
     const vzl::Vector &getPosition() const;
 
     const vzl::Color &getColor() const;

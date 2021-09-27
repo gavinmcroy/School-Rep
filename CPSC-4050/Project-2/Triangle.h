@@ -4,21 +4,24 @@
 #include "Vector.h"
 #include "Color.h"
 #include "Ray.h"
+#include "Light.h"
+#include "Geometry.h"
 
 #ifndef PROJECT_2_TRIANGLE_H
 #define PROJECT_2_TRIANGLE_H
 
 
-class Triangle {
+class Triangle : public Geometry {
 public:
     Triangle(const vzl::Vector &vertex0, const vzl::Vector &vertex1, const vzl::Vector &vertex2,
              const vzl::Color &color);
 
-    double intersection(const Ray &r) const;
+    double intersection(const Ray &r) const override;
 
-    const vzl::Color getColor() const;
+    const vzl::Color getColor() const override;
 
-    vzl::Color shade(const vzl::Vector &P, const Light &L);
+    vzl::Color shade(const vzl::Vector &P, const Light &L) const override;
+
 private:
     vzl::Vector vertex0;
     vzl::Vector vertex1;

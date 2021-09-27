@@ -169,6 +169,33 @@ Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Camera.cpp.s
 .PHONY : Camera.cpp.s
 
+Geometry.o: Geometry.cpp.o
+
+.PHONY : Geometry.o
+
+# target to build an object file
+Geometry.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Geometry.cpp.o
+.PHONY : Geometry.cpp.o
+
+Geometry.i: Geometry.cpp.i
+
+.PHONY : Geometry.i
+
+# target to preprocess a source file
+Geometry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Geometry.cpp.i
+.PHONY : Geometry.cpp.i
+
+Geometry.s: Geometry.cpp.s
+
+.PHONY : Geometry.s
+
+# target to generate assembly for a file
+Geometry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Geometry.cpp.s
+.PHONY : Geometry.cpp.s
+
 ImagePlane.o: ImagePlane.cpp.o
 
 .PHONY : ImagePlane.o
@@ -277,6 +304,33 @@ Ray.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Ray.cpp.s
 .PHONY : Ray.cpp.s
 
+Scene.o: Scene.cpp.o
+
+.PHONY : Scene.o
+
+# target to build an object file
+Scene.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Scene.cpp.o
+.PHONY : Scene.cpp.o
+
+Scene.i: Scene.cpp.i
+
+.PHONY : Scene.i
+
+# target to preprocess a source file
+Scene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Scene.cpp.i
+.PHONY : Scene.cpp.i
+
+Scene.s: Scene.cpp.s
+
+.PHONY : Scene.s
+
+# target to generate assembly for a file
+Scene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Scene.cpp.s
+.PHONY : Scene.cpp.s
+
 Sphere.o: Sphere.cpp.o
 
 .PHONY : Sphere.o
@@ -370,6 +424,9 @@ help:
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"
+	@echo "... Geometry.o"
+	@echo "... Geometry.i"
+	@echo "... Geometry.s"
 	@echo "... ImagePlane.o"
 	@echo "... ImagePlane.i"
 	@echo "... ImagePlane.s"
@@ -382,6 +439,9 @@ help:
 	@echo "... Ray.o"
 	@echo "... Ray.i"
 	@echo "... Ray.s"
+	@echo "... Scene.o"
+	@echo "... Scene.i"
+	@echo "... Scene.s"
 	@echo "... Sphere.o"
 	@echo "... Sphere.i"
 	@echo "... Sphere.s"

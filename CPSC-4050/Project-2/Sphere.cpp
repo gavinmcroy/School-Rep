@@ -5,7 +5,9 @@
 #include "Sphere.h"
 
 Sphere::Sphere(const vzl::Vector &position, double radius, const vzl::Color &color) : position(position),
-                                                                                      radius(radius), color(color) {}
+                                                                                      radius(radius), color(color) {
+    std::cout<<"Sphere created"<<std::endl;
+}
 
 double Sphere::intersection(const Ray &r) const {
     return 0;
