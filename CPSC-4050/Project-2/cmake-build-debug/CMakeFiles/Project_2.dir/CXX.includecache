@@ -14,10 +14,6 @@ Vector.h
 iostream
 -
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.cpp
-Geometry.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h
 Light.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.h
@@ -37,12 +33,6 @@ Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Vector.h
 Color.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Color.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.cpp
-iostream
--
-Plane.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.h
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.h
 Vector.h
@@ -73,6 +63,10 @@ Light.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.h
 Plane.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.h
+Triangle.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.h
+Sphere.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.h
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.h
 vector
@@ -104,10 +98,6 @@ Light.h
 Geometry.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.cpp
-Triangle.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.h
 Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Vector.h
@@ -125,16 +115,4 @@ cmath
 -
 cstdio
 -
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/main.cpp
-iostream
--
-vector
--
-Color.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Color.h
-Geometry.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h
-Scene.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.h
 

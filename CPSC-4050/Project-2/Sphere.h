@@ -11,7 +11,7 @@
 #define PROJECT_2_SPHERE_H
 
 
-class Sphere : Geometry {
+class Sphere : public Geometry {
 public:
     Sphere(const vzl::Vector &position, double radius, const vzl::Color &color);
 

@@ -42,6 +42,8 @@ CMakeFiles/Project_2.dir/Scene.cpp.o: ../Plane.h
 CMakeFiles/Project_2.dir/Scene.cpp.o: ../Ray.h
 CMakeFiles/Project_2.dir/Scene.cpp.o: ../Scene.cpp
 CMakeFiles/Project_2.dir/Scene.cpp.o: ../Scene.h
+CMakeFiles/Project_2.dir/Scene.cpp.o: ../Sphere.h
+CMakeFiles/Project_2.dir/Scene.cpp.o: ../Triangle.h
 CMakeFiles/Project_2.dir/Scene.cpp.o: ../Vector.h
 
 CMakeFiles/Project_2.dir/Sphere.cpp.o: ../Color.h
