@@ -12,11 +12,11 @@
 
 class Geometry {
 
-    virtual double intersection(const Ray &r) { return -1.0; }
+    virtual double intersection(const Ray &r) const { return -1.0; };
 
-    virtual const vzl::Color getColor() { return vzl::Color(1, 1, 1, 1); }
+    virtual const vzl::Color getColor() const { return vzl::Color(1, 1, 1, 1); };
 
-    virtual vzl::Color shade(const vzl::Vector &P, const Light &L) { return vzl::Color(1, 1, 1, 1); }
+    virtual vzl::Color shade(const vzl::Vector &P, const Light &L) const { return vzl::Color(1, 1, 1, 1); };
 };
 
 

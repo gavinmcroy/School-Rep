@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.cpp
-Camera.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.h
 Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Vector.h
@@ -32,17 +28,9 @@ Color.h
 Ray.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.h
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.cpp
-ImagePlane.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.h
 Color.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Color.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.cpp
-Light.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.h
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.h
 Vector.h
@@ -67,10 +55,6 @@ Light.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.h
 Geometry.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.cpp
-Ray.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.h
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.h
 Vector.h
