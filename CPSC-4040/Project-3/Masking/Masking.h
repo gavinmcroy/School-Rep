@@ -3,6 +3,7 @@
 //
 #include <OpenImageIO/imageio.h>
 #include <iostream>
+
 OIIO_NAMESPACE_USING
 
 #ifndef MASKING_MASKING_H
@@ -14,15 +15,24 @@ OIIO_NAMESPACE_USING
 
 class Masking {
 public:
-    Masking() = default;
+    Masking(const std::string &inputFile, const std::string &outputFile);
 
-    static ImageSpec readImage(const std::string &inputFile, char *&image);
+    void preformMask();
 
-    static void writeImage(const std::string &outputFile, int width, int height, char *image);
+    ImageSpec readImage();
 
-    static void RGBtoHSV(int r, int g, int b, double &h, double &s, double &v);
+    void writeImage();
 
-    static const int MAX_OUTPUT_CHANNELS = 3;
+private:
+    char *image;
+    char *modifiedImage;
+    std::string inputFile;
+    std::string outputFile;
+    ImageSpec imageSpec;
+
+    void RGBtoHSV(int r, int g, int b, double &h, double &s, double &v);
+
+    const int MAX_OUTPUT_CHANNELS = 4;
 };
 
 

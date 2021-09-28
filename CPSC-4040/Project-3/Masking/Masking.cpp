@@ -4,23 +4,45 @@
 
 #include "Masking.h"
 
-ImageSpec Masking::readImage(const std::string &inputFile, char *&image) {
+
+Masking::Masking(const std::string &input, const std::string &output) {
+    this->inputFile = input;
+    this->outputFile = output;
+    imageSpec = readImage();
+    writeImage();
+}
+
+void Masking::preformMask() {
+    int h,s,v;
+    bool firstTime = true;
+    for(int i = 0; i < (imageSpec.height*imageSpec.width*MAX_OUTPUT_CHANNELS); i++){
+        /* For every pixel (3 to 4 colors make a pixel) grab the HSV */
+        if(i % imageSpec.nchannels == 0){
+            /* Preventing 0 % 3 = 0 (s*/
+            if(firstTime){
+                firstTime = false;
+            }
+        }
+    }
+}
+
+ImageSpec Masking::readImage() {
     auto input = ImageInput::open(inputFile);
     if (!input) {
         std::cerr << "Error with file. " << geterror();
         exit(-1);
     }
-    ImageSpec imageSpec = input->spec();
-    image = new char[imageSpec.width * imageSpec.height * imageSpec.nchannels];
+    ImageSpec imageSpec1 = input->spec();
+    image = new char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
     input->read_image(TypeDesc::UINT8, image);
     input->close();
     std::cout << "Image Read" << std::endl;
-    return imageSpec;
+    return imageSpec1;
 }
 
-void Masking::writeImage(const std::string &outputFile, int width, int height, char *image) {
+void Masking::writeImage() {
     auto out = ImageOutput::create(outputFile);
-    ImageSpec specOut = ImageSpec(width, height, MAX_OUTPUT_CHANNELS, TypeDesc::UINT8);
+    ImageSpec specOut = ImageSpec(imageSpec.width, imageSpec.height, MAX_OUTPUT_CHANNELS, TypeDesc::UINT8);
     out->open(outputFile, specOut);
     if (!out) {
         std::cerr << "Error" << std::endl;

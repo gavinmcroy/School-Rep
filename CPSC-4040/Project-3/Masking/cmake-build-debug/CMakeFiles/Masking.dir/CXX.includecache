@@ -6,10 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-3/Masking/Masking.cpp
-Masking.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-3/Masking/Masking.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-3/Masking/Masking.h
 OpenImageIO/imageio.h
 -
@@ -20,8 +16,6 @@ iostream
 memory
 -
 iostream
--
-string
 -
 OpenImageIO/imageio.h
 -

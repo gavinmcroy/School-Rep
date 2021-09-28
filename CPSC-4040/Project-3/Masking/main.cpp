@@ -5,16 +5,13 @@
 
 OIIO_NAMESPACE_USING
 
-
 /* ./programName input.img output.png */
 int main(int argc, char *argv[]) {
     if (argc < 3) {
         std::cerr << "Error, not enough arguments " << std::endl;
         exit(-1);
     }
-
-    char *image = nullptr;
-    ImageSpec imageSpec = Masking::readImage(argv[1], image);
-    Masking::writeImage(argv[2], imageSpec.width, imageSpec.height, image);
+    //Masking masking(argv[1],argv[2]);
+    std::cout<<0%3<<std::endl;
     return 0;
 }
