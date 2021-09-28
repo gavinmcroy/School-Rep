@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/3220-Proj-2/mythreads.c
+mythreads.h
+/Users/gavintaylormcroy/Desktop/3220-Proj-2/mythreads.h
+
+/Users/gavintaylormcroy/Desktop/3220-Proj-2/mythreads.h
+
