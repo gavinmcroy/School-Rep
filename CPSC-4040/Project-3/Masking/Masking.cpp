@@ -10,9 +10,13 @@ Masking::Masking(const std::string &input, const std::string &output) {
     this->outputFile = output;
     imageSpec = readImage();
     preformMask();
-//   double h,s,v;
-//    RGBtoHSV(20,113,53,h,s,v);
-//    std::cout<<h<<std::endl;
+    double h, s, v;
+    RGBtoHSV(20, 113, 53, h, s, v);
+    std::cout << h << std::endl;
+    RGBtoHSV(197, 94, 66, h, s, v);
+    std::cout << h << std::endl;
+    RGBtoHSV(69, 6, 1, h, s, v);
+    std::cout << h << std::endl;
     writeImage();
 
 }
@@ -24,12 +28,15 @@ Masking::~Masking() {
 
 void Masking::preformMask() {
     double h, s, v;
+    /* The H value that corresponds very closely to the green screen */
+    double highRange = 155.0;
+    double lowRange = 125.0;
     /* Producing a four channel version of the image */
     for (int i = 0; i < (imageSpec.height * imageSpec.width); i++) {
         /* Set alpha channel based on range of hue value by converting to HSV and selecting h = 120 */
-        RGBtoHSV(imagePixel->r, imagePixel->g, imagePixel->b, h, s, v);
+        RGBtoHSV(imagePixel[i].r, imagePixel[i].g, imagePixel[i].b, h, s, v);
         /* convert to alpha = 0 if H is in epsilon range, else 255 */
-        if (h <= 141.3 && h >= 141.2) {
+        if (h <= highRange && h >= lowRange) {
             /* (20,113,53) */
             imagePixel[i].a = 0;
         } else {
