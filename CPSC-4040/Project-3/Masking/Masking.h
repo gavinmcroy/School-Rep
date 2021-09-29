@@ -15,7 +15,16 @@ OIIO_NAMESPACE_USING
 
 class Masking {
 public:
+    typedef struct Pixel {
+        unsigned char r;
+        unsigned char g;
+        unsigned char b;
+        unsigned char a;
+    } Pixel;
+
     Masking(const std::string &inputFile, const std::string &outputFile);
+
+    ~Masking();
 
     void preformMask();
 
@@ -24,13 +33,14 @@ public:
     void writeImage();
 
 private:
-    char *image;
-    char *modifiedImage;
+    unsigned char *image;
+    Pixel * imagePixel;
+
     std::string inputFile;
     std::string outputFile;
     ImageSpec imageSpec;
 
-    void RGBtoHSV(int r, int g, int b, double &h, double &s, double &v);
+    static void RGBtoHSV(int r, int g, int b, double &h, double &s, double &v);
 
     const int MAX_OUTPUT_CHANNELS = 4;
 };

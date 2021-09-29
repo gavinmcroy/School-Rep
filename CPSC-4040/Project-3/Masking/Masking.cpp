@@ -9,21 +9,34 @@ Masking::Masking(const std::string &input, const std::string &output) {
     this->inputFile = input;
     this->outputFile = output;
     imageSpec = readImage();
+    preformMask();
+//   double h,s,v;
+//    RGBtoHSV(20,113,53,h,s,v);
+//    std::cout<<h<<std::endl;
     writeImage();
+
+}
+
+Masking::~Masking() {
+    delete image;
+    delete imagePixel;
 }
 
 void Masking::preformMask() {
-    int h,s,v;
-    bool firstTime = true;
-    for(int i = 0; i < (imageSpec.height*imageSpec.width*MAX_OUTPUT_CHANNELS); i++){
-        /* For every pixel (3 to 4 colors make a pixel) grab the HSV */
-        if(i % imageSpec.nchannels == 0){
-            /* Preventing 0 % 3 = 0 (s*/
-            if(firstTime){
-                firstTime = false;
-            }
+    double h, s, v;
+    /* Producing a four channel version of the image */
+    for (int i = 0; i < (imageSpec.height * imageSpec.width); i++) {
+        /* Set alpha channel based on range of hue value by converting to HSV and selecting h = 120 */
+        RGBtoHSV(imagePixel->r, imagePixel->g, imagePixel->b, h, s, v);
+        /* convert to alpha = 0 if H is in epsilon range, else 255 */
+        if (h <= 141.3 && h >= 141.2) {
+            /* (20,113,53) */
+            imagePixel[i].a = 0;
+        } else {
+            imagePixel[i].a = 255;
         }
     }
+    std::cout << "Mask preformed" << std::endl;
 }
 
 ImageSpec Masking::readImage() {
@@ -33,8 +46,26 @@ ImageSpec Masking::readImage() {
         exit(-1);
     }
     ImageSpec imageSpec1 = input->spec();
-    image = new char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
+    image = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
+    imagePixel = new Pixel[imageSpec1.width * imageSpec1.height];
     input->read_image(TypeDesc::UINT8, image);
+
+    /* Convert to a imagePixel struct */
+    int secondaryCounter = 0;
+    for (int i = 0; i < (imageSpec1.width * imageSpec1.height * imageSpec1.nchannels); i++) {
+        /* R */
+        if (i % 3 == 0) {
+            imagePixel[secondaryCounter].r = image[i];
+        }/* G */
+        else if (i % 3 == 1) {
+            imagePixel[secondaryCounter].g = image[i];
+        }/* B */
+        else if (i % 3 == 2) {
+            imagePixel[secondaryCounter].b = image[i];
+            secondaryCounter++;
+        }
+    }
+
     input->close();
     std::cout << "Image Read" << std::endl;
     return imageSpec1;
@@ -47,6 +78,28 @@ void Masking::writeImage() {
     if (!out) {
         std::cerr << "Error" << std::endl;
     }
+    /* We have a new image that has not been updated. Clear and make new one */
+    delete[] image;
+    image = new unsigned char[imageSpec.width * imageSpec.height * MAX_OUTPUT_CHANNELS];
+
+    int secondaryCounter = 0;
+    for (int i = 0; i < (imageSpec.width * imageSpec.height * MAX_OUTPUT_CHANNELS); i++) {
+        /* R */
+        if (i % MAX_OUTPUT_CHANNELS == 0) {
+            image[i] = imagePixel[secondaryCounter].r;
+        }/* G */
+        else if (i % MAX_OUTPUT_CHANNELS == 1) {
+            image[i] = imagePixel[secondaryCounter].g;
+        }/* B */
+        else if (i % MAX_OUTPUT_CHANNELS == 2) {
+            image[i] = imagePixel[secondaryCounter].b;
+        }  /* A + we have gone through all channels, next pixel */
+        else if (i % MAX_OUTPUT_CHANNELS == 3) {
+            image[i] = imagePixel[secondaryCounter].a;
+            secondaryCounter++;
+        }
+    }
+
     out->write_image(TypeDesc::UINT8, image);
     out->close();
     std::cout << "Image saved " << std::endl;

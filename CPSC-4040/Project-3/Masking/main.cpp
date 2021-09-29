@@ -11,7 +11,6 @@ int main(int argc, char *argv[]) {
         std::cerr << "Error, not enough arguments " << std::endl;
         exit(-1);
     }
-    //Masking masking(argv[1],argv[2]);
-    std::cout<<0%3<<std::endl;
+    Masking masking(argv[1],argv[2]);
     return 0;
 }
