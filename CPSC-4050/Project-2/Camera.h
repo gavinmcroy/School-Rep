@@ -6,7 +6,6 @@
 #ifndef PROJECT_2_CAMERA_H
 #define PROJECT_2_CAMERA_H
 
-
 class Camera {
 public:
     Camera(vzl::Vector position, vzl::Vector viewDirection, vzl::Vector upDirection, double fov, double aspectRatio);

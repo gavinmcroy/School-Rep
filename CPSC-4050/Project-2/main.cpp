@@ -6,6 +6,8 @@
 
 //Color Trace(const Ray &r, const Scene& s);
 
+/* Rays are drawn from camera, to light source */
+
 int main() {
     Scene scene;
     std::cout << "Hello, World!" << std::endl;

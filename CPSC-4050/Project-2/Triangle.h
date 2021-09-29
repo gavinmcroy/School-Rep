@@ -26,6 +26,8 @@ private:
     vzl::Vector vertex0;
     vzl::Vector vertex1;
     vzl::Vector vertex2;
+    vzl::Vector normal;
+
     vzl::Color color;
 };
 
