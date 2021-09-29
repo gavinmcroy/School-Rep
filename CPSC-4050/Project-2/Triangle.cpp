@@ -22,8 +22,8 @@ double Triangle::intersection(const Ray &r) const {
         return NO_INTERSECTION;
     }
 
-    /* TODO negative may need to be removed */
-    double t = (normal * r.getPosition() + D) / (normal * r.getDirection());
+    /* TODO negative may need to be removed since z is not negative? */
+    double t = -(normal * r.getPosition() + D) / (normal * r.getDirection());
 
     /* if t < 0 then the triangle is "Behind" the ray */
     if (t < 0.0) {
@@ -44,7 +44,11 @@ double Triangle::intersection(const Ray &r) const {
     }
 
     /* TODO How do we get the return type to match? instead of vzl::Vector we want double */
+    /* TODO Short explanation on how does image plane work? */
+    /* TODO Short explanation of point light functionality */
+    /* TODO How am I exactly determining ray direction? */
     return 0.0;
+    /* Want to return this but unable too */
     //return point;
 }
 

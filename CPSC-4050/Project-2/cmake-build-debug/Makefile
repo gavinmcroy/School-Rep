@@ -169,33 +169,6 @@ Camera.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Camera.cpp.s
 .PHONY : Camera.cpp.s
 
-Geometry.o: Geometry.cpp.o
-
-.PHONY : Geometry.o
-
-# target to build an object file
-Geometry.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Geometry.cpp.o
-.PHONY : Geometry.cpp.o
-
-Geometry.i: Geometry.cpp.i
-
-.PHONY : Geometry.i
-
-# target to preprocess a source file
-Geometry.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Geometry.cpp.i
-.PHONY : Geometry.cpp.i
-
-Geometry.s: Geometry.cpp.s
-
-.PHONY : Geometry.s
-
-# target to generate assembly for a file
-Geometry.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Project_2.dir/build.make CMakeFiles/Project_2.dir/Geometry.cpp.s
-.PHONY : Geometry.cpp.s
-
 ImagePlane.o: ImagePlane.cpp.o
 
 .PHONY : ImagePlane.o
@@ -424,9 +397,6 @@ help:
 	@echo "... Camera.o"
 	@echo "... Camera.i"
 	@echo "... Camera.s"
-	@echo "... Geometry.o"
-	@echo "... Geometry.i"
-	@echo "... Geometry.s"
 	@echo "... ImagePlane.o"
 	@echo "... ImagePlane.i"
 	@echo "... ImagePlane.s"

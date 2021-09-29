@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles/Project_2.dir/Camera.cpp.o"
-  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles/Project_2.dir/Geometry.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles/Project_2.dir/ImagePlane.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles/Project_2.dir/Light.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles/Project_2.dir/Plane.cpp.o"
