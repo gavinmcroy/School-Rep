@@ -4,8 +4,9 @@
 
 #include "ImagePlane.h"
 
-ImagePlane::ImagePlane(double nX, double nY) : nX(nX), nY(nY){
-
+ImagePlane::ImagePlane(vzl::Color *data) : data(data){
+    (nX,
+    nY);
 }
 
 vzl::Color ImagePlane::get(int i, int j) const {

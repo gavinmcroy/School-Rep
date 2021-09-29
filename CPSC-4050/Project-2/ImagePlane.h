@@ -9,7 +9,7 @@
 class ImagePlane {
 
 public:
-    ImagePlane(double nX, double nY);
+    ImagePlane(vzl::Color *data);
 
     vzl::Color get(int i, int j) const;
 

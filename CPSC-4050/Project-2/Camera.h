@@ -8,7 +8,7 @@
 
 class Camera {
 public:
-    Camera(vzl::Vector position, vzl::Vector viewDirection, vzl::Vector upDirection, double fov, double aspectRatio);
+    Camera(const vzl::Vector& position, const vzl::Vector& viewDirection, const vzl::Vector& upDirection, double fov, double aspectRatio);
 
 private:
     vzl::Vector position;

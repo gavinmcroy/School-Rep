@@ -28,7 +28,7 @@ Masking::~Masking() {
 
 void Masking::preformMask() {
     double h, s, v;
-    /* The H value that corresponds very closely to the green screen */
+    /* The H value that corresponds very closely to the green screen (20,113,53) */
     double highRange = 155.0;
     double lowRange = 125.0;
     /* Producing a four channel version of the image */
@@ -37,7 +37,6 @@ void Masking::preformMask() {
         RGBtoHSV(imagePixel[i].r, imagePixel[i].g, imagePixel[i].b, h, s, v);
         /* convert to alpha = 0 if H is in epsilon range, else 255 */
         if (h <= highRange && h >= lowRange) {
-            /* (20,113,53) */
             imagePixel[i].a = 0;
         } else {
             imagePixel[i].a = 255;

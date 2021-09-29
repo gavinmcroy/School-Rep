@@ -7,7 +7,8 @@ OIIO_NAMESPACE_USING
 
 /* ./programName input.img output.png */
 int main(int argc, char *argv[]) {
-    if (argc < 3) {
+    const int EXPECTED_ARGS = 3;
+    if (argc < EXPECTED_ARGS) {
         std::cerr << "Error, not enough arguments " << std::endl;
         exit(-1);
     }

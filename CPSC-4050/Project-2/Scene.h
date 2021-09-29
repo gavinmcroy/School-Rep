@@ -13,7 +13,7 @@
 
 class Scene {
 private:
-    std::vector<Geometry> scene;
+    std::vector<Geometry * > scene;
     Camera camera;
     ImagePlane imagePlane;
     Light pointLight;
