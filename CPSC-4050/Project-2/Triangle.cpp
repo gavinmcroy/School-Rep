@@ -44,20 +44,20 @@ double Triangle::intersection(const Ray &r) const {
         return NO_INTERSECTION;
     }
 
-    /* solved  How do we get the return type to match? instead of vzl::Vector we want double */
-    /* TODO Short explanation on how does image plane work? */
-    /* TODO Short explanation of point light functionality */
-    /* TODO How am I exactly determining ray direction? */
-    return 0.0;
     /* returning distance */
-    //return point;
+    return point.magnitude();
 }
 
 const vzl::Color Triangle::getColor() const {
-    return vzl::Color();
+    return color;
 }
 
 vzl::Color Triangle::shade(const vzl::Vector &P, const Light &L) const {
-
-    return vzl::Color();
+    /* TODO this may be incorrect  L_hat = (PL - Pi) / |PL - Pi| where PL = pointLightLoc Pi = Point Intersection */
+    vzl::Vector light = (L.getPosition() - P) / ((L.getPosition() - P).magnitude());
+    double f = normal * light;
+    if (f < 0.0) {
+        f = 0.0;
+    }
+    return (L.getColor() * color) * f;
 }

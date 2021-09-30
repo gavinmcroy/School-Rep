@@ -4,15 +4,22 @@
 
 #include "ImagePlane.h"
 
-ImagePlane::ImagePlane(vzl::Color *data) : data(data){
-    (nX,
-    nY);
+ImagePlane::ImagePlane(int nX, int nY) : nX(nX), nY(nY) {
+    data = new vzl::Color[nX * nY];
 }
 
 vzl::Color ImagePlane::get(int i, int j) const {
-    return vzl::Color();
+    return data[i + j * nX];
 }
 
 void ImagePlane::set(int i, int j, const vzl::Color &C) {
+    data[i + j * nX] = C;
+}
 
+int ImagePlane::getNX() {
+    return nX;
+}
+
+int ImagePlane::getNY() {
+    return nY;
 }

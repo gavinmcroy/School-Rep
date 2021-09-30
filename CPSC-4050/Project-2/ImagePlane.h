@@ -9,15 +9,19 @@
 class ImagePlane {
 
 public:
-    ImagePlane(vzl::Color *data);
+    ImagePlane(int nX, int nY);
 
     vzl::Color get(int i, int j) const;
 
     void set(int i, int j, const vzl::Color &C);
 
+    int getNX();
+
+    int getNY();
+
 private:
-    double nX;
-    double nY;
+    int nX;
+    int nY;
 
     vzl::Color * data;
 

@@ -13,13 +13,15 @@
 
 class Scene {
 private:
-    std::vector<Geometry * > scene;
+    std::vector<Geometry *> scene;
     Camera camera;
     ImagePlane imagePlane;
     Light pointLight;
 
 public:
     Scene();
+
+    void mainRenderLoop();
 
     vzl::Color trace(Ray &r);
 

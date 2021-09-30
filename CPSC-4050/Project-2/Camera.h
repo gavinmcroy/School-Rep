@@ -8,7 +8,8 @@
 
 class Camera {
 public:
-    Camera(const vzl::Vector& position, const vzl::Vector& viewDirection, const vzl::Vector& upDirection, double fov, double aspectRatio);
+    Camera(const vzl::Vector& position, const vzl::Vector& viewDirection, const vzl::Vector& upDirection,
+           double fov, double aspectRatio);
 
 private:
     vzl::Vector position;
@@ -17,6 +18,7 @@ private:
     double fov;
     double aspectRatio;
 
+    /* TODO what is this supposed to do?*/
     vzl::Vector view(double x, double y) const;
 };
 
