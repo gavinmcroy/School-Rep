@@ -3,6 +3,7 @@
 //
 #include <iostream>
 #include <limits>
+#include <OpenImageIO/imageio.h>
 #include "Scene.h"
 #include "Vector.h"
 #include "Color.h"
@@ -10,6 +11,8 @@
 #include "Plane.h"
 #include "Triangle.h"
 #include "Sphere.h"
+
+OIIO_NAMESPACE_USING
 
 Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
                         vzl::Vector(0, 1, 0), 90, 1.33),
@@ -78,7 +81,8 @@ vzl::Color Scene::trace(Ray &r) {
     double minIntersectionD = std::numeric_limits<double>::max();
     for (int z = 0; z < scene.size(); z++) {
         double tempIntersection = scene[z]->intersection(r);
-        if(tempIntersection < 0){
+        /* no intersection */
+        if (tempIntersection < 0) {
             continue;
         }
         if (tempIntersection < minIntersectionD) {
@@ -88,10 +92,70 @@ vzl::Color Scene::trace(Ray &r) {
         }
     }
     /* if no intersection return black */
+
+    /* Something is wrong with this logic */
     if (!noIntersection) {
-        return vzl::Color(0, 0, 0, 255);
+        return vzl::Color(1, 0, 0, 1);
     }
 
     /* TODO you calculate ray + intersection point distance returned * direction */
     return scene[index]->shade(r.getPosition() + minIntersectionD * r.getDirection(), pointLight);
 }
+
+void Scene::outputRender() {
+    /* TEMP CODE */
+//    std::string inputName = "in.jpeg";
+//    auto input = ImageInput::open(inputName);
+//    ImageSpec imageSpec1 = input->spec();
+//    auto *inputImageData = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
+//    input->read_image(TypeDesc::UINT8, inputImageData);
+//    input->close();
+    /* TEMP CODE */
+
+
+    std::string fileOutputName = "out.png";
+    int numChannels = 3;
+    ImageSpec imageSpec = ImageSpec(imagePlane.getNX(), imagePlane.getNY(), numChannels, TypeDesc::FLOAT);
+    auto output = ImageOutput::create("out.png");
+    output->open(fileOutputName, imageSpec);
+
+    /* Basically take our color array and copy into a unsigned char array cause openImageIO likes it */
+    auto *imageData = new unsigned char[imagePlane.getNX() * imagePlane.getNY() * numChannels];
+
+    for (int i = 0; i < imagePlane.getNY(); i++) {
+        for (int j = 0; j < imagePlane.getNX(); j++) {
+            for (int x = 0; x < numChannels; x++) {
+                /* nifty index formula for 1D array */
+                int address = (j * imagePlane.getNY() + i) * numChannels;
+                /* R */
+                if (x == 0) {
+                    imageData[address + x] =
+                            (unsigned char) imagePlane.get(j, i).red() * 255; // inputImageData[address +x];
+                }/* G */
+                else if (x == 1) {
+                    imageData[address + x] =
+                            (unsigned char) imagePlane.get(j, i).green() * 255; //inputImageData[address +x];
+                } /* B */
+                else if (x == 2) {
+                    imageData[address + x] =
+                            (unsigned char) imagePlane.get(j, i).blue() * 255; //inputImageData[address +x];
+                }
+            }
+        }
+    }
+
+    output->write_image(TypeDesc::UINT8, imageData);
+    output->close();
+
+}
+
+//if (i % numChannels == 0) {
+////imageData[i] =
+//}/* G */
+//else if (i % numChannels == 1) {
+//
+//} /* B */
+//else if (i % numChannels == 2) {
+//
+//secondaryCounter++;
+//}

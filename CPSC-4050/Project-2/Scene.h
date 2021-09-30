@@ -25,6 +25,8 @@ public:
 
     void mainRenderLoop();
 
+    void outputRender();
+
 };
 
 

@@ -6,6 +6,7 @@
 int main() {
     Scene scene;
     scene.mainRenderLoop();
+    scene.outputRender();
     std::cout << "Hello, World!" << std::endl;
     return 0;
 }
