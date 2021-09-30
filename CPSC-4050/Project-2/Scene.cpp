@@ -38,14 +38,14 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
     scene.push_back(new Triangle(vzl::Vector(-1.5, .6, 5), vzl::Vector(-1.8, .9, 5),
                                  vzl::Vector(-1.7, .4, 5), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
 //    /* Triangle 1 */
-//    scene.push_back(new Triangle(vzl::Vector(-1.8, .9, 5), vzl::Vector(-1.7, 0.4, 5),
-//                                 vzl::Vector(1.1, 3.25, 3), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
+    scene.push_back(new Triangle(vzl::Vector(-1.8, .9, 5), vzl::Vector(-1.7, 0.4, 5),
+                                 vzl::Vector(1.1, 3.25, 3), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
 //    /* Triangle 2 */
-//    scene.push_back(new Triangle(vzl::Vector(-1.7, .4, 5), vzl::Vector(1.1, 3.25, 3),
-//                                 vzl::Vector(-1.5, .6, 5), vzl::Color(0, 245 / 255.0, 102.0 / 255.0, 1)));
+    scene.push_back(new Triangle(vzl::Vector(-1.7, .4, 5), vzl::Vector(1.1, 3.25, 3),
+                                 vzl::Vector(-1.5, .6, 5), vzl::Color(0, 245 / 255.0, 102.0 / 255.0, 1)));
 //    /* Triangle 3 */
-//    scene.push_back(new Triangle(vzl::Vector(1.1, 3.25, 3), vzl::Vector(-1.5, .6, 6.5),
-//                                 vzl::Vector(-1.8, .9, 5), vzl::Color(102.0 / 255.0, 0, 245.0 / 255.0, 1)));
+    scene.push_back(new Triangle(vzl::Vector(1.1, 3.25, 3), vzl::Vector(-1.5, .6, 6.5),
+                                 vzl::Vector(-1.8, .9, 5), vzl::Color(102.0 / 255.0, 0, 245.0 / 255.0, 1)));
     /* Sphere */
 //    scene.push_back(new Sphere(vzl::Vector(1.1, 1.25, 7), 1.0, vzl::Color(.5, .5, 1, 1)));
 //    std::cout << "Scene generated" << std::endl;
@@ -58,7 +58,7 @@ void Scene::mainRenderLoop() {
     int nX = imagePlane.getNX();
     int nY = imagePlane.getNY();
     /* Vertical FOV is required to find y */
-    double vFov = 2.0 * atan((tan(hFov / 2.0)) / (aspectRatio)) /* Double check formula */;
+    double vFov = (2.0 * atan(((tan(hFov / 2.0))) / aspectRatio)) /* Double check formula */;
     for (int i = 0; i < imagePlane.getNX(); i++) {
         for (int j = 0; j < imagePlane.getNY(); j++) {
             /* d_hat calculation (aka ray direction of pixel) */
@@ -103,12 +103,12 @@ vzl::Color Scene::trace(Ray &r) {
 
 void Scene::outputRender() {
     /* TEMP CODE */
-    std::string inputName = "in.jpeg";
-    auto input = ImageInput::open(inputName);
-    ImageSpec imageSpec1 = input->spec();
-    auto *inputImageData = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
-    input->read_image(TypeDesc::UINT8, inputImageData);
-    input->close();
+//    std::string inputName = "in.jpeg";
+//    auto input = ImageInput::open(inputName);
+//    ImageSpec imageSpec1 = input->spec();
+//    auto *inputImageData = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
+//    input->read_image(TypeDesc::UINT8, inputImageData);
+//    input->close();
     /* TEMP CODE */
 
 
@@ -128,15 +128,16 @@ void Scene::outputRender() {
                 int address = (j * imagePlane.getNX() + i) * numChannels;
                 /* R */
                 if (x == 0) {
-                    imageData[address + x] = /*(unsigned char) imagePlane.get(i, j).red() * 255*/ inputImageData[address +x];
+                    imageData[address + x] =
+                            (unsigned char) imagePlane.get(i, j).red() * 255; // inputImageData[address + x];
                 }/* G */
                 else if (x == 1) {
                     imageData[address + x] =
-                            /*(unsigned char) imagePlane.get(i, j).green() * 255;*/ inputImageData[address +x];
+                            (unsigned char) imagePlane.get(i, j).green() * 255; //inputImageData[address + x];
                 } /* B */
                 else if (x == 2) {
                     imageData[address + x] =
-                            /*(unsigned char) imagePlane.get(i, j).blue() * 255;*/ inputImageData[address +x];
+                            (unsigned char) imagePlane.get(i, j).blue() * 255; //inputImageData[address + x];
                 }
             }
         }
