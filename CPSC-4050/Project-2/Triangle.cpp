@@ -44,8 +44,10 @@ double Triangle::intersection(const Ray &r) const {
         return NO_INTERSECTION;
     }
 
-    /* returning distance */
-    return point.magnitude();
+    /* TODO returning distance from ray to point of intersection */
+    const vzl::Vector &rayPos = r.getPosition();
+    return sqrt(pow((rayPos.X() - point.X()), 2) + pow((rayPos.Y() - point.Y()), 2) +
+                pow((rayPos.Z() - point.Z()), 2));
 }
 
 const vzl::Color Triangle::getColor() const {
@@ -53,7 +55,7 @@ const vzl::Color Triangle::getColor() const {
 }
 
 vzl::Color Triangle::shade(const vzl::Vector &P, const Light &L) const {
-    /* TODO this may be incorrect  L_hat = (PL - Pi) / |PL - Pi| where PL = pointLightLoc Pi = Point Intersection */
+    /* L_hat = (PL - Pi) / |PL - Pi| where PL = pointLightLoc Pi = Point Intersection */
     vzl::Vector light = (L.getPosition() - P) / ((L.getPosition() - P).magnitude());
     double f = normal * light;
     if (f < 0.0) {

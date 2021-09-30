@@ -5,13 +5,6 @@ CMakeFiles/Project_2.dir/Camera.cpp.o: ../Camera.cpp
 CMakeFiles/Project_2.dir/Camera.cpp.o: ../Camera.h
 CMakeFiles/Project_2.dir/Camera.cpp.o: ../Vector.h
 
-CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Color.h
-CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Geometry.cpp
-CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Geometry.h
-CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Light.h
-CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Ray.h
-CMakeFiles/Project_2.dir/Geometry.cpp.o: ../Vector.h
-
 CMakeFiles/Project_2.dir/ImagePlane.cpp.o: ../Color.h
 CMakeFiles/Project_2.dir/ImagePlane.cpp.o: ../ImagePlane.cpp
 CMakeFiles/Project_2.dir/ImagePlane.cpp.o: ../ImagePlane.h

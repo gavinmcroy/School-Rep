@@ -2,6 +2,7 @@
 // Created by Gavin Taylor Mcroy on 9/27/21.
 //
 #include <iostream>
+#include <limits>
 #include "Scene.h"
 #include "Vector.h"
 #include "Color.h"
@@ -48,17 +49,49 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
 }
 
 void Scene::mainRenderLoop() {
-    /* Loop over i j */
-    for(int i = 0; i < imagePlane.getNX(); i++){
-        for(int j = 0; j < imagePlane.getNY(); j++){
-            /* TODO look at camera */
+    /* Cache references */
+    double hFov = camera.getFov();
+    double aspectRatio = camera.getAspectRatio();
+    int nX = imagePlane.getNX();
+    int nY = imagePlane.getNY();
+    /* Vertical FOV is required to find y */
+    double vFov = 2.0 * atan((tan(hFov / 2.0)) / (aspectRatio)) /* Double check formula */;
+    for (int i = 0; i < imagePlane.getNX(); i++) {
+        for (int j = 0; j < imagePlane.getNY(); j++) {
+            /* d_hat calculation (aka ray direction of pixel) */
+            double x = (-1.0 + (2.0 * i) / (nX - 1.0)) * tan(hFov / 2.0);
+            double y = (-1.0 + (2.0 * j) / (nY - 1.0)) * tan(vFov / 2.0);
+            vzl::Vector dHat = camera.view(x, y);
+
+            Ray ray(camera.getPosition(), dHat);
+            imagePlane.set(i, j, trace(ray));
         }
     }
 }
 
-
+/* Returns color that is computed by shade method of closest object. Black if no intersection*/
 vzl::Color Scene::trace(Ray &r) {
-    /* Returns color that is computed by shade method of closest object. Black if no intersection*/
-    /* TODO what is this supposed to do? */
-    return vzl::Color();
+
+    /* Remember which index the geometry had the shortest intersection distance */
+    bool noIntersection = true;
+    int index = 0;
+    double minIntersectionD = std::numeric_limits<double>::max();
+    for (int z = 0; z < scene.size(); z++) {
+        double tempIntersection = scene[z]->intersection(r);
+        if(tempIntersection < 0){
+            continue;
+        }
+        if (tempIntersection < minIntersectionD) {
+            minIntersectionD = tempIntersection;
+            index = z;
+            noIntersection = false;
+        }
+    }
+    /* if no intersection return black */
+    if (!noIntersection) {
+        return vzl::Color(0, 0, 0, 255);
+    }
+
+    /* TODO you calculate ray + intersection point distance returned * direction */
+    return scene[index]->shade(r.getPosition() + minIntersectionD * r.getDirection(), pointLight);
 }

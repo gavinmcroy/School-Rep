@@ -18,12 +18,12 @@ private:
     ImagePlane imagePlane;
     Light pointLight;
 
+    vzl::Color trace(Ray &r);
+
 public:
     Scene();
 
     void mainRenderLoop();
-
-    vzl::Color trace(Ray &r);
 
 };
 
