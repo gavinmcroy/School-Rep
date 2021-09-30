@@ -61,5 +61,5 @@ vzl::Color Triangle::shade(const vzl::Vector &P, const Light &L) const {
     if (f < 0.0) {
         f = 0.0;
     }
-    return (L.getColor() * color) * f;
+    return (L.getColor() * color) * (float)f;
 }

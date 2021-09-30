@@ -76,7 +76,7 @@ void Scene::mainRenderLoop() {
 vzl::Color Scene::trace(Ray &r) {
 
     /* Remember which index the geometry had the shortest intersection distance */
-    bool noIntersection = true;
+    bool intersection = false;
     int index = 0;
     double minIntersectionD = std::numeric_limits<double>::max();
     for (int z = 0; z < scene.size(); z++) {
@@ -88,14 +88,13 @@ vzl::Color Scene::trace(Ray &r) {
         if (tempIntersection < minIntersectionD) {
             minIntersectionD = tempIntersection;
             index = z;
-            noIntersection = false;
+            intersection = true;
         }
     }
-    /* if no intersection return black */
 
-    /* Something is wrong with this logic */
-    if (!noIntersection) {
-        return vzl::Color(1, 0, 0, 1);
+    /* if no intersection return black */
+    if (!intersection) {
+        return vzl::Color(1, 1, 1, 1);
     }
 
     /* TODO you calculate ray + intersection point distance returned * direction */
@@ -104,12 +103,12 @@ vzl::Color Scene::trace(Ray &r) {
 
 void Scene::outputRender() {
     /* TEMP CODE */
-//    std::string inputName = "in.jpeg";
-//    auto input = ImageInput::open(inputName);
-//    ImageSpec imageSpec1 = input->spec();
-//    auto *inputImageData = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
-//    input->read_image(TypeDesc::UINT8, inputImageData);
-//    input->close();
+    std::string inputName = "in.jpeg";
+    auto input = ImageInput::open(inputName);
+    ImageSpec imageSpec1 = input->spec();
+    auto *inputImageData = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
+    input->read_image(TypeDesc::UINT8, inputImageData);
+    input->close();
     /* TEMP CODE */
 
 
@@ -122,40 +121,27 @@ void Scene::outputRender() {
     /* Basically take our color array and copy into a unsigned char array cause openImageIO likes it */
     auto *imageData = new unsigned char[imagePlane.getNX() * imagePlane.getNY() * numChannels];
 
-    for (int i = 0; i < imagePlane.getNY(); i++) {
-        for (int j = 0; j < imagePlane.getNX(); j++) {
+    for (int i = 0; i < imagePlane.getNX(); i++) {
+        for (int j = 0; j < imagePlane.getNY(); j++) {
             for (int x = 0; x < numChannels; x++) {
                 /* nifty index formula for 1D array */
-                int address = (j * imagePlane.getNY() + i) * numChannels;
+                int address = (j * imagePlane.getNX() + i) * numChannels;
                 /* R */
                 if (x == 0) {
-                    imageData[address + x] =
-                            (unsigned char) imagePlane.get(j, i).red() * 255; // inputImageData[address +x];
+                    imageData[address + x] = /*(unsigned char) imagePlane.get(i, j).red() * 255*/ inputImageData[address +x];
                 }/* G */
                 else if (x == 1) {
                     imageData[address + x] =
-                            (unsigned char) imagePlane.get(j, i).green() * 255; //inputImageData[address +x];
+                            /*(unsigned char) imagePlane.get(i, j).green() * 255;*/ inputImageData[address +x];
                 } /* B */
                 else if (x == 2) {
                     imageData[address + x] =
-                            (unsigned char) imagePlane.get(j, i).blue() * 255; //inputImageData[address +x];
+                            /*(unsigned char) imagePlane.get(i, j).blue() * 255;*/ inputImageData[address +x];
                 }
             }
         }
     }
-
     output->write_image(TypeDesc::UINT8, imageData);
     output->close();
 
 }
-
-//if (i % numChannels == 0) {
-////imageData[i] =
-//}/* G */
-//else if (i % numChannels == 1) {
-//
-//} /* B */
-//else if (i % numChannels == 2) {
-//
-//secondaryCounter++;
-//}
