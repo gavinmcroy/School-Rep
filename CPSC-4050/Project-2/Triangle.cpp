@@ -45,9 +45,11 @@ double Triangle::intersection(const Ray &r) const {
     }
 
     /* TODO returning distance from ray to point of intersection */
-    const vzl::Vector &rayPos = r.getPosition();
-    return sqrt(pow((rayPos.X() - point.X()), 2) + pow((rayPos.Y() - point.Y()), 2) +
-                pow((rayPos.Z() - point.Z()), 2));
+//    double temp = (rayPos-point).magnitude();
+    //double temp2 = sqrt(pow((rayPos.X() - point.X()), 2) + pow((rayPos.Y() - point.Y()), 2) +
+      //                  pow((rayPos.Z() - point.Z()), 2));
+    /* Distance in between starting point and calculated point */
+    return (r.getPosition()-point).magnitude();
 }
 
 const vzl::Color Triangle::getColor() const {

@@ -48,7 +48,7 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
     scene.push_back(new Triangle(vzl::Vector(1.1, 3.25, 3), vzl::Vector(-1.5, .6, 6.5),
                                  vzl::Vector(-1.8, .9, 5), vzl::Color(102.0 / 255.0, 0, 245.0 / 255.0, 1)));
     /* Sphere */
-//    scene.push_back(new Sphere(vzl::Vector(1.1, 1.25, 7), 1.0, vzl::Color(.5, .5, 1, 1)));
+    scene.push_back(new Sphere(vzl::Vector(1.1, 1.25, 7), 1.0, vzl::Color(.5, .5, 1, 1)));
     std::cout << "Scene generated" << std::endl;
 }
 
@@ -68,6 +68,7 @@ void Scene::mainRenderLoop() {
             double x = (-1.0 + ((2.0 * i) / (nX - 1.0))) * tan(hFov / 2.0);
             double y = (-1.0 + ((2.0 * j) / (nY - 1.0))) * tan(vFov / 2.0);
             vzl::Vector dHat = camera.view(x, y);
+            //vzl::Vector temp = dHat.unitvector();
 
             Ray ray(camera.getPosition(), dHat);
             imagePlane.set(i, j, trace(ray));
