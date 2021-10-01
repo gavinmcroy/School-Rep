@@ -20,20 +20,20 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
                  pointLight(vzl::Vector(-1, -1, 7), vzl::Color(1, 1, 1, 1)) {
     /* TODO build our geometric objects */
     /* Plane0 */
-//    scene.push_back(new Plane(vzl::Vector(0, 2, 0), vzl::Vector(0, -1, 0),
-//                              vzl::Color(1, 1, 1, 1)));
-//    /* Plane1 */
-//    scene.push_back(new Plane(vzl::Vector(0, -2, 0), vzl::Vector(0, 1, 0),
-//                              vzl::Color(1, 1, 1, 1)));
-//    /* Plane2 */
-//    scene.push_back(new Plane(vzl::Vector(-2, 0, 0), vzl::Vector(1, 0, 0),
-//                              vzl::Color(1, 0, 0, 1)));
-//    /* Plane3 */
-//    scene.push_back(new Plane(vzl::Vector(2, 0, 0), vzl::Vector(-1, 0, 0),
-//                              vzl::Color(0, 1, 0, 1)));
-//    /* Plane4 */
-//    scene.push_back(new Plane(vzl::Vector(0, 0, 10), vzl::Vector(0, 0, -1),
-//                              vzl::Color(1, 1, 1, 1)));
+    scene.push_back(new Plane(vzl::Vector(0, 2, 0), vzl::Vector(0, -1, 0),
+                              vzl::Color(1, 1, 1, 1)));
+    /* Plane1 */
+    scene.push_back(new Plane(vzl::Vector(0, -2, 0), vzl::Vector(0, 1, 0),
+                              vzl::Color(1, 1, 1, 1)));
+    /* Plane2 */
+    scene.push_back(new Plane(vzl::Vector(-2, 0, 0), vzl::Vector(1, 0, 0),
+                              vzl::Color(1, 0, 0, 1)));
+    /* Plane3 */
+    scene.push_back(new Plane(vzl::Vector(2, 0, 0), vzl::Vector(-1, 0, 0),
+                              vzl::Color(0, 1, 0, 1)));
+    /* Plane4 */
+    scene.push_back(new Plane(vzl::Vector(0, 0, 10), vzl::Vector(0, 0, -1),
+                              vzl::Color(1, 1, 1, 1)));
     /* Triangle0 */
     scene.push_back(new Triangle(vzl::Vector(-1.5, .6, 5), vzl::Vector(-1.8, .9, 5),
                                  vzl::Vector(-1.7, .4, 5), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
