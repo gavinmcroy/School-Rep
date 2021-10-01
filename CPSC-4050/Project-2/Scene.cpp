@@ -104,7 +104,7 @@ vzl::Color Scene::trace(Ray &r) {
 }
 
 void Scene::outputRender() {
-    /* TEMP CODE */
+    /* TEMP CODE tests open image IO Functionality by duplicating image and outputting */
 //    std::string inputName = "in.jpeg";
 //    auto input = ImageInput::open(inputName);
 //    ImageSpec imageSpec1 = input->spec();

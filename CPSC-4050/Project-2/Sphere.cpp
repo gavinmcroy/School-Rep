@@ -30,12 +30,15 @@ double Sphere::intersection(const Ray &r) const {
     if (safteyCalculation < 0) {
         return NO_INTERSECTION;
     }
-    /* This means there is one possible intersection. Also utilizes epsilon for close enough approximation */
+    /* TODO this doesnt make sense at all. Returning from a test?
+     * This means there is one possible intersection. Also utilizes epsilon for close enough approximation */
     if (almost_equal(safteyCalculation, 0.0, 2)) {
         double t = -r.getDirection() * (r.getPosition() - position);
-        /* if possible intersection test failed */
+        /* [TODO This is wrong] if possible intersection test failed */
         if (t < 0) {
             return NO_INTERSECTION;
+        }else{
+            /* Do something */
         }
     }
 
@@ -57,9 +60,9 @@ double Sphere::intersection(const Ray &r) const {
         tMinus = std::numeric_limits<double>::max();
     }
 
+    /* Find the min of the two solutions*/
     double min = tMinus < tPlus ? tMinus : tPlus;
     vzl::Vector point = r.getPosition() + min * r.getDirection();
-    /* return Tminus if its smallest, else tPlus */
 
     return (r.getPosition() - point).magnitude();
 }
@@ -74,6 +77,7 @@ vzl::Color Sphere::shade(const vzl::Vector &P, const Light &L) const {
     if (f < 0.0) {
         f = 0.0;
     }
+
     return (L.getColor() * color) * (float) f;
 }
 
