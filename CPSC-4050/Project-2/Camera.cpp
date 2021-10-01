@@ -25,10 +25,10 @@ vzl::Vector Camera::getPosition() const {
 
 vzl::Vector Camera::view(double x, double y) const {
     vzl::Vector rHat = viewDirection ^ upDirection; //(move outside)
-    vzl::Vector pixelPos = x * rHat + y * upDirection;
+    vzl::Vector pixelPos = (x * rHat) + (y * upDirection);
 
     /* dHat = (x_arrow + nC_hat) / | x_arrow + nC_hat | */
-    return (pixelPos + viewDirection) / (pixelPos + viewDirection).magnitude();
+    return (pixelPos + viewDirection) / ((pixelPos + viewDirection).magnitude());
 
 }
 

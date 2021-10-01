@@ -20,9 +20,9 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
                  pointLight(vzl::Vector(-1, -1, 7), vzl::Color(1, 1, 1, 1)) {
     /* TODO build our geometric objects */
     /* Plane0 */
-//    scene.push_back(new Plane(vzl::Vector(0, 2, 0), vzl::Vector(0, -1, 0),
-//                              vzl::Color(1, 1, 1, 1)));
-//    /* Plane1 */
+    scene.push_back(new Plane(vzl::Vector(0, 2, 0), vzl::Vector(0, -1, 0),
+                              vzl::Color(1, 1, 1, 1)));
+ //   /* Plane1 */
 //    scene.push_back(new Plane(vzl::Vector(0, -2, 0), vzl::Vector(0, 1, 0),
 //                              vzl::Color(1, 1, 1, 1)));
 //    /* Plane2 */
@@ -37,13 +37,13 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
     /* Triangle0 */
     scene.push_back(new Triangle(vzl::Vector(-1.5, .6, 5), vzl::Vector(-1.8, .9, 5),
                                  vzl::Vector(-1.7, .4, 5), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
-//    /* Triangle 1 */
+    /* Triangle 1 */
     scene.push_back(new Triangle(vzl::Vector(-1.8, .9, 5), vzl::Vector(-1.7, 0.4, 5),
                                  vzl::Vector(1.1, 3.25, 3), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
-//    /* Triangle 2 */
+    /* Triangle 2 */
     scene.push_back(new Triangle(vzl::Vector(-1.7, .4, 5), vzl::Vector(1.1, 3.25, 3),
                                  vzl::Vector(-1.5, .6, 5), vzl::Color(0, 245 / 255.0, 102.0 / 255.0, 1)));
-//    /* Triangle 3 */
+    /* Triangle 3 */
     scene.push_back(new Triangle(vzl::Vector(1.1, 3.25, 3), vzl::Vector(-1.5, .6, 6.5),
                                  vzl::Vector(-1.8, .9, 5), vzl::Color(102.0 / 255.0, 0, 245.0 / 255.0, 1)));
     /* Sphere */
@@ -53,7 +53,9 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
 
 void Scene::mainRenderLoop() {
     /* Cache references */
-    double hFov = camera.getFov();
+    /* HFov must be converted to radians (Please work) */
+    double hFov = camera.getFov(); //1° × π/180 = 0.01745rad
+    hFov = hFov * M_PI/180.0;
     double aspectRatio = camera.getAspectRatio();
     int nX = imagePlane.getNX();
     int nY = imagePlane.getNY();
@@ -62,8 +64,8 @@ void Scene::mainRenderLoop() {
     for (int i = 0; i < imagePlane.getNX(); i++) {
         for (int j = 0; j < imagePlane.getNY(); j++) {
             /* d_hat calculation (aka ray direction of pixel) */
-            double x = (-1.0 + (2.0 * i) / (nX - 1.0)) * tan(hFov / 2.0);
-            double y = (-1.0 + (2.0 * j) / (nY - 1.0)) * tan(vFov / 2.0);
+            double x = (-1.0 + ((2.0 * i) / (nX - 1.0))) * tan(hFov / 2.0);
+            double y = (-1.0 + ((2.0 * j) / (nY - 1.0))) * tan(vFov / 2.0);
             vzl::Vector dHat = camera.view(x, y);
 
             Ray ray(camera.getPosition(), dHat);
@@ -74,7 +76,6 @@ void Scene::mainRenderLoop() {
 
 /* Returns color that is computed by shade method of closest object. Black if no intersection*/
 vzl::Color Scene::trace(Ray &r) {
-
     /* Remember which index the geometry had the shortest intersection distance */
     bool intersection = false;
     int index = 0;
@@ -84,21 +85,20 @@ vzl::Color Scene::trace(Ray &r) {
         /* no intersection */
         if (tempIntersection < 0) {
             continue;
-        }
-        if (tempIntersection < minIntersectionD) {
+        } else if (tempIntersection < minIntersectionD) {
             minIntersectionD = tempIntersection;
             index = z;
             intersection = true;
         }
     }
 
-    /* if no intersection return black */
+    /* TODO if no intersection return black */
     if (!intersection) {
         return vzl::Color(1, 1, 1, 1);
     }
 
-    /* TODO you calculate ray + intersection point distance returned * direction */
-    return scene[index]->shade(r.getPosition() + minIntersectionD * r.getDirection(), pointLight);
+    /* you calculate ray + intersection point distance returned * direction */
+    return scene[index]->shade(r.getPosition() + (minIntersectionD * r.getDirection()), pointLight);
 }
 
 void Scene::outputRender() {
@@ -114,7 +114,7 @@ void Scene::outputRender() {
 
     std::string fileOutputName = "out.png";
     int numChannels = 3;
-    ImageSpec imageSpec = ImageSpec(imagePlane.getNX(), imagePlane.getNY(), numChannels, TypeDesc::FLOAT);
+    ImageSpec imageSpec = ImageSpec(imagePlane.getNX(), imagePlane.getNY(), numChannels, TypeDesc::UINT8);
     auto output = ImageOutput::create("out.png");
     output->open(fileOutputName, imageSpec);
 
@@ -126,19 +126,13 @@ void Scene::outputRender() {
             for (int x = 0; x < numChannels; x++) {
                 /* nifty index formula for 1D array */
                 int address = (j * imagePlane.getNX() + i) * numChannels;
-                /* R */
-                if (x == 0) {
-                    imageData[address + x] =
-                            (unsigned char) imagePlane.get(i, j).red() * 255; // inputImageData[address + x];
-                }/* G */
-                else if (x == 1) {
-                    imageData[address + x] =
-                            (unsigned char) imagePlane.get(i, j).green() * 255; //inputImageData[address + x];
-                } /* B */
-                else if (x == 2) {
-                    imageData[address + x] =
-                            (unsigned char) imagePlane.get(i, j).blue() * 255; //inputImageData[address + x];
-                }
+                imageData[address] =
+                        (unsigned char) imagePlane.get(i, j).red() * 255; // inputImageData[address + x];
+                imageData[address+1] =
+                        (unsigned char) imagePlane.get(i, j).green() * 255; //inputImageData[address + x];
+
+                imageData[address+2] =
+                        (unsigned char) imagePlane.get(i, j).blue() * 255; //inputImageData[address + x];
             }
         }
     }

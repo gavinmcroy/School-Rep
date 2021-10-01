@@ -19,9 +19,10 @@ public:
 
     const vzl::Color getColor() const override;
 
-    vzl::Color shade(const vzl::Vector &p, const Light &l) const override;
+    vzl::Color shade(const vzl::Vector &P, const Light &L) const override;
 
 private:
+    vzl::Vector normal;
     vzl::Vector position;
     double radius;
     vzl::Color color;

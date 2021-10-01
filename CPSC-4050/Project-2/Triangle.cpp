@@ -57,6 +57,7 @@ const vzl::Color Triangle::getColor() const {
 vzl::Color Triangle::shade(const vzl::Vector &P, const Light &L) const {
     /* L_hat = (PL - Pi) / |PL - Pi| where PL = pointLightLoc Pi = Point Intersection */
     vzl::Vector light = (L.getPosition() - P) / ((L.getPosition() - P).magnitude());
+
     double f = normal * light;
     if (f < 0.0) {
         f = 0.0;

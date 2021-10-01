@@ -55,7 +55,7 @@ namespace vzl {
         }
 
         //! Unary minus
-        friend const Vector operator-(const Vector &v) { return Vector(-v.xyz[0], -v.xyz[1], -v.xyz[2]); }
+        friend const Vector operator - (const Vector &v) { return Vector(-v.xyz[0], -v.xyz[1], -v.xyz[2]); }
 
         //! Multiplication of a constant with a vector
         friend const Vector operator*(const double w, const Vector &v) { return v * w; }
