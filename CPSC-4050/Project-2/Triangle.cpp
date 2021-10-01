@@ -4,6 +4,18 @@
 
 #include "Triangle.h"
 
+//https://docs.w3cub.com/cpp/types/numeric_limits/epsilon
+template<class T>
+typename std::enable_if<!std::numeric_limits<T>::is_integer, bool>::type
+almost_equal(T x, T y, int ulp) {
+    // the machine epsilon has to be scaled to the magnitude of the values used
+    // and multiplied by the desired precision in ULPs (units in the last place)
+    return std::abs(x - y) <= std::numeric_limits<T>::epsilon() * std::abs(x + y) * ulp
+           // unless the result is subnormal
+           || std::abs(x - y) < std::numeric_limits<T>::min();
+}
+
+
 Triangle::Triangle(const vzl::Vector &vertex0, const vzl::Vector &vertex1, const vzl::Vector &vertex2,
                    const vzl::Color &color) : vertex0(vertex0), vertex1(vertex1), vertex2(vertex2), color(color) {
     /* Normal vector to the triangle (Also the plane) */
@@ -18,7 +30,7 @@ double Triangle::intersection(const Ray &r) const {
     double D = normal * vertex0;
 
     /* Ray is parallel (N * R) therefore no intersection */
-    if (normal * r.getDirection() == 0) {
+    if (almost_equal(normal * r.getDirection(),0.0,2)) {
         return NO_INTERSECTION;
     }
 
