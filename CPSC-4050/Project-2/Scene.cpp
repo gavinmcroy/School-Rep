@@ -15,14 +15,14 @@
 OIIO_NAMESPACE_USING
 
 Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
-                        vzl::Vector(0, 1, 0), 90, 1.33),
+                        vzl::Vector(0, 1, 0), 90, 1.3333),
                  imagePlane(1024, 768),
                  pointLight(vzl::Vector(-1, -1, 7), vzl::Color(1, 1, 1, 1)) {
     /* TODO build our geometric objects */
     /* Plane0 */
-    scene.push_back(new Plane(vzl::Vector(0, 2, 0), vzl::Vector(0, -1, 0),
-                              vzl::Color(1, 1, 1, 1)));
- //   /* Plane1 */
+//    scene.push_back(new Plane(vzl::Vector(0, 2, 0), vzl::Vector(0, -1, 0),
+//                              vzl::Color(1, 1, 1, 1)));
+//    /* Plane1 */
 //    scene.push_back(new Plane(vzl::Vector(0, -2, 0), vzl::Vector(0, 1, 0),
 //                              vzl::Color(1, 1, 1, 1)));
 //    /* Plane2 */
@@ -42,20 +42,21 @@ Scene::Scene() : camera(vzl::Vector(0, 0, 0), vzl::Vector(0, 0, 1),
                                  vzl::Vector(1.1, 3.25, 3), vzl::Color(244.0 / 255.0, 102.0 / 255.0, 0, 1)));
     /* Triangle 2 */
     scene.push_back(new Triangle(vzl::Vector(-1.7, .4, 5), vzl::Vector(1.1, 3.25, 3),
-                                 vzl::Vector(-1.5, .6, 5), vzl::Color(0, 245 / 255.0, 102.0 / 255.0, 1)));
+                                 vzl::Vector(-1.5, .6, 5),
+                                 vzl::Color(0, 245 / 255.0, 102.0 / 255.0, 1)));
     /* Triangle 3 */
     scene.push_back(new Triangle(vzl::Vector(1.1, 3.25, 3), vzl::Vector(-1.5, .6, 6.5),
                                  vzl::Vector(-1.8, .9, 5), vzl::Color(102.0 / 255.0, 0, 245.0 / 255.0, 1)));
     /* Sphere */
 //    scene.push_back(new Sphere(vzl::Vector(1.1, 1.25, 7), 1.0, vzl::Color(.5, .5, 1, 1)));
-//    std::cout << "Scene generated" << std::endl;
+    std::cout << "Scene generated" << std::endl;
 }
 
 void Scene::mainRenderLoop() {
     /* Cache references */
     /* HFov must be converted to radians (Please work) */
     double hFov = camera.getFov(); //1° × π/180 = 0.01745rad
-    hFov = hFov * M_PI/180.0;
+    hFov = hFov * M_PI / 180.0;
     double aspectRatio = camera.getAspectRatio();
     int nX = imagePlane.getNX();
     int nY = imagePlane.getNY();
@@ -127,12 +128,12 @@ void Scene::outputRender() {
                 /* nifty index formula for 1D array */
                 int address = (j * imagePlane.getNX() + i) * numChannels;
                 imageData[address] =
-                        (unsigned char) imagePlane.get(i, j).red() * 255; // inputImageData[address + x];
-                imageData[address+1] =
-                        (unsigned char) imagePlane.get(i, j).green() * 255; //inputImageData[address + x];
+                        (unsigned char) (imagePlane.get(i, j).red() * 255.0); // inputImageData[address + x];
+                imageData[address + 1] =
+                        (unsigned char) (imagePlane.get(i, j).green() * 255.0); //inputImageData[address + x];
 
-                imageData[address+2] =
-                        (unsigned char) imagePlane.get(i, j).blue() * 255; //inputImageData[address + x];
+                imageData[address + 2] =
+                        (unsigned char) (imagePlane.get(i, j).blue() * 255.0); //inputImageData[address + x];
             }
         }
     }

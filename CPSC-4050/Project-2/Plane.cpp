@@ -36,6 +36,7 @@ const vzl::Color Plane::getColor() const {
 
 vzl::Color Plane::shade(const vzl::Vector &P, const Light &L) const {
     vzl::Vector light = (L.getPosition() - P) / ((L.getPosition() - P).magnitude());
+
     double f = normalDirection * light;
     if (f < 0.0) {
         f = 0.0;
