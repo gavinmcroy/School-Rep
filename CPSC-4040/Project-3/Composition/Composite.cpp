@@ -73,22 +73,39 @@ void Composite::readImage(char *argv[], int argc) {
 void Composite::preformOperation() {
     /* Actual A over B operation */
     //a_0 = A_a + A_b(1 - A_a)
-    // C_0 = (C_a * A_a + C_b*A_b(1-A_a)) / 0
+    // C_0 = (C_a * A_a + C_b*A_b(1-A_a)) / A_0
     /* Its better to loop over the smaller image.*/
+    finalImage = new unsigned char[imageSpecB.width * imageSpecB.height * imageSpecB.nchannels];
+    double alphaA = imageA[3] / 255.0;
+    double alphaB = imageB[3] / 255.0;
+    double A0 = alphaA + alphaB * (1 - alphaA);
+
     for (int i = 0; i < imageSpecA.width * imageSpecA.height * imageSpecA.nchannels; i++) {
-        unsigned char A0 = (imageA[i]);
+        if (i % ALPHA_CHANNEL == 3) {
+            A0 = ((imageA[i] / 255.0) + (imageB[i] / 255.0) * (1 - (imageA[i] / 255.0)));
+            finalImage[i] = (unsigned char) A0 * 255;
+            alphaA = imageA[i] / 255.0;
+            alphaB = imageB[i] / 255.0;
+        }
+        double colorPixel = ((((imageA[i] / 255.0) * alphaA) + ((imageB[i] / 255.0) * alphaB)) * (1 - alphaA)) / A0;
+        unsigned char temp = (unsigned char) colorPixel * 255;
+        finalImage[i] = temp;
     }
     /* Then fill the other image in where the other left off */
+
+//    for(int j = i; j < (imageSpecB.width * imageSpecB.height * ALPHA_CHANNEL); j++  ){
+//        finalImage[j] = imageB[j];
+//    }
 }
 
 void Composite::outputFile() {
-    ImageSpec outSpec = ImageSpec(imageSpecB.width, imageSpecB.height, ALPHA_CHANNEL, TypeDesc::UINT8);
+    ImageSpec outSpec = ImageSpec(imageSpecA.width, imageSpecA.height, ALPHA_CHANNEL, TypeDesc::UINT8);
     auto output = ImageOutput::create(outFile);
     output->open(outFile, outSpec);
     if (!output) {
         std::cerr << "Image write error" << std::endl;
     }
-    output->write_image(TypeDesc::UINT8, imageB);
+    output->write_image(TypeDesc::UINT8, finalImage);
     output->close();
     std::cout << "Image saved" << std::endl;
 

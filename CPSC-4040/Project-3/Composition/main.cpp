@@ -7,6 +7,7 @@ OIIO_NAMESPACE_USING
 /* ./compose A.png B.png <optional third>*/
 int main(int argc, char *argv[]) {
     Composite composite(argc,argv);
+    composite.preformOperation();
     composite.outputFile();
 
     return 0;

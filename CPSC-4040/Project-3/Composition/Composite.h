@@ -16,6 +16,7 @@ private:
     std::string outFile;
     unsigned char * imageA;
     unsigned char * imageB;
+    unsigned char * finalImage;
     ImageSpec imageSpecA;
     ImageSpec imageSpecB;
 
