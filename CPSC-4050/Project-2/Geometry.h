@@ -12,6 +12,9 @@
 
 class Geometry {
 public:
+
+
+
     const double NO_INTERSECTION = -1.0;
 
     virtual double intersection(const Ray &r) const = 0; /*{ return -1.0; };*/

@@ -17,6 +17,7 @@ almost_equal(T x, T y, int ulp) {
 
 Plane::Plane(const vzl::Vector &position, const vzl::Vector &normalDirection, const vzl::Color &color) : position(
         position), normalDirection(normalDirection), color(color) {
+    /* ill make my own normal */
     std::cout << "Plane created" << std::endl;
 
 }
@@ -24,7 +25,7 @@ Plane::Plane(const vzl::Vector &position, const vzl::Vector &normalDirection, co
 double Plane::intersection(const Ray &ray) const {
     // vzl::Vector intersection = (vzl::Vector)((ray.getPosition() - position) * normalDirection) / (vzl::Vector)(ray.getDirection() * normalDirection);
     double t = ((ray.getPosition() - position) * normalDirection) / (ray.getDirection() * normalDirection);
-
+    // vzl::Vector myNormal = //(r−b) ^ (s−b)
     /* No intersection test parameters */
     if (t < 0) {
         return NO_INTERSECTION;
@@ -35,22 +36,21 @@ double Plane::intersection(const Ray &ray) const {
     }
 
     vzl::Vector point = ray.getPosition() + t * ray.getDirection();
-
-    const vzl::Vector &rayPos = ray.getPosition();
-    return sqrt(pow((rayPos.X() - point.X()), 2) + pow((rayPos.Y() - point.Y()), 2) +
-                pow((rayPos.Z() - point.Z()), 2));
+    return (ray.getPosition() - point).magnitude();
 }
 
 const vzl::Color Plane::getColor() const {
-    return vzl::Color();
+    return color;
 }
 
 vzl::Color Plane::shade(const vzl::Vector &P, const Light &L) const {
     vzl::Vector light = (L.getPosition() - P) / ((L.getPosition() - P).magnitude());
-
     double f = normalDirection * light;
     if (f < 0.0) {
-        f = 0.0;
+        f = -f;
+    } else {
+        /* TODO found a bug. Returns less than 0 every time */
+        std::cout << "Nothing" << std::endl;
     }
     return (L.getColor() * color) * (float) f;
 }

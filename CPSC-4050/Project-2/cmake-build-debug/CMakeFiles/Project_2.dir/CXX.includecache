@@ -48,24 +48,6 @@ Geometry.h
 Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Vector.h
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.cpp
-cmath
--
-Sphere.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.h
-Vector.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Vector.h
-Color.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Color.h
-Ray.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.h
-Light.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.h
-Geometry.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Geometry.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.cpp
 Triangle.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.h
