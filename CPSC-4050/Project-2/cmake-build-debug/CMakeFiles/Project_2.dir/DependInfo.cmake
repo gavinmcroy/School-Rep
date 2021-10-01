@@ -25,7 +25,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "/usr/local/Cellar/openimageio/2.2.17.0/include"
+  "/usr/local/Cellar/openimageio/2.2.18.0/include"
   "/usr/local/include"
   )
 
