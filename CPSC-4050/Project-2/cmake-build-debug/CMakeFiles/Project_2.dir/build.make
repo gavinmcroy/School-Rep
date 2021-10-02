@@ -220,7 +220,7 @@ Project_2: CMakeFiles/Project_2.dir/Scene.cpp.o
 Project_2: CMakeFiles/Project_2.dir/build.make
 Project_2: /usr/local/lib/libboost_filesystem-mt.dylib
 Project_2: /usr/local/lib/libboost_system-mt.dylib
-Project_2: /usr/local/Cellar/openimageio/2.2.17.0/lib/libOpenImageIO.2.2.17.dylib
+Project_2: /usr/local/Cellar/openimageio/2.2.18.0/lib/libOpenImageIO.2.2.18.dylib
 Project_2: CMakeFiles/Project_2.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Project_2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_2.dir/link.txt --verbose=$(VERBOSE)

@@ -17,15 +17,13 @@ almost_equal(T x, T y, int ulp) {
 
 Plane::Plane(const vzl::Vector &position, const vzl::Vector &normalDirection, const vzl::Color &color) : position(
         position), normalDirection(normalDirection), color(color) {
-    /* ill make my own normal */
     std::cout << "Plane created" << std::endl;
-
 }
 
 double Plane::intersection(const Ray &ray) const {
-    // vzl::Vector intersection = (vzl::Vector)((ray.getPosition() - position) * normalDirection) / (vzl::Vector)(ray.getDirection() * normalDirection);
+    /* Lets find our T */
     double t = ((ray.getPosition() - position) * normalDirection) / (ray.getDirection() * normalDirection);
-    // vzl::Vector myNormal = //(r−b) ^ (s−b)
+
     /* No intersection test parameters */
     if (t < 0) {
         return NO_INTERSECTION;
@@ -35,7 +33,9 @@ double Plane::intersection(const Ray &ray) const {
         return NO_INTERSECTION;
     }
 
+    /* Grab our intersection point */
     vzl::Vector point = ray.getPosition() + t * ray.getDirection();
+    /* Return distance to ray from intersection */
     return (ray.getPosition() - point).magnitude();
 }
 
@@ -44,6 +44,7 @@ const vzl::Color Plane::getColor() const {
 }
 
 vzl::Color Plane::shade(const vzl::Vector &P, const Light &L) const {
+    /* Little bit of lambertian shading. This function is the same for all 3 geometric objects  */
     vzl::Vector light = (L.getPosition() - P) / ((L.getPosition() - P).magnitude());
     double f = normalDirection * light;
     if (f < 0.0) {

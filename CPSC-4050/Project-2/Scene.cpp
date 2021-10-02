@@ -68,8 +68,7 @@ void Scene::mainRenderLoop() {
             double x = (-1.0 + ((2.0 * i) / (nX - 1.0))) * tan(hFov / 2.0);
             double y = (-1.0 + ((2.0 * j) / (nY - 1.0))) * tan(vFov / 2.0);
             vzl::Vector dHat = camera.view(x, y);
-            //vzl::Vector temp = dHat.unitvector();
-
+            /* draw ray, and set the color returned by trace */
             Ray ray(camera.getPosition(), dHat);
             imagePlane.set(i, j, trace(ray));
         }
@@ -104,16 +103,6 @@ vzl::Color Scene::trace(Ray &r) {
 }
 
 void Scene::outputRender() {
-    /* TEMP CODE tests open image IO Functionality by duplicating image and outputting */
-//    std::string inputName = "in.jpeg";
-//    auto input = ImageInput::open(inputName);
-//    ImageSpec imageSpec1 = input->spec();
-//    auto *inputImageData = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
-//    input->read_image(TypeDesc::UINT8, inputImageData);
-//    input->close();
-    /* TEMP CODE */
-
-
     std::string fileOutputName = "out.png";
     int numChannels = 3;
     ImageSpec imageSpec = ImageSpec(imagePlane.getNX(), imagePlane.getNY(), numChannels, TypeDesc::UINT8);
@@ -122,23 +111,24 @@ void Scene::outputRender() {
 
     /* Basically take our color array and copy into a unsigned char array cause openImageIO likes it */
     auto *imageData = new unsigned char[imagePlane.getNX() * imagePlane.getNY() * numChannels];
+    double maxPixVal = 255.0;
 
     for (int i = 0; i < imagePlane.getNX(); i++) {
         for (int j = 0; j < imagePlane.getNY(); j++) {
             for (int x = 0; x < numChannels; x++) {
                 /* nifty index formula for 1D array */
                 int address = (j * imagePlane.getNX() + i) * numChannels;
+                /* We need to multiply by maxPixVal to scale pixel value up from 0.0-1.0 to 0-255 */
                 imageData[address] =
-                        (unsigned char) (imagePlane.get(i, j).red() * 255.0); // inputImageData[address + x];
+                        (unsigned char) (imagePlane.get(i, j).red() * maxPixVal); // inputImageData[address + x];
                 imageData[address + 1] =
-                        (unsigned char) (imagePlane.get(i, j).green() * 255.0); //inputImageData[address + x];
+                        (unsigned char) (imagePlane.get(i, j).green() * maxPixVal); //inputImageData[address + x];
 
                 imageData[address + 2] =
-                        (unsigned char) (imagePlane.get(i, j).blue() * 255.0); //inputImageData[address + x];
+                        (unsigned char) (imagePlane.get(i, j).blue() * maxPixVal); //inputImageData[address + x];
             }
         }
     }
     output->write_image(TypeDesc::UINT8, imageData);
     output->close();
-
 }

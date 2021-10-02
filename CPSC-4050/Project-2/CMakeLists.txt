@@ -17,4 +17,4 @@ target_link_libraries(Project_2
         ${Boost_FILESYSTEM_LIBRARY}
         ${Boost_SYSTEM_LIBRARY}
         )
-target_link_libraries(Project_2 /usr/local/Cellar/openimageio/2.2.17.0/lib/libOpenImageIO.2.2.17.dylib)
+target_link_libraries(Project_2 /usr/local/Cellar/openimageio/2.2.18.0/lib/libOpenImageIO.2.2.18.dylib)

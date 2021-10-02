@@ -116,7 +116,7 @@ cmath
 cstdio
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/Imath.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/Imath.h
 Imath/ImathColor.h
 -
 Imath/ImathMatrix.h
@@ -134,7 +134,7 @@ OpenEXR/ImathVec.h
 OpenEXR/half.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/atomic.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/atomic.h
 OpenImageIO/oiioversion.h
 -
 OpenImageIO/platform.h
@@ -142,7 +142,7 @@ OpenImageIO/platform.h
 atomic
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/attrdelegate.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/attrdelegate.h
 memory
 -
 vector
@@ -156,7 +156,7 @@ OpenImageIO/typedesc.h
 OpenImageIO/ustring.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/dassert.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/dassert.h
 cassert
 -
 cstdio
@@ -166,7 +166,7 @@ cstdlib
 OpenImageIO/platform.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/farmhash.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/farmhash.h
 OpenImageIO/hash.h
 -
 libkern/OSByteOrder.h
@@ -196,7 +196,7 @@ immintrin.h
 algorithm
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/core.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/core.h
 cstdio
 -
 cstring
@@ -220,7 +220,7 @@ experimental/string_view
 fmt/core.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/format-inl.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/format-inl.h
 cassert
 -
 cctype
@@ -242,9 +242,9 @@ locale
 io.h
 -
 format.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/format.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/format.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/format.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/format.h
 algorithm
 -
 cerrno
@@ -260,31 +260,31 @@ memory
 stdexcept
 -
 core.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/core.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/core.h
 intrin.h
 -
 fmt/format.h
 -
 format-inl.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/format-inl.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/format-inl.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/ostream.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/ostream.h
 ostream
 -
 format.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/format.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/format.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/printf.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/printf.h
 algorithm
 -
 limits
 -
 ostream.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/ostream.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/ostream.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/export.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/export.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/fmath.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/fmath.h
 algorithm
 -
 cmath
@@ -310,7 +310,7 @@ OpenImageIO/platform.h
 OpenImageIO/simd.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/hash.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/hash.h
 cassert
 -
 cstdint
@@ -336,7 +336,7 @@ OpenImageIO/string_view.h
 OpenImageIO/fmath.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/imageio.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/imageio.h
 cmath
 -
 limits
@@ -362,9 +362,9 @@ OpenImageIO/thread.h
 OpenImageIO/typedesc.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/oiioversion.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/oiioversion.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/paramlist.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/paramlist.h
 vector
 -
 OpenImageIO/attrdelegate.h
@@ -376,7 +376,7 @@ OpenImageIO/typedesc.h
 OpenImageIO/ustring.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/platform.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/platform.h
 cassert
 -
 cstdlib
@@ -400,7 +400,7 @@ OpenImageIO/oiioversion.h
 OpenImageIO/export.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/simd.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/simd.h
 algorithm
 -
 cstring
@@ -418,7 +418,7 @@ x86intrin.h
 arm_neon.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/span.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/span.h
 array
 -
 cstddef
@@ -440,7 +440,7 @@ OpenImageIO/oiioversion.h
 OpenImageIO/platform.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/string_view.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/string_view.h
 algorithm
 -
 cstddef
@@ -460,7 +460,7 @@ OpenImageIO/export.h
 OpenImageIO/oiioversion.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/strutil.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/strutil.h
 cstdio
 -
 map
@@ -484,13 +484,13 @@ OpenImageIO/string_view.h
 OpenImageIO/detail/farmhash.h
 -
 detail/fmt/ostream.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/ostream.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/ostream.h
 detail/fmt/format.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/format.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/format.h
 detail/fmt/printf.h
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/detail/fmt/printf.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/detail/fmt/printf.h
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/thread.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/thread.h
 algorithm
 -
 atomic
@@ -522,7 +522,7 @@ OpenImageIO/oiioversion.h
 OpenImageIO/platform.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/typedesc.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/typedesc.h
 cmath
 -
 cstddef
@@ -542,7 +542,7 @@ OpenImageIO/string_view.h
 OpenImageIO/strutil.h
 -
 
-/usr/local/Cellar/openimageio/2.2.17.0/include/OpenImageIO/ustring.h
+/usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/ustring.h
 OpenImageIO/dassert.h
 -
 OpenImageIO/export.h
