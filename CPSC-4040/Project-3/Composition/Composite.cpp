@@ -86,9 +86,12 @@ void Composite::preformOperation() {
             alphaB = imageB[i] / 255.0;
             A0 = ((alphaA) + (alphaB) * (1 - alphaA));
             finalImage[i] = (unsigned char) (A0 * 255.0);
+            //finalImage[i] = 255;
         }
 
-        double colorPixel = ((((imageA[i] / 255.0) * alphaA) + ((imageB[i] / 255.0) * alphaB)) * (1 )) / A0;
+       // double colorPixel = ((((imageA[i] / 255.0) * alphaA) + ((imageB[i] / 255.0) * alphaB)) * (1 -alphaA)) / A0;
+
+        double colorPixel = ((imageA[i] / 255.0) * alphaA) + (1-alphaA) * (imageB[i]/255.0); // ((imageB[i] / 255.0) * alphaB)) * (1 -alphaA)) / A0;
         auto temp = (unsigned char) (colorPixel * 255.0);
         finalImage[i] = temp;
     }
