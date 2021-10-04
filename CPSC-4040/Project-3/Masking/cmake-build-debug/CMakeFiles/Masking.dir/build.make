@@ -113,7 +113,7 @@ Masking_EXTERNAL_OBJECTS =
 Masking: CMakeFiles/Masking.dir/main.cpp.o
 Masking: CMakeFiles/Masking.dir/Masking.cpp.o
 Masking: CMakeFiles/Masking.dir/build.make
-Masking: /usr/local/Cellar/openimageio/2.2.17.0/lib/libOpenImageIO.2.2.17.dylib
+Masking: /usr/local/Cellar/openimageio/2.2.18.0/lib/libOpenImageIO.2.2.18.dylib
 Masking: /usr/local/lib/libboost_filesystem-mt.dylib
 Masking: /usr/local/lib/libboost_system-mt.dylib
 Masking: CMakeFiles/Masking.dir/link.txt

@@ -11,7 +11,7 @@ Masking::Masking(const std::string &input, const std::string &output) {
     imageSpec = readImage();
     preformMask();
     double h, s, v;
-    RGBtoHSV(20, 113, 53, h, s, v);
+    RGBtoHSV(imagePixel[0].r, imagePixel[0].g, imagePixel[0].b, h, s, v);
     std::cout << h << std::endl;
     RGBtoHSV(197, 94, 66, h, s, v);
     std::cout << h << std::endl;
@@ -28,9 +28,13 @@ Masking::~Masking() {
 
 void Masking::preformMask() {
     double h, s, v;
-    /* The H value that corresponds very closely to the green screen (20,113,53) */
-    double highRange = 155.0;
-    double lowRange = 125.0;
+
+    /* Simple system that predicts required HSV */
+    double padding = 15.0;
+    RGBtoHSV(imagePixel[0].r, imagePixel[0].g, imagePixel[0].b, h, s, v);
+    double highRange = h+padding;
+    double lowRange = h-padding;
+
     /* Producing a four channel version of the image */
     for (int i = 0; i < (imageSpec.height * imageSpec.width); i++) {
         /* Set alpha channel based on range of hue value by converting to HSV and selecting h = 120 */
@@ -52,23 +56,55 @@ ImageSpec Masking::readImage() {
         exit(-1);
     }
     ImageSpec imageSpec1 = input->spec();
-    image = new unsigned char[imageSpec1.width * imageSpec1.height * imageSpec1.nchannels];
+    image = new unsigned char[imageSpec1.width * imageSpec1.height * MAX_OUTPUT_CHANNELS];
     imagePixel = new Pixel[imageSpec1.width * imageSpec1.height];
     input->read_image(TypeDesc::UINT8, image);
+    bool noAlpha = true;
 
-    /* Convert to a imagePixel struct */
-    int secondaryCounter = 0;
-    for (int i = 0; i < (imageSpec1.width * imageSpec1.height * imageSpec1.nchannels); i++) {
-        /* R */
-        if (i % 3 == 0) {
-            imagePixel[secondaryCounter].r = image[i];
-        }/* G */
-        else if (i % 3 == 1) {
-            imagePixel[secondaryCounter].g = image[i];
-        }/* B */
-        else if (i % 3 == 2) {
-            imagePixel[secondaryCounter].b = image[i];
-            secondaryCounter++;
+    if (imageSpec1.nchannels != MAX_OUTPUT_CHANNELS) {
+        std::cerr << "Warning image does not contain alpha channel." << std::endl;
+        std::cerr << "Adding Alpha Channel " << std::endl;
+    } else {
+        noAlpha = false;
+    }
+
+    if (noAlpha) {
+        int secondaryCounter = 0;
+        int anotherCounter = 0;
+        for (int i = 0; i < (imageSpec1.width * imageSpec1.height * MAX_OUTPUT_CHANNELS); i++) {
+            /* R */
+            if (i % MAX_OUTPUT_CHANNELS == 0) {
+                imagePixel[secondaryCounter].r = image[anotherCounter];
+                anotherCounter++;
+            }/* G */
+            else if (i % MAX_OUTPUT_CHANNELS == 1) {
+                imagePixel[secondaryCounter].g = image[anotherCounter];
+                anotherCounter++;
+            }/* B */
+            else if (i % MAX_OUTPUT_CHANNELS == 2) {
+                imagePixel[secondaryCounter].b = image[anotherCounter];
+                anotherCounter++;
+            } else if (i % MAX_OUTPUT_CHANNELS == 3) {
+                imagePixel[secondaryCounter].a = 255;
+                secondaryCounter++;
+            }
+        }
+    } else {
+        int secondaryCounter = 0;
+        for (int i = 0; i < (imageSpec1.width * imageSpec1.height * MAX_OUTPUT_CHANNELS); i++) {
+            /* R */
+            if (i % MAX_OUTPUT_CHANNELS == 0) {
+                imagePixel[secondaryCounter].r = image[i];
+            }/* G */
+            else if (i % MAX_OUTPUT_CHANNELS == 1) {
+                imagePixel[secondaryCounter].g = image[i];
+            }/* B */
+            else if (i % MAX_OUTPUT_CHANNELS == 2) {
+                imagePixel[secondaryCounter].b = image[i];
+            } else if (i % MAX_OUTPUT_CHANNELS == 3) {
+                imagePixel[secondaryCounter].a = image[i];
+                secondaryCounter++;
+            }
         }
     }
 
@@ -81,6 +117,8 @@ void Masking::writeImage() {
     auto out = ImageOutput::create(outputFile);
     ImageSpec specOut = ImageSpec(imageSpec.width, imageSpec.height, MAX_OUTPUT_CHANNELS, TypeDesc::UINT8);
     out->open(outputFile, specOut);
+
+
     if (!out) {
         std::cerr << "Error" << std::endl;
     }
