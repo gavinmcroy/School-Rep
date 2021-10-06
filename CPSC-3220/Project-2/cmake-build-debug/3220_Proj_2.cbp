@@ -8,38 +8,38 @@
 		<Option virtualFolders="CMake Files\;"/>
 		<Build>
 			<Target title="all">
-				<Option working_dir="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug"/>
+				<Option working_dir="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="rebuild_cache">
-				<Option working_dir="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug"/>
+				<Option working_dir="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="edit_cache">
-				<Option working_dir="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug"/>
+				<Option working_dir="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug"/>
 				<Option type="4"/>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="3220_Proj_2">
-				<Option output="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/3220_Proj_2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug"/>
+				<Option output="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/3220_Proj_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -51,15 +51,15 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 3220_Proj_2"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 3220_Proj_2"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 			<Target title="3220_Proj_2/fast">
-				<Option output="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/3220_Proj_2" prefix_auto="0" extension_auto="0"/>
-				<Option working_dir="/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug"/>
+				<Option output="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/3220_Proj_2" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug"/>
 				<Option object_output="./"/>
 				<Option type="1"/>
 				<Option compiler="gcc"/>
@@ -71,23 +71,23 @@
 					<Add directory="/Library/Frameworks"/>
 				</Compiler>
 				<MakeCommands>
-					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 3220_Proj_2/fast"/>
-					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
-					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
-					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Desktop/3220-Proj-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<Build command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 3220_Proj_2/fast"/>
+					<CompileFile command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j12 -f &quot;/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
 				</MakeCommands>
 			</Target>
 		</Build>
-		<Unit filename="/Users/gavintaylormcroy/Desktop/3220-Proj-2/main.c">
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/main.c">
 			<Option target="3220_Proj_2"/>
 		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Desktop/3220-Proj-2/mythreads.c">
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/mythreads.c">
 			<Option target="3220_Proj_2"/>
 		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Desktop/3220-Proj-2/mythreads.h">
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/mythreads.h">
 			<Option target="3220_Proj_2"/>
 		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Desktop/3220-Proj-2/CMakeLists.txt">
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>
 	</Project>

@@ -1,6 +1,7 @@
 //
 // Created by Gavin Taylor Mcroy on 9/28/21.
 //
+#include <stdio.h>
 #include "mythreads.h"
 
 extern void threadInit() {
