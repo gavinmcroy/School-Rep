@@ -5,7 +5,7 @@
 #include "mythreads.h"
 
 extern void threadInit() {
-
+    /* TODO Start here*/
 }
 
 extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {

@@ -8,7 +8,7 @@
 ucontext_t main_context, thread_context;
 
 void function() {
-    int i = 0;
+    int i;
     printf("This is a function that works loop it up\n");
     for (i = 0; i < 1000000000; i++) {
 
