@@ -10,21 +10,31 @@ Thread *threadHead;
 Thread *threadTail;
 int threadUniqueIdentifier = 0;
 
+void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
+    void *something = NULL;
+    if (args == NULL) {
+
+    }
+    // something = userFunction(args);
+    printf("Wrapper function total arguments %d\n", argc);
+    userFunction(args);
+    /* After execution continue back where the function was called */
+    swapcontext(&thread->threadContext, &main_context);
+    return something;
+}
+
 extern void threadInit() {
     /* TODO Setup threadData to be a linked list */
     threadHead = NULL;
     threadTail = NULL;
-//    char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
-//    getcontext(&main_context);
-//    main_context.uc_stack.ss_sp = stack;
-//    main_context.uc_stack.ss_size = STACK_SIZE;
     printf("Thread library initialized\n");
 }
 
+/* Initializes thread, and sets state to ready */
 extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     Thread *thread = (Thread *) malloc(sizeof(Thread));
 
-    /* Means linked list is empty */
+    /* TODO Linked List is not built. Means linked list is empty */
     if (threadHead == NULL) {
         threadHead = thread;
         threadTail = thread;
@@ -35,6 +45,7 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     getcontext(&thread->threadContext);
     thread->threadContext.uc_stack.ss_sp = stack;
     thread->threadContext.uc_stack.ss_size = STACK_SIZE;
+    thread->threadContext.uc_stack.ss_flags = 0;
     /* Basic thread initialization */
     thread->isFinished = false;
     thread->isRunning = false;
@@ -44,16 +55,19 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     /* TODO Thread ID may need to change */
     thread->threadID = threadUniqueIdentifier;
 
-    threadUniqueIdentifier++;
-
-
+    /* We need to wrap the desired function call, so that we can gather required info */
+    //makecontext(&thread->threadContext,
+    //         (void (*)()) funcPtr, 1, argPtr);
+    const int MAX_ARGS = 4;
+    const int USER_ARGS = 1;
     makecontext(&thread->threadContext,
-                (void (*)()) funcPtr, 1, argPtr);
+                (void (*)()) wrapper, MAX_ARGS, funcPtr, USER_ARGS, argPtr, &thread->threadContext);
 
     /* Thread is supposed to begin running before function returns */
     swapcontext(&main_context, &thread->threadContext);
 
     /* Problem is the function never returns but ends inside what ever function called it */
+    threadUniqueIdentifier++;
     return thread->threadID;
 }
 

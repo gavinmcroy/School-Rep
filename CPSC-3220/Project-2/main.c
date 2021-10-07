@@ -17,8 +17,8 @@ void function() {
     swapcontext(&thread_context, &main_context);
 }
 
-void simpleFunction(){
-    printf("Thread did this call\n");
+void simpleFunction(char* x){
+    printf("Thread did this call %s\n",x);
 }
 
 
@@ -29,14 +29,14 @@ int main() {
     thread_context.uc_stack.ss_size = STACK_SIZE;
 
     makecontext(&thread_context,
-                (void (*)(void)) function, 1);
+                function, 1);
 
     swapcontext(&main_context, &thread_context);
 
 
     printf("Hello, World!\n");
     threadInit();
-    int threadID = threadCreate((thFuncPtr) simpleFunction, NULL);
-    printf("Post thread creation %d\n",threadID);
+    int threadID = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    printf("Post thread creation %d \n",threadID);
     return 0;
 }
