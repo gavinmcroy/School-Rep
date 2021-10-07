@@ -1,13 +1,33 @@
 #define _XOPEN_SOURCE 600
 
-#define STACK_SIZE (16*1024)  
-#define NUM_LOCKS 10 
+#include <stdbool.h>
+#include <ucontext.h>
+
+#define STACK_SIZE (16*1024)
+#define NUM_LOCKS 10
+
+/* TODO temp debug value */
+#define MAX_THREADS 10
+/* TODO temp debug value */
+
 #define CONDITIONS_PER_LOCK 10
 
+typedef struct Thread {
+    /* Could we assume that thread [0] is main thread */
 
+    int threadID;
+    bool isRunning;
+    bool isWaiting;
+    bool isReady;
+
+    /* TODO isFinished maybe unnecessary*/
+    bool isFinished;
+    ucontext_t threadContext;
+
+} Thread;
 
 //the type of function used to run your threads
-typedef void *(*thFuncPtr) (void *);
+typedef void *(*thFuncPtr)(void *);
 
 extern void threadInit();
 
