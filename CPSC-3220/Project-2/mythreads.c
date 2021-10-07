@@ -18,8 +18,9 @@ void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     printf("Wrapper function total arguments %d\n", argc);
     /* TODO this may not account for return types */
     something = userFunction(args);
-    /* After execution continue back where the function was called */
-    swapcontext(&thread->threadContext, &main_context);
+    /* Function has been completed, needs to be caught by join */
+
+    //swapcontext(&thread->threadContext, &main_context);
     return something;
 }
 
@@ -33,8 +34,6 @@ extern void threadInit() {
 /* Initializes thread, and sets state to ready */
 extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     Thread *thread = (Thread *) malloc(sizeof(Thread));
-
-    /* TODO Linked List is not built. Means linked list is empty */
 
     /* Setup thread stack */
     char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
@@ -69,6 +68,7 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
              (void (*)()) funcPtr, 1, argPtr); */
     const int MAX_ARGS = 4;
     const int USER_ARGS = 1;
+    /* Function is wrapped, so that when it finishes, context is switched back and ID returned */
     makecontext(&thread->threadContext,
                 (void (*)()) wrapper, MAX_ARGS, funcPtr, USER_ARGS, argPtr, &thread->threadContext);
 
