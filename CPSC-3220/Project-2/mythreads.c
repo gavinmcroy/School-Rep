@@ -15,9 +15,9 @@ void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     if (args == NULL) {
 
     }
-    // something = userFunction(args);
     printf("Wrapper function total arguments %d\n", argc);
-    userFunction(args);
+    /* TODO this may not account for return types */
+    something = userFunction(args);
     /* After execution continue back where the function was called */
     swapcontext(&thread->threadContext, &main_context);
     return something;
@@ -35,10 +35,6 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     Thread *thread = (Thread *) malloc(sizeof(Thread));
 
     /* TODO Linked List is not built. Means linked list is empty */
-    if (threadHead == NULL) {
-        threadHead = thread;
-        threadTail = thread;
-    }
 
     /* Setup thread stack */
     char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
@@ -55,9 +51,22 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     /* TODO Thread ID may need to change */
     thread->threadID = threadUniqueIdentifier;
 
-    /* We need to wrap the desired function call, so that we can gather required info */
-    //makecontext(&thread->threadContext,
-    //         (void (*)()) funcPtr, 1, argPtr);
+    if (threadHead == NULL) {
+        threadHead = thread;
+        threadTail = thread;
+    } else {
+        threadTail->nextThread = thread;
+        threadTail = thread;
+        thread->nextThread = NULL;
+    }
+    for (Thread *thread1 = threadHead; thread1 != NULL; thread1 = thread1->nextThread) {
+        printf("ID: %d\n", thread1->threadID);
+    }
+
+
+    /* We need to wrap the desired function call, so that we can gather required info
+    makecontext(&thread->threadContext,
+             (void (*)()) funcPtr, 1, argPtr); */
     const int MAX_ARGS = 4;
     const int USER_ARGS = 1;
     makecontext(&thread->threadContext,
@@ -66,7 +75,6 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     /* Thread is supposed to begin running before function returns */
     swapcontext(&main_context, &thread->threadContext);
 
-    /* Problem is the function never returns but ends inside what ever function called it */
     threadUniqueIdentifier++;
     return thread->threadID;
 }

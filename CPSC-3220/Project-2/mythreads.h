@@ -23,6 +23,7 @@ typedef struct Thread {
     /* TODO isFinished maybe unnecessary*/
     bool isFinished;
     ucontext_t threadContext;
+    struct Thread * nextThread;
 
 } Thread;
 

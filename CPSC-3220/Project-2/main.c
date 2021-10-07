@@ -17,8 +17,9 @@ void function() {
     swapcontext(&thread_context, &main_context);
 }
 
-void simpleFunction(char* x){
-    printf("Thread did this call %s\n",x);
+int simpleFunction(char* x){
+    printf("Thread did this call [%s]\n",x);
+    return 0;
 }
 
 
@@ -37,6 +38,8 @@ int main() {
     printf("Hello, World!\n");
     threadInit();
     int threadID = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    printf("Post thread creation %d \n",threadID);
+    int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    printf("Post thread creation ID %d \n",threadID);
     return 0;
 }
