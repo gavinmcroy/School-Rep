@@ -18,7 +18,7 @@ void function() {
 }
 
 void * simpleFunction(void* x){
-    printf("Thread did this call [%s]\n",(char*)x);
+    printf("Thread did this call. Parameter = [%s]\n",(char*)x);
     return 0;
 }
 
@@ -38,8 +38,10 @@ int main() {
     printf("Hello, World!\n");
     threadInit();
     int threadID = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    //int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    //int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    printf("Post thread creation ID %d \n",threadID);
+    int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    printf("Post thread creation ID %d %d %d \n",threadID,threadID1,threadID2);
     return 0;
 }
+/* TODO be careful with setting thread states, it may be a critical section such as
+ * switching context, interrupt fires then the thread is never set to isWaiting */

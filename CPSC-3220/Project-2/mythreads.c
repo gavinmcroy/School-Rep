@@ -12,15 +12,14 @@ int threadUniqueIdentifier = 0;
 
 void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     void *something = NULL;
-    if (args == NULL) {
 
-    }
-    printf("Wrapper function total arguments %d\n", argc);
     /* TODO this may not account for return types */
     something = userFunction(args);
     /* Function has been completed, needs to be caught by join */
 
-    //swapcontext(&thread->threadContext, &main_context);
+    swapcontext(&thread->threadContext, &main_context);
+    thread->isRunning = false;
+    thread->isWaiting = true;
     return something;
 }
 
@@ -31,7 +30,7 @@ extern void threadInit() {
     printf("Thread library initialized\n");
 }
 
-/* Initializes thread, and sets state to ready */
+/* Initializes thread, and sets state to ready. Main thread is [0] */
 extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     Thread *thread = (Thread *) malloc(sizeof(Thread));
 
@@ -41,11 +40,12 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     thread->threadContext.uc_stack.ss_sp = stack;
     thread->threadContext.uc_stack.ss_size = STACK_SIZE;
     thread->threadContext.uc_stack.ss_flags = 0;
+
     /* Basic thread initialization */
     thread->isFinished = false;
-    thread->isRunning = false;
+    thread->isRunning = true;
     thread->isWaiting = false;
-    thread->isReady = true;
+    thread->isReady = false;
 
     /* TODO Thread ID may need to change */
     thread->threadID = threadUniqueIdentifier;
@@ -58,14 +58,12 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
         threadTail = thread;
         thread->nextThread = NULL;
     }
+
+    /* DEBUG prints all current threads set to active */
     for (Thread *thread1 = threadHead; thread1 != NULL; thread1 = thread1->nextThread) {
         printf("ID: %d\n", thread1->threadID);
     }
 
-
-    /* We need to wrap the desired function call, so that we can gather required info
-    makecontext(&thread->threadContext,
-             (void (*)()) funcPtr, 1, argPtr); */
     const int MAX_ARGS = 4;
     const int USER_ARGS = 1;
     /* Function is wrapped, so that when it finishes, context is switched back and ID returned */
@@ -79,8 +77,12 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     return thread->threadID;
 }
 
+/* We could have a global indexer, so if theres 5 threads. we go down a list
+ * Almost like round robin thread 1 runs yields, thread 2, and so fourth */
 extern void threadYield() {
     /* Holder to loop over linked list to ensure functionality */
+    /* What this does is runs the next thread, once next thread finishes this current thread resumes
+     * then the function returns */
 }
 
 extern void threadJoin(int thread_id, void **result) {
