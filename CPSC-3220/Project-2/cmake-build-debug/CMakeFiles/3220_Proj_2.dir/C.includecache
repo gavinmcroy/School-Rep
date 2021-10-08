@@ -6,9 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/main.c
-ucontext.h
--
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-2/mythreads.c
 stdio.h
 -
 stdlib.h

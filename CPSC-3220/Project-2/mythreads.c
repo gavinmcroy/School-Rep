@@ -6,9 +6,12 @@
 #include "mythreads.h"
 
 ucontext_t main_context;
+//Thread mainContext;
+Thread *runningThread;
 Thread *threadHead;
 Thread *threadTail;
 int threadUniqueIdentifier = 0;
+extern int interruptsAreDisabled = 0;
 
 void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     void *something = NULL;
@@ -27,48 +30,20 @@ void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
 }
 
 extern void threadInit() {
-    /* TODO Setup threadData to be a linked list */
     threadHead = NULL;
     threadTail = NULL;
+    runningThread = NULL;
     printf("Thread library initialized\n");
 }
 
 /* Initializes thread, and sets state to ready. Main thread is [0] */
 extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
-    Thread *thread = (Thread *) malloc(sizeof(Thread));
-
-    /* Setup thread stack */
-    char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
-    getcontext(&thread->threadContext);
-
     interruptsAreDisabled = 1;
-    thread->threadContext.uc_stack.ss_sp = stack;
-    thread->threadContext.uc_stack.ss_size = STACK_SIZE;
-    thread->threadContext.uc_stack.ss_flags = 0;
-
-    /* Basic thread initialization */
-    thread->isFinished = false;
-    thread->isRunning = true;
-    thread->isWaiting = false;
-    thread->isReady = false;
-
-    /* TODO Thread ID may need to change */
-    thread->threadID = threadUniqueIdentifier;
+    Thread *thread = threadSetup();
     interruptsAreDisabled = 0;
 
-    if (threadHead == NULL) {
-        threadHead = thread;
-        threadTail = thread;
-    } else {
-        threadTail->nextThread = thread;
-        threadTail = thread;
-        thread->nextThread = NULL;
-    }
-
-    /* DEBUG prints all current threads set to active */
-    for (Thread *thread1 = threadHead; thread1 != NULL; thread1 = thread1->nextThread) {
-        printf("ID: %d\n", thread1->threadID);
-    }
+    /* Place newly created thread at end of list or at head if empty list */
+    insertIntoList(thread);
 
     const int MAX_ARGS = 4;
     const int USER_ARGS = 1;
@@ -77,9 +52,12 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
                 (void (*)()) wrapper, MAX_ARGS, funcPtr, USER_ARGS, argPtr, &thread->threadContext);
 
     /* Thread is supposed to begin running before function returns */
+    interruptsAreDisabled = 1;
+    runningThread = thread;
+    thread->isRunning = true;
     swapcontext(&main_context, &thread->threadContext);
+    interruptsAreDisabled = 0;
 
-    threadUniqueIdentifier++;
     return thread->threadID;
 }
 
@@ -118,3 +96,44 @@ extern void threadSignal(int lockNum, int conditionNum) {
 
 //this needs to be defined in your library. Don't forget it or some of my tests won't compile.
 
+
+/* Helper functions for code clarity */
+Thread *threadSetup() {
+    Thread *thread = (Thread *) malloc(sizeof(Thread));
+    /* Setup thread stack */
+    char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
+    getcontext(&thread->threadContext);
+
+    interruptsAreDisabled = 1;
+    thread->threadContext.uc_stack.ss_sp = stack;
+    thread->threadContext.uc_stack.ss_size = STACK_SIZE;
+    thread->threadContext.uc_stack.ss_flags = 0;
+
+    /* Basic thread initialization */
+    thread->isFinished = false;
+    thread->isWaiting = false;
+    thread->isReady = false;
+
+    /* TODO Thread ID may need to change */
+    thread->threadID = threadUniqueIdentifier;
+    threadUniqueIdentifier++;
+    return thread;
+}
+
+void printAllThreads() {
+    /* DEBUG prints all current threads set to active */
+    for (Thread *thread1 = threadHead; thread1 != NULL; thread1 = thread1->nextThread) {
+        printf("ID: %d\n", thread1->threadID);
+    }
+}
+
+void insertIntoList(Thread * thread){
+    if (threadHead == NULL) {
+        threadHead = thread;
+        threadTail = thread;
+    } else {
+        threadTail->nextThread = thread;
+        threadTail = thread;
+        thread->nextThread = NULL;
+    }
+}
