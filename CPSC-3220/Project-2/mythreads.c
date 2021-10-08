@@ -15,6 +15,7 @@ extern int interruptsAreDisabled = 0;
 /* We are going to set all of the changed values here */
 void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     void *something = NULL;
+    Thread * temp = threadHead;
 
     /* TODO this may not account for return types */
     something = userFunction(args);
@@ -22,6 +23,7 @@ void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
 
     interruptsAreDisabled = 1;
     changeStateToRunning(&mainThread, thread);
+    /* This is broken */
     swapcontext(&thread->threadContext, &mainThread.threadContext);
     /* TODO Possibly odd behavior because we swap context and interrupts are still disabled */
     interruptsAreDisabled = 0;
@@ -65,8 +67,10 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     changeStateToRunning(thread, &mainThread);
 Thread  temp = mainThread;
 ucontext_t temp1 = main_context;
-Thread * temp2 = threadHead;
-/* TODO this swap context is bugged. Its duplicating the linked list */
+Thread * temp2 = threadTail;
+Thread * temp3 = threadHead;
+/* TODO this swap context is bugged. Its duplicating the linked list. Its something to do with swapping
+ * back into the mainThread */
     swapcontext(&mainThread.threadContext, &thread->threadContext);
     interruptsAreDisabled = 0;
 

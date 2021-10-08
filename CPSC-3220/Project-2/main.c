@@ -38,8 +38,8 @@ int main() {
     printf("Hello, World!\n");
     threadInit();
     int mainThread = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    //int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    //int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
 
     printAllThreads();
     //threadYield();
