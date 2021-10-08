@@ -6,13 +6,13 @@
 #include "mythreads.h"
 
 ucontext_t main_context;
-//Thread mainContext;
-Thread *runningThread;
+Thread mainThread;
 Thread *threadHead;
 Thread *threadTail;
 int threadUniqueIdentifier = 0;
 extern int interruptsAreDisabled = 0;
 
+/* We are going to set all of the changed values here */
 void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     void *something = NULL;
 
@@ -21,18 +21,27 @@ void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     /* Function has been completed, needs to be caught by join */
 
     interruptsAreDisabled = 1;
-    swapcontext(&thread->threadContext, &main_context);
-    thread->isRunning = false;
-    thread->isWaiting = true;
+    changeStateToRunning(&mainThread, thread);
+    swapcontext(&thread->threadContext, &mainThread.threadContext);
+    /* TODO Possibly odd behavior because we swap context and interrupts are still disabled */
     interruptsAreDisabled = 0;
 
     return something;
 }
 
 extern void threadInit() {
-    threadHead = NULL;
-    threadTail = NULL;
-    runningThread = NULL;
+
+    mainThread.threadContext = main_context;
+    mainThread.isRunning = true;
+    mainThread.isWaiting = false;
+    mainThread.isReady = false;
+    mainThread.isFinished = false;
+    mainThread.threadID = -1;
+    mainThread.nextThread = NULL;
+
+
+    threadHead = &mainThread;
+    threadTail = &mainThread;
     printf("Thread library initialized\n");
 }
 
@@ -53,9 +62,12 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
 
     /* Thread is supposed to begin running before function returns */
     interruptsAreDisabled = 1;
-    runningThread = thread;
-    thread->isRunning = true;
-    swapcontext(&main_context, &thread->threadContext);
+    changeStateToRunning(thread, &mainThread);
+Thread  temp = mainThread;
+ucontext_t temp1 = main_context;
+Thread * temp2 = threadHead;
+/* TODO this swap context is bugged. Its duplicating the linked list */
+    swapcontext(&mainThread.threadContext, &thread->threadContext);
     interruptsAreDisabled = 0;
 
     return thread->threadID;
@@ -67,6 +79,29 @@ extern void threadYield() {
     /* Holder to loop over linked list to ensure functionality */
     /* What this does is runs the next thread, once next thread finishes this current thread resumes
      * then the function returns */
+    for (Thread *thread1 = threadHead; thread1 != NULL; thread1 = thread1->nextThread) {
+        printf("%d ", thread1->threadID);
+        if (thread1->isRunning) {
+//            /* We found the thread to yield, now find which thread to run next */
+//            bool found = false;
+//            for (Thread *thread2 = threadHead; thread2 != NULL; thread2 = thread2->nextThread) {
+//                /* We found a thread we would like to resume */
+//                if (thread2->isWaiting) {
+//                    interruptsAreDisabled = 1;
+//                    found = true;
+//                    changeStateToRunning(thread2, thread1);
+//                    swapcontext(&thread2->threadContext, &thread1->threadContext);
+//                    /* TODO Possibly odd behavior because we swap context and interrupts are still disabled */
+//                    interruptsAreDisabled = 0;
+//                }
+//            }
+//            /* We could not find another thread to run. Immediately exit */
+//            if (!found) {
+//                return;
+//            }
+//            return;
+        }
+    }
 }
 
 extern void threadJoin(int thread_id, void **result) {
@@ -104,15 +139,16 @@ Thread *threadSetup() {
     char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
     getcontext(&thread->threadContext);
 
-    interruptsAreDisabled = 1;
     thread->threadContext.uc_stack.ss_sp = stack;
     thread->threadContext.uc_stack.ss_size = STACK_SIZE;
     thread->threadContext.uc_stack.ss_flags = 0;
 
     /* Basic thread initialization */
+    thread->isRunning = false;
     thread->isFinished = false;
     thread->isWaiting = false;
     thread->isReady = false;
+    thread->nextThread = NULL;
 
     /* TODO Thread ID may need to change */
     thread->threadID = threadUniqueIdentifier;
@@ -127,13 +163,25 @@ void printAllThreads() {
     }
 }
 
-void insertIntoList(Thread * thread){
-    if (threadHead == NULL) {
-        threadHead = thread;
-        threadTail = thread;
-    } else {
-        threadTail->nextThread = thread;
-        threadTail = thread;
-        thread->nextThread = NULL;
-    }
+void insertIntoList(Thread *thread) {
+    Thread * temp = threadHead;
+    threadTail->nextThread = thread;
+    threadTail = thread;
+    thread->nextThread = NULL;
 }
+
+void changeStateToRunning(Thread *runningThread, Thread *noLongerRunning) {
+    runningThread->isRunning = true;
+    runningThread->isWaiting = false;
+    runningThread->isReady = false;
+    runningThread->isFinished = false;
+
+    noLongerRunning->isWaiting = true;
+    noLongerRunning->isRunning = false;
+    noLongerRunning->isReady = false;
+    noLongerRunning->isFinished = false;
+}
+
+/* TODO KNOWN BUGS
+ * Every thread stays in running state
+ * Linked list does not properly terminate */

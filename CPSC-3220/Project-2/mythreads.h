@@ -52,8 +52,13 @@ extern void threadSignal(int lockNum, int conditionNum);
 //this needs to be defined in your library. Don't forget it or some of my tests won't compile.
 extern int interruptsAreDisabled;
 
+/* Initializes thread to default values, sets stack and so fourth */
 Thread* threadSetup();
 
 void printAllThreads();
 
+/* Places new thread at the tail of the list */
 void insertIntoList(Thread * thread);
+
+/* Switches thread state from active, to no longer active */
+void changeStateToRunning(Thread * runningThread, Thread * noLongerRunning);

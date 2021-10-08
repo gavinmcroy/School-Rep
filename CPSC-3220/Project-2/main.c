@@ -37,10 +37,13 @@ int main() {
 
     printf("Hello, World!\n");
     threadInit();
-    int threadID = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
-    printf("Post thread creation ID %d %d %d \n",threadID,threadID1,threadID2);
+    int mainThread = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    //int threadID1 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+    //int threadID2 = threadCreate((thFuncPtr) simpleFunction, (void *) "Working");
+
+    printAllThreads();
+    //threadYield();
+    //printf("Post thread creation ID %d %d %d \n",mainThread,threadID1,threadID2);
     return 0;
 }
 /* TODO be careful with setting thread states, it may be a critical section such as
