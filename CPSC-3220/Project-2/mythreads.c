@@ -17,9 +17,12 @@ void *wrapper(thFuncPtr userFunction, int argc, void *args, Thread *thread) {
     something = userFunction(args);
     /* Function has been completed, needs to be caught by join */
 
+    interruptsAreDisabled = 1;
     swapcontext(&thread->threadContext, &main_context);
     thread->isRunning = false;
     thread->isWaiting = true;
+    interruptsAreDisabled = 0;
+
     return something;
 }
 
@@ -37,6 +40,8 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     /* Setup thread stack */
     char *stack = (char *) malloc(sizeof(char) * STACK_SIZE);
     getcontext(&thread->threadContext);
+
+    interruptsAreDisabled = 1;
     thread->threadContext.uc_stack.ss_sp = stack;
     thread->threadContext.uc_stack.ss_size = STACK_SIZE;
     thread->threadContext.uc_stack.ss_flags = 0;
@@ -49,6 +54,7 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr) {
 
     /* TODO Thread ID may need to change */
     thread->threadID = threadUniqueIdentifier;
+    interruptsAreDisabled = 0;
 
     if (threadHead == NULL) {
         threadHead = thread;
