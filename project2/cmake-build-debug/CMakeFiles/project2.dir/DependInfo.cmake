@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/gavintaylormcroy/Desktop/project2/helper.c" "/Users/gavintaylormcroy/Desktop/project2/cmake-build-debug/CMakeFiles/project2.dir/helper.c.o"
-  "/Users/gavintaylormcroy/Desktop/project2/main.c" "/Users/gavintaylormcroy/Desktop/project2/cmake-build-debug/CMakeFiles/project2.dir/main.c.o"
-  "/Users/gavintaylormcroy/Desktop/project2/thread_manager.c" "/Users/gavintaylormcroy/Desktop/project2/cmake-build-debug/CMakeFiles/project2.dir/thread_manager.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug/CMakeFiles/project2.dir/helper.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/main.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug/CMakeFiles/project2.dir/main.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug/CMakeFiles/project2.dir/mythreads.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

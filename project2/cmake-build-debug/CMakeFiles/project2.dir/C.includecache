@@ -6,13 +6,19 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Desktop/project2/helper.h
-
-/Users/gavintaylormcroy/Desktop/project2/mythreads.h
-ucontext.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.c
+stdlib.h
 -
+stdio.h
+-
+helper.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.h
+mythreads.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
 
-/Users/gavintaylormcroy/Desktop/project2/thread_manager.c
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.c
 stdlib.h
 -
 stdio.h
@@ -20,7 +26,11 @@ stdio.h
 ucontext.h
 -
 mythreads.h
-/Users/gavintaylormcroy/Desktop/project2/mythreads.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
 helper.h
-/Users/gavintaylormcroy/Desktop/project2/helper.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
+ucontext.h
+-
 

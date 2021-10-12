@@ -1,4 +1,7 @@
 #define _XOPEN_SOURCE
+//
+// Created by Gavin Taylor Mcroy on 10/10/21.
+//
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -10,20 +13,6 @@ int interruptsAreDisabled = 0;
 ucontext_t main_context;
 int currentID = 0;
 int waitingFor = 0;
-struct Node *head = NULL;
-
-typedef struct Node {
-    int threadID;
-    ucontext_t threadContext;
-    int status;
-    void *threadResult;
-
-    int conditionNumber;
-    int queuePosition;
-    int lockNumber;
-
-    struct Node *next;
-} Node;
 
 static void interruptDisable();
 
@@ -51,7 +40,6 @@ void threadInit() {
     interruptDisable();
     currentID = 0;
     waitingFor = THREAD_ERROR;
-    head = NULL;
 
     getcontext(&main_context);
     main_context.uc_stack.ss_size = STACK_SIZE;
@@ -87,20 +75,6 @@ int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     return targetID;
 }
 
-void threadYield() {
-    interruptDisable();
-
-    struct Node *targetNode = nextThread(0, 0);
-    if (targetNode == NULL) {
-        interruptEnable();
-        return;
-    }
-
-    struct Node *myNode = getNode(currentID);
-    switchThreadsStatus(myNode->threadID, targetNode->threadID);
-    interruptEnable();
-}
-
 void threadJoin(int thread_id, void **result) {
     interruptDisable();
     struct Node *node = getNode(thread_id);
@@ -123,10 +97,24 @@ void threadJoin(int thread_id, void **result) {
     interruptEnable();
 }
 
+void threadYield() {
+    interruptDisable();
+
+    struct Node *targetNode = nextThread(0, 0);
+    if (targetNode == NULL) {
+        interruptEnable();
+        return;
+    }
+
+    struct Node *myNode = getNode(currentID);
+    switchThreadsStatus(myNode->threadID, targetNode->threadID);
+    interruptEnable();
+}
+
 void threadExit(void *result) {
     interruptDisable();
     if (currentID == 0) {
-        struct Node *node = head, *temp;
+        struct Node *node = getHead(), *temp;
         while (node != NULL) {
             temp = node->next;
             if (node->threadID != 0) removeNode(node->threadID);
@@ -141,26 +129,31 @@ void threadExit(void *result) {
 }
 
 void switchThreadsStatus(int threadToChange, int changedToo) {
-    if (threadToChange == changedToo) return;
+    if (threadToChange == changedToo) {
+        return;
+    }
 
     struct Node *fromNode = getNode(threadToChange);
     struct Node *toNode = getNode(changedToo);
 
-    ucontext_t *fromcontext, *tocontext;
-    fromcontext = &(fromNode->threadContext);
-    tocontext = &(toNode->threadContext);
+    ucontext_t *fromContext;
+    ucontext_t *toContext;
+    fromContext = &(fromNode->threadContext);
+    toContext = &(toNode->threadContext);
 
     if (fromNode->status == THREAD_RUNNING)
         fromNode->status = THREAD_READY;
     currentID = changedToo;
     toNode->status = THREAD_RUNNING;
 
-    getcontext(fromcontext);
-    swapcontext(fromcontext, tocontext);
+    getcontext(fromContext);
+    swapcontext(fromContext, toContext);
 
-    if (toNode->status == THREAD_RUNNING)
+    if (toNode->status == THREAD_RUNNING) {
         toNode->status = THREAD_READY;
-    if (fromNode->status == THREAD_READY)
+    }
+    if (fromNode->status == THREAD_READY) {
         fromNode->status = THREAD_RUNNING;
+    }
     currentID = threadToChange;
 }

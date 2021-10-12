@@ -67,10 +67,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/project2
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/project2/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -99,9 +99,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/project2/cmake-build-debug/CMakeFiles /Users/gavintaylormcroy/Desktop/project2/cmake-build-debug//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug/CMakeFiles /Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Desktop/project2/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -196,32 +196,32 @@ main.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/main.c.s
 .PHONY : main.c.s
 
-thread_manager.o: thread_manager.c.o
+mythreads.o: mythreads.c.o
 
-.PHONY : thread_manager.o
+.PHONY : mythreads.o
 
 # target to build an object file
-thread_manager.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/thread_manager.c.o
-.PHONY : thread_manager.c.o
+mythreads.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/mythreads.c.o
+.PHONY : mythreads.c.o
 
-thread_manager.i: thread_manager.c.i
+mythreads.i: mythreads.c.i
 
-.PHONY : thread_manager.i
+.PHONY : mythreads.i
 
 # target to preprocess a source file
-thread_manager.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/thread_manager.c.i
-.PHONY : thread_manager.c.i
+mythreads.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/mythreads.c.i
+.PHONY : mythreads.c.i
 
-thread_manager.s: thread_manager.c.s
+mythreads.s: mythreads.c.s
 
-.PHONY : thread_manager.s
+.PHONY : mythreads.s
 
 # target to generate assembly for a file
-thread_manager.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/thread_manager.c.s
-.PHONY : thread_manager.c.s
+mythreads.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/project2.dir/build.make CMakeFiles/project2.dir/mythreads.c.s
+.PHONY : mythreads.c.s
 
 # Help Target
 help:
@@ -238,9 +238,9 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... thread_manager.o"
-	@echo "... thread_manager.i"
-	@echo "... thread_manager.s"
+	@echo "... mythreads.o"
+	@echo "... mythreads.i"
+	@echo "... mythreads.s"
 .PHONY : help
 
 

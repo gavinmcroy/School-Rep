@@ -1,6 +1,7 @@
 //
-// Created by Gavin Taylor Mcroy on 10/12/21.
+// Created by Gavin Taylor Mcroy on 10/10/21.
 //
+#define _XOPEN_SOURCE
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -9,43 +10,6 @@
 
 struct Node *head = NULL;
 int nextID = 0;
-
-typedef struct Node {
-    int threadID;
-    ucontext_t threadContext;
-    int status;
-    void *threadResult;
-
-    int conditionNumber;
-    int queuePosition;
-    int lockNumber;
-
-    struct Node *next;
-} Node;
-
-
-struct Node *nextThread(int currentID, int waitingFor) {
-    struct Node *node = head;
-    struct Node *currentNode = getNode(currentID),
-            *waitingForNode = getNode(waitingFor);
-
-    int index = 0;
-    if (currentNode->status == THREAD_WAITING && waitingForNode->status == THREAD_FINISHED) {
-        currentNode->status = THREAD_RUNNING;
-        node = waitingForNode;
-        waitingFor = THREAD_ERROR;
-    } else {
-        while (node != NULL) {
-            if (node->status == THREAD_READY ||
-                (node->status == THREAD_WAITING && node->threadID != currentID))
-                break;
-            else index++;
-            node = node->next;
-        }
-    }
-    for (; index >= 0; index--) rotate();
-    return node;
-}
 
 struct Node *newNode(ucontext_t context) {
     struct Node *node = malloc(sizeof(struct Node));
@@ -63,14 +27,15 @@ struct Node *newNode(ucontext_t context) {
 
 struct Node *pushBack(ucontext_t context) {
     struct Node *node = newNode(context);
-    struct Node *last, *iter = head;
-    if (iter == NULL) {
+    struct Node *last = NULL;
+    struct Node *increment = head;
+    if (increment == NULL) {
         head = node;
         return node;
     }
-    while (iter != NULL) {
-        last = iter;
-        iter = iter->next;
+    while (increment != NULL) {
+        last = increment;
+        increment = increment->next;
     }
     last->next = node;
     return node;
@@ -81,12 +46,15 @@ int addNode(ucontext_t context) {
 }
 
 void rotate() {
-
-    if (head == NULL || head->next == NULL) return;
+    if (head == NULL || head->next == NULL) {
+        return;
+    }
 
     struct Node *tail = head;
     while (tail != NULL) {
-        if (tail->next == NULL) break;
+        if (tail->next == NULL) {
+            break;
+        }
         tail = tail->next;
     }
     tail->next = head;
@@ -95,11 +63,12 @@ void rotate() {
 }
 
 int removeNode(int id) {
-    struct Node *node = head, *last = NULL;
+    struct Node *node = head;
+    struct Node *lastNode = NULL;
 
-    if (id != 0)
+    if (id != 0) {
         free((char *) getNode(id)->threadContext.uc_stack.ss_sp);
-
+    }
     if (head->threadID == id) {
         node = head;
         head = head->next;
@@ -107,10 +76,10 @@ int removeNode(int id) {
     } else {
         while (node != NULL) {
             if (node->threadID == id) {
-                last->next = node->next;
+                lastNode->next = node->next;
                 return id;
             }
-            last = node;
+            lastNode = node;
             node = node->next;
         }
     }
@@ -120,13 +89,14 @@ int removeNode(int id) {
 void exitNode(int id) {
     struct Node *node = getNode(id);
 
-    if (node->status != THREAD_EXIT && id != 0)
+    if (node->status != THREAD_EXIT && id != MAIN_THREAD) {
         free((char *) node->threadContext.uc_stack.ss_sp);
+    }
 
-    node->queuePosition = THREAD_ERROR;
     node->lockNumber = THREAD_ERROR;
     node->status = THREAD_EXIT;
     node->conditionNumber = THREAD_ERROR;
+    node->queuePosition = THREAD_ERROR;
 }
 
 struct Node *getNode(int id) {
@@ -137,4 +107,33 @@ struct Node *getNode(int id) {
         node = node->next;
     }
     return NULL;
+}
+
+struct Node *getHead() {
+    return head;
+}
+
+struct Node *nextThread(int currentID, int waitingFor) {
+    struct Node *node = head;
+    struct Node *currentNode = getNode(currentID);
+    struct Node *waitingForNode = getNode(waitingFor);
+
+    int index = 0;
+    if (currentNode->status == THREAD_WAITING && waitingForNode->status == THREAD_FINISHED) {
+        currentNode->status = THREAD_RUNNING;
+        node = waitingForNode;
+        waitingFor = THREAD_ERROR;
+    } else {
+        while (node != NULL) {
+            if (node->status == THREAD_READY ||
+                (node->status == THREAD_WAITING && node->threadID != currentID))
+                break;
+            else index++;
+            node = node->next;
+        }
+    }
+    for (int trash = 0; index >= 0; index--) {
+        rotate();
+    }
+    return node;
 }

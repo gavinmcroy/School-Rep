@@ -1,7 +1,7 @@
 file(REMOVE_RECURSE
   "CMakeFiles/project2.dir/helper.c.o"
   "CMakeFiles/project2.dir/main.c.o"
-  "CMakeFiles/project2.dir/thread_manager.c.o"
+  "CMakeFiles/project2.dir/mythreads.c.o"
   "project2"
   "project2.pdb"
 )
