@@ -11,100 +11,92 @@
 struct Node *head = NULL;
 int nextID = 0;
 
-struct Node *newNode(ucontext_t context) {
-    struct Node *node = malloc(sizeof(struct Node));
-    node->threadID = nextID;
-    nextID++;
-    node->lockNumber = THREAD_ERROR;
-    node->threadContext = context;
-    node->status = THREAD_READY;
-    node->queuePosition = THREAD_ERROR;
-    node->conditionNumber = THREAD_ERROR;
+struct Node *push(ucontext_t context) {
+    Node *node = createNode(context);
+    Node *last = NULL;
+    Node *increment = head;
 
-    node->next = NULL;
-    return node;
-}
-
-struct Node *pushBack(ucontext_t context) {
-    struct Node *node = newNode(context);
-    struct Node *last = NULL;
-    struct Node *increment = head;
-    if (increment == NULL) {
+    if (!increment) {
         head = node;
         return node;
     }
-    while (increment != NULL) {
+    while (increment) {
         last = increment;
-        increment = increment->next;
+        increment = increment->nextNode;
     }
-    last->next = node;
+
+    last->nextNode = node;
     return node;
 }
 
-int addNode(ucontext_t context) {
-    return pushBack(context)->threadID;
+struct Node *createNode(ucontext_t context) {
+    Node *node = malloc(sizeof(struct Node));
+
+    node->status = THREAD_READY;
+    node->conditionNumber = THREAD_ERROR;
+    node->queuePosition = THREAD_ERROR;
+    node->threadContext = context;
+    node->lockNumber = THREAD_ERROR;
+    node->nextNode = NULL;
+    node->threadID = nextID;
+    nextID++;
+
+    return node;
 }
 
-void rotate() {
-    if (head == NULL || head->next == NULL) {
-        return;
-    }
 
-    struct Node *tail = head;
-    while (tail != NULL) {
-        if (tail->next == NULL) {
-            break;
-        }
-        tail = tail->next;
-    }
-    tail->next = head;
-    head = head->next;
-    tail->next->next = NULL;
+int addNode(ucontext_t threadContext) {
+    return push(threadContext)->threadID;
 }
 
-int removeNode(int id) {
-    struct Node *node = head;
-    struct Node *lastNode = NULL;
+int deleteNode(int threadID) {
+    Node *node = head;
+    Node *lastNode = NULL;
 
-    if (id != 0) {
-        free((char *) getNode(id)->threadContext.uc_stack.ss_sp);
+    /* Delete the stack for the non main thread */
+    if (threadID != MAIN_THREAD) {
+        free((char *) getNode(threadID)->threadContext.uc_stack.ss_sp);
     }
-    if (head->threadID == id) {
-        node = head;
-        head = head->next;
-        return id;
+    if (head->threadID == threadID) {
+        head = head->nextNode;
+        return threadID;
     } else {
         while (node != NULL) {
-            if (node->threadID == id) {
-                lastNode->next = node->next;
-                return id;
+            if (node->threadID == threadID) {
+                lastNode->nextNode = node->nextNode;
+                return threadID;
             }
             lastNode = node;
-            node = node->next;
+            node = node->nextNode;
         }
     }
     return THREAD_ERROR;
 }
 
-void exitNode(int id) {
-    struct Node *node = getNode(id);
-
-    if (node->status != THREAD_EXIT && id != MAIN_THREAD) {
-        free((char *) node->threadContext.uc_stack.ss_sp);
+void rotateStructure() {
+    /* If either are NULL */
+    if (!head || !head->nextNode) {
+        return;
     }
 
-    node->lockNumber = THREAD_ERROR;
-    node->status = THREAD_EXIT;
-    node->conditionNumber = THREAD_ERROR;
-    node->queuePosition = THREAD_ERROR;
+    struct Node *endNode = head;
+    while (endNode) {
+        if (endNode->nextNode == NULL) {
+            break;
+        }
+        endNode = endNode->nextNode;
+    }
+    endNode->nextNode = head;
+    head = head->nextNode;
+    endNode->nextNode->nextNode = NULL;
 }
 
-struct Node *getNode(int id) {
-    struct Node *node = head;
+struct Node *getNode(int threadID) {
+    Node *node = head;
     while (node != NULL) {
-        if (node->threadID == id)
+        if (node->threadID == threadID)
             return node;
-        node = node->next;
+        node = node->nextNode;
     }
     return NULL;
 }
@@ -113,10 +105,24 @@ struct Node *getHead() {
     return head;
 }
 
+void exitNode(int threadID) {
+    Node *node = getNode(threadID);
+
+    /* Free stack for non main thread */
+    if (threadID != MAIN_THREAD && node->status != THREAD_EXIT) {
+        free((char *) node->threadContext.uc_stack.ss_sp);
+    }
+
+    node->lockNumber = THREAD_ERROR;
+    node->conditionNumber = THREAD_ERROR;
+    node->status = THREAD_EXIT;
+    node->queuePosition = THREAD_ERROR;
+}
+
 struct Node *nextThread(int currentID, int waitingFor) {
-    struct Node *node = head;
-    struct Node *currentNode = getNode(currentID);
-    struct Node *waitingForNode = getNode(waitingFor);
+    Node *node = head;
+    Node *currentNode = getNode(currentID);
+    Node *waitingForNode = getNode(waitingFor);
 
     int index = 0;
     if (currentNode->status == THREAD_WAITING && waitingForNode->status == THREAD_FINISHED) {
@@ -129,11 +135,11 @@ struct Node *nextThread(int currentID, int waitingFor) {
                 (node->status == THREAD_WAITING && node->threadID != currentID))
                 break;
             else index++;
-            node = node->next;
+            node = node->nextNode;
         }
     }
     for (int trash = 0; index >= 0; index--) {
-        rotate();
+        rotateStructure();
     }
     return node;
 }

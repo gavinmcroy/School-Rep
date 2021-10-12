@@ -26,7 +26,7 @@ extern int threadCreate(thFuncPtr funcPtr, void *argPtr);
 
 extern void threadYield();
 
-extern void threadJoin(int thread_id, void **result);
+extern void threadJoin(int threadID, void **result);
 
 //exits the current thread -- closing the main thread, will terminate the program
 extern void threadExit(void *result);
@@ -40,6 +40,6 @@ extern void threadWait(int lockNum, int conditionNum);
 
 extern void threadSignal(int lockNum, int conditionNum);
 
-extern int interruptsAreDisabled;
+__attribute__((unused)) extern int interruptsAreDisabled;
 
 #endif //PROJECT2_THREAD_H

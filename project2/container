@@ -57,15 +57,7 @@ void threadSignal(int lockNum, int conditionNum)
   {
     if (node->lockNum == lockNum && node->condNum == conditionNum)
       node->queuePos--;
-    node = node->next;
+    node = node->nextNode;
   }
   interruptEnable();
-}
-
-struct Node *pushFront(ucontext_t context)
-{
-  struct Node *node = newNode(context);
-  node->next = head;
-  head = node;
-  return node;
 }

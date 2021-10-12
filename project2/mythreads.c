@@ -9,17 +9,21 @@
 #include "mythreads.h"
 #include "helper.h"
 
-int interruptsAreDisabled = 0;
+__attribute__((unused)) int interruptsAreDisabled = 0;
+
+__attribute__((unused)) int waitingFor = 0;
+
 ucontext_t main_context;
+
 int currentID = 0;
-int waitingFor = 0;
 
 static void interruptDisable();
 
 static void interruptEnable();
 
-int locks[NUM_LOCKS];
 int conditionalVariable[NUM_LOCKS][CONDITIONS_PER_LOCK];
+
+int locks[NUM_LOCKS];
 
 void *wrapper(thFuncPtr funcPtr, void *arg) {
     interruptEnable();
@@ -58,6 +62,8 @@ void threadInit() {
 
 
 int threadCreate(thFuncPtr funcPtr, void *argPtr) {
+    const int NUM_ARGS = 2;
+
     interruptDisable();
     ucontext_t targetContext;
     getcontext(&targetContext);
@@ -66,7 +72,7 @@ int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     targetContext.uc_stack.ss_size = STACK_SIZE;
     targetContext.uc_stack.ss_flags = 0;
 
-    makecontext(&targetContext, (void (*)(void)) wrapper, 2, funcPtr, argPtr);
+    makecontext(&targetContext, (void (*)(void)) wrapper, NUM_ARGS, funcPtr, argPtr);
 
     int targetID = addNode(targetContext);
     switchThreadsStatus(currentID, targetID);
@@ -75,25 +81,29 @@ int threadCreate(thFuncPtr funcPtr, void *argPtr) {
     return targetID;
 }
 
-void threadJoin(int thread_id, void **result) {
+void threadJoin(int threadID, void **result) {
     interruptDisable();
-    struct Node *node = getNode(thread_id);
-    if (node == NULL) {
+    struct Node *node = getNode(threadID);
+
+    if (!node) {
         interruptEnable();
         return;
     } else {
-        while (node->status != THREAD_FINISHED && node->status != THREAD_EXIT) {
+        while (node->status != THREAD_EXIT && node->status != THREAD_FINISHED) {
             getNode(currentID)->status = THREAD_WAITING;
-            waitingFor = thread_id;
+            waitingFor = threadID;
             interruptEnable();
             threadYield();
             interruptDisable();
         }
-        if (result != NULL)
-            *result = node->threadResult;
 
-        exitNode(thread_id);
+        if (result) {
+            *result = node->threadResult;
+        }
+
+        exitNode(threadID);
     }
+
     interruptEnable();
 }
 
@@ -113,17 +123,19 @@ void threadYield() {
 
 void threadExit(void *result) {
     interruptDisable();
-    if (currentID == 0) {
+    if (currentID == MAIN_THREAD) {
         struct Node *node = getHead(), *temp;
-        while (node != NULL) {
-            temp = node->next;
-            if (node->threadID != 0) removeNode(node->threadID);
+
+        while (node) {
+            temp = node->nextNode;
+            if (node->threadID != MAIN_THREAD) deleteNode(node->threadID);
             node = temp;
         }
-        exit(0);
+        exit(MAIN_THREAD);
     }
-    getNode(currentID)->status = THREAD_FINISHED;
     getNode(currentID)->threadResult = result;
+    getNode(currentID)->status = THREAD_FINISHED;
+
     interruptEnable();
     threadYield();
 }
@@ -133,27 +145,28 @@ void switchThreadsStatus(int threadToChange, int changedToo) {
         return;
     }
 
-    struct Node *fromNode = getNode(threadToChange);
-    struct Node *toNode = getNode(changedToo);
+    struct Node *currentNode = getNode(threadToChange);
+    struct Node *newNode = getNode(changedToo);
 
-    ucontext_t *fromContext;
-    ucontext_t *toContext;
-    fromContext = &(fromNode->threadContext);
-    toContext = &(toNode->threadContext);
+    ucontext_t *newContext;
+    ucontext_t *currentContext;
+    newContext = &(newNode->threadContext);
+    currentContext = &(currentNode->threadContext);
 
-    if (fromNode->status == THREAD_RUNNING)
-        fromNode->status = THREAD_READY;
-    currentID = changedToo;
-    toNode->status = THREAD_RUNNING;
-
-    getcontext(fromContext);
-    swapcontext(fromContext, toContext);
-
-    if (toNode->status == THREAD_RUNNING) {
-        toNode->status = THREAD_READY;
+    if (currentNode->status == THREAD_RUNNING) {
+        currentNode->status = THREAD_READY;
     }
-    if (fromNode->status == THREAD_READY) {
-        fromNode->status = THREAD_RUNNING;
+    currentID = changedToo;
+    newNode->status = THREAD_RUNNING;
+
+    getcontext(currentContext);
+    swapcontext(currentContext, newContext);
+
+    if (newNode->status == THREAD_RUNNING) {
+        newNode->status = THREAD_READY;
+    }
+    if (currentNode->status == THREAD_READY) {
+        currentNode->status = THREAD_RUNNING;
     }
     currentID = threadToChange;
 }

@@ -17,7 +17,7 @@ typedef struct Node {
     int queuePosition;
     int lockNumber;
 
-    struct Node *next;
+    struct Node *nextNode;
 } Node;
 
 typedef void *(*thFuncPtr) (void *);
@@ -26,20 +26,22 @@ void *wrapper(thFuncPtr funcPtr, void *arg);
 
 void switchThreadsStatus(int threadToChange, int changedToo);
 
-struct Node *nextThread(int currentID, int waitingFor);
+Node *nextThread(int currentID, int waitingFor);
 
-struct Node *newNode(ucontext_t context);
+Node *createNode(ucontext_t context);
 
-int addNode(ucontext_t context);
+int addNode(ucontext_t threadContext);
 
-void rotate();
+struct Node *push(ucontext_t context);
 
-int removeNode(int id);
+void rotateStructure();
 
-void exitNode(int id);
+int deleteNode(int threadID);
 
-struct Node *getNode(int id);
+void exitNode(int threadID);
 
-struct Node *getHead();
+Node *getNode(int threadID);
+
+Node *getHead();
 
 #endif //PROJECT2_HELPER_H
