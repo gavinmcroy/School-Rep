@@ -170,3 +170,63 @@ void switchThreadsStatus(int threadToChange, int changedToo) {
     }
     currentID = threadToChange;
 }
+
+//------------------------
+void threadLock(int lockNum) {
+    interruptDisable();
+    while (locks[lockNum] == THREAD_LOCKED) {
+        interruptEnable();
+        threadYield();
+        interruptDisable();
+    }
+    locks[lockNum] = THREAD_LOCKED;
+    interruptEnable();
+}
+
+void threadUnlock(int lockNum) {
+    interruptDisable();
+    locks[lockNum] = THREAD_UNLOCKED;
+    interruptEnable();
+}
+
+void threadWait(int lockNum, int conditionNum) {
+    interruptDisable();
+    if (locks[lockNum] != THREAD_LOCKED) {
+        fprintf(stderr, "ERROR: ThreadWait called with no lock in possesion..");
+        exit(THREAD_ERROR);
+    }
+
+    struct Node *node = getNode(currentID);
+    node->lockNumber = lockNum;
+    node->conditionNumber = conditionNum;
+    conditionalVariable[lockNum][conditionNum]++;
+    node->queuePosition = conditionalVariable[lockNum][conditionNum];
+
+    locks[lockNum] = THREAD_UNLOCKED;
+    while (node->queuePosition > MAIN_THREAD) {
+        interruptEnable();
+        threadYield();
+        interruptDisable();
+    }
+    node->conditionNumber = THREAD_ERROR;
+    node->lockNumber = THREAD_ERROR;
+    node->queuePosition = THREAD_ERROR;
+    interruptEnable();
+    threadLock(lockNum);
+}
+
+void threadSignal(int lockNum, int conditionNum) {
+    interruptDisable();
+    if (conditionalVariable[lockNum][conditionNum] == 0) {
+        interruptEnable();
+        return;
+    }
+    conditionalVariable[lockNum][conditionNum]--;
+    struct Node *node = getHead();
+    while (node != NULL) {
+        if (node->lockNumber == lockNum && node->conditionNumber == conditionNum)
+            node->queuePosition--;
+        node = node->nextNode;
+    }
+    interruptEnable();
+}

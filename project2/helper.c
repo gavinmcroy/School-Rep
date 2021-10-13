@@ -61,7 +61,7 @@ int deleteNode(int threadID) {
         head = head->nextNode;
         return threadID;
     } else {
-        while (node != NULL) {
+        while (node) {
             if (node->threadID == threadID) {
                 lastNode->nextNode = node->nextNode;
                 return threadID;
@@ -93,7 +93,7 @@ void rotateStructure() {
 
 struct Node *getNode(int threadID) {
     Node *node = head;
-    while (node != NULL) {
+    while (node) {
         if (node->threadID == threadID)
             return node;
         node = node->nextNode;
@@ -124,21 +124,23 @@ struct Node *nextThread(int currentID, int waitingFor) {
     Node *currentNode = getNode(currentID);
     Node *waitingForNode = getNode(waitingFor);
 
-    int index = 0;
+    int i = 0;
     if (currentNode->status == THREAD_WAITING && waitingForNode->status == THREAD_FINISHED) {
         currentNode->status = THREAD_RUNNING;
         node = waitingForNode;
         waitingFor = THREAD_ERROR;
     } else {
-        while (node != NULL) {
-            if (node->status == THREAD_READY ||
-                (node->status == THREAD_WAITING && node->threadID != currentID))
+        while (node) {
+            if ((node->status == THREAD_READY) ||
+                (node->status == THREAD_WAITING && node->threadID != currentID)) {
                 break;
-            else index++;
+            } else {
+                i++;
+            }
             node = node->nextNode;
         }
     }
-    for (int trash = 0; index >= 0; index--) {
+    for (int trash = 0; i >= 0; i--) {
         rotateStructure();
     }
     return node;

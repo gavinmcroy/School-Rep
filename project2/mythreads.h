@@ -13,6 +13,7 @@
 #define THREAD_FINISHED 3
 #define THREAD_EXIT 4
 #define THREAD_UNLOCKED 0
+#define THREAD_LOCKED 1
 #define THREAD_ERROR -1
 #define MAIN_THREAD 0
 
