@@ -32,7 +32,7 @@ void specialKeyboardEvent(int key, int x, int y);
 
 void loadImage(const std::string &inputFile);
 
-int *loadFilterFile(const std::string &fileName, int &kernelSize);
+float *loadFilterFile(const std::string &fileName, int &kernelSize);
 
 void writeImage(const std::string &outputFile);
 
@@ -40,7 +40,7 @@ void invertImage();
 
 int getImagePixelTypeForGL();
 
-int getIndex(int * filter,int x, int y, int kernelSize);
+float getFilterIndex(float *filter, int x, int y, int kernelSize);
 
 int state = 0;
 std::vector<unsigned char *> images;
@@ -62,15 +62,64 @@ int main(int argc, char *argv[]) {
     std::string imageFileName = argv[2];
     std::string outputFileName = "out.png";
 
+    int kernelSize = 0;
+    float *filter = loadFilterFile(filterFileName, kernelSize);
+    std::cout << getFilterIndex(filter, 1, 1, kernelSize) << std::endl;
+
     if (argc == OUTPUT_PASSED) {
         outputFileName = argv[3];
     }
 
-    int kernelSize = 0;
     loadImage(argv[2]);
-    int *filter = loadFilterFile(filterFileName, kernelSize);
-    std::cout<<getIndex(filter,1,1,kernelSize)<<std::endl;
+    unsigned char *localImage = images[0];
+    ImageSpec localSpec = specs[0];
+    auto *modifiedImage = new float[localSpec.height * localSpec.width * localSpec.nchannels];
+
+    /* Normalize Image */
+    for (int i = 0; i < localSpec.height * localSpec.width * localSpec.nchannels; i++) {
+        modifiedImage[i] = localImage[i] / 255.0;
+    }
+
+    /* Grab the filterWeight for filter by summing up all the weights */
+    float filterWeight = 0.0;
+    for (int i = 0; i < kernelSize; i++) {
+        for (int j = 0; j < kernelSize; j++) {
+            filterWeight += abs(getFilterIndex(filter, i, j, kernelSize));
+        }
+    }
+
+    /* Here is the actual convolution. Currently it is pseudo code */
+    for (int i = 0; i < localSpec.width; i++) {
+        for (int j = 0; j < localSpec.height; j++) {
+            for (int x = 0; x < localSpec.nchannels; x++) {
+                int address = (j * localSpec.width + i) * localSpec.nchannels;
+                /* Index into individual R G B colors*/
+                modifiedImage[address + x];
+                for (int z = /* CHANGE */0; z < kernelSize; z++) {
+                    for (int v = /* CHANGE */0; v < kernelSize; v++) {
+                        /* If statements for boundary conditions. The i,j is the
+                         * pixel we are preforming on*/
+                        getFilterIndex(filter, z, v, kernelSize)/filterWeight;
+                        /* General Algorithm for 3x3 Kernel. -(size/2) and add till == kernel size */
+                        /* [i-1 j+1],[i j+1], [i+1 j+1]
+                         * [i-1 j]   [i j  ]  [i+1 j]
+                         * [i-1 j-1] [i j-1]  [i+1 j-1]
+
+                                                    */
+                    }
+                }
+            }
+        }
+    }
+
+
+    /* Time to apply convolution */
+    /* Step 1: Divide filter weights by maximum filterWeight (Scale factor) */
+    /* Step 2: Chose boundary mechanism */
+    /* Step 3: Clamp pixel values to be only positive [0,255] */
+
     //openGLSetup(argc, argv);
+    writeImage(outputFileName);
 
     /* Clear memory inside the vector */
     for (auto &image : images) {
@@ -245,14 +294,14 @@ void loadImage(const std::string &inputFile) {
     input->close();
 }
 
-int *loadFilterFile(const std::string &fileName, int &kernelSize) {
+float *loadFilterFile(const std::string &fileName, int &kernelSize) {
     std::ifstream file(fileName);
     if (!file) {
         std::cerr << "File read error" << std::endl;
         exit(1);
     }
     file >> (kernelSize);
-    int *weights = new int[kernelSize * kernelSize];
+    auto *weights = new float[kernelSize * kernelSize];
 
     for (int i = 0; i < kernelSize * kernelSize; i++) {
         int temp = 0;
@@ -309,6 +358,6 @@ int getImagePixelTypeForGL() {
     }
 }
 
-int getIndex(int * filter,int x, int y, int kernelSize){
+float getFilterIndex(float *filter, int x, int y, int kernelSize) {
     return filter[y * kernelSize + x];
 }

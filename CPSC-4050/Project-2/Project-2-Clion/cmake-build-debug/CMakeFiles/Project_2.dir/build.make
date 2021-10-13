@@ -62,10 +62,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Project_2.dir/depend.make
@@ -78,120 +78,120 @@ include CMakeFiles/Project_2.dir/flags.make
 
 CMakeFiles/Project_2.dir/main.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project_2.dir/main.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/main.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/Project_2.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/main.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/main.cpp
 
 CMakeFiles/Project_2.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/main.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/main.cpp > CMakeFiles/Project_2.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/main.cpp > CMakeFiles/Project_2.dir/main.cpp.i
 
 CMakeFiles/Project_2.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/main.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/main.cpp -o CMakeFiles/Project_2.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/main.cpp -o CMakeFiles/Project_2.dir/main.cpp.s
 
 CMakeFiles/Project_2.dir/Camera.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Camera.cpp.o: ../Camera.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project_2.dir/Camera.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Camera.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Project_2.dir/Camera.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Camera.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Camera.cpp
 
 CMakeFiles/Project_2.dir/Camera.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Camera.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.cpp > CMakeFiles/Project_2.dir/Camera.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Camera.cpp > CMakeFiles/Project_2.dir/Camera.cpp.i
 
 CMakeFiles/Project_2.dir/Camera.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Camera.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Camera.cpp -o CMakeFiles/Project_2.dir/Camera.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Camera.cpp -o CMakeFiles/Project_2.dir/Camera.cpp.s
 
 CMakeFiles/Project_2.dir/ImagePlane.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/ImagePlane.cpp.o: ../ImagePlane.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Project_2.dir/ImagePlane.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/ImagePlane.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Project_2.dir/ImagePlane.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/ImagePlane.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/ImagePlane.cpp
 
 CMakeFiles/Project_2.dir/ImagePlane.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/ImagePlane.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.cpp > CMakeFiles/Project_2.dir/ImagePlane.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/ImagePlane.cpp > CMakeFiles/Project_2.dir/ImagePlane.cpp.i
 
 CMakeFiles/Project_2.dir/ImagePlane.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/ImagePlane.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/ImagePlane.cpp -o CMakeFiles/Project_2.dir/ImagePlane.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/ImagePlane.cpp -o CMakeFiles/Project_2.dir/ImagePlane.cpp.s
 
 CMakeFiles/Project_2.dir/Ray.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Ray.cpp.o: ../Ray.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Project_2.dir/Ray.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Ray.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Project_2.dir/Ray.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Ray.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Ray.cpp
 
 CMakeFiles/Project_2.dir/Ray.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Ray.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.cpp > CMakeFiles/Project_2.dir/Ray.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Ray.cpp > CMakeFiles/Project_2.dir/Ray.cpp.i
 
 CMakeFiles/Project_2.dir/Ray.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Ray.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Ray.cpp -o CMakeFiles/Project_2.dir/Ray.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Ray.cpp -o CMakeFiles/Project_2.dir/Ray.cpp.s
 
 CMakeFiles/Project_2.dir/Sphere.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Sphere.cpp.o: ../Sphere.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Project_2.dir/Sphere.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Sphere.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Project_2.dir/Sphere.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Sphere.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Sphere.cpp
 
 CMakeFiles/Project_2.dir/Sphere.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Sphere.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.cpp > CMakeFiles/Project_2.dir/Sphere.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Sphere.cpp > CMakeFiles/Project_2.dir/Sphere.cpp.i
 
 CMakeFiles/Project_2.dir/Sphere.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Sphere.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Sphere.cpp -o CMakeFiles/Project_2.dir/Sphere.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Sphere.cpp -o CMakeFiles/Project_2.dir/Sphere.cpp.s
 
 CMakeFiles/Project_2.dir/Plane.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Plane.cpp.o: ../Plane.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Project_2.dir/Plane.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Plane.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Project_2.dir/Plane.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Plane.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Plane.cpp
 
 CMakeFiles/Project_2.dir/Plane.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Plane.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.cpp > CMakeFiles/Project_2.dir/Plane.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Plane.cpp > CMakeFiles/Project_2.dir/Plane.cpp.i
 
 CMakeFiles/Project_2.dir/Plane.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Plane.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Plane.cpp -o CMakeFiles/Project_2.dir/Plane.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Plane.cpp -o CMakeFiles/Project_2.dir/Plane.cpp.s
 
 CMakeFiles/Project_2.dir/Triangle.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Triangle.cpp.o: ../Triangle.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Project_2.dir/Triangle.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Triangle.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Project_2.dir/Triangle.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Triangle.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Triangle.cpp
 
 CMakeFiles/Project_2.dir/Triangle.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Triangle.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.cpp > CMakeFiles/Project_2.dir/Triangle.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Triangle.cpp > CMakeFiles/Project_2.dir/Triangle.cpp.i
 
 CMakeFiles/Project_2.dir/Triangle.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Triangle.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Triangle.cpp -o CMakeFiles/Project_2.dir/Triangle.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Triangle.cpp -o CMakeFiles/Project_2.dir/Triangle.cpp.s
 
 CMakeFiles/Project_2.dir/Light.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Light.cpp.o: ../Light.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Project_2.dir/Light.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Light.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Project_2.dir/Light.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Light.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Light.cpp
 
 CMakeFiles/Project_2.dir/Light.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Light.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.cpp > CMakeFiles/Project_2.dir/Light.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Light.cpp > CMakeFiles/Project_2.dir/Light.cpp.i
 
 CMakeFiles/Project_2.dir/Light.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Light.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Light.cpp -o CMakeFiles/Project_2.dir/Light.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Light.cpp -o CMakeFiles/Project_2.dir/Light.cpp.s
 
 CMakeFiles/Project_2.dir/Scene.cpp.o: CMakeFiles/Project_2.dir/flags.make
 CMakeFiles/Project_2.dir/Scene.cpp.o: ../Scene.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Project_2.dir/Scene.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Scene.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Project_2.dir/Scene.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Project_2.dir/Scene.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Scene.cpp
 
 CMakeFiles/Project_2.dir/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Project_2.dir/Scene.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp > CMakeFiles/Project_2.dir/Scene.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Scene.cpp > CMakeFiles/Project_2.dir/Scene.cpp.i
 
 CMakeFiles/Project_2.dir/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Project_2.dir/Scene.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Scene.cpp -o CMakeFiles/Project_2.dir/Scene.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/Scene.cpp -o CMakeFiles/Project_2.dir/Scene.cpp.s
 
 # Object files for target Project_2
 Project_2_OBJECTS = \
@@ -222,7 +222,7 @@ Project_2: /usr/local/lib/libboost_filesystem-mt.dylib
 Project_2: /usr/local/lib/libboost_system-mt.dylib
 Project_2: /usr/local/Cellar/openimageio/2.2.18.0/lib/libOpenImageIO.2.2.18.dylib
 Project_2: CMakeFiles/Project_2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Project_2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Project_2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Project_2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -235,6 +235,6 @@ CMakeFiles/Project_2.dir/clean:
 .PHONY : CMakeFiles/Project_2.dir/clean
 
 CMakeFiles/Project_2.dir/depend:
-	cd /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/cmake-build-debug/CMakeFiles/Project_2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-2/Project-2-Clion/cmake-build-debug/CMakeFiles/Project_2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Project_2.dir/depend
 
