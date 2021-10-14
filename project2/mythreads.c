@@ -162,12 +162,14 @@ void switchThreadsStatus(int threadToChange, int changedToo) {
     getcontext(currentContext);
     swapcontext(currentContext, newContext);
 
-    if (newNode->status == THREAD_RUNNING) {
-        newNode->status = THREAD_READY;
-    }
     if (currentNode->status == THREAD_READY) {
         currentNode->status = THREAD_RUNNING;
     }
+    
+    if (newNode->status == THREAD_RUNNING) {
+        newNode->status = THREAD_READY;
+    }
+
     currentID = threadToChange;
 }
 
