@@ -6,6 +6,7 @@ CMakeFiles/project2.dir/helper.c.o: ../helper.h
 CMakeFiles/project2.dir/helper.c.o: ../mythreads.h
 
 CMakeFiles/project2.dir/main.c.o: ../main.c
+CMakeFiles/project2.dir/main.c.o: ../mythreads.h
 
 CMakeFiles/project2.dir/mythreads.c.o: ../helper.h
 CMakeFiles/project2.dir/mythreads.c.o: ../mythreads.c

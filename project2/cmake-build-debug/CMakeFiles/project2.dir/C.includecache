@@ -6,29 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.c
-stdlib.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/main.c
+mythreads.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
+signal.h
 -
 stdio.h
 -
-helper.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.h
-mythreads.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.c
 stdlib.h
 -
-stdio.h
+string.h
 -
-ucontext.h
+sys/time.h
 -
-mythreads.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
-helper.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/helper.h
+unistd.h
+-
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/project2/mythreads.h
 ucontext.h

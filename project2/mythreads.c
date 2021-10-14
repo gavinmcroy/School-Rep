@@ -43,6 +43,8 @@ static void interruptEnable() {
 void threadInit() {
     interruptDisable();
     currentID = 0;
+    Node * temp = getHead();
+    temp = NULL;
     waitingFor = THREAD_ERROR;
 
     getcontext(&main_context);
@@ -165,7 +167,7 @@ void switchThreadsStatus(int threadToChange, int changedToo) {
     if (currentNode->status == THREAD_READY) {
         currentNode->status = THREAD_RUNNING;
     }
-    
+
     if (newNode->status == THREAD_RUNNING) {
         newNode->status = THREAD_READY;
     }

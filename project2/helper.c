@@ -58,10 +58,11 @@ int deleteNode(int threadID) {
         free((char *) getNode(threadID)->threadContext.uc_stack.ss_sp);
     }
     if (head->threadID == threadID) {
+        node = head;
         head = head->nextNode;
         return threadID;
     } else {
-        while (node) {
+        while (node != NULL) {
             if (node->threadID == threadID) {
                 lastNode->nextNode = node->nextNode;
                 return threadID;
@@ -75,12 +76,12 @@ int deleteNode(int threadID) {
 
 void rotateStructure() {
     /* If either are NULL */
-    if (!head || !head->nextNode) {
+    if (!(head) || !(head->nextNode)) {
         return;
     }
 
-    struct Node *endNode = head;
-    while (endNode) {
+    Node *endNode = head;
+    while (endNode != NULL) {
         if (endNode->nextNode == NULL) {
             break;
         }
@@ -93,7 +94,7 @@ void rotateStructure() {
 
 struct Node *getNode(int threadID) {
     Node *node = head;
-    while (node) {
+    while (node != NULL) {
         if (node->threadID == threadID) {
             return node;
         }
@@ -110,7 +111,7 @@ void exitNode(int threadID) {
     Node *node = getNode(threadID);
 
     /* Free stack for non main thread */
-    if (threadID != MAIN_THREAD && node->status != THREAD_EXIT) {
+    if (threadID != MAIN_THREAD && (node->status != THREAD_EXIT)) {
         free((char *) node->threadContext.uc_stack.ss_sp);
     }
 
@@ -131,7 +132,7 @@ struct Node *nextThread(int currentID, int waitingFor) {
         node = waitingForNode;
         waitingFor = THREAD_ERROR;
     } else {
-        while (node) {
+        while (node != NULL) {
             if ((node->status == THREAD_READY) ||
                 (node->status == THREAD_WAITING && node->threadID != currentID)) {
                 break;
