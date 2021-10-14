@@ -39,7 +39,7 @@ extern void threadUnlock(int lockNum);
 
 extern void threadWait(int lockNum, int conditionNum);
 
-extern void threadSignal(int lockNum, int conditionNum);
+extern void threadSignal(int lockNumber, int conditionalNum);
 
 __attribute__((unused)) extern int interruptsAreDisabled;
 

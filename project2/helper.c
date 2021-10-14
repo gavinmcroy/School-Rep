@@ -30,7 +30,7 @@ struct Node *push(ucontext_t context) {
 }
 
 struct Node *createNode(ucontext_t context) {
-    Node *node = malloc(sizeof(struct Node));
+    Node *node = malloc(sizeof(Node));
 
     node->status = THREAD_READY;
     node->conditionNumber = THREAD_ERROR;
@@ -94,8 +94,9 @@ void rotateStructure() {
 struct Node *getNode(int threadID) {
     Node *node = head;
     while (node) {
-        if (node->threadID == threadID)
+        if (node->threadID == threadID) {
             return node;
+        }
         node = node->nextNode;
     }
     return NULL;
@@ -124,7 +125,7 @@ struct Node *nextThread(int currentID, int waitingFor) {
     Node *currentNode = getNode(currentID);
     Node *waitingForNode = getNode(waitingFor);
 
-    int i = 0;
+    int counter = 0;
     if (currentNode->status == THREAD_WAITING && waitingForNode->status == THREAD_FINISHED) {
         currentNode->status = THREAD_RUNNING;
         node = waitingForNode;
@@ -135,12 +136,12 @@ struct Node *nextThread(int currentID, int waitingFor) {
                 (node->status == THREAD_WAITING && node->threadID != currentID)) {
                 break;
             } else {
-                i++;
+                counter++;
             }
             node = node->nextNode;
         }
     }
-    for (int trash = 0; i >= 0; i--) {
+    for (int trash = 0; counter >= 0; counter--) {
         rotateStructure();
     }
     return node;

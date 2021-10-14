@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     /* TODO KNOWN PROBLEMS:
      * Images are displayed upside down
      * grey scale images are improperly displayed but properly outputted? */
-
+    printf()
     if (argc < 3) {
         std::cerr << "Not enough command line arguments" << std::endl;
         exit(1);

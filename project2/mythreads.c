@@ -9,9 +9,9 @@
 #include "mythreads.h"
 #include "helper.h"
 
-__attribute__((unused)) int interruptsAreDisabled = 0;
+int interruptsAreDisabled = 0;
 
-__attribute__((unused)) int waitingFor = 0;
+int waitingFor = 0;
 
 ucontext_t main_context;
 
@@ -83,7 +83,7 @@ int threadCreate(thFuncPtr funcPtr, void *argPtr) {
 
 void threadJoin(int threadID, void **result) {
     interruptDisable();
-    struct Node *node = getNode(threadID);
+    Node *node = getNode(threadID);
 
     if (!node) {
         interruptEnable();
@@ -110,13 +110,13 @@ void threadJoin(int threadID, void **result) {
 void threadYield() {
     interruptDisable();
 
-    struct Node *targetNode = nextThread(0, 0);
-    if (targetNode == NULL) {
+    Node *targetNode = nextThread(0, 0);
+    if (!targetNode) {
         interruptEnable();
         return;
     }
 
-    struct Node *myNode = getNode(currentID);
+    Node *myNode = getNode(currentID);
     switchThreadsStatus(myNode->threadID, targetNode->threadID);
     interruptEnable();
 }
@@ -124,7 +124,7 @@ void threadYield() {
 void threadExit(void *result) {
     interruptDisable();
     if (currentID == MAIN_THREAD) {
-        struct Node *node = getHead(), *temp;
+        Node *node = getHead(), *temp;
 
         while (node) {
             temp = node->nextNode;
@@ -145,8 +145,8 @@ void switchThreadsStatus(int threadToChange, int changedToo) {
         return;
     }
 
-    struct Node *currentNode = getNode(threadToChange);
-    struct Node *newNode = getNode(changedToo);
+    Node *currentNode = getNode(threadToChange);
+    Node *newNode = getNode(changedToo);
 
     ucontext_t *newContext;
     ucontext_t *currentContext;
@@ -171,7 +171,12 @@ void switchThreadsStatus(int threadToChange, int changedToo) {
     currentID = threadToChange;
 }
 
-//------------------------
+void threadUnlock(int lockNum) {
+    interruptDisable();
+    locks[lockNum] = THREAD_UNLOCKED;
+    interruptEnable();
+}
+
 void threadLock(int lockNum) {
     interruptDisable();
     while (locks[lockNum] == THREAD_LOCKED) {
@@ -183,9 +188,20 @@ void threadLock(int lockNum) {
     interruptEnable();
 }
 
-void threadUnlock(int lockNum) {
+void threadSignal(int lockNumber, int conditionalNum) {
     interruptDisable();
-    locks[lockNum] = THREAD_UNLOCKED;
+    if (conditionalVariable[lockNumber][conditionalNum] == MAIN_THREAD) {
+        interruptEnable();
+        return;
+    }
+    conditionalVariable[lockNumber][conditionalNum]--;
+    Node *node = getHead();
+    while (node) {
+        if ((node->lockNumber == lockNumber) && (node->conditionNumber == conditionalNum)) {
+            node->queuePosition--;
+        }
+        node = node->nextNode;
+    }
     interruptEnable();
 }
 
@@ -196,7 +212,7 @@ void threadWait(int lockNum, int conditionNum) {
         exit(THREAD_ERROR);
     }
 
-    struct Node *node = getNode(currentID);
+    Node *node = getNode(currentID);
     node->lockNumber = lockNum;
     node->conditionNumber = conditionNum;
     conditionalVariable[lockNum][conditionNum]++;
@@ -208,25 +224,10 @@ void threadWait(int lockNum, int conditionNum) {
         threadYield();
         interruptDisable();
     }
-    node->conditionNumber = THREAD_ERROR;
     node->lockNumber = THREAD_ERROR;
     node->queuePosition = THREAD_ERROR;
+    node->conditionNumber = THREAD_ERROR;
+
     interruptEnable();
     threadLock(lockNum);
-}
-
-void threadSignal(int lockNum, int conditionNum) {
-    interruptDisable();
-    if (conditionalVariable[lockNum][conditionNum] == 0) {
-        interruptEnable();
-        return;
-    }
-    conditionalVariable[lockNum][conditionNum]--;
-    struct Node *node = getHead();
-    while (node != NULL) {
-        if (node->lockNumber == lockNum && node->conditionNumber == conditionNum)
-            node->queuePosition--;
-        node = node->nextNode;
-    }
-    interruptEnable();
 }
