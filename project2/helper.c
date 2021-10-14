@@ -111,7 +111,7 @@ void exitNode(int threadID) {
     Node *node = getNode(threadID);
 
     /* Free stack for non main thread */
-    if (threadID != MAIN_THREAD && (node->status != THREAD_EXIT)) {
+    if (threadID != MAIN_THREAD && node->status != THREAD_EXIT) {
         free((char *) node->threadContext.uc_stack.ss_sp);
     }
 

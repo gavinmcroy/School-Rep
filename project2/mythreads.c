@@ -11,7 +11,7 @@
 
 int interruptsAreDisabled = 0;
 
-int waitingFor = 0;
+__attribute__((unused)) int waitingFor;
 
 ucontext_t main_context;
 
@@ -43,7 +43,7 @@ static void interruptEnable() {
 void threadInit() {
     interruptDisable();
     currentID = 0;
-    Node * temp = getHead();
+    Node *temp = getHead();
     temp = NULL;
     waitingFor = THREAD_ERROR;
 
@@ -130,7 +130,9 @@ void threadExit(void *result) {
 
         while (node) {
             temp = node->nextNode;
-            if (node->threadID != MAIN_THREAD) deleteNode(node->threadID);
+            if (node->threadID != MAIN_THREAD) {
+                deleteNode(node->threadID);
+            }
             node = temp;
         }
         exit(MAIN_THREAD);

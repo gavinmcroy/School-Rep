@@ -32,7 +32,6 @@ extern void threadJoin(int threadID, void **result);
 //exits the current thread -- closing the main thread, will terminate the program
 extern void threadExit(void *result);
 
-/* TODO not implemented */
 extern void threadLock(int lockNum);
 
 extern void threadUnlock(int lockNum);
