@@ -62,10 +62,10 @@ RM = "/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Desktop/Proj2-Attempt2
+CMAKE_SOURCE_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/Proj2_Attempt2.dir/depend.make
@@ -78,29 +78,29 @@ include CMakeFiles/Proj2_Attempt2.dir/flags.make
 
 CMakeFiles/Proj2_Attempt2.dir/main.c.o: CMakeFiles/Proj2_Attempt2.dir/flags.make
 CMakeFiles/Proj2_Attempt2.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Proj2_Attempt2.dir/main.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Proj2_Attempt2.dir/main.c.o -c /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/Proj2_Attempt2.dir/main.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Proj2_Attempt2.dir/main.c.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/main.c
 
 CMakeFiles/Proj2_Attempt2.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Proj2_Attempt2.dir/main.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/main.c > CMakeFiles/Proj2_Attempt2.dir/main.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/main.c > CMakeFiles/Proj2_Attempt2.dir/main.c.i
 
 CMakeFiles/Proj2_Attempt2.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Proj2_Attempt2.dir/main.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/main.c -o CMakeFiles/Proj2_Attempt2.dir/main.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/main.c -o CMakeFiles/Proj2_Attempt2.dir/main.c.s
 
 CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o: CMakeFiles/Proj2_Attempt2.dir/flags.make
 CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o: ../mythreads.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o -c /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/mythreads.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/mythreads.c
 
 CMakeFiles/Proj2_Attempt2.dir/mythreads.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/Proj2_Attempt2.dir/mythreads.c.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/mythreads.c > CMakeFiles/Proj2_Attempt2.dir/mythreads.c.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/mythreads.c > CMakeFiles/Proj2_Attempt2.dir/mythreads.c.i
 
 CMakeFiles/Proj2_Attempt2.dir/mythreads.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/Proj2_Attempt2.dir/mythreads.c.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/mythreads.c -o CMakeFiles/Proj2_Attempt2.dir/mythreads.c.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/mythreads.c -o CMakeFiles/Proj2_Attempt2.dir/mythreads.c.s
 
 # Object files for target Proj2_Attempt2
 Proj2_Attempt2_OBJECTS = \
@@ -114,7 +114,7 @@ Proj2_Attempt2: CMakeFiles/Proj2_Attempt2.dir/main.c.o
 Proj2_Attempt2: CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o
 Proj2_Attempt2: CMakeFiles/Proj2_Attempt2.dir/build.make
 Proj2_Attempt2: CMakeFiles/Proj2_Attempt2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Proj2_Attempt2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable Proj2_Attempt2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Proj2_Attempt2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -127,6 +127,6 @@ CMakeFiles/Proj2_Attempt2.dir/clean:
 .PHONY : CMakeFiles/Proj2_Attempt2.dir/clean
 
 CMakeFiles/Proj2_Attempt2.dir/depend:
-	cd /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Desktop/Proj2-Attempt2 /Users/gavintaylormcroy/Desktop/Proj2-Attempt2 /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug /Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug/CMakeFiles/Proj2_Attempt2.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug /Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug/CMakeFiles/Proj2_Attempt2.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/Proj2_Attempt2.dir/depend
 

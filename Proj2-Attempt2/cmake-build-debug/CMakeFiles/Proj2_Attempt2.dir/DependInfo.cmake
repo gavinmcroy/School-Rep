@@ -4,8 +4,8 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/main.c" "/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug/CMakeFiles/Proj2_Attempt2.dir/main.c.o"
-  "/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/mythreads.c" "/Users/gavintaylormcroy/Desktop/Proj2-Attempt2/cmake-build-debug/CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/main.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug/CMakeFiles/Proj2_Attempt2.dir/main.c.o"
+  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/mythreads.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Proj2-Attempt2/cmake-build-debug/CMakeFiles/Proj2_Attempt2.dir/mythreads.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
