@@ -267,7 +267,15 @@ float *loadFilterFile(const std::string &fileName, int &kernelSize) {
         //  std::cout<<temp<<" ,";//<<std::endl;
         iter++;
     }
-    return weights;
+    /* Kernel needs to be reversed */
+    auto *reversedWeights = new float[kernelSize * kernelSize];
+    iter = 0;
+    for (int i = kernelSize * kernelSize-1; i >= 0; i--) {
+        reversedWeights[iter] = weights[i];
+        iter++;
+    }
+
+    return reversedWeights;
 }
 
 /* Writes the image */
@@ -337,18 +345,20 @@ void applyFilter(float *filter, int kernelSize) {
     /* TODO tie together with openGL */
 
     /* The actual convolution */
+    int padding = kernelSize / 2;
     for (int i = 0; i < localSpec.width; i++) {
         for (int j = 0; j < localSpec.height; j++) {
             /* Boundary protection. 1 came from 3/2 = 1 so theres -1 0 1 to account for 3x3 */
-            if (i - 1 >= 0 && i + 1 < localSpec.width && j - 1 >= 0 && j + 1 < localSpec.height) {
+            if (i - padding >= 0 && i + padding < localSpec.width && j - padding >= 0 &&
+                j + padding < localSpec.height) {
                 int x = 0;
                 int y = 0;
                 float newPixelValueR = 0.0;
                 float newPixelValueG = 0.0;
                 float newPixelValueB = 0.0;
                 /* This creates a 3x3 square around each pixel that is within bounds */
-                for (int z = i - 1; z <= i + 1; z++) {
-                    for (int v = j - 1; v <= j + 1; v++) {
+                for (int z = i - padding; z <= i + padding; z++) {
+                    for (int v = j - padding; v <= j + padding; v++) {
                         /* Grabs the filter for corresponding pixel */
                         float weight = getFilterIndex(filter, x, y, kernelSize) / scaleFactor;
 
@@ -356,15 +366,15 @@ void applyFilter(float *filter, int kernelSize) {
                         int address = (v * localSpec.width + z) * localSpec.nchannels;
 
                         /* This is the corresponding R, G, B values. Preforms modification to each channel */
-                        /* Add up actual pixels * weight */
-                        newPixelValueR += modifiedImage[address + 0] * weight;
-                        newPixelValueG += modifiedImage[address + 1] * weight;
-                        newPixelValueB += modifiedImage[address + 2] * weight;
-
-                        /* General Algorithm for 3x3 Kernel. -(size/2) and add till == kernel size */
-                        /* [i-1 j+1],[i j+1], [i+1 j+1]
-                         * [i-1 j]   [i j  ]  [i+1 j]
-                         * [i-1 j-1] [i j-1]  [i+1 j-1] */
+                        /* Add up actual pixels * weight. This is for RGB */
+                        if (localSpec.nchannels > 1) {
+                            newPixelValueR += modifiedImage[address + 0] * weight;
+                            newPixelValueG += modifiedImage[address + 1] * weight;
+                            newPixelValueB += modifiedImage[address + 2] * weight;
+                        } /* This is for gray scale*/
+                        else {
+                            newPixelValueR += modifiedImage[address] * weight;
+                        }
                         y++;
                     }
                     /* Think of this as the nested j loop. Reset j to 0, increment i */
@@ -373,15 +383,23 @@ void applyFilter(float *filter, int kernelSize) {
                 }
                 /* This is where the modified pixel will be changed */
                 int address = (j * localSpec.width + i) * localSpec.nchannels;
-                modifiedImage[address + 0] = newPixelValueR;
-                modifiedImage[address + 1] = newPixelValueG;
-                modifiedImage[address + 2] = newPixelValueB;
+                if (localSpec.nchannels > 1) {
+                    modifiedImage[address + 0] = newPixelValueR;
+                    modifiedImage[address + 1] = newPixelValueG;
+                    modifiedImage[address + 2] = newPixelValueB;
+                } else {
+                    modifiedImage[address + 0] = newPixelValueR;
+                }
             } else {
                 /* We went out of bounds, so color the image black on the pixels that went out of bounds */
                 int address = (j * localSpec.width + i) * localSpec.nchannels;
-                modifiedImage[address + 0] = 0;
-                modifiedImage[address + 1] = 0;
-                modifiedImage[address + 2] = 0;
+                if (localSpec.nchannels > 1) {
+                    modifiedImage[address + 0] = 0;
+                    modifiedImage[address + 1] = 0;
+                    modifiedImage[address + 2] = 0;
+                } else {
+                    modifiedImage[address] = 0;
+                }
             }
         }
     }
