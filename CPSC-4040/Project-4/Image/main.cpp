@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
     }
 
     loadImage(argv[2]);
-    applyFilter(filter, kernelSize);
+    //applyFilter(filter, kernelSize);
     writeImage(outputFileName);
 
     /* Clear memory inside the vector */
