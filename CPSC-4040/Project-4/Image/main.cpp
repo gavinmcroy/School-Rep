@@ -42,21 +42,20 @@ int getImagePixelTypeForGL();
 
 float getFilterIndex(float *filter, int x, int y, int kernelSize);
 
+void applyFilter(float *filter, int kernelSize);
+
 int state = 0;
 std::vector<unsigned char *> images;
 std::vector<ImageSpec> specs;
 
 int main(int argc, char *argv[]) {
-    /* Means all third optional argument was passed into the program*/
-    const int OUTPUT_PASSED = 4;
-
-    /* TODO KNOWN PROBLEMS:
-     * Images are displayed upside down
-     * grey scale images are improperly displayed but properly outputted? */
     if (argc < 3) {
         std::cerr << "Not enough command line arguments" << std::endl;
         exit(1);
     }
+    /* Represents total arguments if optional argument was passed into the program*/
+    const int OUTPUT_PASSED = 4;
+
     std::string filterFileName = argv[1];
     std::string imageFileName = argv[2];
     std::string outputFileName = "out.png";
@@ -70,96 +69,13 @@ int main(int argc, char *argv[]) {
     }
 
     loadImage(argv[2]);
-    /* Local image points to the image stored inside the vector */
-    unsigned char *localImage = images[0];
-    ImageSpec localSpec = specs[0];
-    auto *modifiedImage = new float[localSpec.height * localSpec.width * localSpec.nchannels];
-
-    /* Normalize Image */
-    for (int i = 0; i < localSpec.height * localSpec.width * localSpec.nchannels; i++) {
-        modifiedImage[i] = localImage[i] / 255.0;
-    }
-
-    /* Grab the scaleFactor for filter by summing up all the weights */
-    float scaleFactor = 0.0;
-    for (int i = 0; i < kernelSize; i++) {
-        for (int j = 0; j < kernelSize; j++) {
-            scaleFactor += abs(getFilterIndex(filter, i, j, kernelSize));
-        }
-    }
-    /* TODO Filter needs to be divided by weight or it will NOT WORK*/
-    /* TODO kernel needs to be flipped horizontally and vertically */
-    /* TODO currently this will only work on 3x3 kernels */
-    /* Here is the actual convolution. Currently it is pseudo code */
-    for (int i = 0; i < localSpec.width; i++) {
-        for (int j = 0; j < localSpec.height; j++) {
-            /* Boundary protection. 1 came from 3/2 = 1 so theres -1 0 1 to account for 3x3 */
-            if (i - 1 >= 0 && i + 1 < localSpec.width && j - 1 >= 0 && j + 1 < localSpec.height) {
-                int x = 0;
-                int y = 0;
-                float newPixelValueR = 0.0;
-                float newPixelValueG = 0.0;
-                float newPixelValueB = 0.0;
-                /* This creates a 3x3 square around each pixel that is within bounds */
-                for (int z = i - 1; z <= i + 1; z++) {
-                    for (int v = j - 1; v <= j + 1; v++) {
-                        /* Grabs the filter for corresponding pixel */
-                        float weight = getFilterIndex(filter, x, y, kernelSize) / scaleFactor;
-
-                        /* Corresponding pixel location inside image (draws 3x3) */
-                        int address = (v * localSpec.width + z) * localSpec.nchannels;
-
-                        /* This is the corresponding R, G, B values. Preforms modification to each channel */
-                        /* TODO Add up actual pixels * weight */
-                        newPixelValueR += modifiedImage[address + 0] * weight;
-                        newPixelValueG += modifiedImage[address + 1] * weight;
-                        newPixelValueB += modifiedImage[address + 2] * weight;
-
-                        /* General Algorithm for 3x3 Kernel. -(size/2) and add till == kernel size */
-                        /* [i-1 j+1],[i j+1], [i+1 j+1]
-                         * [i-1 j]   [i j  ]  [i+1 j]
-                         * [i-1 j-1] [i j-1]  [i+1 j-1] */
-                        y++;
-                    }
-
-                    /* Think of this as the nested j loop. Reset j to 0, increment i */
-                    y = 0;
-                    x++;
-                }
-                /* This is where the modified pixel will be changed */
-                int address = (j * localSpec.width + i) * localSpec.nchannels;
-                modifiedImage[address + 0] = newPixelValueR;
-                modifiedImage[address + 1] = newPixelValueG;
-                modifiedImage[address + 2] = newPixelValueB;
-            }else{
-                /* We went out of bounds, so color the image black on the pixels that went out of bounds */
-                int address = (j * localSpec.width + i) * localSpec.nchannels;
-                modifiedImage[address + 0] = 255;
-                modifiedImage[address + 1] = 255;
-                modifiedImage[address + 2] = 255;
-            }
-        }
-    }
-
-    /* denormalize the modified image and replace the previous image */
-    for (int i = 0; i < localSpec.height * localSpec.width * localSpec.nchannels; i++) {
-        modifiedImage[i] = modifiedImage[i] * 255.0;
-        localImage[i] = (unsigned char) modifiedImage[i];
-    }
-
-    /* Time to apply convolution */
-    /* Step 1: Divide filter weights by maximum scaleFactor (Scale factor) */
-    /* Step 2: Chose boundary mechanism */
-    /* Step 3: Clamp pixel values to be only positive [0,255] */
-
-    //openGLSetup(argc, argv);
+    applyFilter(filter, kernelSize);
     writeImage(outputFileName);
 
     /* Clear memory inside the vector */
     for (auto &image : images) {
         delete image;
     }
-    delete[] modifiedImage;
     return 0;
 }
 
@@ -396,4 +312,89 @@ int getImagePixelTypeForGL() {
 
 float getFilterIndex(float *filter, int x, int y, int kernelSize) {
     return filter[y * kernelSize + x];
+}
+
+void applyFilter(float *filter, int kernelSize) {
+    unsigned char *localImage = images[0];
+    ImageSpec localSpec = specs[0];
+    auto *modifiedImage = new float[localSpec.height * localSpec.width * localSpec.nchannels];
+
+    /* Normalize Image */
+    for (int i = 0; i < localSpec.height * localSpec.width * localSpec.nchannels; i++) {
+        modifiedImage[i] = localImage[i] / 255.0;
+    }
+
+    /* Grab the scaleFactor for filter by summing up all the weights */
+    float scaleFactor = 0.0;
+    for (int i = 0; i < kernelSize; i++) {
+        for (int j = 0; j < kernelSize; j++) {
+            scaleFactor += abs(getFilterIndex(filter, i, j, kernelSize));
+        }
+    }
+
+    /* TODO kernel needs to be flipped horizontally and vertically */
+    /* TODO currently this will only work on 3x3 kernels */
+
+    /* The actual convolution */
+    for (int i = 0; i < localSpec.width; i++) {
+        for (int j = 0; j < localSpec.height; j++) {
+            /* Boundary protection. 1 came from 3/2 = 1 so theres -1 0 1 to account for 3x3 */
+            if (i - 1 >= 0 && i + 1 < localSpec.width && j - 1 >= 0 && j + 1 < localSpec.height) {
+                int x = 0;
+                int y = 0;
+                float newPixelValueR = 0.0;
+                float newPixelValueG = 0.0;
+                float newPixelValueB = 0.0;
+                /* This creates a 3x3 square around each pixel that is within bounds */
+                for (int z = i - 1; z <= i + 1; z++) {
+                    for (int v = j - 1; v <= j + 1; v++) {
+                        /* Grabs the filter for corresponding pixel */
+                        float weight = getFilterIndex(filter, x, y, kernelSize) / scaleFactor;
+
+                        /* Corresponding pixel location inside image (draws 3x3) */
+                        int address = (v * localSpec.width + z) * localSpec.nchannels;
+
+                        /* This is the corresponding R, G, B values. Preforms modification to each channel */
+                        /* TODO Add up actual pixels * weight */
+                        newPixelValueR += modifiedImage[address + 0] * weight;
+                        newPixelValueG += modifiedImage[address + 1] * weight;
+                        newPixelValueB += modifiedImage[address + 2] * weight;
+
+                        /* General Algorithm for 3x3 Kernel. -(size/2) and add till == kernel size */
+                        /* [i-1 j+1],[i j+1], [i+1 j+1]
+                         * [i-1 j]   [i j  ]  [i+1 j]
+                         * [i-1 j-1] [i j-1]  [i+1 j-1] */
+                        y++;
+                    }
+                    /* Think of this as the nested j loop. Reset j to 0, increment i */
+                    y = 0;
+                    x++;
+                }
+                /* This is where the modified pixel will be changed */
+                int address = (j * localSpec.width + i) * localSpec.nchannels;
+                modifiedImage[address + 0] = newPixelValueR;
+                modifiedImage[address + 1] = newPixelValueG;
+                modifiedImage[address + 2] = newPixelValueB;
+            } else {
+                /* We went out of bounds, so color the image black on the pixels that went out of bounds */
+                int address = (j * localSpec.width + i) * localSpec.nchannels;
+                modifiedImage[address + 0] = 0;
+                modifiedImage[address + 1] = 0;
+                modifiedImage[address + 2] = 0;
+            }
+        }
+    }
+
+    /* denormalize the modified image and replace the previous image */
+    for (int i = 0; i < localSpec.height * localSpec.width * localSpec.nchannels; i++) {
+        modifiedImage[i] = modifiedImage[i] * 255.0;
+        localImage[i] = (unsigned char) modifiedImage[i];
+    }
+
+    /* Time to apply convolution */
+    /* Step 1: Divide filter weights by maximum scaleFactor (Scale factor) */
+    /* Step 2: Chose boundary mechanism */
+    /* TODO Step 3: Clamp pixel values to be only positive [0,255] */
+
+    delete[] modifiedImage;
 }
