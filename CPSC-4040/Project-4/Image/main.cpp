@@ -70,6 +70,7 @@ int main(int argc, char *argv[]) {
     }
 
     loadImage(argv[2]);
+    /* Local image points to the image stored inside the vector */
     unsigned char *localImage = images[0];
     ImageSpec localSpec = specs[0];
     auto *modifiedImage = new float[localSpec.height * localSpec.width * localSpec.nchannels];
@@ -104,26 +105,24 @@ int main(int argc, char *argv[]) {
                     for (int v = j - 1; v <= j + 1; v++) {
                         /* Grabs the filter for corresponding pixel */
                         float weight = getFilterIndex(filter, x, y, kernelSize) / scaleFactor;
-                        std::cout << weight << std::endl;
 
                         /* Corresponding pixel location inside image (draws 3x3) */
                         int address = (v * localSpec.width + z) * localSpec.nchannels;
 
-
                         /* This is the corresponding R, G, B values. Preforms modification to each channel */
                         /* TODO Add up actual pixels * weight */
-                        newPixelValueR += modifiedImage[address + 0]*weight;
-                        newPixelValueR += modifiedImage[address + 1]*weight;
-                        newPixelValueR += modifiedImage[address + 2]*weight;
+                        newPixelValueR += modifiedImage[address + 0] * weight;
+                        newPixelValueG += modifiedImage[address + 1] * weight;
+                        newPixelValueB += modifiedImage[address + 2] * weight;
 
                         /* General Algorithm for 3x3 Kernel. -(size/2) and add till == kernel size */
                         /* [i-1 j+1],[i j+1], [i+1 j+1]
                          * [i-1 j]   [i j  ]  [i+1 j]
-                         * [i-1 j-1] [i j-1]  [i+1 j-1]
-                        */
+                         * [i-1 j-1] [i j-1]  [i+1 j-1] */
                         y++;
                     }
-                    std::cout << "" << std::endl;
+
+                    /* Think of this as the nested j loop. Reset j to 0, increment i */
                     y = 0;
                     x++;
                 }
@@ -132,14 +131,21 @@ int main(int argc, char *argv[]) {
                 modifiedImage[address + 0] = newPixelValueR;
                 modifiedImage[address + 1] = newPixelValueG;
                 modifiedImage[address + 2] = newPixelValueB;
-
-
-                //std::cout << std::endl;
+            }else{
+                /* We went out of bounds, so color the image black on the pixels that went out of bounds */
+                int address = (j * localSpec.width + i) * localSpec.nchannels;
+                modifiedImage[address + 0] = 255;
+                modifiedImage[address + 1] = 255;
+                modifiedImage[address + 2] = 255;
             }
         }
     }
-    //
 
+    /* denormalize the modified image and replace the previous image */
+    for (int i = 0; i < localSpec.height * localSpec.width * localSpec.nchannels; i++) {
+        modifiedImage[i] = modifiedImage[i] * 255.0;
+        localImage[i] = (unsigned char) modifiedImage[i];
+    }
 
     /* Time to apply convolution */
     /* Step 1: Divide filter weights by maximum scaleFactor (Scale factor) */
@@ -153,6 +159,7 @@ int main(int argc, char *argv[]) {
     for (auto &image : images) {
         delete image;
     }
+    delete[] modifiedImage;
     return 0;
 }
 
