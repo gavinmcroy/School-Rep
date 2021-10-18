@@ -1,0 +1,3 @@
+/Users/gavintaylormcroy/Desktop/3220-Experim/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gavintaylormcroy/Desktop/3220-Experim/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gavintaylormcroy/Desktop/3220-Experim/cmake-build-debug/CMakeFiles/3220_Experim.dir
