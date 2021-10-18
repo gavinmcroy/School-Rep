@@ -334,6 +334,7 @@ void applyFilter(float *filter, int kernelSize) {
 
     /* TODO kernel needs to be flipped horizontally and vertically */
     /* TODO currently this will only work on 3x3 kernels */
+    /* TODO tie together with openGL */
 
     /* The actual convolution */
     for (int i = 0; i < localSpec.width; i++) {
@@ -355,7 +356,7 @@ void applyFilter(float *filter, int kernelSize) {
                         int address = (v * localSpec.width + z) * localSpec.nchannels;
 
                         /* This is the corresponding R, G, B values. Preforms modification to each channel */
-                        /* TODO Add up actual pixels * weight */
+                        /* Add up actual pixels * weight */
                         newPixelValueR += modifiedImage[address + 0] * weight;
                         newPixelValueG += modifiedImage[address + 1] * weight;
                         newPixelValueB += modifiedImage[address + 2] * weight;
