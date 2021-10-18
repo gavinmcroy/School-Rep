@@ -222,12 +222,8 @@ void switchThread(int fromID, int toID) {
 
     Node *fromNode = getNode(fromID);
     Node *toNode = getNode(toID);
-
-    ucontext_t *fromContext;
-    ucontext_t *toContext;
-
-    fromContext = &(fromNode->context);
-    toContext = &(toNode->context);
+    ucontext_t *fromContext = &(fromNode->context);
+    ucontext_t *toContext = &(toNode->context);
 
     if (fromNode->status == RUNNING) {
         fromNode->status = STANDBY;
@@ -247,14 +243,14 @@ void switchThread(int fromID, int toID) {
     currentID = fromID;
 }
 
-Node *pushFront(ucontext_t context) {
+Node *placeFront(ucontext_t context) {
     Node *node = createNode(context);
     node->next = head;
     head = node;
     return node;
 }
 
-Node *pushBack(ucontext_t context) {
+Node *placeBack(ucontext_t context) {
     Node *node = createNode(context);
     Node *last, *iter = head;
     if (!iter) {
@@ -270,7 +266,7 @@ Node *pushBack(ucontext_t context) {
 }
 
 int addNode(ucontext_t context) {
-    return pushBack(context)->id;
+    return placeBack(context)->id;
 }
 
 int deleteNode(int id) {

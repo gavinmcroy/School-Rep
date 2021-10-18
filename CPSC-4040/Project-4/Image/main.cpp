@@ -53,7 +53,6 @@ int main(int argc, char *argv[]) {
     /* TODO KNOWN PROBLEMS:
      * Images are displayed upside down
      * grey scale images are improperly displayed but properly outputted? */
-    printf()
     if (argc < 3) {
         std::cerr << "Not enough command line arguments" << std::endl;
         exit(1);
@@ -87,30 +86,49 @@ int main(int argc, char *argv[]) {
             filterWeight += abs(getFilterIndex(filter, i, j, kernelSize));
         }
     }
+    /* TODO Filter needs to be divided by weight or it will NOT WORK*/
 
+
+    /* TODO currently this will only work on 3x3 kernels */
     /* Here is the actual convolution. Currently it is pseudo code */
     for (int i = 0; i < localSpec.width; i++) {
         for (int j = 0; j < localSpec.height; j++) {
-            for (int x = 0; x < localSpec.nchannels; x++) {
-                int address = (j * localSpec.width + i) * localSpec.nchannels;
-                /* Index into individual R G B colors*/
-                modifiedImage[address + x];
-                for (int z = /* CHANGE */0; z < kernelSize; z++) {
-                    for (int v = /* CHANGE */0; v < kernelSize; v++) {
+            if (i - 1 >= 0 && i + 1 < localSpec.width && j - 1 >= 0 && j + 1 < localSpec.height) {
+                int x = 0;
+                int y = 0;
+                /* This creates a 3x3 square around each pixel that is within bounds */
+                for (int z = i - 1; z <= i + 1; z++) {
+                    for (int v = j - 1; v <= j + 1; v++) {
+                        /* Grabs the filter for corresponding pixel */
+                        std::cout << getFilterIndex(filter, x, y, kernelSize) << " ";
+
+                        /* Corresponding pixel location inside image (draws 3x3) */
+                        int address = (v * localSpec.width + z) * localSpec.nchannels;
+                        /* This is the corresponding R, G, B values */
+                        modifiedImage[address + 0];
+                        modifiedImage[address + 1];
+                        modifiedImage[address + 2];
+
+
                         /* If statements for boundary conditions. The i,j is the
                          * pixel we are preforming on*/
-                        getFilterIndex(filter, z, v, kernelSize)/filterWeight;
+                        // getFilterIndex(filter, z, v, kernelSize) / filterWeight;
                         /* General Algorithm for 3x3 Kernel. -(size/2) and add till == kernel size */
                         /* [i-1 j+1],[i j+1], [i+1 j+1]
                          * [i-1 j]   [i j  ]  [i+1 j]
                          * [i-1 j-1] [i j-1]  [i+1 j-1]
-
-                                                    */
+                        */
+                        y++;
                     }
+                    std::cout << "" << std::endl;
+                    y = 0;
+                    x++;
                 }
+                //std::cout << std::endl;
             }
         }
     }
+    //
 
 
     /* Time to apply convolution */
@@ -302,18 +320,19 @@ float *loadFilterFile(const std::string &fileName, int &kernelSize) {
     }
     file >> (kernelSize);
     auto *weights = new float[kernelSize * kernelSize];
-
+    /* Initialize Weight */
     for (int i = 0; i < kernelSize * kernelSize; i++) {
-        int temp = 0;
-        if (file.eof()) {
-            std::cerr << "File issue in loop" << std::endl;
-        }
-        file >> temp;
-        weights[i] = temp;
-        //std::cout << weights[i] << " ";
-//        if (!(i % kernelSize)) {
-//            std::cout << std::endl;
-//        }
+        weights[i] = -255;
+    }
+
+    float temp = 0;
+    int iter = 0;
+    while (file >> temp) {
+        // file >> temp;
+        if (iter == kernelSize * kernelSize) break;
+        weights[iter] = temp;
+        //  std::cout<<temp<<" ,";//<<std::endl;
+        iter++;
     }
     return weights;
 }
