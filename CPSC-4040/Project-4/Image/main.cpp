@@ -45,6 +45,9 @@ float getFilterIndex(float *filter, int x, int y, int kernelSize);
 void applyFilter(float *filter, int kernelSize);
 
 int state = 0;
+int kernelSize;
+float *filter = nullptr;
+unsigned char *secondImage = nullptr;
 std::vector<unsigned char *> images;
 std::vector<ImageSpec> specs;
 
@@ -60,18 +63,22 @@ int main(int argc, char *argv[]) {
     std::string imageFileName = argv[2];
     std::string outputFileName = "out.png";
 
-    int kernelSize = 0;
-    float *filter = loadFilterFile(filterFileName, kernelSize);
+    kernelSize = 0;
+    filter = loadFilterFile(filterFileName, kernelSize);
     std::cout << getFilterIndex(filter, 1, 1, kernelSize) << std::endl;
 
     if (argc == OUTPUT_PASSED) {
         outputFileName = argv[3];
     }
 
+    /* loaded twice for reset */
     loadImage(argv[2]);
-    //applyFilter(filter, kernelSize);
-    writeImage(outputFileName);
+    loadImage(argv[2]);
 
+    /* Pointer to second image */
+    secondImage = images[1];
+
+    openGLSetup(argc, argv);
     /* Clear memory inside the vector */
     for (auto &image : images) {
         delete image;
@@ -130,11 +137,27 @@ void keyboardEvent(unsigned char key, int x, int y) {
             break;
         }
         case 'r': {
-            std::string fileName;
-            std::cout << "Enter a file name " << std::endl;
-            cin >> fileName;
-            loadImage(fileName);
-            displayFunction();
+            //std::string fileName;
+            //std::cout << "Enter a file name " << std::endl;
+            //cin >> fileName;
+            //loadImage(fileName);
+            std::cout << "reset " << state << std::endl;
+//            if (state == images.size() - 1) {
+//                state = 0;
+//            } else {
+//                state++;
+//            }
+            delete[] images[0];
+            images[0] = new unsigned char[specs[state].width * specs[state].height * specs[state].nchannels];
+            for (int i = 0; i < specs[state].width * specs[state].height * specs[state].nchannels; i++) {
+                images[0][i] = secondImage[i];
+            }
+
+            glDrawPixels(specs[state].width, specs[state].height, getImagePixelTypeForGL(), GL_UNSIGNED_BYTE,
+                         images[state]);
+            glFlush();
+            //displayFunction();
+
             break;
         }
         case 'i': {
@@ -155,6 +178,10 @@ void keyboardEvent(unsigned char key, int x, int y) {
             std::cout << "Wrote " << myOutFile << std::endl;
             writeImage(myOutFile);
             break;
+        }
+        case 'c': {
+            applyFilter(filter, kernelSize);
+            displayFunction();
         }
         default:
             std::cout << "Empty" << std::endl;
@@ -261,16 +288,16 @@ float *loadFilterFile(const std::string &fileName, int &kernelSize) {
     float temp = 0;
     int iter = 0;
     while (file >> temp) {
-        // file >> temp;
+
         if (iter == kernelSize * kernelSize) break;
         weights[iter] = temp;
-        //  std::cout<<temp<<" ,";//<<std::endl;
+
         iter++;
     }
     /* Kernel needs to be reversed */
     auto *reversedWeights = new float[kernelSize * kernelSize];
     iter = 0;
-    for (int i = kernelSize * kernelSize-1; i >= 0; i--) {
+    for (int i = kernelSize * kernelSize - 1; i >= 0; i--) {
         reversedWeights[iter] = weights[i];
         iter++;
     }
