@@ -6,11 +6,11 @@
 #include "GLUT/glut.h"
 #include "OpenGL/gl.h"
 
-NgonThing::NgonThing(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
-                     const Vector &center,
+NgonThing::NgonThing(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal, const Vector &center,
                      const float radius) :
         VzlThingyDingy("NgonThing"),
-        display_wire(false) {
+        display_wire(false),
+        polygon() {
     generate_symmetric_ngon(nb_sides, nb_normals, nb_texture_coordinates, normal, center, radius);
 }
 
@@ -27,9 +27,9 @@ void NgonThing::Display() {
     if (display_wire) {
         // Draw polygon as wireframe
         glBegin(GL_LINE_LOOP);
-        for (size_t i = 0; i < polygon.ngon_size(); i++) {// Get the postion, getNormal, texture coordinates of a getVertex
+        for (size_t i = 0; i < polygon.getNgonSize(); i++) {// Get the postion, getNormal, texture coordinates of a getVertex
             Vector X, N, st;
-            polygon.face_values(i, X, N, st);
+            polygon.faceValues(i, X, N, st);
             // Extract the texture coordinates and do some math
             // This math is used to select a color for the getVertex
             Color ci = generate_vertex_color(st);
@@ -41,10 +41,10 @@ void NgonThing::Display() {
     } else {
         // Solid polygon
         glBegin(GL_POLYGON);
-        for (size_t i = 0; i < polygon.ngon_size(); i++) {
+        for (size_t i = 0; i < polygon.getNgonSize(); i++) {
             // Get the postion, getNormal, texture coordinates of a getVertex
             Vector X, N, st;
-            polygon.face_values(i, X, N, st);
+            polygon.faceValues(i, X, N, st);
             // Extract the texture coordinates and do some math
             // This math is used to select a color for the getVertex
             Color ci = generate_vertex_color(st);

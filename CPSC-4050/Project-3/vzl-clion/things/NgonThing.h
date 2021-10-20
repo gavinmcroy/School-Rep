@@ -15,12 +15,17 @@ using namespace vzl;
 namespace vzl {
 
     class NgonThing : public VzlThingyDingy {
+    private:
+        bool display_wire;
+        Ngon polygon;
+
+        void generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
+                                     const Vector &center, float radius);
+
+        static Color generate_vertex_color(const Vector &tc);
+
     public:
-        NgonThing(int nbSides,
-                  int nbNormals,
-                  int nbTextureCoordinates,
-                  const Vector &normal,
-                  const Vector &center,
+        NgonThing(int nbSides, int nbNormals, int nbTextureCoordinates, const Vector &normal, const Vector &center,
                   float radius);
 
         ~NgonThing() override;
@@ -46,19 +51,6 @@ namespace vzl {
         //! callback, you should include a statement
         //! here as to what the keyboard option is.
         void Usage();
-
-    private:
-        bool display_wire;
-        Ngon polygon;
-
-        void generate_symmetric_ngon(int nb_sides,
-                                     int nb_normals,
-                                     int nb_texture_coordinates,
-                                     const Vector &normal,
-                                     const Vector &center,
-                                     float radius);
-
-        static Color generate_vertex_color(const Vector &tc) ;
     };
 
     /* This function constructs the NgonThing and wraps it in a

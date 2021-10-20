@@ -12,13 +12,21 @@ using namespace vzl;
 
 
 class Ngon {
-public:
-    Ngon(const std::vector<Vector> &vertices,
-         const std::vector<Vector> &norms,
-         const std::vector<Vector> &s_t,
-         const Face &face);
+private:
+    std::vector<Vector> vertices;
+    std::vector<Vector> norms;
+    std::vector<Vector> sT;
+    Face face;
 
-    size_t ngonSize() const;
+    size_t ngonSize;
+
+public:
+    Ngon(const std::vector<Vector> &vertices, const std::vector<Vector> &norms, const std::vector<Vector> &s_t,
+         const Face &face);
+    
+    Ngon();
+
+    size_t getNgonSize() const;
 
     bool faceValues(size_t i, Vector &p, Vector &n, Vector &tc) const;
 
