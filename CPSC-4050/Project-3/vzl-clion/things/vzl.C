@@ -23,9 +23,9 @@ int main(int argc, char **argv) {
 //        std::cout<<"MAIN: Test succeeded\n";
 //    }
 
-    int nGonSides = 2000;
+    int nGonSides = 20;
     int nGonNormals = 4;
-    int nGoneTextCord = 10;
+    int nGoneTextCord = 20;
     Vector nGonCenter(0, 0, 0);
     Vector nGonNormal(0, 1, 1);
     float nGoneRadius = 4.5f;

@@ -4,6 +4,8 @@
 
 #include "Face.h"
 
+/* Always, the [0]th is the center. The 1st is a shared vertices, and the second is a unqique. The 1st and
+ * second together form a line. */
 Face::Face(const std::vector<size_t> &vertex, const std::vector<size_t> &normal,
            const std::vector<size_t> &s_t) {
     this->vertex = vertex;

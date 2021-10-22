@@ -59,7 +59,12 @@ void NgonThing::Display() {
 }
 
 void NgonThing::Keyboard(unsigned char key, int x, int y) {
-    /* TODO empty implementation */
+    double paddingAmount = -.01;
+    switch(key){
+        case 'd':{
+            std::cout<<"D key pressed" << std::endl;
+        }
+    }
 }
 
 void NgonThing::Usage() {
@@ -81,7 +86,7 @@ void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_tex
     /* every single face shares a center location. One triangle must share a point. Therefore, only one
      * allVertices must be generated on each loop iteration */
 
-    /* Generates all vertices + faces */
+    /* Generates all vertices */
     for (int i = 0; i < nb_sides; i++) {
         float x = center.X() + radius * sin(2.0 * M_PI * i / nb_sides);
         float y = center.Y() + radius * cos(2.0 * M_PI * i / nb_sides);
@@ -89,38 +94,20 @@ void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_tex
 
     }
 
-    /* Generates all texture coord and assigns randomly to sides */
+    /* TODO  Generates all texture coord and assigns randomly to sides */
     for (int i = 0; i < nb_sides; i++) {
         double s = drand48();
         double t = drand48();
         allST.emplace_back(s, t, 0);
     }
 
-    /* Generates all normals and assigns randomly to sides */
+    /* TODO Generates all normals and assigns randomly to sides */
     for (int i = 0; i < nb_normals; i++) {
         Vector random = Vector(drand48(), drand48(), drand48());
         random.normalize();
          allNorm.push_back(random);
     }
 
-
-
-//    nb_sides = 1;
-//    /* Essentially this is generating all triangle faces */
-//    for (int i = 0; i < nb_sides; i++) {
-//        /* Information for face */
-//        std::vector<size_t> faceVerticesIndex;
-//        std::vector<size_t> faceNormalIndex;
-//        std::vector<size_t> faceTextCord;
-//        /* This is filling in the indices for our face */
-//        /* First coordinate [0] is center */
-//        faceVerticesIndex.push_back(0);
-//        faceVerticesIndex.push_back(allVertices.size() - 2);
-//        faceVerticesIndex.push_back(allVertices.size() - 1);
-//
-//        Face face1(faceVerticesIndex, faceNormalIndex, faceTextCord);
-//        face.push_back(face1);
-//    }
 
     polygon = Ngon(allVertices, allNorm, allST, face);
     std::cout << polygon.getNgonSize();
