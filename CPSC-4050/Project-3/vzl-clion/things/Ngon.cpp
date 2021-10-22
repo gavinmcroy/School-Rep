@@ -6,7 +6,6 @@
 
 Ngon::Ngon(const std::vector<vzl::Vector> &vertices, const std::vector<vzl::Vector> &norms,
            const std::vector<vzl::Vector> &s_t, const std::vector<Face> &face) {
-    /* Special map converter */
     this->vertices = vertices;
     this->norms = norms;
     this->sT = s_t;

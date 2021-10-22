@@ -62,21 +62,24 @@ void NgonThing::Keyboard(unsigned char key, int x, int y) {
     double paddingAmount = -.01;
     switch (key) {
         case 'd': {
-            std::cout << "D key pressed" << std::endl;
-            for (int i = 0; i < polygon.getNgonSize(); i++) {
+//            std::cout << "D key pressed" << std::endl;
+            for (int i = 0; i < polygon.getNgonSize()+1; i++) {
+                if(i==0){
+                    continue;
+                }
                 Vector vert, b, c;
                 polygon.faceValues(i, vert, b, c);
-                int rand = drand48() * 3;
-                int valSign = drand48() * 2;
-                //paddingAmount = (valSign == 0) ? paddingAmount *= -1 : paddingAmount;
-                if (rand == 0) {
-                    vert.set(vert.X() + paddingAmount, vert.Y(), vert.Z());
-                } else if (rand == 1) {
-                    vert.set(vert.X(), vert.Y() + paddingAmount, vert.Z());
-                } else {
-                    vert.set(vert.X(), vert.Y(), vert.Z() + paddingAmount);
-                }
-
+//                int rand = drand48() * 3;
+//                if (rand == 0) {
+//                    vert.set(vert.X() + paddingAmount, vert.Y(), vert.Z());
+//                } else if (rand == 1) {
+//                    vert.set(vert.X(), vert.Y() + paddingAmount, vert.Z());
+//                } else {
+//                    vert.set(vert.X(), vert.Y(), vert.Z() + paddingAmount);
+//                }
+//
+//                polygon.setFaceValues(i, vert, b, c);
+                vert = vert + (paddingAmount * b);
                 polygon.setFaceValues(i, vert, b, c);
             }
         }
@@ -89,7 +92,7 @@ void NgonThing::Usage() {
 
 void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
                                         const Vector &center, const float radius) {
-    /* TODO Handle data structure generation */
+    /* Handles data structure generation */
     /* I'm pretty sure I can get away with using the radius as a point, then a straight line to another point of
      * distance radius, then using the circumference, estimate the vector distance in a straight line to the next triangle
      * point that is also radius distance */
@@ -110,15 +113,16 @@ void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_tex
 
     }
 
-    /* TODO  Generates all texture coord and assigns randomly to sides */
+    /* Generates all texture coord and assigns randomly to sides */
     for (int i = 0; i < nb_sides; i++) {
         double s = drand48();
         double t = drand48();
         allST.emplace_back(s, t, 0);
     }
 
-    /* TODO Generates all normals and assigns randomly to sides */
-    for (int i = 0; i < nb_normals; i++) {
+    /* TODO Generates all normals and assigns randomly to sides. Its best to generate the same amount of
+     * normals as sides. */
+    for (int i = 0; i < nb_sides; i++) {
         Vector random = Vector(drand48(), drand48(), drand48());
         random.normalize();
         allNorm.push_back(random);

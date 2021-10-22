@@ -17,15 +17,9 @@ int main(int argc, char **argv) {
     // Instantiate a viewer
     vzl::VzlViewer *viewer = vzl::CreateViewer();
 
-//    Ngon polygon;
-//    Vector p,n,t;
-//    if(!polygon.faceValues(1,p,n,t)){
-//        std::cout<<"MAIN: Test succeeded\n";
-//    }
-
-    int nGonSides = 20;
+    int nGonSides = 2000;
     int nGonNormals = 4;
-    int nGoneTextCord = 20;
+    int nGoneTextCord = 9;
     Vector nGonCenter(0, 0, 0);
     Vector nGonNormal(0, 1, 1);
     float nGoneRadius = 4.5f;
@@ -33,7 +27,6 @@ int main(int argc, char **argv) {
 
     vzl::VzlThing myThing = vzl::CreateNgonThing(nGonSides, nGonNormals, nGoneTextCord, nGonNormal, nGonCenter,
                                                 nGoneRadius);
-  //  vzl::VzlThing myThing = vzl::CreateMyThing();
     viewer->AddThing(myThing);;
 
 
