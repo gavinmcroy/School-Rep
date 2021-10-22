@@ -18,12 +18,12 @@ private:
     std::vector<Vector> sT;
     Face face;
 
-    size_t ngonSize;
+    size_t totalVertices;
 
 public:
     Ngon(const std::vector<Vector> &vertices, const std::vector<Vector> &norms, const std::vector<Vector> &s_t,
          const Face &face);
-    
+
     Ngon();
 
     size_t getNgonSize() const;

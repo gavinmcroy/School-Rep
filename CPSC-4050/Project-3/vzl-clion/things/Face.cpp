@@ -5,7 +5,7 @@
 #include "Face.h"
 
 size_t Face::getSize() const {
-    return 0;
+    return numVertices;
 }
 
 size_t Face::getVertex(size_t i) const {

@@ -57,12 +57,8 @@ namespace vzl {
      * smart pointer called a VzlThing.
      * Note that the signature of this function is the same as for the NgonThing constructor,
      * and for the generate_symmetric_ngon private method in NgonThing */
-    vzl::VzlThing CreateNgonThing(int nb_sides,
-                                  int nb_normals,
-                                  int nb_texture_coordinates,
-                                  const Vector &normal,
-                                  const Vector &center,
-                                  float radius);
+    vzl::VzlThing CreateNgonThing(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
+                                  const Vector &center, float radius);
 }
 
 #endif //VZL_CLION_NGONTHING_H

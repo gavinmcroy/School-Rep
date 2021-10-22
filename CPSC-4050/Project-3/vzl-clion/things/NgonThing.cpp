@@ -1,16 +1,18 @@
 //
 // Created by Gavin Taylor Mcroy on 10/20/21.
 //
+#define GL_SILENCE_DEPRECATION
+
 #include <iostream>
 #include "NgonThing.h"
 #include "GLUT/glut.h"
 #include "OpenGL/gl.h"
 
-NgonThing::NgonThing(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal, const Vector &center,
+NgonThing::NgonThing(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
+                     const Vector &center,
                      const float radius) :
         VzlThingyDingy("NgonThing"),
-        display_wire(false),
-        polygon() {
+        display_wire(false) {
     generate_symmetric_ngon(nb_sides, nb_normals, nb_texture_coordinates, normal, center, radius);
 }
 
@@ -27,7 +29,8 @@ void NgonThing::Display() {
     if (display_wire) {
         // Draw polygon as wireframe
         glBegin(GL_LINE_LOOP);
-        for (size_t i = 0; i < polygon.getNgonSize(); i++) {// Get the postion, getNormal, texture coordinates of a getVertex
+        for (size_t i = 0;
+             i < polygon.getNgonSize(); i++) {// Get the postion, getNormal, texture coordinates of a getVertex
             Vector X, N, st;
             polygon.faceValues(i, X, N, st);
             // Extract the texture coordinates and do some math
@@ -66,6 +69,8 @@ void NgonThing::Usage() {
 
 void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
                                         const Vector &center, const float radius) {
+    /* TODO Handle data structure generation */
+    polygon = Ngon();
 
 }
 

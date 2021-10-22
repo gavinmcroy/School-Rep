@@ -7,22 +7,51 @@
 Ngon::Ngon(const std::vector<vzl::Vector> &vertices, const std::vector<vzl::Vector> &norms,
            const std::vector<vzl::Vector> &s_t, const Face &face) : vertices(), norms(), sT(), face() {
     std::cout << "nGon overridden constructor" << std::endl;
+    totalVertices = vertices.size();
 }
 
 Ngon::Ngon() {
+    totalVertices = 0;
     std::cout << "nGon default constructor" << std::endl;
 }
 
 size_t Ngon::getNgonSize() const {
-    return ngonSize;
+    return totalVertices;
 }
 
+
+/* For the input vertex index i, provide
+the vertex position P, vertex normal N,
+and vertex texture coordinate tc to the
+values in the last three items of the sig-
+nature, and return true. If i is not a
+valid index, do not alter P, N, tc, and
+return false. */
 bool Ngon::faceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
-    return false;
+    if(i >= totalVertices || i < 0){
+        return false;
+    }
+    p = vertices[i];
+    n = norms[i];
+    tc = sT[i];
+    return true;
 }
 
+/* For the input vertex index i, set the
+vertex position P, vertex normal N, and
+vertex texture coordinate tc to the val-
+ues in the last three items of the sig-
+nature, and return true. If i is not a
+valid index, do not changes the values
+and return false. */
 bool Ngon::setFaceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
-    return false;
+    if(i >= totalVertices || i < 0){
+        return false;
+    }
+    //vertices[i] = p;
+    //norms[i] = n;
+    //sT[i] = tc;
+    return true;
 }
 
 

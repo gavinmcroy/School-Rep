@@ -9,7 +9,7 @@
 
 class Face {
 private:
-    size_t size;
+    size_t numVertices;
     size_t vertex;
     size_t normal;
     size_t st;

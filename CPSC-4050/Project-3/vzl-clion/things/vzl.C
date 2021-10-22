@@ -2,7 +2,7 @@
 
 #include "../include/VzlViewer.h"
 #include "../include/Vector.h"
-#include "MyTriangleThing.h"
+#include "NgonThing.h"
 
 using namespace vzl;
 
@@ -17,17 +17,24 @@ int main(int argc, char **argv) {
     // Instantiate a viewer
     vzl::VzlViewer *viewer = vzl::CreateViewer();
 
+    Ngon polygon;
+    Vector p,n,t;
+    if(!polygon.faceValues(1,p,n,t)){
+        std::cout<<"Test succeeded";
+    }
+
     int nGonSides = 5;
     int nGonNormals = 4;
     int nGoneTextCord = 10;
-    Vector nGonCenter(0,0,0);
-    Vector nGonNormal(0,1,1);
+    Vector nGonCenter(0, 0, 0);
+    Vector nGonNormal(0, 1, 1);
     float nGoneRadius = 4.5f;
 
 
-    //vzl::VzlThing myThing = vzl::CreateMyNgonThing();
-    vzl::VzlThing myThing = vzl::CreateMyThing();
-    viewer->AddThing(myThing);;
+   // vzl::VzlThing myThing = vzl::CreateNgonThing(nGonSides, nGonNormals, nGoneTextCord, nGonNormal, nGonCenter,
+     //                                            nGoneRadius);
+    //vzl::VzlThing myThing = vzl::CreateMyThing();
+   // viewer->AddThing(myThing);;
 
 
 
