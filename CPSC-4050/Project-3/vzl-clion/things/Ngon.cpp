@@ -43,13 +43,13 @@ bool Ngon::faceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
 vertex texture coordinate tc to the val-ues in the last three items of the sig-
 nature, and return true. If i is not a valid index, do not changes the values
 and return false. */
-bool Ngon::setFaceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
+bool Ngon::setFaceValues(const size_t i, Vector &p, Vector &n, Vector &tc) {
     if (i >= totalVertices || i < 0) {
         return false;
     }
-    //vertices[i] = p;
-    //norms[i] = n;
-    //sT[i] = tc;
+    vertices[i] = p;
+    norms[i] = n;
+    sT[i] = tc;
     return true;
 }
 

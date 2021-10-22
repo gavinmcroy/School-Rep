@@ -24,14 +24,6 @@ memory
 map
 -
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlViewer.h
-cstring
--
-vector
--
-VzlThing.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlThing.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Face.h
 iostream
 -
@@ -48,6 +40,16 @@ Face.h
 ../include/Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Vector.h
 
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/NgonThing.cpp
+iostream
+-
+NgonThing.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/NgonThing.h
+GLUT/glut.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/GLUT/glut.h
+OpenGL/gl.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/OpenGL/gl.h
+
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/NgonThing.h
 ../include/VzlThing.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlThing.h
@@ -57,12 +59,4 @@ Face.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Color.h
 Ngon.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Ngon.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/vzl.C
-../include/VzlViewer.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlViewer.h
-../include/Vector.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Vector.h
-NgonThing.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/NgonThing.h
 

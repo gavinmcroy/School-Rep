@@ -60,9 +60,25 @@ void NgonThing::Display() {
 
 void NgonThing::Keyboard(unsigned char key, int x, int y) {
     double paddingAmount = -.01;
-    switch(key){
-        case 'd':{
-            std::cout<<"D key pressed" << std::endl;
+    switch (key) {
+        case 'd': {
+            std::cout << "D key pressed" << std::endl;
+            for (int i = 0; i < polygon.getNgonSize(); i++) {
+                Vector vert, b, c;
+                polygon.faceValues(i, vert, b, c);
+                int rand = drand48() * 3;
+                int valSign = drand48() * 2;
+                //paddingAmount = (valSign == 0) ? paddingAmount *= -1 : paddingAmount;
+                if (rand == 0) {
+                    vert.set(vert.X() + paddingAmount, vert.Y(), vert.Z());
+                } else if (rand == 1) {
+                    vert.set(vert.X(), vert.Y() + paddingAmount, vert.Z());
+                } else {
+                    vert.set(vert.X(), vert.Y(), vert.Z() + paddingAmount);
+                }
+
+                polygon.setFaceValues(i, vert, b, c);
+            }
         }
     }
 }
@@ -105,10 +121,10 @@ void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_tex
     for (int i = 0; i < nb_normals; i++) {
         Vector random = Vector(drand48(), drand48(), drand48());
         random.normalize();
-         allNorm.push_back(random);
+        allNorm.push_back(random);
     }
 
-
+    /* Generation of actual polygon object */
     polygon = Ngon(allVertices, allNorm, allST, face);
     std::cout << polygon.getNgonSize();
 

@@ -32,7 +32,7 @@ public:
 
     bool faceValues(size_t i, Vector &p, Vector &n, Vector &tc) const;
 
-    bool setFaceValues(size_t i, Vector &p, Vector &n, Vector &tc) const;
+    bool setFaceValues(size_t i, Vector &p, Vector &n, Vector &tc) ;
 
 };
 
