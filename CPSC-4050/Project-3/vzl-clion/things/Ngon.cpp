@@ -5,9 +5,13 @@
 #include "Ngon.h"
 
 Ngon::Ngon(const std::vector<vzl::Vector> &vertices, const std::vector<vzl::Vector> &norms,
-           const std::vector<vzl::Vector> &s_t, const Face &face) : vertices(), norms(), sT(), face() {
+           const std::vector<vzl::Vector> &s_t, const Face &face) {
+    this->vertices = vertices;
+    this->norms = norms;
+    this->sT = s_t;
     std::cout << "nGon overridden constructor" << std::endl;
     totalVertices = vertices.size();
+    /* TODO bug with vertices not being copied */
 }
 
 Ngon::Ngon() {

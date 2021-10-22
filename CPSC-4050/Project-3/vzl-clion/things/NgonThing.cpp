@@ -9,10 +9,9 @@
 #include "OpenGL/gl.h"
 
 NgonThing::NgonThing(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
-                     const Vector &center,
-                     const float radius) :
-        VzlThingyDingy("NgonThing"),
-        display_wire(false) {
+                     const Vector &center, const float radius) : VzlThingyDingy("NgonThing"),
+                                                                 display_wire(false), polygon() {
+    std::cout << "NgonThing constructor created " << std::endl;
     generate_symmetric_ngon(nb_sides, nb_normals, nb_texture_coordinates, normal, center, radius);
 }
 
@@ -70,7 +69,23 @@ void NgonThing::Usage() {
 void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_texture_coordinates, const Vector &normal,
                                         const Vector &center, const float radius) {
     /* TODO Handle data structure generation */
-    polygon = Ngon();
+    /* I'm pretty sure I can get away with using the radius as a point, then a straight line to another point of
+     * distance radius, then using the circumference, estimate the vector distance in a straight line to the next triangle
+     * point that is also radius distance */
+    std::cout<<"Generating symmetric polygon"<<std::endl;
+    std::vector<Vector> vertices, norm(3), sT(3);
+    Face face;
+    vertices.emplace_back(1, 1, 1);
+    vertices.emplace_back(1, 0, -1);
+    vertices.push_back(center);
+    norm.emplace_back(1,1,0);
+    norm.emplace_back(1,1,0);
+    norm.emplace_back(1,1,0);
+    sT.emplace_back(0,0,0);
+    sT.emplace_back(0,0,0);
+    sT.emplace_back(0,0,0);
+    polygon = Ngon(vertices, norm, sT, face);
+    std::cout << polygon.getNgonSize();
 
 }
 

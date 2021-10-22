@@ -6,13 +6,14 @@
 #define VZL_CLION_FACE_H
 
 #include <iostream>
+#include <vector>
 
 class Face {
 private:
     size_t numVertices;
-    size_t vertex;
-    size_t normal;
-    size_t st;
+    std::vector<size_t> vertex;
+    std::vector<size_t> normal;
+    std::vector<size_t> st;
 public:
     size_t getSize() const;
 

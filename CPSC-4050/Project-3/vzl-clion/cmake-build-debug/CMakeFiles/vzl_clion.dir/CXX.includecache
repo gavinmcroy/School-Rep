@@ -6,35 +6,23 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Color.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Vector.h
 cmath
 -
 cstdio
 -
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlThing.h
-string
--
-vector
--
-memory
--
-map
--
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlViewer.h
-cstring
--
-vector
--
-VzlThing.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlThing.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Face.h
 iostream
 -
+vector
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Ngon.cpp
+iostream
+-
+Ngon.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Ngon.h
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Ngon.h
 vector
@@ -43,22 +31,4 @@ Face.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Face.h
 ../include/Vector.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Vector.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/NgonThing.h
-../include/VzlThing.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlThing.h
-../include/Vector.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Vector.h
-../include/Color.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Color.h
-Ngon.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/Ngon.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/vzl.C
-../include/VzlViewer.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/VzlViewer.h
-../include/Vector.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/include/Vector.h
-NgonThing.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-3/vzl-clion/things/NgonThing.h
 

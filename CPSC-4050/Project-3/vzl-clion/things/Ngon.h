@@ -16,7 +16,7 @@ private:
     std::vector<Vector> vertices;
     std::vector<Vector> norms;
     std::vector<Vector> sT;
-    Face face;
+    std::vector<Face> faces;
 
     size_t totalVertices;
 
