@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <vector>
+#include "../include/Vector.h"
 
 class Face {
 private:
@@ -15,6 +16,9 @@ private:
     std::vector<size_t> normal;
     std::vector<size_t> st;
 public:
+    Face(const std::vector<size_t> &vertex, const std::vector<size_t> &normal,
+         const std::vector<size_t> &s_t);
+
     size_t getSize() const;
 
     size_t getVertex(size_t i) const;

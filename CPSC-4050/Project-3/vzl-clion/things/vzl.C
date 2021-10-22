@@ -23,7 +23,7 @@ int main(int argc, char **argv) {
 //        std::cout<<"MAIN: Test succeeded\n";
 //    }
 
-    int nGonSides = 5;
+    int nGonSides = 2000;
     int nGonNormals = 4;
     int nGoneTextCord = 10;
     Vector nGonCenter(0, 0, 0);

@@ -15,6 +15,7 @@ CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Box.C
 CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Box.h
 CMakeFiles/vzl_clion.dir/things/Box.C.o: ../things/Plane.h
 
+CMakeFiles/vzl_clion.dir/things/Face.cpp.o: ../include/Vector.h
 CMakeFiles/vzl_clion.dir/things/Face.cpp.o: ../things/Face.cpp
 CMakeFiles/vzl_clion.dir/things/Face.cpp.o: ../things/Face.h
 

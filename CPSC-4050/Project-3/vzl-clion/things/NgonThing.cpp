@@ -28,8 +28,8 @@ void NgonThing::Display() {
     if (display_wire) {
         // Draw polygon as wireframe
         glBegin(GL_LINE_LOOP);
-        for (size_t i = 0;
-             i < polygon.getNgonSize(); i++) {// Get the postion, getNormal, texture coordinates of a getVertex
+        for (size_t i = 0; i < polygon.getNgonSize(); i++) {
+            // Get the postion, getNormal, texture coordinates of a getVertex
             Vector X, N, st;
             polygon.faceValues(i, X, N, st);
             // Extract the texture coordinates and do some math
@@ -72,19 +72,57 @@ void NgonThing::generate_symmetric_ngon(int nb_sides, int nb_normals, int nb_tex
     /* I'm pretty sure I can get away with using the radius as a point, then a straight line to another point of
      * distance radius, then using the circumference, estimate the vector distance in a straight line to the next triangle
      * point that is also radius distance */
-    std::cout<<"Generating symmetric polygon"<<std::endl;
-    std::vector<Vector> vertices, norm(3), sT(3);
-    Face face;
-    vertices.emplace_back(1, 1, 1);
-    vertices.emplace_back(1, 0, -1);
-    vertices.push_back(center);
-    norm.emplace_back(1,1,0);
-    norm.emplace_back(1,1,0);
-    norm.emplace_back(1,1,0);
-    sT.emplace_back(0,0,0);
-    sT.emplace_back(0,0,0);
-    sT.emplace_back(0,0,0);
-    polygon = Ngon(vertices, norm, sT, face);
+
+    /* Temporary test values to ensure triangle display works */
+    std::vector<Vector> allVertices, allNorm(3), allST(3);
+    std::vector<Face> face;
+
+    std::cout << "Generating symmetric polygon" << std::endl;
+    /* every single face shares a center location. One triangle must share a point. Therefore, only one
+     * allVertices must be generated on each loop iteration */
+
+    /* Generates all vertices + faces */
+    for (int i = 0; i < nb_sides; i++) {
+        float x = center.X() + radius * sin(2.0 * M_PI * i / nb_sides);
+        float y = center.Y() + radius * cos(2.0 * M_PI * i / nb_sides);
+        allVertices.emplace_back(x, y, center.Z());
+
+    }
+
+    /* Generates all texture coord and assigns randomly to sides */
+    for (int i = 0; i < nb_sides; i++) {
+        double s = drand48();
+        double t = drand48();
+        allST.emplace_back(s, t, 0);
+    }
+
+    /* Generates all normals and assigns randomly to sides */
+    for (int i = 0; i < nb_normals; i++) {
+        Vector random = Vector(drand48(), drand48(), drand48());
+        random.normalize();
+         allNorm.push_back(random);
+    }
+
+
+
+//    nb_sides = 1;
+//    /* Essentially this is generating all triangle faces */
+//    for (int i = 0; i < nb_sides; i++) {
+//        /* Information for face */
+//        std::vector<size_t> faceVerticesIndex;
+//        std::vector<size_t> faceNormalIndex;
+//        std::vector<size_t> faceTextCord;
+//        /* This is filling in the indices for our face */
+//        /* First coordinate [0] is center */
+//        faceVerticesIndex.push_back(0);
+//        faceVerticesIndex.push_back(allVertices.size() - 2);
+//        faceVerticesIndex.push_back(allVertices.size() - 1);
+//
+//        Face face1(faceVerticesIndex, faceNormalIndex, faceTextCord);
+//        face.push_back(face1);
+//    }
+
+    polygon = Ngon(allVertices, allNorm, allST, face);
     std::cout << polygon.getNgonSize();
 
 }

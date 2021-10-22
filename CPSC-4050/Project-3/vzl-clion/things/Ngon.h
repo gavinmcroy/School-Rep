@@ -13,6 +13,8 @@ using namespace vzl;
 
 class Ngon {
 private:
+    /* Vertices are stored in this fashion. Center location is [0]. Second index is straight line from radius.
+     * Third distance is the polygons unique third triangle coordinate */
     std::vector<Vector> vertices;
     std::vector<Vector> norms;
     std::vector<Vector> sT;
@@ -22,7 +24,7 @@ private:
 
 public:
     Ngon(const std::vector<Vector> &vertices, const std::vector<Vector> &norms, const std::vector<Vector> &s_t,
-         const Face &face);
+         const std::vector<Face> &face);
 
     Ngon();
 

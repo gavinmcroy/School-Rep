@@ -4,6 +4,14 @@
 
 #include "Face.h"
 
+Face::Face(const std::vector<size_t> &vertex, const std::vector<size_t> &normal,
+           const std::vector<size_t> &s_t) {
+    this->vertex = vertex;
+    this->normal = normal;
+    this->st = s_t;
+    numVertices = vertex.size();
+}
+
 size_t Face::getSize() const {
     return numVertices;
 }

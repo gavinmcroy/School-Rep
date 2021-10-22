@@ -5,13 +5,14 @@
 #include "Ngon.h"
 
 Ngon::Ngon(const std::vector<vzl::Vector> &vertices, const std::vector<vzl::Vector> &norms,
-           const std::vector<vzl::Vector> &s_t, const Face &face) {
+           const std::vector<vzl::Vector> &s_t, const std::vector<Face> &face) {
+    /* Special map converter */
     this->vertices = vertices;
     this->norms = norms;
     this->sT = s_t;
+    this->faces = face;
     std::cout << "nGon overridden constructor" << std::endl;
     totalVertices = vertices.size();
-    /* TODO bug with vertices not being copied */
 }
 
 Ngon::Ngon() {
@@ -24,15 +25,12 @@ size_t Ngon::getNgonSize() const {
 }
 
 
-/* For the input vertex index i, provide
-the vertex position P, vertex normal N,
-and vertex texture coordinate tc to the
-values in the last three items of the sig-
-nature, and return true. If i is not a
-valid index, do not alter P, N, tc, and
+/* For the input vertex index i, provide the vertex position P, vertex normal N,
+and vertex texture coordinate tc to the values in the last three items of the sig-
+nature, and return true. If i is not a valid index, do not alter P, N, tc, and
 return false. */
 bool Ngon::faceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
-    if(i >= totalVertices || i < 0){
+    if (i >= totalVertices || i < 0) {
         return false;
     }
     p = vertices[i];
@@ -41,15 +39,12 @@ bool Ngon::faceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
     return true;
 }
 
-/* For the input vertex index i, set the
-vertex position P, vertex normal N, and
-vertex texture coordinate tc to the val-
-ues in the last three items of the sig-
-nature, and return true. If i is not a
-valid index, do not changes the values
+/* For the input vertex index i, set the vertex position P, vertex normal N, and
+vertex texture coordinate tc to the val-ues in the last three items of the sig-
+nature, and return true. If i is not a valid index, do not changes the values
 and return false. */
 bool Ngon::setFaceValues(const size_t i, Vector &p, Vector &n, Vector &tc) const {
-    if(i >= totalVertices || i < 0){
+    if (i >= totalVertices || i < 0) {
         return false;
     }
     //vertices[i] = p;
