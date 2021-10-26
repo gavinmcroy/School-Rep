@@ -8,6 +8,8 @@
 #define GL_SILENCE_DEPRECATION
 #define GL_DEFINE_TEXT
 
+#include "Warp.h"
+
 #ifdef __APPLE__
 
 #include <OpenImageIO/imageio.h>
@@ -15,6 +17,7 @@
 #include <OpenGL/gl.h>
 
 #elif
+#include <OpenImageIO/imageio.h>
 #include <GL/glu.h>
 #include <GL/gl.h>
 #include <GL/glut.h>
@@ -22,33 +25,25 @@
 
 OIIO_NAMESPACE_USING
 
-class Display {
-private:
-    int state = 0;
-    std::vector<unsigned char *> images;
-    std::vector<ImageSpec> specs;
+void init(int argc, char *argv[]);
 
-public:
-    Display(int argc,char * argv[]);
+void openGLSetup(int argc, char *argv[]);
 
-    void openGLSetup(int argc, char *argv[]);
+void loadImage(const std::string &inputFile);
 
-    void displayFunction();
+void writeImage(const std::string &outputFile);
 
-    void reshapeFunction(int x, int y);
+void invertImage();
 
-    void keyboardEvent(unsigned char key, int x, int y);
+int getImagePixelTypeForGL();
 
-    void specialKeyboardEvent(int key, int x, int y);
+void displayFunction();
 
-    void loadImage(const std::string &inputFile);
+void reshapeFunction(int x, int y);
 
-    void writeImage(const std::string &outputFile);
+void keyboardEvent(unsigned char key, int x, int y);
 
-    void invertImage();
-
-    int getImagePixelTypeForGL();
-};
+void specialKeyboardEvent(int key, int x, int y);
 
 
 #endif //OPEN_TEST_DISPLAY_H

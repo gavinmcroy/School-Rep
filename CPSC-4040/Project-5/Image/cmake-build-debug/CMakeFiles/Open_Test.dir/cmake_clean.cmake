@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Open_Test.dir/Display.cpp.o"
+  "CMakeFiles/Open_Test.dir/Warp.cpp.o"
   "CMakeFiles/Open_Test.dir/main.cpp.o"
   "CMakeFiles/Open_Test.dir/matrix.cpp.o"
   "Open_Test"

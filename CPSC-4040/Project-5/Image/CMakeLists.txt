@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 find_package(Openimageio REQUIRED )
 
-add_executable(Open_Test main.cpp matrix.cpp matrix.h Display.cpp Display.h)
+add_executable(Open_Test main.cpp matrix.cpp matrix.h Display.cpp Display.h Warp.cpp Warp.h)
 
 if(Boost_FOUND)
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")

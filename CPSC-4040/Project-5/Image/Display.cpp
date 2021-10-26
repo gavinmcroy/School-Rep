@@ -4,7 +4,12 @@
 
 #include "Display.h"
 
-Display::Display(int argc, char *argv[]) {
+int state = 0;
+std::vector<unsigned char *> images;
+std::vector<ImageSpec> specs;
+Warp warp;
+
+void init(int argc, char *argv[]) {
     if (argc > 1) {
         for (int i = 1; argv[i] != nullptr; i++) {
             loadImage(argv[i]);
@@ -19,7 +24,7 @@ Display::Display(int argc, char *argv[]) {
     }
 }
 
-void Display::openGLSetup(int argc, char **argv) {
+void openGLSetup(int argc, char **argv) {
     glutInit(&argc, argv);
     glutInitWindowPosition(0, 0);
     if (images.empty()) {
@@ -35,7 +40,7 @@ void Display::openGLSetup(int argc, char **argv) {
     glutMainLoop();
 }
 
-void Display::displayFunction() {
+void displayFunction() {
     glClearColor(0, 0, 0, 0);
     glRasterPos2i(0, 0);
     glWindowPos2i(0, 0);
@@ -47,11 +52,11 @@ void Display::displayFunction() {
     glClear(GL_COLOR_BUFFER_BIT);
 }
 
-void Display::reshapeFunction(int x, int y) {
+void reshapeFunction(int x, int y) {
 
 }
 
-void Display::keyboardEvent(unsigned char key, int x, int y) {
+void keyboardEvent(unsigned char key, int x, int y) {
     switch (key) {
         case 'k': {
             std::cout << "Image cleared from buffer" << std::endl;
@@ -92,7 +97,7 @@ void Display::keyboardEvent(unsigned char key, int x, int y) {
     }
 }
 
-void Display::specialKeyboardEvent(int key, int x, int y) {
+void specialKeyboardEvent(int key, int x, int y) {
     switch (key) {
         case GLUT_KEY_LEFT: {
             std::cout << "Left " << state << std::endl;
@@ -125,7 +130,7 @@ void Display::specialKeyboardEvent(int key, int x, int y) {
     }
 }
 
-void Display::loadImage(const std::string &inputFile) {
+void loadImage(const std::string &inputFile) {
     unsigned char *pixels = nullptr;
     auto input = ImageInput::open(inputFile);
     if (!input) {
@@ -172,7 +177,7 @@ void Display::loadImage(const std::string &inputFile) {
     input->close();
 }
 
-void Display::writeImage(const std::string &outputFile) {
+void writeImage(const std::string &outputFile) {
     auto out = ImageOutput::create("Output.jpg");
     ImageSpec specOut;
     if (specs[state].nchannels == 1) {
@@ -187,14 +192,14 @@ void Display::writeImage(const std::string &outputFile) {
     out->close();
 }
 
-void Display::invertImage() {
+void invertImage() {
     unsigned char maxVal = 255;
     for (int i = 0; i < (specs[state].width * specs[state].height * specs[state].nchannels); i++) {
         images[state][i] = maxVal - images[state][i];
     }
 }
 
-int Display::getImagePixelTypeForGL() {
+int getImagePixelTypeForGL() {
     std::string mainString;
     for (auto &channelName : specs[state].channelnames) {
         mainString += channelName;

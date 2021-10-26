@@ -169,6 +169,33 @@ Display.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_Test.dir/build.make CMakeFiles/Open_Test.dir/Display.cpp.s
 .PHONY : Display.cpp.s
 
+Warp.o: Warp.cpp.o
+
+.PHONY : Warp.o
+
+# target to build an object file
+Warp.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_Test.dir/build.make CMakeFiles/Open_Test.dir/Warp.cpp.o
+.PHONY : Warp.cpp.o
+
+Warp.i: Warp.cpp.i
+
+.PHONY : Warp.i
+
+# target to preprocess a source file
+Warp.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_Test.dir/build.make CMakeFiles/Open_Test.dir/Warp.cpp.i
+.PHONY : Warp.cpp.i
+
+Warp.s: Warp.cpp.s
+
+.PHONY : Warp.s
+
+# target to generate assembly for a file
+Warp.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Open_Test.dir/build.make CMakeFiles/Open_Test.dir/Warp.cpp.s
+.PHONY : Warp.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -235,6 +262,9 @@ help:
 	@echo "... Display.o"
 	@echo "... Display.i"
 	@echo "... Display.s"
+	@echo "... Warp.o"
+	@echo "... Warp.i"
+	@echo "... Warp.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
