@@ -1,0 +1,5 @@
+KNOWN ISSUES:
+Certain filters just distort the image
+This is probably due to negative pixels
+
+./out filter.filt in.jpg out.png
