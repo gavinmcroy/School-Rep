@@ -40,14 +40,13 @@ void MipsInterpret::readFile() {
     }
 
     //add $1, $2, $3
-    std::string instruction, arg1, arg2, arg3;
+    std::string instruction, arg1, arg2, reg;
     int line = 1;
-    while (file >> instruction >> arg1 >> arg2 >> arg3) {
+    while (file >> instruction >> arg1 >> arg2 >> reg) {
         /* Command is invalid */
-        if(assemblerMap.find(instruction) == assemblerMap.end()){
-            std::cerr<<"Error. Invalid instruction line "<<line<<std::endl;
+        if (assemblerMap.find(instruction) == assemblerMap.end()) {
+            std::cerr << "Error. Unsupported instruction on line " << line << std::endl;
         }
-        
         line++;
     }
 
@@ -56,13 +55,21 @@ void MipsInterpret::readFile() {
 
 void MipsInterpret::outFile() {
     std::cout << "Writing file" << std::endl;
-    auto myFile = std::fstream(outputFile, std::ios::out | std::ios::binary);
+    std::ofstream myFile;
+    myFile.open(outputFile, std::ios::binary);
     if (!myFile) {
         std::cerr << outputFile << " failed to open. Closing " << std::endl;
         exit(1);
     }
-    // myFile.write((char*)&data[0],bytes);
+    std::string test = "add $1, $2, $3";
+
+    char list[6] = {'1', '2', '3', '4', '5','6'};
+
+    myFile.write(list, 6);
+
+    if (!myFile.good()) {
+        std::cerr << "Error occurred at writing time!" << std::endl;
+        exit(1);
+    }
     myFile.close();
-
-
 }
