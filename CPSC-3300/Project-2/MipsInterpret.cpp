@@ -4,6 +4,15 @@
 
 #include "MipsInterpret.h"
 
+#include <utility>
+
+MipsInterpret::commandLine::commandLine(std::string instr, std::string r1, std::string r2, std::string r3) {
+    this->instruction = std::move(instr);
+    this->register1 = std::move(r1);
+    this->register2 = std::move(r2);
+    this->register3 = std::move(r3);
+}
+
 MipsInterpret::MipsInterpret(int argc, char **argv) {
     if (argc < MAX_ARGS) {
         std::cerr << "Not enough command line arguments. Closing" << std::endl;
@@ -70,14 +79,20 @@ void MipsInterpret::readFile() {
                 errors = true;
             }
         }
+        commands.emplace_back(instruction, arg1, arg2, arg3);
         line++;
     }
     file.close();
-    if(errors){
-        std::cerr<<"Program cannot proceed due to uncorrectable errors. Closing "<<std::endl;
+    if (errors) {
+        std::cerr << "Program cannot proceed due to uncorrectable errors. Closing " << std::endl;
         exit(1);
     }
 
+}
+
+void MipsInterpret::compile() {
+    /* Essentially we are converting instructions into binary digits */
+    char x1,x2,x3,x4;
 }
 
 void MipsInterpret::outFile() {
@@ -100,7 +115,7 @@ void MipsInterpret::outFile() {
     myFile.close();
 }
 
-bool MipsInterpret::isValidRegister(const std::string &reg) {
+bool MipsInterpret::isValidRegister(const std::string &reg) const {
     std::string local;
     /* Is it a double digit number? 2 since $10 is 3 characters */
     if (reg.length() > 2) {

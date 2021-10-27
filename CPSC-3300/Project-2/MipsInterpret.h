@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <unordered_map>
+#include <vector>
 
 class MipsInterpret {
 private:
@@ -16,18 +17,28 @@ private:
     std::string outputFile;
     const int MAX_ARGS = 3;
     const int MAX_REGISTERS = 32;
-    std::unordered_map<std::string,int> assemblerMap;
+    std::unordered_map<std::string, int> assemblerMap;
 
-    bool isValidRegister(const std::string &reg);
+    [[nodiscard]] bool isValidRegister(const std::string &reg) const;
+
+    typedef struct commandLine {
+        commandLine(std::string instr, std::string r1, std::string r2, std::string r3);
+        std::string instruction;
+        std::string register1;
+        std::string register2;
+        std::string register3;
+    } CommandLine;
+
+    std::vector<CommandLine> commands;
 
 public:
-    MipsInterpret(int argc, char * argv[]);
+    MipsInterpret(int argc, char *argv[]);
 
     void buildTable();
 
     void readFile();
 
-
+    void compile();
 
     void outFile();
 };
