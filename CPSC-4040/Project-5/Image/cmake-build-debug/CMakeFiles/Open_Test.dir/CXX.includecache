@@ -6,30 +6,14 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/Display.cpp
-Display.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/Display.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/Display.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/Warp.cpp
 Warp.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/Warp.h
-OpenImageIO/imageio.h
--
-GLUT/glut.h
--
-OpenGL/gl.h
--
-OpenImageIO/imageio.h
--
-GL/glu.h
--
-GL/gl.h
--
-GL/glut.h
--
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/Warp.h
 iostream
+-
+OpenImageIO/imageio.h
 -
 matrix.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-5/Image/matrix.h
