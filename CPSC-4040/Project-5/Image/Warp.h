@@ -18,7 +18,7 @@ public:
 
     void rotate(Matrix3D &M, float theta);
 
-
+    unsigned char * preformWarp(unsigned char *);
 };
 
 

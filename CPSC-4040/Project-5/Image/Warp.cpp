@@ -57,12 +57,31 @@ void Warp::rotate(Matrix3D &M, float theta) {
     Matrix3D R;  // this initializes R to identity
     double rad = PI * theta / 180.0; // convert degrees to radians
 
-    // todo: populate the rotation matrix
-    /*R[0][0] = ;
+    /* todo: populate the rotation matrix
+    R[0][0] = ;
     R[0][1] = ;
     R[1][0] = ;
     R[1][1] = ;
     */
 
     M = R * M; //append the rotation to your transformation matrix
+}
+
+unsigned char *Warp::preformWarp(unsigned char *) {
+    /* Essentially we are going to create our own local transformation */
+    /* Shear */
+    double shear[3][3];
+    shear[0][0] = 1;
+    shear[0][1] = .5;
+    shear[0][2] = 0;
+    shear[1][0] = .5;
+    shear[1][1] = 1;
+    shear[1][2] = 0;
+    shear[2][0] = 0;
+    shear[2][1] = 0;
+    shear[2][2] = 0;
+    Matrix3D shearMatrix(shear);
+    shearMatrix.inv
+
+    return nullptr;
 }
