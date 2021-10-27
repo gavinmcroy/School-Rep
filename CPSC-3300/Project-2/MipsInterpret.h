@@ -19,10 +19,9 @@ private:
     const int MAX_REGISTERS = 32;
     std::unordered_map<std::string, int> assemblerMap;
 
-    [[nodiscard]] bool isValidRegister(const std::string &reg) const;
-
     typedef struct commandLine {
         commandLine(std::string instr, std::string r1, std::string r2, std::string r3);
+
         std::string instruction;
         std::string register1;
         std::string register2;
@@ -30,6 +29,8 @@ private:
     } CommandLine;
 
     std::vector<CommandLine> commands;
+
+    [[nodiscard]] bool isValidRegister(const std::string &reg) const;
 
 public:
     MipsInterpret(int argc, char *argv[]);

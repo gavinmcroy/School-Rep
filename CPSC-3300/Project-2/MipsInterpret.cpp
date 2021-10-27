@@ -48,7 +48,7 @@ void MipsInterpret::readFile() {
         std::cerr << inputFile << " failed to open. Closing " << std::endl;
         exit(1);
     }
-
+    isValidRegister("123");
     //add $1, $2, $3
     std::string instruction, arg1, arg2, arg3;
     int line = 1;
