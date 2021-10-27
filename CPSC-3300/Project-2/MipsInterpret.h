@@ -15,8 +15,10 @@ private:
     std::string inputFile;
     std::string outputFile;
     const int MAX_ARGS = 3;
+    const int MAX_REGISTERS = 32;
     std::unordered_map<std::string,int> assemblerMap;
-    std::unordered_map<std::string,int> registerMap;
+
+    bool isValidRegister(const std::string &reg);
 
 public:
     MipsInterpret(int argc, char * argv[]);
@@ -24,6 +26,8 @@ public:
     void buildTable();
 
     void readFile();
+
+
 
     void outFile();
 };

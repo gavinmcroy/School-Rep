@@ -33,6 +33,7 @@ void MipsInterpret::buildTable() {
 
 void MipsInterpret::readFile() {
     std::cout << "Reading file" << std::endl;
+    bool errors = false;
     std::ifstream file(inputFile);
     if (!file) {
         std::cerr << inputFile << " failed to open. Closing " << std::endl;
@@ -40,21 +41,43 @@ void MipsInterpret::readFile() {
     }
 
     //add $1, $2, $3
-    std::string instruction, arg1, arg2, reg;
+    std::string instruction, arg1, arg2, arg3;
     int line = 1;
-    while (file >> instruction >> arg1 >> arg2 >> reg) {
+
+    while (file >> instruction >> arg1 >> arg2 >> arg3) {
         /* Command is invalid */
         if (assemblerMap.find(instruction) == assemblerMap.end()) {
             std::cerr << "Error. Unsupported instruction on line " << line << std::endl;
+            errors = true;
         }
-        /* TODO Register is valid? */
-        if(registerMap.find(reg) == assemblerMap.end()){
-
+        /* Ensures third argument is indeed a register */
+        if (arg1[0] == '$') {
+            /* Is the register within bounds */
+            if (!isValidRegister(arg1)) {
+                std::cerr << "Error register value is out of range " << line << std::endl;
+                errors = true;
+            }
+        }
+        if (arg2[0] == '$') {
+            if (!isValidRegister(arg2)) {
+                std::cerr << "Error register value is out of range " << line << std::endl;
+                errors = true;
+            }
+        }
+        if (arg3[0] == '$') {
+            if (!isValidRegister(arg3)) {
+                std::cerr << "Error register value is out of range " << line << std::endl;
+                errors = true;
+            }
         }
         line++;
     }
-
     file.close();
+    if(errors){
+        std::cerr<<"Program cannot proceed due to uncorrectable errors. Closing "<<std::endl;
+        exit(1);
+    }
+
 }
 
 void MipsInterpret::outFile() {
@@ -67,12 +90,26 @@ void MipsInterpret::outFile() {
     }
     std::string test = "add $1, $2, $3";
 
-    int list[6] = {1, 2, 3, 4, 5,6};
-    myFile.write((char*)list, sizeof(int)*6);
+    int list[6] = {1, 2, 3, 4, 5, 6};
+    myFile.write((char *) list, sizeof(int) * 6);
 
     if (!myFile.good()) {
         std::cerr << "Error occurred at writing time!" << std::endl;
         exit(1);
     }
     myFile.close();
+}
+
+bool MipsInterpret::isValidRegister(const std::string &reg) {
+    std::string local;
+    /* Is it a double digit number? 2 since $10 is 3 characters */
+    if (reg.length() > 2) {
+        local = reg.substr(1, 2);
+    } else {
+        local = reg[1];
+    }
+    if (stoi(local) > MAX_REGISTERS) {
+        return false;
+    }
+    return true;
 }
