@@ -47,6 +47,10 @@ void MipsInterpret::readFile() {
         if (assemblerMap.find(instruction) == assemblerMap.end()) {
             std::cerr << "Error. Unsupported instruction on line " << line << std::endl;
         }
+        /* TODO Register is valid? */
+        if(registerMap.find(reg) == assemblerMap.end()){
+
+        }
         line++;
     }
 
@@ -63,9 +67,8 @@ void MipsInterpret::outFile() {
     }
     std::string test = "add $1, $2, $3";
 
-    char list[6] = {'1', '2', '3', '4', '5','6'};
-
-    myFile.write(list, 6);
+    int list[6] = {1, 2, 3, 4, 5,6};
+    myFile.write((char*)list, sizeof(int)*6);
 
     if (!myFile.good()) {
         std::cerr << "Error occurred at writing time!" << std::endl;

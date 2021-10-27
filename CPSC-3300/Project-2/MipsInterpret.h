@@ -16,6 +16,7 @@ private:
     std::string outputFile;
     const int MAX_ARGS = 3;
     std::unordered_map<std::string,int> assemblerMap;
+    std::unordered_map<std::string,int> registerMap;
 
 public:
     MipsInterpret(int argc, char * argv[]);
