@@ -10,9 +10,17 @@
 #include <sys/mman.h>
 #include <string.h>
 #include <stdio.h>
-
 #define _GNU_SOURCE
+
 #define PAGESIZE 4096
+#define LIST_SIZE 10
+
+typedef struct Page{
+    int size;
+    char * nextBlock;
+    struct Page * nextPage;
+
+}Page;
 
 void __attribute__((constructor)) lib_init();
 
