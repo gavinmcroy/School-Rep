@@ -30,7 +30,9 @@ private:
 
     std::vector<CommandLine> commands;
 
-    [[nodiscard]] bool isValidRegister(const std::string &reg1, const std::string &reg2, const std::string &reg3) const;
+    [[nodiscard]] bool errorChecking(const std::string &instruction, const std::string &arg1, const std::string &arg2,
+                                     const std::string &arg3, int line) const;
+    [[nodiscard]] bool isIndividualRegisterValid(const std::string &reg1) const;
 
 public:
     MipsInterpret(int argc, char *argv[]);

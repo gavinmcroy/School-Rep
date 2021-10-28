@@ -57,44 +57,20 @@ void MipsInterpret::readFile() {
 
     //add $1, $2, $3
     std::string instruction, arg1, arg2, arg3;
-    std::cout<<arg1.empty()<<std::endl;
+    std::cout << arg1.empty() << std::endl;
     int line = 1;
-
     while (file >> instruction >> arg1 >> arg2 >> arg3) {
-        /* Command is invalid */
-        if (assemblerMap.find(instruction) == assemblerMap.end()) {
-            std::cerr << "Error. Unsupported instruction on line " << line << std::endl;
+        if(!errorChecking(instruction,arg1,arg2,arg3,line)){
             errors = true;
-        }
-        /* Ensures third argument is indeed a register */
-        if (arg1[0] == '$') {
-            /* Is the register within bounds */
-            if (!isValidRegister(arg1, 0, 0)) {
-                std::cerr << "Error register value is out of range " << line << std::endl;
-                errors = true;
-            }
-        }
-        if (arg2[0] == '$') {
-            if (!isValidRegister(arg2, 0, 0)) {
-                std::cerr << "Error register value is out of range " << line << std::endl;
-                errors = true;
-            }
-        }
-        if (arg3[0] == '$') {
-            if (!isValidRegister(arg3, 0, 0)) {
-                std::cerr << "Error register value is out of range " << line << std::endl;
-                errors = true;
-            }
         }
         commands.emplace_back(instruction, arg1, arg2, arg3);
         line++;
     }
     file.close();
-    if (errors) {
-        std::cerr << "Program cannot proceed due to uncorrectable errors. Closing " << std::endl;
+    if(errors){
+        std::cerr<<"Program cannot continue. Closing "<<std::endl;
         exit(1);
     }
-
 }
 
 void MipsInterpret::compile() {
@@ -124,7 +100,40 @@ void MipsInterpret::outFile() {
     myFile.close();
 }
 
-bool MipsInterpret::isValidRegister(const std::string &reg1, const std::string &reg2, const std::string &reg3) const {
+bool MipsInterpret::errorChecking(const std::string &instruction, const std::string &arg1, const std::string &arg2,
+                                  const std::string &arg3, int line) const {
+    /* Ensures third argument is indeed a register */
+    bool errors = false;
+    if (assemblerMap.find(instruction) == assemblerMap.end()) {
+        std::cerr << "Error. Unsupported instruction on line " << line << std::endl;
+        errors = true;
+    }
+    if (arg1[0] == '$') {
+        /* Is the register within bounds */
+        if (!isIndividualRegisterValid(arg1)) {
+            std::cerr << "Error register value is out of range " << line << std::endl;
+            errors = true;
+        }
+    }
+    if (arg2[0] == '$') {
+        if (!isIndividualRegisterValid(arg2)) {
+            std::cerr << "Error register value is out of range " << line << std::endl;
+            errors = true;
+        }
+    }
+    if (arg3[0] == '$') {
+        if (!isIndividualRegisterValid(arg3)) {
+            std::cerr << "Error register value is out of range " << line << std::endl;
+            errors = true;
+        }
+    }
+    if (errors) {
+        return true;
+    }
+    return false;
+}
+
+bool MipsInterpret::isIndividualRegisterValid(const std::string &reg1) const {
     std::string local;
     /* Is it a double digit number? 2 since $10 is 3 characters */
     if (reg1.length() > 2) {
