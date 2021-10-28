@@ -13,26 +13,32 @@
 
 class MipsInterpret {
 private:
-    std::string inputFile;
-    std::string outputFile;
-    const int MAX_ARGS = 3;
-    const int MAX_REGISTERS = 32;
-    std::unordered_map<std::string, int> assemblerMap;
 
     typedef struct commandLine {
         commandLine(std::string instr, std::string r1, std::string r2, std::string r3);
-
         std::string instruction;
         std::string register1;
         std::string register2;
         std::string register3;
     } CommandLine;
 
+
+    std::string inputFile;
+    std::string outputFile;
+    const int MAX_ARGS = 3;
+    const int MAX_REGISTERS = 32;
+    std::unordered_map<std::string , int> rTypeInstruction;
+    std::unordered_map<std::string , int> jTypeInstruction;
+    std::unordered_map<std::string , int> iTypeInstruction;
+
     std::vector<CommandLine> commands;
 
     [[nodiscard]] bool errorChecking(const std::string &instruction, const std::string &arg1, const std::string &arg2,
                                      const std::string &arg3, int line) const;
+
     [[nodiscard]] bool isIndividualRegisterValid(const std::string &reg1) const;
+
+    char getInstructionType(const std::string& instruction);
 
 public:
     MipsInterpret(int argc, char *argv[]);

@@ -31,19 +31,19 @@ void MipsInterpret::buildTable() {
      * the instructions branch equal (beq) and jump (j) */
 
     /* R type */
-    assemblerMap["add"] = 32;
-    assemblerMap["and"] = 36;
-    assemblerMap["or"] = 37;
-    assemblerMap["sub"] = 34;
-    assemblerMap["slt"] = 42;
+    rTypeInstruction["add"] = 32;
+    rTypeInstruction["and"] = 36;
+    rTypeInstruction["or"] = 37;
+    rTypeInstruction["sub"] = 34;
+    rTypeInstruction["slt"] = 42;
 
     /* I type */
-    assemblerMap["lw"] = 34;
-    assemblerMap["sw"] = 43;
-    assemblerMap["beq"] = 4;
+    iTypeInstruction["lw"] = 34;
+    iTypeInstruction["sw"] = 43;
+    iTypeInstruction["beq"] = 4;
 
     /* J type */
-    assemblerMap["j"] = 9;
+    jTypeInstruction["j"] = 9;
 }
 
 void MipsInterpret::readFile() {
@@ -55,22 +55,37 @@ void MipsInterpret::readFile() {
         exit(1);
     }
 
-    //add $1, $2, $3
     std::string instruction, arg1, arg2, arg3;
-    std::cout << arg1.empty() << std::endl;
+
     int line = 1;
-    while (file >> instruction >> arg1 >> arg2 >> arg3) {
-        if(!errorChecking(instruction,arg1,arg2,arg3,line)){
-            errors = true;
+    while (file >> instruction) {
+        char instructType = getInstructionType(instruction);
+        /* r has $rd $rs $rt */
+        if (instructType == 'r') {
+            file >> arg1 >> arg2 >> arg3;
+        } else if (instructType == 'i') {
+            /* Special case since beq has $rs $rt and immediate*/
+            if (instruction == "beq") {
+                file >> arg1 >> arg2 >> arg3;
+            } else {
+                file >> arg1 >> arg2;
+            }
+        } /* j has just address */
+        else if (instructType == 'j') {
+            file >> arg1;
+        } else {
+            std::cout << "error" << std::endl;
         }
+
+        if (errorChecking(instruction, arg1, arg2, arg3, line)) {
+            std::cerr << "Program cannot continue. Closing " << std::endl;
+            exit(1);
+        }
+
         commands.emplace_back(instruction, arg1, arg2, arg3);
         line++;
     }
     file.close();
-    if(errors){
-        std::cerr<<"Program cannot continue. Closing "<<std::endl;
-        exit(1);
-    }
 }
 
 void MipsInterpret::compile() {
@@ -88,8 +103,6 @@ void MipsInterpret::outFile() {
         exit(1);
     }
 
-
-    //char data[4] = {(char)assemblerMap["add"], 1, 2, 3};
     unsigned int x = 0;
 
 
@@ -104,27 +117,35 @@ bool MipsInterpret::errorChecking(const std::string &instruction, const std::str
                                   const std::string &arg3, int line) const {
     /* Ensures third argument is indeed a register */
     bool errors = false;
-    if (assemblerMap.find(instruction) == assemblerMap.end()) {
+    if (rTypeInstruction.find(instruction) == rTypeInstruction.end() &&
+        iTypeInstruction.find(instruction) == iTypeInstruction.end() &&
+        jTypeInstruction.find(instruction) == jTypeInstruction.end()) {
         std::cerr << "Error. Unsupported instruction on line " << line << std::endl;
         errors = true;
     }
-    if (arg1[0] == '$') {
-        /* Is the register within bounds */
-        if (!isIndividualRegisterValid(arg1)) {
-            std::cerr << "Error register value is out of range " << line << std::endl;
-            errors = true;
+    if (arg1.empty()) {
+        if (arg1[0] == '$') {
+            /* Is the register within bounds */
+            if (!isIndividualRegisterValid(arg1)) {
+                std::cerr << "Error register value is out of range " << line << std::endl;
+                errors = true;
+            }
         }
     }
-    if (arg2[0] == '$') {
-        if (!isIndividualRegisterValid(arg2)) {
-            std::cerr << "Error register value is out of range " << line << std::endl;
-            errors = true;
+    if (!arg2.empty()) {
+        if (arg2[0] == '$') {
+            if (!isIndividualRegisterValid(arg2)) {
+                std::cerr << "Error register value is out of range " << line << std::endl;
+                errors = true;
+            }
         }
     }
-    if (arg3[0] == '$') {
-        if (!isIndividualRegisterValid(arg3)) {
-            std::cerr << "Error register value is out of range " << line << std::endl;
-            errors = true;
+    if (!arg3.empty()) {
+        if (arg3[0] == '$') {
+            if (!isIndividualRegisterValid(arg3)) {
+                std::cerr << "Error register value is out of range " << line << std::endl;
+                errors = true;
+            }
         }
     }
     if (errors) {
@@ -146,3 +167,16 @@ bool MipsInterpret::isIndividualRegisterValid(const std::string &reg1) const {
     }
     return true;
 }
+
+char MipsInterpret::getInstructionType(const std::string &instruction) {
+    if (rTypeInstruction.find(instruction) != rTypeInstruction.end()) {
+        return 'r';
+    } else if (iTypeInstruction.find(instruction) != iTypeInstruction.end()) {
+        return 'i';
+    } else if (jTypeInstruction.find(instruction) != jTypeInstruction.end()) {
+        return 'j';
+    }
+    /* This case denotes an error */
+    return ' ';
+}
+
