@@ -93,86 +93,174 @@ void MipsInterpret::compile() {
     /* Essentially we are converting instructions into binary digits */
 
 
-     for(int i = 0; i < commands.size(); i++) {
-         int instructionOutput = 0;
-         char instr = getInstructionType(commands[i].instruction);
-         if (instr == 'r') {
-             /* This determines which bit will be modified */
-             //31 - 26 [opcode] always remains 0. Do thing for this part
+    for (int i = 0; i < commands.size(); i++) {
+        int instructionOutput = 0;
+        char instr = getInstructionType(commands[i].instruction);
+        if (instr == 'r') {
+            /* This determines which bit will be modified */
+            //31 - 26 [opcode] always remains 0. Do thing for this part
 
 
-             //25-21 [%rs register]
-             int n = 21;
-             int registerNumber = convertRegisterToNumber(commands[i].rs);
-             std::cout << "Register number " << registerNumber << std::endl;
-             /* Important value that must be grabbed by decimal conversion */
-             int increment = 0;
-             int *binary = decimalToBinary(registerNumber, increment);
+            //25-21 [%rs register]
+            int n = 21;
+            int registerNumber = convertRegisterToNumber(commands[i].rs);
+            std::cout << "Register number " << registerNumber << std::endl;
+            /* Important value that must be grabbed by decimal conversion */
+            int increment = 0;
+            int *binary = decimalToBinary(registerNumber, increment);
 
-             /* N = 0 is the far right. Our binary number must be placed in backwards */
-             for (int j = 0; j < increment; j++) {
-                 if (binary[j] == 1) {
-                     toggleSpecificBit(n, instructionOutput);
-                 }
-                 n++;
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+            delete[] binary;
+
+            //20-16 [$rt register]
+            n = 16;
+            registerNumber = convertRegisterToNumber(commands[i].rt);
+            std::cout << "Register number " << registerNumber << std::endl;
+            /* Important value that must be grabbed by decimal conversion */
+            increment = 0;
+            binary = decimalToBinary(registerNumber, increment);
+
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+
+            //15-11 [$rd register]
+            delete[] binary;
+            n = 11;
+            registerNumber = convertRegisterToNumber(commands[i].rd);
+            std::cout << "Register number " << registerNumber << std::endl;
+            /* Important value that must be grabbed by decimal conversion */
+            increment = 0;
+            binary = decimalToBinary(registerNumber, increment);
+
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+
+            //[10-6][shamt] This is never used so no need to do anything
+
+            //[5-0] [actual ID number]
+            delete[] binary;
+            n = 0;
+            //registerNumber = convertRegisterToNumber(commands[0].rd);
+            //std::cout << "Register number " << registerNumber << std::endl;
+
+            /* Important value that must be grabbed by decimal conversion */
+            increment = 0;
+            binary = decimalToBinary(rTypeInstruction[commands[i].instruction], increment);
+
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+        } else if (instr == 'i') {
+            const int OP_CODE = 4;
+            //31 - 26 [opcode] always is 2. So change to two
+            int n = 26;
+            int registerNumber;
+            /* Important value that must be grabbed by decimal conversion */
+            int increment = 0;
+            int *binary = decimalToBinary(OP_CODE, increment);
+
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+            delete[] binary;
+
+
+            //25-21 [%rs register]
+            if (!commands[i].rd.empty()) {
+                n = 21;
+                registerNumber = convertRegisterToNumber(commands[i].rd);
+                std::cout << "Register number " << registerNumber << std::endl;
+                /* Important value that must be grabbed by decimal conversion */
+                increment = 0;
+                binary = decimalToBinary(registerNumber, increment);
+
+                /* N = 0 is the far right. Our binary number must be placed in backwards */
+                for (int j = 0; j < increment; j++) {
+                    if (binary[j] == 1) {
+                        toggleSpecificBit(n, instructionOutput);
+                    }
+                    n++;
+                }
+                delete[] binary;
+            }
+
+            //20-16 [$rt register]
+            n = 16;
+            registerNumber = convertRegisterToNumber(commands[i].rs);
+            std::cout << "Register number " << registerNumber << std::endl;
+            /* Important value that must be grabbed by decimal conversion */
+            increment = 0;
+            binary = decimalToBinary(registerNumber, increment);
+
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+            //[15-0]
+            /* Now the rest has to be whatever the immediate is... */
+             for(int i = 0; i < 15; i++){
+                 toggleSpecificBit(i,instructionOutput);
              }
-             delete[] binary;
+        } else if (instr == 'j') {
+            const int OP_CODE = 3;
+            //31 - 26 [opcode] always is 2. So change to two
+            int n = 26;
+            int registerNumber;
+            /* Important value that must be grabbed by decimal conversion */
+            int increment = 0;
+            int *binary = decimalToBinary(OP_CODE, increment);
 
-             //20-16 [$rt register]
-             n = 16;
-             registerNumber = convertRegisterToNumber(commands[i].rt);
-             std::cout << "Register number " << registerNumber << std::endl;
-             /* Important value that must be grabbed by decimal conversion */
-             increment = 0;
-             binary = decimalToBinary(registerNumber, increment);
+            /* N = 0 is the far right. Our binary number must be placed in backwards */
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+            delete[] binary;
 
-             /* N = 0 is the far right. Our binary number must be placed in backwards */
-             for (int j = 0; j < increment; j++) {
-                 if (binary[j] == 1) {
-                     toggleSpecificBit(n, instructionOutput);
-                 }
-                 n++;
-             }
-
-             //15-11 [$rd register]
-             delete[] binary;
-             n = 11;
-             registerNumber = convertRegisterToNumber(commands[i].rd);
-             std::cout << "Register number " << registerNumber << std::endl;
-             /* Important value that must be grabbed by decimal conversion */
-             increment = 0;
-             binary = decimalToBinary(registerNumber, increment);
-
-             /* N = 0 is the far right. Our binary number must be placed in backwards */
-             for (int j = 0; j < increment; j++) {
-                 if (binary[j] == 1) {
-                     toggleSpecificBit(n, instructionOutput);
-                 }
-                 n++;
-             }
-
-             //[10-6][shamt] This is never used so no need to do anything
-
-             //[5-0] [actual ID number]
-             delete[] binary;
-             n = 0;
-             //registerNumber = convertRegisterToNumber(commands[0].rd);
-             //std::cout << "Register number " << registerNumber << std::endl;
-
-             /* Important value that must be grabbed by decimal conversion */
-             increment = 0;
-             binary = decimalToBinary(rTypeInstruction[commands[i].instruction], increment);
-
-             /* N = 0 is the far right. Our binary number must be placed in backwards */
-             for (int j = 0; j < increment; j++) {
-                 if (binary[j] == 1) {
-                     toggleSpecificBit(n, instructionOutput);
-                 }
-                 n++;
-             }
-             instructionsTranslated.push_back(instructionOutput);
-         }
-     }
+            /* 25-0 is an address */
+            n = 0;
+            registerNumber = convertRegisterToNumber(commands[i].rd);
+            increment = 0;
+            binary = decimalToBinary(registerNumber, increment);
+            for (int j = 0; j < increment; j++) {
+                if (binary[j] == 1) {
+                    toggleSpecificBit(n, instructionOutput);
+                }
+                n++;
+            }
+            delete[] binary;
+        }
+        instructionsTranslated.push_back(instructionOutput);
+    }
 }
 
 void MipsInterpret::outFile() {
@@ -184,13 +272,10 @@ void MipsInterpret::outFile() {
         exit(1);
     }
 
-    unsigned int x = 0;
-    unsigned int value = instructionsTranslated[0];
-    unsigned int value1= instructionsTranslated[1];
-    unsigned int value2 = instructionsTranslated[2];
-    myFile.write((char *) &value, sizeof(int));
-    myFile.write((char *) &value1, sizeof(int));
-    myFile.write((char *) &value2, sizeof(int));
+    for (int i = 0; i < instructionsTranslated.size(); i++) {
+        myFile.write((char *) &instructionsTranslated[i], sizeof(int));
+    }
+
     //f.write((char *) &wstu[i], sizeof(Student));
 
     if (!myFile.good()) {

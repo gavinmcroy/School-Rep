@@ -48,6 +48,8 @@ private:
 
     int convertRegisterToNumber(const std::string& reg);
 
+    int * twosComplementConversion(int n, int&important);
+
 public:
     MipsInterpret(int argc, char *argv[]);
 
