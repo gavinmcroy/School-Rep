@@ -33,6 +33,7 @@ private:
     std::unordered_map<std::string, int> iTypeInstruction;
 
     std::vector<CommandLine> commands;
+    std::vector<unsigned int> instructionsTranslated;
 
     [[nodiscard]] bool errorChecking(const std::string &instruction, const std::string &arg1, const std::string &arg2,
                                      const std::string &arg3, int line) const;
