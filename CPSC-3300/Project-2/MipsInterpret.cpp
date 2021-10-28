@@ -8,9 +8,9 @@
 
 MipsInterpret::commandLine::commandLine(std::string instr, std::string r1, std::string r2, std::string r3) {
     this->instruction = std::move(instr);
-    this->register1 = std::move(r1);
-    this->register2 = std::move(r2);
-    this->register3 = std::move(r3);
+    this->rd = std::move(r1);
+    this->rs = std::move(r2);
+    this->rt = std::move(r3);
 }
 
 MipsInterpret::MipsInterpret(int argc, char **argv) {
@@ -21,6 +21,7 @@ MipsInterpret::MipsInterpret(int argc, char **argv) {
 
     inputFile = argv[1];
     outputFile = argv[2];
+
 }
 
 /* Build hash table of possible keys */
@@ -55,34 +56,34 @@ void MipsInterpret::readFile() {
         exit(1);
     }
 
-    std::string instruction, arg1, arg2, arg3;
+    std::string instruction, rd, rs, rt;
 
     int line = 1;
     while (file >> instruction) {
         char instructType = getInstructionType(instruction);
         /* r has $rd $rs $rt */
         if (instructType == 'r') {
-            file >> arg1 >> arg2 >> arg3;
+            file >> rd >> rs >> rt;
         } else if (instructType == 'i') {
             /* Special case since beq has $rs $rt and immediate*/
             if (instruction == "beq") {
-                file >> arg1 >> arg2 >> arg3;
+                file >> rd >> rs >> rt;
             } else {
-                file >> arg1 >> arg2;
+                file >> rd >> rs;
             }
         } /* j has just address */
         else if (instructType == 'j') {
-            file >> arg1;
+            file >> rd;
         } else {
             std::cout << "error" << std::endl;
         }
 
-        if (errorChecking(instruction, arg1, arg2, arg3, line)) {
+        if (errorChecking(instruction, rd, rs, rt, line)) {
             std::cerr << "Program cannot continue. Closing " << std::endl;
             exit(1);
         }
 
-        commands.emplace_back(instruction, arg1, arg2, arg3);
+        commands.emplace_back(instruction, rd, rs, rt);
         line++;
     }
     file.close();
@@ -91,6 +92,40 @@ void MipsInterpret::readFile() {
 void MipsInterpret::compile() {
     /* Essentially we are converting instructions into binary digits */
     std::vector<unsigned int> instructionsTranslated;
+    int instructionOutput = 0;
+
+   // for(int i = 0; i < commands.size(); i++){
+        char instr = getInstructionType(commands[0].instruction);
+        if(instr =='r'){
+            /* This determines which bit will be modified */
+            int n = 25;
+            //31 - 26 [opcode] always remains 0
+
+            //25-21 [%rs register]
+            int registerNumber = convertRegisterToNumber(commands[0].rs);
+            std::cout << "Register number "<< registerNumber << std::endl;
+            /* Important value that must be grabbed by decimal conversion */
+            int increment = 0;
+            int * binary = decimalToBinary(registerNumber,increment);
+
+            for (int j = increment - 1; j >= 0; j--) {
+                std::cout << binary[j];
+            }
+            for(int i = 0; i < 5; i++){
+                if(binary[]){
+                    toggleSpecificBit(n,instructionOutput);
+                }
+                n--;
+            }
+
+            /* Now we need to toggle bits */
+
+            //20-16 [$rt register]
+            //15-11 [$rd register]
+            //[10-6][shamt]
+            //[actual ID number]
+        }
+   // }
 
 }
 
@@ -178,5 +213,44 @@ char MipsInterpret::getInstructionType(const std::string &instruction) {
     }
     /* This case denotes an error */
     return ' ';
+}
+
+/* sets all other binary values to 0*/
+int * MipsInterpret::decimalToBinary(int n, int &important) {
+    int * binaryNum = new int[32];
+    for(int i =0 ; i < 32; i++){
+        binaryNum[i] = 0;
+    }
+    int i = 0;
+    while (n > 0) {
+        binaryNum[i] = n % 2;
+        n = n / 2;
+        i++;
+    }
+    important = i;
+
+    // printing binary array in reverse order
+//    for (int j = i - 1; j >= 0; j--)
+//        std::cout << binaryNum[j];
+
+    return binaryNum;
+}
+
+void MipsInterpret::toggleSpecificBit(int n, int &valueToChange) {
+    valueToChange ^= 1UL << n;
+    std::cout << valueToChange << std::endl;
+}
+
+int MipsInterpret::convertRegisterToNumber(const std::string& reg) {
+    /* $20 is 3 digits */
+    std::string local;
+    int value = 0;
+    if(reg.size() > 2){
+        local = reg.substr(1, 2);
+        value = stoi(local);
+    }else{
+        value = stoi(local);
+    }
+    return value;
 }
 

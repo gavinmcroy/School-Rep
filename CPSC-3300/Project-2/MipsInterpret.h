@@ -16,10 +16,11 @@ private:
 
     typedef struct commandLine {
         commandLine(std::string instr, std::string r1, std::string r2, std::string r3);
+
         std::string instruction;
-        std::string register1;
-        std::string register2;
-        std::string register3;
+        std::string rd;
+        std::string rs;
+        std::string rt;
     } CommandLine;
 
 
@@ -27,9 +28,9 @@ private:
     std::string outputFile;
     const int MAX_ARGS = 3;
     const int MAX_REGISTERS = 32;
-    std::unordered_map<std::string , int> rTypeInstruction;
-    std::unordered_map<std::string , int> jTypeInstruction;
-    std::unordered_map<std::string , int> iTypeInstruction;
+    std::unordered_map<std::string, int> rTypeInstruction;
+    std::unordered_map<std::string, int> jTypeInstruction;
+    std::unordered_map<std::string, int> iTypeInstruction;
 
     std::vector<CommandLine> commands;
 
@@ -38,7 +39,13 @@ private:
 
     [[nodiscard]] bool isIndividualRegisterValid(const std::string &reg1) const;
 
-    char getInstructionType(const std::string& instruction);
+    char getInstructionType(const std::string &instruction);
+
+    int * decimalToBinary(int n, int &important);
+
+    void toggleSpecificBit(int n, int &valueToChange);
+
+    int convertRegisterToNumber(const std::string& reg);
 
 public:
     MipsInterpret(int argc, char *argv[]);
@@ -50,6 +57,8 @@ public:
     void compile();
 
     void outFile();
+
+
 };
 
 
