@@ -29,7 +29,7 @@ public:
 
 
 
-    int u(int x, int y);
+    std::pair<int, int> u(int x, int y);
 
     int v(int x, int y);
 };

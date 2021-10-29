@@ -81,17 +81,19 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
     shear[2][1] = 0;
     shear[2][2] = 1;
     forwardMap = Matrix3D(shear);
-
+    inverseMap = forwardMap.inverse();
     /* Transform 4 corners of image pair.first denotes width, pair.second denotes height */
-    std::pair<int, int> val = xY(1920, 1080);
+    std::pair<int, int> val = xY(1920, 1200);
     std::cout << val.first << " " << val.second << std::endl;
-    std::pair<int, int> val1 = xY(1920, 0);
-    std::cout << val1.first << " " << val1.second << std::endl;
-    std::pair<int, int> val2 = xY(0, 1080);
-    std::cout << val2.first << " " << val2.second << std::endl;
-    std::pair<int, int> val3 = xY(0, 0);
-    std::cout << val3.first << " " << val3.second << std::endl;
-    std::cout << "INVERSE: " << u(val.first, val.second) << std::endl;
+//    std::pair<int, int> val1 = xY(1920, 0);
+//    std::cout << val1.first << " " << val1.second << std::endl;
+//    std::pair<int, int> val2 = xY(0, 1200);
+//    std::cout << val2.first << " " << val2.second << std::endl;
+//    std::pair<int, int> val3 = xY(0, 0);
+//    std::cout << val3.first << " " << val3.second << std::endl;
+    /* Inverse system works */
+    std::pair<int, int> inverse = u(val.first, val.second);
+    std::cout << "INVERSE: X " << inverse.first << " Y: " << inverse.second << std::endl;
 
     /* Generate image with enough space */
     auto *warpedImage = new unsigned char[val.first * val.second * spec.nchannels];
@@ -99,17 +101,16 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
     int height = val.second;
 
     /* Generate inverse matrix */
-    inverseMap = forwardMap.inverse();
 
     /* Actual image warping */
     for (int x = 0; x < width; x++) {
         for (int y = 0; x < height; x++) {
             int address = (y * width + x) * spec.nchannels;
-            int secondaryAddress = (u(x, y) * spec.width + v(x, y)) * spec.nchannels;
+            //int secondaryAddress = (u(x, y) * spec.width + v(x, y)) * spec.nchannels;
             /* RGB */
-            warpedImage[address + 0] = image[secondaryAddress + 0];
-            warpedImage[address + 1] = image[secondaryAddress + 1];
-            warpedImage[address + 2] = image[secondaryAddress + 2];
+            //  warpedImage[address + 0] = image[secondaryAddress + 0];
+            //  warpedImage[address + 1] = image[secondaryAddress + 1];
+            // warpedImage[address + 2] = image[secondaryAddress + 2];
         }
     }
 
@@ -129,18 +130,20 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
 
 /* Given a x,y coordinate, it will return the new x,y location */
 std::pair<int, int> Warp::xY(int x, int y) {
-    double x1 = x * forwardMap[0][0] + x * forwardMap[0][1];
-    double y1 = y * forwardMap[0][0] + y * forwardMap[0][1];
+    double x1 = x * forwardMap[0][0] + y * forwardMap[0][1] + 1 * inverseMap[0][2];
+    double y1 = x * forwardMap[1][0] + y * forwardMap[1][1] + 1 * inverseMap[1][2];
     /* Note. First denotes width, second denotes height */
     return std::make_pair<int, int>((int) round(x1), (int) round(y1));
 }
 
 /* Given the output image X,Y coordinate, it will give the original image location */
-int Warp::u(int x, int y) {
-    double x1 = x * inverseMap[0][0] + x * inverseMap[0][1];
-    return (int) round(x1);
+std::pair<int, int> Warp::u(int x, int y) {
+    double x1 = x * inverseMap[0][0] + y * inverseMap[0][1] + 1 * inverseMap[0][2];
+    double y1 = x * inverseMap[1][0] + y * inverseMap[1][1] + 1 * inverseMap[1][2];
+    return std::make_pair<int, int>((int) round(x1), (int) round(y1));
 }
 
 int Warp::v(int x, int y) {
-    return 0;
+    double y1 = x * inverseMap[1][0] + y * inverseMap[1][1] + 1 * inverseMap[1][2];
+    return (int) round(y1);
 }
