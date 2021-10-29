@@ -35,8 +35,6 @@ public:
 
     std::pair<int, int> u(int x, int y);
 
-    int v(int x, int y);
-
     void writeImage();
 
 

@@ -100,9 +100,12 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
         warpedImage[i] = 0;
     }
 
-    /* Generate inverse matrix */
+    /* What I think is happening is round is possibly, throwing off the index system. Essentially
+     * R G B is senstive. Adress has to correspond to red. If the resolution it returns is slightly off
+     * maybe its starting at G? */
 
     /* Actual image warping */
+    int i = 0;
     for (int x = 0; x < width; x++) {
         for (int y = 0; y < height; y++) {
             //return pixels(x + W*y);
@@ -110,14 +113,18 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
 
             /* Basically takes inverse, converts it into original image (x,y) location */
             std::pair<int, int> map = u(x, y);
-
             int imageAddress = (map.second * spec.width + map.first) * spec.nchannels;
+
+            if(map.first > 1920 || map.second > 1200){
+                continue;
+            }
             /* RGB */
             warpedImage[warpedAddress + 0] = image[imageAddress + 0];
             warpedImage[warpedAddress + 1] = image[imageAddress + 1];
             warpedImage[warpedAddress + 2] = image[imageAddress + 2];
         }
     }
+    std::cout<<"Total issues "<<i<<std::endl;
 
     /* Display */
 
@@ -134,6 +141,9 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
 std::pair<int, int> Warp::toForwardMap(int x, int y) {
     double x1 = x * forwardMap[0][0] + y * forwardMap[0][1] + 1 * forwardMap[0][2];
     double y1 = x * forwardMap[1][0] + y * forwardMap[1][1] + 1 * forwardMap[1][2];
+    double z1 = x * forwardMap[2][0] + y * forwardMap[2][1] + 1 * forwardMap[2][2];
+    x1 /= z1;
+    y1 /= z1;
     /* Note. First denotes width, second denotes height */
     return std::make_pair<int, int>((int) round(x1), (int) round(y1));
 }
@@ -142,6 +152,9 @@ std::pair<int, int> Warp::toForwardMap(int x, int y) {
 std::pair<int, int> Warp::u(int x, int y) {
     double x1 = x * inverseMap[0][0] + y * inverseMap[0][1] + 1 * inverseMap[0][2];
     double y1 = x * inverseMap[1][0] + y * inverseMap[1][1] + 1 * inverseMap[1][2];
+    double z1 = x * inverseMap[2][0] + y * inverseMap[2][1] + 1 * inverseMap[2][2];
+    x1 /= z1;
+    y1 /= z1;
     return std::make_pair<int, int>((int) round(x1), (int) round(y1));
 }
 
