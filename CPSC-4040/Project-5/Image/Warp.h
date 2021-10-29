@@ -17,7 +17,9 @@ private:
     Matrix3D inverseMap;
 
     std::pair<int,int> newImageResolution;
+    std::pair<int, int> currentImageRes;
 
+    unsigned char * originalImage;
     unsigned char * warpedImage;
 
 public:
@@ -27,9 +29,9 @@ public:
 
     void rotate(Matrix3D &M, float theta);
 
-    unsigned char * preformWarp(const unsigned char *image ,const ImageSpec& spec);
+    unsigned char * preformWarp(unsigned char *image , const ImageSpec& spec);
 
-    std::pair<int,int> xY(int x, int y);
+    std::pair<int,int> toForwardMap(int x, int y);
 
     std::pair<int, int> u(int x, int y);
 
