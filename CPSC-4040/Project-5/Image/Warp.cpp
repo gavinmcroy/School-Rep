@@ -34,20 +34,36 @@ void Warp::inputSequence(Matrix3D &M) {
                         std::cin.clear();
                     }
                     break;
-                case 's':        /* scale, accept scale factors */
+                case 's': { /* scale, accept scale factors */
+                    double x1, y1;
+                    std::cout << "Input x and y with a space" << std::endl;
+                    std::cin >> x1 >> y1;
+                    double temp[3][3];
+                    temp[0][0] = x1;
+                    temp[1][1] = y1;
+                    temp[2][2] = 1;
+                    Matrix3D matrix3D(temp);
+
                     break;
-                case 't':        /* Translation, accept translations */
+                }
+                case 't': {      /* Translation, accept translations */
                     break;
-                case 'h':        /* Shear, accept shear factors */
+                }
+                case 'h': {       /* Shear, accept shear factors */
                     break;
-                case 'f':        /* Flip, accept flip factors */
+                }
+                case 'f': {        /* Flip, accept flip factors */
                     break;
-                case 'p':        /* Perspective, accept perspective factors */
+                }
+                case 'p': {       /* Perspective, accept perspective factors */
                     break;
-                case 'd':        /* Done, that's all for now */
+                }
+                case 'd': {        /* Done, that's all for now */
                     break;
-                default:
+                }
+                default: {
                     std::cout << "invalid command, enter r, s, t, h, f, p, d\n";
+                }
             }
         }
     } while (cmd.compare("d") != 0);
@@ -72,6 +88,7 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
     /* Shear */
     originalImage = image;
     double shear[3][3];
+    /* Shearing */
     shear[0][0] = 1;
     shear[0][1] = .5;
     shear[0][2] = 0;
@@ -81,6 +98,20 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
     shear[2][0] = 0;
     shear[2][1] = 0;
     shear[2][2] = 1;
+/* Translation */
+//    shear[0][0] = 1;
+//    shear[0][1] = 0;
+//    shear[0][2] = 0;
+//    shear[1][0] = 0;
+//    shear[1][1] = 2;
+//    shear[1][2] = 0;
+//    shear[2][0] = 0;
+//    shear[2][1] = 0;
+//    shear[2][2] = 1;
+
+
+
+
     forwardMap = Matrix3D(shear);
     inverseMap = forwardMap.inverse();
     /* Transform 4 corners of image pair.first denotes width, pair.second denotes height */
@@ -116,7 +147,7 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
             int imageAddress = (map.second * spec.width + map.first) * spec.nchannels;
 
             /* TODO This is a hacked solution to a bug in the code */
-            if(map.first > 1920 || map.second > 1200){
+            if (map.first > spec.width || map.second > spec.height) {
                 continue;
             }
             /* RGB */
@@ -125,7 +156,7 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
             warpedImage[warpedAddress + 2] = image[imageAddress + 2];
         }
     }
-    std::cout<<"Total issues "<<i<<std::endl;
+    std::cout << "Total issues " << i << std::endl;
 
     /* Display */
 
