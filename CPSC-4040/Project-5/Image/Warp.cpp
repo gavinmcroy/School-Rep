@@ -115,6 +115,7 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
             std::pair<int, int> map = u(x, y);
             int imageAddress = (map.second * spec.width + map.first) * spec.nchannels;
 
+            /* TODO This is a hacked solution to a bug in the code */
             if(map.first > 1920 || map.second > 1200){
                 continue;
             }
