@@ -67,7 +67,7 @@ void Warp::rotate(Matrix3D &M, float theta) {
     M = R * M; //append the rotation to your transformation matrix
 }
 
-unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
+unsigned char *Warp::preformWarp(const unsigned char *image, const ImageSpec &spec) {
     /* Essentially we are going to create our own local transformation */
     /* Shear */
     double shear[3][3];
@@ -83,8 +83,8 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
     forwardMap = Matrix3D(shear);
     inverseMap = forwardMap.inverse();
     /* Transform 4 corners of image pair.first denotes width, pair.second denotes height */
-    std::pair<int, int> val = xY(1920, 1200);
-    std::cout << val.first << " " << val.second << std::endl;
+    newImageResolution = xY(spec.width, spec.height);
+    std::cout << "NEW RES: "<<newImageResolution.first << " " << newImageResolution.second << std::endl;
 //    std::pair<int, int> val1 = xY(1920, 0);
 //    std::cout << val1.first << " " << val1.second << std::endl;
 //    std::pair<int, int> val2 = xY(0, 1200);
@@ -92,25 +92,27 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
 //    std::pair<int, int> val3 = xY(0, 0);
 //    std::cout << val3.first << " " << val3.second << std::endl;
     /* Inverse system works */
-    std::pair<int, int> inverse = u(val.first, val.second);
-    std::cout << "INVERSE: X " << inverse.first << " Y: " << inverse.second << std::endl;
+
+    std::pair<int,int> originalRes = u(newImageResolution.first, newImageResolution.second);
+    std::cout << "INVERSE: X " << originalRes.first << " Y: " << originalRes.second << std::endl;
 
     /* Generate image with enough space */
-    auto *warpedImage = new unsigned char[val.first * val.second * spec.nchannels];
-    int width = val.first;
-    int height = val.second;
+    warpedImage = new unsigned char[newImageResolution.first * newImageResolution.second * spec.nchannels];
+    int width = newImageResolution.first;
+    int height = newImageResolution.second;
 
     /* Generate inverse matrix */
 
     /* Actual image warping */
     for (int x = 0; x < width; x++) {
-        for (int y = 0; x < height; x++) {
+        for (int y = 0; y < height; y++) {
             int address = (y * width + x) * spec.nchannels;
-            //int secondaryAddress = (u(x, y) * spec.width + v(x, y)) * spec.nchannels;
+            std::pair<int,int> map;
+            int secondaryAddress = (map.second * spec.width + map.first) * spec.nchannels;
             /* RGB */
-            //  warpedImage[address + 0] = image[secondaryAddress + 0];
-            //  warpedImage[address + 1] = image[secondaryAddress + 1];
-            // warpedImage[address + 2] = image[secondaryAddress + 2];
+            warpedImage[address + 0] = image[secondaryAddress + 0];
+            warpedImage[address + 1] = image[secondaryAddress + 1];
+            warpedImage[address + 2] = image[secondaryAddress + 2];
         }
     }
 
@@ -122,10 +124,7 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
      * warp image with inverse matrix (normalize image)
      * Display transform */
 
-
-
-
-    return nullptr;
+    return warpedImage;
 }
 
 /* Given a x,y coordinate, it will return the new x,y location */
@@ -143,7 +142,14 @@ std::pair<int, int> Warp::u(int x, int y) {
     return std::make_pair<int, int>((int) round(x1), (int) round(y1));
 }
 
-int Warp::v(int x, int y) {
-    double y1 = x * inverseMap[1][0] + y * inverseMap[1][1] + 1 * inverseMap[1][2];
-    return (int) round(y1);
+void Warp::writeImage() {
+    std::string outFile = "Outfile.jpg";
+    auto out = ImageOutput::create(outFile);
+    ImageSpec specOut;
+    specOut = ImageSpec(newImageResolution.first, newImageResolution.second, 3, TypeDesc::UINT8);
+
+    out->open(outFile, specOut);
+    auto *val = warpedImage;
+    out->write_image(TypeDesc::UINT8, val);
+    out->close();
 }

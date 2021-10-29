@@ -16,13 +16,13 @@ void init(int argc, char *argv[]) {
         }
     }
     /*TODO temporary invocation */
-    if(specs.empty()){
-        std::cerr<<"No image loaded. Warp cannot properly proceed. Closing "<<std::endl;
+    if (specs.empty()) {
+        std::cerr << "No image loaded. Warp cannot properly proceed. Closing " << std::endl;
         exit(1);
     }
-    warp.preformWarp(images[0],specs[0]);
+    warp.preformWarp(images[0], specs[0]);
+    warp.writeImage();
 
-   // openGLSetup(argc, argv);
 
     /* Clear memory inside the vector */
     for (auto &image : images) {
