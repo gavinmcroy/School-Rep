@@ -14,6 +14,7 @@
 
 #define PAGESIZE 4096
 #define LIST_SIZE 10
+#define ERROR_PD 11
 
 typedef struct Page{
     int size;

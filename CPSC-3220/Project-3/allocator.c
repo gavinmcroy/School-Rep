@@ -29,6 +29,10 @@ void *malloc(size_t size) {
     // used for initializing the memory to zero . ( optional )
     int fd = open("/dev / zero", O_RDWR);
 
+    if(fd == -1){
+        exit(ERROR_PD);
+    }
+
     // ask the OS to map a page of virtual memory initialized to zero ( optional )
     // initializing your memory may make debugging easier .
     void *page = mmap(NULL, PAGESIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);

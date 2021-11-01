@@ -20,6 +20,7 @@ void init(int argc, char *argv[]) {
         std::cerr << "No image loaded. Warp cannot properly proceed. Closing " << std::endl;
         exit(1);
     }
+    warp.inputSequence();
     warp.preformWarp(images[0], specs[0]);
     warp.writeImage();
 

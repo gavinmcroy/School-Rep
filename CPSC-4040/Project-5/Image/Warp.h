@@ -7,6 +7,7 @@
 
 #include <iostream>
 #include <OpenImageIO/imageio.h>
+#include <memory>
 #include "matrix.h"
 
 OIIO_NAMESPACE_USING
@@ -22,14 +23,16 @@ private:
     unsigned char * originalImage;
     unsigned char * warpedImage;
 
+    int commandCounter = 0;
+
 public:
     Warp();
 
-    void inputSequence(Matrix3D & M);
+    void inputSequence();
 
     void rotate(Matrix3D &M, float theta);
 
-    unsigned char * preformWarp(unsigned char *image , const ImageSpec& spec);
+    unsigned char *preformWarp(unsigned char *image, const ImageSpec &spec);
 
     std::pair<int,int> toForwardMap(int x, int y);
 

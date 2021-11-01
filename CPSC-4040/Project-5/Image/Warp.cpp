@@ -13,8 +13,9 @@ Warp::Warp() {
     • multiply these matrices as you go to get a final transform matrix from all of the specified
       matrices
 */
-void Warp::inputSequence(Matrix3D &M) {
+void Warp::inputSequence() {
     std::string cmd;
+    bool firstRun = false;
     /* prompt for user input */
     do {
         std::cout << "> ";
@@ -28,11 +29,12 @@ void Warp::inputSequence(Matrix3D &M) {
                     std::cin >> theta;
                     if (std::cin) {
                         std::cout << "calling rotate\n";
-                        rotate(M, theta);
+                        //rotate(M, theta);
                     } else {
                         std::cerr << "invalid rotation angle\n";
                         std::cin.clear();
                     }
+
                     break;
                 case 's': { /* scale, accept scale factors */
                     double x1, y1;
@@ -42,8 +44,11 @@ void Warp::inputSequence(Matrix3D &M) {
                     temp[0][0] = x1;
                     temp[1][1] = y1;
                     temp[2][2] = 1;
-                    Matrix3D matrix3D(temp);
+                    /* This means we have another matrix we can multiply by */
+                    if (commandCounter > 0) {
 
+                    }
+                    forwardMap = Matrix3D(temp);
                     break;
                 }
                 case 't': {      /* Translation, accept translations */
@@ -63,9 +68,11 @@ void Warp::inputSequence(Matrix3D &M) {
                 }
                 default: {
                     std::cout << "invalid command, enter r, s, t, h, f, p, d\n";
+                    commandCounter--;
                 }
             }
         }
+        commandCounter++;
     } while (cmd.compare("d") != 0);
 }
 
@@ -84,36 +91,10 @@ void Warp::rotate(Matrix3D &M, float theta) {
 }
 
 unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
-    /* Essentially we are going to create our own local transformation */
-    /* Shear */
     originalImage = image;
-    double shear[3][3];
-    /* Shearing */
-    shear[0][0] = 1;
-    shear[0][1] = .5;
-    shear[0][2] = 0;
-    shear[1][0] = .5;
-    shear[1][1] = 1;
-    shear[1][2] = 0;
-    shear[2][0] = 0;
-    shear[2][1] = 0;
-    shear[2][2] = 1;
-/* Translation */
-//    shear[0][0] = 1;
-//    shear[0][1] = 0;
-//    shear[0][2] = 0;
-//    shear[1][0] = 0;
-//    shear[1][1] = 2;
-//    shear[1][2] = 0;
-//    shear[2][0] = 0;
-//    shear[2][1] = 0;
-//    shear[2][2] = 1;
 
-
-
-
-    forwardMap = Matrix3D(shear);
     inverseMap = forwardMap.inverse();
+
     /* Transform 4 corners of image pair.first denotes width, pair.second denotes height */
     newImageResolution = toForwardMap(spec.width, spec.height);
     /* TODO since the warping doesnt work I am going to copy*/

@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/allocator.c
+allocator.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/allocator.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/allocator.h
+fcntl.h
+-
+stdlib.h
+-
+sys/mman.h
+-
+string.h
+-
+stdio.h
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/main.c
+stdio.h
+-
+allocator.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/allocator.h
+
