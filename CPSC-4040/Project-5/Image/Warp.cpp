@@ -24,37 +24,93 @@ void Warp::inputSequence() {
             std::cout << "invalid command, enter r, s, t, h, f, p, d\n";
         } else {
             switch (cmd[0]) {
-                case 'r':        /* Rotation, accept angle in degrees */
+                case 'r': {        /* Rotation, accept angle in degrees */
                     float theta;
+                    double temp[3][3];
+                    for (auto &i : temp) {
+                        for (double &j : i) {
+                            j = 0;
+                        }
+                    }
+
                     std::cin >> theta;
                     if (std::cin) {
                         std::cout << "calling rotate\n";
-                        //rotate(M, theta);
+                        if (commandCounter > 0) {
+                            //forwardMap = forwardMap * rotation;
+                        } else {
+                            // forwardMap = rotation;
+                        }
+                        rotate(forwardMap, theta);
                     } else {
                         std::cerr << "invalid rotation angle\n";
                         std::cin.clear();
                     }
-
                     break;
+                }
                 case 's': { /* scale, accept scale factors */
                     double x1, y1;
                     std::cout << "Input x and y with a space" << std::endl;
                     std::cin >> x1 >> y1;
                     double temp[3][3];
+                    for (auto &i : temp) {
+                        for (double &j : i) {
+                            j = 0;
+                        }
+                    }
                     temp[0][0] = x1;
                     temp[1][1] = y1;
                     temp[2][2] = 1;
                     /* This means we have another matrix we can multiply by */
                     if (commandCounter > 0) {
-
+                        forwardMap = forwardMap * Matrix3D(temp);
+                    } else {
+                        forwardMap = Matrix3D(temp);
                     }
-                    forwardMap = Matrix3D(temp);
                     break;
                 }
-                case 't': {      /* Translation, accept translations */
+                case 't': { /* Translation, accept translations */
+                    double z1, z2;
+                    std::cout << "Input z1 and z2 with a space" << std::endl;
+                    std::cin >> z1 >> z2;
+                    double temp[3][3];
+                    for (auto &i : temp) {
+                        for (double &j : i) {
+                            j = 0;
+                        }
+                    }
+                    temp[0][0] = 1;
+                    temp[1][1] = 1;
+                    temp[2][2] = 1;
+                    temp[0][2] = z1;
+                    temp[1][2] = z2;
+                    if (commandCounter > 0) {
+                        forwardMap = forwardMap * Matrix3D(temp);
+                    } else {
+                        forwardMap = Matrix3D(temp);
+                    }
                     break;
                 }
                 case 'h': {       /* Shear, accept shear factors */
+                    double x1, y1;
+                    std::cout << "Input x and y with a space" << std::endl;
+                    std::cin >> x1 >> y1;
+                    double temp[3][3];
+                    for (auto &i : temp) {
+                        for (double &j : i) {
+                            j = 0;
+                        }
+                    }
+                    temp[0][0] = 1;
+                    temp[0][1] = x1;
+                    temp[1][0] = y1;
+                    temp[1][1] = 1;
+                    temp[2][2] = 1;
+                    if (commandCounter > 0) {
+                        forwardMap = forwardMap * Matrix3D(temp);
+                    } else {
+                        forwardMap = Matrix3D(temp);
+                    }
                     break;
                 }
                 case 'f': {        /* Flip, accept flip factors */
@@ -80,12 +136,12 @@ void Warp::rotate(Matrix3D &M, float theta) {
     Matrix3D R;  // this initializes R to identity
     double rad = PI * theta / 180.0; // convert degrees to radians
 
-    /* todo: populate the rotation matrix
-    R[0][0] = ;
-    R[0][1] = ;
-    R[1][0] = ;
-    R[1][1] = ;
-    */
+    // todo: populate the rotation matrix
+    R[0][0] = cos(theta);
+    R[0][1] = -sin(theta);
+    R[1][0] = sin(theta);
+    R[1][1] = cos(theta);
+
 
     M = R * M; //append the rotation to your transformation matrix
 }
@@ -97,6 +153,8 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
 
     /* Transform 4 corners of image pair.first denotes width, pair.second denotes height */
     newImageResolution = toForwardMap(spec.width, spec.height);
+    newImageResolution.first = abs(newImageResolution.first);
+    newImageResolution.second = abs(newImageResolution.second);
     /* TODO since the warping doesnt work I am going to copy*/
     std::cout << "NEW RES: " << newImageResolution.first << " " << newImageResolution.second << std::endl;
     currentImageRes = u(newImageResolution.first, newImageResolution.second);
@@ -111,10 +169,6 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
     for (int i = 0; i < newImageResolution.first * newImageResolution.second * spec.nchannels; i++) {
         warpedImage[i] = 0;
     }
-
-    /* What I think is happening is round is possibly, throwing off the index system. Essentially
-     * R G B is senstive. Adress has to correspond to red. If the resolution it returns is slightly off
-     * maybe its starting at G? */
 
     /* Actual image warping */
     int i = 0;
@@ -137,7 +191,6 @@ unsigned char *Warp::preformWarp(unsigned char *image, const ImageSpec &spec) {
             warpedImage[warpedAddress + 2] = image[imageAddress + 2];
         }
     }
-    std::cout << "Total issues " << i << std::endl;
 
     /* Display */
 
