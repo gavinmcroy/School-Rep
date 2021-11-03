@@ -21,4 +21,12 @@ string.h
 -
 stdio.h
 -
+sys/types.h
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/main.c
+stdio.h
+-
+allocator.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-3220/Project-3/allocator.h
 

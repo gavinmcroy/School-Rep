@@ -27,7 +27,7 @@ void free(void *ptr) {
 
 void *malloc(size_t size) {
     // used for initializing the memory to zero . ( optional )
-    int fd = open("/dev / zero", O_RDWR);
+    int fd = open("/dev/zero", O_RDWR);
 
     if(fd == -1){
         exit(ERROR_PD);
@@ -36,6 +36,11 @@ void *malloc(size_t size) {
     // ask the OS to map a page of virtual memory initialized to zero ( optional )
     // initializing your memory may make debugging easier .
     void *page = mmap(NULL, PAGESIZE, PROT_READ | PROT_WRITE, MAP_PRIVATE, fd, 0);
+
+    if(page == MAP_FAILED){
+        exit(25);
+    }
+
     char *pointer = (char *) page;
     for (int i = 0; i < PAGESIZE - 1; i++) {
         pointer[i] = 'a';

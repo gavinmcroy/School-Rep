@@ -10,6 +10,7 @@
 #include <sys/mman.h>
 #include <string.h>
 #include <stdio.h>
+#include <sys/types.h>
 #define _GNU_SOURCE
 
 #define PAGESIZE 4096
