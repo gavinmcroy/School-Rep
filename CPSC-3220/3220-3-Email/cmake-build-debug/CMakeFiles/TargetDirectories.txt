@@ -1,0 +1,3 @@
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/cmake-build-debug/CMakeFiles/3220_3_Email.dir

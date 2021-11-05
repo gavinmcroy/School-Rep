@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/allocator.h
+fcntl.h
+-
+stdlib.h
+-
+sys/mman.h
+-
+string.h
+-
+stdio.h
+-
+
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/main.c
+stdio.h
+-
+stdbool.h
+-
+allocator.h
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/allocator.h
+
