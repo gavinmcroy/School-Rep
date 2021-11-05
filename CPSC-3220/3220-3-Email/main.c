@@ -2,9 +2,9 @@
 #include <stdbool.h>
 #include "allocator.h"
 
-typedef struct Node {
-    char *next;
-} Node;
+//typedef struct Node {
+//    char *next;
+//} Node;
 
 int main() {
     /* This is testing that the piece of meta data in the page is the pages size */
@@ -34,12 +34,12 @@ int main() {
     }
     /* Moving past all the header information */
     char *x = (char *) page + 8;
-    printf("%c\n", *(x));
+   // printf("%c\n", *(x));
 
     /* This should give me a 2 byte chunk of memory free to modify */
     Node *node = (Node *) x;
     int offset = 2;
-    node->next = ((char *) (node)) + sizeof(char *) + offset;
+    node->next = (struct Node *) (((char *) (node)) + sizeof(char *) + offset);
 
     /* Note, location of x has changed */
     x += sizeof(char *) + offset;
@@ -48,13 +48,17 @@ int main() {
     /* While memory is still available in the page */
     while (remaining > (sizeof(char *) + offset)) {
         Node *node1 = (Node *) x;
-        node1->next = (char *) node + sizeof(char *) + offset;
+        node1->next = (struct Node *) ((char *) node + sizeof(char *) + offset);
 
         /* Our page pointer needs to move to the next chunk */
         x += sizeof(char *) + offset;
         remaining -= (sizeof(char *) + offset);
     }
-    //*x = 'B';
+
+    short * testing = (short*)malloc(sizeof(short));
+    *testing = 5;
+    //printf("%d\n",*testing);
+
 
 
 

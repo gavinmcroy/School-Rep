@@ -6,6 +6,7 @@
 void *segregatedList[LIST_SIZE];
 
 void lib_init() {
+
     int start = 2;
     /* Setup all of our pages */
     for (int i = 0; i < LIST_SIZE; i++) {
@@ -25,23 +26,18 @@ void lib_init() {
         /* Set our list to point to a particular page */
         segregatedList[i] = page;
 
-        /* Cast our page into a Page Object pointer so we can index into the memory. Initializing the header. */
-        /* TODO how are we going to build our linked list inside of this structure. */
+        /* Cast our page into a Page Object pointer, so we can index into the memory. Initializing the header. */
         Page *mem = (Page *) page;
         mem->size = start;
         mem->nextPage = NULL;
         mem->freeListHead = (page + 1);
 
-        /* TODO LEFTOFF Build free list by counting memory left in page */
-        int memoryLeft = PAGESIZE - sizeof(Page);
-        char * nextFreeList = mem->freeListHead;
-        while (memoryLeft >= 0) {
-            nextFreeList =  nextFreeList+mem->size;
-            char * temp = mem->freeListHead;
+        /* TODO Building free list algorithm. X points to beginning of free list. */
+        Node *head = mem->freeListHead;
+        head->next = head+sizeof(Node*)+start;
 
-            memoryLeft-=2;
-        }
-        //}
+        /* This should give me a "n" byte chunk of memory free to modify */
+
 
         /* 2, 4, 8, 16... */
         start = start << 1;
@@ -57,12 +53,15 @@ void free(void *ptr) {
 }
 
 void *malloc(size_t size) {
-    setupMemoryChunk(size);
+    //void *mem = setupMemoryChunk(size);
     /* TODO I'm returning the first free list pointer. This is temporary */
-    return (char*)segregatedList[0]+sizeof(Page);
+    Page * head = (Page*)segregatedList[0];
+    Node * freeListHead = head->freeListHead;
+
+    return segregatedList+50;
 }
 
-void setupMemoryChunk(size_t size) {
+void * setupMemoryChunk(size_t size) {
     /* TODO map properly into the segregated list. For now brute force */
     for (int i = 0; i < LIST_SIZE; i++) {
         /* We are searching for which memory chunk is appropriate (2-1024). Cast so we can index into memory */
@@ -71,14 +70,16 @@ void setupMemoryChunk(size_t size) {
             exit(PAGE_NULL);
         }
 
-        if (page->size < size) {
+        if (page->size <= size) {
             continue;
         }
             /* We have found our desired memory location */
         else {
-            /* This should move forward by the sizeof(Page), which would be the location of the first pointer
-             * of the free list */
-            // page++;
+            /* Position our pointer to the first free chunk of memory.
+             * TODO Warning we are hard coding first chunk only to be allocated */
+            /* Stored as follows [METADATA,HEAD_POINTER,DATA,POINTER,DATA] */
+            void *pointer = (char *) segregatedList[i] + sizeof(Page) + sizeof(char *);
+            return pointer;
         }
     }
 }

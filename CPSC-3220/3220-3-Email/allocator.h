@@ -18,9 +18,13 @@
 #define MAP_ERROR 3
 #define PAGE_NULL 4
 
+typedef struct Node {
+    struct Node *next;
+} Node;
+
 typedef struct Page{
     int size;
-    char * freeListHead;
+    Node * freeListHead;
     struct Page * nextPage;
 
 }Page;
@@ -29,7 +33,7 @@ void __attribute__((constructor)) lib_init();
 
 void __attribute__((destructor)) lib_destroy();
 
-void setupMemoryChunk(size_t size);
+void * setupMemoryChunk(size_t size);
 
 
 #endif //PROJECT_3_ALLOCATOR_H

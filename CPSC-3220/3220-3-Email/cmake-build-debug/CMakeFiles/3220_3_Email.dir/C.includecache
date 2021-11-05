@@ -6,6 +6,10 @@
 
 #IncludeRegexTransform: 
 
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/allocator.c
+allocator.h
+/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/allocator.h
+
 /home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/allocator.h
 fcntl.h
 -
@@ -17,12 +21,4 @@ string.h
 -
 stdio.h
 -
-
-/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/main.c
-stdio.h
--
-stdbool.h
--
-allocator.h
-/home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/allocator.h
 
