@@ -7,11 +7,11 @@ void *segregatedList[LIST_SIZE];
 
 void lib_init() {
 
-    int start = 2;
+    int chunkSize = 2;
     /* Setup all of our pages */
     for (int i = 0; i < LIST_SIZE; i++) {
         int fd = open("/dev/zero", O_RDWR);
-
+        int remainingMemory = PAGESIZE;
         if (fd == -1) {
             exit(FD_ERROR);
         }
@@ -28,19 +28,27 @@ void lib_init() {
 
         /* Cast our page into a Page Object pointer, so we can index into the memory. Initializing the header. */
         Page *mem = (Page *) page;
-        mem->size = start;
+        mem->size = chunkSize;
         mem->nextPage = NULL;
         mem->freeListHead = (page + 1);
+        remainingMemory -= sizeof(Page);
 
         /* TODO Building free list algorithm. X points to beginning of free list. */
-        Node *head = mem->freeListHead;
-        head->next = head+sizeof(Node*)+start;
-
-        /* This should give me a "n" byte chunk of memory free to modify */
-
+        Node *node = mem->freeListHead;
+        int iter = 0;
+        while (remainingMemory > chunkSize) {
+            iter++;
+            node->next = (struct Node *) ((char *) node + sizeof(Node) + chunkSize);
+            node = node->next;
+            /* This should give me a "n" byte chunk of memory free to modify */
+            remainingMemory -= (sizeof(Node) + chunkSize);
+        }
+        /* The point of this the loop will stop on the last available node, set so that this node does
+         * not point to anything else */
+        node->next = NULL;
 
         /* 2, 4, 8, 16... */
-        start = start << 1;
+        chunkSize = chunkSize << 1;
     }
 }
 
@@ -53,15 +61,17 @@ void free(void *ptr) {
 }
 
 void *malloc(size_t size) {
-    //void *mem = setupMemoryChunk(size);
-    /* TODO I'm returning the first free list pointer. This is temporary */
-    Page * head = (Page*)segregatedList[0];
-    Node * freeListHead = head->freeListHead;
-
-    return segregatedList+50;
+    Page *page = (Page *) segregatedList[0];
+    Node *node = page->freeListHead;
+    int iter = 0;
+    while (node->next != NULL) {
+        node = node->next;
+        iter++;
+    }
+    return segregatedList[0] + 50;
 }
 
-void * setupMemoryChunk(size_t size) {
+void *setupMemoryChunk(size_t size) {
     /* TODO map properly into the segregated list. For now brute force */
     for (int i = 0; i < LIST_SIZE; i++) {
         /* We are searching for which memory chunk is appropriate (2-1024). Cast so we can index into memory */
