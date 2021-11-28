@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.h
+Curve.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.h
+Vector.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.h
+vector
+-
+cassert
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.h
+string
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/main.cpp
+iostream
+-
+CatmullRom.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.h
+

@@ -27,10 +27,27 @@ int main(int argc, char *argv[]) {
     }
 
     ImageSpec spec = inputFile->spec();
-    std::unique_ptr<unsigned char> image = std::unique_ptr<unsigned char>
-            (new unsigned char[spec.height * spec.width * spec.nchannels]);
-    image.get()[1] = 3;
-    inputFile->read_image(TypeDesc::UINT8, image.get());
+    auto* originalImage = new unsigned char[spec.height * spec.width * spec.nchannels];
+    auto * duplicateImage = new unsigned char[spec.height * 2 * spec.width * 2 * spec.nchannels];
+    inputFile->read_image(TypeDesc::UINT8, originalImage);
+
+    /* Image is loaded into memory. Now we begin warping */
+    int originalWidth = spec.width;
+    int originalHeight = spec.height;
+    /* Looping over each new image pixel */
+    for (int i = 0; i < spec.width*2; i++) {
+        for (int j = 0; j < spec.height*2; j++) {
+            int warpedAddress = (j * spec.width + i) * spec.nchannels;
+            float u, v;
+
+            /* i,j correspond to new image coordinates. u and v are the location of original image*/
+            inv_map(i, j, u, v, originalWidth, originalHeight, originalWidth * 2,
+                    originalHeight * 2);
+            duplicateImage[warpedAddress] = originalImage[]
+            std::cout << "x " << u << " y " << v << std::endl;
+        }
+    }
+
 
     inputFile->close();
     return 0;
