@@ -7,10 +7,10 @@ class CatmullRom : public Curve {
 public:
     CatmullRom();
 
-    virtual ~CatmullRom();
+    ~CatmullRom() override;
 
 protected:
-    virtual void _on_way_point_added();
+    void pointAdd() override;
 
 protected:
     Vector interpolate(double u, const Vector &P0, const Vector &P1, const Vector &P2, const Vector &P3);

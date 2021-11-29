@@ -93,12 +93,12 @@ clean: CMakeFiles/Catmull_Rom.dir/clean
 CMakeFiles/Catmull_Rom.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Catmull_Rom.dir/build.make CMakeFiles/Catmull_Rom.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Catmull_Rom.dir/build.make CMakeFiles/Catmull_Rom.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target Catmull_Rom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4 "Built target Catmull_Rom"
 .PHONY : CMakeFiles/Catmull_Rom.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Catmull_Rom.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/Catmull_Rom.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/Catmull_Rom.dir/rule

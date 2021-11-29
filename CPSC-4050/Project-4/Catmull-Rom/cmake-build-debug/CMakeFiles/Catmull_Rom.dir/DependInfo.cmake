@@ -6,7 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles/Catmull_Rom.dir/Curve.cpp.o"
-  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles/Catmull_Rom.dir/Vector.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/main.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles/Catmull_Rom.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "AppleClang")

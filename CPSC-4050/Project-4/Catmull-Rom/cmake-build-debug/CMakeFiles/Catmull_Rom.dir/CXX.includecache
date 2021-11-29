@@ -6,7 +6,17 @@
 
 #IncludeRegexTransform: 
 
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.cpp
+CatmullRom.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.h
+iostream
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.h
+Curve.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.cpp
 Curve.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.h
 
@@ -19,11 +29,15 @@ cassert
 -
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.h
-string
+cmath
+-
+cstdio
 -
 
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/main.cpp
 iostream
+-
+fstream
 -
 CatmullRom.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.h

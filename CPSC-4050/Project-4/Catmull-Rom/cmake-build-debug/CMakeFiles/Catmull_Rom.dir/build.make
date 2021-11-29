@@ -89,22 +89,9 @@ CMakeFiles/Catmull_Rom.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Catmull_Rom.dir/main.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/main.cpp -o CMakeFiles/Catmull_Rom.dir/main.cpp.s
 
-CMakeFiles/Catmull_Rom.dir/Vector.cpp.o: CMakeFiles/Catmull_Rom.dir/flags.make
-CMakeFiles/Catmull_Rom.dir/Vector.cpp.o: ../Vector.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Catmull_Rom.dir/Vector.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Catmull_Rom.dir/Vector.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.cpp
-
-CMakeFiles/Catmull_Rom.dir/Vector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Catmull_Rom.dir/Vector.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.cpp > CMakeFiles/Catmull_Rom.dir/Vector.cpp.i
-
-CMakeFiles/Catmull_Rom.dir/Vector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Catmull_Rom.dir/Vector.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Vector.cpp -o CMakeFiles/Catmull_Rom.dir/Vector.cpp.s
-
 CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o: CMakeFiles/Catmull_Rom.dir/flags.make
 CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o: ../CatmullRom.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/CatmullRom.cpp
 
 CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.i: cmake_force
@@ -117,7 +104,7 @@ CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.s: cmake_force
 
 CMakeFiles/Catmull_Rom.dir/Curve.cpp.o: CMakeFiles/Catmull_Rom.dir/flags.make
 CMakeFiles/Catmull_Rom.dir/Curve.cpp.o: ../Curve.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Catmull_Rom.dir/Curve.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Catmull_Rom.dir/Curve.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Catmull_Rom.dir/Curve.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/Curve.cpp
 
 CMakeFiles/Catmull_Rom.dir/Curve.cpp.i: cmake_force
@@ -131,7 +118,6 @@ CMakeFiles/Catmull_Rom.dir/Curve.cpp.s: cmake_force
 # Object files for target Catmull_Rom
 Catmull_Rom_OBJECTS = \
 "CMakeFiles/Catmull_Rom.dir/main.cpp.o" \
-"CMakeFiles/Catmull_Rom.dir/Vector.cpp.o" \
 "CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o" \
 "CMakeFiles/Catmull_Rom.dir/Curve.cpp.o"
 
@@ -139,12 +125,11 @@ Catmull_Rom_OBJECTS = \
 Catmull_Rom_EXTERNAL_OBJECTS =
 
 Catmull_Rom: CMakeFiles/Catmull_Rom.dir/main.cpp.o
-Catmull_Rom: CMakeFiles/Catmull_Rom.dir/Vector.cpp.o
 Catmull_Rom: CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o
 Catmull_Rom: CMakeFiles/Catmull_Rom.dir/Curve.cpp.o
 Catmull_Rom: CMakeFiles/Catmull_Rom.dir/build.make
 Catmull_Rom: CMakeFiles/Catmull_Rom.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Catmull_Rom"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Catmull-Rom/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable Catmull_Rom"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Catmull_Rom.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

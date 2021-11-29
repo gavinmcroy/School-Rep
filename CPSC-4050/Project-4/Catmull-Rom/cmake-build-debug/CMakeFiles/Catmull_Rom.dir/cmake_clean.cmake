@@ -1,7 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Catmull_Rom.dir/CatmullRom.cpp.o"
   "CMakeFiles/Catmull_Rom.dir/Curve.cpp.o"
-  "CMakeFiles/Catmull_Rom.dir/Vector.cpp.o"
   "CMakeFiles/Catmull_Rom.dir/main.cpp.o"
   "Catmull_Rom"
   "Catmull_Rom.pdb"

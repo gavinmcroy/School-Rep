@@ -10,9 +10,6 @@ CMakeFiles/Catmull_Rom.dir/Curve.cpp.o: ../Curve.cpp
 CMakeFiles/Catmull_Rom.dir/Curve.cpp.o: ../Curve.h
 CMakeFiles/Catmull_Rom.dir/Curve.cpp.o: ../Vector.h
 
-CMakeFiles/Catmull_Rom.dir/Vector.cpp.o: ../Vector.cpp
-CMakeFiles/Catmull_Rom.dir/Vector.cpp.o: ../Vector.h
-
 CMakeFiles/Catmull_Rom.dir/main.cpp.o: ../CatmullRom.h
 CMakeFiles/Catmull_Rom.dir/main.cpp.o: ../Curve.h
 CMakeFiles/Catmull_Rom.dir/main.cpp.o: ../Vector.h
