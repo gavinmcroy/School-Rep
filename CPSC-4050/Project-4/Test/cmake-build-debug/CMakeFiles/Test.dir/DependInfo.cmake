@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles/Test.dir/Curve.cpp.o"
-  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles/Test.dir/CurveEvaluator.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles/Test.dir/Point.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/main.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles/Test.dir/main.cpp.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.cpp" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles/Test.dir/subdivisioncurve.cpp.o"

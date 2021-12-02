@@ -16,9 +16,12 @@ int main() {
         points.emplace_back(x, y);
     }
     std::vector<Point> finalAnswer;
-    sub.evaluateCurve(points, finalAnswer, 1, false, false, 6);
+
+    std::ofstream out;
+    out.open("test.txt");
+    sub.evaluateCurve(points, finalAnswer, 5000, false, false, 200);
     for (int i = 0; i < finalAnswer.size(); i++) {
-        std::cout << finalAnswer[i].x << "," << finalAnswer[i].y << std::endl;
+        out << finalAnswer[i].x << "," << finalAnswer[i].y << std::endl;
     }
     return 0;
 }

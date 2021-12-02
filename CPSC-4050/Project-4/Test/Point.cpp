@@ -40,16 +40,5 @@ std::istream & operator>>(std::istream & input_stream, Point & point)
     return input_stream;
 }
 
-bool PointSmallerXCompare::operator()(const Point & first, const Point & second) const
-{
-    bool hasSmallerX = (first.x < second.x);
 
-    return hasSmallerX;
-}
 
-bool PointLargerXCompare::operator()(const Point & first, const Point & second) const
-{
-    bool hasLargerX = (first.x > second.x);
-
-    return hasLargerX;
-}

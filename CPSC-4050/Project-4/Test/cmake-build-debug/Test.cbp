@@ -86,12 +86,6 @@
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.h">
 			<Option target="Test"/>
 		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.cpp">
-			<Option target="Test"/>
-		</Unit>
-		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.h">
-			<Option target="Test"/>
-		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.cpp">
 			<Option target="Test"/>
 		</Unit>

@@ -1,27 +1,9 @@
 #include "Curve.h"
-
-#include <algorithm>
 #include <functional>
-
-#ifdef _DEBUG
-#include <assert.h>
-#endif // _DEBUG
-
 #include <cmath>
 
-#ifdef WIN32
-#include <windows.h>
-#endif // WIN32
-
-#include <cfloat>
-
-#include "Curve.h"
-#include "CurveEvaluator.h"
-
-float Curve::s_fCtrlPtXEpsilon = 0.0001f;
-
 Curve::Curve() :
-        m_pceEvaluator(NULL),
+        m_pceEvaluator(nullptr),
         m_bWrap(false),
         m_bDirty(true),
         m_bAdaptive(false),
@@ -31,8 +13,8 @@ Curve::Curve() :
 }
 
 void Curve::init(const float fStartYValue /* = 0.0f */) {
-    m_ptvCtrlPts.push_back(Point(m_fMaxX * (1.0f / 3.0f), fStartYValue));
-    m_ptvCtrlPts.push_back(Point(m_fMaxX * (2.0f / 3.0f), fStartYValue));
+    m_ptvCtrlPts.emplace_back(m_fMaxX * (1.0f / 3.0f), fStartYValue);
+    m_ptvCtrlPts.emplace_back(m_fMaxX * (2.0f / 3.0f), fStartYValue);
 }
 
 void Curve::toStream(std::ostream &output_stream) const {
@@ -117,30 +99,22 @@ float Curve::evaluateCurveAt(const float x) const {
     return value;
 }
 
-void Curve::sortControlPoints() const {
-    std::sort(m_ptvCtrlPts.begin(),
-              m_ptvCtrlPts.end(),
-              PointSmallerXCompare());
-}
+//void Curve::sortControlPoints() const {
+//    std::sort(m_ptvCtrlPts.begin(),
+//              m_ptvCtrlPts.end(),
+//              PointSmallerXCompare());
+//}
 
 void Curve::reevaluate() const {
-    if (m_bDirty) {
-        if (m_pceEvaluator) {
-            m_pceEvaluator->evaluateCurve(m_ptvCtrlPts,
-                                          m_ptvEvaluatedCurvePts,
-                                          m_fMaxX,
-                                          m_bWrap,
-                                          m_bAdaptive,
-                                          m_dTension
-            );
-
-            std::sort(m_ptvEvaluatedCurvePts.begin(),
-                      m_ptvEvaluatedCurvePts.end(),
-                      PointSmallerXCompare());
-
-            m_bDirty = false;
-        }
-    }
+//    if (m_bDirty) {
+//        if (m_pceEvaluator) {
+//            std::sort(m_ptvEvaluatedCurvePts.begin(),
+//                      m_ptvEvaluatedCurvePts.end(),
+//                      PointSmallerXCompare());
+//
+//            m_bDirty = false;
+//        }
+//    }
 }
 
 

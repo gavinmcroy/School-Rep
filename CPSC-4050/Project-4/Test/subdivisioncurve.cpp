@@ -7,7 +7,7 @@ void SubdivisionCurveEvaluator::evaluateCurve(const std::vector<Point>& ptvCtrlP
                                               const bool& bAdaptive,
                                               const double&dTension) const {
 
-    vector<Point> curve;
+    std::vector<Point> curve;
     curve.assign(ptvCtrlPts.begin(), ptvCtrlPts.end());
 
     if (bWrap)
@@ -23,7 +23,7 @@ void SubdivisionCurveEvaluator::evaluateCurve(const std::vector<Point>& ptvCtrlP
             break;
 
         //chaikiin's algorithm: split -> average
-        vector<Point> split;
+        std::vector<Point> split;
         split.push_back(curve[0]);
 
         for (int i = 0; i < curve.size() - 1; i++)
@@ -34,7 +34,7 @@ void SubdivisionCurveEvaluator::evaluateCurve(const std::vector<Point>& ptvCtrlP
             split.push_back(curve[i + 1]);
         }
 
-        vector<Point> avg;
+        std::vector<Point> avg;
         avg.push_back(split[0]);
 
         for (int i = 0; i < split.size() - 1; i++)

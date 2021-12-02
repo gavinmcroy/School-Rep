@@ -169,33 +169,6 @@ Curve.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/Curve.cpp.s
 .PHONY : Curve.cpp.s
 
-CurveEvaluator.o: CurveEvaluator.cpp.o
-
-.PHONY : CurveEvaluator.o
-
-# target to build an object file
-CurveEvaluator.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/CurveEvaluator.cpp.o
-.PHONY : CurveEvaluator.cpp.o
-
-CurveEvaluator.i: CurveEvaluator.cpp.i
-
-.PHONY : CurveEvaluator.i
-
-# target to preprocess a source file
-CurveEvaluator.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/CurveEvaluator.cpp.i
-.PHONY : CurveEvaluator.cpp.i
-
-CurveEvaluator.s: CurveEvaluator.cpp.s
-
-.PHONY : CurveEvaluator.s
-
-# target to generate assembly for a file
-CurveEvaluator.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Test.dir/build.make CMakeFiles/Test.dir/CurveEvaluator.cpp.s
-.PHONY : CurveEvaluator.cpp.s
-
 Point.o: Point.cpp.o
 
 .PHONY : Point.o
@@ -289,9 +262,6 @@ help:
 	@echo "... Curve.o"
 	@echo "... Curve.i"
 	@echo "... Curve.s"
-	@echo "... CurveEvaluator.o"
-	@echo "... CurveEvaluator.i"
-	@echo "... CurveEvaluator.s"
 	@echo "... Point.o"
 	@echo "... Point.i"
 	@echo "... Point.s"

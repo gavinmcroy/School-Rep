@@ -102,22 +102,9 @@ CMakeFiles/Test.dir/subdivisioncurve.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/subdivisioncurve.cpp.s"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.cpp -o CMakeFiles/Test.dir/subdivisioncurve.cpp.s
 
-CMakeFiles/Test.dir/CurveEvaluator.cpp.o: CMakeFiles/Test.dir/flags.make
-CMakeFiles/Test.dir/CurveEvaluator.cpp.o: ../CurveEvaluator.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Test.dir/CurveEvaluator.cpp.o"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/CurveEvaluator.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.cpp
-
-CMakeFiles/Test.dir/CurveEvaluator.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Test.dir/CurveEvaluator.cpp.i"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.cpp > CMakeFiles/Test.dir/CurveEvaluator.cpp.i
-
-CMakeFiles/Test.dir/CurveEvaluator.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Test.dir/CurveEvaluator.cpp.s"
-	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.cpp -o CMakeFiles/Test.dir/CurveEvaluator.cpp.s
-
 CMakeFiles/Test.dir/Curve.cpp.o: CMakeFiles/Test.dir/flags.make
 CMakeFiles/Test.dir/Curve.cpp.o: ../Curve.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Test.dir/Curve.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/Test.dir/Curve.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/Curve.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.cpp
 
 CMakeFiles/Test.dir/Curve.cpp.i: cmake_force
@@ -130,7 +117,7 @@ CMakeFiles/Test.dir/Curve.cpp.s: cmake_force
 
 CMakeFiles/Test.dir/Point.cpp.o: CMakeFiles/Test.dir/flags.make
 CMakeFiles/Test.dir/Point.cpp.o: ../Point.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Test.dir/Point.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/Test.dir/Point.cpp.o"
 	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Test.dir/Point.cpp.o -c /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.cpp
 
 CMakeFiles/Test.dir/Point.cpp.i: cmake_force
@@ -145,7 +132,6 @@ CMakeFiles/Test.dir/Point.cpp.s: cmake_force
 Test_OBJECTS = \
 "CMakeFiles/Test.dir/main.cpp.o" \
 "CMakeFiles/Test.dir/subdivisioncurve.cpp.o" \
-"CMakeFiles/Test.dir/CurveEvaluator.cpp.o" \
 "CMakeFiles/Test.dir/Curve.cpp.o" \
 "CMakeFiles/Test.dir/Point.cpp.o"
 
@@ -154,12 +140,11 @@ Test_EXTERNAL_OBJECTS =
 
 Test: CMakeFiles/Test.dir/main.cpp.o
 Test: CMakeFiles/Test.dir/subdivisioncurve.cpp.o
-Test: CMakeFiles/Test.dir/CurveEvaluator.cpp.o
 Test: CMakeFiles/Test.dir/Curve.cpp.o
 Test: CMakeFiles/Test.dir/Point.cpp.o
 Test: CMakeFiles/Test.dir/build.make
 Test: CMakeFiles/Test.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable Test"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Test"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Test.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

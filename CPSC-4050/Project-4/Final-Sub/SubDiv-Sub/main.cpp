@@ -70,7 +70,7 @@ int main() {
 
 
     for (auto &i : startingPoint) {
-        outFile << i.x << "," << i.y << "\n";
+        outFile << "("<<i.x << "," << i.y << ","<< i.z << ")"<< "\n";
     }
 
     return 0;

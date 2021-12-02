@@ -1,6 +1,5 @@
 file(REMOVE_RECURSE
   "CMakeFiles/Test.dir/Curve.cpp.o"
-  "CMakeFiles/Test.dir/CurveEvaluator.cpp.o"
   "CMakeFiles/Test.dir/Point.cpp.o"
   "CMakeFiles/Test.dir/main.cpp.o"
   "CMakeFiles/Test.dir/subdivisioncurve.cpp.o"

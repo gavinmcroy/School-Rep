@@ -3,4 +3,4 @@ project(Test)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Test main.cpp subdivisioncurve.cpp subdivisioncurve.h CurveEvaluator.cpp CurveEvaluator.h Curve.cpp Curve.h Point.cpp Point.h)
+add_executable(Test main.cpp subdivisioncurve.cpp subdivisioncurve.h Curve.cpp Curve.h Point.cpp Point.h)

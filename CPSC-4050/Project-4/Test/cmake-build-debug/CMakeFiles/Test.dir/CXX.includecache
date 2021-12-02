@@ -6,44 +6,6 @@
 
 #IncludeRegexTransform: 
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.cpp
-Curve.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.h
-algorithm
--
-functional
--
-assert.h
--
-cmath
--
-windows.h
--
-cfloat
--
-Curve.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.h
-CurveEvaluator.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.h
-vector
--
-iostream
--
-string
--
-Point.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.cpp
-CurveEvaluator.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.h
-Curve.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Curve.h
-
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.h
 functional
 -
@@ -60,11 +22,9 @@ fstream
 subdivisioncurve.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.h
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.cpp
-subdivisioncurve.h
 /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.h
-
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.h
-CurveEvaluator.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/CurveEvaluator.h
+vector
+-
+Point.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.h
 
