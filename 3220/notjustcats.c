@@ -14,15 +14,17 @@ int fileCount;
 int main(int argc, char *argv[]) {
     char *imageFile = NULL;
     char *outputDir = NULL;
-    if (argc > 2) {
+    if (argc <= 2) {
+        if (argc == 2) {
+            outputDir = "./recovered_files";
+            imageFile = argv[1];
+        } else {
+            fprintf(stderr, "Error, invalid command arguments \n");
+            exit(1);
+        }
+    } else {
         outputDir = argv[2];
         imageFile = argv[1];
-    } else if (argc == 2) {
-        outputDir = "./recovered_files";
-        imageFile = argv[1];
-    } else {
-        fprintf(stderr, "Error, invalid command arguments \n");
-        exit(1);
     }
     /* Makes directory with given path + mode*/
     mkdir(outputDir, ACCESSPERMS);
@@ -80,7 +82,14 @@ void readWriteDirectory(char *image, int startSector, char *path, char *outputDi
         uint16_t cluster = (uint16_t) image[i + FIRST_CLUSTER_OFFSET];
 
 
-        if (!isDir) {
+        if (isDir) {
+            int length = (int) strlen(path);
+            strcat(path, name);
+            if (startSector != (START_CLUSTER + cluster) && (cluster > 1)) {
+                readWriteDirectory(image, START_CLUSTER + cluster, path, outputDir);
+                path[length] = '\0';
+            }
+        } else {
             if (image[i] == DELETED) {
                 printf("FILE\tDELETED\t%s%s.%s\t%d\n", path, name, extension, size);
             } else {
@@ -95,13 +104,6 @@ void readWriteDirectory(char *image, int startSector, char *path, char *outputDi
             FILE *filePointer = fopen(newfile, "wb");
             writeData(filePointer, image, cluster, size, image[i] == DELETED);
             fileCount++;
-        } else {
-            int length = (int) strlen(path);
-            strcat(path, name);
-            if (startSector != (START_CLUSTER + cluster) && (cluster > 1)) {
-                readWriteDirectory(image, START_CLUSTER + cluster, path, outputDir);
-                path[length] = '\0';
-            }
         }
 
         free(fileName);
@@ -122,10 +124,10 @@ void writeData(FILE *destination, char *source, uint16_t cluster, uint32_t size,
 
         uint16_t nextCluster = nextFat(source, cluster);
         if (deleted) {
-            if (nextCluster == 0) {
-                nextCluster = cluster + 1;
-            } else {
+            if (nextCluster != 0) {
                 return;
+            } else {
+                nextCluster = cluster + 1;
             }
         }
 
@@ -143,12 +145,12 @@ uint16_t nextFat(const char *image, uint16_t cluster) {
     const int AMOUNT = 4;
     /* Equation for handling/ rearranging nibbles */
     offset += (cluster / 2) * (SIZE_FAT / SIZE_BYTE);
-    if (cluster % 2 == 0) {
-        /* First of two entries (1/2)  (Word) + Operator) */
-        return ((*(uint16_t *) (image + offset)) & 0x0fff);
-    } else {
+    if (cluster % 2 != 0) {
         /* Second of two entries (2/2) (Word + Operator) */
         return *((uint16_t *) (image + offset + 1)) >> AMOUNT;
+    } else {
+        /* First of two entries (1/2)  (Word) + Operator) */
+        return ((*(uint16_t *) (image + offset)) & 0x0fff);
     }
 }
 
