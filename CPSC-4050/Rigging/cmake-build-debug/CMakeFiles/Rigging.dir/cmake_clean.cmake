@@ -1,7 +1,10 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/Rigging.dir/main.cpp.o"
-  "Rigging"
+  "CMakeFiles/Rigging.dir/main.cpp.obj"
+  "CMakeFiles/Rigging.dir/main.cpp.obj.d"
+  "Rigging.exe"
+  "Rigging.exe.manifest"
   "Rigging.pdb"
+  "libRigging.dll.a"
 )
 
 # Per-language clean rules from dependency scanning.
