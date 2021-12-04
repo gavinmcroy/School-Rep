@@ -1,12 +1,11 @@
-"C:\Users\Gavin T McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/ninja/win/ninja.exe" -G Ninja "C:\Users\Gavin T McRoy\Documents\GitHub\School-Rep\CPSC-4780\Project-4"
--- Found OpenGL: opengl32   
-CMake Error at C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
-  Could NOT find GLUT (missing: GLUT_glut_LIBRARY GLUT_INCLUDE_DIR)
-Call Stack (most recent call first):
-  C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
-  C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/FindGLUT.cmake:139 (FIND_PACKAGE_HANDLE_STANDARD_ARGS)
-  CMakeLists.txt:7 (find_package)
-
-
--- Configuring incomplete, errors occurred!
-See also "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/CPSC-4780/Project-4/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/211.7628.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4780/Project-4
+-- Boost_INCLUDE_DIRS: /usr/local/include
+-- Boost_LIBRARIES: Boost::system;Boost::filesystem
+-- Boost_VERSION: 1.76.0
+Boost::system
+-- OpenImageIO_INCLUDE_DIR: /usr/local/Cellar/openimageio/2.2.18.0/include
+-- Openimageio_LIBRARIES: /usr/local/Cellar/openimageio/2.2.18.0/lib
+-- Openimageio_VERSION: 2.2.18.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4780/Project-4/cmake-build-debug
