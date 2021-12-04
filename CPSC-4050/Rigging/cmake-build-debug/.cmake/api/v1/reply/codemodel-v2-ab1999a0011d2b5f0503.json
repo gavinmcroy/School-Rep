@@ -6,7 +6,6 @@
 			[
 				{
 					"build" : ".",
-					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.19"
@@ -39,7 +38,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Rigging::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Rigging-Debug-bd1f47c87b309dfc6294.json",
+					"jsonFile" : "target-Rigging-Debug-fdc0b547a70dc6b70091.json",
 					"name" : "Rigging",
 					"projectIndex" : 0
 				}
@@ -49,12 +48,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/CPSC-4050/Rigging/cmake-build-debug",
-		"source" : "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/CPSC-4050/Rigging"
+		"build" : "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Rigging/cmake-build-debug",
+		"source" : "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Rigging"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 3
+		"minor" : 2
 	}
 }
