@@ -58,6 +58,10 @@ double clamp(double lo, double hi, double x) {
     return std::max(lo, std::min(x, hi));
 }
 
+double clamp(int lo, int hi, int x) {
+    return std::max(lo, std::min(x, hi));
+}
+
 /**********************Bilateral filter******************************/
 
 //Compute the intensity image
@@ -149,9 +153,6 @@ void apply_Intensekernel(int y, int x) {
 
 //loop through the intense image
 void apply_bilateral() {
-    double r, g, b;
-    r = g = b = 0.0;
-
     for (int i = 0; i < ImHeight; i++) {
         for (int j = 0; j < ImWidth; j++) {
             //Get the range
@@ -161,7 +162,7 @@ void apply_bilateral() {
             //Mulitply domain and range
             domainRange();
 
-            //Apply final kernel to the intensity img to create a new intesnity image
+            //Apply final kernel to the intensity img to create a new intensity image
             apply_Intensekernel(i, j);
 
 
@@ -177,8 +178,28 @@ void apply_bilateral() {
 
         }
     }
-
+    /* Helps reduce the severity of artifacts (does not entirely remove them) */
+    for (int i = 0; i < ImHeight; i++) {
+        for (int j = 0; j < ImWidth; j++) {
+            double averageR = 0.0;
+            double averageG = 0.0;
+            double averageB = 0.0;
+            if (i - 1 >= 0 && i + 1 < ImHeight && j - 1 >= 0 && j + 1 < ImWidth) {
+                for (int x = i - 1; x <= i + 1; x++) {
+                    for (int y = j - 1; y <= j + 1; y++) {
+                        averageR += pixmap[x][y].r;
+                        averageG += pixmap[x][y].g;
+                        averageB += pixmap[x][y].b;
+                    }
+                }
+                pixmap[i][j].r = (unsigned char) (averageR / 9);
+                pixmap[i][j].g = (unsigned char) (averageG / 9);
+                pixmap[i][j].b = (unsigned char) (averageB / 9);
+            }
+        }
+    }
 }
+
 /**********************End of Bilateral******************************/
 
 /**********************Sobel Operator******************************/
@@ -323,9 +344,9 @@ void combineImg() {
 void combineBilateralSobel() {
     for (int i = 0; i < ImHeight; i++) {
         for (int j = 0; j < ImWidth; j++) {
-            pixmap[i][j].r = pixmap[i][j].r + sobel_pixmap[i][j].r;
-            pixmap[i][j].g = pixmap[i][j].g + sobel_pixmap[i][j].g;
-            pixmap[i][j].b = pixmap[i][j].b + sobel_pixmap[i][j].b;
+            pixmap[i][j].r = (unsigned char) clamp(0, 255, pixmap[i][j].r + sobel_pixmap[i][j].r);
+            pixmap[i][j].g = (unsigned char) clamp(0, 255, pixmap[i][j].g + sobel_pixmap[i][j].g);
+            pixmap[i][j].b = (unsigned char) clamp(0, 255, pixmap[i][j].b + sobel_pixmap[i][j].b);
         }
     }
 }
@@ -344,7 +365,7 @@ void destroy() {
 //  Routine to read an image file and store in a pixmap
 //  returns the size of the image in pixels if correctly read, or 0 if failure
 //
-int readimage(const string& infilename) {
+int readimage(const string &infilename) {
     // Create the oiio file handler for the image, and open the file for reading the image.
     // Once open, the file spec will indicate the width, height and number of channels.
     auto infile = ImageInput::open(infilename);
@@ -365,7 +386,7 @@ int readimage(const string& infilename) {
 //    }
 
     // allocate temporary structure to read the image
-    auto  * tmp_pixels = new unsigned char[ImWidth * ImHeight * ImChannels];
+    auto *tmp_pixels = new unsigned char[ImWidth * ImHeight * ImChannels];
 
     // read the image into the tmp_pixels from the input file, flipping it upside down using negative y-stride,
     // since OpenGL pixmaps have the bottom scanline first, and
@@ -627,12 +648,12 @@ int main(int argc, char *argv[]) {
     ImWidth = 0;
     ImHeight = 0;
 
- //   img_name = argv[1];
- //   out_name = argv[2];
+    //   img_name = argv[1];
+    //   out_name = argv[2];
 
     // load the image if present, and size the window to match
     if (argc == 3) {
-        if (readimage("betterDog.jpeg")) {
+        if (readimage("bridge.jpeg")) {
 
         }
     }
