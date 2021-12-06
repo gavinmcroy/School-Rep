@@ -9,7 +9,6 @@ public class simul {
     private static final Model myModel = new Model();
 
     public static void main(String[] args) throws IOException {
-
         File file = new File(args[0]);
         FileInputStream fin = new FileInputStream(file);
         BufferedInputStream bin = new BufferedInputStream(fin);
@@ -29,14 +28,15 @@ public class simul {
         BufferedInputStream bufferedInputStream = new BufferedInputStream(fileInputStream);
         DataInputStream dataInputStream = new DataInputStream(bufferedInputStream);
 
-        int count_data = (int) (fileData.length() / 4);
-        System.out.println("Length of File: " + count_data);
-        int[] dataMemory = new int[count_data];
-        for (int i = 0; i < count_data; i++) {
+        int countData = (int) (fileData.length() / 4);
+        System.out.println("Length of File: " + countData);
+        int[] dataMemory = new int[countData];
+
+        for (int i = 0; i < countData; i++) {
             dataMemory[i] = dataInputStream.readInt();
         }
 
-        for (int i = 0; i < count_data; i++) {
+        for (int i = 0; i < countData; i++) {
             myModel.dataMem.writeMem(i * 4, dataMemory[i]);
         }
 
@@ -51,7 +51,7 @@ public class simul {
         }
 
         System.out.println("Number of Cycles: " + myModel.getNumCycles());
-        System.out.println("Number of ALU Uses: " + myModel.getALU_Uses());
+        System.out.println("Number of ALU Uses: " + myModel.getALUUses());
         System.out.println("PC= " + myModel.myInstructions.get_PC());
         System.out.println("Memory Reads: " + myModel.dataMem.getMemoryReads());
         System.out.println("Memory Writes: " + myModel.dataMem.getMemoryWrites());
@@ -70,9 +70,10 @@ public class simul {
 
     public static void functionDecode(int input) {
         StringBuilder binary = new StringBuilder(Integer.toBinaryString(input));
+        int instructionLength = 32;
 
-        if (binary.length() != 32) {
-            int i = 32 - binary.length();
+        if (binary.length() != instructionLength) {
+            int i = instructionLength - binary.length();
             for (int k = 0; k < i; k++) {
                 binary.insert(0, "0");
             }
@@ -84,18 +85,18 @@ public class simul {
             rType(binary.toString());
         }
         if (type.equals("000100")) {
-            branch(binary.toString());
+            branchFunction(binary.toString());
         }
         if (type.equals("100011")) {
-            load(binary.toString());
+            loadFunction(binary.toString());
         }
         if (type.equals("101011")) {
-            store(binary.toString());
+            storeFunction(binary.toString());
         }
 
     }
 
-    public static void load(String input) {
+    public static void loadFunction(String input) {
         String remainder = input.substring(6, 32);
         String rs = remainder.substring(0, 5);
         String rt = remainder.substring(5, 10);
@@ -109,7 +110,7 @@ public class simul {
         myModel.registers.setRegister(valueInsert, rt);
     }
 
-    public static void store(String input) {
+    public static void storeFunction(String input) {
         String remainder = input.substring(6, 32);
         String rs = remainder.substring(0, 5);
         String rt = remainder.substring(5, 10);
@@ -123,7 +124,7 @@ public class simul {
         myModel.dataMem.writeMem(finalAddress, value);
     }
 
-    public static void branch(String input) {
+    public static void branchFunction(String input) {
         String rs = input.substring(6, 11);
         String rt = input.substring(11, 16);
         String address = input.substring(16, 32);
@@ -146,12 +147,11 @@ public class simul {
         String rd = input.substring(16, 21);
         String function = input.substring(26, 32);
 
-        int value1 = myModel.registers.resolveRegister(rs);
-        int value2 = myModel.registers.resolveRegister(rt);
+        int val1 = myModel.registers.resolveRegister(rs);
+        int val2 = myModel.registers.resolveRegister(rt);
 
         myModel.incrementALU_Uses();
-        int result = myModel.myALU.compute(value1, value2, function);
-
+        int result = myModel.myALU.compute(val1, val2, function);
         myModel.registers.setRegister(result, rd);
     }
 }

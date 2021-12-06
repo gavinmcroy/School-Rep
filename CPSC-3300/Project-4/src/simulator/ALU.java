@@ -3,7 +3,7 @@ package simulator;
 public class ALU {
 
     public ALU() {
-        //Empty constructor
+
     }
 
     public int compute(int value1, int value2, String operation) {

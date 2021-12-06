@@ -53,5 +53,4 @@ public class DataMemory {
     public int getMemoryReads() {
         return memoryReads;
     }
-
 }

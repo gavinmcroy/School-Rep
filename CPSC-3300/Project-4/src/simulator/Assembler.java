@@ -5,15 +5,14 @@ import java.io.*;
 
 public class Assembler {
     public static void main(String[] args) throws IOException {
-
-        File infile = new File("input1.asm");
+        File infile = new File(args[0]);
         Scanner in = new Scanner(infile);
-        FileOutputStream fileOutputStream = new FileOutputStream("simulator/output.bin");
+        FileOutputStream fileOutputStream = new FileOutputStream("src/simulator/output.bin");
         DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
 
         while (in.hasNextLine()) {
-            String comm = in.nextLine();
-            String[] command = split_line(comm);
+            String initialCommand = in.nextLine();
+            String[] command = split_line(initialCommand);
 
             switch (command[0]) {
                 case "add":
@@ -54,7 +53,7 @@ public class Assembler {
         int rsInt;
         int rtInt;
         int rdInt;
-        int comm = 0b0;
+        int command = 0b0;
 
         String rs = (cmd[2]);
         String rt = (cmd[3]);
@@ -64,16 +63,16 @@ public class Assembler {
         convertedRt = registerConvert(rt);
         convertedRd = registerConvert(rd);
 
-        function = functConverter(cmd[0]);
+        function = functionConverter(cmd[0]);
 
-        rsInt = comm | convertedRs;
-        comm = rsInt << 5;
-        rtInt = convertedRt | comm;
-        comm = rtInt << 5;
-        rdInt = comm | convertedRd;
-        comm = rdInt << 11;
+        rsInt = command | convertedRs;
+        command = rsInt << 5;
+        rtInt = convertedRt | command;
+        command = rtInt << 5;
+        rdInt = command | convertedRd;
+        command = rdInt << 11;
 
-        return comm | function;
+        return command | function;
     }
 
     private static int lwSwType(String[] cmd) {
@@ -87,7 +86,7 @@ public class Assembler {
         int rsInt;
         int rtInt;
         int offset;
-        int comm = 0b0;
+        int command = 0b0;
 
         String toBeSplit = (cmd[2]);
         String[] split = split_lw_or_sw(toBeSplit);
@@ -103,23 +102,25 @@ public class Assembler {
 
         if (cmd[0].equals("lw")) {
             lw = 0b100011;
-            lwInt = comm | lw;
-            comm = lwInt << 5;
+            lwInt = command | lw;
+            command = lwInt << 5;
         } else {
             sw = 0b101011;
-            swInt = comm | sw;
-            comm = swInt << 5;
+            swInt = command | sw;
+            command = swInt << 5;
         }
 
-        rsInt = comm | convertedRs;
-        comm = rsInt << 5;
-        rtInt = comm | convertedRt;
-        comm = rtInt << 16;
-        function = comm | offset;
+        rsInt = command | convertedRs;
+        command = rsInt << 5;
+        rtInt = command | convertedRt;
+        command = rtInt << 16;
+        function = command | offset;
         return function;
     }
 
     private static int branch(String[] cmd) {
+        int opcode = 5;
+        int immediate = 16;
         int function;
         int convertedRs;
         int convertedRt;
@@ -127,7 +128,7 @@ public class Assembler {
         int rsInt;
         int rtInt;
         int offset;
-        int comm = 0b0;
+        int command = 0b0;
         int beq = 0b000100;
         String rs, rt, address;
 
@@ -140,44 +141,27 @@ public class Assembler {
 
         offset = Integer.decode(address);
 
-        swInt = comm | beq;
-        comm = swInt << 5;
-        rsInt = comm | convertedRs;
-        comm = rsInt << 5;
-        rtInt = comm | convertedRt;
-        comm = rtInt << 16;
-        function = comm | offset;
+        swInt = command | beq;
+        command = swInt << opcode;
+        rsInt = command | convertedRs;
+        command = rsInt << opcode;
+        rtInt = command | convertedRt;
+        command = rtInt << immediate;
+        function = command | offset;
 
         return function;
     }
 
     private static int jump(String[] cmd) {
         int offset;
+        int addressSize = 26;
         int function = 0b000010;
-        function = function << 26;
+        function = function << addressSize;
         String address = (cmd[1]);
 
         offset = Integer.decode(address);
-
         function = function | offset;
         return function;
-
-    }
-
-    private static int functConverter(String function) {
-        switch (function) {
-            case "add":
-                return 0b100000;
-            case "sub":
-                return 0b100010;
-            case "AND":
-                return 0b100100;
-            case "OR":
-                return 0b100101;
-            case "slt":
-                return 0b101010;
-        }
-        return 0b0;
     }
 
     private static int registerConvert(String input) {
@@ -265,11 +249,27 @@ public class Assembler {
         }
     }
 
-    private static String[] split_line(String command) {
-        return command.split(" ");
+    private static int functionConverter(String function) {
+        switch (function) {
+            case "add":
+                return 0b100000;
+            case "sub":
+                return 0b100010;
+            case "AND":
+                return 0b100100;
+            case "OR":
+                return 0b100101;
+            case "slt":
+                return 0b101010;
+        }
+        return 0b0;
     }
 
     private static String[] split_lw_or_sw(String cmd) {
         return cmd.split("[()]");
+    }
+
+    private static String[] split_line(String command) {
+        return command.split(" ");
     }
 }

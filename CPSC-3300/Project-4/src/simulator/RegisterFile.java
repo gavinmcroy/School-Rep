@@ -38,7 +38,77 @@ public class RegisterFile {
         this.R29 = 0b0;
         this.R30 = 0b0;
         this.R31 = 0b0;
+    }
 
+    public int resolveRegister(String binary) {
+        switch (binary) {
+            case "00000":
+                return R0;
+            case "00001":
+                return R1;
+            case "00010":
+                return R2;
+            case "00011":
+                return R3;
+            case "00100":
+                return R4;
+            case "00101":
+                return R5;
+            case "00110":
+                return R6;
+            case "00111":
+                return R7;
+            case "01000":
+                return R8;
+            case "01001":
+                return R9;
+            case "01010":
+                return R10;
+            case "01011":
+                return R11;
+            case "01100":
+                return R12;
+            case "01101":
+                return R13;
+            case "01110":
+                return R14;
+            case "01111":
+                return R15;
+            case "10000":
+                return R16;
+            case "10001":
+                return R17;
+            case "10010":
+                return R18;
+            case "10011":
+                return R19;
+            case "10100":
+                return R20;
+            case "10101":
+                return R21;
+            case "10110":
+                return R22;
+            case "10111":
+                return R23;
+            case "11000":
+                return R24;
+            case "11001":
+                return R25;
+            case "11010":
+                return R26;
+            case "11011":
+                return R27;
+            case "11100":
+                return R28;
+            case "11101":
+                return R29;
+            case "11110":
+                return R30;
+            case "11111":
+                return R31;
+            default:
+                return 0b0;
+        }
     }
 
     public void setRegister(int set, String register) {
@@ -139,77 +209,6 @@ public class RegisterFile {
             case "11111":
                 R31 = set;
                 break;
-        }
-    }
-
-    public int resolveRegister(String binary) {
-        switch (binary) {
-            case "00000":
-                return R0;
-            case "00001":
-                return R1;
-            case "00010":
-                return R2;
-            case "00011":
-                return R3;
-            case "00100":
-                return R4;
-            case "00101":
-                return R5;
-            case "00110":
-                return R6;
-            case "00111":
-                return R7;
-            case "01000":
-                return R8;
-            case "01001":
-                return R9;
-            case "01010":
-                return R10;
-            case "01011":
-                return R11;
-            case "01100":
-                return R12;
-            case "01101":
-                return R13;
-            case "01110":
-                return R14;
-            case "01111":
-                return R15;
-            case "10000":
-                return R16;
-            case "10001":
-                return R17;
-            case "10010":
-                return R18;
-            case "10011":
-                return R19;
-            case "10100":
-                return R20;
-            case "10101":
-                return R21;
-            case "10110":
-                return R22;
-            case "10111":
-                return R23;
-            case "11000":
-                return R24;
-            case "11001":
-                return R25;
-            case "11010":
-                return R26;
-            case "11011":
-                return R27;
-            case "11100":
-                return R28;
-            case "11101":
-                return R29;
-            case "11110":
-                return R30;
-            case "11111":
-                return R31;
-            default:
-                return 0b0;
         }
     }
 
