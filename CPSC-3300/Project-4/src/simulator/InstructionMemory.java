@@ -7,7 +7,7 @@ public class InstructionMemory {
     private int PC;
 
     public InstructionMemory() {
-        int PC = 0;
+
     }
 
     public int get_PC() {
@@ -18,10 +18,7 @@ public class InstructionMemory {
         int length = input.length;
         this.values = new int[length];
 
-        for (int i = 0; i < input.length; i++) {
-            this.values[i] = input[i];
-            String binary = Integer.toBinaryString(this.values[i]);
-        }
+        System.arraycopy(input, 0, this.values, 0, input.length);
         this.offset = new int[length + 1];
 
         for (int i = 0; i < this.offset.length - 1; i++) {
@@ -29,21 +26,6 @@ public class InstructionMemory {
         }
         this.offset[length] = -1;
 
-    }
-
-    public int branch(int location) {
-        int newLocation = PC + location;
-        int result = 0;
-
-        for (int i = 0; i < this.offset.length; i++) {
-            if (this.offset[i] == newLocation) {
-                result = this.values[i];
-            }
-        }
-
-        PC = newLocation;
-
-        return result;
     }
 
     public void branching(int location) {
@@ -55,17 +37,15 @@ public class InstructionMemory {
 
         if (PC == 0) {
             next = this.values[0];
-            String binary = Integer.toBinaryString(next);
         } else if (this.offset[(PC / 4)] != -1) {
             next = this.values[PC / 4];
-            String binary = Integer.toBinaryString(next);
         }
 
-        PC = PC + 4;
+        PC +=4;
         return next;
     }
 
-    public int checkforEnd() {
+    public int checkForEnd() {
         if (this.offset[(PC / 4)] == -1) {
             return -1;
         } else {

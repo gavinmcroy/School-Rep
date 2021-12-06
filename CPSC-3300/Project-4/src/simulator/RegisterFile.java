@@ -2,10 +2,10 @@ package simulator;
 
 public class RegisterFile {
 
-    private int R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20, R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31;
+    private int R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19, R20;
+    private int R21, R22, R23, R24, R25, R26, R27, R28, R29, R30, R31;
 
     public RegisterFile() {
-
         this.R0 = 0b0;
         this.R1 = 0b0;
         this.R2 = 0b0;
@@ -41,7 +41,7 @@ public class RegisterFile {
 
     }
 
-    public void set_Register(int set, String register) {
+    public void setRegister(int set, String register) {
         switch (register) {
             case "00000":
                 this.R0 = set;
@@ -142,7 +142,7 @@ public class RegisterFile {
         }
     }
 
-    public int resolve_Register(String binary) {
+    public int resolveRegister(String binary) {
         switch (binary) {
             case "00000":
                 return R0;
@@ -211,23 +211,17 @@ public class RegisterFile {
             default:
                 return 0b0;
         }
-
     }
 
     @Override
     public String toString() {
-        //4x8
-        return String.format("R0= " + R0 + "\tR1= " + R1 + "\tR2= " + R2 + "\tR3= " + R3 + "\n" +
+        return "R0= " + R0 + "\tR1= " + R1 + "\tR2= " + R2 + "\tR3= " + R3 + "\n" +
                 "R4= " + R4 + "\tR5= " + R5 + "\tR6= " + R6 + "\tR7= " + R7 + "\n" +
                 "R8= " + R8 + "\tR9= " + R9 + "\tR10= " + R10 + "\tR11= " + R11 + "\n" +
                 "R12= " + R12 + "\tR13= " + R13 + "\tR14= " + R14 + "\tR15= " + R15 + "\n" +
                 "R16= " + R16 + "\tR17= " + R17 + "\tR18= " + R18 + "\tR19= " + R19 + "\n" +
                 "R20= " + R20 + "\tR21= " + R21 + "\tR22= " + R22 + "\tR23= " + R23 + "\n" +
                 "R24= " + R24 + "\tR25= " + R25 + "\tR26= " + R26 + "\tR27= " + R27 + "\n" +
-                "R28= " + R28 + "\tR29= " + R29 + "\tR30= " + R30 + "\tR31= " + R31);
-
-
+                "R28= " + R28 + "\tR29= " + R29 + "\tR30= " + R30 + "\tR31= " + R31;
     }
-
-
 }

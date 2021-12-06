@@ -3,30 +3,25 @@ package simulator;
 public class ALU {
 
     public ALU() {
-
+        //Empty constructor
     }
 
     public int compute(int value1, int value2, String operation) {
-
         int result = 0;
 
-        if (operation.equals("100000")) {
-            result = value1 + value2;
-        }
-        if (operation.equals("100010")) {
-            result = value1 - value2;
-        }
-        if (operation.equals("100100")) {
+        if ("100100".equals(operation)) {
             result = value1 & value2;
         }
-        if (operation.equals("100101")) {
+        if ("100101".equals(operation)) {
             result = value1 | value2;
         }
-        if (operation.equals("101010")) { //set less than, honestly I dont know what this does
-            result = 0;
-        }
 
+        if ("100000".equals(operation)) {
+            result = value1 + value2;
+        }
+        if ("100010".equals(operation)) {
+            result = value1 - value2;
+        }
         return result;
     }
-
 }

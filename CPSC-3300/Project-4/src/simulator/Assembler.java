@@ -3,12 +3,13 @@ package simulator;
 import java.util.Scanner;
 import java.io.*;
 
-public class assembler {
+public class Assembler {
     public static void main(String[] args) throws IOException {
-        File infile = new File("simulator/input.asm");
+
+        File infile = new File("input1.asm");
         Scanner in = new Scanner(infile);
-        FileOutputStream fos = new FileOutputStream("simulator/output.bin");
-        DataOutputStream bos = new DataOutputStream(fos);
+        FileOutputStream fileOutputStream = new FileOutputStream("simulator/output.bin");
+        DataOutputStream dataOutputStream = new DataOutputStream(fileOutputStream);
 
         while (in.hasNextLine()) {
             String comm = in.nextLine();
@@ -21,90 +22,111 @@ public class assembler {
                 case "OR":
                 case "slt": {
                     int converted = rType(command);
-                    bos.writeInt(converted);
+                    dataOutputStream.writeInt(converted);
                     break;
                 }
                 case "lw":
                 case "sw": {
-                    int converted = lw_swType(command);
-                    bos.writeInt(converted);
+                    int converted = lwSwType(command);
+                    dataOutputStream.writeInt(converted);
                     break;
                 }
                 case "beq": {
                     int converted = branch(command);
-                    bos.writeInt(converted);
+                    dataOutputStream.writeInt(converted);
                     break;
                 }
                 case "j": {
                     int converted = jump(command);
-                    bos.writeInt(converted);
+                    dataOutputStream.writeInt(converted);
                     break;
                 }
             }
         }
-        fos.close();
+        fileOutputStream.close();
     }
 
     private static int rType(String[] cmd) {
-        int funct, converted_rs, converted_rt, converted_rd, rs_, rt_, rd_;
+        int function;
+        int convertedRs;
+        int convertedRt;
+        int convertedRd;
+        int rsInt;
+        int rtInt;
+        int rdInt;
         int comm = 0b0;
+
         String rs = (cmd[2]);
         String rt = (cmd[3]);
         String rd = (cmd[1]);
 
-        converted_rs = registerConvert(rs);
-        converted_rt = registerConvert(rt);
-        converted_rd = registerConvert(rd);
+        convertedRs = registerConvert(rs);
+        convertedRt = registerConvert(rt);
+        convertedRd = registerConvert(rd);
 
-        funct = functConverter(cmd[0]);
+        function = functConverter(cmd[0]);
 
-        rs_ = comm | converted_rs;
-        comm = rs_ << 5;
-        rt_ = converted_rt | comm;
-        comm = rt_ << 5;
-        rd_ = comm | converted_rd;
-        comm = rd_ << 11;
+        rsInt = comm | convertedRs;
+        comm = rsInt << 5;
+        rtInt = convertedRt | comm;
+        comm = rtInt << 5;
+        rdInt = comm | convertedRd;
+        comm = rdInt << 11;
 
-        return comm | funct;
+        return comm | function;
     }
 
-    private static int lw_swType(String[] cmd) {
-        int funct, converted_rs, converted_rt, lw_, sw_, lw, sw, rs_, rt_, offset;
-        //Splitting Address from rs
+    private static int lwSwType(String[] cmd) {
+        int function;
+        int convertedRs;
+        int convertedRt;
+        int lwInt;
+        int swInt;
+        int lw;
+        int sw;
+        int rsInt;
+        int rtInt;
+        int offset;
         int comm = 0b0;
 
         String toBeSplit = (cmd[2]);
         String[] split = split_lw_or_sw(toBeSplit);
         String rs = (split[1]);
 
-        converted_rs = registerConvert(rs);
+        convertedRs = registerConvert(rs);
         String address = (split[0]);
 
         offset = Integer.decode(address);
 
         String rt = (cmd[1]);
-        converted_rt = registerConvert(rt);
+        convertedRt = registerConvert(rt);
 
         if (cmd[0].equals("lw")) {
             lw = 0b100011;
-            lw_ = comm | lw;
-            comm = lw_ << 5;
+            lwInt = comm | lw;
+            comm = lwInt << 5;
         } else {
             sw = 0b101011;
-            sw_ = comm | sw;
-            comm = sw_ << 5;
+            swInt = comm | sw;
+            comm = swInt << 5;
         }
 
-        rs_ = comm | converted_rs;
-        comm = rs_ << 5;
-        rt_ = comm | converted_rt;
-        comm = rt_ << 16;
-        funct = comm | offset;
-        return funct;
+        rsInt = comm | convertedRs;
+        comm = rsInt << 5;
+        rtInt = comm | convertedRt;
+        comm = rtInt << 16;
+        function = comm | offset;
+        return function;
     }
 
     private static int branch(String[] cmd) {
-        int funct, converted_rs, converted_rt, sw_, rs_, rt_, offset;
+        int function;
+        int convertedRs;
+        int convertedRt;
+        int swInt;
+        int rsInt;
+        int rtInt;
+        int offset;
         int comm = 0b0;
         int beq = 0b000100;
         String rs, rt, address;
@@ -113,37 +135,37 @@ public class assembler {
         rt = (cmd[2]);
         address = (cmd[3]);
 
-        converted_rs = registerConvert(rs);
-        converted_rt = registerConvert(rt);
+        convertedRs = registerConvert(rs);
+        convertedRt = registerConvert(rt);
 
         offset = Integer.decode(address);
 
-        sw_ = comm | beq;
-        comm = sw_ << 5;
-        rs_ = comm | converted_rs;
-        comm = rs_ << 5;
-        rt_ = comm | converted_rt;
-        comm = rt_ << 16;
-        funct = comm | offset;
+        swInt = comm | beq;
+        comm = swInt << 5;
+        rsInt = comm | convertedRs;
+        comm = rsInt << 5;
+        rtInt = comm | convertedRt;
+        comm = rtInt << 16;
+        function = comm | offset;
 
-        return funct;
+        return function;
     }
 
     private static int jump(String[] cmd) {
         int offset;
-        int funct = 0b000010;
-        funct = funct << 26;
+        int function = 0b000010;
+        function = function << 26;
         String address = (cmd[1]);
 
         offset = Integer.decode(address);
 
-        funct = funct | offset;
-        return funct;
+        function = function | offset;
+        return function;
 
     }
 
-    private static int functConverter(String funct) {
-        switch (funct) {
+    private static int functConverter(String function) {
+        switch (function) {
             case "add":
                 return 0b100000;
             case "sub":
