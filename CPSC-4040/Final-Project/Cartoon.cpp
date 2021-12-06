@@ -1,4 +1,5 @@
 #define GL_SILENCE_DEPRECATION
+
 #include "Cartoon.h"
 
 /*! window dimensions if no image */
@@ -352,9 +353,8 @@ int readImage(const std::string &inFileName) {
     // read the image into the tmp_pixels from the input file, flipping it upside down using negative y-stride,
     // since OpenGL pixmaps have the bottom scanline first, and
     // oiio expects the top scanline first in the image file.
-    unsigned int memorySize = ImWidth * ImChannels * sizeof(unsigned char);
-    if (!infile->read_image(TypeDesc::UINT8, &temporaryStruct[0] + (ImHeight - 1) * memorySize, AutoStride,
-                            -memorySize)) {
+    int allocationSize = ImWidth * ImChannels * sizeof(unsigned char);
+    if(!infile->read_image(TypeDesc::UINT8, &temporaryStruct[0] + (ImHeight - 1) * allocationSize, AutoStride, -allocationSize)){
         std::cerr << "Could not read image from " << inFileName << ", error = " << geterror() << std::endl;
         infile->close();
         return 0;
@@ -437,7 +437,7 @@ int readImage(const std::string &inFileName) {
 }
 
 void writeImage(const std::string &out) {
-    // make a pixmap that is the size of the window and grab OpenGL framebuffer into it to write image
+    // make a pixmap that is the size of the window
     unsigned char local_pixmap[WinWidth * WinHeight * ImChannels];
     glReadPixels(0, 0, WinWidth, WinHeight, pixelFormat, GL_UNSIGNED_BYTE, local_pixmap);
 
@@ -455,9 +455,8 @@ void writeImage(const std::string &out) {
         return;
     }
 
-    // Write the image to the file. All channel values in the pixmap are taken to be
-    // unsigned chars. While writing, flip the image upside down by using negative y stride,
-    // since OpenGL pixmaps have the bottom scanline first, and oiio writes the top scanline first in the image file.
+    //flip the image upside down by using negative y stride, since OpenGL pix maps have
+    // the bottom scanline first, and OpenImageIO writes the top scanline first in the image file.
     unsigned int memorySize = WinWidth * ImChannels * sizeof(unsigned char);
     if (!outfile->write_image(TypeDesc::UINT8, local_pixmap + (WinHeight - 1) * memorySize, AutoStride,
                               -memorySize)) {
@@ -470,22 +469,21 @@ void writeImage(const std::string &out) {
 }
 
 void handleDisplay() {
-    // specify window clear (background) color to be opaque black
+    // Background to all black
     glClearColor(0, 0, 0, 1);
-    // clear window to background color
     glClear(GL_COLOR_BUFFER_BIT);
 
     // only draw the image if it is of a valid size
-    if (ImWidth > 0 && ImHeight > 0)
+    if (ImWidth > 0 && ImHeight > 0){
         displayimage();
-
-    // flush the OpenGL pipeline to the viewport
+    }
     glFlush();
 }
 
 void handleKey(unsigned char key, int x, int y) {
     switch (key) {
-        case 's':        // 's' - apply the sobel operator to the image
+        // 's' - apply the sobel operator to the image
+        case 's':
             convolveImage(pixmapSH, SOBEL_H); //make pixmapSH
             convolveImage(pixmapSV, SOBEL_V); //make pixmapSV
             combineImg(); //combine the two pixmap
@@ -573,10 +571,10 @@ void runMainLoop(int argc, char *argv[]) {
     // scan command line and process
     // only one parameter allowed, an optional image filename and extension
     //Check to see the user entered four command arugments
-    if (argc < 3) {
-        std::cerr << "USAGE: ./cartoon <in.png> <out.png>" << std::endl;
-        exit(1);
-    }
+//    if (argc < 3) {
+//        std::cerr << "USAGE: ./cartoon <in.png> <out.png>" << std::endl;
+//        exit(1);
+//    }
 
     // set up the default window and empty pixmap if no image or image fails to load
     WinWidth = DEFAULT_WIDTH;
@@ -584,12 +582,14 @@ void runMainLoop(int argc, char *argv[]) {
     ImWidth = 0;
     ImHeight = 0;
 
-    //   img_name = argv[1];
-    //   out_name = argv[2];
+    std::string input;
+    std::cin >> input;
+//       img_name = argv[1];
+//       out_name = argv[2];
 
     // load the image if present, and size the window to match
     if (argc == 3) {
-        if (readImage("bridge.jpeg")) {
+        if (readImage(input)) {
 
         }
     }

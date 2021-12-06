@@ -635,6 +635,6 @@
 // Main program to scan the commandline, set up GLUT and OpenGL, and start Main Loop
 //
 int main(int argc, char *argv[]) {
-    runMainLoop(argc,argv);
+    runMainLoop(argc, argv);
     return 0;
 }
