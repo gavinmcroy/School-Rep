@@ -219,7 +219,7 @@ void intensityImage() {
 }
 
 /*! Applies domain * range to kernel */
-void domainRange() {
+void calculateDomainRange() {
     for (int row = 0; row < KERNEL_SIZE; row++) {
         for (int col = 0; col < KERNEL_SIZE; col++) {
             kernel[row][col] = range[row][col] * domain[row][col];
@@ -228,10 +228,10 @@ void domainRange() {
 }
 
 /*! Ensures that the range given is within the range we want) */
-void getRange(int i, int j) {
+void grabRange(int i, int j) {
     for (int x = -1; x <= 1; x++) {
         for (int y = -1; y <= 1; y++) {
-            double rangeValue = 0.0;
+            double value = 0.0;
             /* Ensures that the range is within desired range */
             if (j + y < imageWidth) {
                 if (i + x >= 0 && i + x < imageHeight && j + y >= 0) {
@@ -239,10 +239,10 @@ void getRange(int i, int j) {
                     top = std::pow(top, 2);
                     // 98 = 2(7)^2 (7 is the standard deviation)
                     top /= 98;
-                    rangeValue = exp(-top);
+                    value = exp(-top);
                 }
             }
-            range[x + 1][y + 1] = rangeValue;
+            range[x + 1][y + 1] = value;
         }
     }
 }
@@ -250,7 +250,7 @@ void getRange(int i, int j) {
 /*! Apply final kernel to the intensity img to create a new intensity image */
 void applyIntensityKernel(int y, int x) {
     int center = KERNEL_SIZE / 2;
-    double s = 0.0;
+    double local = 0.0;
 
     // The kernel is centered at k_center loop takes values -1, 0, 1
     for (int j = -center; j <= center; j++) {
@@ -259,17 +259,17 @@ void applyIntensityKernel(int y, int x) {
             if (i + x < 0 || i + x >= imageWidth || j + y < 0 || j + y >= imageHeight) {
                 continue;
             }
-            s = intenseMatrix[y + j][x + i] * modifier;
+            local = intenseMatrix[y + j][x + i] * modifier;
         }
     }
-    tempMatrix[y][x] = (float) s;
+    tempMatrix[y][x] = (float) local;
 }
 
 void applyBilateralFilter() {
     for (int i = 0; i < imageHeight; i++) {
         for (int j = 0; j < imageWidth; j++) {
-            getRange(i, j);
-            domainRange();
+            grabRange(i, j);
+            calculateDomainRange();
             applyIntensityKernel(i, j);
 
             float newR = ((float) pixmap[i][j].r / intenseMatrix[i][j] * tempMatrix[i][j]);

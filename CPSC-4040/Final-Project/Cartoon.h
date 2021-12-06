@@ -35,9 +35,9 @@ double clamp(int lo, int hi, int x);
 
 void intensityImage();
 
-void getRange(int i, int j);
+void grabRange(int i, int j);
 
-void domainRange();
+void calculateDomainRange();
 
 void applyIntensityKernel(int y, int x);
 
