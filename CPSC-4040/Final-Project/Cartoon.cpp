@@ -144,27 +144,29 @@ void handleReshape(int w, int h) {
     WinHeight = h;
 
     // if the image fits in the window then viewport is the same size as the image
-    if (w >= imageWidth && h >= imageHeight) {
+    if (w < imageWidth || h < imageHeight) {
+        if (newWindowAspectRatio > imageAspectRatio) {
+            viewPortHeight = h;
+            viewPortWidth = int(imageAspectRatio * viewPortHeight);
+            xOffset = int((w - viewPortWidth) / 2);
+            yOffset = 0;
+        }
+            // if the window is narrower than the image then use the full window width
+            // and size the height to match the image aspect ratio
+        else {
+            viewPortWidth = w;
+            viewPortHeight = int(viewPortWidth / imageAspectRatio);
+            yOffset = int((h - viewPortHeight) / 2);
+            xOffset = 0;
+        }
+    }
+        // if the window is wider than the image then use the full window height
+        // and size the width to match the image aspect ratio
+    else {
         xOffset = (w - imageWidth) / 2;
         yOffset = (h - imageHeight) / 2;
         viewPortWidth = imageWidth;
         viewPortHeight = imageHeight;
-    }
-        // if the window is wider than the image then use the full window height
-        // and size the width to match the image aspect ratio
-    else if (newWindowAspectRatio > imageAspectRatio) {
-        viewPortHeight = h;
-        viewPortWidth = int(imageAspectRatio * viewPortHeight);
-        xOffset = int((w - viewPortWidth) / 2);
-        yOffset = 0;
-    }
-        // if the window is narrower than the image then use the full window width
-        // and size the height to match the image aspect ratio
-    else {
-        viewPortWidth = w;
-        viewPortHeight = int(viewPortWidth / imageAspectRatio);
-        yOffset = int((h - viewPortHeight) / 2);
-        xOffset = 0;
     }
 
     glViewport(xOffset, yOffset, viewPortWidth, viewPortHeight);
@@ -198,8 +200,8 @@ void intensityImage() {
     }
 
     //calculation for domain kernel
-    for (int row = 0; row < 3; row++) {
-        for (int col = 0; col < 3; col++) {
+    for (int row = 0; row < KERNEL_SIZE; row++) {
+        for (int col = 0; col < KERNEL_SIZE; col++) {
             double top = pow(row - 1, 2) + pow(col - 1, 2);
             double sigma = 2;
             top /= sigma;
