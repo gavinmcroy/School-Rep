@@ -35,7 +35,10 @@ Pixel **pixmapSH;
 Pixel **pixmapSV;
 Pixel **sobelPixmap;
 
-std::string outName;
+/*! Image input filename and image output filename*/
+std::string fileInput;
+std::string fileOutput;
+
 const int kernelSize = 3;
 double kernel[kernelSize][kernelSize];
 double range[kernelSize][kernelSize];
@@ -354,7 +357,8 @@ int readImage(const std::string &inFileName) {
     // since OpenGL pixmaps have the bottom scanline first, and
     // oiio expects the top scanline first in the image file.
     int allocationSize = ImWidth * ImChannels * sizeof(unsigned char);
-    if(!infile->read_image(TypeDesc::UINT8, &temporaryStruct[0] + (ImHeight - 1) * allocationSize, AutoStride, -allocationSize)){
+    if (!infile->read_image(TypeDesc::UINT8, &temporaryStruct[0] + (ImHeight - 1) * allocationSize, AutoStride,
+                            -allocationSize)) {
         std::cerr << "Could not read image from " << inFileName << ", error = " << geterror() << std::endl;
         infile->close();
         return 0;
@@ -457,9 +461,8 @@ void writeImage(const std::string &out) {
 
     //flip the image upside down by using negative y stride, since OpenGL pix maps have
     // the bottom scanline first, and OpenImageIO writes the top scanline first in the image file.
-    unsigned int memorySize = WinWidth * ImChannels * sizeof(unsigned char);
-    if (!outfile->write_image(TypeDesc::UINT8, local_pixmap + (WinHeight - 1) * memorySize, AutoStride,
-                              -memorySize)) {
+    int allocationSize = WinWidth * ImChannels * sizeof(unsigned char);
+    if(!outfile->write_image(TypeDesc::UINT8, local_pixmap + (WinHeight - 1) * allocationSize, AutoStride, -allocationSize)){
         std::cerr << "Could not write image to " << out << ", error = " << geterror() << std::endl;
         outfile->close();
         return;
@@ -474,7 +477,7 @@ void handleDisplay() {
     glClear(GL_COLOR_BUFFER_BIT);
 
     // only draw the image if it is of a valid size
-    if (ImWidth > 0 && ImHeight > 0){
+    if (ImWidth > 0 && ImHeight > 0) {
         displayimage();
     }
     glFlush();
@@ -483,70 +486,71 @@ void handleDisplay() {
 void handleKey(unsigned char key, int x, int y) {
     switch (key) {
         // 's' - apply the sobel operator to the image
-        case 's':
-            convolveImage(pixmapSH, SOBEL_H); //make pixmapSH
-            convolveImage(pixmapSV, SOBEL_V); //make pixmapSV
-            combineImg(); //combine the two pixmap
+        case 's': {
+            convolveImage(pixmapSH, SOBEL_H);
+            convolveImage(pixmapSV, SOBEL_V);
+            combineImg();
             combineBilateralSobel();
-            glutReshapeWindow(WinWidth, WinHeight); // OpenGL window should match new image
+            glutReshapeWindow(WinWidth, WinHeight);
             glutPostRedisplay();
             break;
-        case 'b': // 'b' - apply the bilateral filter to the image
+        }
+        // 'b' - apply the bilateral filter to the image
+        case 'b': {
             applyBilateralFilter();
             glutReshapeWindow(WinWidth, WinHeight); // OpenGL window should match new image
             glutPostRedisplay();
             break;
-        case 'w':        // 'w' - write the current image to a file
-            writeImage(outName);
+        }
+        // 'w' - write the current image to a file
+        case 'w': {
+            writeImage(fileOutput);
             break;
-
-        case 'q':        // q or ESC - quit
+        }
+        // Pressing 'q' 'Q' or 'ESC' closes the program
+        case 'q':
         case 'Q':
         case 27:
             destroy();
             exit(0);
 
-        default:        // not a valid key -- just ignore it
+        default:
             return;
     }
 }
 
 void handleReshape(int w, int h) {
-    float imageaspect = (float) ImWidth / (float) ImHeight;    // aspect ratio of image
-    float newaspect = (float) w / (float) h; // new aspect ratio of window
+    float imageAspectRatio = (float) ImWidth / (float) ImHeight;
+    float newWindowAspectRatio = (float) w / (float) h;
 
-    // record the new window size in global variables for easy access
     WinWidth = w;
     WinHeight = h;
 
-    // if the image fits in the window, viewport is the same size as the image
+    // if the image fits in the window then viewport is the same size as the image
     if (w >= ImWidth && h >= ImHeight) {
         xOffset = (w - ImWidth) / 2;
         yOffset = (h - ImHeight) / 2;
         VpWidth = ImWidth;
         VpHeight = ImHeight;
     }
-        // if the window is wider than the image, use the full window height
-        // and size the width to match the image aspect ratio
-    else if (newaspect > imageaspect) {
+    // if the window is wider than the image then use the full window height
+    // and size the width to match the image aspect ratio
+    else if (newWindowAspectRatio > imageAspectRatio) {
         VpHeight = h;
-        VpWidth = int(imageaspect * VpHeight);
+        VpWidth = int(imageAspectRatio * VpHeight);
         xOffset = int((w - VpWidth) / 2);
         yOffset = 0;
     }
-        // if the window is narrower than the image, use the full window width
-        // and size the height to match the image aspect ratio
+    // if the window is narrower than the image then use the full window width
+    // and size the height to match the image aspect ratio
     else {
         VpWidth = w;
-        VpHeight = int(VpWidth / imageaspect);
+        VpHeight = int(VpWidth / imageAspectRatio);
         yOffset = int((h - VpHeight) / 2);
         xOffset = 0;
     }
 
-    // center the viewport in the window
     glViewport(xOffset, yOffset, VpWidth, VpHeight);
-
-    // viewport coordinates are simply pixel coordinates
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
     gluOrtho2D(0, VpWidth, 0, VpHeight);
@@ -568,51 +572,36 @@ void displayimage() {
 }
 
 void runMainLoop(int argc, char *argv[]) {
-    // scan command line and process
-    // only one parameter allowed, an optional image filename and extension
-    //Check to see the user entered four command arugments
-//    if (argc < 3) {
-//        std::cerr << "USAGE: ./cartoon <in.png> <out.png>" << std::endl;
-//        exit(1);
-//    }
-
-    // set up the default window and empty pixmap if no image or image fails to load
     WinWidth = DEFAULT_WIDTH;
     WinHeight = DEFAULT_HEIGHT;
     ImWidth = 0;
     ImHeight = 0;
 
-    std::string input;
-    std::cin >> input;
-//       img_name = argv[1];
-//       out_name = argv[2];
+    std::cout<<"Enter file name "<<std::endl;
+    std::cin >> fileInput;
+    std::cout<<"Enter output file name"<<std::endl;
+    std::cin>>fileOutput;
 
-    // load the image if present, and size the window to match
     if (argc == 3) {
-        if (readImage(input)) {
-
+        if (!readImage(fileInput)) {
+            std::cerr<<"Allocation or read issue with file "<<std::endl;
         }
     }
     setKernel(SOBEL_V);
     setKernel(SOBEL_H);
-
     intensityImg();
 
-    // start up GLUT
     glutInit(&argc, argv);
 
-    // create the graphics window, giving width, height, and title text
     glutInitDisplayMode(GLUT_SINGLE | GLUT_RGBA);
     glutInitWindowSize(WinWidth, WinHeight);
     glutCreateWindow("Cartoon");
 
     // set up the callback routines
-    glutDisplayFunc(handleDisplay); // display update callback
-    glutKeyboardFunc(handleKey);      // keyboard key press callback
-    glutReshapeFunc(handleReshape); // window resize callback
+    glutDisplayFunc(handleDisplay);
+    glutKeyboardFunc(handleKey);
+    glutReshapeFunc(handleReshape);
 
-
-    // Enter GLUT's event loop
     glutMainLoop();
 }
 
