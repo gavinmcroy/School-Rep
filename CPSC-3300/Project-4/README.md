@@ -1,13 +1,13 @@
-# Ryan Auger and Logan Ferland
+# Gavin McRoy
 
 How to run:
-Makefile must be outside of simulator folder. Everything else including input files must be inside of the simulator folder
-1. to compile both programs use make or make all
+
+input files must be inside the simulator folder
+1. to compile both programs use make
 2. to run mips assembler type make masm
 3. to run cpu simulator type make smolmips
-4. to clean type make clean
 
-Design Decisions:
+Design Choices:
 
 simul.java operates as the control
 - It reads in both the instruction memory and data memory files

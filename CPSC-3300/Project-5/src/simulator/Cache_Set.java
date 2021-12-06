@@ -7,7 +7,7 @@ public class Cache_Set {
     public int index;
     private LinkedList<Cache_Line> lines;
 
-    public Cache_Set(int index){
+    public Cache_Set(int index) {
         this.index = index;
         this.lines = new LinkedList<>();
     }
@@ -26,38 +26,37 @@ public class Cache_Set {
         return return_val;
     }
 
-    public void add_to_Cache(int tag, int set_size){
+    public void add_to_Cache(int tag, int set_size) {
 
-        if(lines.size() == set_size){
+        if (lines.size() == set_size) {
             //We need to replace a line because our set is full
             int tag_temp = lines.get(0).tag;
             int replace = 0;
-            for(int i = 0; i < lines.size(); i++){
+            for (int i = 0; i < lines.size(); i++) {
                 //We need to figure out which line was least recently used
                 //The line with highest last access is the least recently used
-                if(lines.get(i).tag > tag_temp){
+                if (lines.get(i).tag > tag_temp) {
                     replace = i;
                 }
             }
             Cache_Line new_line = new Cache_Line(tag);
-            lines.set(replace,new_line);
-        }
-        else {
+            lines.set(replace, new_line);
+        } else {
             //The set is not full so we can just add
             Cache_Line new_line = new Cache_Line(tag);
             lines.add(new_line);
         }
     }
 
-    public void increase_Last_Access(){
-        for(int i = 0; i < lines.size(); i++){
+    public void increase_Last_Access() {
+        for (int i = 0; i < lines.size(); i++) {
             lines.get(i).increase_LA();
         }
     }
 
-    public void set_LA_to_Zero(int tag){
-        for(int i = 0; i < lines.size(); i++){
-            if(lines.get(i).tag == tag){
+    public void set_LA_to_Zero(int tag) {
+        for (int i = 0; i < lines.size(); i++) {
+            if (lines.get(i).tag == tag) {
                 lines.get(i).last_access = 0;
             }
         }
