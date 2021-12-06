@@ -4,13 +4,13 @@ import java.util.Scanner;
 import java.io.*;
 
 public class assembler {
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException {
         File infile = new File("simulator/input.asm");
         Scanner in = new Scanner(infile);
         FileOutputStream fos = new FileOutputStream("simulator/output.bin");
         DataOutputStream bos = new DataOutputStream(fos);
 
-        while(in.hasNextLine()) {
+        while (in.hasNextLine()) {
             String comm = in.nextLine();
             String[] command = split_line(comm);
 
@@ -45,7 +45,7 @@ public class assembler {
         fos.close();
     }
 
-    private static int rType(String [] cmd){
+    private static int rType(String[] cmd) {
         int funct, converted_rs, converted_rt, converted_rd, rs_, rt_, rd_;
         int comm = 0b0;
         String rs = (cmd[2]);
@@ -68,7 +68,7 @@ public class assembler {
         return comm | funct;
     }
 
-    private static int lw_swType(String [] cmd){
+    private static int lw_swType(String[] cmd) {
         int funct, converted_rs, converted_rt, lw_, sw_, lw, sw, rs_, rt_, offset;
         //Splitting Address from rs
         int comm = 0b0;
@@ -85,12 +85,11 @@ public class assembler {
         String rt = (cmd[1]);
         converted_rt = registerConvert(rt);
 
-        if (cmd[0].equals("lw")){
+        if (cmd[0].equals("lw")) {
             lw = 0b100011;
             lw_ = comm | lw;
             comm = lw_ << 5;
-        }
-        else{
+        } else {
             sw = 0b101011;
             sw_ = comm | sw;
             comm = sw_ << 5;
@@ -104,8 +103,8 @@ public class assembler {
         return funct;
     }
 
-    private static int branch(String [] cmd){
-        int funct, converted_rs, converted_rt, sw_,rs_, rt_, offset;
+    private static int branch(String[] cmd) {
+        int funct, converted_rs, converted_rt, sw_, rs_, rt_, offset;
         int comm = 0b0;
         int beq = 0b000100;
         String rs, rt, address;
@@ -130,7 +129,7 @@ public class assembler {
         return funct;
     }
 
-    private static int jump(String[] cmd){
+    private static int jump(String[] cmd) {
         int offset;
         int funct = 0b000010;
         funct = funct << 26;
@@ -143,7 +142,7 @@ public class assembler {
 
     }
 
-    private static int functConverter(String funct){
+    private static int functConverter(String funct) {
         switch (funct) {
             case "add":
                 return 0b100000;
@@ -159,7 +158,7 @@ public class assembler {
         return 0b0;
     }
 
-    private static int registerConvert(String input){
+    private static int registerConvert(String input) {
         switch (input) {
             case "$v0":
             case "$v0,":
@@ -244,11 +243,11 @@ public class assembler {
         }
     }
 
-    private static String[] split_line(String command){
+    private static String[] split_line(String command) {
         return command.split(" ");
     }
 
-    private static String[] split_lw_or_sw(String cmd){
+    private static String[] split_lw_or_sw(String cmd) {
         return cmd.split("[()]");
     }
 }

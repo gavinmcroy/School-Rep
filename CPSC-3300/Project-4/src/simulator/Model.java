@@ -10,8 +10,8 @@ public class Model {
     private int PC = 0;
     private int ALU_Uses = 0;
 
-    public Model(){
-        DataMemory dataMem =  new DataMemory();
+    public Model() {
+        DataMemory dataMem = new DataMemory();
         RegisterFile registers = new RegisterFile();
         ALU myALU = new ALU();
         InstructionMemory myInstructions = new InstructionMemory();
@@ -19,31 +19,31 @@ public class Model {
         int ALU_Uses = 0;
     }
 
-    public int getALU_Uses(){
+    public int getALU_Uses() {
         return ALU_Uses;
     }
 
-    public void incrementNumCycles(){
+    public void incrementNumCycles() {
         numCycles++;
     }
 
-    public void incrementPC(){
+    public void incrementPC() {
         PC = PC + 4;
     }
 
-    public void changePC(int offset){
+    public void changePC(int offset) {
         PC = offset;
     }
 
-    public void incrementALU_Uses(){
+    public void incrementALU_Uses() {
         ALU_Uses++;
     }
 
-    public int getNumCycles(){
+    public int getNumCycles() {
         return numCycles;
     }
 
-    public int getPC(){
+    public int getPC() {
         return PC;
     }
 
