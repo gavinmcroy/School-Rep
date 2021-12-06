@@ -61,7 +61,7 @@ void handleKey(unsigned char key, int x, int y);
 
 void handleReshape(int w, int h);
 
-void displayimage();
+void displayImage();
 
 void runMainLoop(int argc, char *argv[]);
 

@@ -2,6 +2,9 @@
 
 #include "Cartoon.h"
 
+/*! divisor for the smoothing kernel, higher value means darker image, lower means brighter */
+int divisorForKernel;
+
 /*! window dimensions if no image */
 const int DEFAULT_WIDTH = 512;
 const int DEFAULT_HEIGHT = 512;
@@ -186,9 +189,9 @@ void applyBilateralFilter() {
                         averageB += pixmap[x][y].b;
                     }
                 }
-                pixmap[i][j].r = (unsigned char) (averageR / 9);
-                pixmap[i][j].g = (unsigned char) (averageG / 9);
-                pixmap[i][j].b = (unsigned char) (averageB / 9);
+                pixmap[i][j].r = (unsigned char) (averageR / divisorForKernel);
+                pixmap[i][j].g = (unsigned char) (averageG / divisorForKernel);
+                pixmap[i][j].b = (unsigned char) (averageB / divisorForKernel);
             }
         }
     }
@@ -478,7 +481,7 @@ void handleDisplay() {
 
     // only draw the image if it is of a valid size
     if (ImWidth > 0 && ImHeight > 0) {
-        displayimage();
+        displayImage();
     }
     glFlush();
 }
@@ -557,7 +560,7 @@ void handleReshape(int w, int h) {
     glMatrixMode(GL_MODELVIEW);
 }
 
-void displayimage() {
+void displayImage() {
     // if the window is smaller than the image, scale it down, otherwise do not scale
     if (WinWidth < ImWidth || WinHeight < ImHeight)
         glPixelZoom(float(VpWidth) / ImWidth, float(VpHeight) / ImHeight);
@@ -581,6 +584,8 @@ void runMainLoop(int argc, char *argv[]) {
     std::cin >> fileInput;
     std::cout<<"Enter output file name"<<std::endl;
     std::cin>>fileOutput;
+    std::cout<<"Enter divisor amount for kernel (9 for bright images, 7-8 for dark images "<<std::endl;
+    std::cin>>divisorForKernel;
 
     if (argc == 3) {
         if (!readImage(fileInput)) {
@@ -597,7 +602,6 @@ void runMainLoop(int argc, char *argv[]) {
     glutInitWindowSize(WinWidth, WinHeight);
     glutCreateWindow("Cartoon");
 
-    // set up the callback routines
     glutDisplayFunc(handleDisplay);
     glutKeyboardFunc(handleKey);
     glutReshapeFunc(handleReshape);
