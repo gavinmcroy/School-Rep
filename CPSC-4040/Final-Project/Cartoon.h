@@ -9,19 +9,31 @@
 OIIO_NAMESPACE_USING
 
 
-struct Pixel { // defines a pixel structure
+struct Pixel {
     unsigned char r;
     unsigned char g;
     unsigned char b;
     [[maybe_unused]] unsigned char a;
 };
 
+/* OpenGL Operators */
+
+void handleDisplay();
+
+void handleKey(unsigned char key, int x, int y);
+
+void handleReshape(int w, int h);
+
+void displayImage();
+
+void runMainLoop(int argc, char *argv[]);
+
 /* Bilateral Information */
 double clamp(double lo, double hi, double x);
 
 double clamp(int lo, int hi, int x);
 
-void intensityImg();
+void intensityImage();
 
 void getRange(int i, int j);
 
@@ -33,9 +45,7 @@ void applyBilateralFilter();
 
 /* Sobel operators */
 
-void print();
-
-void flipKernel(double **kernelTemp);
+void flipKernel(double kernelTemp[][3]);
 
 void setKernel(double matrixTemp[][3]);
 
@@ -54,15 +64,5 @@ void destroy();
 int readImage(const std::string &inFileName);
 
 void writeImage(const std::string &out);
-
-void handleDisplay();
-
-void handleKey(unsigned char key, int x, int y);
-
-void handleReshape(int w, int h);
-
-void displayImage();
-
-void runMainLoop(int argc, char *argv[]);
 
 #endif //FINAL_PROJECT_CARTOON_H

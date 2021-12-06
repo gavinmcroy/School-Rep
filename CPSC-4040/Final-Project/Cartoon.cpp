@@ -50,13 +50,13 @@ float **intenseMatrix;
 float **tempMatrix;
 
 
-double SOBEL_V[3][3] = {{-1, 0, 1},
-                        {-2, 0, 2},
-                        {-1, 0, 1}};
+double SOBEL_DATA_V[3][3] = {{-1, 0, 1},
+                             {-2, 0, 2},
+                             {-1, 0, 1}};
 
-double SOBEL_H[3][3] = {{1,  2,  1},
-                        {0,  0,  0},
-                        {-1, -2, -1}};
+double SOBEL_DATA_H[3][3] = {{1,  2,  1},
+                             {0,  0,  0},
+                             {-1, -2, -1}};
 
 /*! given a low, and high value, and a input, returns a value that is
  * neither lower nor higher than set boundary if value is in between, then it is unchanged
@@ -73,7 +73,7 @@ double clamp(int lo, int hi, int x) {
 }
 
 /*! Determines the intensity values for each pixel of the image */
-void intensityImg() {
+void intensityImage() {
     // Allocation process for intensity matrix
     intenseMatrix = new float *[ImHeight];
     if (intenseMatrix != nullptr) {
@@ -443,6 +443,7 @@ int readImage(const std::string &inFileName) {
     return ImWidth * ImHeight;
 }
 
+/*! Writes the current image displayed by openGL to a specified file */
 void writeImage(const std::string &out) {
     // make a pixmap that is the size of the window
     unsigned char local_pixmap[WinWidth * WinHeight * ImChannels];
@@ -465,7 +466,8 @@ void writeImage(const std::string &out) {
     //flip the image upside down by using negative y stride, since OpenGL pix maps have
     // the bottom scanline first, and OpenImageIO writes the top scanline first in the image file.
     int allocationSize = WinWidth * ImChannels * sizeof(unsigned char);
-    if(!outfile->write_image(TypeDesc::UINT8, local_pixmap + (WinHeight - 1) * allocationSize, AutoStride, -allocationSize)){
+    if (!outfile->write_image(TypeDesc::UINT8, local_pixmap + (WinHeight - 1) * allocationSize, AutoStride,
+                              -allocationSize)) {
         std::cerr << "Could not write image to " << out << ", error = " << geterror() << std::endl;
         outfile->close();
         return;
@@ -474,6 +476,7 @@ void writeImage(const std::string &out) {
     outfile->close();
 }
 
+/*! Call back for OpenGL Display function */
 void handleDisplay() {
     // Background to all black
     glClearColor(0, 0, 0, 1);
@@ -486,31 +489,32 @@ void handleDisplay() {
     glFlush();
 }
 
+/*! Call back for OpenGL Input function */
 void handleKey(unsigned char key, int x, int y) {
     switch (key) {
         // 's' - apply the sobel operator to the image
         case 's': {
-            convolveImage(pixmapSH, SOBEL_H);
-            convolveImage(pixmapSV, SOBEL_V);
+            convolveImage(pixmapSH, SOBEL_DATA_H);
+            convolveImage(pixmapSV, SOBEL_DATA_V);
             combineImg();
             combineBilateralSobel();
             glutReshapeWindow(WinWidth, WinHeight);
             glutPostRedisplay();
             break;
         }
-        // 'b' - apply the bilateral filter to the image
+            // 'b' - apply the bilateral filter to the image
         case 'b': {
             applyBilateralFilter();
             glutReshapeWindow(WinWidth, WinHeight); // OpenGL window should match new image
             glutPostRedisplay();
             break;
         }
-        // 'w' - write the current image to a file
+            // 'w' - write the current image to a file
         case 'w': {
             writeImage(fileOutput);
             break;
         }
-        // Pressing 'q' 'Q' or 'ESC' closes the program
+            // Pressing 'q' 'Q' or 'ESC' closes the program
         case 'q':
         case 'Q':
         case 27:
@@ -522,6 +526,7 @@ void handleKey(unsigned char key, int x, int y) {
     }
 }
 
+/*! Call back for OpenGL Reshape function */
 void handleReshape(int w, int h) {
     float imageAspectRatio = (float) ImWidth / (float) ImHeight;
     float newWindowAspectRatio = (float) w / (float) h;
@@ -536,16 +541,16 @@ void handleReshape(int w, int h) {
         VpWidth = ImWidth;
         VpHeight = ImHeight;
     }
-    // if the window is wider than the image then use the full window height
-    // and size the width to match the image aspect ratio
+        // if the window is wider than the image then use the full window height
+        // and size the width to match the image aspect ratio
     else if (newWindowAspectRatio > imageAspectRatio) {
         VpHeight = h;
         VpWidth = int(imageAspectRatio * VpHeight);
         xOffset = int((w - VpWidth) / 2);
         yOffset = 0;
     }
-    // if the window is narrower than the image then use the full window width
-    // and size the height to match the image aspect ratio
+        // if the window is narrower than the image then use the full window width
+        // and size the height to match the image aspect ratio
     else {
         VpWidth = w;
         VpHeight = int(VpWidth / imageAspectRatio);
@@ -560,16 +565,17 @@ void handleReshape(int w, int h) {
     glMatrixMode(GL_MODELVIEW);
 }
 
+/*! Call back for OpenGL display function */
 void displayImage() {
     // if the window is smaller than the image, scale it down, otherwise do not scale
-    if (WinWidth < ImWidth || WinHeight < ImHeight)
+    if (WinWidth < ImWidth || WinHeight < ImHeight){
         glPixelZoom(float(VpWidth) / ImWidth, float(VpHeight) / ImHeight);
-    else
+    }
+    else{
         glPixelZoom(1.0, 1.0);
-
-    // display starting at the lower lefthand corner of the viewport
+    }
+    
     glRasterPos2i(0, 0);
-
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
     glDrawPixels(ImWidth, ImHeight, pixelFormat, GL_UNSIGNED_BYTE, pixmap[0]);
 }
@@ -580,21 +586,21 @@ void runMainLoop(int argc, char *argv[]) {
     ImWidth = 0;
     ImHeight = 0;
 
-    std::cout<<"Enter file name "<<std::endl;
+    std::cout << "Enter file name " << std::endl;
     std::cin >> fileInput;
-    std::cout<<"Enter output file name"<<std::endl;
-    std::cin>>fileOutput;
-    std::cout<<"Enter divisor amount for kernel (9 for bright images, 7-8 for dark images "<<std::endl;
-    std::cin>>divisorForKernel;
+    std::cout << "Enter output file name" << std::endl;
+    std::cin >> fileOutput;
+    std::cout << "Enter divisor amount for kernel (9 for bright images, 7-8 for dark images " << std::endl;
+    std::cin >> divisorForKernel;
 
     if (argc == 3) {
         if (!readImage(fileInput)) {
-            std::cerr<<"Allocation or read issue with file "<<std::endl;
+            std::cerr << "Allocation or read issue with file " << std::endl;
         }
     }
-    setKernel(SOBEL_V);
-    setKernel(SOBEL_H);
-    intensityImg();
+    setKernel(SOBEL_DATA_V);
+    setKernel(SOBEL_DATA_H);
+    intensityImage();
 
     glutInit(&argc, argv);
 
