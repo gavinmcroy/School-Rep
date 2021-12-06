@@ -1,5 +1,4 @@
 #define GL_SILENCE_DEPRECATION
-
 #include "Cartoon.h"
 
 /*! divisor for the smoothing kernel, higher value means darker image, lower means brighter */
@@ -10,19 +9,19 @@ const int DEFAULT_WIDTH = 512;
 const int DEFAULT_HEIGHT = 512;
 
 /*! window width and height */
-int WinWidth;
 int WinHeight;
+int WinWidth;
 
 /*! image width and height */
-int ImWidth;
 int ImHeight;
+int ImWidth;
 
 /*! number of channels per image pixel */
 int ImChannels;
 
 /*! viewport width and height */
-int VpWidth;
 int VpHeight;
+int VpWidth;
 
 /*! viewport offset from lower left corner of window */
 int xOffset;
@@ -34,29 +33,28 @@ int pixelFormat;
 /*! the image pixmap used for OpenGL */
 Pixel **pixmap;
 
-Pixel **pixmapSH;
-Pixel **pixmapSV;
 Pixel **sobelPixmap;
+Pixel **pixmapSV;
+Pixel **pixmapSH;
 
 /*! Image input filename and image output filename*/
 std::string fileInput;
 std::string fileOutput;
 
-const int kernelSize = 3;
-double kernel[kernelSize][kernelSize];
-double range[kernelSize][kernelSize];
-double domain[kernelSize][kernelSize];
+const int KERNEL_SIZE = 3;
 float **intenseMatrix;
 float **tempMatrix;
-
-
-double SOBEL_DATA_V[3][3] = {{-1, 0, 1},
-                             {-2, 0, 2},
-                             {-1, 0, 1}};
+double range[KERNEL_SIZE][KERNEL_SIZE];
+double domain[KERNEL_SIZE][KERNEL_SIZE];
+double kernel[KERNEL_SIZE][KERNEL_SIZE];
 
 double SOBEL_DATA_H[3][3] = {{1,  2,  1},
                              {0,  0,  0},
                              {-1, -2, -1}};
+
+double SOBEL_DATA_V[3][3] = {{-1, 0, 1},
+                             {-2, 0, 2},
+                             {-1, 0, 1}};
 
 /*! given a low, and high value, and a input, returns a value that is
  * neither lower nor higher than set boundary if value is in between, then it is unchanged
@@ -70,6 +68,110 @@ double clamp(double lo, double hi, double x) {
  */
 double clamp(int lo, int hi, int x) {
     return std::max(lo, std::min(x, hi));
+}
+
+/*! Call back for OpenGL Display function */
+void handleDisplay() {
+    // Background to all black
+    glClearColor(0, 0, 0, 1);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    // only draw the image if it is of a valid size
+    if (ImWidth > 0 && ImHeight > 0) {
+        displayImage();
+    }
+    glFlush();
+}
+
+/*! Call back for OpenGL Input function */
+void handleKey(unsigned char key, int x, int y) {
+    switch (key) {
+        // 's' - apply the sobel operator to the image
+        case 's': {
+            convolveImage(pixmapSH, SOBEL_DATA_H);
+            convolveImage(pixmapSV, SOBEL_DATA_V);
+            combineImg();
+            combineBilateralSobel();
+            glutReshapeWindow(WinWidth, WinHeight);
+            glutPostRedisplay();
+            break;
+        }
+            // 'b' - apply the bilateral filter to the image
+        case 'b': {
+            applyBilateralFilter();
+            glutReshapeWindow(WinWidth, WinHeight); // OpenGL window should match new image
+            glutPostRedisplay();
+            break;
+        }
+            // 'w' - write the current image to a file
+        case 'w': {
+            writeImage(fileOutput);
+            break;
+        }
+            // Pressing 'q' 'Q' or 'ESC' closes the program
+        case 'q':
+        case 'Q':
+        case 27:
+            destroy();
+            exit(0);
+
+        default:
+            return;
+    }
+}
+
+/*! Call back for OpenGL Reshape function */
+void handleReshape(int w, int h) {
+    float imageAspectRatio = (float) ImWidth / (float) ImHeight;
+    float newWindowAspectRatio = (float) w / (float) h;
+
+    WinWidth = w;
+    WinHeight = h;
+
+    // if the image fits in the window then viewport is the same size as the image
+    if (w >= ImWidth && h >= ImHeight) {
+        xOffset = (w - ImWidth) / 2;
+        yOffset = (h - ImHeight) / 2;
+        VpWidth = ImWidth;
+        VpHeight = ImHeight;
+    }
+        // if the window is wider than the image then use the full window height
+        // and size the width to match the image aspect ratio
+    else if (newWindowAspectRatio > imageAspectRatio) {
+        VpHeight = h;
+        VpWidth = int(imageAspectRatio * VpHeight);
+        xOffset = int((w - VpWidth) / 2);
+        yOffset = 0;
+    }
+        // if the window is narrower than the image then use the full window width
+        // and size the height to match the image aspect ratio
+    else {
+        VpWidth = w;
+        VpHeight = int(VpWidth / imageAspectRatio);
+        yOffset = int((h - VpHeight) / 2);
+        xOffset = 0;
+    }
+
+    glViewport(xOffset, yOffset, VpWidth, VpHeight);
+    glMatrixMode(GL_PROJECTION);
+    glLoadIdentity();
+    gluOrtho2D(0, VpWidth, 0, VpHeight);
+    glMatrixMode(GL_MODELVIEW);
+}
+
+/*! Call back for OpenGL display function */
+void displayImage() {
+    // if the window is smaller than the image, scale it down, otherwise do not scale
+    if (WinWidth < ImWidth || WinHeight < ImHeight){
+        glPixelZoom(float(VpWidth) / ImWidth, float(VpHeight) / ImHeight);
+    }
+    else{
+        glPixelZoom(1.0, 1.0);
+    }
+
+    glRasterPos2i(0, 0);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    glDrawPixels(ImWidth, ImHeight, pixelFormat, GL_UNSIGNED_BYTE, pixmap[0]);
 }
 
 /*! Determines the intensity values for each pixel of the image */
@@ -131,8 +233,8 @@ void getRange(int i, int j) {
 
 /*! Applies domain * range to kernel */
 void domainRange() {
-    for (int row = 0; row < kernelSize; row++) {
-        for (int col = 0; col < kernelSize; col++) {
+    for (int row = 0; row < KERNEL_SIZE; row++) {
+        for (int col = 0; col < KERNEL_SIZE; col++) {
             kernel[row][col] = domain[row][col] * range[row][col];
         }
     }
@@ -140,7 +242,7 @@ void domainRange() {
 
 /*! Apply final kernel to the intensity img to create a new intensity image */
 void applyIntensityKernel(int y, int x) {
-    int center = kernelSize / 2;
+    int center = KERNEL_SIZE / 2;
     double s = 0.0;
 
     // The kernel is centered at k_center loop takes values -1, 0, 1
@@ -197,40 +299,22 @@ void applyBilateralFilter() {
     }
 }
 
-//void print() {
-//    std::cout << "SOBEL H" << std::endl;
-//    for (int row = 0; row < kernelSize; row++) {
-//        for (int col = 0; col < kernelSize; col++) {
-//            std::cout << SOBEL_H[row][col] << " ";
-//        }
-//        std::cout << std::endl;
-//    }
-//    std::cout << std::endl << "SOBEL V" << std::endl;
-//    for (int row = 0; row < kernelSize; row++) {
-//        for (int col = 0; col < kernelSize; col++) {
-//
-//            std::cout << SOBEL_V[row][col] << " ";
-//        }
-//        std::cout << std::endl;
-//    }
-//}
-
 void flipKernel(double kernelTemp[][3]) {
     double temp;
     // Preform horizontal flip
-    for (int y = 0; y < kernelSize; y++) {
-        for (int x = 0; x < kernelSize / 2; x++) {
-            temp = kernelTemp[kernelSize - x - 1][y];
-            kernelTemp[kernelSize - x - 1][y] = kernelTemp[x][y];
+    for (int y = 0; y < KERNEL_SIZE; y++) {
+        for (int x = 0; x < KERNEL_SIZE / 2; x++) {
+            temp = kernelTemp[KERNEL_SIZE - x - 1][y];
+            kernelTemp[KERNEL_SIZE - x - 1][y] = kernelTemp[x][y];
             kernelTemp[x][y] = temp;
         }
     }
 
     // Preform vertical flip
-    for (int x = 0; x < kernelSize; x++) {
-        for (int y = 0; y < kernelSize / 2; y++) {
-            temp = kernelTemp[x][kernelSize - y - 1];
-            kernelTemp[x][kernelSize - y - 1] = kernelTemp[x][y];
+    for (int x = 0; x < KERNEL_SIZE; x++) {
+        for (int y = 0; y < KERNEL_SIZE / 2; y++) {
+            temp = kernelTemp[x][KERNEL_SIZE - y - 1];
+            kernelTemp[x][KERNEL_SIZE - y - 1] = kernelTemp[x][y];
             kernelTemp[x][y] = temp;
         }
     }
@@ -241,8 +325,8 @@ void setKernel(double (*matrixTemp)[3]) {
     double sum = 0.0;
     int weight;
 
-    for (int row = 0; row < kernelSize; row++) {
-        for (int col = 0; col < kernelSize; col++) {
+    for (int row = 0; row < KERNEL_SIZE; row++) {
+        for (int col = 0; col < KERNEL_SIZE; col++) {
             weight = (int) matrixTemp[row][col];
             if (weight > 0) {
                 sum += weight;
@@ -252,8 +336,8 @@ void setKernel(double (*matrixTemp)[3]) {
 
     flipKernel(matrixTemp);
 
-    for (int row = 0; row < kernelSize; row++) {
-        for (int col = 0; col < kernelSize; col++) {
+    for (int row = 0; row < KERNEL_SIZE; row++) {
+        for (int col = 0; col < KERNEL_SIZE; col++) {
             matrixTemp[row][col] = .25 * (matrixTemp[row][col] / sum);
         }
     }
@@ -261,7 +345,7 @@ void setKernel(double (*matrixTemp)[3]) {
 
 /*! The kernel is centered at k_center loop takes values -1, 0, 1. Applies kernel to one pixel */
 void applyKernel(Pixel **pix, Pixel **temp_pixel, double (*matrixTemp)[3], int y, int x) {
-    int center = kernelSize / 2;
+    int center = KERNEL_SIZE / 2;
     double r = 0.0;
     double g = 0.0;
     double b = 0.0;
@@ -285,7 +369,7 @@ void applyKernel(Pixel **pix, Pixel **temp_pixel, double (*matrixTemp)[3], int y
 
 /*! Allocate memory for copy pixmap and apply kernel to the actual pixmap for all pixels */
 void convolveImage(Pixel **pixmapTemp, double (*matrixTemp)[3]) {
-    int center = kernelSize / 2;
+    int center = KERNEL_SIZE / 2;
 
     // contiguous method of allocation
     auto **copyPixmap = new Pixel *[ImHeight];
@@ -474,110 +558,6 @@ void writeImage(const std::string &out) {
     }
 
     outfile->close();
-}
-
-/*! Call back for OpenGL Display function */
-void handleDisplay() {
-    // Background to all black
-    glClearColor(0, 0, 0, 1);
-    glClear(GL_COLOR_BUFFER_BIT);
-
-    // only draw the image if it is of a valid size
-    if (ImWidth > 0 && ImHeight > 0) {
-        displayImage();
-    }
-    glFlush();
-}
-
-/*! Call back for OpenGL Input function */
-void handleKey(unsigned char key, int x, int y) {
-    switch (key) {
-        // 's' - apply the sobel operator to the image
-        case 's': {
-            convolveImage(pixmapSH, SOBEL_DATA_H);
-            convolveImage(pixmapSV, SOBEL_DATA_V);
-            combineImg();
-            combineBilateralSobel();
-            glutReshapeWindow(WinWidth, WinHeight);
-            glutPostRedisplay();
-            break;
-        }
-            // 'b' - apply the bilateral filter to the image
-        case 'b': {
-            applyBilateralFilter();
-            glutReshapeWindow(WinWidth, WinHeight); // OpenGL window should match new image
-            glutPostRedisplay();
-            break;
-        }
-            // 'w' - write the current image to a file
-        case 'w': {
-            writeImage(fileOutput);
-            break;
-        }
-            // Pressing 'q' 'Q' or 'ESC' closes the program
-        case 'q':
-        case 'Q':
-        case 27:
-            destroy();
-            exit(0);
-
-        default:
-            return;
-    }
-}
-
-/*! Call back for OpenGL Reshape function */
-void handleReshape(int w, int h) {
-    float imageAspectRatio = (float) ImWidth / (float) ImHeight;
-    float newWindowAspectRatio = (float) w / (float) h;
-
-    WinWidth = w;
-    WinHeight = h;
-
-    // if the image fits in the window then viewport is the same size as the image
-    if (w >= ImWidth && h >= ImHeight) {
-        xOffset = (w - ImWidth) / 2;
-        yOffset = (h - ImHeight) / 2;
-        VpWidth = ImWidth;
-        VpHeight = ImHeight;
-    }
-        // if the window is wider than the image then use the full window height
-        // and size the width to match the image aspect ratio
-    else if (newWindowAspectRatio > imageAspectRatio) {
-        VpHeight = h;
-        VpWidth = int(imageAspectRatio * VpHeight);
-        xOffset = int((w - VpWidth) / 2);
-        yOffset = 0;
-    }
-        // if the window is narrower than the image then use the full window width
-        // and size the height to match the image aspect ratio
-    else {
-        VpWidth = w;
-        VpHeight = int(VpWidth / imageAspectRatio);
-        yOffset = int((h - VpHeight) / 2);
-        xOffset = 0;
-    }
-
-    glViewport(xOffset, yOffset, VpWidth, VpHeight);
-    glMatrixMode(GL_PROJECTION);
-    glLoadIdentity();
-    gluOrtho2D(0, VpWidth, 0, VpHeight);
-    glMatrixMode(GL_MODELVIEW);
-}
-
-/*! Call back for OpenGL display function */
-void displayImage() {
-    // if the window is smaller than the image, scale it down, otherwise do not scale
-    if (WinWidth < ImWidth || WinHeight < ImHeight){
-        glPixelZoom(float(VpWidth) / ImWidth, float(VpHeight) / ImHeight);
-    }
-    else{
-        glPixelZoom(1.0, 1.0);
-    }
-    
-    glRasterPos2i(0, 0);
-    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
-    glDrawPixels(ImWidth, ImHeight, pixelFormat, GL_UNSIGNED_BYTE, pixmap[0]);
 }
 
 void runMainLoop(int argc, char *argv[]) {
