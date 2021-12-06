@@ -88,6 +88,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project/Cartoon.cpp">
+			<Option target="Final_Project"/>
+		</Unit>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project/Cartoon.h">
+			<Option target="Final_Project"/>
+		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project/main.cpp">
 			<Option target="Final_Project"/>
 		</Unit>

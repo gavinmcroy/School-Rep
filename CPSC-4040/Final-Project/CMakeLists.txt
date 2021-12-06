@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD 17)
 find_package(Boost COMPONENTS system filesystem REQUIRED)
 find_package(Openimageio REQUIRED )
 
-add_executable(Final_Project main.cpp)
+add_executable(Final_Project main.cpp Cartoon.cpp Cartoon.h)
 
 if(Boost_FOUND)
     message(STATUS "Boost_INCLUDE_DIRS: ${Boost_INCLUDE_DIRS}")

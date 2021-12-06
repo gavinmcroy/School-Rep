@@ -142,6 +142,33 @@ Final_Project/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/build
 .PHONY : Final_Project/fast
 
+Cartoon.o: Cartoon.cpp.o
+
+.PHONY : Cartoon.o
+
+# target to build an object file
+Cartoon.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/Cartoon.cpp.o
+.PHONY : Cartoon.cpp.o
+
+Cartoon.i: Cartoon.cpp.i
+
+.PHONY : Cartoon.i
+
+# target to preprocess a source file
+Cartoon.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/Cartoon.cpp.i
+.PHONY : Cartoon.cpp.i
+
+Cartoon.s: Cartoon.cpp.s
+
+.PHONY : Cartoon.s
+
+# target to generate assembly for a file
+Cartoon.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Final_Project.dir/build.make CMakeFiles/Final_Project.dir/Cartoon.cpp.s
+.PHONY : Cartoon.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -178,6 +205,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Final_Project"
+	@echo "... Cartoon.o"
+	@echo "... Cartoon.i"
+	@echo "... Cartoon.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
