@@ -47,7 +47,7 @@ void applyBilateralFilter();
 
 void flipKernel(double kernelTemp[][3]);
 
-void setKernel(double matrixTemp[][3]);
+void setKernel(double temporaryMatrix[][3]);
 
 void applyKernel(Pixel **pixel, Pixel **tempPixel, double matrixTemp[][3], int y, int x);
 
