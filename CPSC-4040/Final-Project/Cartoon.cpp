@@ -1,4 +1,5 @@
 #define GL_SILENCE_DEPRECATION
+
 #include "Cartoon.h"
 
 /*! divisor for the smoothing kernel, higher value means darker image, lower means brighter */
@@ -86,17 +87,7 @@ void handleDisplay() {
 /*! Call back for OpenGL Input function */
 void handleKey(unsigned char key, int x, int y) {
     switch (key) {
-        // 's' - apply the sobel operator to the image
-        case 's': {
-            convolveImage(pixmapSH, SOBEL_DATA_H);
-            convolveImage(pixmapSV, SOBEL_DATA_V);
-            combineImg();
-            combineBilateralSobel();
-            glutReshapeWindow(WinWidth, WinHeight);
-            glutPostRedisplay();
-            break;
-        }
-            // 'b' - apply the bilateral filter to the image
+        // 'b' - apply the bilateral filter to the image
         case 'b': {
             applyBilateralFilter();
             glutReshapeWindow(WinWidth, WinHeight); // OpenGL window should match new image
@@ -106,6 +97,16 @@ void handleKey(unsigned char key, int x, int y) {
             // 'w' - write the current image to a file
         case 'w': {
             writeImage(fileOutput);
+            break;
+        }
+            // 's' - apply the sobel operator to the image
+        case 's': {
+            convolveImage(pixmapSH, SOBEL_DATA_H);
+            convolveImage(pixmapSV, SOBEL_DATA_V);
+            combineImg();
+            combineBilateralSobel();
+            glutReshapeWindow(WinWidth, WinHeight);
+            glutPostRedisplay();
             break;
         }
             // Pressing 'q' 'Q' or 'ESC' closes the program
@@ -162,11 +163,10 @@ void handleReshape(int w, int h) {
 /*! Call back for OpenGL display function */
 void displayImage() {
     // if the window is smaller than the image, scale it down, otherwise do not scale
-    if (WinWidth < ImWidth || WinHeight < ImHeight){
-        glPixelZoom(float(VpWidth) / ImWidth, float(VpHeight) / ImHeight);
-    }
-    else{
+    if (WinWidth >= ImWidth && WinHeight >= ImHeight) {
         glPixelZoom(1.0, 1.0);
+    } else {
+        glPixelZoom(float(VpWidth) / ImWidth, float(VpHeight) / ImHeight);
     }
 
     glRasterPos2i(0, 0);
@@ -219,12 +219,14 @@ void getRange(int i, int j) {
         for (int y = -1; y <= 1; y++) {
             double rangeValue = 0.0;
             /* Ensures that the range is within desired range */
-            if (i + x >= 0 && i + x < ImHeight && j + y >= 0 && j + y < ImWidth) {
-                double top = intenseMatrix[i + x][j + y] - intenseMatrix[i][j];
-                top = pow(top, 2);
-                // 98 = 2(7)^2 (7 is the standard deviation)
-                top /= 98;
-                rangeValue = exp(-top);
+            if (j + y < ImWidth) {
+                if (i + x >= 0 && i + x < ImHeight && j + y >= 0) {
+                    double top = intenseMatrix[i + x][j + y] - intenseMatrix[i][j];
+                    top = std::pow(top, 2);
+                    // 98 = 2(7)^2 (7 is the standard deviation)
+                    top /= 98;
+                    rangeValue = exp(-top);
+                }
             }
             range[x + 1][y + 1] = rangeValue;
         }
@@ -235,7 +237,7 @@ void getRange(int i, int j) {
 void domainRange() {
     for (int row = 0; row < KERNEL_SIZE; row++) {
         for (int col = 0; col < KERNEL_SIZE; col++) {
-            kernel[row][col] = domain[row][col] * range[row][col];
+            kernel[row][col] = range[row][col] * domain[row][col];
         }
     }
 }
@@ -299,23 +301,24 @@ void applyBilateralFilter() {
     }
 }
 
+/*! Flips kernel vertically and horizontally */
 void flipKernel(double kernelTemp[][3]) {
-    double temp;
-    // Preform horizontal flip
+    double val = 0;
+    // Preform horizontal flip on kernel
     for (int y = 0; y < KERNEL_SIZE; y++) {
         for (int x = 0; x < KERNEL_SIZE / 2; x++) {
-            temp = kernelTemp[KERNEL_SIZE - x - 1][y];
+            val = kernelTemp[KERNEL_SIZE - x - 1][y];
             kernelTemp[KERNEL_SIZE - x - 1][y] = kernelTemp[x][y];
-            kernelTemp[x][y] = temp;
+            kernelTemp[x][y] = val;
         }
     }
 
-    // Preform vertical flip
+    // Preform vertical flip on kernel
     for (int x = 0; x < KERNEL_SIZE; x++) {
         for (int y = 0; y < KERNEL_SIZE / 2; y++) {
-            temp = kernelTemp[x][KERNEL_SIZE - y - 1];
+            val = kernelTemp[x][KERNEL_SIZE - y - 1];
             kernelTemp[x][KERNEL_SIZE - y - 1] = kernelTemp[x][y];
-            kernelTemp[x][y] = temp;
+            kernelTemp[x][y] = val;
         }
     }
 }
@@ -328,9 +331,10 @@ void setKernel(double (*matrixTemp)[3]) {
     for (int row = 0; row < KERNEL_SIZE; row++) {
         for (int col = 0; col < KERNEL_SIZE; col++) {
             weight = (int) matrixTemp[row][col];
-            if (weight > 0) {
-                sum += weight;
+            if (weight <= 0) {
+                continue;
             }
+            sum += weight;
         }
     }
 
@@ -344,7 +348,7 @@ void setKernel(double (*matrixTemp)[3]) {
 }
 
 /*! The kernel is centered at k_center loop takes values -1, 0, 1. Applies kernel to one pixel */
-void applyKernel(Pixel **pix, Pixel **temp_pixel, double (*matrixTemp)[3], int y, int x) {
+void applyKernel(Pixel **pixel, Pixel **tempPixel, double (*matrixTemp)[3], int y, int x) {
     int center = KERNEL_SIZE / 2;
     double r = 0.0;
     double g = 0.0;
@@ -353,7 +357,7 @@ void applyKernel(Pixel **pix, Pixel **temp_pixel, double (*matrixTemp)[3], int y
     /* Our 3x3 kernel */
     for (int j = -center; j <= center; j++) {
         for (int i = -center; i <= center; i++) {
-            Pixel p = pix[y + i][x + i];
+            Pixel p = pixel[y + i][x + i];
             double modifier = matrixTemp[center + i][center + j];
             r += p.r * modifier;
             g += p.g * modifier;
@@ -362,9 +366,11 @@ void applyKernel(Pixel **pix, Pixel **temp_pixel, double (*matrixTemp)[3], int y
     }
 
     // Make sure within RBG range of pixel
-    temp_pixel[y][x].r = (int) clamp(0.0, 255.0, r);
-    temp_pixel[y][x].g = (int) clamp(0.0, 255.0, g);
-    temp_pixel[y][x].b = (int) clamp(0.0, 255.0, b);
+    double min = 0;
+    double max = 255;
+    tempPixel[y][x].r = (int) clamp(min, max, r);
+    tempPixel[y][x].g = (int) clamp(min, max, g);
+    tempPixel[y][x].b = (int) clamp(min, max, b);
 }
 
 /*! Allocate memory for copy pixmap and apply kernel to the actual pixmap for all pixels */
@@ -388,8 +394,8 @@ void convolveImage(Pixel **pixmapTemp, double (*matrixTemp)[3]) {
 
 /*! Returns sobel when given colorH and colorV */
 double calculateSobel(double colorH, double colorV) {
-    double x = pow(colorH, 2);
-    double y = pow(colorV, 2);
+    double x = std::pow(colorH, 2);
+    double y = std::pow(colorV, 2);
     return sqrt(y + x);
 }
 
@@ -444,87 +450,92 @@ int readImage(const std::string &inFileName) {
     // since OpenGL pixmaps have the bottom scanline first, and
     // oiio expects the top scanline first in the image file.
     int allocationSize = ImWidth * ImChannels * sizeof(unsigned char);
-    if (!infile->read_image(TypeDesc::UINT8, &temporaryStruct[0] + (ImHeight - 1) * allocationSize, AutoStride,
-                            -allocationSize)) {
+    if (infile->read_image(TypeDesc::UINT8, &temporaryStruct[0] + (ImHeight - 1) * allocationSize, AutoStride,
+                           -allocationSize)) {
+
+        // get rid of the old OpenGL pixmap and make a new one of the new size
+        destroy();
+
+        // allocate space for the Pixmap using contiguous approach
+        pixmap = new Pixel *[ImHeight];
+        if (pixmap == nullptr) {}
+        else {
+            pixmap[0] = new Pixel[ImWidth * ImHeight];
+        }
+        for (int i = 1; i < ImHeight; i++) {
+            pixmap[i] = pixmap[i - 1] + ImWidth;
+        }
+
+        // Build pixmap structure with temporarily read in pixels
+        int index;
+        for (int row = 0; row < ImHeight; ++row) {
+            for (int col = 0; col < ImWidth; ++col) {
+                index = (row * ImWidth + col) * ImChannels;
+                if (ImChannels == 1) {
+                    pixmap[row][col].r = temporaryStruct[index];
+                    pixmap[row][col].g = temporaryStruct[index];
+                    pixmap[row][col].b = temporaryStruct[index];
+                    pixmap[row][col].a = 255;
+                } else {
+                    pixmap[row][col].r = temporaryStruct[index];
+                    pixmap[row][col].g = temporaryStruct[index + 1];
+                    pixmap[row][col].b = temporaryStruct[index + 2];
+                    // no alpha value is present so set it to 255
+                    if (ImChannels < 4) {
+                        pixmap[row][col].a = 255;
+                    } else {
+                        pixmap[row][col].a = temporaryStruct[index + 3];
+                    }
+                }
+            }
+        }
+
+        infile->close();
+
+        // Set format to OpenGL 4 channel mode
+        pixelFormat = GL_RGBA;
+        ImChannels = 4;
+
+        // allocate space for the PixmapSH (contiguous approach)
+        pixmapSH = new Pixel *[ImHeight];
+        if (pixmapSH == nullptr) {}
+        else {
+            pixmapSH[0] = new Pixel[ImWidth * ImHeight];
+        }
+        for (int i = 1; i < ImHeight; i++) {
+            pixmapSH[i] = pixmapSH[i - 1] + ImWidth;
+        }
+
+
+        // allocate space for the PixmapSV using contiguous
+        pixmapSV = new Pixel *[ImHeight];
+        if (pixmapSV == nullptr) {}
+        else {
+            pixmapSV[0] = new Pixel[ImWidth * ImHeight];
+        }
+        for (int i = 1; i < ImHeight; i++) {
+            pixmapSV[i] = pixmapSV[i - 1] + ImWidth;
+        }
+
+
+        // allocate space for the sobelPixmap using contiguous approach
+        sobelPixmap = new Pixel *[ImHeight];
+        if (sobelPixmap == nullptr) {}
+        else {
+            sobelPixmap[0] = new Pixel[ImWidth * ImHeight];
+        }
+        for (int i = 1; i < ImHeight; i++) {
+            sobelPixmap[i] = sobelPixmap[i - 1] + ImWidth;
+        }
+
+        pixmapSH = pixmap;
+        pixmapSV = pixmap;
+        return ImWidth * ImHeight;
+    } else {
         std::cerr << "Could not read image from " << inFileName << ", error = " << geterror() << std::endl;
         infile->close();
         return 0;
     }
-
-    // get rid of the old OpenGL pixmap and make a new one of the new size
-    destroy();
-
-    // allocate space for the Pixmap using contiguous approach
-    pixmap = new Pixel *[ImHeight];
-    if (pixmap != nullptr) {
-        pixmap[0] = new Pixel[ImWidth * ImHeight];
-    }
-    for (int i = 1; i < ImHeight; i++) {
-        pixmap[i] = pixmap[i - 1] + ImWidth;
-    }
-
-    // Build pixmap structure with temporarily read in pixels
-    int index;
-    for (int row = 0; row < ImHeight; ++row) {
-        for (int col = 0; col < ImWidth; ++col) {
-            index = (row * ImWidth + col) * ImChannels;
-            if (ImChannels == 1) {
-                pixmap[row][col].r = temporaryStruct[index];
-                pixmap[row][col].g = temporaryStruct[index];
-                pixmap[row][col].b = temporaryStruct[index];
-                pixmap[row][col].a = 255;
-            } else {
-                pixmap[row][col].r = temporaryStruct[index];
-                pixmap[row][col].g = temporaryStruct[index + 1];
-                pixmap[row][col].b = temporaryStruct[index + 2];
-                // no alpha value is present so set it to 255
-                if (ImChannels < 4) {
-                    pixmap[row][col].a = 255;
-                } else {
-                    pixmap[row][col].a = temporaryStruct[index + 3];
-                }
-            }
-        }
-    }
-
-    infile->close();
-
-    // Set format to OpenGL 4 channel mode
-    pixelFormat = GL_RGBA;
-    ImChannels = 4;
-
-    // allocate space for the PixmapSH (contiguous approach)
-    pixmapSH = new Pixel *[ImHeight];
-    if (pixmapSH != nullptr) {
-        pixmapSH[0] = new Pixel[ImWidth * ImHeight];
-    }
-    for (int i = 1; i < ImHeight; i++) {
-        pixmapSH[i] = pixmapSH[i - 1] + ImWidth;
-    }
-
-
-    // allocate space for the PixmapSV using contiguous
-    pixmapSV = new Pixel *[ImHeight];
-    if (pixmapSV != nullptr) {
-        pixmapSV[0] = new Pixel[ImWidth * ImHeight];
-    }
-    for (int i = 1; i < ImHeight; i++) {
-        pixmapSV[i] = pixmapSV[i - 1] + ImWidth;
-    }
-
-
-    // allocate space for the sobelPixmap using contiguous approach
-    sobelPixmap = new Pixel *[ImHeight];
-    if (sobelPixmap != nullptr) {
-        sobelPixmap[0] = new Pixel[ImWidth * ImHeight];
-    }
-    for (int i = 1; i < ImHeight; i++) {
-        sobelPixmap[i] = sobelPixmap[i - 1] + ImWidth;
-    }
-
-    pixmapSH = pixmap;
-    pixmapSV = pixmap;
-    return ImWidth * ImHeight;
 }
 
 /*! Writes the current image displayed by openGL to a specified file */
@@ -535,14 +546,14 @@ void writeImage(const std::string &out) {
 
     auto outfile = ImageOutput::create(out);
     if (!outfile) {
-        std::cerr << "Could not create output image for " << out << ", error = " << geterror() << std::endl;
+        std::cerr << "Error creating creating output image " << out << ", error = " << geterror() << std::endl;
         return;
     }
 
     // Open a file for writing the image
     ImageSpec spec(WinWidth, WinHeight, ImChannels, TypeDesc::UINT8);
     if (!outfile->open(out, spec)) {
-        std::cerr << "Could not open " << out << ", error = " << geterror() << std::endl;
+        std::cerr << "Error opening " << out << ", error = " << geterror() << std::endl;
         outfile->close();
         return;
     }
@@ -552,7 +563,7 @@ void writeImage(const std::string &out) {
     int allocationSize = WinWidth * ImChannels * sizeof(unsigned char);
     if (!outfile->write_image(TypeDesc::UINT8, local_pixmap + (WinHeight - 1) * allocationSize, AutoStride,
                               -allocationSize)) {
-        std::cerr << "Could not write image to " << out << ", error = " << geterror() << std::endl;
+        std::cerr << "Error writing image to " << out << ", error = " << geterror() << std::endl;
         outfile->close();
         return;
     }

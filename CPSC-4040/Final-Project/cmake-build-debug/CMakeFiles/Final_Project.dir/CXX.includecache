@@ -20,10 +20,6 @@ OpenImageIO/imageio.h
 GLUT/glut.h
 -
 
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project/main.cpp
-Cartoon.h
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project/Cartoon.h
-
 /usr/local/Cellar/openimageio/2.2.18.0/include/OpenImageIO/Imath.h
 Imath/ImathColor.h
 -

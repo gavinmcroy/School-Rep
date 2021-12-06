@@ -49,7 +49,7 @@ void flipKernel(double kernelTemp[][3]);
 
 void setKernel(double matrixTemp[][3]);
 
-void applyKernel(Pixel **pix, Pixel **temp_pixel, double matrixTemp[][3], int y, int x);
+void applyKernel(Pixel **pixel, Pixel **tempPixel, double matrixTemp[][3], int y, int x);
 
 void convolveImage(Pixel **pixmapTemp, double matrixTemp[][3]);
 
