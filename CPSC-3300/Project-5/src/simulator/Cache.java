@@ -11,8 +11,8 @@ public class Cache {
     private final int offset;
     private final int tag;
     private final int index;
-    private final LinkedList<Cache_Set> setList;
-    private final LinkedList<Cache_Entry> entryList;
+    private final LinkedList<CacheSet> setList;
+    private final LinkedList<CacheEntry> entryList;
     public int access;
     public int hit;
     public int miss;
@@ -48,7 +48,7 @@ public class Cache {
         int numSets = setList.size();
         int access = 0;
         for (int i = 0; i < numSets; i++) {
-            Cache_Set temp_set = setList.get(i);
+            CacheSet temp_set = setList.get(i);
             if (temp_set.index == index) {
                 //We do have this set
                 //System.out.println("We do have this in the cache");
@@ -68,7 +68,7 @@ public class Cache {
                 int mem = 0;
                 String hit_or_miss = "hit";
                 //System.out.println("Adding Cache Entry on hit");
-                Cache_Entry new_entry = new Cache_Entry(type, address, tag, index, offset, hit_or_miss, mem);
+                CacheEntry new_entry = new CacheEntry(type, address, tag, index, offset, hit_or_miss, mem);
                 entryList.add(new_entry);
                 setList.get(access).setLAToZero(tag);
                 hit++;
@@ -81,7 +81,7 @@ public class Cache {
                 int mem = 1;
                 String hitOrMiss = "miss";
                 //System.out.println("Adding Cache Entry on miss");
-                Cache_Entry new_entry = new Cache_Entry(type, address, tag, index, offset, hitOrMiss, mem);
+                CacheEntry new_entry = new CacheEntry(type, address, tag, index, offset, hitOrMiss, mem);
                 entryList.add(new_entry);
                 setList.get(access).addToCache(tag, setSize);
                 miss++;
@@ -91,7 +91,7 @@ public class Cache {
             miss++;
             //System.out.println("We do not have this set so we are adding it");
             //We do not have this set, so let's add it
-            Cache_Set newSet = new Cache_Set(index);
+            CacheSet newSet = new CacheSet(index);
             setList.add(newSet);
             //Now we need to add the tag to the set
             int most_recent_set = (setList.size() - 1);
@@ -100,7 +100,7 @@ public class Cache {
             int mem = 1;
             String hitOrMiss = "miss";
             //System.out.println("Adding Cache Entry on miss");
-            Cache_Entry cacheEntry = new Cache_Entry(type, address, tag, index, offset, hitOrMiss, mem);
+            CacheEntry cacheEntry = new CacheEntry(type, address, tag, index, offset, hitOrMiss, mem);
             entryList.add(cacheEntry);
         }
     }
@@ -131,7 +131,7 @@ public class Cache {
         System.out.println("-----------------------------------------------------------");
 
         StringBuilder cache_entries = new StringBuilder();
-        for (Cache_Entry entry : entryList) {
+        for (CacheEntry entry : entryList) {
             cache_entries.append(entry.toString());
         }
         System.out.println(cache_entries);

@@ -2,12 +2,12 @@ package simulator;
 
 import java.util.LinkedList;
 
-public class Cache_Set {
+public class CacheSet {
 
     public int index;
-    private final LinkedList<Cache_Line> lines;
+    private final LinkedList<CacheLine> lines;
 
-    public Cache_Set(int index) {
+    public CacheSet(int index) {
         this.index = index;
         this.lines = new LinkedList<>();
     }
@@ -15,7 +15,7 @@ public class Cache_Set {
     public int findLine(int tag) {
         int returnVal = 0;
 
-        for (Cache_Line line : lines) {
+        for (CacheLine line : lines) {
             int tempTag = line.tag;
             if (tempTag == tag) {
                 //System.out.println("The tags are equal");
@@ -40,23 +40,23 @@ public class Cache_Set {
                     replace = i;
                 }
             }
-            Cache_Line new_line = new Cache_Line(tag);
+            CacheLine new_line = new CacheLine(tag);
             lines.set(replace, new_line);
         } else {
             //The set is not full so we can just add
-            Cache_Line new_line = new Cache_Line(tag);
+            CacheLine new_line = new CacheLine(tag);
             lines.add(new_line);
         }
     }
 
     public void increaseLastAccess() {
-        for (Cache_Line line : lines) {
+        for (CacheLine line : lines) {
             line.increaseLA();
         }
     }
 
     public void setLAToZero(int tag) {
-        for (Cache_Line line : lines) {
+        for (CacheLine line : lines) {
             if (line.tag == tag) {
                 line.lastAccess = 0;
             }

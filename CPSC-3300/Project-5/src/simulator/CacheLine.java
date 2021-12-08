@@ -1,11 +1,11 @@
 package simulator;
 
-public class Cache_Line {
+public class CacheLine {
 
     public int tag;
     public int lastAccess;
 
-    public Cache_Line(int tag) {
+    public CacheLine(int tag) {
         this.tag = tag;
     }
 

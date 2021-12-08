@@ -1,6 +1,6 @@
 package simulator;
 
-public class Cache_Entry {
+public class CacheEntry {
 
     private final int address;
     private final int tag;
@@ -10,7 +10,7 @@ public class Cache_Entry {
     private final String status;
     private final String type;
 
-    public Cache_Entry(String type, int address, int tag, int index, int offset, String status, int memoryReference) {
+    public CacheEntry(String type, int address, int tag, int index, int offset, String status, int memoryReference) {
         this.type = type;
         this.address = address;
         this.tag = tag;

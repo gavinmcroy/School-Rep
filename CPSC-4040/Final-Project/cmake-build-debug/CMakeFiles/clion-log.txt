@@ -1,23 +1,23 @@
-"C:\Users\Gavin T McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-0\213.5744.254\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/ninja/win/ninja.exe" -G Ninja "C:\Users\Gavin T McRoy\Documents\GitHub\School-Rep\CPSC-4040\Final-Project"
--- The C compiler identification is GNU 11.2.0
--- The CXX compiler identification is GNU 11.2.0
+"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/211.7628.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project
+-- The C compiler identification is AppleClang 12.0.0.12000032
+-- The CXX compiler identification is AppleClang 12.0.0.12000032
 -- Detecting C compiler ABI info
 -- Detecting C compiler ABI info - done
--- Check for working C compiler: C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/mingw/bin/gcc.exe - skipped
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc - skipped
 -- Detecting C compile features
 -- Detecting C compile features - done
 -- Detecting CXX compiler ABI info
 -- Detecting CXX compiler ABI info - done
--- Check for working CXX compiler: C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/mingw/bin/g++.exe - skipped
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ - skipped
 -- Detecting CXX compile features
 -- Detecting CXX compile features - done
-CMake Error at C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:230 (message):
-  Could NOT find Boost (missing: Boost_INCLUDE_DIR system filesystem)
-Call Stack (most recent call first):
-  C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/FindPackageHandleStandardArgs.cmake:594 (_FPHSA_FAILURE_MESSAGE)
-  C:/Users/Gavin T McRoy/AppData/Local/JetBrains/Toolbox/apps/CLion/ch-0/213.5744.254/bin/cmake/win/share/cmake-3.21/Modules/FindBoost.cmake:2345 (find_package_handle_standard_args)
-  CMakeLists.txt:6 (find_package)
-
-
--- Configuring incomplete, errors occurred!
-See also "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+-- Boost_INCLUDE_DIRS: /usr/local/include
+-- Boost_LIBRARIES: Boost::system;Boost::filesystem
+-- Boost_VERSION: 1.76.0
+Boost::system
+-- OpenImageIO_INCLUDE_DIR: /usr/local/Cellar/openimageio/2.2.18.0/include
+-- Openimageio_LIBRARIES: /usr/local/Cellar/openimageio/2.2.18.0/lib
+-- Openimageio_VERSION: 2.2.18.0
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Final-Project
