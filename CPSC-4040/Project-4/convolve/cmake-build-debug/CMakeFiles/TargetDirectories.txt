@@ -1,3 +1,0 @@
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-4/convolve/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-4/convolve/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4040/Project-4/convolve/cmake-build-debug/CMakeFiles/Open_Test.dir

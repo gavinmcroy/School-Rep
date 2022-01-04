@@ -1,4 +1,0 @@
-/home/parallels/.local/share/JetBrains/Toolbox/apps/CLion/ch-0/212.5457.51/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_DEPENDS_USE_COMPILER=FALSE -G "CodeBlocks - Unix Makefiles" /home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email
--- Configuring done
--- Generating done
--- Build files have been written to: /home/parallels/Documents/GitHub/School-Rep/CPSC-3220/3220-3-Email/cmake-build-debug
