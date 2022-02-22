@@ -15,5 +15,8 @@ int main(int args, char *argv[]) {
         exit(1);
     }
     /* Initialize struct + process */
+    /* execl area.c (print parent + child pid and result of calc then exit) */
+    /* execl perimeter.c (print parent + child pid with x1,x2, print output, exit) */
+    /* Parent makes two threads */
     return 0;
 }
