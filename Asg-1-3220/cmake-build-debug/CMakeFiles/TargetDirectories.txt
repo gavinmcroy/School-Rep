@@ -1,0 +1,3 @@
+/Users/gavintaylormcroy/Desktop/Asg-1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gavintaylormcroy/Desktop/Asg-1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gavintaylormcroy/Desktop/Asg-1/cmake-build-debug/CMakeFiles/Asg_1.dir
