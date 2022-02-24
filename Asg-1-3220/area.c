@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 int main(int args, char * argv[]){
+    printf("ran");
     const int EXPECTED_ARGS = 3;
     if(args < EXPECTED_ARGS){
         fprintf(stderr,"Area was not provided enough arguments. Closing\n");

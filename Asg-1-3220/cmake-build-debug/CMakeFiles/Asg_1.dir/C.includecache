@@ -13,6 +13,8 @@ stdlib.h
 -
 unistd.h
 -
-sys/types.h
+limits.h
+-
+string.h
 -
 
