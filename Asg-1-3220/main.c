@@ -36,6 +36,7 @@ int main(int args, char *argv[]) {
         exit(1);
     }
 
+    /* execl area.c (print parent + child pid and result of calc then exit) */
     pid_t var1 = getpid();
     /* This is the child */
     if (error == 0) {
@@ -53,8 +54,10 @@ int main(int args, char *argv[]) {
     //Example: "Child1: pid 39810, ppid 39809, area is 50"
     wait(NULL);
 
-    /* execl area.c (print parent + child pid and result of calc then exit) */
     /* execl perimeter.c (print parent + child pid with x1,x2, print output, exit) */
+    
+
+
     /* Parent makes two threads */
     return 0;
 }
