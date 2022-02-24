@@ -4,7 +4,6 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/area.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/cmake-build-debug/CMakeFiles/Asg_1.dir/area.c.o"
   "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/main.c" "/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/cmake-build-debug/CMakeFiles/Asg_1.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")

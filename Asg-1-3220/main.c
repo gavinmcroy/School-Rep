@@ -22,7 +22,7 @@ int main(int args, char *argv[]) {
     data.x2 = atoi(argv[2]);
     data.string = argv[3];
 
-    //Example: "Child1: pid 39810, ppid 39809, area is 50"
+    /* Start up second process */
     int error = fork();
     if (error < 0) {
         fprintf(stderr, "Process failed to start\n");
@@ -32,9 +32,12 @@ int main(int args, char *argv[]) {
     /* This is the child */
     if(error == 0){
         printf("Child ID = %d \n", var1);
+        /* This is where execl will live */
+        //execl()
     }else{
         printf("Parent ID = %d \n", var1);
     }
+    //Example: "Child1: pid 39810, ppid 39809, area is 50"
     wait(NULL);
 
     /* execl area.c (print parent + child pid and result of calc then exit) */
