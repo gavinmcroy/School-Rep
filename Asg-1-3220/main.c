@@ -45,7 +45,7 @@ int main(int args, char *argv[]) {
         /* Append file name on the end of directory */
         strcat(cwd, AREA_NAME);
         printf("%s", cwd);
-        int problemFound = execl(cwd, temp, argv[1], argv[2]);
+        int problemFound = execl(cwd, temp, argv[1], argv[2],(char *) (NULL));
         printf("\n%d\n",problemFound);
     } else {
         printf("Parent ID = %d \n", var1);
