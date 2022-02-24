@@ -142,6 +142,33 @@ Asg_1/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Asg_1.dir/build.make CMakeFiles/Asg_1.dir/build
 .PHONY : Asg_1/fast
 
+area.o: area.c.o
+
+.PHONY : area.o
+
+# target to build an object file
+area.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Asg_1.dir/build.make CMakeFiles/Asg_1.dir/area.c.o
+.PHONY : area.c.o
+
+area.i: area.c.i
+
+.PHONY : area.i
+
+# target to preprocess a source file
+area.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Asg_1.dir/build.make CMakeFiles/Asg_1.dir/area.c.i
+.PHONY : area.c.i
+
+area.s: area.c.s
+
+.PHONY : area.s
+
+# target to generate assembly for a file
+area.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Asg_1.dir/build.make CMakeFiles/Asg_1.dir/area.c.s
+.PHONY : area.c.s
+
 main.o: main.c.o
 
 .PHONY : main.o
@@ -178,6 +205,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Asg_1"
+	@echo "... area.o"
+	@echo "... area.i"
+	@echo "... area.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

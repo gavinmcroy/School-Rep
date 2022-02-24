@@ -78,6 +78,9 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/area.c">
+			<Option target="Asg_1"/>
+		</Unit>
 		<Unit filename="/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/main.c">
 			<Option target="Asg_1"/>
 		</Unit>
