@@ -3,12 +3,28 @@
 #include <unistd.h>
 #include <limits.h>
 #include <string.h>
+#include <pthread.h>
 
 typedef struct Data {
     int x1;
     int x2;
     char *string;
 } Data;
+
+void *threadRatio(void *passTheStruct) {
+    Data *data = (Data *) passTheStruct;
+    double *memory = (double *) malloc(sizeof(double));
+    *memory = (data->x1 / (double) data->x2);
+    printf("Result of Ratio Function %lf ID is %ld\n",*memory,pthread_self());
+    pthread_exit((void *) memory);
+}
+
+void * stringReversal(void * passTheStruct){
+    Data * data = (Data*)passTheStruct;
+    for(int i = strlen(data->string)-1; i >=0; i--){
+        printf("%c",data->string[i]);
+    }
+}
 
 char cwd[PATH_MAX];
 
@@ -20,16 +36,18 @@ int main(int args, char *argv[]) {
     const int THREE_ARGS = 4;
     const char AREA_NAME[6] = "/area";
     const char PERIMETER_NAME[12] = "/perimeter";
+    pthread_t thread1;
+    pthread_t thread2;
 
-    Data data;
+    Data *data = (Data *) malloc(sizeof(Data));
     if (args < THREE_ARGS) {
         fprintf(stderr, "Error not enough command arguments");
         exit(1);
     }
     /* Initialize struct + process */
-    data.x1 = atoi(argv[1]);
-    data.x2 = atoi(argv[2]);
-    data.string = argv[3];
+    data->x1 = atoi(argv[1]);
+    data->x2 = atoi(argv[2]);
+    data->string = argv[3];
 
     /* Start up second process */
     int firstChild = fork();
@@ -45,7 +63,7 @@ int main(int args, char *argv[]) {
         char *areaPath = (char *) malloc(sizeof(char) * BUFFER);
         char *tempArea = "./area";
 
-        printf("Child1: pid %d, ppid %d ", var1,getppid());
+        printf("Child1: pid %d, ppid %d ", var1, getppid());
         grabCurrentPath();
         /* Append file name on the end of directory */
         strcpy(areaPath, cwd);
@@ -76,10 +94,10 @@ int main(int args, char *argv[]) {
         strcat(perimeterPath, PERIMETER_NAME);
 
         pid_t var2 = getpid();
-        printf("Child2: pid = %d, ppid %d ", var2,getppid());
+        printf("Child2: pid = %d, ppid %d ", var2, getppid());
         fflush(stdout);
         int val = execl(perimeterPath, tempPerimeter, argv[1], argv[2], (char *) NULL);
-        printf("%d",val);
+        printf("%d", val);
     }
 
     //Example: "Child1: pid 39810, ppid 39809, area is 50"
@@ -87,9 +105,18 @@ int main(int args, char *argv[]) {
     printf("Parent ID = %d \n", var1);
     /* execl perimeter.c (print parent + child pid with x1,x2, print output, exit) */
 
-
-
     /* Parent makes two threads */
+    /* Each thread will print its own tig and the result of the
+       calculation/reversal to standard output before returning result to the parent */
+    double *ratioFromThread = NULL;
+    pthread_create(&thread1, NULL, &threadRatio, (void *) data);
+    printf("Main Thread ID is %ld\n", thread1);
+    pthread_join(thread1, (void **) &ratioFromThread);
+    /* Not exactly good design but threadRatio allocates memory when called so the return
+     * value must be freed */
+    free(ratioFromThread);
+
+
     return 0;
 }
 
