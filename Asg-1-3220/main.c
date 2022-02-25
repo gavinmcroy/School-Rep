@@ -15,15 +15,21 @@ void *threadRatio(void *passTheStruct) {
     Data *data = (Data *) passTheStruct;
     double *memory = (double *) malloc(sizeof(double));
     *memory = (data->x1 / (double) data->x2);
-    printf("Result of Ratio Function %lf ID is %ld\n",*memory,pthread_self());
+    printf("Thread 1: tig %ld, ratio is %.2lf\n", pthread_self(), *memory);
     pthread_exit((void *) memory);
 }
 
-void * stringReversal(void * passTheStruct){
-    Data * data = (Data*)passTheStruct;
-    for(int i = strlen(data->string)-1; i >=0; i--){
-        printf("%c",data->string[i]);
+void *stringReversal(void *passTheStruct) {
+    Data *data = (Data *) passTheStruct;
+    char *reverseString = (char *) malloc(sizeof(char) * strlen(data->string));
+    int secondaryCount = 0;
+    for (int i = strlen(data->string) - 1; i >= 0; i--) {
+        reverseString[secondaryCount] = data->string[i];
+        secondaryCount++;
     }
+    reverseString[secondaryCount + 1] = '\0';
+    printf("Thread 2: tig %ld, message is %s\n", pthread_self(), reverseString);
+    pthread_exit((void *) reverseString);
 }
 
 char cwd[PATH_MAX];
@@ -102,19 +108,26 @@ int main(int args, char *argv[]) {
 
     //Example: "Child1: pid 39810, ppid 39809, area is 50"
     wait(NULL);
-    printf("Parent ID = %d \n", var1);
+    printf("\n");
     /* execl perimeter.c (print parent + child pid with x1,x2, print output, exit) */
 
     /* Parent makes two threads */
     /* Each thread will print its own tig and the result of the
        calculation/reversal to standard output before returning result to the parent */
     double *ratioFromThread = NULL;
+    char *reverseStringFromThread = NULL;
     pthread_create(&thread1, NULL, &threadRatio, (void *) data);
-    printf("Main Thread ID is %ld\n", thread1);
+    pthread_create(&thread2, NULL, &stringReversal, (void *) data);
     pthread_join(thread1, (void **) &ratioFromThread);
+    pthread_join(thread2, (void **) &reverseStringFromThread);
+
+
+    printf("\nParent: pid %d, ratio: %.2lf, message: %s\n", var1, *ratioFromThread, reverseStringFromThread);
+
     /* Not exactly good design but threadRatio allocates memory when called so the return
-     * value must be freed */
+ * value must be freed */
     free(ratioFromThread);
+    free(reverseStringFromThread);
 
 
     return 0;
