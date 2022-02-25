@@ -50,20 +50,21 @@ int main(int args, char *argv[]) {
         printf("Child ID1 = %d \n", var1);
         grabCurrentPath();
         /* Append file name on the end of directory */
-        strcpy(areaPath,cwd);
-        strcpy(perimeterPath,cwd);
+        strcpy(areaPath, cwd);
+        strcpy(perimeterPath, cwd);
         strcat(areaPath, AREA_NAME);
-        strcat(perimeterPath,PERIMETER_NAME);
+        strcat(perimeterPath, PERIMETER_NAME);
 
         printf("%s", areaPath);
         /* This fork is for the second child of parent */
-//        int secondChild = fork();
-//
-//        if (secondChild == 0) {
-//            pid_t var2 = getpid();
-//            printf("Child ID2 = %d \n", var2);
-//            // execl()
-//        }
+        int secondChild = fork();
+
+        if (secondChild == 0) {
+            pid_t var2 = getpid();
+            printf("\nChild ID2 = %d \n", var2);
+            execl(perimeterPath, tempPerimeter, argv[1], argv[2], (char *) NULL);
+        }
+        wait(NULL);
         /* This is the first child being ran */
         execl(areaPath, tempArea, argv[1], argv[2], (char *) (NULL));
 
