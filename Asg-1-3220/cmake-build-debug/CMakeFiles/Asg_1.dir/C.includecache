@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Asg-1-3220/main.c
+stdio.h
+-
+stdlib.h
+-
+unistd.h
+-
+limits.h
+-
+string.h
+-
+pthread.h
+-
+
