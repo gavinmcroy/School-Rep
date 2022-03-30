@@ -26,7 +26,7 @@ int main(int args, char *argv[]) {
 //        printf("%d %d\n", begin->arrival_time, begin->service_time);
 //    }
 
-    printFinalResult("FIFO scheduling results\n");
+    printFinalResult("FIFO scheduling results\n\n");
     //runScheduler(scheduleNumber);
     //saveFile(outputFile);
 
@@ -38,10 +38,10 @@ int validScheduleName(char *scheduleInput) {
         //printf("FIFO_NAME \n");
         return FIFO_SCHED;
     } else if (strcmp(scheduleInput, SJF_NAME) == 0) {
-       // printf("SJF_NAME \n");
+        // printf("SJF_NAME \n");
         return SJF_SCHED;
     } else if (strcmp(scheduleInput, RR_NAME) == 0) {
-       // printf("RR_NAME \n");
+        // printf("RR_NAME \n");
         return RR_SCHED;
     } else {
         fprintf(stderr, "Error invalid scheduling option. Did you include \"-\" (Ex. -fifo not fifo) \n");
@@ -99,8 +99,20 @@ void runScheduler(int schedule) {
 }
 
 //time  cpu ready queue (tid/rst)
-void printFinalResult(char * scheduleName) {
-    printf("%s",scheduleName);
+void printFinalResult(char *scheduleName) {
+    /* First table template */
+    printf("%s", scheduleName);
+    printf("%-6s %-4s %-6s %-6s (tid/rst)\n","time","cpu","ready","queue");
+    printf("-------------------------------\n");
+    printf("%3d %5s %5s\n",0,"AB","--");
+
+    /* Second table template */
+    printf("\n\n");
+    printf("%14s %9s %12s %9s %5s","arrival","service","completion","response","wait");
+    printf("\n");
+    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n","tid","time","time","time","time","time");
+    printf("--------------------------------------------------\n");
+
 }
 
 void FIFO() {
