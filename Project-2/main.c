@@ -4,7 +4,6 @@
 #include "sched.h"
 
 /*  ./a.out <scheduling> <input> <outfile> */
-//TODO Handle errors by asking user to re-enter CLA
 int main(int args, char *argv[]) {
     const int EXPECTED_ARGS = 4;
     struct task *head = NULL;
@@ -20,44 +19,88 @@ int main(int args, char *argv[]) {
         exit(1);
     }
 
-    loadInput(inputFile, head);
+    head = loadInput(inputFile);
+
+    /* Testing linked list to ensure proper construction */
+//    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+//        printf("%d %d\n", begin->arrival_time, begin->service_time);
+//    }
+
+    printFinalResult("FIFO scheduling results\n");
     //runScheduler(scheduleNumber);
+    //saveFile(outputFile);
 
 }
 
 /* Ensures proper schedule names are passed in. */
 int validScheduleName(char *scheduleInput) {
     if (strcmp(scheduleInput, FIFO_NAME) == 0) {
-        printf("FIFO_NAME \n");
-        return 1;
+        //printf("FIFO_NAME \n");
+        return FIFO_SCHED;
     } else if (strcmp(scheduleInput, SJF_NAME) == 0) {
-        printf("SJF_NAME \n");
-        return 2;
+       // printf("SJF_NAME \n");
+        return SJF_SCHED;
     } else if (strcmp(scheduleInput, RR_NAME) == 0) {
-        printf("RR_NAME \n");
-        return 3;
+       // printf("RR_NAME \n");
+        return RR_SCHED;
     } else {
         fprintf(stderr, "Error invalid scheduling option. Did you include \"-\" (Ex. -fifo not fifo) \n");
         return 0;
     }
 }
 
-bool loadInput(char *in, struct task *list) {
+struct task *loadInput(char *in) {
+    struct task *head = NULL;
     FILE *inFile = fopen(in, "r+");
     if (!inFile) {
         fprintf(stderr, "Error invalid input file\n");
         exit(1);
     }
-    int x = 0;
-    int y = 0;
-    while (fscanf(inFile, "%d %d", &x, &y) != EOF) {
-        //memory allocation shit
-        printf("%d %d\n", x, y);
+    int arrival = 0;
+    int service = 0;
+
+    /* we build the link list and read in all the data */
+    bool first = true;
+    struct task *temp = NULL;
+    while (fscanf(inFile, "%d %d", &arrival, &service) != EOF) {
+        struct task *node = (struct task *) malloc(sizeof(struct task));
+        node->arrival_time = arrival;
+        node->service_time = service;
+        if (first) {
+            head = node;
+            temp = node;
+            first = false;
+        } else {
+            temp->next = node;
+            temp = node;
+            node->next = NULL;
+        }
     }
 
     fclose(inFile);
+    return head;
+}
 
-    return true;
+/* TODO implement function (prints final result to file in proper format) */
+void saveFile(char *out) {
+    FILE *open = fopen(out, "w+");
+    fprintf(open, "testing output");
+}
+
+/* TODO implement function (chooses which scheduler to run)*/
+void runScheduler(int schedule) {
+    if (schedule == FIFO_SCHED) {
+        FIFO();
+    } else if (schedule == SJF_SCHED) {
+        SJF();
+    } else if (schedule == RR_SCHED) {
+        RR();
+    }
+}
+
+//time  cpu ready queue (tid/rst)
+void printFinalResult(char * scheduleName) {
+    printf("%s",scheduleName);
 }
 
 void FIFO() {

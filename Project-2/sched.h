@@ -20,10 +20,19 @@ struct task {
 const char *FIFO_NAME = "-fifo";
 const char *SJF_NAME = "-sjf";
 const char *RR_NAME = "-rr";
+const int FIFO_SCHED = 1;
+const int SJF_SCHED = 2;
+const int RR_SCHED = 3;
 
 int validScheduleName(char * scheduleInput);
 
-bool loadInput(char * in, struct task * list);
+struct task * loadInput(char * in);
+
+void saveFile(char * out);
+
+void runScheduler(int schedule);
+
+void printFinalResult();
 
 void FIFO();
 
