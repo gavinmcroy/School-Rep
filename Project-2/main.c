@@ -61,6 +61,7 @@ struct task *loadInput(char *in) {
         node->arrival_time = arrival;
         node->service_time = service;
         node->task_id = startLetter;
+        node->isProcessed = false;
         if (first) {
             head = node;
             temp = node;
@@ -113,30 +114,45 @@ void printFinalResult(char *scheduleName) {
 
 void FIFO(struct task *head) {
     /* We need to loop through all the work */
+    int time = 0;
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         /* We have a task, we now are searching for its start time */
         bool startProcessing = false;
         int conditionCount = begin->service_time;
         /* This loop must break once the schedule is complete. We need to build a run queue */
-        for (int time = 0; time < INT_MAX; time++) {
+        for (; time < INT_MAX; time++) {
             /* this prevents an extra new line in the beginning */
-            if(time == 0){
-                printf("%d ",time);
-            }else{
+            if (time == 0) {
+                printf("%d ", time);
+            } else {
                 printf("\n%d ", time);
             }
             /* is the time moment at which it arrives, service time is run length */
 
-            /* Once our arrival times match we begin processing */
-            if (head->arrival_time == time) {
+            /* Once our arrival times match we begin processing. TODO this is prone to bugs */
+            if (begin->arrival_time <= time) {
                 startProcessing = true;
             }
 
+            /* We need to build a queue list for which tasks are queuing up */
             if (startProcessing) {
                 /* Task then begins processing */
-                printf(" %c%d", begin->task_id, conditionCount);
+                begin->isProcessed = true;
+                printf(" %c%d ", begin->task_id, conditionCount);
+
+                /* We need to figure out what is getting queued up */
+//                for (struct task *queue = begin; queue != NULL; queue = begin->next) {
+//                    if (time >= queue->arrival_time && !queue->isProcessed) {
+//                        printf("%c%d", queue->task_id, queue->service_time);
+//                    }
+//                }
+
                 if (conditionCount == 1) {
                     startProcessing = false;
+                    /* This is confusing to explain, but the loop will terminate before time is incremented.
+                     * This ensures time is incremented even when the loop closes, since its counter must not
+                     * be reset */
+                    time++;
                     break;
                 }
                 conditionCount -= 1;

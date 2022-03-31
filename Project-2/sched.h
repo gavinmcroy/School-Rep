@@ -14,6 +14,7 @@ struct task {
             completion_time,
             response_time,
             wait_time;
+    bool isProcessed;
     struct task *next;
 };
 
