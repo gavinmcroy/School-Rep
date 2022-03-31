@@ -20,15 +20,8 @@ int main(int args, char *argv[]) {
     }
 
     head = loadInput(inputFile);
-
-    /* Testing linked list to ensure proper construction */
-//    for (struct task *begin = head; begin != NULL; begin = begin->next) {
-//        printf("%d %d\n", begin->arrival_time, begin->service_time);
-//    }
-
-    printFinalResult("FIFO scheduling results\n\n");
-    //runScheduler(scheduleNumber);
-    //saveFile(outputFile);
+    runScheduler(scheduleNumber, head);
+    //printFinalResult("FIFO scheduling results\n\n");
 
 }
 
@@ -62,10 +55,12 @@ struct task *loadInput(char *in) {
     /* we build the link list and read in all the data */
     bool first = true;
     struct task *temp = NULL;
+    int startLetter = 'A';
     while (fscanf(inFile, "%d %d", &arrival, &service) != EOF) {
         struct task *node = (struct task *) malloc(sizeof(struct task));
         node->arrival_time = arrival;
         node->service_time = service;
+        node->task_id = startLetter;
         if (first) {
             head = node;
             temp = node;
@@ -75,6 +70,7 @@ struct task *loadInput(char *in) {
             temp = node;
             node->next = NULL;
         }
+        startLetter++;
     }
 
     fclose(inFile);
@@ -88,9 +84,9 @@ void saveFile(char *out) {
 }
 
 /* TODO implement function (chooses which scheduler to run)*/
-void runScheduler(int schedule) {
+void runScheduler(int schedule, struct task *head) {
     if (schedule == FIFO_SCHED) {
-        FIFO();
+        FIFO(head);
     } else if (schedule == SJF_SCHED) {
         SJF();
     } else if (schedule == RR_SCHED) {
@@ -102,21 +98,51 @@ void runScheduler(int schedule) {
 void printFinalResult(char *scheduleName) {
     /* First table template */
     printf("%s", scheduleName);
-    printf("%-6s %-4s %-6s %-6s (tid/rst)\n","time","cpu","ready","queue");
+    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
     printf("-------------------------------\n");
-    printf("%3d %5s %5s\n",0,"AB","--");
+    printf("%3d %5s %5s\n", 0, "AB", "--");
 
     /* Second table template */
     printf("\n\n");
-    printf("%14s %9s %12s %9s %5s","arrival","service","completion","response","wait");
+    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
     printf("\n");
-    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n","tid","time","time","time","time","time");
+    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
     printf("--------------------------------------------------\n");
 
 }
 
-void FIFO() {
+void FIFO(struct task *head) {
+    /* We need to loop through all the work */
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        /* We have a task, we now are searching for its start time */
+        bool startProcessing = false;
+        int conditionCount = begin->service_time;
+        /* This loop must break once the schedule is complete. We need to build a run queue */
+        for (int time = 0; time < INT_MAX; time++) {
+            /* this prevents an extra new line in the beginning */
+            if(time == 0){
+                printf("%d ",time);
+            }else{
+                printf("\n%d ", time);
+            }
+            /* is the time moment at which it arrives, service time is run length */
 
+            /* Once our arrival times match we begin processing */
+            if (head->arrival_time == time) {
+                startProcessing = true;
+            }
+
+            if (startProcessing) {
+                /* Task then begins processing */
+                printf(" %c%d", begin->task_id, conditionCount);
+                if (conditionCount == 1) {
+                    startProcessing = false;
+                    break;
+                }
+                conditionCount -= 1;
+            }
+        }
+    }
 }
 
 void SJF() {

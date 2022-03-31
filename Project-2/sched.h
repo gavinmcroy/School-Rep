@@ -24,17 +24,17 @@ const int FIFO_SCHED = 1;
 const int SJF_SCHED = 2;
 const int RR_SCHED = 3;
 
-int validScheduleName(char * scheduleInput);
+int validScheduleName(char *scheduleInput);
 
-struct task * loadInput(char * in);
+struct task *loadInput(char *in);
 
-void saveFile(char * out);
+void saveFile(char *out);
 
-void runScheduler(int schedule);
+void runScheduler(int schedule, struct task *head);
 
 void printFinalResult();
 
-void FIFO();
+void FIFO(struct task *head);
 
 void SJF();
 
