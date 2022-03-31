@@ -138,14 +138,14 @@ void FIFO(struct task *head) {
             if (startProcessing) {
                 /* Task then begins processing */
                 begin->isProcessed = true;
-                printf(" %c%d ", begin->task_id, conditionCount);
+                printf(" %c%d", begin->task_id, conditionCount);
 
-                /* We need to figure out what is getting queued up */
-//                for (struct task *queue = begin; queue != NULL; queue = begin->next) {
-//                    if (time >= queue->arrival_time && !queue->isProcessed) {
-//                        printf("%c%d", queue->task_id, queue->service_time);
-//                    }
-//                }
+                /* We need to figure out the queue list */
+                for (struct task *queue = begin; queue != NULL; queue = queue->next) {
+                    if (queue->arrival_time <= time && !queue->isProcessed) {
+                        printf(" %c%d", queue->task_id, queue->service_time);
+                    }
+                }
 
                 if (conditionCount == 1) {
                     startProcessing = false;
