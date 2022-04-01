@@ -148,10 +148,15 @@ void FIFO(struct task *head) {
 
                 /* We need to figure out the queue list */
                 bool didItPrint = false;
+                bool appendComma = false;
                 for (struct task *queue = begin; queue != NULL; queue = queue->next) {
                     if (queue->arrival_time <= time && !queue->isProcessed) {
+                        if (appendComma) {
+                            printf(",");
+                        }
                         printf(" %3c%d", queue->task_id, queue->service_time);
                         didItPrint = true;
+                        appendComma = true;
                     }
                 }
                 /* This handles the dashes that go above the queue */
@@ -200,6 +205,10 @@ void FIFO(struct task *head) {
 
 /* This is preemptive so this might take some creativity */
 void SJF(struct task *head) {
+    printf("SJF scheduling results\n\n");
+    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    printf("-------------------------------------\n");
+
     /* This is essentially an infinite loop */
     for (int time = 0; time < INT_MAX; time++) {
         /* if everything is finished, break */
@@ -208,9 +217,9 @@ void SJF(struct task *head) {
         }
         /* Solely for formatting */
         if (time == 0) {
-            printf("%d", time);
+            printf("  %-4d", time);
         } else {
-            printf("\n%d", time);
+            printf("\n  %-4d", time);
         }
 
         /* We find the shortest job */
@@ -219,13 +228,15 @@ void SJF(struct task *head) {
         /* We found an optimal job, so process one tick */
         if (optimalJob) {
             /* Print the id + service, and queued jobs behind it */
-            printf(" %c%d", optimalJob->task_id, optimalJob->service_time);
+            printf("  %c%-3d", optimalJob->task_id, optimalJob->service_time);
             SJF_buildQueue(time, head, optimalJob);
             /* If this job is finished, mark it as finished, else tick by one */
             optimalJob->service_time--;
             if (optimalJob->service_time == 0) {
                 optimalJob->isProcessed = true;
             }
+        }else{
+            printf("%9s","--");
         }
     }
 }
@@ -257,16 +268,27 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
 void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
     optimal->addedToQueue = true;
     /* Search the entire data structure */
+    bool addComma = false;
+    bool addDash = true;
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         for (struct task *i = begin; i != NULL; i = i->next) {
             /* If a job is within the proper arrival time, not processed and not printed */
             if ((i->arrival_time <= time) && !i->isProcessed && !i->addedToQueue && (begin->service_time >=
                                                                                      i->service_time)) {
-                printf(" %c%d", i->task_id, i->service_time);
+                if (addComma) {
+                    printf(",");
+                }
+                printf("%2c%d", i->task_id, i->service_time);
+                addComma = true;
+                addDash = false;
                 i->addedToQueue = true;
             }
         }
     }
+    if (addDash) {
+        printf(" --");
+    }
+
     /* We then reset everything back to out of the queue */
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         begin->addedToQueue = false;
