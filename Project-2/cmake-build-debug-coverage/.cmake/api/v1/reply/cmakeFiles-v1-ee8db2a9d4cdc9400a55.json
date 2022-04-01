@@ -16,7 +16,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeSystem.cmake"
+			"path" : "cmake-build-debug-coverage/CMakeFiles/3.21.1/CMakeSystem.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -260,7 +260,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
+			"path" : "cmake-build-debug-coverage/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -334,7 +334,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeRCCompiler.cmake"
+			"path" : "cmake-build-debug-coverage/CMakeFiles/3.21.1/CMakeRCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -413,7 +413,7 @@
 		},
 		{
 			"isGenerated" : true,
-			"path" : "cmake-build-debug/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
+			"path" : "cmake-build-debug-coverage/CMakeFiles/3.21.1/CMakeCCompiler.cmake"
 		},
 		{
 			"isCMake" : true,
@@ -424,7 +424,7 @@
 	"kind" : "cmakeFiles",
 	"paths" : 
 	{
-		"build" : "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/Project-2/cmake-build-debug",
+		"build" : "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/Project-2/cmake-build-debug-coverage",
 		"source" : "C:/Users/Gavin T McRoy/Documents/GitHub/School-Rep/Project-2"
 	},
 	"version" : 

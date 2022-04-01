@@ -116,6 +116,9 @@ void printFinalResult(char *scheduleName) {
 
 /* TODO Finish formatting */
 void FIFO(struct task *head) {
+    printf("FIFO scheduling results\n\n");
+    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    printf("-------------------------------------\n");
     /* We need to loop through all the work */
     int time = 0;
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
@@ -126,9 +129,9 @@ void FIFO(struct task *head) {
         for (; time < INT_MAX; time++) {
             /* this prevents an extra new line in the beginning */
             if (time == 0) {
-                printf("%d ", time);
+                printf("%-5d", time);
             } else {
-                printf("\n%d ", time);
+                printf("\n%-5d", time);
             }
             /* is the time moment at which it arrives, service time is run length */
 
@@ -141,13 +144,19 @@ void FIFO(struct task *head) {
             if (startProcessing) {
                 /* Task then begins processing */
                 begin->isProcessed = true;
-                printf(" %c%d", begin->task_id, conditionCount);
+                printf("%3c%d", begin->task_id, conditionCount);
 
                 /* We need to figure out the queue list */
+                bool didItPrint = false;
                 for (struct task *queue = begin; queue != NULL; queue = queue->next) {
                     if (queue->arrival_time <= time && !queue->isProcessed) {
-                        printf(" %c%d", queue->task_id, queue->service_time);
+                        printf(" %3c%d", queue->task_id, queue->service_time);
+                        didItPrint = true;
                     }
+                }
+                /* This handles the dashes that go above the queue */
+                if(!didItPrint){
+                    printf("%5s","--");
                 }
 
                 if (conditionCount == 1) {
@@ -159,6 +168,8 @@ void FIFO(struct task *head) {
                     break;
                 }
                 conditionCount -= 1;
+            }else{
+                printf("%9s","--");
             }
         }
     }
