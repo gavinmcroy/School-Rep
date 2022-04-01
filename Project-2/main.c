@@ -215,7 +215,7 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
         /* This means a possible task has been found. But we must ensure it's the shortest task and unfinished */
         if (begin->arrival_time <= time && !begin->isProcessed) {
             /* We need to then ensure this job is optimal. */
-            if(!optimalJob){
+            if (!optimalJob) {
                 optimalJob = begin;
             }
             /* Locate the shortest service time */
@@ -230,25 +230,17 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
     return optimalJob;
 }
 
-/* TODO Not printing in order */
+/* TODO Queue not printing in correct order */
 void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
     optimal->addedToQueue = true;
     /* Search the entire data structure */
-    struct task *optimalJob = NULL;
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        /* This means a possible task has been found. But we must ensure it's the shortest task and unfinished */
-        if (begin->arrival_time <= time && !begin->isProcessed) {
-            /* We need to then ensure this job is optimal. */
-            if(!optimalJob){
-                optimalJob = begin;
-            }
-            /* Locate the shortest service time */
-            for (struct task *i = begin; i != NULL; i = i->next) {
-                /* If a job is within the proper arrival time, and not printed */
-                if (i->arrival_time <= time && !i->isProcessed && !i->addedToQueue) {
-                    printf(" %c%d", i->task_id, i->service_time);
-                    i->addedToQueue = true;
-                }
+        for (struct task *i = begin; i != NULL; i = i->next) {
+            /* If a job is within the proper arrival time, not processed and not printed */
+            if ((i->arrival_time <= time) && !i->isProcessed && !i->addedToQueue && (begin->service_time >=
+                                                                                     i->service_time)) {
+                printf(" %c%d", i->task_id, i->service_time);
+                i->addedToQueue = true;
             }
         }
     }
