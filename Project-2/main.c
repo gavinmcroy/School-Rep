@@ -155,8 +155,8 @@ void FIFO(struct task *head) {
                     }
                 }
                 /* This handles the dashes that go above the queue */
-                if(!didItPrint){
-                    printf("%5s","--");
+                if (!didItPrint) {
+                    printf("%5s", "--");
                 }
 
                 if (conditionCount == 1) {
@@ -164,15 +164,38 @@ void FIFO(struct task *head) {
                     /* This is confusing to explain, but the loop will terminate before time is incremented.
                      * This ensures time is incremented even when the loop closes, since its counter must not
                      * be reset */
+                    begin->completion_time = time + 1;
                     time++;
                     break;
                 }
                 conditionCount -= 1;
-            }else{
-                printf("%9s","--");
+            } else {
+                printf("%9s", "--");
             }
         }
     }
+
+    printf("\n\n");
+    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    printf("\n");
+    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    printf("--------------------------------------------------\n");
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        begin->response_time = begin->completion_time - begin->arrival_time;
+        begin->wait_time = begin->response_time - begin->service_time;
+        printf("%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
+               begin->completion_time, begin->response_time, begin->wait_time);
+    }
+
+
+    printf("\n \n%s %10s ", "service", "wait");
+    printf("\n");
+    printf("%5s %12s \n", "time", "time");
+    printf("-------      ------\n");
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        printf("%4d %11d\n", begin->service_time, begin->wait_time);
+    }
+
 }
 
 /* This is preemptive so this might take some creativity */
