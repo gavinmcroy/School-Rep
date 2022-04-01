@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Project-2/main.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+limits.h
+-
+sched.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Project-2/sched.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/Project-2/sched.h
+stdbool.h
+-
+

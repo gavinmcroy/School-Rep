@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <limits.h>
 #include "sched.h"
 
 /*  ./a.out <scheduling> <input> <outfile> */
@@ -251,26 +252,26 @@ void RR(struct task *head) {
         }
 
         /* Solely for formatting */
-        if(counter == 0){
+        if (counter == 0) {
             printf("%d ", counter);
-        }else{
+        } else {
             printf("\n%d ", counter);
         }
 
+        /* process every ask under over the arrival time until all tasks are finished*/
         /* if it's not processed and within proper time bounds, we found something to process until switch */
         if (!next->isProcessed && next->arrival_time <= counter) {
             /* Process until we switch */
-            while(RR_ableToProcess(head,next,counter)) {
-                printf("%c",next->task_id);
-                /* handle queue */
-                next->service_time--;
-                counter++;
-                if (next->service_time == 0) {
-                    next->isProcessed = true;
-                }
+            printf("%c", next->task_id);
+            /* handle queue */
+            next->service_time--;
+            counter++;
+            if (next->service_time == 0) {
+                next->isProcessed = true;
             }
+            
         }/* there is nothing to process, so tick */
-        else{
+        else {
             counter++;
         }
 
@@ -279,11 +280,9 @@ void RR(struct task *head) {
     }
 }
 
-bool RR_ableToProcess(struct task * head,struct task * node, int time){
+bool RR_ableToProcess(struct task *head, struct task *node, int time) {
     /* If its the last node */
-
-     if(node->arrival_time)
-    return false;
+    /* just find the next task */
 }
 
 /* this is how we break out the infinite loop, if all tasks are processed return false */
