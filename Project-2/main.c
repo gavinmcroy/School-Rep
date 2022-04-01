@@ -170,11 +170,24 @@ void SJF(struct task *head) {
         if (SJF_isFinished(head)) {
             break;
         }
+        /* Solely for formatting */
+        if (time == 0) {
+            printf("%d", time);
+        } else {
+            printf("\n%d", time);
+        }
 
+        /* We find the shortest job */
         struct task *optimalJob = SJF_pickOptimalJob(time, head);
-        if(optimalJob){
-            printf("%d %c\n", time,optimalJob->task_id);
-            break;
+
+        /* We found an optimal job, so process one tick */
+        if (optimalJob) {
+            printf(" %c%d", optimalJob->task_id, optimalJob->service_time);
+            /* If this job is finished, mark it as finished, else tick by one */
+            optimalJob->service_time--;
+            if (optimalJob->service_time == 0) {
+                optimalJob->isProcessed = true;
+            }
         }
     }
 }
@@ -196,14 +209,14 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
     /* Search the entire data structure */
     struct task *optimalJob = NULL;
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        /* This means a possible task has been found. But we must ensure it's the shortest task*/
-        if (begin->arrival_time <= time) {
+        /* This means a possible task has been found. But we must ensure it's the shortest task and unfinished */
+        if (begin->arrival_time <= time && !begin->isProcessed) {
             /* We need to then ensure this job is optimal. */
             optimalJob = begin;
             /* Locate the shortest service time */
             for (struct task *i = begin; i != NULL; i = i->next) {
                 /* If a job is within the proper arrival time and its service time  is shorter, its optimal */
-                if (i->arrival_time <= time && optimalJob->service_time > i->service_time) {
+                if (i->arrival_time <= time && optimalJob->service_time > i->service_time && !i->isProcessed) {
                     optimalJob = i;
                 }
             }
@@ -212,7 +225,7 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
     return optimalJob;
 }
 
-void SJF_buildQueue(){
+void SJF_buildQueue() {
 
 }
 
