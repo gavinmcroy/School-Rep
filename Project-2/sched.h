@@ -46,7 +46,7 @@ void SJF_buildQueue(int time, struct task * head,struct task *optimal);
 
 void RR(struct task *head);
 
-bool RR_ableToProcess(struct task * head, struct task * node, int time);
+struct task * RR_findNextTask(struct task * head, int time);
 
 bool isFinished(struct task * head);
 

@@ -247,9 +247,6 @@ void RR(struct task *head) {
     /* While it isn't finished, keep looping */
     while (!isFinished(head)) {
         /* Once we go all the way through the list, restart at the beginning */
-        if (next == NULL) {
-            next = head;
-        }
 
         /* Solely for formatting */
         if (counter == 0) {
@@ -258,31 +255,30 @@ void RR(struct task *head) {
             printf("\n%d ", counter);
         }
 
-        /* process every ask under over the arrival time until all tasks are finished*/
-        /* if it's not processed and within proper time bounds, we found something to process until switch */
-        if (!next->isProcessed && next->arrival_time <= counter) {
-            /* Process until we switch */
-            printf("%c", next->task_id);
-            /* handle queue */
-            next->service_time--;
-            counter++;
-            if (next->service_time == 0) {
-                next->isProcessed = true;
-            }
-            
-        }/* there is nothing to process, so tick */
-        else {
-            counter++;
+        /* if it's not processed and within proper time bounds, we found something to process */
+        /* The problem right now is we search from the same starting point, so its behaving like FIFO */
+        struct task *process = RR_findNextTask(head, counter);
+        if (process) {
+            printf("%c%d", process->task_id, process->service_time);
+            /* tick by one */
+            process->service_time--;
         }
-
-        /* tick next time and move to the next node in the list */
-        next = next->next;
+        counter++;
     }
+
 }
 
-bool RR_ableToProcess(struct task *head, struct task *node, int time) {
-    /* If its the last node */
-    /* just find the next task */
+/* This is going to find the next task for our round robin */
+struct task *RR_findNextTask(struct task *head, int time) {
+    for (struct task *next = head; next != NULL; next = next->next)
+        if (!next->isProcessed && next->arrival_time <= time) {
+            if (next->service_time == 0) {
+                next->isProcessed = true;
+                continue;
+            }
+            return next;
+        }
+    return NULL;
 }
 
 /* this is how we break out the infinite loop, if all tasks are processed return false */
