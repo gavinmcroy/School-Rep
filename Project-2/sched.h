@@ -37,9 +37,9 @@ void printFinalResult();
 
 void FIFO(struct task *head);
 
-void SJF();
+void SJF(struct task *head);
 
-void RR();
+void RR(struct task *head);
 
 
 #endif //PROJECT_2_SCHED_H
