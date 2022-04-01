@@ -349,7 +349,9 @@ void RR(struct task *head) {
 
         /* TODO The problem with this is when it can't find another task, null is returned. It doesn't know
          * where it left off. */
+        printf("Round robin has finished execution p0 ");
         process = RR_findNextTask(starter, counter);
+        printf("Round robin has finished execution p1 ");
         /* We found a task, tick by one, and give it a new starting location one in front which is
          * basically taking the previous task and placing it in the back, and moving everything else up by one */
         if (process) {
@@ -360,6 +362,7 @@ void RR(struct task *head) {
         }
         counter++;
     }
+
 }
 
 /* Round robin is 20x easier if it's just a circular list */
@@ -391,6 +394,7 @@ struct task *RR_findNextTask(struct task *node, int time) {
     /* We assume we have a circular list, we basically go until we hit the beginning and search
      * for an optimal task. This allows us to begin at any point in the list */
     while (true) {
+       // printf("RR_findNextTask LOCKED %d", counter);
         if (!next->isProcessed && next->arrival_time <= time) {
             if (next->service_time == 0) {
                 next->isProcessed = true;
@@ -413,6 +417,7 @@ struct task *RR_smartPicker(struct task *node) {
     int counter = 0;
     /* cycle through elements and attempt to not pick itself*/
     while (true) {
+       // printf("RR_smartPicker Locked ");
         /* The only valid option is itself. */
         if (counter == 27) {
             return node;
