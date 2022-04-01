@@ -242,8 +242,10 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
 
 /* TODO go get lunch and implement round robin :D */
 void RR(struct task *head) {
-    struct task *next = head;
+    struct task *process;
+    struct task *starter = head;
     int counter = 0;
+    RR_setup(head);
     /* While it isn't finished, keep looping */
     while (!isFinished(head)) {
         /* Once we go all the way through the list, restart at the beginning */
@@ -255,22 +257,50 @@ void RR(struct task *head) {
             printf("\n%d ", counter);
         }
 
-        /* if it's not processed and within proper time bounds, we found something to process */
-        /* The problem right now is we search from the same starting point, so its behaving like FIFO */
-        struct task *process = RR_findNextTask(head, counter);
+        /* TODO The problem with this is when it can't find another task, null is returned. It doesn't know
+         * where it left off. */
+        process = RR_findNextTask(starter, counter);
+        /* We found a task, tick by one, and give it a new starting location one in front which is
+         * basically taking the previous task and placing it in the back, and moving everything else up by one */
         if (process) {
             printf("%c%d", process->task_id, process->service_time);
             /* tick by one */
             process->service_time--;
+            starter = starter->next;
         }
         counter++;
     }
-
 }
 
-/* This is going to find the next task for our round robin */
-struct task *RR_findNextTask(struct task *head, int time) {
-    for (struct task *next = head; next != NULL; next = next->next)
+/* Round robin is 20x easier if it's just a circular list */
+void RR_setup(struct task *head) {
+    struct task *begin;
+    /* We are getting to the last element and then pointing it to the head creating a circular list*/
+    for (begin = head; begin != NULL; begin = begin->next) {
+        if (begin->next == NULL) {
+            break;
+        }
+    }
+    begin->next = head;
+    int check = 0;
+    for (begin = head; begin != NULL; begin = begin->next) {
+        if (begin == head) {
+            check++;
+        }
+        if (check == 5) {
+            printf("Circle list created \n");
+            break;
+        }
+    }
+}
+
+/* Node cannot be null */
+struct task *RR_findNextTask(struct task *node, int time) {
+    struct task *next = node->next;
+    int counter = 0;
+    /* We assume we have a circular list, we basically go until we hit the beginning and search
+     * for an optimal task. This allows us to begin at any point in the list */
+    while (true) {
         if (!next->isProcessed && next->arrival_time <= time) {
             if (next->service_time == 0) {
                 next->isProcessed = true;
@@ -278,7 +308,13 @@ struct task *RR_findNextTask(struct task *head, int time) {
             }
             return next;
         }
-    return NULL;
+        next = next->next;
+
+        counter++;
+        if(counter == 27){
+            return NULL;
+        }
+    }
 }
 
 /* this is how we break out the infinite loop, if all tasks are processed return false */
