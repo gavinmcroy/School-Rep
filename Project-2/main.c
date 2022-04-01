@@ -5,6 +5,8 @@
 #include "sched.h"
 
 /*  ./a.out <scheduling> <input> <outfile> */
+char *inputFile;
+
 int main(int args, char *argv[]) {
     const int EXPECTED_ARGS = 4;
     struct task *head = NULL;
@@ -12,7 +14,7 @@ int main(int args, char *argv[]) {
         exit(1);
     }
     char *schedule = argv[1];
-    char *inputFile = argv[2];
+    inputFile = argv[2];
     char *outputFile = argv[3];
 
     int scheduleNumber = validScheduleName(schedule);
@@ -233,11 +235,43 @@ void SJF(struct task *head) {
             /* If this job is finished, mark it as finished, else tick by one */
             optimalJob->service_time--;
             if (optimalJob->service_time == 0) {
+                optimalJob->completion_time = time + 1;
                 optimalJob->isProcessed = true;
             }
-        }else{
-            printf("%9s","--");
+        } else {
+            printf("%9s", "--");
         }
+    }
+
+    /* Unfortunately the way I built my project, I need to reset the linked list. And build it from scratch
+     * then print this table */
+    cleanUp();
+    struct task *head2 = loadInput(inputFile);
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        begin->arrival_time = head2->arrival_time;
+        begin->service_time = head2->service_time;
+        head2 = head2->next;
+    }
+
+
+    printf("\n\n");
+    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    printf("\n");
+    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    printf("--------------------------------------------------\n");
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        begin->response_time = begin->completion_time - begin->arrival_time;
+        begin->wait_time = begin->response_time - begin->service_time;
+        printf("%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
+               begin->completion_time, begin->response_time, begin->wait_time);
+    }
+
+    printf("\n \n%s %10s ", "service", "wait");
+    printf("\n");
+    printf("%5s %12s \n", "time", "time");
+    printf("-------      ------\n");
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        printf("%4d %11d\n", begin->service_time, begin->wait_time);
     }
 }
 
