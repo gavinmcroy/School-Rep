@@ -164,34 +164,93 @@ void FIFO(struct task *head) {
 
 /* This is preemptive so this might take some creativity */
 void SJF(struct task *head) {
-    int time = 0;
-    int temporaryStorage = head->service_time;
-    for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        for (; time < INT_MAX; time++) {
-            /* We need to know it's time to actually work on the process */
-            if (begin->service_time == 0) {
-                break;
-            }
+    /* This is essentially an infinite loop */
+    for (int time = 0; time < INT_MAX; time++) {
+        /* if everything is finished, break */
+        if (SJF_isFinished(head)) {
+            break;
+        }
 
-            /* This is solely for formatting */
-            if (time == 0) {
-                printf("%d ", time);
-            } else {
-                printf("\n%d ", time);
-            }
-
-
-            if (begin->arrival_time <= time) {
-                printf("%c%d", begin->task_id, begin->service_time);
-                begin->service_time--;
-            }
-
-            /* if finished break */
+        struct task *optimalJob = SJF_pickOptimalJob(time, head);
+        if(optimalJob){
+            printf("%d %c\n", time,optimalJob->task_id);
+            break;
         }
     }
 }
+
+/* this is how we break out the infinite loop, if all tasks are processed return false */
+bool SJF_isFinished(struct task *head) {
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        /* if something is not processed, false */
+        if (!begin->isProcessed) {
+            return false;
+        }
+    }
+    /* if everything is processed, true */
+    return true;
+}
+
+/* When given start time, it will search for an optimal job, if no job is found returns null */
+struct task *SJF_pickOptimalJob(int time, struct task *head) {
+    /* Search the entire data structure */
+    struct task *optimalJob = NULL;
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        /* This means a possible task has been found. But we must ensure it's the shortest task*/
+        if (begin->arrival_time <= time) {
+            /* We need to then ensure this job is optimal. */
+            optimalJob = begin;
+            /* Locate the shortest service time */
+            for (struct task *i = begin; i != NULL; i = i->next) {
+                /* If a job is within the proper arrival time and its service time  is shorter, its optimal */
+                if (i->arrival_time <= time && optimalJob->service_time > i->service_time) {
+                    optimalJob = i;
+                }
+            }
+        }
+    }
+    return optimalJob;
+}
+
+void SJF_buildQueue(){
+
+}
+
 
 /* TODO finish */
 void RR(struct task *head) {
 
 }
+
+/* if we want to destroy our data structure and reset as if the file was never read this is what we call */
+void cleanUp() {
+
+}
+
+
+
+//int time = 0;
+//for (struct task *begin = head; begin != NULL; begin = begin->next) {
+//// int temporaryStorage = begin->service_time;
+//for (; time < INT_MAX; time++) {
+///* If this particular task has no remaining work, end */
+//if (begin->service_time == 0) {
+//break;
+//}
+//
+///* This is solely for formatting */
+//if (time == 0) {
+//printf("%d ", time);
+//} else {
+//printf("\n%d ", time);
+//}
+//
+//
+//if (begin->arrival_time <= time) {
+//printf("%c%d", begin->task_id, begin->service_time);
+//begin->service_time--;
+//}
+//
+///* if finished break */
+//}
+//}

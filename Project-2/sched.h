@@ -39,7 +39,15 @@ void FIFO(struct task *head);
 
 void SJF(struct task *head);
 
+bool SJF_isFinished(struct task * head);
+
+struct task * SJF_pickOptimalJob(int time,struct task * head);
+
+void SJF_buildQueue();
+
 void RR(struct task *head);
+
+void cleanUp();
 
 
 #endif //PROJECT_2_SCHED_H
