@@ -185,7 +185,7 @@ void SJF(struct task *head) {
         if (optimalJob) {
             /* Print the id + service, and queued jobs behind it */
             printf(" %c%d", optimalJob->task_id, optimalJob->service_time);
-            //SJF_buildQueue(time, head, optimalJob);
+            SJF_buildQueue(time, head, optimalJob);
             /* If this job is finished, mark it as finished, else tick by one */
             optimalJob->service_time--;
             if (optimalJob->service_time == 0) {
@@ -215,7 +215,9 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
         /* This means a possible task has been found. But we must ensure it's the shortest task and unfinished */
         if (begin->arrival_time <= time && !begin->isProcessed) {
             /* We need to then ensure this job is optimal. */
-            optimalJob = begin;
+            if(!optimalJob){
+                optimalJob = begin;
+            }
             /* Locate the shortest service time */
             for (struct task *i = begin; i != NULL; i = i->next) {
                 /* If a job is within the proper arrival time and its service time  is shorter, its optimal */
@@ -228,6 +230,7 @@ struct task *SJF_pickOptimalJob(int time, struct task *head) {
     return optimalJob;
 }
 
+/* TODO Not printing in order */
 void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
     optimal->addedToQueue = true;
     /* Search the entire data structure */
@@ -236,7 +239,9 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
         /* This means a possible task has been found. But we must ensure it's the shortest task and unfinished */
         if (begin->arrival_time <= time && !begin->isProcessed) {
             /* We need to then ensure this job is optimal. */
-            optimalJob = begin;
+            if(!optimalJob){
+                optimalJob = begin;
+            }
             /* Locate the shortest service time */
             for (struct task *i = begin; i != NULL; i = i->next) {
                 /* If a job is within the proper arrival time, and not printed */
