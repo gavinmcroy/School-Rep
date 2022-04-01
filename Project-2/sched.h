@@ -15,6 +15,7 @@ struct task {
             response_time,
             wait_time;
     bool isProcessed;
+    bool addedToQueue;
     struct task *next;
 };
 
@@ -43,7 +44,7 @@ bool SJF_isFinished(struct task * head);
 
 struct task * SJF_pickOptimalJob(int time,struct task * head);
 
-void SJF_buildQueue();
+void SJF_buildQueue(int time, struct task * head,struct task *optimal);
 
 void RR(struct task *head);
 
