@@ -50,6 +50,8 @@ void RR_setup(struct task * head);
 
 struct task * RR_findNextTask(struct task * node, int time);
 
+struct task * RR_smartPicker(struct task * node);
+
 bool isFinished(struct task * head);
 
 void cleanUp();

@@ -266,7 +266,7 @@ void RR(struct task *head) {
             printf("%c%d", process->task_id, process->service_time);
             /* tick by one */
             process->service_time--;
-            starter = starter->next;
+            starter = RR_smartPicker(starter);
         }
         counter++;
     }
@@ -311,9 +311,28 @@ struct task *RR_findNextTask(struct task *node, int time) {
         next = next->next;
 
         counter++;
-        if(counter == 27){
+        /* This means it cannot find a valid solution */
+        if (counter == 27) {
             return NULL;
         }
+    }
+}
+
+struct task *RR_smartPicker(struct task *node) {
+    struct task *copy = node;
+    int counter = 0;
+    /* cycle through elements and attempt to not pick itself*/
+    while (true) {
+        /* The only valid option is itself. */
+        if (counter == 27) {
+            return node;
+        }
+        /* If the node is not a copy, and its not processed, pick it since that means its the next valid answer */
+        if (node != copy && !node->isProcessed) {
+            return node;
+        }
+        node = node->next;
+        counter++;
     }
 }
 
