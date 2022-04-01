@@ -168,7 +168,7 @@ void SJF(struct task *head) {
     /* This is essentially an infinite loop */
     for (int time = 0; time < INT_MAX; time++) {
         /* if everything is finished, break */
-        if (SJF_isFinished(head)) {
+        if (isFinished(head)) {
             break;
         }
         /* Solely for formatting */
@@ -193,18 +193,6 @@ void SJF(struct task *head) {
             }
         }
     }
-}
-
-/* this is how we break out the infinite loop, if all tasks are processed return false */
-bool SJF_isFinished(struct task *head) {
-    for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        /* if something is not processed, false */
-        if (!begin->isProcessed) {
-            return false;
-        }
-    }
-    /* if everything is processed, true */
-    return true;
 }
 
 /* When given start time, it will search for an optimal job, if no job is found returns null */
@@ -251,9 +239,63 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
 }
 
 
-/* TODO finish */
+/* TODO go get lunch and implement round robin :D */
 void RR(struct task *head) {
+    struct task *next = head;
+    int counter = 0;
+    /* While it isn't finished, keep looping */
+    while (!isFinished(head)) {
+        /* Once we go all the way through the list, restart at the beginning */
+        if (next == NULL) {
+            next = head;
+        }
 
+        /* Solely for formatting */
+        if(counter == 0){
+            printf("%d ", counter);
+        }else{
+            printf("\n%d ", counter);
+        }
+
+        /* if it's not processed and within proper time bounds, we found something to process until switch */
+        if (!next->isProcessed && next->arrival_time <= counter) {
+            /* Process until we switch */
+            while(RR_ableToProcess(head,next,counter)) {
+                printf("%c",next->task_id);
+                /* handle queue */
+                next->service_time--;
+                counter++;
+                if (next->service_time == 0) {
+                    next->isProcessed = true;
+                }
+            }
+        }/* there is nothing to process, so tick */
+        else{
+            counter++;
+        }
+
+        /* tick next time and move to the next node in the list */
+        next = next->next;
+    }
+}
+
+bool RR_ableToProcess(struct task * head,struct task * node, int time){
+    /* If its the last node */
+
+     if(node->arrival_time)
+    return false;
+}
+
+/* this is how we break out the infinite loop, if all tasks are processed return false */
+bool isFinished(struct task *head) {
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        /* if something is not processed, false */
+        if (!begin->isProcessed) {
+            return false;
+        }
+    }
+    /* if everything is processed, true */
+    return true;
 }
 
 /* if we want to destroy our data structure and reset as if the file was never read this is what we call */

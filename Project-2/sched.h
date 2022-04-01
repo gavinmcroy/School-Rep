@@ -40,13 +40,15 @@ void FIFO(struct task *head);
 
 void SJF(struct task *head);
 
-bool SJF_isFinished(struct task * head);
-
 struct task * SJF_pickOptimalJob(int time,struct task * head);
 
 void SJF_buildQueue(int time, struct task * head,struct task *optimal);
 
 void RR(struct task *head);
+
+bool RR_ableToProcess(struct task * head, struct task * node, int time);
+
+bool isFinished(struct task * head);
 
 void cleanUp();
 
