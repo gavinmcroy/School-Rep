@@ -339,25 +339,28 @@ void RR(struct task *head) {
     /* No matter what there is a passive ticking each iteration */
     int time = 0;
     for (; time < INT_MAX; time++) {
-        if(isFinished(head)){
+        if (isFinished(head)) {
             break;
         }
-        if(time == 0){
-            printf("%d",time);
-        }else{
-            printf("\n%d", time);
+        if (time == 0) {
+            printf("%2d", time);
+        } else {
+            printf("\n%2d", time);
         }
 
         bool secondPrint = false;
         for (struct task *begin = head; begin != NULL; begin = begin->next) {
             if (begin->arrival_time <= time && !begin->isProcessed) {
 
-                if(secondPrint){
+                if (secondPrint) {
                     time++;
-                    printf("\n%d %c%d ", time,begin->task_id, begin->service_time);
-                }else{
-                    printf(" %c%d ", begin->task_id, begin->service_time);
+                    printf("\n%d%6c%d ", time, begin->task_id, begin->service_time);
+                } else {
+                    printf("%6c%d ", begin->task_id, begin->service_time);
                 }
+
+                RR_buildQueue(head, begin, time);
+
 
                 begin->service_time--;
                 if (begin->service_time == 0) {
@@ -368,8 +371,29 @@ void RR(struct task *head) {
             }
         }
     }
+}
 
+void RR_buildQueue(struct task *head, struct task *currentElement, int time) {
+    struct task *temp = currentElement;
+    bool firstRun = true;
+    while (true) {
+        /* This is how we know we are on the last element */
+        if (currentElement == NULL) {
+            currentElement = head;
+        }
 
+        if (currentElement->arrival_time <= time && !currentElement->isProcessed &&
+            (currentElement->task_id != temp->task_id)) {
+            printf("%3c%d", currentElement->task_id, currentElement->service_time);
+        }
+
+        /* We iterated through the entire list */
+        if (currentElement->task_id == temp->task_id && !firstRun) {
+            break;
+        }
+        currentElement = currentElement->next;
+        firstRun = false;
+    }
 }
 
 /* this is how we break out the infinite loop, if all tasks are processed return false */

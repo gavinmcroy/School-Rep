@@ -46,6 +46,8 @@ void SJF_buildQueue(int time, struct task * head,struct task *optimal);
 
 void RR(struct task *head);
 
+void RR_buildQueue(struct task *head, struct task * currentElement, int time);
+
 bool isFinished(struct task * head);
 
 void cleanUp();
