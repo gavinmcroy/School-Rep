@@ -4,6 +4,8 @@
 #include <limits.h>
 #include "sched.h"
 
+/* Written by Gavin McRoy (gmcroy) */
+
 /*  ./a.out <scheduling> <input> <outfile> */
 char *inputFileName;
 char *outputFileName;
@@ -13,7 +15,10 @@ int main(int args, char *argv[]) {
     const int EXPECTED_ARGS = 4;
     struct task *head = NULL;
     if (args < EXPECTED_ARGS) {
+        fprintf(stderr,"Not enough arguments. Expected ./a.out <schedule> input.txt output.txt\n");
         exit(1);
+    }else if(args > EXPECTED_ARGS){
+        fprintf(stderr,"Too many arguments. Expected ./a.out <schedule> input.txt output.txt\n");
     }
     char *schedule = argv[1];
     inputFileName = argv[2];
@@ -52,7 +57,7 @@ struct task *loadInput(char *in) {
     struct task *head = NULL;
     FILE *inFile = fopen(in, "r+");
     if (!inFile) {
-        fprintf(stderr, "Error invalid input file\n");
+        fprintf(stderr, "Error invalid input file name. Try again \n");
         exit(1);
     }
     int arrival = 0;
