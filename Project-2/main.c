@@ -5,7 +5,9 @@
 #include "sched.h"
 
 /*  ./a.out <scheduling> <input> <outfile> */
-char *inputFile;
+char *inputFileName;
+char *outputFileName;
+FILE * outputFile;
 
 int main(int args, char *argv[]) {
     const int EXPECTED_ARGS = 4;
@@ -14,15 +16,16 @@ int main(int args, char *argv[]) {
         exit(1);
     }
     char *schedule = argv[1];
-    inputFile = argv[2];
-    char *outputFile = argv[3];
+    inputFileName = argv[2];
+    outputFileName = argv[3];
 
     int scheduleNumber = validScheduleName(schedule);
     if (!scheduleNumber) {
         exit(1);
     }
 
-    head = loadInput(inputFile);
+    head = loadInput(inputFileName);
+    outputFile = saveFile(outputFileName);
     runScheduler(scheduleNumber, head);
     //printFinalResult("FIFO scheduling results\n\n");
 
@@ -83,9 +86,14 @@ struct task *loadInput(char *in) {
 }
 
 /* TODO implement function (prints final result to file in proper format) */
-void saveFile(char *out) {
+FILE * saveFile(char *out) {
     FILE *open = fopen(out, "w+");
+    if(!open){
+        fprintf(stderr,"Error file was unable to be created \n");
+        exit(1);
+    }
     fprintf(open, "testing output");
+    return open;
 }
 
 /* TODO implement function (chooses which scheduler to run)*/
@@ -246,7 +254,7 @@ void SJF(struct task *head) {
     /* Unfortunately the way I built my project, I need to reset the linked list. And build it from scratch
      * then print this table */
     cleanUp();
-    struct task *head2 = loadInput(inputFile);
+    struct task *head2 = loadInput(inputFileName);
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         begin->arrival_time = head2->arrival_time;
         begin->service_time = head2->service_time;
@@ -385,7 +393,7 @@ void RR(struct task *head) {
     }
 
     cleanUp();
-    struct task *head2 = loadInput(inputFile);
+    struct task *head2 = loadInput(inputFileName);
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         begin->arrival_time = head2->arrival_time;
         begin->service_time = head2->service_time;

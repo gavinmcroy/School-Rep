@@ -30,7 +30,7 @@ int validScheduleName(char *scheduleInput);
 
 struct task *loadInput(char *in);
 
-void saveFile(char *out);
+FILE * saveFile(char *out);
 
 void runScheduler(int schedule, struct task *head);
 
