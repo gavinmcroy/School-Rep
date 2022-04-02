@@ -342,14 +342,16 @@ void RR(struct task *head) {
         if(isFinished(head)){
             break;
         }
-        printf("\n%d", time);
+        if(time == 0){
+            printf("%d",time);
+        }else{
+            printf("\n%d", time);
+        }
+
         bool secondPrint = false;
         for (struct task *begin = head; begin != NULL; begin = begin->next) {
             if (begin->arrival_time <= time && !begin->isProcessed) {
-                if (begin->service_time == 0) {
-                    begin->isProcessed = true;
-                    break;
-                }
+
                 if(secondPrint){
                     time++;
                     printf("\n%d %c%d ", time,begin->task_id, begin->service_time);
@@ -358,6 +360,10 @@ void RR(struct task *head) {
                 }
 
                 begin->service_time--;
+                if (begin->service_time == 0) {
+                    begin->isProcessed = true;
+                    break;
+                }
                 secondPrint = true;
             }
         }
