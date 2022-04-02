@@ -332,103 +332,38 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
 
 /* TODO go get lunch and implement round robin :D */
 void RR(struct task *head) {
-    struct task *process;
-    struct task *starter = head;
-    int counter = 0;
-    RR_setup(head);
-    /* While it isn't finished, keep looping */
-    while (!isFinished(head)) {
-        /* Once we go all the way through the list, restart at the beginning */
+    printf("RR scheduling results\n\n");
+    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    printf("-------------------------------------\n");
 
-        /* Solely for formatting */
-        if (counter == 0) {
-            printf("%d ", counter);
-        } else {
-            printf("\n%d ", counter);
-        }
-
-        /* TODO The problem with this is when it can't find another task, null is returned. It doesn't know
-         * where it left off. */
-        printf("Round robin has finished execution p0 ");
-        process = RR_findNextTask(starter, counter);
-        printf("Round robin has finished execution p1 ");
-        /* We found a task, tick by one, and give it a new starting location one in front which is
-         * basically taking the previous task and placing it in the back, and moving everything else up by one */
-        if (process) {
-            printf("%c%d", process->task_id, process->service_time);
-            /* tick by one */
-            process->service_time--;
-            starter = RR_smartPicker(starter);
-        }
-        counter++;
-    }
-
-}
-
-/* Round robin is 20x easier if it's just a circular list */
-void RR_setup(struct task *head) {
-    struct task *begin;
-    /* We are getting to the last element and then pointing it to the head creating a circular list*/
-    for (begin = head; begin != NULL; begin = begin->next) {
-        if (begin->next == NULL) {
+    /* No matter what there is a passive ticking each iteration */
+    int time = 0;
+    for (; time < INT_MAX; time++) {
+        if(isFinished(head)){
             break;
         }
-    }
-    begin->next = head;
-    int check = 0;
-    for (begin = head; begin != NULL; begin = begin->next) {
-        if (begin == head) {
-            check++;
-        }
-        if (check == 5) {
-            printf("Circle list created \n");
-            break;
-        }
-    }
-}
+        printf("\n%d", time);
+        bool secondPrint = false;
+        for (struct task *begin = head; begin != NULL; begin = begin->next) {
+            if (begin->arrival_time <= time && !begin->isProcessed) {
+                if (begin->service_time == 0) {
+                    begin->isProcessed = true;
+                    break;
+                }
+                if(secondPrint){
+                    time++;
+                    printf("\n%d %c%d ", time,begin->task_id, begin->service_time);
+                }else{
+                    printf(" %c%d ", begin->task_id, begin->service_time);
+                }
 
-/* Node cannot be null */
-struct task *RR_findNextTask(struct task *node, int time) {
-    struct task *next = node->next;
-    int counter = 0;
-    /* We assume we have a circular list, we basically go until we hit the beginning and search
-     * for an optimal task. This allows us to begin at any point in the list */
-    while (true) {
-       // printf("RR_findNextTask LOCKED %d", counter);
-        if (!next->isProcessed && next->arrival_time <= time) {
-            if (next->service_time == 0) {
-                next->isProcessed = true;
-                continue;
+                begin->service_time--;
+                secondPrint = true;
             }
-            return next;
-        }
-        next = next->next;
-
-        counter++;
-        /* This means it cannot find a valid solution */
-        if (counter == 27) {
-            return NULL;
         }
     }
-}
 
-struct task *RR_smartPicker(struct task *node) {
-    struct task *copy = node;
-    int counter = 0;
-    /* cycle through elements and attempt to not pick itself*/
-    while (true) {
-       // printf("RR_smartPicker Locked ");
-        /* The only valid option is itself. */
-        if (counter == 27) {
-            return node;
-        }
-        /* If the node is not a copy, and its not processed, pick it since that means its the next valid answer */
-        if (node != copy && !node->isProcessed) {
-            return node;
-        }
-        node = node->next;
-        counter++;
-    }
+
 }
 
 /* this is how we break out the infinite loop, if all tasks are processed return false */
@@ -447,7 +382,6 @@ bool isFinished(struct task *head) {
 void cleanUp() {
 
 }
-
 
 
 //int time = 0;
