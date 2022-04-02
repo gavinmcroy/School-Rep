@@ -7,7 +7,7 @@
 /*  ./a.out <scheduling> <input> <outfile> */
 char *inputFileName;
 char *outputFileName;
-FILE * outputFile;
+FILE *outputFile;
 
 int main(int args, char *argv[]) {
     const int EXPECTED_ARGS = 4;
@@ -86,13 +86,12 @@ struct task *loadInput(char *in) {
 }
 
 /* TODO implement function (prints final result to file in proper format) */
-FILE * saveFile(char *out) {
+FILE *saveFile(char *out) {
     FILE *open = fopen(out, "w+");
-    if(!open){
-        fprintf(stderr,"Error file was unable to be created \n");
+    if (!open) {
+        fprintf(stderr, "Error file was unable to be created \n");
         exit(1);
     }
-    fprintf(open, "testing output");
     return open;
 }
 
@@ -110,25 +109,25 @@ void runScheduler(int schedule, struct task *head) {
 //time  cpu ready queue (tid/rst)
 void printFinalResult(char *scheduleName) {
     /* First table template */
-    printf("%s", scheduleName);
-    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
-    printf("-------------------------------\n");
-    printf("%3d %5s %5s\n", 0, "AB", "--");
+    fprintf(outputFile, "%s", scheduleName);
+    fprintf(outputFile, "%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    fprintf(outputFile, "-------------------------------\n");
+    fprintf(outputFile, "%3d %5s %5s\n", 0, "AB", "--");
 
     /* Second table template */
-    printf("\n\n");
-    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
-    printf("\n");
-    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
-    printf("--------------------------------------------------\n");
+    fprintf(outputFile, "\n\n");
+    fprintf(outputFile, "%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    fprintf(outputFile, "--------------------------------------------------\n");
 
 }
 
 /* TODO Finish formatting */
 void FIFO(struct task *head) {
-    printf("FIFO scheduling results\n\n");
-    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
-    printf("-------------------------------------\n");
+    fprintf(outputFile, "FIFO scheduling results\n\n");
+    fprintf(outputFile, "%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    fprintf(outputFile, "-------------------------------------\n");
     /* We need to loop through all the work */
     int time = 0;
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
@@ -139,9 +138,9 @@ void FIFO(struct task *head) {
         for (; time < INT_MAX; time++) {
             /* this prevents an extra new line in the beginning */
             if (time == 0) {
-                printf("%-5d", time);
+                fprintf(outputFile, "%-5d", time);
             } else {
-                printf("\n%-5d", time);
+                fprintf(outputFile, "\n%-5d", time);
             }
             /* is the time moment at which it arrives, service time is run length */
 
@@ -154,7 +153,7 @@ void FIFO(struct task *head) {
             if (startProcessing) {
                 /* Task then begins processing */
                 begin->isProcessed = true;
-                printf("%3c%d", begin->task_id, conditionCount);
+                fprintf(outputFile, "%3c%d", begin->task_id, conditionCount);
 
                 /* We need to figure out the queue list */
                 bool didItPrint = false;
@@ -162,16 +161,16 @@ void FIFO(struct task *head) {
                 for (struct task *queue = begin; queue != NULL; queue = queue->next) {
                     if (queue->arrival_time <= time && !queue->isProcessed) {
                         if (appendComma) {
-                            printf(",");
+                            fprintf(outputFile, ",");
                         }
-                        printf(" %3c%d", queue->task_id, queue->service_time);
+                        fprintf(outputFile, " %3c%d", queue->task_id, queue->service_time);
                         didItPrint = true;
                         appendComma = true;
                     }
                 }
                 /* This handles the dashes that go above the queue */
                 if (!didItPrint) {
-                    printf("%5s", "--");
+                    fprintf(outputFile, "%5s", "--");
                 }
 
                 if (conditionCount == 1) {
@@ -185,39 +184,40 @@ void FIFO(struct task *head) {
                 }
                 conditionCount -= 1;
             } else {
-                printf("%9s", "--");
+                fprintf(outputFile, "%9s", "--");
             }
         }
     }
 
-    printf("\n\n");
-    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
-    printf("\n");
-    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
-    printf("--------------------------------------------------\n");
+    fprintf(outputFile, "\n\n");
+    fprintf(outputFile, "%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    fprintf(outputFile, "--------------------------------------------------\n");
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         begin->response_time = begin->completion_time - begin->arrival_time;
         begin->wait_time = begin->response_time - begin->service_time;
-        printf("%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
-               begin->completion_time, begin->response_time, begin->wait_time);
+        fprintf(outputFile, "%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time,
+                begin->service_time,
+                begin->completion_time, begin->response_time, begin->wait_time);
     }
 
 
-    printf("\n \n%s %10s ", "service", "wait");
-    printf("\n");
-    printf("%5s %12s \n", "time", "time");
-    printf("-------      ------\n");
+    fprintf(outputFile, "\n \n%s %10s ", "service", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%5s %12s \n", "time", "time");
+    fprintf(outputFile, "-------      ------\n");
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        printf("%4d %11d\n", begin->service_time, begin->wait_time);
+        fprintf(outputFile, "%4d %11d\n", begin->service_time, begin->wait_time);
     }
 
 }
 
 /* This is preemptive so this might take some creativity */
 void SJF(struct task *head) {
-    printf("SJF scheduling results\n\n");
-    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
-    printf("-------------------------------------\n");
+    fprintf(outputFile, "SJF scheduling results\n\n");
+    fprintf(outputFile, "%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    fprintf(outputFile, "-------------------------------------\n");
 
     /* This is essentially an infinite loop */
     for (int time = 0; time < INT_MAX; time++) {
@@ -227,9 +227,9 @@ void SJF(struct task *head) {
         }
         /* Solely for formatting */
         if (time == 0) {
-            printf("  %-4d", time);
+            fprintf(outputFile, "  %-4d", time);
         } else {
-            printf("\n  %-4d", time);
+            fprintf(outputFile, "\n  %-4d", time);
         }
 
         /* We find the shortest job */
@@ -238,7 +238,7 @@ void SJF(struct task *head) {
         /* We found an optimal job, so process one tick */
         if (optimalJob) {
             /* Print the id + service, and queued jobs behind it */
-            printf("  %c%-3d", optimalJob->task_id, optimalJob->service_time);
+            fprintf(outputFile, "  %c%-3d", optimalJob->task_id, optimalJob->service_time);
             SJF_buildQueue(time, head, optimalJob);
             /* If this job is finished, mark it as finished, else tick by one */
             optimalJob->service_time--;
@@ -247,7 +247,7 @@ void SJF(struct task *head) {
                 optimalJob->isProcessed = true;
             }
         } else {
-            printf("%9s", "--");
+            fprintf(outputFile, "%9s", "--");
         }
     }
 
@@ -262,24 +262,25 @@ void SJF(struct task *head) {
     }
 
 
-    printf("\n\n");
-    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
-    printf("\n");
-    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
-    printf("--------------------------------------------------\n");
+    fprintf(outputFile, "\n\n");
+    fprintf(outputFile, "%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    fprintf(outputFile, "--------------------------------------------------\n");
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         begin->response_time = begin->completion_time - begin->arrival_time;
         begin->wait_time = begin->response_time - begin->service_time;
-        printf("%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
-               begin->completion_time, begin->response_time, begin->wait_time);
+        fprintf(outputFile, "%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time,
+                begin->service_time,
+                begin->completion_time, begin->response_time, begin->wait_time);
     }
 
-    printf("\n \n%s %10s ", "service", "wait");
-    printf("\n");
-    printf("%5s %12s \n", "time", "time");
-    printf("-------      ------\n");
+    fprintf(outputFile, "\n \n%s %10s ", "service", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%5s %12s \n", "time", "time");
+    fprintf(outputFile, "-------      ------\n");
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        printf("%4d %11d\n", begin->service_time, begin->wait_time);
+        fprintf(outputFile, "%4d %11d\n", begin->service_time, begin->wait_time);
     }
 }
 
@@ -318,9 +319,9 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
             if ((i->arrival_time <= time) && !i->isProcessed && !i->addedToQueue && (begin->service_time >=
                                                                                      i->service_time)) {
                 if (addComma) {
-                    printf(",");
+                    fprintf(outputFile, ",");
                 }
-                printf("%2c%d", i->task_id, i->service_time);
+                fprintf(outputFile, "%2c%d", i->task_id, i->service_time);
                 addComma = true;
                 addDash = false;
                 i->addedToQueue = true;
@@ -328,7 +329,7 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
         }
     }
     if (addDash) {
-        printf(" --");
+        fprintf(outputFile, " --");
     }
 
     /* We then reset everything back to out of the queue */
@@ -340,9 +341,9 @@ void SJF_buildQueue(int time, struct task *head, struct task *optimal) {
 
 /* TODO go get lunch and implement round robin :D */
 void RR(struct task *head) {
-    printf("RR scheduling results\n\n");
-    printf("%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
-    printf("-------------------------------------\n");
+    fprintf(outputFile, "RR scheduling results\n\n");
+    fprintf(outputFile, "%-6s %-4s %-6s %-6s (tid/rst)\n", "time", "cpu", "ready", "queue");
+    fprintf(outputFile, "-------------------------------------\n");
 
     /* No matter what there is a passive ticking each iteration */
     int time = 0;
@@ -354,9 +355,9 @@ void RR(struct task *head) {
         }
 
         if (time == 0) {
-            printf("%3d", time);
+            fprintf(outputFile, "%3d", time);
         } else {
-            printf("\n%3d", time);
+            fprintf(outputFile, "\n%3d", time);
         }
 
         bool secondPrint = false;
@@ -364,9 +365,9 @@ void RR(struct task *head) {
             if (begin->arrival_time <= time && !begin->isProcessed) {
                 if (secondPrint) {
                     time++;
-                    printf("\n%3d%6c%d ", time, begin->task_id, begin->service_time);
+                    fprintf(outputFile, "\n%3d%6c%d ", time, begin->task_id, begin->service_time);
                 } else {
-                    printf("%6c%d ", begin->task_id, begin->service_time);
+                    fprintf(outputFile, "%6c%d ", begin->task_id, begin->service_time);
                 }
                 cpuPrinted = true;
 
@@ -382,11 +383,11 @@ void RR(struct task *head) {
             }
         }
         if (!cpuPrinted) {
-            printf("%12s", "--");
+            fprintf(outputFile, "%12s", "--");
         }
 
         if (!ifQueuePrinted && cpuPrinted) {
-            printf("%4s", "--");
+            fprintf(outputFile, "%4s", "--");
             cpuPrinted = false;
         }
 
@@ -401,24 +402,24 @@ void RR(struct task *head) {
     }
 
 
-    printf("\n\n");
-    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
-    printf("\n");
-    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
-    printf("--------------------------------------------------\n");
+    fprintf(outputFile, "\n\n");
+    fprintf(outputFile, "%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    fprintf(outputFile, "--------------------------------------------------\n");
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
         begin->response_time = begin->completion_time - begin->arrival_time;
         begin->wait_time = begin->response_time - begin->service_time;
-        printf("%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
+        fprintf(outputFile,"%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
                begin->completion_time, begin->response_time, begin->wait_time);
     }
 
-    printf("\n \n%s %10s ", "service", "wait");
-    printf("\n");
-    printf("%5s %12s \n", "time", "time");
-    printf("-------      ------\n");
+    fprintf(outputFile, "\n \n%s %10s ", "service", "wait");
+    fprintf(outputFile, "\n");
+    fprintf(outputFile, "%5s %12s \n", "time", "time");
+    fprintf(outputFile, "-------      ------\n");
     for (struct task *begin = head; begin != NULL; begin = begin->next) {
-        printf("%4d %11d\n", begin->service_time, begin->wait_time);
+        fprintf(outputFile, "%4d %11d\n", begin->service_time, begin->wait_time);
     }
 
 
@@ -438,10 +439,10 @@ bool RR_buildQueue(struct task *head, struct task *currentElement, int time) {
         if (currentElement->arrival_time <= time && !currentElement->isProcessed &&
             (currentElement->task_id != temp->task_id)) {
             if (firstPrint) {
-                printf("%3c%d", currentElement->task_id, currentElement->service_time);
+                fprintf(outputFile,"%3c%d", currentElement->task_id, currentElement->service_time);
                 firstPrint = false;
             } else {
-                printf(",%3c%d", currentElement->task_id, currentElement->service_time);
+                fprintf(outputFile,",%3c%d", currentElement->task_id, currentElement->service_time);
             }
             printedQueue = true;
         }
@@ -472,30 +473,3 @@ bool isFinished(struct task *head) {
 void cleanUp() {
 
 }
-
-
-//int time = 0;
-//for (struct task *begin = head; begin != NULL; begin = begin->next) {
-//// int temporaryStorage = begin->service_time;
-//for (; time < INT_MAX; time++) {
-///* If this particular task has no remaining work, end */
-//if (begin->service_time == 0) {
-//break;
-//}
-//
-///* This is solely for formatting */
-//if (time == 0) {
-//printf("%d ", time);
-//} else {
-//printf("\n%d ", time);
-//}
-//
-//
-//if (begin->arrival_time <= time) {
-//printf("%c%d", begin->task_id, begin->service_time);
-//begin->service_time--;
-//}
-//
-///* if finished break */
-//}
-//}
