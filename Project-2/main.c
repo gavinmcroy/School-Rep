@@ -338,10 +338,14 @@ void RR(struct task *head) {
 
     /* No matter what there is a passive ticking each iteration */
     int time = 0;
+    bool ifQueuePrinted = false;
+    bool cpuPrinted = false;
+    bool ifNothingPrinted = true;
     for (; time < INT_MAX; time++) {
         if (isFinished(head)) {
             break;
         }
+
         if (time == 0) {
             printf("%2d", time);
         } else {
@@ -351,15 +355,15 @@ void RR(struct task *head) {
         bool secondPrint = false;
         for (struct task *begin = head; begin != NULL; begin = begin->next) {
             if (begin->arrival_time <= time && !begin->isProcessed) {
-
                 if (secondPrint) {
                     time++;
                     printf("\n%d%6c%d ", time, begin->task_id, begin->service_time);
                 } else {
                     printf("%6c%d ", begin->task_id, begin->service_time);
                 }
+                cpuPrinted = true;
 
-                RR_buildQueue(head, begin, time);
+                ifQueuePrinted = RR_buildQueue(head, begin, time);
 
 
                 begin->service_time--;
@@ -368,14 +372,26 @@ void RR(struct task *head) {
                     break;
                 }
                 secondPrint = true;
+            }else if(!ifQueuePrinted){
+                ifNothingPrinted = true;
             }
         }
+        if(!cpuPrinted){
+            printf("%12s","--");
+        }
+
+        if(!ifQueuePrinted && cpuPrinted){
+            printf("%4s","--");
+            cpuPrinted = false;
+        }
+
     }
 }
 
-void RR_buildQueue(struct task *head, struct task *currentElement, int time) {
+bool RR_buildQueue(struct task *head, struct task *currentElement, int time) {
     struct task *temp = currentElement;
     bool firstRun = true;
+    bool printedQueue = false;
     while (true) {
         /* This is how we know we are on the last element */
         if (currentElement == NULL) {
@@ -385,6 +401,7 @@ void RR_buildQueue(struct task *head, struct task *currentElement, int time) {
         if (currentElement->arrival_time <= time && !currentElement->isProcessed &&
             (currentElement->task_id != temp->task_id)) {
             printf("%3c%d", currentElement->task_id, currentElement->service_time);
+            printedQueue = true;
         }
 
         /* We iterated through the entire list */
@@ -394,6 +411,7 @@ void RR_buildQueue(struct task *head, struct task *currentElement, int time) {
         currentElement = currentElement->next;
         firstRun = false;
     }
+    return printedQueue;
 }
 
 /* this is how we break out the infinite loop, if all tasks are processed return false */
