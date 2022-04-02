@@ -340,16 +340,15 @@ void RR(struct task *head) {
     int time = 0;
     bool ifQueuePrinted = false;
     bool cpuPrinted = false;
-    bool ifNothingPrinted = true;
     for (; time < INT_MAX; time++) {
         if (isFinished(head)) {
             break;
         }
 
         if (time == 0) {
-            printf("%2d", time);
+            printf("%3d", time);
         } else {
-            printf("\n%2d", time);
+            printf("\n%3d", time);
         }
 
         bool secondPrint = false;
@@ -357,7 +356,7 @@ void RR(struct task *head) {
             if (begin->arrival_time <= time && !begin->isProcessed) {
                 if (secondPrint) {
                     time++;
-                    printf("\n%d%6c%d ", time, begin->task_id, begin->service_time);
+                    printf("\n%3d%6c%d ", time, begin->task_id, begin->service_time);
                 } else {
                     printf("%6c%d ", begin->task_id, begin->service_time);
                 }
@@ -365,33 +364,63 @@ void RR(struct task *head) {
 
                 ifQueuePrinted = RR_buildQueue(head, begin, time);
 
-
                 begin->service_time--;
                 if (begin->service_time == 0) {
+                    begin->completion_time = time + 1;
                     begin->isProcessed = true;
                     break;
                 }
                 secondPrint = true;
-            }else if(!ifQueuePrinted){
-                ifNothingPrinted = true;
             }
         }
-        if(!cpuPrinted){
-            printf("%12s","--");
+        if (!cpuPrinted) {
+            printf("%12s", "--");
         }
 
-        if(!ifQueuePrinted && cpuPrinted){
-            printf("%4s","--");
+        if (!ifQueuePrinted && cpuPrinted) {
+            printf("%4s", "--");
             cpuPrinted = false;
         }
 
     }
+
+    cleanUp();
+    struct task *head2 = loadInput(inputFile);
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        begin->arrival_time = head2->arrival_time;
+        begin->service_time = head2->service_time;
+        head2 = head2->next;
+    }
+
+
+    printf("\n\n");
+    printf("%14s %9s %12s %9s %5s", "arrival", "service", "completion", "response", "wait");
+    printf("\n");
+    printf("%-6s %-9s %-9s %-11s %-9s %-9s\n", "tid", "time", "time", "time", "time", "time");
+    printf("--------------------------------------------------\n");
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        begin->response_time = begin->completion_time - begin->arrival_time;
+        begin->wait_time = begin->response_time - begin->service_time;
+        printf("%-6c %-9d %-9d %-11d %-9d %-9d\n", begin->task_id, begin->arrival_time, begin->service_time,
+               begin->completion_time, begin->response_time, begin->wait_time);
+    }
+
+    printf("\n \n%s %10s ", "service", "wait");
+    printf("\n");
+    printf("%5s %12s \n", "time", "time");
+    printf("-------      ------\n");
+    for (struct task *begin = head; begin != NULL; begin = begin->next) {
+        printf("%4d %11d\n", begin->service_time, begin->wait_time);
+    }
+
+
 }
 
 bool RR_buildQueue(struct task *head, struct task *currentElement, int time) {
     struct task *temp = currentElement;
     bool firstRun = true;
     bool printedQueue = false;
+    bool firstPrint = true;
     while (true) {
         /* This is how we know we are on the last element */
         if (currentElement == NULL) {
@@ -400,7 +429,12 @@ bool RR_buildQueue(struct task *head, struct task *currentElement, int time) {
 
         if (currentElement->arrival_time <= time && !currentElement->isProcessed &&
             (currentElement->task_id != temp->task_id)) {
-            printf("%3c%d", currentElement->task_id, currentElement->service_time);
+            if (firstPrint) {
+                printf("%3c%d", currentElement->task_id, currentElement->service_time);
+                firstPrint = false;
+            } else {
+                printf(",%3c%d", currentElement->task_id, currentElement->service_time);
+            }
             printedQueue = true;
         }
 
