@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: (GO) Storm-Lesson
+  m_EditorClassIdentifier: 
+  storyText: 'The storms impact was utterly catastrophic. The castle was nearly flattened
+    and you sit within a pile of rubble looking onward of a once great kingdom. You
+    realized it was never your job as a ruler to be liked. But instead it was your
+    job to lead the people and make the best choices for them even if they couldn''t
+    see the benefit of your actions. It dawns upon you what it means to be a truly
+    great king
+
+
+    1. Home Screen'
+  nextStates:
+  - {fileID: 11400000, guid: a18445e64f05d4d39935ff04e9be37f7, type: 2}

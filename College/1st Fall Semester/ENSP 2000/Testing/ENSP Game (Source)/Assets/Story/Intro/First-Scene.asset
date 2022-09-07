@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: First-Scene
+  m_EditorClassIdentifier: 
+  storyText: 'You are the ruler of a vast and magnificent world. Well, a once-magnificent
+    world... Incredible energy demands have put you in a tough circumstance. To provide
+    energy to sustain this golden age, you utilize energy through fossil fuels, which
+    is destroying your beautiful world. Your advisors are pleading a change. Yet your
+    people are begging for more energy
+
+
+    What do you do?
+
+
+    1. Follow your duty as a king and provide for your people
+
+
+    2. Put limitations on fossil fuels with the risk of your people rebelling'
+  nextStates:
+  - {fileID: 11400000, guid: 65aa14c383e0d4c66aed6df73e8a4cc8, type: 2}
+  - {fileID: 11400000, guid: 4d01b8aa8cc4b468d86c884e51d0e5a4, type: 2}

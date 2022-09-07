@@ -1,0 +1,11 @@
+myprog.exe  :   main.o sorting_algorithms.o 
+	gcc main.o sorting_algorithms.o -o myprog.exe
+    
+main.o   :   main.c sorting_algorithms.c sorting_algorithms.h
+	gcc -Wall -c main.c 
+    
+sorting_algorithms.o  :   sorting_algorithms.c sorting_algorithms.h
+	gcc -Wall -c sorting_algorithms.c
+    
+clean : 
+	rm *o. myprog.exe

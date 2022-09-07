@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Destruction
+  m_EditorClassIdentifier: 
+  storyText: 'The storm is expected to make landfall in about 13 hours. Within that
+    time, you are rushing from meeting to meeting, trying to resolve the matter. People
+    are beginning to get worried as the rumor is spreading about the scale of this
+    storm. You meet with researcher after researcher and confirm the storm was caused
+    by a substantial loss in trees which resulted in a noticeable increase in world
+    temperature and as a result a considerable rise in storm power
+
+    What do you do?
+
+
+    1. Hold on and hope for the best'
+  nextStates:
+  - {fileID: 11400000, guid: 6f622c8b55b2f4bb7bbe84a164837aae, type: 2}

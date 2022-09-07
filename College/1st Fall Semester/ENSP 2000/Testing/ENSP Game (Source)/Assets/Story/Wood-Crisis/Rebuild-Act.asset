@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Rebuild-Act
+  m_EditorClassIdentifier: 
+  storyText: "You go over resources and potential costs to redirect the kingdom's
+    resources on building homes. It's going to be a bit tricky to execute, but you
+    work out a plan with your advisors of what should get done. Yet you recall in
+    the back of your mind the odd pressure change someone mentioned. Could be worth
+    investigating \nWhat do you do?\n1. Continue and enact Rebuild Act\n2. Research
+    into pressure change"
+  nextStates:
+  - {fileID: 11400000, guid: 66e92e3fbd0ba4d6e99158ba848b5f1a, type: 2}
+  - {fileID: 11400000, guid: 8a10b127552644a6d954daa6e3e313ca, type: 2}

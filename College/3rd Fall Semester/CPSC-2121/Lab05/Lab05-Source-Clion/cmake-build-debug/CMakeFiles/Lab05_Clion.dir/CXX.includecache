@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.cpp
+BinarySearchT.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.h
+iostream
+-
+cstdlib
+-
+cmath
+-
+tuple
+-
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.h
+cstdlib
+-
+utility
+-
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/main.cpp
+iostream
+-
+fstream
+-
+vector
+-
+algorithm
+-
+random
+-
+BinarySearchT.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab05/Lab05-Source-Clion/BinarySearchT.h
+

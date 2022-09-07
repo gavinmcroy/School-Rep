@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.h
+functional
+-
+iostream
+-
+cmath
+-
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/main.cpp
+iostream
+-
+fstream
+-
+subdivisioncurve.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.h
+
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/subdivisioncurve.h
+vector
+-
+Point.h
+/Users/gavintaylormcroy/Documents/GitHub/School-Rep/CPSC-4050/Project-4/Test/Point.h
+

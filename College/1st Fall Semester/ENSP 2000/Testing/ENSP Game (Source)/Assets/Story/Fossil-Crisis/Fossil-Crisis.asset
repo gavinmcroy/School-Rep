@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Fossil-Crisis
+  m_EditorClassIdentifier: 
+  storyText: "Limitations on fossil fuels did not settle well. There is mass hysteria
+    and riots throughout the streets. Many major electric corporations fell under
+    and couldn't bounce back from the new law.\n\nWhat do you do?\n\n1. Reintroduce
+    fossil fuels \n\n2. Stand as a king and hold your foot on the policy"
+  nextStates:
+  - {fileID: 11400000, guid: bc9ddbd1398bd417c8d2b9316b753b67, type: 2}
+  - {fileID: 11400000, guid: 60c8c8b9b37324a98aa4f5d1ef8caf9d, type: 2}

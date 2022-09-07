@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Impeachment
+  m_EditorClassIdentifier: 
+  storyText: 'Your advisors wake you in the darkest moments of the night. There is
+    incredibly bad news. People are voting to impeach you and find a new king who
+    follows what the people want. The current vote is around 61% of a required 65%.
+    Your advisors apologize and state they will be the other 4% that will remove you
+    from power.
+
+    What do you do?
+
+    1. Call it a good run'
+  nextStates:
+  - {fileID: 11400000, guid: 064d1bbeca7ad4fefb677758eae35b6f, type: 2}

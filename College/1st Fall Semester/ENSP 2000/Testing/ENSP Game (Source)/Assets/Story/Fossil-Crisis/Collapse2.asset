@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: Collapse2
+  m_EditorClassIdentifier: 
+  storyText: "Once you reintroduce fossil fuels, people are still incredibly upset.
+    But tension is beginning to die down. Things are looking better. But your advisors
+    are beginning to regret their decision. Data is starting to come out that shows
+    CO2 may be causing the planet to warm \n\nWhat do you do?\n\n1. Stay with fossil
+    fuels Temporarily and initiate a green act policy\n\n2. Announce why fossil fuels
+    must be banned "
+  nextStates:
+  - {fileID: 11400000, guid: 6f6489967a9bf4627af93384e643eb35, type: 2}
+  - {fileID: 11400000, guid: 6f6489967a9bf4627af93384e643eb35, type: 2}

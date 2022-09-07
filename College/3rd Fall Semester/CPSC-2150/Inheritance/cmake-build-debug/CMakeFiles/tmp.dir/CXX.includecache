@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/Tmp/Inherit.cpp
+Inherit.h
+/Users/gavintaylormcroy/Desktop/Tmp/Inherit.h
+iostream
+-
+
+/Users/gavintaylormcroy/Desktop/Tmp/Inherit.h
+Test.h
+/Users/gavintaylormcroy/Desktop/Tmp/Test.h
+
+/Users/gavintaylormcroy/Desktop/Tmp/Test.h
+
+/Users/gavintaylormcroy/Desktop/Tmp/main.cpp
+iostream
+-
+vector
+-
+Test.h
+/Users/gavintaylormcroy/Desktop/Tmp/Test.h
+Inherit.h
+/Users/gavintaylormcroy/Desktop/Tmp/Inherit.h
+

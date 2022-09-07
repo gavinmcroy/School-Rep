@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/driver.cpp
+pixelArt.h
+/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.h
+
+/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.cpp
+fstream
+-
+iostream
+-
+pixelArt.h
+/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.h
+
+/Users/gavintaylormcroy/Desktop/Work-Projects/lab10/pixelArt.h
+iostream
+-
+vector
+-
+string
+-
+

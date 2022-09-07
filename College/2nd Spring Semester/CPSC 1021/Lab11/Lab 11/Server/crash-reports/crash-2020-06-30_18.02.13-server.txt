@@ -1,0 +1,281 @@
+---- Minecraft Crash Report ----
+// You're mean.
+
+Time: 6/30/20, 6:02 PM
+Description: Watching Server
+
+java.lang.Error
+	at app//aom.n(SourceFile:1156)
+	at app//aom.ad(SourceFile:448)
+	at app//aoy.ad(SourceFile:322)
+	at app//aoz.ad(SourceFile:271)
+	at app//aom.j(SourceFile:422)
+	at app//aoy.j(SourceFile:2206)
+	at app//aoz.j(SourceFile:338)
+	at app//zd.a(SourceFile:615)
+	at app//zd$$Lambda$3346/0x000000080098f040.accept(Unknown Source)
+	at app//bqb.a(SourceFile:603)
+	at app//zd.a(SourceFile:405)
+	at app//net.minecraft.server.MinecraftServer.b(SourceFile:873)
+	at app//yd.b(SourceFile:306)
+	at app//net.minecraft.server.MinecraftServer.a(SourceFile:813)
+	at app//net.minecraft.server.MinecraftServer.v(SourceFile:672)
+	at app//net.minecraft.server.MinecraftServer.a(SourceFile:256)
+	at app//net.minecraft.server.MinecraftServer$$Lambda$3093/0x000000080088e440.run(Unknown Source)
+	at java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server Watchdog
+Stacktrace:
+	at app//aom.n(SourceFile:1156)
+	at app//aom.ad(SourceFile:448)
+	at app//aoy.ad(SourceFile:322)
+	at app//aoz.ad(SourceFile:271)
+	at app//aom.j(SourceFile:422)
+	at app//aoy.j(SourceFile:2206)
+	at app//aoz.j(SourceFile:338)
+	at app//zd.a(SourceFile:615)
+	at app//zd$$Lambda$3346/0x000000080098f040.accept(Unknown Source)
+	at app//bqb.a(SourceFile:603)
+	at app//zd.a(SourceFile:405)
+	at app//net.minecraft.server.MinecraftServer.b(SourceFile:873)
+	at app//yd.b(SourceFile:306)
+	at app//net.minecraft.server.MinecraftServer.a(SourceFile:813)
+	at app//net.minecraft.server.MinecraftServer.v(SourceFile:672)
+	at app//net.minecraft.server.MinecraftServer.a(SourceFile:256)
+
+-- Thread Dump --
+Details:
+	Threads: "Reference Handler" daemon prio=10 Id=2 RUNNABLE
+	at java.base@11.0.1/java.lang.ref.Reference.waitForReferencePendingList(Native Method)
+	at java.base@11.0.1/java.lang.ref.Reference.processPendingReferences(Reference.java:241)
+	at java.base@11.0.1/java.lang.ref.Reference$ReferenceHandler.run(Reference.java:213)
+
+
+"Finalizer" daemon prio=8 Id=3 WAITING on java.lang.ref.ReferenceQueue$Lock@4e9f7314
+	at java.base@11.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@4e9f7314
+	at java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:176)
+	at java.base@11.0.1/java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:170)
+
+
+"Signal Dispatcher" daemon prio=9 Id=4 RUNNABLE
+
+
+"Attach Listener" daemon prio=5 Id=5 RUNNABLE
+
+
+"Common-Cleaner" daemon prio=8 Id=11 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@405894b7
+	at java.base@11.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@405894b7
+	at java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at java.base@11.0.1/jdk.internal.ref.CleanerImpl.run(CleanerImpl.java:148)
+	at java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
+	at java.base@11.0.1/jdk.internal.misc.InnocuousThread.run(InnocuousThread.java:134)
+
+
+"Worker-Bootstrap-1" daemon prio=5 Id=15 WAITING on java.util.concurrent.ForkJoinPool@44671864
+	at java.base@11.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@44671864
+	at java.base@11.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+	at java.base@11.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1628)
+	at java.base@11.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+
+
+"Timer hack thread" daemon prio=5 Id=18 TIMED_WAITING
+	at java.base@11.0.1/java.lang.Thread.sleep(Native Method)
+	at app//v$2.run(SourceFile:524)
+
+
+"Snooper Timer" daemon prio=5 Id=24 WAITING on java.util.TaskQueue@1659e8c
+	at java.base@11.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.util.TaskQueue@1659e8c
+	at java.base@11.0.1/java.lang.Object.wait(Object.java:328)
+	at java.base@11.0.1/java.util.TimerThread.mainLoop(Timer.java:527)
+	at java.base@11.0.1/java.util.TimerThread.run(Timer.java:506)
+
+
+"Server thread" prio=5 Id=23 RUNNABLE
+	at app//aom.n(SourceFile:1156)
+	at app//aom.ad(SourceFile:448)
+	at app//aoy.ad(SourceFile:322)
+	at app//aoz.ad(SourceFile:271)
+	at app//aom.j(SourceFile:422)
+	at app//aoy.j(SourceFile:2206)
+	at app//aoz.j(SourceFile:338)
+	at app//zd.a(SourceFile:615)
+	...
+
+
+"DestroyJavaVM" prio=5 Id=26 RUNNABLE
+
+
+"Server console handler" daemon prio=5 Id=27 RUNNABLE (in native)
+	at java.base@11.0.1/java.io.FileInputStream.readBytes(Native Method)
+	at java.base@11.0.1/java.io.FileInputStream.read(FileInputStream.java:279)
+	at java.base@11.0.1/java.io.BufferedInputStream.read1(BufferedInputStream.java:290)
+	at java.base@11.0.1/java.io.BufferedInputStream.read(BufferedInputStream.java:351)
+	-  locked java.io.BufferedInputStream@34574a67
+	at java.base@11.0.1/sun.nio.cs.StreamDecoder.readBytes(StreamDecoder.java:284)
+	at java.base@11.0.1/sun.nio.cs.StreamDecoder.implRead(StreamDecoder.java:326)
+	at java.base@11.0.1/sun.nio.cs.StreamDecoder.read(StreamDecoder.java:178)
+	-  locked java.io.InputStreamReader@302e9d76
+	at java.base@11.0.1/java.io.InputStreamReader.read(InputStreamReader.java:185)
+	...
+
+
+"ObjectCleanerThread" daemon prio=1 Id=28 TIMED_WAITING on java.lang.ref.ReferenceQueue$Lock@4cf6172f
+	at java.base@11.0.1/java.lang.Object.wait(Native Method)
+	-  waiting on java.lang.ref.ReferenceQueue$Lock@4cf6172f
+	at java.base@11.0.1/java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:155)
+	at app//io.netty.util.internal.ObjectCleaner$1.run(ObjectCleaner.java:54)
+	at app//io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30)
+	at java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
+
+
+"Netty Server IO #0" daemon prio=5 Id=29 RUNNABLE
+	at app//io.netty.buffer.PoolArena.allocateNormal(PoolArena.java:239)
+	at app//io.netty.buffer.PoolArena.allocate(PoolArena.java:214)
+	-  locked io.netty.buffer.PoolArena$DirectArena@614a61c3
+	at app//io.netty.buffer.PoolArena.allocate(PoolArena.java:146)
+	at app//io.netty.buffer.PooledByteBufAllocator.newDirectBuffer(PooledByteBufAllocator.java:324)
+	at app//io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:185)
+	at app//io.netty.buffer.AbstractByteBufAllocator.directBuffer(AbstractByteBufAllocator.java:176)
+	at app//io.netty.buffer.AbstractByteBufAllocator.ioBuffer(AbstractByteBufAllocator.java:137)
+	at app//io.netty.channel.DefaultMaxMessagesRecvByteBufAllocator$MaxMessageHandle.allocate(DefaultMaxMessagesRecvByteBufAllocator.java:114)
+	...
+
+
+"Server Watchdog" daemon prio=5 Id=33 RUNNABLE
+	at java.management@11.0.1/sun.management.ThreadImpl.dumpThreads0(Native Method)
+	at java.management@11.0.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:502)
+	at java.management@11.0.1/sun.management.ThreadImpl.dumpAllThreads(ThreadImpl.java:490)
+	at app//yg.run(SourceFile:45)
+	at java.base@11.0.1/java.lang.Thread.run(Thread.java:834)
+
+
+"Netty Server IO #1" daemon prio=5 Id=34 RUNNABLE
+	at app//io.netty.util.concurrent.DefaultPromise.checkNotifyWaiters(DefaultPromise.java:553)
+	-  locked io.netty.channel.DefaultChannelPromise@6fc00bff
+	at app//io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:546)
+	at app//io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:536)
+	at app//io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:102)
+	at app//io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:978)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:512)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:423)
+	...
+
+
+"Netty Server IO #2" daemon prio=5 Id=35 RUNNABLE (in native)
+	at java.base@11.0.1/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.1/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:339)
+	at java.base@11.0.1/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:167)
+	at java.base@11.0.1/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@2bc1ee5c
+	-  locked sun.nio.ch.WindowsSelectorImpl@57f2db64
+	at java.base@11.0.1/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Worker-Main-11" daemon prio=5 Id=40 WAITING on java.util.concurrent.ForkJoinPool@6504fc20
+	at java.base@11.0.1/jdk.internal.misc.Unsafe.park(Native Method)
+	-  waiting on java.util.concurrent.ForkJoinPool@6504fc20
+	at java.base@11.0.1/java.util.concurrent.locks.LockSupport.park(LockSupport.java:194)
+	at java.base@11.0.1/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1628)
+	at java.base@11.0.1/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:177)
+
+
+"Netty Server IO #3" daemon prio=5 Id=44 RUNNABLE (in native)
+	at java.base@11.0.1/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll0(Native Method)
+	at java.base@11.0.1/sun.nio.ch.WindowsSelectorImpl$SubSelector.poll(WindowsSelectorImpl.java:339)
+	at java.base@11.0.1/sun.nio.ch.WindowsSelectorImpl.doSelect(WindowsSelectorImpl.java:167)
+	at java.base@11.0.1/sun.nio.ch.SelectorImpl.lockAndDoSelect(SelectorImpl.java:124)
+	-  locked sun.nio.ch.Util$2@af49c8c
+	-  locked sun.nio.ch.WindowsSelectorImpl@2ee32080
+	at java.base@11.0.1/sun.nio.ch.SelectorImpl.select(SelectorImpl.java:136)
+	at app//io.netty.channel.nio.NioEventLoop.select(NioEventLoop.java:756)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:411)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884)
+	...
+
+
+"Netty Server IO #4" daemon prio=5 Id=49 RUNNABLE
+	at app//io.netty.util.concurrent.DefaultPromise.checkNotifyWaiters(DefaultPromise.java:553)
+	-  locked io.netty.channel.DefaultChannelPromise@6f8be7c3
+	at app//io.netty.util.concurrent.DefaultPromise.setValue0(DefaultPromise.java:546)
+	at app//io.netty.util.concurrent.DefaultPromise.setSuccess0(DefaultPromise.java:536)
+	at app//io.netty.util.concurrent.DefaultPromise.trySuccess(DefaultPromise.java:102)
+	at app//io.netty.channel.DefaultChannelPromise.trySuccess(DefaultChannelPromise.java:84)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.safeSetSuccess(AbstractChannel.java:978)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:512)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:423)
+	...
+
+
+"Netty Server IO #5" daemon prio=5 Id=50 RUNNABLE
+	at app//io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1146)
+	-  locked io.netty.channel.DefaultChannelPipeline@2d2ce3ee
+	at app//io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:686)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:510)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:423)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:482)
+	at app//io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	...
+
+
+"Netty Server IO #6" daemon prio=5 Id=54 RUNNABLE
+	at app//io.netty.channel.DefaultChannelPipeline.callHandlerAddedForAllHandlers(DefaultChannelPipeline.java:1146)
+	-  locked io.netty.channel.DefaultChannelPipeline@3921a3b
+	at app//io.netty.channel.DefaultChannelPipeline.invokeHandlerAddedIfNeeded(DefaultChannelPipeline.java:686)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:510)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:423)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:482)
+	at app//io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	...
+
+
+"Netty Server IO #7" daemon prio=5 Id=55 RUNNABLE
+	at java.base@11.0.1/java.nio.channels.spi.AbstractSelectableChannel.register(AbstractSelectableChannel.java:208)
+	-  locked java.lang.Object@34c2dde9
+	at app//io.netty.channel.nio.AbstractNioChannel.doRegister(AbstractNioChannel.java:386)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.register0(AbstractChannel.java:504)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe.access$200(AbstractChannel.java:423)
+	at app//io.netty.channel.AbstractChannel$AbstractUnsafe$1.run(AbstractChannel.java:482)
+	at app//io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:163)
+	at app//io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:404)
+	at app//io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:465)
+	...
+
+
+
+Stacktrace:
+	at yg.run(SourceFile:61)
+	at java.base/java.lang.Thread.run(Thread.java:834)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.16.1
+	Minecraft Version ID: 1.16.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 11.0.1, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 2409718784 bytes (2298 MB) / 4294967296 bytes (4096 MB) up to 4294967296 bytes (4096 MB)
+	CPUs: 4
+	JVM Flags: 2 total; -Xmx4096M -Xms4096M
+	Player Count: 0 / 20; []
+	Data Packs: vanilla
+	Is Modded: Unknown (can't tell)
+	Type: Dedicated Server (map_server.txt)

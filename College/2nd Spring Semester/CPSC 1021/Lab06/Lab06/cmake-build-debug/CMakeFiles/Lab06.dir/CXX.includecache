@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/Lab06/Dog.cpp
+Dog.h
+/Users/gavintaylormcroy/Desktop/Lab06/Dog.h
+iostream
+-
+iomanip
+-
+utility
+-
+
+/Users/gavintaylormcroy/Desktop/Lab06/Dog.h
+string
+-
+Owner.h
+/Users/gavintaylormcroy/Desktop/Lab06/Owner.h
+
+/Users/gavintaylormcroy/Desktop/Lab06/Owner.h
+string
+-
+
+/Users/gavintaylormcroy/Desktop/Lab06/main.cpp
+iostream
+-
+Dog.h
+/Users/gavintaylormcroy/Desktop/Lab06/Dog.h
+

@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/NQueenSolver.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/main.cpp
+iostream
+-
+NQueenSolver.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab07/Lab07-Clion/NQueenSolver.h
+

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16fe8a4cba3bc415f9a73254981c1ec9, type: 3}
+  m_Name: (GO)-Fossil-1
+  m_EditorClassIdentifier: 
+  storyText: 'People charge your castle and knock the doors down. You are at the might
+    of your empire. You face little opposition but to surrender. You are thrown out
+    with reign no longer within control. It dawns on you the struggles a ruler goes
+    through when dealing with managing climate and clean energy. It just so happens
+    today wasn''t your day.
+
+
+    1. Home Screen'
+  nextStates:
+  - {fileID: 11400000, guid: a18445e64f05d4d39935ff04e9be37f7, type: 2}

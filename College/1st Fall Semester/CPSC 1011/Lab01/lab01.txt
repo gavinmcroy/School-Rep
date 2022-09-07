@@ -1,0 +1,48 @@
+
+Gavin McRoy
+C11633100
+CPSC 1010-100 and 1011-005
+Lab 01 Exercise 01
+
+#1 Text Editors Found:
+Kate
+Emac
+gedit
+Libre Office Writers
+
+Not Technically Text Editors but can edit .txt
+Vim 
+GVim
+
+#3 How to Delete a File: (File in place of what ever name and extension)
+rm file.file
+
+#4 Web Browsers Available and there support:
+How do you know if one supports flash or java??
+The best way is to do a quick check. Most modern browsers do not support Java but 
+Do support flash. You can see if its installed or enabled through these links 
+https://www.whatismybrowser.com/detect/is-flash-installed
+https://www.whatismybrowser.com/detect/is-java-installed
+
+Chromium - does not support java at all                (Supports Flash)
+Firefox - does not support java after version 60 ESR   (Supports Flash)
+Google Chrome - Does not support java after version 45 (Supports Flash)
+ 
+#5 Ways to Edit a Image
+Image Magick
+GIMP Image Editor
+
+#6 Making File Structure
+mkdir CPSC_1010
+cd \CPSC_1010
+mkdir lab01
+cd \lab01
+mkdir inlab
+cd \inlab
+
+
+
+
+
+
+

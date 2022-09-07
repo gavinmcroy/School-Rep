@@ -1,0 +1,9 @@
+I am not saying this plagarism checker is better than the one used by Professor Sorber, but there is evidence online 
+that this one may be a little bit more accurate at detecting cheating. The detector determined low probability with
+only a 9% local match. The 48% detected is refering to the functions sharing similar prototypes which was a mandatory
+requirement from the project. The 48% is also due to the fact these prototypes were placed in a seperate file, so the 
+match would be higher since there is only prototypes in the file
+
+Here are some supporting articles. I tried to avoid biased articles
+
+https://codequiry.com/resources/Codequiry-vs-Moss#:~:text=If%20you%20have%20heard%20of,many%20times%20better%20than%20MOSS.&text=One%20of%20the%20major%20differences,of%20time%20understanding%20the%20software.
