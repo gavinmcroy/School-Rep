@@ -1,3 +1,0 @@
-/Users/gavintaylormcroy/Desktop/Work-Projects/C4.3/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/Users/gavintaylormcroy/Desktop/Work-Projects/C4.3/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/gavintaylormcroy/Desktop/Work-Projects/C4.3/cmake-build-debug/CMakeFiles/untitled.dir

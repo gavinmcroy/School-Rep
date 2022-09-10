@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/School-Rep/Exam-Prac/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/Exam-Prac/cmake-build-debug/CMakeFiles/Exam_Prac.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/Exam-Prac/cmake-build-debug/CMakeFiles/edit_cache.dir

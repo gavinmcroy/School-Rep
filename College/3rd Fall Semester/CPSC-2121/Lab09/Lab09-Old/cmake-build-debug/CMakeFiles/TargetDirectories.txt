@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab09/cmake-build-debug/CMakeFiles/Lab09.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab09/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab09/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-C:/Users/Gavin McRoy/Desktop/Project-4-Pt3/cmake-build-debug/CMakeFiles/Project_4_Pt3.dir
-C:/Users/Gavin McRoy/Desktop/Project-4-Pt3/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/Gavin McRoy/Desktop/Project-4-Pt3/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,3 +1,0 @@
-"C:\Users\Gavin McRoy\AppData\Local\JetBrains\Toolbox\apps\CLion\ch-1\203.6682.181\bin\cmake\win\bin\cmake.exe" -E rm -f CMakeFiles\StarterFiles.dir/objects.a
-C:\MinGW\bin\ar.exe cr CMakeFiles\StarterFiles.dir/objects.a @CMakeFiles\StarterFiles.dir\objects1.rsp
-C:\MinGW\bin\gcc.exe -g   -Wl,--whole-archive CMakeFiles\StarterFiles.dir/objects.a -Wl,--no-whole-archive  -o StarterFiles.exe -Wl,--out-implib,libStarterFiles.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\StarterFiles.dir\linklibs.rsp
