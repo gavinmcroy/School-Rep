@@ -38,13 +38,13 @@ public:
 
     bool find(string key);
 
-    void insert(const string& key, int val);
+    void insert(string key, int val);
 
-    void remove(const string& key);
+    void remove(string key);
 
     void print();
 
-    int getNumElements() const;
+    int getNumElements();
 
     string *getKeys();
 };

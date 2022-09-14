@@ -32,7 +32,7 @@ StringIntMap::StringIntMap() {
 
 StringIntMap::~StringIntMap() {
     for (int i = 0; i < size; i++) {
-        while (table[i] != nullptr) {
+        while (table[i] != NULL) {
             Node *temp = table[i];
             table[i] = table[i]->next;
             delete temp;
@@ -45,7 +45,7 @@ StringIntMap::~StringIntMap() {
 bool StringIntMap::find(string key) {
     int h = myHash(key, size);
     Node *n = table[h];
-    while (n != nullptr) {
+    while (n != NULL) {
         if (n->key == key) return true;
         n = n->next;
     }
@@ -54,22 +54,18 @@ bool StringIntMap::find(string key) {
 
 // return reference to associated int of a given key
 int &StringIntMap::operator[](string key) {
-    if (!find(key)) {
-        insert(key, 0);
-    }
+    if (!find(key)) insert(key, 0);
     int h = myHash(key, size);
     Node *n = table[h];
-    while (n != nullptr) {
-        if (n->key == key) {
-            return n->val;
-        }
+    while (n != NULL) {
+        if (n->key == key) return n->val;
         n = n->next;
     }
 }
 
 
 /* Inserts a new key.  It is an error if key is already in the set. */
-void StringIntMap::insert(const string &key, int val) {
+void StringIntMap::insert(string key, int val) {
     assert (!find(key));
     numElements++;
 
@@ -81,7 +77,7 @@ void StringIntMap::insert(const string &key, int val) {
         // Transfer all elements from old_table into table
         for (int i = 0; i < size / 2; i++) {
             Node *n = old_table[i];
-            while (n != nullptr) {
+            while (n != NULL) {
                 int h = myHash(n->key, size);
                 table[h] = new Node(n->key, n->val, table[h]);
                 Node *to_delete = n;
@@ -99,7 +95,7 @@ void StringIntMap::insert(const string &key, int val) {
 }
 
 /* Removes a key.  It is an error if key isn't in the set */
-void StringIntMap::remove(const string &key) {
+void StringIntMap::remove(string key) {
     assert (find(key));
     numElements--;
 
@@ -121,20 +117,20 @@ void StringIntMap::remove(const string &key) {
 
 void StringIntMap::print() {
     for (int i = 0; i < size; i++)
-        for (Node *n = table[i]; n != nullptr; n = n->next)
+        for (Node *n = table[i]; n != NULL; n = n->next)
             cout << n->key << " " << n->val << "\n";
 }
 
 // Return an array of all keys in table
 string *StringIntMap::getKeys() {
-    auto *result = new string[numElements];
+    string *result = new string[numElements];
     int index = 0;
     for (int i = 0; i < size; i++)
-        for (Node *n = table[i]; n != nullptr; n = n->next)
+        for (Node *n = table[i]; n != NULL; n = n->next)
             result[index++] = n->key;
     return result;
 }
 
-int StringIntMap::getNumElements() const {
+int StringIntMap::getNumElements() {
     return numElements;
 }
