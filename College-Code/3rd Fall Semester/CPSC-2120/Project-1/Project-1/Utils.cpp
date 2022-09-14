@@ -5,7 +5,6 @@
 #include <cstdio>
 #include <cstdlib>
 #include<algorithm>
-#include<math.h>
 
 #include "StoredWebPages.h"
 #include "StringIntMap.h"
@@ -203,7 +202,7 @@ void processKeystrokes() {
 }
 
 int main() {
-    const char *filename = "/Users/gavintaylormcroy/Desktop/webpages.txt";
+    const char *filename = "/home/gav/Documents/webpages.txt";
     string readInData;
 
     cout << color_green << "Reading input..." << endl;
