@@ -14,7 +14,7 @@ using namespace std;
 /* Returns entire file as one big string, quickly */
 string readWebpagesFast(const char *filename) {
     FILE *fp = fopen(filename, "r");
-    if (fp == NULL) {
+    if (fp == nullptr) {
         fprintf(stderr, "Error: can't open %s", filename);
         exit(1);
     }
@@ -42,7 +42,7 @@ string color_white = "\e[37;40m";
 string color_whiteblue = "\e[37;44m";
 
 /* TODO IMPLEMENT */
-void predict(const string& query) {
+void predict(const string &query) {
     cout << color_green << "Here is where query results for '"
          << color_white << query
          << color_green << "' should go\n";
@@ -100,7 +100,7 @@ int main() {
                 webPageIntMap.insert(readInData, totalWebPages);
                 totalWebPages++;
             } else if (readInData == "LINK ") {
-                /* This is catching the hyper link and just trashing it */
+                /* This is catching the hyperlink and just trashing it */
                 webFile >> readInData;
             } else {
                 /* Store all the DISTINCT words in a map/hash table THAT containing
@@ -167,7 +167,7 @@ int main() {
                 /* These are the words that OCCUR within a particular page */
                 wordsOccurringInPage.push_back(readInData);
                 numWordsOnPageCounter++;
-                /* This is adding only non duplicate words from a particular page*/
+                /* This is adding only non-duplicate words from a particular page*/
                 if (!wordOnPage->find(readInData)) {
                     /* A lot is happening here. We are taking the index at which the page exists
                     * in the page structure. Then getting the index at which the word exists in the word structure.
@@ -215,71 +215,3 @@ int main() {
  * then when I am checking all my hyper links I can call find. If I find it
  * I can check its location, and store the corresponding location inside of
  * my vector<int> */
-
-/** REFERENCES */
-//while (webfile >> s) {
-//        if (s == "PAGE") {
-//
-//            /* Reset all the counters */
-//            if (!first) {
-//                pages.push_back(StoredWebPages::Webpage(url, numLinks, numWords,));
-//            }
-//            numLinks = 0;
-//            numWords = 0;
-//            /* Reset all the counters */
-//            first = false;
-//            webfile >> url;
-//            numPages++;
-//        } else if (s == "LINK") {
-//            webfile >> hyperLink; /*(-THIS STRING NEEDS TO BE HASHED-) */
-//            toBeHashed.push_back(hyperLink);
-//            numLinks++;
-//        } /* Regular Words */
-//        else if (s != "LINK" && s != "PAGES") {
-//            numWords++;
-//        }
-//    }
-
-
-/*Reset File Read */
-//    webfile.clear();
-//    webfile.seekg(0);
-
-/*  std::string text;
-    int numPages;
-    std::vector<int> pages; */
-
-//    while (webfile >> readInValue) {
-//        if (readInValue == "PAGE") {
-//            /* This variable is helpful for grabbing the link index  */
-//            webfile >> url;
-//        } else if (readInValue == "LINK") {
-//            /* Trash the link associated with page  */
-//            webfile >> readInValue;
-//        } else {
-//            /* A lot is happening here. We are taking the index at which the page exists
-//             * in the page structure. Then getting the index at which the word exists in the word structure.
-//             * then we are accessing the index at which the word exists, adding the index at which the link exists
-//             * to the word struct. Then while inside the word struct we are incrementing num pages to signify
-//             * how many pages the word is on*/
-//            int linkIndex = webPageIntMap[url];
-//            int wordIndex = wordIntMap[readInValue];
-//            words.at(wordIndex).pages.push_back(linkIndex);
-//            words.at(wordIndex).numPages++;
-//            //pagesThatContainWord.push_back(index);
-//            /* This is all the words in the entire file */
-//        }
-//    }
-
-/* DEBUG */
-//    for (int i = 0; i < everyDistinctWordVec.at(myLookUp).pages.size(); i++) {
-//        cout << everyDistinctWordVec.at(myLookUp).pages.at(i) << endl;
-//    }
-
-
-//    cout << pages.at(0).url << endl;
-//    cout << pages.at(0).numLinks << endl;
-//
-//    cout << pages.at(0).words.size() << endl;
-//    cout << pages.at(0).words.at(0) << endl;
-/* DEBUG */
