@@ -4,7 +4,7 @@
 #include "graphics.h"
 
 static int window_id, window_xsize, window_ysize;
-static std::chrono::time_point<std::chrono::system_clock> timer_last;
+static std::chrono::time_point <std::chrono::system_clock> timer_last;
 static double window_scale = 1.0;
 
 static void (*my_render)(void);
@@ -135,7 +135,7 @@ void gr_render(void) {
 
 void gr_timerhandler(int v) {
 
-    std::chrono::time_point<std::chrono::system_clock> timer_current;
+    std::chrono::time_point <std::chrono::system_clock> timer_current;
     timer_current = std::chrono::system_clock::now();
     std::chrono::duration<double> time_elapsed = timer_current - timer_last;
     if (my_timerhandler((int) (time_elapsed.count() * 1000))) glutPostRedisplay();
