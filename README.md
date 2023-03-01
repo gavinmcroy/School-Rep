@@ -1,5 +1,5 @@
 # School-Rep
-Archive of all relevant academic work related or associated with Computer Science
+Archive of all relevant academic work related or associated with Computer Science <br />
 CPSC-1010 - Introduction to Computer Science <br />
 CPSC-1011 - Introduction to Computer Science Lab <br />
 CPSC-1020 - Introduction to Computer Science II <br />
