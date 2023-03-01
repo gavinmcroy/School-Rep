@@ -1,2 +1,2 @@
 # School-Rep
-Contains all on going projects for school 
+Archive of all relevant academic work related or associated with Computer Science
