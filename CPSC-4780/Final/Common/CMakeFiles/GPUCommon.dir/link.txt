@@ -1,0 +1,2 @@
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar qc libGPUCommon.a CMakeFiles/GPUCommon.dir/CAssignmentBase.o CMakeFiles/GPUCommon.dir/CLUtil.o CMakeFiles/GPUCommon.dir/CTimer.o
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib libGPUCommon.a

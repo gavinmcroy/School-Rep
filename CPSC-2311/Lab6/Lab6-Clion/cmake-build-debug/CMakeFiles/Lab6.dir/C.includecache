@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/Lab6/driver.c
+stdio.h
+-
+stdlib.h
+-
+functions.h
+C:/Users/Gavin McRoy/Desktop/Lab6/functions.h
+
+C:/Users/Gavin McRoy/Desktop/Lab6/functions.h
+

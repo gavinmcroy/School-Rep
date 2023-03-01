@@ -1,0 +1,3 @@
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/cmake-build-debug/CMakeFiles/Pls_Work.dir
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Gavin McRoy/Desktop/School-Rep/Pls-Work/cmake-build-debug/CMakeFiles/rebuild_cache.dir

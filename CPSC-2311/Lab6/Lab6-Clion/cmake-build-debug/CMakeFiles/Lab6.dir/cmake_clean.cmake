@@ -1,0 +1,13 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/Lab6.dir/driver.c.obj"
+  "CMakeFiles/Lab6.dir/functions.c.obj"
+  "Lab6.exe"
+  "Lab6.exe.manifest"
+  "Lab6.pdb"
+  "libLab6.dll.a"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/Lab6.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/linkedlist.cpp
+stdlib.h
+-
+iostream
+-
+linkedlist.h
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/linkedlist.h
+
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/linkedlist.h
+
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/main.cpp
+iostream
+-
+linkedlist.h
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/linkedlist.h
+

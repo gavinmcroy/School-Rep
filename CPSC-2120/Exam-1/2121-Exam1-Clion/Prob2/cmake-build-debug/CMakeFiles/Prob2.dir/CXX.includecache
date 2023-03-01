@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/BinarySearchT.cpp
+BinarySearchT.h
+/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/BinarySearchT.h
+iostream
+-
+cstdlib
+-
+cmath
+-
+tuple
+-
+utility
+-
+
+/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/BinarySearchT.h
+utility
+-
+string
+-
+
+/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/main.cpp
+iostream
+-
+fstream
+-
+string
+-
+BinarySearchT.h
+/Users/gavintaylormcroy/Desktop/2121-Exam1-Clion/Prob2/BinarySearchT.h
+

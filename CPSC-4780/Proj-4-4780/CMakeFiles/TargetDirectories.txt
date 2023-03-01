@@ -1,0 +1,3 @@
+/Users/gavintaylormcroy/Desktop/planetclose/CMakeFiles/Open_Test.dir
+/Users/gavintaylormcroy/Desktop/planetclose/CMakeFiles/edit_cache.dir
+/Users/gavintaylormcroy/Desktop/planetclose/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,36 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.cpp
+iostream
+-
+chrono
+-
+GLUT/glut.h
+-
+graphics.h
+/Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.h
+
+/Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.h
+
+/Users/gavintaylormcroy/Desktop/Project-4-Clion/main.cpp
+iostream
+-
+cstdio
+-
+cmath
+-
+vector
+-
+map
+-
+queue
+-
+graphics.h
+/Users/gavintaylormcroy/Desktop/Project-4-Clion/graphics.h
+

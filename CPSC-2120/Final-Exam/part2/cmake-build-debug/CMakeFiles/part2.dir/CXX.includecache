@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/part2/StringIntMap.h
+string
+-
+utility
+-
+
+C:/Users/Gavin McRoy/Desktop/part2/WordGraph.h
+map
+-
+vector
+-
+StringIntMap.h
+C:/Users/Gavin McRoy/Desktop/part2/StringIntMap.h
+
+C:/Users/Gavin McRoy/Desktop/part2/main.cpp
+iostream
+-
+WordGraph.h
+C:/Users/Gavin McRoy/Desktop/part2/WordGraph.h
+
