@@ -1,0 +1,50 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.cpp
+cmath
+-
+Point.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.cpp
+fstream
+-
+limits
+-
+PointMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.h
+iostream
+-
+fstream
+-
+Point.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/main.cpp
+iostream
+-
+fstream
+-
+Point.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+PointMap.h
+/Users/gavintaylormcroy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.h
+
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/main.cpp
+iostream
+-
+Point.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/Point.h
+PointMap.h
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2121/Lab03/Lab03-Source-Clion/PointMap.h
+

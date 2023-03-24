@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/CPSC Quiz Study/Object.h
+
+/Users/gavintaylormcroy/Desktop/CPSC Quiz Study/main.cpp
+iostream
+-
+Object.h
+/Users/gavintaylormcroy/Desktop/CPSC Quiz Study/Object.h
+

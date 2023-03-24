@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/gavintaylormcroy/Desktop/Dump/pleaseWork/TaxiServices.cpp
+fstream
+-
+iostream
+-
+queue
+-
+TaxiServices.h
+/Users/gavintaylormcroy/Desktop/Dump/pleaseWork/TaxiServices.h
+
+/Users/gavintaylormcroy/Desktop/Dump/pleaseWork/TaxiServices.h
+vector
+-
+map
+-
+unordered_map
+-
+string
+-
+limits
+-
+

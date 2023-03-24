@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/3220_3_Email.dir/main.c.o CMakeFiles/3220_3_Email.dir/allocator.c.o -o 3220_3_Email 

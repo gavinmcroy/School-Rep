@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Gavin McRoy/Desktop/Tmp/Object.h
+
+C:/Users/Gavin McRoy/Desktop/Tmp/main.cpp
+iostream
+-
+memory
+-
+Object.h
+C:/Users/Gavin McRoy/Desktop/Tmp/Object.h
+vector
+-
+string
+-
+

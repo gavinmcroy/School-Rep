@@ -1,0 +1,3 @@
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/cmake-build-debug/CMakeFiles/StarterFiles.dir
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Gavin McRoy/Desktop/School-Rep/CPSC-2311/Lab4/StarterFiles/cmake-build-debug/CMakeFiles/rebuild_cache.dir

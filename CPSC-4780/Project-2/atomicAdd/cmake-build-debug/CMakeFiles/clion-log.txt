@@ -1,0 +1,10 @@
+"/Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/211.7628.27/CLion.app/Contents/bin/cmake/mac/bin/cmake" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /Users/gavintaylormcroy/Desktop/untitled
+CMake Error at /Users/gavintaylormcroy/Library/Application Support/JetBrains/Toolbox/apps/CLion/ch-1/211.7628.27/CLion.app/Contents/bin/cmake/mac/share/cmake-3.19/Modules/CMakeDetermineCUDACompiler.cmake:166 (message):
+  Could not find nvcc, please set CUDAToolkit_ROOT.
+Call Stack (most recent call first):
+  CMakeLists.txt:2 (project)
+
+
+-- Configuring incomplete, errors occurred!
+See also "/Users/gavintaylormcroy/Desktop/untitled/cmake-build-debug/CMakeFiles/CMakeOutput.log".
+See also "/Users/gavintaylormcroy/Desktop/untitled/cmake-build-debug/CMakeFiles/CMakeError.log".

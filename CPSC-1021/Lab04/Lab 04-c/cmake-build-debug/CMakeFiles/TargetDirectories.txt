@@ -1,0 +1,3 @@
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/gavintaylormcroy/Documents/College/CPSC 1021/Lab04/Lab 04-c/cmake-build-debug/CMakeFiles/L4.dir
